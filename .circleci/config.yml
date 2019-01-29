@@ -10,6 +10,8 @@ jobs:
     environment:
       - SOURCE_BRANCH: master
       - TARGET_BRANCH: gh-pages
+      - GH_EMAIL: boyle.p.joseph@gmail.com
+      - GH_NAME: Joseph Boyle
     steps:
       - checkout
       - run:
