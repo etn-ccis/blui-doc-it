@@ -6,7 +6,7 @@ jobs:
         - gh-pages
     docker:
       - image: circleci/node:8
-    working_directory: ~/repo
+    working_directory: ~/doc-it-dev
     environment:
       - SOURCE_BRANCH: master
       - TARGET_BRANCH: gh-pages
