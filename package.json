@@ -1,6 +1,7 @@
 {
   "name": "doc-it",
   "version": "2.1.0",
+  "homepage": "https://pxblue.github.com/doc-it-dev",
   "private": true,
   "devDependencies": {
     "concurrently": "^3.5.1",
