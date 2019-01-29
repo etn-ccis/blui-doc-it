@@ -10,6 +10,8 @@ jobs:
     environment:
       - SOURCE_BRANCH: master
       - TARGET_BRANCH: gh-pages
+      - GH_EMAIL: pxblue@eaton.com
+      - GH_NAME: PX Blue Agent
     steps:
       - checkout
       - run:
@@ -22,7 +24,9 @@ jobs:
           name: Deploy
           command: |
             if [ $CIRCLE_BRANCH == $SOURCE_BRANCH ]; then
-
+              git config --global user.email $GH_EMAIL
+              git config --global user.name $GH_NAME	              git config --global user.name $GH_NAME
+              
               git clone $CIRCLE_REPOSITORY_URL out
 
               cd out
