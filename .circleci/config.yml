@@ -6,23 +6,15 @@ jobs:
         - gh-pages
     docker:
       - image: circleci/node:8
-    working_directory: ~/repo
+    working_directory: ~/doc-it-dev
     environment:
       - SOURCE_BRANCH: master
       - TARGET_BRANCH: gh-pages
     steps:
       - checkout
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
       - run:
           name: Install dependencies
           command: npm install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: Run tests
           command: npm test
