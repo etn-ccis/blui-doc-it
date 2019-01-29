@@ -10,8 +10,6 @@ jobs:
     environment:
       - SOURCE_BRANCH: master
       - TARGET_BRANCH: gh-pages
-      - GH_EMAIL: boyle.p.joseph@gmail.com
-      - GH_NAME: Joseph Boyle
     steps:
       - checkout
       - run:
@@ -24,8 +22,6 @@ jobs:
           name: Deploy
           command: |
             if [ $CIRCLE_BRANCH == $SOURCE_BRANCH ]; then
-              git config --global user.email $GH_EMAIL
-              git config --global user.name $GH_NAME
 
               git clone $CIRCLE_REPOSITORY_URL out
 
