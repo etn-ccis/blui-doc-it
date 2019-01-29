@@ -1,0 +1,39 @@
+{
+  "name": "doc-it",
+  "version": "2.1.0",
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "cross-env": "^5.1.4",
+    "react-scripts": "1.0.14"
+  },
+  "dependencies": {
+    "@material-ui/core": "^3.5.1",
+    "@material-ui/icons": "^3.0.1",
+    "@pxblue/colors": "^1.0.9",
+    "@pxblue/icons-mui": "^1.0.12",
+    "@pxblue/react-progress-icons": "^1.0.6",
+    "@pxblue/symbols-mui": "^1.0.4",
+    "@pxblue/themes": "^1.0.25",
+    "basscss": "^8.0.4",
+    "immutable": "^3.8.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-redux": "^5.1.1",
+    "react-router-dom": "^4.2.2",
+    "recompose": "^0.26.0",
+    "redux": "^3.7.2",
+    "redux-observable": "^0.16.0",
+    "rxjs": "^5.5.10",
+    "showdown": "^1.9.0",
+    "typeface-roboto-mono": "0.0.54"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "install:all": "npm install",
+    "start:all": "concurrently --kill-others --kill-others-on-fail 'npm start'"
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "pages": [
+    {
+      "displayName": "Welcome",
+      "name": "welcome"
+    },
+    {
+      "displayName": "What's New?",
+			"name": "releasenotes"
+    },
+		{
+			"displayName": "Getting Started",
+			"name": "getstarted",
+			"pages":[
+				{
+					"displayName": "New Project Guide",
+					"name": "newproject"
+        },
+        {
+					"displayName": "Mobile Apps",
+					"name": "mobile"
+        },
+        {
+					"displayName": "Hybrid Apps",
+          "name": "hybrid"
+				},
+        {
+					"displayName": "Setting Up Your Development Environment",
+					"name": "environment"
+        },
+        {
+					"displayName": "Power Xpert Blue Themes",
+					"name": "themes"
+        }
+			]
+    },
+		{
+			"displayName": "Web Frameworks",
+      "name": "frameworks-web",
+			"pages":[
+				{
+					"displayName": "Framework Comparison",
+					"name": "comparison"
+        },
+        {
+					"displayName": "Angular Guide",
+					"name": "angular"
+        },
+        {
+					"displayName": "React Guide",
+          "name": "react"
+				}
+			]
+    },
+    {
+			"displayName": "Mobile Frameworks",
+			"name": "frameworks-mobile",
+			"pages":[
+				{
+					"displayName": "Framework Comparison",
+					"name": "comparison"
+        },
+              {
+					"displayName": "Apache Cordova Guide",
+					"name": "cordova"
+        },
+        {
+					"displayName": "NativeScript Guide",
+          "name": "nativescript"
+				},
+        {
+					"displayName": "React Native Guide",
+					"name": "reactnative"
+        }
+        
+			]
+    },
+		{
+			"displayName": "Design Patterns",
+			"name": "patterns",
+			"pages":[
+				{
+					"displayName": "App Bars",
+					"name": "appbar"
+				},
+				{
+					"displayName": "Lists",
+					"name": "lists"
+				},
+				{
+					"displayName": "Login",
+					"name": "login"
+				},
+				{
+					"displayName": "Navigation",
+					"name": "navigation"
+				},
+				{
+					"displayName": "Overlays",
+					"name": "overlay"
+				},
+				{
+					"displayName": "Page Layouts",
+					"name": "layout"
+				},
+				{
+					"displayName": "Stepper / Wizard",
+					"name": "stepper"
+				},
+				{
+					"displayName": "Visualizations",
+					"name": "visualizations"
+				}
+			]
+    },
+		{
+			"displayName": "Style Guide",
+      "name": "style",
+			"pages":[
+				{
+					"displayName": "Color Palette",
+          "name": "color"
+				},
+				{
+					"displayName": "Iconography",
+					"name": "iconography"
+        },
+				{
+					"displayName": "Typography",
+					"name": "typography"
+        }
+      
+			]
+    },
+		{
+			"displayName": "Developer Community",
+      "name": "community",
+			"pages":[
+				{
+					"displayName": "Open Source",
+					"name": "opensource"
+				},
+				{
+					"displayName": "Sharing Code",
+					"name": "sharing"
+        },
+        {
+					"displayName": "Bug Reports",
+					"name": "bugs"
+        },
+        {
+					"displayName": "Feature Requests",
+          "name": "features"
+				},
+				{
+					"displayName": "FAQ",
+					"name": "faq"
+
+				}
+			]
+    },
+    {
+      "displayName": "Resources",
+      "name": "resources"
+    }
+  ]
+}
