@@ -34,11 +34,11 @@ jobs:
       - deploy:
           name: Deploy
           command: |
-            if [ $CIRCLE_BRANCH == $MASTER_BRANCH || $CIRCLE_BRANCH == $DEV_BRANCH ]; then
+            if [ $CIRCLE_BRANCH == $MASTER_BRANCH ] || [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
               git config --global user.email "$GH_EMAIL"
               git config --global user.name "$GH_NAME"
               
-              if [ $CIRCLE_BRANCH == $MASTER_BRANCH || $CIRCLE_BRANCH == $DEV_BRANCH ]; then
+              if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
                 git clone $MASTER_TARGET out
               else
                 git clone $DEV_TARGET out
