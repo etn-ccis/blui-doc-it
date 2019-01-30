@@ -9,7 +9,8 @@ jobs:
     working_directory: ~/doc-it-dev
     environment:
       - SOURCE_BRANCH: master
-      - TARGET_BRANCH: gh-pages
+      - DEV_TARGET: https://github.com/px-blue/px-blue.github.io
+      - MASTER_TARGET: https://github.com/pxblue/pxblue.github.io
       - GH_EMAIL: pxblue@eaton.com
       - GH_NAME: PX Blue Agent
     steps:
@@ -35,22 +36,18 @@ jobs:
               git config --global user.email "$GH_EMAIL"
               git config --global user.name "$GH_NAME"
               
-              git clone $CIRCLE_REPOSITORY_URL out
+              git clone $MASTER_TARGET out
 
               cd out
-              git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
               git rm -rf .
               cd ..
 
               npm run build
 
               cp -a build/. out/.
-
-              mkdir -p out/.circleci && cp -a .circleci/. out/.circleci/.
               cd out
 
               git add -A
               git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
-
-              git push origin $TARGET_BRANCH
+              git push
             fi
