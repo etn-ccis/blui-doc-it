@@ -1,17 +1,17 @@
-# Doc-It (a.k.a. pxblue.etn.com)
-Doc-It is the source code for the pxblue.etn.com documentation site for Power Xpert Blue 2.0. The site is built to both provide documentation on how to use the system, but also as an example of how to use it. The entire site is using using the PX Blue design system - built with React+Redux and Material UI.
+# Doc-It (a.k.a. pxblue.github.io)
+Doc-It is the source code for the pxblue.github.io documentation site for Power Xpert Blue 2.0. The site is built to both provide documentation on how to use the system, but also as an example of how to use it. The entire site is using using the PX Blue design system - built with React+Redux and Material UI.
 
 ## Contributing
-To contribute to the documentation site, you will need to clone a local copy of the repository (using SSH or HTTP):
+To contribute to the documentation site, you will need to clone a local copy of the repository:
 
 ```
-git clone https://github.com/pxblue/pxblue.github.io
+git clone https://github.com/pxblue/doc-it
 ```
 
 You can then install the necessary dependencies and run a local instance with the following commands:
 
 ```
-cd Doc-it
+cd doc-it
 yarn install
 yarn start
 ```
@@ -24,7 +24,7 @@ The folder structure of the application is likewise segregated to keep the appli
 
 ```
 └── /src                                             
-    |── index.js                            // the root file that renders the applciation
+    |── index.js                            // the root file that renders the application
     |── /app
     │   |── App.js                          // the main <App> component definition
     │   |── App.css                         // additional styling used for the site
@@ -52,6 +52,6 @@ The folder structure of the application is likewise segregated to keep the appli
 ## Builds and Deployment
 The Doc-it project is configured with automated builds and deployment scripts. 
 
-When changes are committed to the Dev branch, they are automatically run through the test scripts and if the tests pass, the site is deployed to the staging server in Azure.
+When changes are committed to the dev branch, they are automatically run through the test scripts and if the tests pass, the site is deployed to the staging server.
 
-When changes are committed to the master branch and the tests pass, the changes are automatically deployed to pxblue.etn.com.
+When changes are committed to the master branch and the tests pass, the changes are automatically deployed to pxblue.github.io.

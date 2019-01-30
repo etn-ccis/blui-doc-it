@@ -2,13 +2,15 @@ version: 2
 jobs:
   build:
     branches:
-      ignore:
-        - gh-pages
+      only:
+        - master
+        - dev
     docker:
       - image: circleci/node:8
     working_directory: ~/doc-it-dev
     environment:
-      - SOURCE_BRANCH: master
+      - MASTER_BRANCH: master
+      - DEV_BRANCH: dev
       - DEV_TARGET: https://github.com/px-blue/px-blue.github.io
       - MASTER_TARGET: https://github.com/pxblue/pxblue.github.io
       - GH_EMAIL: pxblue@eaton.com
@@ -32,11 +34,15 @@ jobs:
       - deploy:
           name: Deploy
           command: |
-            if [ $CIRCLE_BRANCH == $SOURCE_BRANCH ]; then
+            if [ $CIRCLE_BRANCH == $MASTER_BRANCH || $CIRCLE_BRANCH == $DEV_BRANCH ]; then
               git config --global user.email "$GH_EMAIL"
               git config --global user.name "$GH_NAME"
               
-              git clone $MASTER_TARGET out
+              if [ $CIRCLE_BRANCH == $MASTER_BRANCH || $CIRCLE_BRANCH == $DEV_BRANCH ]; then
+                git clone $MASTER_TARGET out
+              else
+                git clone $DEV_TARGET out
+              fi
 
               cd out
               git rm -rf .

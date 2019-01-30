@@ -70,7 +70,7 @@ Theme file are available for each supported framework. Power Xpert Blue 2.0 come
 - **Red** is used to indicate an alarm or error condition on a section of your application. 
 - **Red-Dark** is complementary to the Red theme. The primary use for Red-Dark is in detail panels (i.e., information sidebars) that accompany a view that uses the Red theme. 
 
-### The pxblue.etn.com website
+### The pxblue.github.io website
 
 The PX Blue documentation website provides code examples and snippets for all of the components in the design system. It also provides downloadable assets for icons, colors, and even sticker sheets for designers. You'll find guidance for everything from typography to setting up your development environment. If you were a PX Blue 1.0 developer, you'll find advice on migrating to the new system.
 
