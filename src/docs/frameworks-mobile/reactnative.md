@@ -68,7 +68,7 @@ There are a lot of resources and components available on the market to help spee
     - [React Native Navigation](https://wix.github.io/react-native-navigation/#/) (native implementation)
 - Component Libraries
     - [React Native Built-in Components](https://facebook.github.io/react-native/docs/components-and-apis.html)
-    - [React Native Elements](https://react-native-training.github.io/react-native-elements/docs/0.19.0/overview.html) (we recommend the latest 1.0.x beta)
+    - [React Native Elements](https://react-native-training.github.io/react-native-elements/) (we recommend the latest 1.0.x beta)
 - Additional Components
     - [Bottom Navigation](https://github.com/tomzaku/react-native-material-bottom-navigation-performance)
     - [Floating Action Button](https://github.com/mastermoo/react-native-action-button)
