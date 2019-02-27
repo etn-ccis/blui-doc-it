@@ -54,6 +54,10 @@ You can read about [React Theming](https://material-ui-next.com/customization/th
 ## Using Material UI Components
 For detailed documentation about the various components available in Material UI, as well as sample code and API reference, refer to the [Material UI Documentation](https://material-ui.com/).
 
+## Browser Support
+React and Material UI will work with any modern browser. For specific details, you can view their official support pages:
+[React](https://facebook.github.io/create-react-app/docs/supported-browsers-features)
+[Material UI](https://material-ui.com/getting-started/supported-platforms/)
 
 ## License Information
 

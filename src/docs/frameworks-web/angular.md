@@ -61,5 +61,11 @@ More details about applying themes in your application can be found in [Theming 
 ## Using Angular Material Components
 For detailed documentation about the various components available in Angular Material, as well as sample code and API reference, refer to the [Angular Material Documentation](https://material.angular.io/components/).
 
+## Browser Support
+Angular and Angular Material will work with any modern browser. For specific details, you can view their official support pages:
+[Angular CLI](https://angular.io/guide/browser-support)
+[Angular Material](https://github.com/angular/material2#browser-and-screen-reader-support)
+
+
 ## License Information
 [Angular](https://github.com/angular/angular/blob/master/LICENSE) and [Angular Material](https://github.com/angular/material2/blob/master/LICENSE) are both available under the MIT License.
