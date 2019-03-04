@@ -63,8 +63,9 @@ For detailed documentation about the various components available in Angular Mat
 
 ## Browser Support
 Angular and Angular Material will work with any modern browser. For specific details, you can view their official support pages:
-[Angular CLI](https://angular.io/guide/browser-support)
-[Angular Material](https://github.com/angular/material2#browser-and-screen-reader-support)
+
+- [Angular CLI](https://angular.io/guide/browser-support)
+- [Angular Material](https://github.com/angular/material2#browser-and-screen-reader-support)
 
 
 ## License Information

@@ -56,8 +56,9 @@ For detailed documentation about the various components available in Material UI
 
 ## Browser Support
 React and Material UI will work with any modern browser. For specific details, you can view their official support pages:
-[React](https://facebook.github.io/create-react-app/docs/supported-browsers-features)
-[Material UI](https://material-ui.com/getting-started/supported-platforms/)
+
+- [React](https://facebook.github.io/create-react-app/docs/supported-browsers-features)
+- [Material UI](https://material-ui.com/getting-started/supported-platforms/)
 
 ## License Information
 
