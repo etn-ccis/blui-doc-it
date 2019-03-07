@@ -23,14 +23,16 @@ jobs:
           - v1-dependencies-
       - run:
           name: Install dependencies
-          command: npm install
+          command: |
+            yarn install
+            yarn upgrade @pxblue/icons-mui
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: Run tests
-          command: npm test
+          command: yarn test
       - deploy:
           name: Deploy
           command: |
@@ -48,7 +50,7 @@ jobs:
               git rm -rf .
               cd ..
 
-              npm run build
+              yarn build
 
               cp -a build/. out/.
               cd out

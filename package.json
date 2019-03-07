@@ -32,8 +32,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "install:all": "npm install",
-    "start:all": "concurrently --kill-others --kill-others-on-fail 'npm start'"
+    "eject": "react-scripts eject"
   }
 }
