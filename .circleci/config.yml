@@ -48,6 +48,9 @@ jobs:
 
               cd out
               git rm -rf .
+              if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
+                echo "gpr.joebochill.com" > CNAME
+              fi
               cd ..
 
               yarn build
