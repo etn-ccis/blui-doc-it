@@ -22,7 +22,7 @@ const styles = theme => ({
   },
   largeImage:{
     height: 'auto', 
-    width: 'auto',
+    width: '300px',
     marginLeft: '-5px', 
     transition:'all 150ms ease-in-out'
   },
@@ -81,7 +81,7 @@ class SideNav extends Component {
     return(
     <div className={classes.sidenav}>
       <Link to="/" style={{textDecoration: 'none'}}>
-        <Toolbar>
+        <Toolbar style={{height: 64}}>
           <Hidden smDown>
               <img className={classes.largeImage} src={pxLogo} alt="Power Xpert Blue"/>
             <Chip color={'primary'} className={classes.chip + ' ' + classes.float} label={`v${PX_BLUE_VERSION}`}/>
