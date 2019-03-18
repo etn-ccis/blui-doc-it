@@ -4,6 +4,8 @@ import showdown from 'showdown';
 import previewExtension from '../util/stackblitz-md';
 import Footer from './Footer';
 import { fetchMarkdown } from '../actions/docs';
+import { updateTitle } from "../actions/ui";
+
 
 
 const converter = new showdown.Converter({
@@ -22,11 +24,13 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchMarkdown: path => dispatch(fetchMarkdown(path)),
+  updateToolbarTitle: () => {dispatch(updateTitle());}
 });
 
 class MarkdownDoc extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    props.updateToolbarTitle();
     this.container = "";
     this.state={
       validPage: true

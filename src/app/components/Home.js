@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
+import { connect } from "react-redux";
+import { updateTitle } from "../actions/ui";
+
 import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 import pxIcon from '../icons/pxblue-white.svg';
@@ -110,6 +113,11 @@ const tileData = [
 
 
 class HomeComponent extends React.Component {
+  constructor(props){
+    super(props);
+    this.props.updateToolbarTitle();
+  }
+
   render() {
     const {classes} = this.props;
 
@@ -160,4 +168,12 @@ HomeComponent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(HomeComponent);
+function mapDispatchToProps(dispatch) {
+  return {
+    updateToolbarTitle: () => {
+      dispatch(updateTitle());
+    }
+  };
+}
+
+export default connect(null, mapDispatchToProps)(withStyles(styles)(HomeComponent));

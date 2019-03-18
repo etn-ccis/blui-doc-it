@@ -19,6 +19,8 @@ import HomeComponent from "./components/Home";
 import ColorComponent from "./components/Color";
 import IconographyComponent from "./components/Iconography";
 import * as colors from '@pxblue/colors';
+import { updateTitle } from "./actions/ui";
+
 require('typeface-roboto-mono');
 
 const siteConfig = require('../docs/site-config.json');
@@ -27,8 +29,11 @@ const mapStateToProps = state => ({
   pagetitle: state.ui.get('pagetitle')
 });
 
-const mapDispatchToProps = dispatch => ({
-});
+const mapDispatchToProps = dispatch => {
+  return {
+
+  };
+};
 
 const drawerWidth = 364;
 
@@ -95,9 +100,11 @@ class App extends Component {
   handleDrawerToggle = () => {
     this.setState({ mobileOpen: !this.state.mobileOpen });
   };
-  closeDrawer = () => {
-    this.setState({ mobileOpen: false});
-  };
+  // closeDrawer = () => {
+  //   console.log('closing drawer');
+  //   this.setState({ mobileOpen: false});
+  //   this.props.updateToolbarTitle();
+  // };
 
   componentWillReceiveProps(newProps){
     this.setState({showFrameworkSelect:
@@ -105,8 +112,8 @@ class App extends Component {
       //window.location.pathname.match(/\/getstarted\/themes/)
     });
     if(newProps.pagetitle && (newProps.pagetitle !== this.props.pagetitle)){
-      if(this.scrollContainer && this.scrollContainer.scrollTo){
-        this.scrollContainer.scrollTo(0,0);
+      if(this.scrollContainer && this.scrollContainer.scrollTop !== undefined){
+        this.scrollContainer.scrollTop = 0;
       }
     }
   }
@@ -200,7 +207,7 @@ class App extends Component {
                 <Route exact path="/" render={() => <HomeComponent />} />
                 <Route exact path="/style/color" render={() => <ColorComponent />} />
                 <Route exact path="/style/iconography" render={() => <IconographyComponent />} />
-                <Route onChange={this.closeDrawer} path="/:doc*" render={props => <MarkdownDoc doc={props.match.params.doc} selectedFramework={this.state.showFrameworkSelect ? this.state.framework : "angular"} />} />
+                <Route /*onChange={this.closeDrawer} no longer works in v4 */ path="/:doc*" render={props => <MarkdownDoc doc={props.match.params.doc} selectedFramework={this.state.showFrameworkSelect ? this.state.framework : "angular"} />} />
               </Switch>
             </div>
           </div>
