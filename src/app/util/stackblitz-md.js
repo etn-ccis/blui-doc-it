@@ -3,7 +3,7 @@
 
 
 export default (config) => {
-    config = Object.assign({angular:'embed', react:'embed', browser:'', size: 'desktop'}, config);
+    config = Object.assign({angular:'embed', react:'embed'}, config);
     return ([
         {
             type: 'lang',
@@ -22,15 +22,7 @@ export default (config) => {
             type: 'lang',
             regex: /{{\s*(angular|react)\s*stackblitz=(.+)+\s*}}/g,
             replace: (matchString, framework, url, offset) => {
-                if( config.browser === 'ie' || config.size === 'mobile'){
-                    if((framework === 'react' && config.react === 'hide') || (framework === 'angular' && config.angular === 'hide')){
-                        return ``;
-                    }
-                    else{ 
-                        return `<div class="stackblitz" data-framework="${framework}"><a href="${url.substring(0, url.indexOf('?'))}"><img src="../images/code.svg" alt="StackBlitz" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>Try the ${framework.substr(0,1).toUpperCase() + framework.substr(1)} StackBlitz example</a></div>`;
-                    }
-                }
-                else if((framework === 'react' && config.react === 'embed') || (framework === 'angular' && config.angular === 'embed')){
+                if((framework === 'react' && config.react === 'embed') || (framework === 'angular' && config.angular === 'embed')){
                     return `<div class="stackblitz" data-framework="${framework}">
                         <iframe src="${url}" style="height:500px;"></iframe>
                     </div>`;

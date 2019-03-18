@@ -34,10 +34,8 @@ class MarkdownDoc extends React.Component {
       parseImgDimensions: true,
       extensions: [
         previewExtension({
-          size: props.width === 'xs' ? 'mobile' : 'desktop',
-          browser: props.browser || '',
-          react: props.selectedFramework === 'angular' ? 'hide' : 'embed', 
-          angular: props.selectedFramework === 'react' ? 'hide' : 'embed', 
+          react: props.selectedFramework === 'angular' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed', 
+          angular: props.selectedFramework === 'react' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed'
         })
       ],
     });
@@ -59,12 +57,12 @@ class MarkdownDoc extends React.Component {
     }
   }
 
-  componentDidMount(){
+  // componentDidMount(){
     /* Hide the non-selected framework examples when the page loads */
     // if(this.container){
     //   this.hideStackblitzExamples(this.findExamples(this.container));
     // }
-  }
+  // }
 
 
   componentWillReceiveProps(nextProps){
@@ -86,10 +84,8 @@ class MarkdownDoc extends React.Component {
         parseImgDimensions: true,
         extensions: [
           previewExtension({
-            size: nextProps.width === 'xs' ? 'mobile' : 'desktop',
-            browser: nextProps.browser || '',
-            react: nextProps.selectedFramework === 'angular' ? 'hide' : 'embed', 
-            angular: nextProps.selectedFramework === 'react' ? 'hide' : 'embed', 
+            react: nextProps.selectedFramework === 'angular' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed', 
+            angular: nextProps.selectedFramework === 'react' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed'
           })
         ],
       });
