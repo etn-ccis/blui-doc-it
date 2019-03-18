@@ -19,24 +19,26 @@ import HomeComponent from "./components/Home";
 import ColorComponent from "./components/Color";
 import IconographyComponent from "./components/Iconography";
 import * as colors from '@pxblue/colors';
-import { updateTitle } from "./actions/ui";
 
 require('typeface-roboto-mono');
 
 const siteConfig = require('../docs/site-config.json');
+
+// Browser detection
+var isFirefox = typeof InstallTrigger !== 'undefined';
+var isIE = /*@cc_on!@*/false || !!document.documentMode;
+var isEdge = !isIE && !!window.StyleMedia;
+var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
 
 const mapStateToProps = state => ({
   pagetitle: state.ui.get('pagetitle')
 });
 
 const mapDispatchToProps = dispatch => {
-  return {
-
-  };
+  return {};
 };
 
 const drawerWidth = 364;
-
 const theme = createMuiTheme(Object.assign(EatonTheme.blue, {typography: {fontFamily: '"Open Sans", Helvetica, Roboto, sans-serif', useNextVariants: true}}));
 
 const styles = theme => ({
@@ -90,11 +92,16 @@ const styles = theme => ({
 });
 
 class App extends Component {
-    state = {
-        framework: '',
+  constructor(props){
+    super(props);
+    this.state = {
+        framework: 'angular',
         mobileOpen: false,
-        showFrameworkSelect: false
+        showFrameworkSelect: false,
+        browser: (isFirefox ? 'firefox' : isIE ? 'ie' : isEdge ? 'edge' : isChrome ? 'chrome' : 'other')
     };
+  }
+    
 
 
   handleDrawerToggle = () => {
@@ -207,7 +214,7 @@ class App extends Component {
                 <Route exact path="/" render={() => <HomeComponent />} />
                 <Route exact path="/style/color" render={() => <ColorComponent />} />
                 <Route exact path="/style/iconography" render={() => <IconographyComponent />} />
-                <Route /*onChange={this.closeDrawer} no longer works in v4 */ path="/:doc*" render={props => <MarkdownDoc doc={props.match.params.doc} selectedFramework={this.state.showFrameworkSelect ? this.state.framework : "angular"} />} />
+                <Route /*onChange={this.closeDrawer} no longer works in v4 */ path="/:doc*" render={props => <MarkdownDoc doc={props.match.params.doc} selectedFramework={this.state.framework} browser={this.state.browser} />} />
               </Switch>
             </div>
           </div>
