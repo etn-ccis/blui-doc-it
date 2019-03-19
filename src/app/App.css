@@ -31,12 +31,12 @@ html{
 }
 
 pre, code {
-  background-color: #1d2529;
-  color: white;
+  background-color: #ddd;
+  color: #333333;
   font-family: "Roboto Mono", Monospaced;
-  font-size: .9rem;
+  font-size: .85rem;
   overflow: auto;
-  border-radius: 2px;
+  border-radius: 3px;
   padding: 10px;
 }
 code{
