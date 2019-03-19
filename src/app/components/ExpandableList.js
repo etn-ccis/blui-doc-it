@@ -28,7 +28,7 @@ const styles = theme => ({
   },
   indented:{
     fontWeight: '500',
-    marginLeft: '2rem'
+    paddingLeft: 'calc(2rem + 16px)'
   }
 });
 
