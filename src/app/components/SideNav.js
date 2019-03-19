@@ -80,7 +80,7 @@ class SideNav extends Component {
 
     return(
     <div className={classes.sidenav}>
-      <Link to="/" style={{textDecoration: 'none'}}>
+      <Link to="/" style={{textDecoration: 'none'}} onClick={this.props.close ? () => this.props.close() : null}>
         <Toolbar style={{height: 64}}>
           <Hidden smDown>
               <img className={classes.largeImage} src={pxLogo} alt="Power Xpert Blue"/>
@@ -99,11 +99,14 @@ class SideNav extends Component {
       <List className={classes.routes}>
         {this.props.pages.map((page, index) =>
           <ExpandableList key={page.name}
-                     page={page}
-                     index={index}
-                     openAndCollapseOthers={this.openAndCollapseOthers.bind(this)}
-                     toggleList={this.toggleList.bind(this)}
-                     open={this.pagesOpen[index]}/>)}
+            page={page}
+            index={index}
+            close={this.props.close ? () => this.props.close() : () => {return;}}
+            openAndCollapseOthers={this.openAndCollapseOthers.bind(this)}
+            toggleList={this.toggleList.bind(this)}
+            open={this.pagesOpen[index]}
+          />
+        )}
       </List>
       <div className={classes.contactus}>
         <Divider/>

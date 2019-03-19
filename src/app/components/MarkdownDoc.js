@@ -57,13 +57,6 @@ class MarkdownDoc extends React.Component {
     }
   }
 
-  // componentDidMount(){
-    /* Hide the non-selected framework examples when the page loads */
-    // if(this.container){
-    //   this.hideStackblitzExamples(this.findExamples(this.container));
-    // }
-  // }
-
 
   componentWillReceiveProps(nextProps){
     /* If user navigates to a new page, fetch the requested document and load it */
@@ -92,52 +85,6 @@ class MarkdownDoc extends React.Component {
       this.forceUpdate();
     }
   }
-  componentDidUpdate(previousProps) {
-    if (this.container && (this.props.selectedFramework !== previousProps.selectedFramework)) {
-        this.hideStackblitzExamples(this.findExamples(this.container));
-    }
-
-    if (this.container) {
-      this.observer = new MutationObserver(mutations => {
-        mutations.forEach(mutation => {
-
-          const examples = this.findExamples(this.container);
-
-          if (!examples.length) {
-            return;
-          }
-
-          examples.forEach((target, idx) => {
-            if (this.props.selectedFramework) {
-                target.style.display = target.dataset.framework === this.props.selectedFramework.toLowerCase() ? 'block' : 'none';
-            }
-          });
-        });
-      });
-
-      const config = {
-        childList: true,
-      };
-
-      this.observer.observe(this.container, config);
-    }
-  }
-
-  findExamples(container){
-    /* Returns all of the stackblitz examples from the markdown file */
-    return Array.prototype.slice.call(container.children).filter(candidate => candidate.className === "stackblitz");
-  }
-
-  // hideStackblitzExamples(examples) {
-  //   /* Sets display:none for examples not written in the selected framework */
-  //   if(this.container){
-  //     examples.forEach((example) => {
-  //       if (this.props.selectedFramework) {
-  //         example.style.display = (example.dataset.framework === this.props.selectedFramework.toLowerCase() ? 'block' : 'none');
-  //       }
-  //     });
-  //   }
-  // }
 
   render() {
     return (
