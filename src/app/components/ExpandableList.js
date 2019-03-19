@@ -74,6 +74,7 @@ class ExpandableList extends React.Component {
             this.props.toggleList(this.props.index);
           } else {
             this.props.openAndCollapseOthers(this.props.index);
+            this.props.close();
           }
         }}
       >
@@ -103,6 +104,7 @@ class ExpandableList extends React.Component {
                     component={NavLink}
                     onClick={() => {
                       this.props.openAndCollapseOthers(this.props.index);
+                      this.props.close();
                     }}
                     to={`/${slugify(page.name)}/${slugify(innerPage.name)}`}
                   >

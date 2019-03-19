@@ -44,11 +44,8 @@ const theme = createMuiTheme(Object.assign(EatonTheme.blue, {typography: {fontFa
 const styles = theme => ({
   root: {
     width: '100%',
-    height: '100vh',
+    //height: '100vh',
     zIndex: 1,
-  },
-  appBar: {
-    position: 'fixed'
   },
   slidebaby: {
     transition: 'all 225ms ease-in-out'
@@ -67,10 +64,10 @@ const styles = theme => ({
   container:{
     backgroundColor: colors.gray[50],
     flexDirection:'column',
-    overflowY: 'auto',
+    // overflowY: 'auto',
     flexShrink: '1',
     marginLeft: drawerWidth,
-    height: '100%',
+    // height: '100%',
     [theme.breakpoints.down('sm')]: {
       marginLeft: 0
     }
@@ -83,6 +80,13 @@ const styles = theme => ({
       maxWidth:'1100px',
       margin: 'auto'
     },
+  },
+  appBar:{
+    top: 0, 
+    left: drawerWidth,
+    [theme.breakpoints.down('sm')]: {
+      left: 0
+    }
   },
   toolbar:{
     [theme.breakpoints.down('sm')]: {
@@ -107,11 +111,6 @@ class App extends Component {
   handleDrawerToggle = () => {
     this.setState({ mobileOpen: !this.state.mobileOpen });
   };
-  // closeDrawer = () => {
-  //   console.log('closing drawer');
-  //   this.setState({ mobileOpen: false});
-  //   this.props.updateToolbarTitle();
-  // };
 
   componentWillReceiveProps(newProps){
     this.setState({showFrameworkSelect:
@@ -119,9 +118,8 @@ class App extends Component {
       //window.location.pathname.match(/\/getstarted\/themes/)
     });
     if(newProps.pagetitle && (newProps.pagetitle !== this.props.pagetitle)){
-      if(this.scrollContainer && this.scrollContainer.scrollTop !== undefined){
-        this.scrollContainer.scrollTop = 0;
-      }
+        window.scrollTop = 0;
+        document.body.scrollTop = 0;
     }
   }
 
@@ -139,7 +137,7 @@ class App extends Component {
           keepMounted: true, // Better open performance on mobile.
         }}
       >
-        <SideNav pages={ siteConfig.pages }/>
+        <SideNav pages={ siteConfig.pages } close={() => this.setState({mobileOpen: false})}/>
       </Drawer>
     );
   }
@@ -169,16 +167,19 @@ class App extends Component {
           <Hidden smDown implementation="css">
             {this.getDesktopNavigationDrawer()}
           </Hidden>
-          <div className={classes.container} ref={ref => (this.scrollContainer = ref)}>
+          <div className={classes.container}>
             {/* Floating Icon Button for Menu on homepage */}
-            {window.location.pathname === "/" && <div style={{ color: "white" }}>
+            {window.location.pathname === "/" && 
+              <div style={{ color: "white", position: 'fixed', top: 0, zIndex: 100, background: 'rgba(0,123,193,.5)'}}>
                 <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle} className={classes.navIconHide} style={{ zIndex: "10" }}>
                   <MenuIcon />
                 </IconButton>
-              </div>}
+              </div>
+            }
 
             {/* Toolbar with Icon Button for Menu on non-homepage */}
-            {window.location.pathname !== "/" && <AppBar position="static" className={classes.appBar}>
+            {window.location.pathname !== "/" && 
+              <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar className={classes.toolbar}>
                   <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle} className={classes.navIconHide}>
                     <MenuIcon />
@@ -187,10 +188,12 @@ class App extends Component {
                     {this.props.pagetitle}
                   </Typography>
                 </Toolbar>
-              </AppBar>}
+              </AppBar>
+            }
 
             {/* Select Framework Toolbar */}
-            {window.location.pathname !== "/" && <AppBar position="static" color="default" className={classes.slidebaby} style={{ marginTop: this.state.showFrameworkSelect ? "64px" : "-64px" }}>
+            {window.location.pathname !== "/" && 
+              <AppBar position="static" color="default" className={classes.slidebaby} style={{ marginTop: this.state.showFrameworkSelect ? "64px" : "-64px" }}>
                 <Toolbar style={{ display: "flex", flexDirection: "row" }}>
                   <FrameworkSelector framework={this.state.framework} onSelectFramework={choice => this.setState(
                         state => ({ framework: choice })
@@ -204,7 +207,8 @@ class App extends Component {
                     </Hidden>
                   </div>
                 </Toolbar>
-              </AppBar>}
+              </AppBar>
+            }
 
             {!this.state.showFrameworkSelect && window.location.pathname !== "/" && <div style={{ marginTop: "64px" }} />}
 
@@ -214,7 +218,7 @@ class App extends Component {
                 <Route exact path="/" render={() => <HomeComponent />} />
                 <Route exact path="/style/color" render={() => <ColorComponent />} />
                 <Route exact path="/style/iconography" render={() => <IconographyComponent />} />
-                <Route /*onChange={this.closeDrawer} no longer works in v4 */ path="/:doc*" render={props => <MarkdownDoc doc={props.match.params.doc} selectedFramework={this.state.framework} browser={this.state.browser} />} />
+                <Route path="/:doc*" render={props => <MarkdownDoc doc={props.match.params.doc} selectedFramework={this.state.framework} browser={this.state.browser} />} />
               </Switch>
             </div>
           </div>
