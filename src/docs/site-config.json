@@ -75,7 +75,21 @@
         }
         
 			]
-    },
+		},
+		{
+			"displayName": "Testing Strategies",
+			"name": "testing-strategy",
+			"pages":[
+				{
+					"displayName": "NPM",
+					"name": "npm"
+				},
+				{
+					"displayName": "Code Examples",
+					"name": "examples"
+				}
+			]
+		},
 		{
 			"displayName": "Design Patterns",
 			"name": "patterns",
