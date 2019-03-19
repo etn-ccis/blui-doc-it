@@ -51,11 +51,13 @@ const styles = theme => ({
     padding: '4rem',
     display: 'flex',
     alignItems: 'start',
-    marginTop: '-64px',
+    marginTop: 0,//'-64px',
     zIndex: '0',
     minHeight: '40vh',
-    [theme.breakpoints.up('md')]: {
-      marginTop: '0',
+    [theme.breakpoints.down('xs')]: {
+      padding: '1rem',
+      alignItems: 'center',
+      justifyContent: 'center'
     }
   },
   spinningLogo:{
@@ -65,11 +67,19 @@ const styles = theme => ({
   },
   title:{
     color: 'white', 
-    fontSize: '3rem'
+    fontSize: '3rem',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '1.9rem',
+      textAlign: 'center'
+    }
   },
   subtitle:{
     color: 'white', 
-    fontSize: '2rem'
+    fontSize: '2rem',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '.9rem',
+      textAlign: 'center'
+    }
   }
 });
 
@@ -125,12 +135,10 @@ class HomeComponent extends React.Component {
       <div>
         <AppBar className={classes.jumboHeader} color='primary'>
             <img className={classes.spinningLogo} src={pxIcon} alt=""/>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant={"h6"} className={classes.title}>
               Power Xpert<sup style={{fontSize: '2rem'}}>&reg;</sup> <strong>Blue</strong>&nbsp;
             </Typography>
-            <Hidden smDown>
-              <Typography className={classes.subtitle}>A Design System for Eaton Applications</Typography>
-            </Hidden>
+            <Typography className={classes.subtitle}>A Design System for Eaton Applications</Typography>
         </AppBar>
         <Hidden smDown implementation="css">
           <div className={classes.gridList}>
