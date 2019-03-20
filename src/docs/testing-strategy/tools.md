@@ -1,4 +1,4 @@
-#Testing Tools for PX BLue Resources
+#Testing Tools for PX Blue Resources
 ## Unit Testing 
 ###Angular
 Angular code examples uses Jasmine and karma for unit test. The Angular CLI  installs everything you need to test an Angular application with the Jasmine test framework. For detailed documentation for jasmine, refer to [Jasmine Documentation](https://jasmine.github.io/2.0/introduction)
