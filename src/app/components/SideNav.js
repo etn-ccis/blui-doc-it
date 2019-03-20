@@ -98,7 +98,7 @@ class SideNav extends Component {
       </Link>
       <List className={classes.routes}>
         {this.props.pages.map((page, index) =>
-          <TopLevelMenuItem key={page.displayName} config={page}/>
+          <TopLevelMenuItem key={page.displayName+index} config={page}/>
         )}
       </List>
       <div className={classes.contactus}>

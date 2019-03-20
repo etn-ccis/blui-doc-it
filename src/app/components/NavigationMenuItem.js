@@ -24,7 +24,7 @@ const styles = theme => ({
 
 const renderListItem = withRouter((props) => {
   return (
-    <NavigationListItem {...props} key={props.displayName}/>
+    <NavigationListItem {...props}/>
   )
 });
 
@@ -53,7 +53,7 @@ class NavigationListItem extends React.Component {
   render(){
     const {displayName, url, pages, level, classes, prefix} = this.props;
     return (
-      <React.Fragment key={displayName}>
+      <React.Fragment key={displayName+level}>
         <ListItem
           className={classes.regular}
           style={{paddingLeft: 2*level+'em', fontWeight: level === 0 ? 600 : 500}}
@@ -64,8 +64,10 @@ class NavigationListItem extends React.Component {
           {displayName}
         </ListItem>
         <Collapse in={this.state.showDropdown} timeout={'auto'} unmountOnExit>
-          {pages && pages.map((page) => (
-            renderListItem({...page, level: level + 1, classes: classes, prefix: prefix+'/'+url})
+          {pages && pages.map((page, ind) => (
+            <React.Fragment key={ind+"-"+page.displayName}>
+              {renderListItem({...page, level: level + 1, classes: classes, prefix: prefix+'/'+url})}
+            </React.Fragment>
           ))}
         </Collapse>
       </React.Fragment>

@@ -1,11 +1,7 @@
 {
   "version": 2,
   "pages": [
-		{"displayName": "What is PX Blue?", "url": "overview", "pages": [
-			{"displayName": "Introduction", "url": "intro"},
-			{"displayName": "Design System", "url": "design-system"},
-			{"displayName": "Development Platform", "url": "platform"}
-		]},
+		{"displayName": "What is PX Blue?", "url": "overview"},
 		{"displayName": "Starting a Project", "url": "get-started", "pages": [
 			{"displayName": "Where to begin?", "url": "new-project"},
 			{"displayName": "Web Apps", "url": "web"},
@@ -15,13 +11,11 @@
 			{"displayName": "Environment Setup", "url": "environment"},
 			{"displayName": "Web Frameworks", "url": "frameworks-web", "pages":[
 				{"displayName": "Introduction", "url": "intro"},
-				{"displayName": "Framework Comparison", "url": "comparison"},
 				{"displayName": "Angular Guide", "url": "angular"},
 				{"displayName": "React Guide", "url": "react"}
 			]},
 			{"displayName": "Mobile Frameworks", "url": "frameworks-mobile", "pages":[
 				{"displayName": "Introduction", "url": "intro"},
-				{"displayName": "Framework Comparison", "url": "comparison"},
 				{"displayName": "Apache Cordova Guide", "url": "cordova"},
 				{"displayName": "NativeScript Guide", "url": "nativescript"},
 				{"displayName": "React Native Guide", "url": "react-native"}
