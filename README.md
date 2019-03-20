@@ -1,4 +1,5 @@
 # Doc-It (a.k.a. pxblue.github.io)
+[![CircleCI](https://circleci.com/gh/pxblue/doc-it/tree/master.svg?style=shield&circle-token=fc2656a76d70b4ff9cdc66cccc758c0dfbf89d25)](https://circleci.com/gh/pxblue/doc-it/tree/master)
 
 Doc-It is the source code for the pxblue.github.io documentation site for Power Xpert Blue 2.0. The site is built to both provide documentation on how to use the system, but also as an example of how to use it. The entire site is using using the PX Blue design system - built with React+Redux and Material UI.
 
