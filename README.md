@@ -38,14 +38,17 @@ The folder structure of the application is likewise segregated to keep the appli
     |
     └── /docs
         |── site-config.json                // defines the application routes
-        |── welcome.md                      // landing page
-        |── releasenotes.md                 // release notes
+        |── overview.md                     // landing page
+        |── release-notes.md                // release notes
         |── resources                       // downloads page
         |── notfound                        // placeholder for 404 pages
         |── /community                      // information on how to be a part of PX Blue
-        |── /frameworks-mobile              // information on getting started with mobile
-        |── /frameworks-web                 // information on getting started with web
-        |── /getstarted                     // information on getting set up to use PX Blue
+        |── /development
+        │   |── environment                 // information on setting up for development
+        │   |── testing                     // information on how to test your applications
+        │   |── /frameworks-mobile          // information on getting started with mobile
+        │   └── /frameworks-web             // information on getting started with web
+        |── /get-started                     // information on getting set up to use PX Blue
         |── /patterns                       // design patterns and sample code
         └── /style                          // style guide definitions
 ```

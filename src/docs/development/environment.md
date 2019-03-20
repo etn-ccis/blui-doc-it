@@ -53,27 +53,22 @@ The proxy addresses may vary depending on your location. Consult your local IT d
 yarn add <package-name>
 ```
 
-## Using a JavaScript Framework
+# Hybrid App Development
+If you are setting up for building a mobile app, there are some additional steps you will want to take to prepare. The process below describes a method which has shown some promise, though each machine is slightly different and you may run into other issues while getting started (particularly with respect to the proxy). Some of these problems may require IT intervention to resolve, so give yourself some extra time before you need to start development.
 
-Hopefully you've read our Framework Comparisons ([Web](/frameworks-web/comparison) / [Mobile](/frameworks-web/comparison)) and have an idea about which framework you'll be developing in. Most of the frameworks we support have scaffolding tools that will quickly enable you to have a running app with a functional build configuration already in place. To learn more, check out the documentation for the framework of your choice:
+### Prerequisites
+#### Hardware
+Mobile development is resource-intensive, so you will need a development machine that is up to the task. Your machine should at least match the following minimum requirements:
 
-Angular
-- [Quick Start](https://angular.io/guide/quickstart)
-- [Angular CLI](https://cli.angular.io/)
+- a Mac (if you plan on building or testing iOS locally)
+- 16GB RAM or more (running multiple emulators can easily push you over 20GB)
+- Solid State Hard Drive (SSD)
+- 5/6 Gen Core i7 with Virtualization Technology or better
 
-React
-- [Homepage](https://reactjs.org/)
-- [Create React App](https://github.com/facebookincubator/create-react-app)
+#### Software
+There are a number of software tools that you will need before you can get started:
 
-Apache Cordova
-- [Documentation](https://cordova.apache.org/docs/en/latest/)
+- [Android Studio](https://developer.android.com/studio/) (required for building for Android)
+- xCode (Mac-only, required for building for iOS)
 
-NativeScript
-- [Home Page](https://www.nativescript.org/)
-- [Documentation](https://docs.nativescript.org/)
-- [GitHub](https://github.com/NativeScript/NativeScript)
-
-React Native
-- [Home Page](https://facebook.github.io/react-native/)
-- [Documentation](https://facebook.github.io/react-native/docs/getting-started)
-- [GitHub](https://github.com/facebook/react-native)
+Depending on the hybrid framework you are using, there may be additional tools that you will want to use - see our individual Framework Guides for more details.

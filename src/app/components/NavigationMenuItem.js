@@ -22,12 +22,23 @@ const styles = theme => ({
   }
 });
 
+/* 
+  Function that returns a NavigationListItem with the supplied props
+  We define this in a function so we can call it recursively within 
+  the NavigationListItem class.
+
+*/
 const renderListItem = withRouter((props) => {
   return (
     <NavigationListItem {...props}/>
   )
 });
 
+/*
+  Component class definition for the Menu Item. It renders a simple ListItem
+  and recursively generates any children elements as ListItems within a 
+  Collapse panel.
+*/
 class NavigationListItem extends React.Component {
   constructor(props){
     super(props);
@@ -36,12 +47,15 @@ class NavigationListItem extends React.Component {
     };
   }
 
+  // Opens the menu structure when we load a page from a deep link
   componentDidMount() {
     const {url, prefix, location} = this.props;
     if (location.pathname.indexOf(prefix + '/' + url) !== -1) {
       this.setState({showDropdown: true});
     }
   }
+
+  // Closes menu structure except for active one when we navigate to a new page
   componentWillUpdate(nextProps) {
     const {url, prefix, location} = nextProps;
     if(location.pathname === this.props.location.pathname){return;}
@@ -75,6 +89,10 @@ class NavigationListItem extends React.Component {
   }
 }
 
+/* 
+  Defines a top-level menu item. This is a separate component for the sake of
+  easily setting the initial conditions for level, classes, prefix, etc.
+*/
 class TopLevelMenuItem extends React.Component {
   render(){
     const {config, classes} = this.props;

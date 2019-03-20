@@ -6,11 +6,12 @@ If you'd like to see something added to PX Blue, such as new patterns, code exam
 ## New Features in a Framework
 The JavaScript libraries and their associated Material Design libraries are part of the open source community. If you want to see new features added, you can submit your requests directly to those projects using the links below (or better yet, fork the repository and contribute!):
 
-### Angular
 * [Angular](https://github.com/angular/angular/issues)
-* [Angular Material](https://github.com/angular/material2)
-
-### React
+    * [Angular Material](https://github.com/angular/material2)
 * [React](https://github.com/facebook/react/issues)
-* [Material-UI](https://github.com/mui-org/material-ui/issues)
+    * [Material-UI](https://github.com/mui-org/material-ui/issues)
+* [Apache Cordova](https://github.com/apache/cordova/issues)
+* [NativeScript](https://github.com/NativeScript/NativeScript/issues)
+* [React Native](https://github.com/facebook/react-native/issues)
+
 

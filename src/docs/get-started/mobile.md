@@ -1,4 +1,6 @@
 # Mobile Applications
+Mobile applications are very popular. They can be accessed anywhere you can take your mobile device, both online and offline, and can take more advantage of device features and capabilities than a web application.
+
 Mobile applications come in two primary varieties: native apps and hybrid apps.
 
 ## Native apps
@@ -12,7 +14,6 @@ Mobile applications come in two primary varieties: native apps and hybrid apps.
    - Different platforms implement apps in different ways - some compile down to native components, whereas others render all content in a web view (essentially a web page running inside of an app)
 
 # Comparing the two approaches
-
 ## Native mobile apps
 
 - Look and feel is guaranteed to feel like an app since it uses native components
@@ -28,8 +29,8 @@ Mobile applications come in two primary varieties: native apps and hybrid apps.
 - Easier development, but also easier to make something that doesn't follow standard patterns
 
 # So, which one should you use?
+Our recommendation for mobile applications is to take a hybrid approach. This will allow you to deploy multiple versions of your application (i.e. iOS and Android) from a single code base. We offer support for several different approaches to building hybrid apps (see our [Mobile Framework Introduction](/development/frameworks-mobile/intro) to learn about the technologies we support).
 
-Our recommendation for mobile applications is to take a hybrid approach (see our [Hybrid App Guide](/getstarted/hybrid)). This will allow you to deploy multiple versions of your application (i.e. iOS and Android) from a single code base. We offer support for several different approaches to building hybrid apps.
+If you prefer to build a strictly native app and adhere to the PX Blue standards, there are ways of doing this using [Material Design Components for Android](https://material.io/develop/android/) and [Material Design Components for iOS](https://material.io/develop/ios/). 
 
-If you prefer to build a strictly native app and adhere to the PX Blue standards, there are ways of doing this using [Material Design Components for Android](https://material.io/develop/android/) and [Material Design Components for iOS](https://material.io/develop/ios/). If you are planning to go this route, please contact us.
-
+> **NOTE:** PX Blue support for native mobile applications is limited - if you are planning to go this route, please contact us.

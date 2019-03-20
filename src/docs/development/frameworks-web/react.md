@@ -49,6 +49,8 @@ If you want to use multiple themes in different areas of your site, you just nee
 </MuiThemeProvider/>
 ```
 
+> **NOTE:** Material-UI recommends keeping your use of MuiThemeProvider to a minimum for better performance. In most cases, you'll be fine to use a single theme for your entire application and use one-off styling via CSS when necessary.
+
 You can read about [React Theming](https://material-ui-next.com/customization/themes/) to learn more.
 
 ## Using Material UI Components

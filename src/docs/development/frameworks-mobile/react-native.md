@@ -1,7 +1,7 @@
 # Getting Started with React Native
 
 ### Setting up your environment
-You'll need to start by following the general instructions for setting up your development environment for mobile found in our [Hybrid App Guide](/getstarted/hybrid). In addition to the base requirements, you may also want the following:
+You'll need to start by following the general instructions for setting up your development environment for mobile found in our [Environment Guide](/development/environment). In addition to the base requirements, you may also want the following:
 
 - [Expo Client](https://expo.io/learn) (project creation / setup tool for React Native apps)(optional)
 

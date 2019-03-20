@@ -1,7 +1,7 @@
 # Getting Started with NativeScript
 
 ### Setting up your environment
-You'll need to start by following the general instructions for setting up your development environment for mobile found in our [Hybrid App Guide](/getstarted/hybrid). In addition to the base requirements, you'll also want the following:
+You'll need to start by following the general instructions for setting up your development environment for mobile found in our [Environment Guide](/development/environment). In addition to the base requirements, you'll also want the following:
 
 - [Sidekick](https://www.nativescript.org/nativescript-sidekick) (project creation / setup tool for NativeScript apps)
 
