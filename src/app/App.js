@@ -124,8 +124,8 @@ class App extends Component {
     });
     if(newProps.pageURL && (newProps.pageURL !== this.props.pageURL)){
         window.scrollTop = 0;
-        document.body.scrollTop = 0;
-        document.scrollingElement.scrollTop = 0;
+        if(document.body){document.body.scrollTop = 0;}
+        if(document.scrollingElement){document.scrollingElement.scrollTop = 0;}
     }
   }
 
