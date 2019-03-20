@@ -1,4 +1,7 @@
 import React from "react";
+import { connect  } from 'react-redux';
+import {SHOW_MOBILE, HIDE_MOBILE} from '../constants/ui';
+
 import Collapse from "@material-ui/core/Collapse";
 import { NavLink } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
@@ -22,17 +25,24 @@ const styles = theme => ({
   }
 });
 
+const mapDispatchToProps = dispatch => {
+  return {
+    showMobile: () => {dispatch({type: SHOW_MOBILE})},
+    hideMobile: () => {dispatch({type: HIDE_MOBILE})}
+  };
+};
+
 /* 
   Function that returns a NavigationListItem with the supplied props
   We define this in a function so we can call it recursively within 
   the NavigationListItem class.
 
 */
-const renderListItem = withRouter((props) => {
+const renderListItem = withRouter(connect(null, mapDispatchToProps)((props) => {
   return (
     <NavigationListItem {...props}/>
   )
-});
+}));
 
 /*
   Component class definition for the Menu Item. It renders a simple ListItem
@@ -65,7 +75,7 @@ class NavigationListItem extends React.Component {
   }
 
   render(){
-    const {displayName, url, pages, level, classes, prefix} = this.props;
+    const {displayName, url, pages, level, classes, prefix, hideMobile} = this.props;
     return (
       <React.Fragment key={displayName+level}>
         <ListItem
@@ -73,7 +83,10 @@ class NavigationListItem extends React.Component {
           style={{paddingLeft: 2*level+'em', fontWeight: level === 0 ? 600 : 500}}
           component={NavLink}
           to={pages ? '#' : prefix+(url.length > 0 ? '/'+url : '')}
-          onClick={() => this.setState({showDropdown: !this.state.showDropdown})}
+          onClick={() => {
+            if(!pages || pages.length < 1){hideMobile()}
+            this.setState({showDropdown: !this.state.showDropdown})
+          }}
         >
           {displayName}
         </ListItem>

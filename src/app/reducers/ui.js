@@ -1,14 +1,15 @@
 import { fromJS } from 'immutable';
 import { FETCH_DOC_SUCCESS, FETCH_DOC_PENDING, FETCH_DOC_FAILURE } from '../constants/docs';
 import {findTitle} from '../util/findPageTitle';
-import { UI_UPDATE_TITLE } from '../constants/ui';
+import { UI_UPDATE_TITLE, SHOW_MOBILE, HIDE_MOBILE, TOGGLE_MOBILE } from '../constants/ui';
 
 const INITIAL_STATE = fromJS({
   surprise: false,
   framework: 'angular',
   pagetitle: null,
   showFooter: false,
-  pageURL: null
+  pageURL: null,
+  mobileMenuOpen: false
 });
 
 export default (state = INITIAL_STATE, action) => {
@@ -29,6 +30,18 @@ export default (state = INITIAL_STATE, action) => {
       return state.merge({
         pagetitle: findTitle(window.location.pathname.substr(window.location.pathname.lastIndexOf('/')+1).split('.')[0]) || 'Power Xpert Blue',
         pageURL: window.location.pathname
+      });
+    case SHOW_MOBILE:
+      return state.merge({
+        mobileMenuOpen: true
+      });
+    case HIDE_MOBILE:
+      return state.merge({
+        mobileMenuOpen: false
+      });
+    case TOGGLE_MOBILE:
+      return state.merge({
+        mobileMenuOpen: !state.get('mobileMenuOpen')
       });
     default:
       return state;
