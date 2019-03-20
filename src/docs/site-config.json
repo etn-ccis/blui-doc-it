@@ -87,6 +87,10 @@
 				{
 					"displayName": "Code Examples",
 					"name": "examples"
+				},
+				{
+					"displayName": "Testing Tools",
+					"name": "tools"
 				}
 			]
 		},
