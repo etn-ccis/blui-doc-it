@@ -7,7 +7,8 @@ const INITIAL_STATE = fromJS({
   surprise: false,
   framework: 'angular',
   pagetitle: null,
-  showFooter: false
+  showFooter: false,
+  pageURL: null
 });
 
 export default (state = INITIAL_STATE, action) => {
@@ -15,16 +16,19 @@ export default (state = INITIAL_STATE, action) => {
     case FETCH_DOC_PENDING:
     case FETCH_DOC_FAILURE:
       return state.merge({
-        showFooter: false
+        showFooter: false,
+        pageURL: '404'
       })
     case FETCH_DOC_SUCCESS:
       return state.merge({
         pagetitle: findTitle(action.payload.path.substr(action.payload.path.lastIndexOf('/')+1).split('.')[0]) || 'Power Xpert Blue',
-        showFooter: true
+        showFooter: true,
+        pageURL: action.payload.path
       });
     case UI_UPDATE_TITLE:
       return state.merge({
-        pagetitle: findTitle(window.location.pathname.substr(window.location.pathname.lastIndexOf('/')+1).split('.')[0]) || 'Power Xpert Blue'
+        pagetitle: findTitle(window.location.pathname.substr(window.location.pathname.lastIndexOf('/')+1).split('.')[0]) || 'Power Xpert Blue',
+        pageURL: window.location.pathname
       });
     default:
       return state;

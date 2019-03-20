@@ -31,7 +31,8 @@ var isEdge = !isIE && !!window.StyleMedia;
 var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
 
 const mapStateToProps = state => ({
-  pagetitle: state.ui.get('pagetitle')
+  pagetitle: state.ui.get('pagetitle'),
+  pageURL: state.ui.get('pageURL')
 });
 
 const mapDispatchToProps = dispatch => {
@@ -116,9 +117,10 @@ class App extends Component {
     this.setState({showFrameworkSelect:
       (window.location.pathname.match(/\/patterns\//) && !window.location.pathname.match(/\/patterns\/layout/))
     });
-    if(newProps.pagetitle && (newProps.pagetitle !== this.props.pagetitle)){
+    if(newProps.pageURL && (newProps.pageURL !== this.props.pageURL)){
         window.scrollTop = 0;
         document.body.scrollTop = 0;
+        document.scrollingElement.scrollTop = 0;
     }
   }
 
