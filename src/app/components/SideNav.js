@@ -5,7 +5,7 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import {Link} from 'react-router-dom';
-import ExpandableList from './ExpandableList';
+import TopLevelMenuItem from './NavigationMenuItem';
 import Chip from '@material-ui/core/Chip';
 import Hidden from '@material-ui/core/Hidden';
 import pxIcon from "../icons/pxblue.png";
@@ -98,14 +98,7 @@ class SideNav extends Component {
       </Link>
       <List className={classes.routes}>
         {this.props.pages.map((page, index) =>
-          <ExpandableList key={page.name}
-            page={page}
-            index={index}
-            close={this.props.close ? () => this.props.close() : () => {return;}}
-            openAndCollapseOthers={this.openAndCollapseOthers.bind(this)}
-            toggleList={this.toggleList.bind(this)}
-            open={this.pagesOpen[index]}
-          />
+          <TopLevelMenuItem key={page.displayName+index} config={page}/>
         )}
       </List>
       <div className={classes.contactus}>

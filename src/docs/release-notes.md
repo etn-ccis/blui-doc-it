@@ -39,7 +39,7 @@ We have also migrated all of our code samples to [StackBlitz](http://www.stackbl
 PX Blue is officially going open source in version 2.2. All of our code samples are available on [GitHub](http://www.github.com/pxblue) and we have also published a number of packages to [NPM](https://www.npmjs.com/~px-blue) to make integrating PX Blue into your applications much simpler. This will also allow us to continuously deliver and version updates to PX Blue resources. See the updated Framework Guides to learn how to pull these packages into your applications. PX Blue is licensed under the BSD-3-Clause license agreement. The text of this license can be found in any of our [resource repositories](https://github.com/pxblue/themes/blob/master/LICENSE).
 
 ### More Hybrid Support
-PX Blue now supports hybrid development in [Cordova](/frameworks-mobile/cordova) and [React Native](/frameworks-mobile/reactnative), and we have provided additional information for those already using [NativeScript](/frameworks-mobile/nativescript).
+PX Blue now supports hybrid development in [Cordova](/development/frameworks-mobile/cordova) and [React Native](/development/frameworks-mobile/reactnative), and we have provided additional information for those already using [NativeScript](/development/frameworks-mobile/nativescript).
 
 ### Style Updates
 We've also made some minor update to our color palette and typography hierarchy to improve our alignment with corporate branding requests. We also have updated icons in our icon font. Make sure to upgrade to the latest versions to be up-to-date.
@@ -48,7 +48,7 @@ We've also made some minor update to our color palette and typography hierarchy 
 # Power Xpert Blue 2.1 (June 2018)
 
 ### Hybrid Apps
-Hybrid app support. We now support NativeScript for iOS and Android app development using Angular, TypeScript and JavaScript. NativeScript allows you to use your existing web development skills to build native apps for iOS and Android that share a single common codebase. You can read more in our [NativeScript](/frameworks-mobile/nativescript) guide.
+Hybrid app support. We now support NativeScript for iOS and Android app development using Angular, TypeScript and JavaScript. NativeScript allows you to use your existing web development skills to build native apps for iOS and Android that share a single common codebase. You can read more in our [NativeScript](/development/frameworks-mobile/nativescript) guide.
 
 ### Project Tool
 The PX Blue 2.1 release also includes an early beta version of the PX Blue Project Tool. Designed to get developers started as quickly as possible with PX Blue, the PX Blue Project Tool provides a graphical or command line interface for creating and updating PX Blue projects without having to go through a bunch of manual configuration. You can read more in our Project Tool introduction.

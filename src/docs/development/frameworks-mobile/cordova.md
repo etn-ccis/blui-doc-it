@@ -1,7 +1,7 @@
 # Getting Started with Apache Cordova
 
 ### Setting up your environment
-You'll need to start by following the general instructions for setting up your development environment for mobile found in our [Hybrid App Guide](/getstarted/hybrid). Since Cordova takes advantage of web technologies, you won't need any specific additional tools beyond what you would use for web development.
+You'll need to start by following the general instructions for setting up your development environment for mobile found in our [Environment Guide](/development/environment). Since Cordova takes advantage of web technologies, you won't need any specific additional tools beyond what you would use for web development.
 
 ### Installing Cordova
 The installation process for Cordova is a single command:
@@ -15,7 +15,7 @@ Cordova is a great way to build a mobile app when you already have an existing w
 
 You can also use it for new projects - just build your web application as you normally would and add the Cordova project wrapper around it.
 
->To bring in Material Design components and PX Blue themes to your application, follow our Getting Started Guides for [Angular](/frameworks-web/angular) or [React](/frameworks-web/react).
+>To bring in Material Design components and PX Blue themes to your application, follow our Getting Started Guides for [Angular](/development/frameworks-web/angular) or [React](/development/frameworks-web/react).
 
 ### Setting up a Cordova wrapper around your project
 Start by creating a folder that will hold your entire project:
@@ -131,4 +131,4 @@ Then, make sure that the script is available before loading your application:
     }
     ```
 
-The plugins will then be available from the cordova object (window.cordova.<plugin_name>.<function>). Refer to the specific plugin documentation for proper usage.
+The plugins will then be available from the cordova object (window.cordova.```<plugin_name>```.```<function>```). Refer to the specific plugin documentation for proper usage.

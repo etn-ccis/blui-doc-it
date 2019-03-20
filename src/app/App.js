@@ -6,6 +6,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles';
+import {SHOW_MOBILE, HIDE_MOBILE, TOGGLE_MOBILE} from './constants/ui';
 import  Drawer  from '@material-ui/core/Drawer';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
@@ -31,11 +32,17 @@ var isEdge = !isIE && !!window.StyleMedia;
 var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
 
 const mapStateToProps = state => ({
-  pagetitle: state.ui.get('pagetitle')
+  pagetitle: state.ui.get('pagetitle'),
+  pageURL: state.ui.get('pageURL'),
+  mobileOpen: state.ui.get('mobileMenuOpen')
 });
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    showMobile: () => {dispatch({type: SHOW_MOBILE})},
+    hideMobile: () => {dispatch({type: HIDE_MOBILE})},
+    toggleMobile: () => {dispatch({type: TOGGLE_MOBILE})},
+  };
 };
 
 const drawerWidth = 364;
@@ -100,7 +107,6 @@ class App extends Component {
     super(props);
     this.state = {
         framework: 'angular',
-        mobileOpen: false,
         showFrameworkSelect: false,
         browser: (isFirefox ? 'firefox' : isIE ? 'ie' : isEdge ? 'edge' : isChrome ? 'chrome' : 'other')
     };
@@ -109,17 +115,17 @@ class App extends Component {
 
 
   handleDrawerToggle = () => {
-    this.setState({ mobileOpen: !this.state.mobileOpen });
+    this.props.toggleMobile();
   };
 
   componentWillReceiveProps(newProps){
     this.setState({showFrameworkSelect:
-      (window.location.pathname.match(/\/patterns\//) && !window.location.pathname.match(/\/patterns\/layout/))// ||
-      //window.location.pathname.match(/\/getstarted\/themes/)
+      (window.location.pathname.match(/\/patterns\//) && !window.location.pathname.match(/\/patterns\/layout/))
     });
-    if(newProps.pagetitle && (newProps.pagetitle !== this.props.pagetitle)){
+    if(newProps.pageURL && (newProps.pageURL !== this.props.pageURL)){
         window.scrollTop = 0;
         document.body.scrollTop = 0;
+        document.scrollingElement.scrollTop = 0;
     }
   }
 
@@ -128,7 +134,7 @@ class App extends Component {
     return (
       <Drawer
         variant="temporary"
-        open={this.state.mobileOpen}
+        open={this.props.mobileOpen}
         classes={{
           paper: classes.drawerPaper,
         }}
@@ -137,7 +143,7 @@ class App extends Component {
           keepMounted: true, // Better open performance on mobile.
         }}
       >
-        <SideNav pages={ siteConfig.pages } close={() => this.setState({mobileOpen: false})}/>
+        <SideNav pages={siteConfig.pages}/>
       </Drawer>
     );
   }
@@ -236,5 +242,5 @@ export default compose(
     { pure: false }),
   withStyles(styles,
     {name: 'App'}
-  ),
+  )
   )(App);
