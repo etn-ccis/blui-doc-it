@@ -32,3 +32,4 @@ Mobile applications come in two primary varieties: native apps and hybrid apps.
 Our recommendation for mobile applications is to take a hybrid approach (see our [Hybrid App Guide](/getstarted/hybrid)). This will allow you to deploy multiple versions of your application (i.e. iOS and Android) from a single code base. We offer support for several different approaches to building hybrid apps.
 
 If you prefer to build a strictly native app and adhere to the PX Blue standards, there are ways of doing this using [Material Design Components for Android](https://material.io/develop/android/) and [Material Design Components for iOS](https://material.io/develop/ios/). If you are planning to go this route, please contact us.
+

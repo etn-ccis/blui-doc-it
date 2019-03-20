@@ -5,7 +5,7 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import {Link} from 'react-router-dom';
-import ExpandableList from './ExpandableList';
+import TopLevelMenuItem from './NavigationMenuItem';
 import Chip from '@material-ui/core/Chip';
 import Hidden from '@material-ui/core/Hidden';
 import pxIcon from "../icons/pxblue.png";
@@ -58,6 +58,60 @@ const styles = theme => ({
   }
 });
 
+const siteNav = [
+  {displayName: 'What is PX Blue?', url: 'overview', pages: [
+    {displayName: 'Introduction', url: 'intro'},
+    {displayName: 'Design System', url: 'design-system'},
+    {displayName: 'Development Platform', url: 'platform'}
+  ]},
+  {displayName: 'Starting a Project', url: 'get-started', pages: [
+    {displayName: 'Where to begin?', url: 'new-project'},
+    {displayName: 'Web Apps', url: 'web-apps'},
+    {displayName: 'Mobile Apps', url: 'mobile-apps'}
+  ]},
+  {displayName: 'Developing w/ PX Blue', url: 'development', pages: [
+    {displayName: 'Environment Setup', url: 'environment'},
+    {displayName: 'Web Frameworks', url: 'frameworks-web', pages:[
+      {displayName: 'Introduction', url: 'intro'},
+      {displayName: 'Framework Comparison', url: 'comparison'},
+      {displayName: 'Angular Guide', url: 'angular'},
+      {displayName: 'React Guide', url: 'react'}
+    ]},
+    {displayName: 'Mobile Frameworks', url: 'frameworks-mobile', pages:[
+      {displayName: 'Introduction', url: 'intro'},
+      {displayName: 'Framework Comparison', url: 'comparison'},
+      {displayName: 'Apache Cordova Guide', url: 'cordova'},
+      {displayName: 'NativeScript Guide', url: 'nativescript'},
+      {displayName: 'React Native Guide', url: 'react-native'}
+    ]},
+    {displayName: 'Testing Your Application', url: 'testing'}
+  ]},
+  {displayName: 'Design Patterns', url: 'patterns', pages: [
+    {displayName: 'App Bars', url: 'appbar'},
+    {displayName: 'Lists', url: 'lists'},
+    {displayName: 'Login', url: 'login'},
+    {displayName: 'Navigation', url: 'navigation'},
+    {displayName: 'Overlays', url: 'overlay'},
+    {displayName: 'Page Layout', url: 'layout'},
+    {displayName: 'Steppers', url: 'steppers'},
+    {displayName: 'Visualizations', url: 'visualizations'}
+  ]},
+  {displayName: 'Style Guide', url: 'style', pages: [
+    {displayName: 'Color Palette', url: 'color'},
+    {displayName: 'Iconography', url: 'iconography'},
+    {displayName: 'Typography', url: 'typography'}
+  ]},
+  {displayName: 'Community', url: 'community', pages: [
+    {displayName: 'Licensing', url: 'license'},
+    {displayName: 'Share Code', url: 'sharing'},
+    {displayName: 'Report Bugs', url: 'bugs'},
+    {displayName: 'Request Features', url: 'features'},
+    {displayName: 'FAQ', url: 'faq'}
+  ]},
+  {displayName: 'Resources', url: 'resources'},
+  {displayName: 'Release Notes', url: 'release-notes'}
+]
+
 class SideNav extends Component {
 
   constructor(props){
@@ -98,14 +152,7 @@ class SideNav extends Component {
       </Link>
       <List className={classes.routes}>
         {this.props.pages.map((page, index) =>
-          <ExpandableList key={page.name}
-            page={page}
-            index={index}
-            close={this.props.close ? () => this.props.close() : () => {return;}}
-            openAndCollapseOthers={this.openAndCollapseOthers.bind(this)}
-            toggleList={this.toggleList.bind(this)}
-            open={this.pagesOpen[index]}
-          />
+          <TopLevelMenuItem key={page.displayName} config={page}/>
         )}
       </List>
       <div className={classes.contactus}>
