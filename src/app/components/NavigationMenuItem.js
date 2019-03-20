@@ -2,13 +2,8 @@ import React from "react";
 import Collapse from "@material-ui/core/Collapse";
 import { NavLink } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-// import Badge from "@material-ui/core/Badge";
-
+import { withRouter } from 'react-router';
 import ListItem from "@material-ui/core/ListItem";
-
-// import slugify from "../util/slugify";
-
 import * as Colors from '@pxblue/colors';
 
 const styles = theme => ({
@@ -19,25 +14,19 @@ const styles = theme => ({
     right: '-15px'
   },
   regular:{
-    fontWeight: 600,
     color: Colors.black[500],
     textTransform: 'none',
     '&.active':{
-      fontWeight: 600,
       color: theme.palette.primary[500]
     }
-  },
-  indented:{
-    fontWeight: '500',
-    paddingLeft: 'calc(2rem + 16px)'
   }
 });
 
-const renderListItem = (config, level, classes={}, prefix='') => {
+const renderListItem = withRouter((props) => {
   return (
-    <NavigationListItem key={config.displayName} config={config} level={level} classes={classes} prefix={prefix}/>
+    <NavigationListItem {...props} key={props.displayName}/>
   )
-}
+});
 
 class NavigationListItem extends React.Component {
   constructor(props){
@@ -47,24 +36,36 @@ class NavigationListItem extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const {url, prefix, location} = this.props;
+    if (location.pathname.indexOf(prefix + '/' + url) !== -1) {
+      this.setState({showDropdown: true});
+    }
+  }
+  componentWillUpdate(nextProps) {
+    const {url, prefix, location} = nextProps;
+    if(location.pathname === this.props.location.pathname){return;}
+    if (location.pathname.indexOf(prefix + '/' + url) === -1) {
+      this.setState({showDropdown: false});
+    }
+  }
+
   render(){
-    const {config, level, classes, prefix} = this.props;
-    
+    const {displayName, url, pages, level, classes, prefix} = this.props;
     return (
-      <React.Fragment key={config.displayName}>
+      <React.Fragment key={displayName}>
         <ListItem
           className={classes.regular}
           style={{paddingLeft: 2*level+'em', fontWeight: level === 0 ? 600 : 500}}
           component={NavLink}
-          to={config.pages ? '#' : '/'+prefix+(config.url.length > 0 ? config.url+'/' : '')}
+          to={pages ? '#' : prefix+(url.length > 0 ? '/'+url : '')}
           onClick={() => this.setState({showDropdown: !this.state.showDropdown})}
         >
-          {/* {config.pages && <ExpandMore fontSize={'small'} style={{transform: this.state.showDropdown ? 'rotate(180deg)':'rotate(0deg)', transition: 'transform 200ms linear'}}/>} */}
-          {config.displayName}
+          {displayName}
         </ListItem>
         <Collapse in={this.state.showDropdown} timeout={'auto'} unmountOnExit>
-          {config.pages && config.pages.map((page) => (
-            renderListItem(page, level + 1, classes, prefix+config.url+'/')
+          {pages && pages.map((page) => (
+            renderListItem({...page, level: level + 1, classes: classes, prefix: prefix+'/'+url})
           ))}
         </Collapse>
       </React.Fragment>
@@ -77,7 +78,7 @@ class TopLevelMenuItem extends React.Component {
     const {config, classes} = this.props;
     return (
       <React.Fragment>
-        {renderListItem(config, 0, classes, )}
+        {renderListItem({...config, level: 0, classes: classes, prefix:''})}
       </React.Fragment>
     )
   }

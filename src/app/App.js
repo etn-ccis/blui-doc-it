@@ -236,5 +236,5 @@ export default compose(
     { pure: false }),
   withStyles(styles,
     {name: 'App'}
-  ),
+  )
   )(App);
