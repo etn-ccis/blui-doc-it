@@ -51,6 +51,7 @@ const theme = createMuiTheme(Object.assign(EatonTheme.blue, {typography: {fontFa
 const styles = theme => ({
   root: {
     width: '100%',
+    minHeight: '100%',
     //height: '100vh',
     zIndex: 1,
   },
@@ -70,6 +71,7 @@ const styles = theme => ({
   },
   container:{
     backgroundColor: colors.gray[50],
+    minHeight: '100%',
     flexDirection:'column',
     // overflowY: 'auto',
     flexShrink: '1',
