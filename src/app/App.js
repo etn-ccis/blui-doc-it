@@ -128,7 +128,7 @@ class App extends Component {
           document.body.scrollTop = 0; 
           if(document.body.scrollIntoView){document.body.scrollIntoView()}
         }
-        if(document.scrollingElement){console.log('scrolling element'); document.scrollingElement.scrollTop = 0;}
+        if(document.scrollingElement){document.scrollingElement.scrollTop = 0;}
     }
   }
 

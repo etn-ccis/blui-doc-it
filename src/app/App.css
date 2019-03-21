@@ -64,4 +64,19 @@ iframe{
   width: 100%;
 }
 
+/* Resources Table styles */
+table{
+  border-collapse: collapse;
+}
+table img, table a{
+  display: block;
+}
+table a:not(:last-child){
+  margin-bottom: 10px;
+}
+td, th{
+  border: 1px solid #CCCCCC;
+  padding: 15px;
+}
+
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
