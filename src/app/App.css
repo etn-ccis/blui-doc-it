@@ -10,6 +10,9 @@ html, body {
   flex-direction: column;
   line-height: 1.75;
 }
+#root{
+  min-height: 100%;
+}
 
 blockquote, q {
   quotes: none;
