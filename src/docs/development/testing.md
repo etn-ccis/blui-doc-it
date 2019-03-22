@@ -1,5 +1,5 @@
 # Testing Your PX Blue Applications
-Testing is an important part of building an application, but unfortunately, it usually does not receive as much attention as it should. Testing should be considered from the very beginning of development, not as an afterthought once development is finished. Generally speaking, every time you write a new piece of code or update existing code, you should also write a test that verifies that your code is correct.
+Testing is an important part of building an application, but unfortunately, it usually does not receive as much attention as it should. Testing should be considered from the very beginning of development, not as an afterthought once development is finished. In general, every time you write a new piece of code or update existing code, you should also write a test that verifies that your code is correct.
 
 Tests come in a variety of different flavors. The following sections discuss Unit Tests and End-to-End (E2E) Tests.
 
