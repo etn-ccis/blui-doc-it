@@ -8,6 +8,7 @@ import './app/util/polyfills';
 //import registerServiceWorker from './app/registerServiceWorker';
 require('typeface-open-sans');
 
+
 const store = configureStore();
 
 ReactDOM.render(
