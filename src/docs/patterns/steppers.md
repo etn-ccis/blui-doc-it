@@ -10,4 +10,5 @@ A basic stepper simply shows the steps that are available and allows the user to
 
 Sometimes, you may need to add additional steps to a stepper dynamically. This can be useful if there is a step that needs to occur multiple times (e.g., a configuration step for a dynamic number of devices) or if the user is configuring a workflow of their own. The example below illustrates this effect.
 
-[INSERT STACKBLITZ EXAMPLES HERE]
+ {{ angular stackblitz=https://stackblitz.com/edit/pxblue-dynamic-stepper-angular?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
+{{ react stackblitz=https://stackblitz.com/edit/pxblue-dynamic-stepper-react?embed=1&file=DynamicStepper.js&hideNavigation=1&view=preview }}
