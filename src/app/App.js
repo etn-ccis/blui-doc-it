@@ -20,6 +20,7 @@ import HomeComponent from "./components/Home";
 import ColorComponent from "./components/Color";
 import IconographyComponent from "./components/Iconography";
 import * as colors from '@pxblue/colors';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 require('typeface-roboto-mono');
 
@@ -171,6 +172,7 @@ class App extends Component {
   render() {
     const {classes} = this.props;
     return <MuiThemeProvider theme={theme}>
+        <CssBaseline/>
         <Hidden smUp implementation="css">
           {this.getMobileNavigationDrawer()}
         </Hidden>
