@@ -19,7 +19,7 @@ This site will provide you with everything you need to get started with PX Blue:
 
 - Information guides, including information on starting a [New Project](/get-started/new-project) and the different types of applications you can build
 - Development Guides, including how to set up a [Development Environment](/development/environment), how to start a new project in any of our supported technologies, and what tools to use for [Testing](/development/testing)
-- Code Examples/Design Patterns for how to build common elements of a PX Blue application
+- Code Examples/[Design Patterns](/patterns/appbar) for how to build common elements of a PX Blue application
 - An extensive set of [icons](/style/iconography), [colors](style/color), and [typography](style/typography) guidelines that you can use in your designs
 - A [resources](/resources) page with links to all of the PX Blue [NPM packages](https://www.npmjs.com/org/pxblue) and [GitHub repositories](https://github.com/pxblue)
 - A community section with information on [reporting bugs](/community/bugs), [requesting features](/community/features), and more.

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect  } from 'react-redux';
 // import showdown from 'showdown';
-import previewExtension from '../util/stackblitz-md';
+import stackBlitz, { externalLinks } from '../util/showdownExtensions';
 import Footer from './Footer';
 import { fetchMarkdown } from '../actions/docs';
 import { updateTitle } from "../actions/ui";
@@ -33,10 +33,11 @@ class MarkdownDoc extends React.Component {
       tables: true,
       parseImgDimensions: true,
       extensions: [
-        previewExtension({
+        stackBlitz({
           react: props.selectedFramework === 'angular' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed', 
           angular: props.selectedFramework === 'react' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed'
-        })
+        }),
+        externalLinks
       ],
     });
   }
@@ -76,10 +77,11 @@ class MarkdownDoc extends React.Component {
         tables: true,
         parseImgDimensions: true,
         extensions: [
-          previewExtension({
+          stackBlitz({
             react: nextProps.selectedFramework === 'angular' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed', 
             angular: nextProps.selectedFramework === 'react' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed'
-          })
+          }),
+          externalLinks
         ],
       });
       this.forceUpdate();
