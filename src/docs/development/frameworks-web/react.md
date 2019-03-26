@@ -6,9 +6,9 @@ The fastest way to create an Angular application is to use [Create React App](ht
 To integrate PX Blue with your React project, you will need:
 
 1. An existing React application
-2. [Material-UI](https://material-ui.com/) Component Library
+2. The [Material-UI](https://material-ui.com/) Component Library
    	* Our themes are built for these components.
-3. PX Blue Themes for React:
+3. Our PX Blue Themes for React:
    	* These are available from npm as [@pxblue/themes](https://www.npmjs.com/package/@pxblue/themes)
 	* See below for installation instructions 
 

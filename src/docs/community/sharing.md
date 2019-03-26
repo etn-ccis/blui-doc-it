@@ -6,6 +6,6 @@ We build all of our example code using [StackBlitz](http://www.stackblitz.com). 
 
 ## Our Code
 
-All of the code samples and documentation from this site can be found:
-* on our [GitHub Page](https://github.com/pxblue)
-* or on our [StackBlitz Account](https://stackblitz.com/@px-blue)
+All of the code samples and documentation from this site can be found on:
+* [GitHub](https://github.com/pxblue) and
+* [StackBlitz](https://stackblitz.com/@px-blue)
