@@ -2,6 +2,27 @@
 // const isDev = process.env.NODE_ENV === 'development';
 
 
+export const externalLinks = () => {
+    return ([
+        { // Replaces external links with new tab anchor links
+            type: 'lang',
+            regex: /\[([A-Za-z -/]+)\]\((http[^\s![\]]+)\)/g,
+            replace: (matchString, desc, url, offset) => {
+                return `<a href='${url}' target='_blank'>${desc}</a>`;
+            }
+        
+        },
+        { // Replaces 'shield' style badges with new tab anchor links
+            type: 'lang',
+            regex: /\[!\[\]\((http[^\s]+)\)\]\((http[^\s]+)\)/g,
+            replace: (matchString, img, url, offset) => {
+                return `<a href='${url}' target='_blank'><img src='${img}' alt=''/></a>`;
+            }
+        
+        }
+    ]);
+}
+
 export default (config) => {
     config = Object.assign({angular:'embed', react:'embed'}, config);
     return ([

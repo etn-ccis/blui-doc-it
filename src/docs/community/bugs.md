@@ -8,7 +8,7 @@ If you run into a bug with:
 * Power Xpert Blue code samples or
 * the Power Xpert Blue documentation on this site
 
-you can help us make the experience better for yourself and others by reporting a bug. Simply send an email to pxblue@eaton.com with the following information:
+you can help us make the experience better for yourself and others by reporting a bug. Simply <a href="mailto:pxblue@eaton.com">Contact Us</a> with the following information:
 * Summary: a brief, but clear description of the issue.
 * Description: more detailed information about the issue including steps to reproduce.
 * Environment: information about your machine (Operating System, Browser Version).

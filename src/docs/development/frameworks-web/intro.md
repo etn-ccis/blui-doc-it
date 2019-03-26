@@ -2,7 +2,7 @@
 Power Xpert Blue supports web application development using Angular and React. Both are open source JavaScript frameworks with large communities of support and both have open source component libraries implementing Material Design. The two are quite comparable and you would not go wrong by choosing either, but there are some notable differences outlined below.
 
 ## Angular (with Angular Material)
-  - Comprehensive framework, with a lot of built-in features and functionality
+  - A comprehensive framework, with a lot of built-in features and functionality
   - Written in TypeScript (superset of JavaScript with strong variable typing)
   - Structured way of organizing your entire application (if following the Angular CLI)
   - May be more accessible to developers with greater back-end or full-stack experience

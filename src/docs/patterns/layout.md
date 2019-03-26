@@ -7,9 +7,9 @@ Layout is one of the most fundamental aspects of your application - it's how you
 ## Angular
 If you are building an Angular application, we recommend you use [Angular Flex Layout](https://github.com/angular/flex-layout) to build your application. This is the default layout library for Angular applications, and is built and supported by the Angular team. Some of the main benefits of this library are:
 * Seamless integration with Angular and Angular Material
-* Supported on all major browsers
-* Offers more flexibility and control than a static grid system
-* Responsive layout (e.g., show/hide elements, dynamically apply classes, etc. based on screen size)
+* Support on all major browsers
+* Greater flexibility and control than a static grid system
+* Responsive layout capability (e.g., show/hide elements, dynamically apply classes, etc. based on screen size)
 
 You can see examples of how to do various layout on the Angular Flex Layout website ([static](https://tburleson-layouts-demos.firebaseapp.com/#/docs), [responsive](https://tburleson-layouts-demos.firebaseapp.com/#/responsive)).
 
@@ -17,6 +17,6 @@ You can see examples of how to do various layout on the Angular Flex Layout webs
 Material-UI for React applications provides a built-in [layout](https://material-ui.com/layout/basics/) mechanism, based on CSS flexbox. It allows you to build layouts based on CSS Grids, standard flexbox CSS, or a combination. Some of the main benefits of this library are:
 * Built-in Grid components, based on Material Design 12-column layout
 * Custom flexbox rules for more control
-* Responsive layout (e.g., show/hide elements, dynamic styling rules, etc. based on screen size)
+* Responsive layout capability (e.g., show/hide elements, dynamic styling rules, etc. based on screen size)
 
 You can see examples of how to do various Grid layouts on the [Material UI](https://material-ui.com/layout/grid/) website.

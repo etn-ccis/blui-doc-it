@@ -2,7 +2,7 @@
 Web applications are everywhere. As the name suggests, they can be accessed from any device that can access the internet. This means they have a lot of flexibility, but that comes with extra responsibility when designing them.
 
 ## Responsive Design
-Responsive web design is critical for web applications today -with a nearly infinite variety of web-capable devices available, you'll want your application to look great on all of them. It's much easier to design a responsive web application if you start with mobile designs first. If you can fit your features into a mobile-sized display, it's much easier to scale up to a desktop size than it is to design for desktop and then scale everything down to mobile.
+Responsive web design is critical for web applications today. With a nearly infinite variety of web-capable devices available, you'll want your application to look great on all of them. It's much easier to design a responsive web application if you start with mobile designs first. If you can fit your features into a mobile-sized display, it's much easier to scale up to a desktop size than it is to design for desktop and then scale everything down to mobile.
 
 
 ## Get Started With a Web App

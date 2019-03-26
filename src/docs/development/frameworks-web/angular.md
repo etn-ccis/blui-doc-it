@@ -7,9 +7,9 @@ To use PX Blue with your Angular project, you will need:
 
 1. An existing Angular application
     * The project must be configured to use SASS stylesheets
-2. [Angular Material](https://material.angular.io/) Component Library
+2. The [Angular Material](https://material.angular.io/) Component Library
     * Our themes are built for these components.
-3. PX Blue Themes for Angular:
+3. Our PX Blue Themes for Angular:
     * These are available from npm as [@pxblue/themes](https://www.npmjs.com/package/@pxblue/themes)
 
 ## Integrating PX Blue

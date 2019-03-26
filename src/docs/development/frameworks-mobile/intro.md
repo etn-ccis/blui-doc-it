@@ -4,9 +4,9 @@ Power Xpert Blue supports hybrid mobile application development using Apache Cor
 ## Apache Cordova
   - Built with web technology (framework agnostic)
   - Runs in a WebView
-  - Fastest way to have a mobile app (if you already have a web app)
+  - Is the fastest way to have a mobile app (if you already have a web app)
   - Requires your web app to be optimized for mobile
-  - Lots of plugins available to access hardware/native functionality
+  - Has lots of available plugins to access hardware/native functionality
   - Learn more on the [Cordova Website](https://cordova.apache.org/)
   > **Why not Ionic?**<br/>
   Ionic is a very popular hybrid framework that makes use of Cordova under the hood. However, Ionic adds additional styling to UI elements that conflicts with PX Blue theming. Wrapping your application in Ionic also adds an unnecessary layer when compared to simply using Cordova. For these reasons, PX Blue does not support development with Ionic.
@@ -15,8 +15,8 @@ Power Xpert Blue supports hybrid mobile application development using Apache Cor
   - Renders native UI elements (not a WebView)
   - Can re-use application logic code from web (Angular + others)
   - Requires writing new code for UI (learning curve)
-  - Native access to hardware/UI functionality
-  - Challenging to set up and use on the Eaton network
+  - Provides native access to hardware/UI functionality
+  - Can be challenging to set up and use on the Eaton network
   - Learn more on the [NativeScript Website](https://www.nativescript.org/)
   
 ## React Native
@@ -24,8 +24,8 @@ Power Xpert Blue supports hybrid mobile application development using Apache Cor
   - Can re-use application logic code (React)
   - Requires writing new code for UI (learning curve)
   - Does not use CSS for styling (learning curve)
-  - Access to hardware functionality through various plugins
-  - Large community of support
+  - Provides access to hardware functionality through various plugins/libraries
+  - Has a large community of support
   - Works on Eaton network, but more seamless off-network
   - Learn more on the [React Native Website](https://facebook.github.io/react-native/)
 

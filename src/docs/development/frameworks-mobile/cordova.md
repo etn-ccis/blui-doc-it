@@ -47,7 +47,7 @@ The resulting folder structure should look like this:
 ```
 
 ## Building your application
-Cordova works by placing your application code (bundled and minified, as it would be for production) into the /cordova/www directory. We can automate this process to simplify the development process. Inside of you /appname directory, you should have a package.json file. In the "scripts" section, add an entry for the following:
+Cordova works by placing your application code (bundled and minified, as it would be for production) into the /cordova/www directory. We can automate this process to simplify the development process. Inside of your /appname directory, you should have a package.json file. In the "scripts" section, add an entry for the following:
 
 For Angular projects:
 ```
@@ -64,7 +64,7 @@ For React projects (Linux/Mac):
  "build-cordova": "react-scripts build && rsync -aq ./build/ ../cordova/www/ --delete"
 ```
 
-If you are building a React app with developers on a variety of operating systems, this script may need to be added/updated on an individual basis, due to the different commands required.
+If you are building a React app and your developers are using a mix of operating systems, you may want to include both versions of this script and give them different names (e.g., ```build-cordova-windows``` and ```build-cordova-linux```).
 
 Once you have added this script, you can build your app and have the files moved to the /www directory with a single command:
 
@@ -91,7 +91,7 @@ cordova build <platform>
 
 ### Using plugins
 
-There are many different plugins available for use in Cordova applications that will allow you to access various native/hardware features of the device that your application is running on. To add a plugin to you app, navigate to the /cordova directory and install it:
+There are many different plugins available for use in Cordova applications that will allow you to access various native/hardware features of the device that your application is running on. To add a plugin to your app, navigate to the /cordova directory and install it:
 
 ```
 cd cordova
