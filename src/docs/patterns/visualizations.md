@@ -7,7 +7,7 @@ Currently, PX Blue supports building charts and graphs using [Highcharts](http:/
 
 PX Blue themes for Highcharts graphs (line, column, pie, donut) are available as an NPM package ([@pxblue/highcharts](https://www.npmjs.com/package/@pxblue/highcharts)). This package includes base configuration objects and color definitions as well as some example charts to get you started. For more information about using Highcharts, check out their documentation.
 
-> In order to use Highcharts in an application, you will need a [license](https://shop.highsoft.com/highcharts/). Highcharts is  on a per-developer basis. Contact <a href="mailto:pxblue@eaton.com">pxblue@eaton.com</a> with your **Name**, **Division**, and **Product Name** for information about available licenses.
+> In order to use Highcharts in an application, you will need a [license](https://shop.highsoft.com/highcharts/). Highcharts is  on a per-developer basis. <a href="mailto:pxblue@eaton.com">Contact Us</a> with your **Name**, **Division**, and **Product Name** for information about available licenses.
 
 {{ angular stackblitz=https://stackblitz.com/edit/pxblue-highcharts-angular?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
 
@@ -20,7 +20,7 @@ If your application needs to show data on a geographical map, PX Blue supports t
 
 Mapbox can be used on Android and iOS or on the web with Angular and React. A PX Blue theme for styling these maps is available as an NPM package ([@pxblue/mapbox](https://www.npmjs.com/package/@pxblue/mapbox)).
 
-> In order to use MapBox in a production application, you will need an [access token](https://www.mapbox.com/help/how-access-tokens-work). Contact <a href="mailto:pxblue@eaton.com">pxblue@eaton.com</a> with your **Name**, **Division**, and **Product Name** to request a token.
+> In order to use MapBox in a production application, you will need an [access token](https://www.mapbox.com/help/how-access-tokens-work). <a href="mailto:pxblue@eaton.com">Contact Us</a> with your **Name**, **Division**, and **Product Name** to request a token.
 
 {{ angular stackblitz=https://stackblitz.com/edit/pxblue-mapbox-angular?embed=1&file=main.ts&hideNavigation=1&view=preview }}
 

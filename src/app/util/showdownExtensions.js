@@ -4,6 +4,14 @@
 
 export const externalLinks = () => {
     return ([
+        { // Replaces 'shield' style badges with new tab anchor links
+            type: 'lang',
+            regex: /\[!\[\]\((http[^\s]+)\)\]\((http[^\s]+)\)/g,
+            replace: (matchString, img, url, offset) => {
+                return `<a href='${url}' target='_blank' rel='noopener noreferrer'><img src='${img}' alt=''/></a>`;
+            }
+        
+        },
         { // Replaces external links with new tab anchor links
             type: 'lang',
             // regex: /\[\(?([A-Za-z -/@_,.]+?)\)??\]\((http[^\s![\]]+?)\)/g,
@@ -12,15 +20,8 @@ export const externalLinks = () => {
                 return `<a href='${url}' target='_blank' rel='noopener noreferrer'>${desc}</a>`;
             }
         
-        },
-        { // Replaces 'shield' style badges with new tab anchor links
-            type: 'lang',
-            regex: /\[!\[\]\((http[^\s]+)\)\]\((http[^\s]+)\)/g,
-            replace: (matchString, img, url, offset) => {
-                return `<a href='${url}' target='_blank' rel='noopener noreferrer'><img src='${img}' alt=''/></a>`;
-            }
-        
         }
+        
     ]);
 }
 

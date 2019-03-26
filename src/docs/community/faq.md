@@ -20,6 +20,6 @@ PX Blue does not support the use of Twitter Bootstrap for PX Blue applications. 
 Currently, PX Blue only supports charting using [Highcharts](http://www.highcharts.com). We will be exploring and comparing other charting options and may expand our support to include other charting libraries in a future release.
 
 ### 5. Do you have Design Patterns for...?
-We will be continuously updating the Design Patterns section of pxblue.github.io with new patterns and code samples as they are ready. We will prioritize patterns and examples based on interest expressed from development teams. If there is something you want to see, let us know at <a href="mailto:pxblue@eaton.com">pxblue@eaton.com</a>. 
+We will be continuously updating the Design Patterns section of pxblue.github.io with new patterns and code samples as they are ready. We will prioritize patterns and examples based on interest expressed from development teams. If there is something you want to see, <a href="mailto:pxblue@eaton.com">Contact Us</a>. 
 
 If you have built something that you would like to share, check out our information on [Sharing Code](/community/sharing) and send us an email with a StackBlitz link.
