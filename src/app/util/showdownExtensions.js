@@ -6,9 +6,10 @@ export const externalLinks = () => {
     return ([
         { // Replaces external links with new tab anchor links
             type: 'lang',
-            regex: /\[([A-Za-z -/]+)\]\((http[^\s![\]]+)\)/g,
+            // regex: /\[\(?([A-Za-z -/@_,.]+?)\)??\]\((http[^\s![\]]+?)\)/g,
+            regex: /\[(.+?)\]\((http[^\s![\]]+?)\)/g,
             replace: (matchString, desc, url, offset) => {
-                return `<a href='${url}' target='_blank'>${desc}</a>`;
+                return `<a href='${url}' target='_blank' rel='noopener noreferrer'>${desc}</a>`;
             }
         
         },
@@ -16,7 +17,7 @@ export const externalLinks = () => {
             type: 'lang',
             regex: /\[!\[\]\((http[^\s]+)\)\]\((http[^\s]+)\)/g,
             replace: (matchString, img, url, offset) => {
-                return `<a href='${url}' target='_blank'><img src='${img}' alt=''/></a>`;
+                return `<a href='${url}' target='_blank' rel='noopener noreferrer'><img src='${img}' alt=''/></a>`;
             }
         
         }

@@ -18,7 +18,7 @@ const styles = (theme) => ({
 
 const Footer = ({classes}) => (
     <div className={classes.wrapper}>
-        <a className={classes.link} href="http://www.eaton.com">
+        <a className={classes.link} href="http://www.eaton.com" target="_blank" rel="noopener noreferrer">
             Power Xpert Blue is a part of the Center for Connected Intelligent Solutions (CCIS).<br/>
             <span style={{color:Colors.blue[500]}}>Learn more about our other offerings.</span>
         </a>

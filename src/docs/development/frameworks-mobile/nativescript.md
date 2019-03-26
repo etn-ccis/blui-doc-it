@@ -45,7 +45,7 @@ Sidekick allows you to get around network issues and also hardware requirements 
 Nativescript comes with a diverse library of components out of the box. We also recommend you look at some of the following components if you need to supplement:
 - [Default Components](https://docs.nativescript.org/angular/ui/components)
 - [NB Material](https://github.com/nabil-mansouri/nativescript-nbmaterial) (contains an assortment of supplemental components)
-- [Cards] (https://github.com/bradmartin/nativescript-cardview)
+- [Cards](https://github.com/bradmartin/nativescript-cardview)
 - [Dropdown](https://github.com/PeterStaev/NativeScript-Drop-Down)
 - [Snackbar](https://github.com/bradmartin/nativescript-snackbar)
 
