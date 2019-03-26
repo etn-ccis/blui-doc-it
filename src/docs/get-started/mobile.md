@@ -4,20 +4,20 @@ Mobile applications are very popular. They can be accessed anywhere you can take
 Mobile applications come in two primary varieties: native apps and hybrid apps.
 
 ## Native apps
-  - Must be built using the native code that runs on mobile devices. In general, that means Java (Android) or Swift / Objective C (iOS)
-  - Should adhere to the design and development guidelines for the intended platform so as to maintain consistent interactions and patterns across different apps:
+- Must be built using the native code that runs on mobile devices. In general, that means Java (Android) or Swift / Objective C (iOS)
+- Should adhere to the design and development guidelines for the intended platform so as to maintain consistent interactions and patterns across different apps:
     - [iOS Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/themes/)
     - [Android Guidelines](https://developer.android.com/design/index.html)
 
 Android and iOS are the dominant players in the mobile market, but you should check with your particular users to see what is most prevalent in their space
 
 ## Hybrid apps
-   - Maintained as a single code base that is deployed to multiple different device types (namely iOS and Android)
-   - Built using web-technologies (i.e. JavaScript)
-      - low barrier to entry for web developers
-   - Implemented differently depending on the framework:
-      - some compile down to native components
-      - others render all content in a web view (essentially a web page running inside of an app)
+- Maintained as a single code base that is deployed to multiple different device types (namely iOS and Android)
+- Built using web-technologies (i.e. JavaScript)
+    - low barrier to entry for web developers
+- Implemented differently depending on the framework:
+    - some compile down to native components
+    - others render all content in a web view (essentially a web page running inside of an app)
 
 # Comparing the two approaches
 ## Native mobile apps
@@ -25,8 +25,8 @@ Android and iOS are the dominant players in the mobile market, but you should ch
 - Guaranteed to look & feel like an app since it uses native components
 - Requires more specialized development expertise
 - Requires separate code bases for different operating systems
-  - Longer development time
-  - More expensive / more maintenance
+    - Longer development time
+    - More expensive / more maintenance
 
 ## Hybrid mobile apps
 
