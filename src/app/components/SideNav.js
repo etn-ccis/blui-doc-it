@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import { withRouter } from 'react-router-dom';
 import { connect  } from 'react-redux';
 import {SHOW_MOBILE, HIDE_MOBILE} from '../constants/ui';
 
@@ -101,4 +102,4 @@ const mapDispatchToProps = dispatch => {
     hideMobile: () => {dispatch({type: HIDE_MOBILE})}
   };
 };
-export default connect(null, mapDispatchToProps)(withStyles(styles)(SideNav));
+export default withRouter(connect(null, mapDispatchToProps)(withStyles(styles)(SideNav)));
