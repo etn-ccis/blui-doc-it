@@ -100,7 +100,7 @@ const tileData = [
     img: ux,
     title: 'Component Libraries',
     description: 'Well-maintained, open source components for use in your applications',
-    url: ''
+    url: '/development/frameworks-web/intro'
   },
   {
     img: design,

@@ -69,9 +69,7 @@ class NavigationListItem extends React.Component {
   componentWillUpdate(nextProps) {
     const {url, prefix, location} = nextProps;
     if(location.pathname === this.props.location.pathname){return;}
-    if (location.pathname.indexOf(prefix + '/' + url) === -1) {
-      this.setState({showDropdown: false});
-    }
+    this.setState({showDropdown: location.pathname.indexOf(prefix + '/' + url) !== -1});
   }
 
   render(){
