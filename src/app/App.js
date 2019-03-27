@@ -164,7 +164,7 @@ class App extends Component {
           paper: classes.drawerPaper,
         }}
       >
-        <SideNav  pages={ siteConfig.pages }/>
+        <SideNav pages={ siteConfig.pages }/>
       </Drawer>
     );
   }

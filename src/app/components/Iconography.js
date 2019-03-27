@@ -79,7 +79,7 @@ class Iconography extends React.Component {
           Power Xpert Blue is built on top of the Google Material design system, which allows us to take advantage of their extensive icon library and icon grid. When you need an icon, your first stop should be the <a href="https://material.io/icons/" target="_blank" rel="noopener noreferrer">Material Icon Library</a>. These icons are available automatically when you use one of our supported Material component frameworks.
         </p>
         <p>
-          If the Material Icons don't have what you need, PX Blue has a number of supplemental icons available (as well as oneline symbols from PX Blue 1.0). These can be found on our <a href="https://github.com/pxblue/icons" target="_blank" rel="noopener noreferrer">GitHub</a> page in both SVG format and as an icon font an can also be browsed below.
+          If the Material Icons don't have what you need, PX Blue has a number of supplemental icons available (as well as oneline symbols from PX Blue 1.0). These can be found on our <a href="https://github.com/pxblue/icons" target="_blank" rel="noopener noreferrer">GitHub</a> page in both SVG format and as an icon font and can also be browsed below.
         </p>
         <Paper elevation={4}>
           <AppBar position="static" color="primary" classes={{root: classes.header}}>

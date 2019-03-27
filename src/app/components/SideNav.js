@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import { connect  } from 'react-redux';
+import {SHOW_MOBILE, HIDE_MOBILE} from '../constants/ui';
+
 import Toolbar from '@material-ui/core/Toolbar';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
@@ -59,28 +62,12 @@ const styles = theme => ({
 });
 
 class SideNav extends Component {
-
-  constructor(props){
-    super(props);
-    this.pagesOpen = [];
-  }
-
-  toggleList(index){
-    this.pagesOpen[index] = !this.pagesOpen[index];
-  }
-
-  openAndCollapseOthers(index){
-    for(let i=0; i < this.props.pages.length; i++){
-      this.pagesOpen[i] = (i === index);
-    }
-  }
-
   render(){
     const {classes} = this.props;
 
     return(
     <div className={classes.sidenav}>
-      <Link to="/" style={{textDecoration: 'none'}} onClick={this.props.close ? () => this.props.close() : null}>
+      <Link to="/" style={{textDecoration: 'none'}} onClick={() => this.props.hideMobile()}>
         <Toolbar style={{height: 64}}>
           <Hidden smDown>
               <img className={classes.largeImage} src={pxLogo} alt="Power Xpert Blue"/>
@@ -108,5 +95,10 @@ class SideNav extends Component {
     </div>);
   }
 }
-
-export default withStyles(styles)(SideNav);
+const mapDispatchToProps = dispatch => {
+  return {
+    showMobile: () => {dispatch({type: SHOW_MOBILE})},
+    hideMobile: () => {dispatch({type: HIDE_MOBILE})}
+  };
+};
+export default connect(null, mapDispatchToProps)(withStyles(styles)(SideNav));

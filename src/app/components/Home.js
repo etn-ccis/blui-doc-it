@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import { connect } from "react-redux";
 import { updateTitle } from "../actions/ui";
-
+import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 import pxIcon from '../icons/pxblue-white.svg';
@@ -40,7 +40,7 @@ const styles = theme => ({
   },
   listTile: {
     width: '50%',
-
+    textDecoration: 'none'
   },
   jumboHeader: {
     backgroundImage: `url(${circles})`,
@@ -87,37 +87,44 @@ const tileData = [
   {
     img: code,
     title: 'Get Started Guides',
-    description: 'Instructions for developers to prepare for PX Blue development'
+    description: 'Instructions for developers to prepare for PX Blue development',
+    url: '/development/environment'
   },
   {
     img: mobile,
     title: 'Framework Flexibility',
-    description: 'Support for multiple JavaScript frameworks for both web and mobile'
+    description: 'Support for multiple JavaScript frameworks for both web and mobile',
+    url: '/development/frameworks-web/intro'
   },
   {
     img: ux,
     title: 'Component Libraries',
-    description: 'Well-maintained, open source components for use in your applications'
+    description: 'Well-maintained, open source components for use in your applications',
+    url: ''
   },
   {
     img: design,
     title: 'Design Patterns',
-    description: 'Explanations for common interface elements and interactions'
+    description: 'Explanations for common interface elements and interactions',
+    url: '/patterns/appbar'
   },
   {
     img: patterns,
     title: 'Code Samples',
-    description: 'Live examples of how to implement various design patterns'
+    description: 'Live examples of how to implement various design patterns',
+    url: '/patterns/appbar'
   },
   {
     img: visual,
     title: 'Style Guide',
-    description: 'Information about our color palette, typography, and iconography'
+    description: 'Information about our color palette, typography, and iconography',
+    url: '/style/color'
   },
   {
     img: reuse,
     title: 'Open Source Resources',
-    description: 'Themes, Color Palettes, Icon Font, and more available through npm'
+    description: 'Themes, Color Palettes, Icon Font, and more available through npm',
+    url: '/resources'
   }
 ];
 
@@ -143,14 +150,14 @@ class HomeComponent extends React.Component {
         <Hidden smDown implementation="css">
           <div className={classes.gridList}>
             {tileData.map((tile, i) => (
-              <div key={tile.title} className={classes.listTile}
-                    style={{backgroundColor: (i % 4 === 0 || i % 4 === 3) ? Colors.gray[50] : 'white'}}>
+              <Link to={tile.url} key={tile.title} className={classes.listTile} 
+              style={{backgroundColor: (i % 4 === 0 || i % 4 === 3) ? Colors.gray[50] : 'white'}}>
                 <div style={{margin: '4rem'}}>
                   <img src={tile.img} alt={tile.title}/>
                   <Typography variant="h6" style={{color: Colors.black[500]}}>{tile.title}</Typography>
                   <Typography variant="subtitle1" className={classes.listBar}>{tile.description}</Typography>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </Hidden>
