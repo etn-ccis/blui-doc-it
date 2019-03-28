@@ -40,7 +40,7 @@ To check if you have yarn installed, run:
 yarn -v
 ```
 
-from a command prompt. In order to run install commands on the Eaton network, you will also need to configure your proxy settings. It may be sufficient for you to set ```HTTP_PROXY``` and ```HTTPS_PROXY``` in your environment variables. However, you may need to also explicitly set proxy values for yarn:
+from a command prompt. To run the install commands on the Eaton network, you will also need to configure your proxy settings. It may be sufficient for you to set ```HTTP_PROXY``` and ```HTTPS_PROXY``` in your environment variables. However, you may need to also explicitly set proxy values for yarn:
 
 ```
 yarn config set proxy http://url.to.your.proxy:port

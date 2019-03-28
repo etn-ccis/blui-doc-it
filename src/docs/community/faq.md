@@ -11,7 +11,7 @@ Detailed instructions can be found in our updated Framework Guides.
 * [React](/development/frameworks-web/react)
 
 ### 2. Can I use Ionic with PX Blue?
-Ionic is a very popular hybrid framework that makes use of Cordova under the hood. However, Ionic adds additional styling to UI elements that conflicts with PX Blue theming. Wrapping your application in Ionic also adds an unnecessary layer when compared to simply using Cordova. For these reasons, PX Blue does not support development with Ionic. Take a look at our [Apache Cordova](/development/frameworks-mobile/cordova) guide as an alternative.
+Ionic is a very popular hybrid framework that makes use of Cordova under the hood. However, Ionic adds additional styling to UI elements that conflicts with PX Blue theming. Wrapping your application in Ionic also adds an unnecessary layer when compared to simply using Cordova. For these reasons, PX Blue does not support development with Ionic. See our [Apache Cordova](/development/frameworks-mobile/cordova) guide as an alternative.
 
 ### 3. Can I use Bootstrap with PX Blue?
 PX Blue does not support the use of Twitter Bootstrap for PX Blue applications. Bootstrap can cause conflicts with PX Blue components and themes and is an unnecessary addition next to the Material component libraries and frameworks supported by PX Blue. If you are accustomed to using Bootstrap for layout, you can read about the PX Blue alternative approach on our [Layout Patterns](/patterns/layout) page.

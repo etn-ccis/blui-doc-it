@@ -4,7 +4,7 @@ Power Xpert Blue is a complete design system for front-end development at Eaton.
 >Check out our [Release Notes](/release-notes) to see what's new in the latest version of PX Blue.
 
 ## Design
-The goal of the Power Xpert Blue design system is to ensure consistency between software products delivered by different teams. With a common aesthetic, and common guidelines, we can be sure that all of our Eaton products feel like they belong to the same family.
+The goal of the Power Xpert Blue design system is to ensure consistency between software products delivered by different teams. With a common aesthetic and common guidelines, we can be sure that all Eaton products feel like they belong to the same family.
 
 Power Xpert Blue is based on the [Material Design](https://material.io/) language. If you are working with our Studio Blue design team, their designs will follow this standard. If you are not utilizing Studio Blue, ensure that your designers are following the Material Guidelines as well as any additional PX Blue [design patterns](/patterns/appbar).
 

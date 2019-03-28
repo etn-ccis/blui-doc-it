@@ -12,10 +12,10 @@ The most up-to-date instructions for installing NativeScript can be found in the
 tns doctor
 ```
 
-You may need to run this command several times in order to finish your installation. It will typically get hung at various times and need to be re-run, but each subsequent execution should get further through the process.
+You may need to run this command several times to complete your installation. It will typically get hung at various times and need to be re-run, but each subsequent execution should get further through the process.
 
 ## Writing your application
-The easiest way to get started with a NativeScript app is to use the Sidekick application. Sidekick will allow you to choose from a number of sample applications (including some that are quite thorough), that will give you a great starting point for your app.
+The easiest way to get started with a NativeScript app is to use the Sidekick application. Sidekick will allow you to choose from a selection of sample applications (including some that are quite thorough) that will give you a great starting point for your app.
 
 ### Prototyping with NativeScript Playground
 NativeScript also offers an online testing area ([NativeScript Playground](https://play.nativescript.org/)) where you can build out parts of your app and test them on a real device, without having to go through the laborious build process - simply scan a QR code with your phone and the app will be automatically loaded (with live reloads as you make changes). It's a great way to prototype layouts or simple functionality before bringing it into your application. This will require you to install the NativeScript Preview and NativeScript Playground apps on your test device.
@@ -39,7 +39,7 @@ To get around these issues (as best as possible), we recommend you:
 Lately this process has not been as effective (builds have slowed down even on alternative networks). If you have the means to do so, we recommend working on a non-Eaton computer on a non-Eaton network. **If you have any suggestions for improving this process, please let us know.**
 
 ### Cloud builds
-Sidekick allows you to get around network issues and also hardware requirements by offering the ability to perform builds for you in the cloud. With a free account, you'll be allowed up to 100 free cloud builds per month (each incremental change will count as a build, so use them wisely). This will allow you to download an .apk or .ipa binary file that you can then install on your device for testing (Android will let you install directly, but iOS requires you to go through another tool, such as HockeyApp or TestFlight to get the app on a device - see below). This process can be time consuming on the Eaton network, as downloads are throttled, but if you are in a pinch, it can be useful to get around limitations.
+Sidekick allows you to get around network issues and hardware requirements by offering the ability to perform builds for you in the cloud. With a free account, you'll be allowed up to 100 free cloud builds per month (each incremental change will count as a build, so use them wisely). This will allow you to download an .apk or .ipa binary file that you can then install on your device for testing (Android will let you install directly, but iOS requires you to go through another tool, such as HockeyApp or TestFlight to get the app on a device - see below). This process can be time consuming on the Eaton network, as downloads are throttled, but if you are in a pinch, it can be useful to get around limitations.
 
 ## Component recommendations
 Nativescript comes with a diverse library of components out of the box. We also recommend you look at some of the following components if you need to supplement:

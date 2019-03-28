@@ -57,7 +57,17 @@ const styles = theme => ({
     zIndex: 1,
   },
   slidebaby: {
-    transition: 'all 225ms ease-in-out'
+    transition: 'all 225ms ease-in-out',
+    marginTop: theme.spacing.unit * -8,
+    [theme.breakpoints.down('xs')]: {
+      marginTop: theme.spacing.unit * -7
+    }
+  },
+  showFramework:{
+    marginTop: theme.spacing.unit * 8,
+    [theme.breakpoints.down('xs')]: {
+      marginTop: theme.spacing.unit * 7
+    }
   },
   navIconHide: {
     [theme.breakpoints.up('md')]: {
@@ -69,6 +79,12 @@ const styles = theme => ({
     width: drawerWidth,
     maxWidth: '90%',
     height: '100%'
+  },
+  spacer:{
+    marginTop: theme.spacing.unit * 8,
+    [theme.breakpoints.down('xs')]: {
+      marginTop: theme.spacing.unit * 7
+    }
   },
   container:{
     backgroundColor: colors.gray[50],
@@ -206,7 +222,7 @@ class App extends Component {
 
             {/* Select Framework Toolbar */}
             {window.location.pathname !== "/" && 
-              <AppBar position="static" color="default" className={classes.slidebaby} style={{ marginTop: this.state.showFrameworkSelect ? "64px" : "-64px" }}>
+              <AppBar position="static" color="default" className={classes.slidebaby + ' ' + (this.state.showFrameworkSelect ? classes.showFramework : '')}>
                 <Toolbar style={{ display: "flex", flexDirection: "row" }}>
                   <FrameworkSelector framework={this.state.framework} onSelectFramework={choice => this.setState(
                         state => ({ framework: choice })
@@ -223,7 +239,7 @@ class App extends Component {
               </AppBar>
             }
 
-            {!this.state.showFrameworkSelect && window.location.pathname !== "/" && <div style={{ marginTop: "64px" }} />}
+            {!this.state.showFrameworkSelect && window.location.pathname !== "/" && <div className={classes.spacer}/>}
 
             {/* Main Router for page content  */}
             <div className={window.location.pathname !== "/" ? classes.content : ""}>
