@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import { withRouter } from 'react-router-dom';
+import { connect  } from 'react-redux';
+import {SHOW_MOBILE, HIDE_MOBILE} from '../constants/ui';
+
 import Toolbar from '@material-ui/core/Toolbar';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import {Link} from 'react-router-dom';
-import ExpandableList from './ExpandableList';
+import TopLevelMenuItem from './NavigationMenuItem';
 import Chip from '@material-ui/core/Chip';
 import Hidden from '@material-ui/core/Hidden';
 import pxIcon from "../icons/pxblue.png";
@@ -22,7 +26,7 @@ const styles = theme => ({
   },
   largeImage:{
     height: 'auto', 
-    width: 'auto',
+    width: '300px',
     marginLeft: '-5px', 
     transition:'all 150ms ease-in-out'
   },
@@ -59,29 +63,13 @@ const styles = theme => ({
 });
 
 class SideNav extends Component {
-
-  constructor(props){
-    super(props);
-    this.pagesOpen = [];
-  }
-
-  toggleList(index){
-    this.pagesOpen[index] = !this.pagesOpen[index];
-  }
-
-  openAndCollapseOthers(index){
-    for(let i=0; i < this.props.pages.length; i++){
-      this.pagesOpen[i] = (i === index);
-    }
-  }
-
   render(){
     const {classes} = this.props;
 
     return(
     <div className={classes.sidenav}>
-      <Link to="/" style={{textDecoration: 'none'}}>
-        <Toolbar>
+      <Link to="/" style={{textDecoration: 'none'}} onClick={() => this.props.hideMobile()}>
+        <Toolbar style={{height: 64}}>
           <Hidden smDown>
               <img className={classes.largeImage} src={pxLogo} alt="Power Xpert Blue"/>
             <Chip color={'primary'} className={classes.chip + ' ' + classes.float} label={`v${PX_BLUE_VERSION}`}/>
@@ -98,12 +86,8 @@ class SideNav extends Component {
       </Link>
       <List className={classes.routes}>
         {this.props.pages.map((page, index) =>
-          <ExpandableList key={page.name}
-                     page={page}
-                     index={index}
-                     openAndCollapseOthers={this.openAndCollapseOthers.bind(this)}
-                     toggleList={this.toggleList.bind(this)}
-                     open={this.pagesOpen[index]}/>)}
+          <TopLevelMenuItem key={page.displayName+index} config={page}/>
+        )}
       </List>
       <div className={classes.contactus}>
         <Divider/>
@@ -112,5 +96,10 @@ class SideNav extends Component {
     </div>);
   }
 }
-
-export default withStyles(styles)(SideNav);
+const mapDispatchToProps = dispatch => {
+  return {
+    showMobile: () => {dispatch({type: SHOW_MOBILE})},
+    hideMobile: () => {dispatch({type: HIDE_MOBILE})}
+  };
+};
+export default withRouter(connect(null, mapDispatchToProps)(withStyles(styles)(SideNav)));

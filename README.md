@@ -1,4 +1,5 @@
 # Doc-It (a.k.a. pxblue.github.io)
+[![CircleCI](https://circleci.com/gh/pxblue/doc-it/tree/master.svg?style=shield&circle-token=fc2656a76d70b4ff9cdc66cccc758c0dfbf89d25)](https://circleci.com/gh/pxblue/doc-it/tree/master)
 
 Doc-It is the source code for the pxblue.github.io documentation site for Power Xpert Blue 2.0. The site is built to both provide documentation on how to use the system, but also as an example of how to use it. The entire site is using using the PX Blue design system - built with React+Redux and Material UI.
 
@@ -38,14 +39,17 @@ The folder structure of the application is likewise segregated to keep the appli
     |
     └── /docs
         |── site-config.json                // defines the application routes
-        |── welcome.md                      // landing page
-        |── releasenotes.md                 // release notes
+        |── overview.md                     // landing page
+        |── release-notes.md                // release notes
         |── resources                       // downloads page
         |── notfound                        // placeholder for 404 pages
         |── /community                      // information on how to be a part of PX Blue
-        |── /frameworks-mobile              // information on getting started with mobile
-        |── /frameworks-web                 // information on getting started with web
-        |── /getstarted                     // information on getting set up to use PX Blue
+        |── /development
+        │   |── environment                 // information on setting up for development
+        │   |── testing                     // information on how to test your applications
+        │   |── /frameworks-mobile          // information on getting started with mobile
+        │   └── /frameworks-web             // information on getting started with web
+        |── /get-started                     // information on getting set up to use PX Blue
         |── /patterns                       // design patterns and sample code
         └── /style                          // style guide definitions
 ```
@@ -61,4 +65,5 @@ When changes are committed to the master branch and the tests pass, the changes 
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | 
 | --------- | --------- | --------- | --------- | 
-| Edge| last 2 versions| last 2 versions| last 2 versions| 
+| IE11*, Edge| last 2 versions| last 2 versions| last 2 versions| 
+> \*Stackblitz examples currently do not work in IE

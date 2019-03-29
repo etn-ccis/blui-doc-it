@@ -7,7 +7,7 @@ To use PX Blue with AngularJS, you will need to have an existing AngularJS appli
 To manually integrate PX Blue with your AngularJS project, you will need:
 
 1. An existing AngularJS application.
-    * You may want to consider using the newest version of Angular. See our [guide for Angular projects](/frameworks-web/angular).
+    * You may want to consider using the newest version of Angular. See our [guide for Angular projects](/development/frameworks-web/angular).
 
 2. The AngularJS-material component library.
     * The easiest way to get these components is to build your application using the AngularJS Seed. Integrating the library into an existing project is more difficult, but there are [instructions](https://material.angularjs.org/latest/getting-started).

@@ -10,6 +10,9 @@ html, body {
   flex-direction: column;
   line-height: 1.75;
 }
+#root{
+  min-height: 100%;
+}
 
 blockquote, q {
   quotes: none;
@@ -31,12 +34,12 @@ html{
 }
 
 pre, code {
-  background-color: #1d2529;
-  color: white;
+  background-color: #ddd;
+  color: #333333;
   font-family: "Roboto Mono", Monospaced;
-  font-size: .9rem;
+  font-size: .75rem;
   overflow: auto;
-  border-radius: 2px;
+  border-radius: 3px;
   padding: 10px;
 }
 code{
@@ -62,6 +65,21 @@ a{
 
 iframe{
   width: 100%;
+}
+
+/* Resources Table styles */
+table{
+  border-collapse: collapse;
+}
+table img, table a{
+  display: block;
+}
+table a:not(:last-child){
+  margin-bottom: 10px;
+}
+td, th{
+  border: 1px solid #CCCCCC;
+  padding: 15px;
 }
 
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

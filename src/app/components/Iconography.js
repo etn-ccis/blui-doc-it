@@ -76,10 +76,10 @@ class Iconography extends React.Component {
       <div>
         <h1>Iconography Guidelines</h1>
         <p>
-          Power Xpert Blue is built on top of the Google Material design system, which allows us to take advantage of their extensive icon library and icon grid. When you need an icon, your first stop should be the <a href="https://material.io/icons/">Material Icon Library</a>. These icons are available automatically when you use one of our supported Material component frameworks.
+          Power Xpert Blue is built on top of the Google Material design system, which allows us to take advantage of their extensive icon library and icon grid. When you need an icon, your first stop should be the <a href="https://material.io/icons/" target="_blank" rel="noopener noreferrer">Material Icon Library</a>. These icons are available automatically when you use one of our supported Material component frameworks.
         </p>
         <p>
-          If the Material Icons don't have what you need, PX Blue has a number of supplemental icons available (as well as oneline symbols from PX Blue 1.0). These can be found on our <a href="https://github.com/pxblue/icons">GitHub</a> page in both SVG format and as an icon font an can also be browsed below.
+          If the Material Icons don't have what you need, PX Blue has a number of supplemental icons available (as well as oneline symbols from PX Blue 1.0). These can be found on our <a href="https://github.com/pxblue/icons" target="_blank" rel="noopener noreferrer">GitHub</a> page in both SVG format and as an icon font and can also be browsed below.
         </p>
         <Paper elevation={4}>
           <AppBar position="static" color="primary" classes={{root: classes.header}}>
@@ -166,7 +166,7 @@ class Iconography extends React.Component {
           </div>
         </Paper>
         <h2>Progress Icons</h2>
-        <p>PX Blue also offers a number of icons that can be used to show progress, health, or other percentage-based metrics. These can be dynamically adjusted programmatically (fill amount, color, size) based on properties in your application. You can read more about using these components on <a href="https://github.com/pxblue/icons/tree/master/progress" target="blank">GitHub</a>.</p>
+        <p>PX Blue also offers a number of icons that can be used to show progress, health, or other percentage-based metrics. These can be dynamically adjusted programmatically (fill amount, color, size) based on properties in your application. You can read more about using these components on <a href="https://github.com/pxblue/icons/tree/master/progress" target="blank" rel="noopener noreferrer">GitHub</a>.</p>
         <Paper elevation={4}>
           <AppBar position="static" color="primary" classes={{root: classes.header}}>
             <Toolbar>
@@ -200,10 +200,10 @@ class Iconography extends React.Component {
 
         <h2>Still can't find what you need?</h2>
         <p>
-          If you decide that an icon is appropriate and there are no suitable options available, you can Contact Us to request a new icon. Please include a brief description of what the intended use is, and if possible a picture of where it will live in the context of your application. The UX team will review your request and provide a recommendation within 48 hours as to whether a new icon should be created or if an existing icon is available for you to use.
+          If you decide that an icon is appropriate and there are no suitable options available, you can <a href="mailto:pxblue@eaton.com">Contact Us</a> to request a new icon. Please include a brief description of what the intended use is, and if possible a picture of where it will live in the context of your application. The UX team will review your request and provide a recommendation within 48 hours as to whether a new icon should be created or if an existing icon is available for you to use.
         </p>
         <p style={{marginBottom: '50vh'}}>
-          If you have your own design resources who are able to create icons, you can build these on your own, following the <a href="https://material.io/guidelines/style/icons.html#icons-product-icons">Material Icon Guidelines</a> to maintain a common look and feel. If you do not have your own designers, we can work with you to build the icon you need. We can either build the icon in house or recommend external resources that you can use. Please note that going this route may take extra time, so try to get requests in as early as possible. If you are making your own icons, please consider contributing these back into the PX Blue icon library (subject to review).
+          If you have your own design resources who are able to create icons, you can build these on your own, following the <a href="https://material.io/guidelines/style/icons.html#icons-product-icons" target="_blank" rel="noopener noreferrer">Material Icon Guidelines</a> to maintain a common look and feel. If you do not have your own designers, we can work with you to build the icon you need. We can either build the icon in house or recommend external resources that you can use. Please note that going this route may take extra time, so try to get requests in as early as possible. If you are making your own icons, please consider contributing these back into the PX Blue icon library (subject to review).
         </p>
         <Footer />
       </div>

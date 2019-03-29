@@ -1,10 +1,6 @@
 version: 2
 jobs:
   build:
-    branches:
-      only:
-        - master
-        - dev
     docker:
       - image: circleci/node:8
     working_directory: ~/doc-it-dev
@@ -48,6 +44,9 @@ jobs:
 
               cd out
               git rm -rf .
+              # if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
+              #   echo "pxblue.eaton.com" > CNAME
+              # fi
               cd ..
 
               yarn build

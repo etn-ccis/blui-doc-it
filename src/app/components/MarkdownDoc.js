@@ -1,19 +1,14 @@
 import React from 'react';
 import { connect  } from 'react-redux';
-import showdown from 'showdown';
-import previewExtension from '../util/stackblitz-md';
+// import showdown from 'showdown';
+import stackBlitz, { externalLinks } from '../util/showdownExtensions';
 import Footer from './Footer';
 import { fetchMarkdown } from '../actions/docs';
+import { updateTitle } from "../actions/ui";
+import withWidth from '@material-ui/core/withWidth';
 
+const Converter = require('react-showdown').Converter;
 
-const converter = new showdown.Converter({
-  emoji: true,
-  tables: true,
-  parseImgDimensions: true,
-  extensions: [
-    previewExtension
-  ],
-});
 
 const mapStateToProps = state => ({
   alldocs: state.entities.get('docs'),
@@ -22,15 +17,29 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchMarkdown: path => dispatch(fetchMarkdown(path)),
+  updateToolbarTitle: () => {dispatch(updateTitle());}
 });
 
 class MarkdownDoc extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    props.updateToolbarTitle();
     this.container = "";
     this.state={
       validPage: true
     }
+    this.converter = new Converter({
+      emoji: true,
+      tables: true,
+      parseImgDimensions: true,
+      extensions: [
+        stackBlitz({
+          react: props.selectedFramework === 'angular' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed', 
+          angular: props.selectedFramework === 'react' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed'
+        }),
+        externalLinks
+      ],
+    });
   }
 
   componentWillMount() {
@@ -49,13 +58,6 @@ class MarkdownDoc extends React.Component {
     }
   }
 
-  componentDidMount(){
-    /* Hide the non-selected framework examples when the page loads */
-    if(this.container){
-      this.hideStackblitzExamples(this.findExamples(this.container));
-    }
-  }
-
 
   componentWillReceiveProps(nextProps){
     /* If user navigates to a new page, fetch the requested document and load it */
@@ -69,51 +71,20 @@ class MarkdownDoc extends React.Component {
         this.props.fetchMarkdown(require(`../../docs/notfound.md`));
       }
     }
-  }
-  componentDidUpdate(previousProps) {
-    if (this.container && (this.props.selectedFramework !== previousProps.selectedFramework)) {
-        this.hideStackblitzExamples(this.findExamples(this.container));
-    }
-
-    if (this.container) {
-      this.observer = new MutationObserver(mutations => {
-        mutations.forEach(mutation => {
-
-          const examples = this.findExamples(this.container);
-
-          if (!examples.length) {
-            return;
-          }
-
-          examples.forEach((target, idx) => {
-            if (this.props.selectedFramework) {
-                target.style.display = target.dataset.framework === this.props.selectedFramework.toLowerCase() ? 'block' : 'none';
-            }
-          });
-        });
+    if((nextProps.selectedFramework !== this.props.selectedFramework) || nextProps.width !== this.props.width){
+      this.converter = new Converter({
+        emoji: true,
+        tables: true,
+        parseImgDimensions: true,
+        extensions: [
+          stackBlitz({
+            react: nextProps.selectedFramework === 'angular' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed', 
+            angular: nextProps.selectedFramework === 'react' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed'
+          }),
+          externalLinks
+        ],
       });
-
-      const config = {
-        childList: true,
-      };
-
-      this.observer.observe(this.container, config);
-    }
-  }
-
-  findExamples(container){
-    /* Returns all of the stackblitz examples from the markdown file */
-    return Array.prototype.slice.call(container.children).filter(candidate => candidate.className === "stackblitz");
-  }
-
-  hideStackblitzExamples(examples) {
-    /* Sets display:none for examples not written in the selected framework */
-    if(this.container){
-      examples.forEach((example) => {
-        if (this.props.selectedFramework) {
-          example.style.display = (example.dataset.framework === this.props.selectedFramework.toLowerCase() ? 'block' : 'none');
-        }
-      });
+      this.forceUpdate();
     }
   }
 
@@ -123,25 +94,13 @@ class MarkdownDoc extends React.Component {
         {/* Valid Page ---> Show the document */}
         {this.state.validPage && 
           <div style={{paddingBottom: '50vh'}}>
-            <div
-              className="mark"
-              ref={ container => this.container = container }
-              dangerouslySetInnerHTML={{
-                  __html: converter.makeHtml(this.props.alldocs.get(require(`../../docs/${this.props.doc }.md`)))
-              }}
-            />
+              {this.converter.convert(this.props.alldocs.get(require(`../../docs/${this.props.doc }.md`)))}
           </div>
         }
         {/* Invalid Page ---> Show the 404 */}
         {!this.state.validPage && 
           <div style={{paddingBottom: '50vh'}}>
-            <div
-              className="mark"
-              ref={ container => this.container = container }
-              dangerouslySetInnerHTML={{
-                  __html: converter.makeHtml(this.props.alldocs.get(require(`../../docs/notfound.md`)))
-              }}
-            />
+            {this.converter.convert(this.props.alldocs.get(require(`../../docs/notfound.md`)))}
           </div>
         }
         {this.props.showFooter && <Footer/>}
@@ -150,4 +109,4 @@ class MarkdownDoc extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MarkdownDoc);
+export default connect(mapStateToProps, mapDispatchToProps)(withWidth()(MarkdownDoc));

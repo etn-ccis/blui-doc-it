@@ -1,7 +1,7 @@
 # Getting Started with React Native
 
 ### Setting up your environment
-You'll need to start by following the general instructions for setting up your development environment for mobile found in our [Hybrid App Guide](/getstarted/hybrid). In addition to the base requirements, you may also want the following:
+You'll need to start by following the general instructions for setting up your development environment for mobile found in our [Environment Guide](/development/environment). In addition to the base requirements, you may also want the following:
 
 - [Expo Client](https://expo.io/learn) (project creation / setup tool for React Native apps)(optional)
 
@@ -28,7 +28,7 @@ yarn global add react-native-cli
 ```
 
 ## Writing your application
-If you are familiar with React development, React Native will be relatively simple to understand. All of the application logic remains the same, while the UI requires a little adjustment. Rather than typical HTML elements, React Native UIs are built with a special library of [Components](https://facebook.github.io/react-native/docs/components-and-apis), including Views, Text, Image, etc. React Native layouts are built exclusively using FlexBox.
+If you are familiar with React development, React Native will be relatively simple to understand. The application logic remains the same, while the UI requires a little adjustment. Rather than typical HTML elements, React Native UIs are built with a special library of [Components](https://facebook.github.io/react-native/docs/components-and-apis), including Views, Text, Image, etc. React Native layouts are built exclusively using FlexBox.
 
 ## Building your application
 If you are using Create React Native App, your app will default to running via Expo (this will require you to install the Expo app on your test device).
@@ -37,7 +37,7 @@ Running ```yarn start``` will build your app and make it available for viewing. 
 
 >To run on an Android emulator, the emulator must already be running or you will see an error message, "No connected devices found." The first time you run Expo on the emulator, you'll be asked to update permissions for Expo - just follow the instructions in the dialog.
 
->On a Mac, you may be prompted to install watchman ('brew install watchman') or update two settings in order to run the application.
+>On a Mac, you may be prompted to install watchman (```brew install watchman```) or update two settings to run the application.
 
 When the application is running in Expo, any changes you make in your JS files will automatically update in the simulator.
 
@@ -62,7 +62,7 @@ For more information, read about [ejecting from CRNA](https://github.com/react-c
 After ejecting from CRNA, the process for creating a build is the same as for a standard native application. You can open the project folders in xCode (/ios/projectName.xcodeproj) or Android Studio (/android) and perform builds from the IDE. Depending on the version of React Native you are using, you may have to [manually bundle your JS code](https://stackoverflow.com/questions/44446523/unable-to-load-script-from-assets-index-android-bundle-on-windows) for Android.
 
 ## Component recommendations
-There are a lot of resources and components available on the market to help speed up your development and improve reusability. React Native also comes with a number of built-in components. We recommend the following:
+There are a lot of resources and components available on the market to help speed up your development and improve reusability. React Native also comes with a built-in component library. We recommend the following:
 - Navigation
     - [React Navigation](https://reactnavigation.org/) (JS-only implementation)
     - [React Native Navigation](https://wix.github.io/react-native-navigation/#/) (native implementation)
@@ -80,7 +80,7 @@ There are a lot of resources and components available on the market to help spee
 
 
 ## Theming your application
-React Native does not have a robust theming mechanism yet. There are libraries avilable that will allow you to build a theme, but for the most part, theming is accomplished by applying styles.
+React Native does not have a robust theming mechanism yet. There are libraries available that will allow you to build a theme, but for the most part, theming is accomplished by applying styles.
 
 Our color library is available from npm:
 

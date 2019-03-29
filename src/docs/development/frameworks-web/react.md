@@ -6,9 +6,9 @@ The fastest way to create an Angular application is to use [Create React App](ht
 To integrate PX Blue with your React project, you will need:
 
 1. An existing React application
-2. [Material-UI](https://material-ui.com/) Component Library
+2. The [Material-UI](https://material-ui.com/) Component Library
    	* Our themes are built for these components.
-3. PX Blue Themes for React:
+3. Our PX Blue Themes for React:
    	* These are available from npm as [@pxblue/themes](https://www.npmjs.com/package/@pxblue/themes)
 	* See below for installation instructions 
 
@@ -48,6 +48,8 @@ If you want to use multiple themes in different areas of your site, you just nee
     </MyApp>
 </MuiThemeProvider/>
 ```
+
+> **NOTE:** Material-UI recommends keeping your use of MuiThemeProvider to a minimum for better performance. In most cases, you'll be fine to use a single theme for your entire application and use one-off styling via CSS when necessary.
 
 You can read about [React Theming](https://material-ui-next.com/customization/themes/) to learn more.
 
