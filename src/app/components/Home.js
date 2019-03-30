@@ -164,13 +164,13 @@ class HomeComponent extends React.Component {
         <Hidden mdUp implementation="css">
           <div className={classes.gridList}>
             {tileData.map((tile, i) => (
-              <div key={tile.title} style={{backgroundColor: (i % 2 === 0) ? Colors.gray[50] : 'white', width: '100%'}}>
+              <Link to={tile.url} key={tile.title} style={{backgroundColor: (i % 2 === 0) ? Colors.gray[50] : 'white', width: '100%'}}>
                 <div style={{margin: '4rem'}}>
                   <img src={tile.img} alt={tile.title}/>
                   <Typography variant="h6" style={{color: Colors.black[500]}}>{tile.title}</Typography>
                   <Typography variant="subtitle1" className={classes.listBar}>{tile.description}</Typography>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </Hidden>
