@@ -14,8 +14,11 @@
 
 # production
 /build
-
 package-lock.json
+
+# IDE - VSCode
+.vscode/*
+
 
 # misc
 .DS_Store
