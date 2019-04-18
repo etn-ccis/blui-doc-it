@@ -7,20 +7,21 @@ Currently, PX Blue supports building charts and graphs using [Highcharts](http:/
 
 PX Blue themes for Highcharts graphs (line, column, pie, donut) are available as an NPM package ([@pxblue/highcharts](https://www.npmjs.com/package/@pxblue/highcharts)). This package includes base configuration objects and color definitions as well as some example charts to get you started. For more information about using Highcharts, check out their documentation.
 
-> In order to use Highcharts in an application, you will need a [license](https://shop.highsoft.com/highcharts/). Highcharts is  on a per-developer basis. <a href="mailto:pxblue@eaton.com">Contact Us</a> with your **Name**, **Division**, and **Product Name** for information about available licenses.
+> Highcharts is [licensed](https://shop.highsoft.com/highcharts/) on a per-developer basis. If you would like to use Highcharts in your applications, you will need to work with the appropriate software vendors to make sure your product is properly licensed. In the future, we plan to explore additional open-source charting solutions for inclusion in PX Blue.
+
 
 {{ angular stackblitz=https://stackblitz.com/edit/pxblue-highcharts-angular?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
 
 {{ react stackblitz=https://stackblitz.com/edit/pxblue-highcharts-react?embed=1&file=index.js&hideNavigation=1&view=preview }}
 
->**NOTE:** these examples merely serve to show how to how to bring highcharts into you application and adjust some of the common chart parameters. You will want to adjust these values to meet the design requirements of your application.
+>**NOTE:** these examples merely serve to show how to bring highcharts into you application and adjust some of the common chart parameters. You will want to adjust these values to meet the design requirements of your application.
 
 ## Mapping (Mapbox)
 If your application needs to show data on a geographical map, PX Blue supports the use of [Mapbox](https://www.mapbox.com/), a visually pleasing mapping solution that uses data from OpenStreetMap.
 
 Mapbox can be used on Android and iOS or on the web with Angular and React. A PX Blue theme for styling these maps is available as an NPM package ([@pxblue/mapbox](https://www.npmjs.com/package/@pxblue/mapbox)).
 
-> In order to use MapBox in a production application, you will need an [access token](https://www.mapbox.com/help/how-access-tokens-work). <a href="mailto:pxblue@eaton.com">Contact Us</a> with your **Name**, **Division**, and **Product Name** to request a token.
+> Using Mapbox is subject to certain [terms](https://www.mapbox.com/pricing/). If you would like to use Mapbox in your applications, you will need to work with Mapbox to ensure your product is properly licensed.
 
 {{ angular stackblitz=https://stackblitz.com/edit/pxblue-mapbox-angular?embed=1&file=main.ts&hideNavigation=1&view=preview }}
 
