@@ -14,6 +14,7 @@ import Chip from '@material-ui/core/Chip';
 import Hidden from '@material-ui/core/Hidden';
 import pxIcon from "../icons/pxblue.png";
 import pxLogo from "../icons/pxblue.svg";
+import eatongrey from "../icons/eatongrey.svg";
 import {PX_BLUE_VERSION} from '../constants/ui';
 
 import * as Colors from '@pxblue/colors';
@@ -53,11 +54,15 @@ const styles = theme => ({
     flexGrow: 1
   },
   contactus:{
-    flex: '0 0 auto', 
+    // flex: 'auto', 
+    alignItems: 'center',
+    // display: 'flex',
+    justifyContent: 'space-between',
+    padding: '15px',
     background: Colors.gray[50],
-    '& a':{
+    '& img':{
       marginLeft: '80px',
-      lineHeight: '64px'
+      lineHeight: '64px',
     }
   }
 });
@@ -89,9 +94,9 @@ class SideNav extends Component {
           <TopLevelMenuItem key={page.displayName+index} config={page}/>
         )}
       </List>
+      <Divider/>
       <div className={classes.contactus}>
-        <Divider/>
-        <a href="mailto:pxblue@eaton.com">Contact Us</a>
+        <img src={eatongrey} alt=""/>
       </div>
     </div>);
   }

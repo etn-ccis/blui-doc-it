@@ -19,7 +19,8 @@ import circles from "../icons/circles-bg.svg";
 import code from "../icons/code.svg";
 import patterns from "../icons/patterns.svg";
 import Hidden from '@material-ui/core/Hidden';
-
+// import EatonLogo from "../icons/EatonLogo.svg";
+import EatonLogowhite from '../icons/EatonLogowhite.svg';
 import * as Colors from '@pxblue/colors';
 
 const styles = theme => ({
@@ -48,7 +49,7 @@ const styles = theme => ({
     backgroundPosition: 'center center',
     backgroundSize: 'cover',
     position: 'relative',
-    padding: '4rem',
+    padding: '3rem',
     display: 'flex',
     alignItems: 'start',
     marginTop: 0,//'-64px',
@@ -141,11 +142,14 @@ class HomeComponent extends React.Component {
     return (
       <div>
         <AppBar className={classes.jumboHeader} color='primary'>
+        <div style={{width:'100%'}} >
             <img className={classes.spinningLogo} src={pxIcon} alt=""/>
             <Typography variant={"h6"} className={classes.title}>
               Power Xpert<sup style={{fontSize: '2rem'}}>&reg;</sup> <strong>Blue</strong>&nbsp;
             </Typography>
             <Typography className={classes.subtitle}>A Design System for Eaton Applications</Typography>
+            <img  style={{marginTop: '10px', float: 'right'}} src={EatonLogowhite} alt=""/>  
+           </div>
         </AppBar>
         <Hidden smDown implementation="css">
           <div className={classes.gridList}>

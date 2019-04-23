@@ -9,6 +9,7 @@ import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/
 import {SHOW_MOBILE, HIDE_MOBILE, TOGGLE_MOBILE} from './constants/ui';
 import  Drawer  from '@material-ui/core/Drawer';
 import MenuIcon from '@material-ui/icons/Menu';
+import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton';
 import SideNav from './components/SideNav';
 import MarkdownDoc from './components/MarkdownDoc';
@@ -21,6 +22,7 @@ import ColorComponent from "./components/Color";
 import IconographyComponent from "./components/Iconography";
 import * as colors from '@pxblue/colors';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import eaton from './icons/eaton.svg';
 
 require('typeface-roboto-mono');
 
@@ -107,14 +109,23 @@ const styles = theme => ({
       margin: 'auto'
     },
   },
+  button: {
+    position: 'fixed',
+    bottom: '0',
+    right: '24px',
+    borderRadius: '4px 4px 0 0 '
+  },
   appBar:{
     top: 0, 
+    width: 'auto',
     left: drawerWidth,
     [theme.breakpoints.down('sm')]: {
       left: 0
     }
   },
   toolbar:{
+    justifyContent: 'space-between',
+    alignItems: 'center',
     [theme.breakpoints.down('sm')]: {
       paddingLeft: theme.spacing.unit * 1
     }
@@ -216,6 +227,7 @@ class App extends Component {
                   <Typography variant="h6" color="inherit">
                     {this.props.pagetitle}
                   </Typography>
+                  <img width='100px' height='auto' src={eaton} alt=""/>                           
                 </Toolbar>
               </AppBar>
             }
@@ -228,6 +240,7 @@ class App extends Component {
                         state => ({ framework: choice })
                       )} />
                   <div style={{ flex: "1 1 0px", textAlign: "right" }}>
+
                     <Hidden xsDown>
                       <Typography color="inherit">
                         Selecting a framework will show code examples for
@@ -238,7 +251,11 @@ class App extends Component {
                 </Toolbar>
               </AppBar>
             }
+            <Button href="mailto:pxblue@eaton.com" variant="contained" color="primary" className={classes.button}>
+        Contact Us
+      </Button>
 
+          {/* <a href="mailto:pxblue@eaton.com">Contact Us</a> */}
             {!this.state.showFrameworkSelect && window.location.pathname !== "/" && <div className={classes.spacer}/>}
 
             {/* Main Router for page content  */}
