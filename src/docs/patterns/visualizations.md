@@ -7,7 +7,7 @@ Currently, PX Blue supports building charts and graphs using [Highcharts](http:/
 
 PX Blue themes for Highcharts graphs (line, column, pie, donut) are available as an NPM package ([@pxblue/highcharts](https://www.npmjs.com/package/@pxblue/highcharts)). This package includes base configuration objects and color definitions as well as some example charts to get you started. For more information about using Highcharts, check out their documentation.
 
-> Highcharts is [licensed](https://shop.highsoft.com/highcharts/) on a per-developer basis. If you would like to use Highcharts in your applications, you will need to work with the appropriate software vendors to make sure your product is properly licensed. In the future, we plan to explore additional open-source charting solutions for inclusion in PX Blue.
+> Highcharts has different [licensing](https://shop.highsoft.com/faq/licensing) requirements depending on the nature of your application - you will need to contact Highsoft directly to ensure that your product is properly licensed. You can also see the [Highcharts Pricing](https://shop.highsoft.com/highcharts/) page for pricing information. In the future, we plan to explore additional open-source charting solutions for inclusion in PX Blue.
 
 
 {{ angular stackblitz=https://stackblitz.com/edit/pxblue-highcharts-angular?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
