@@ -128,8 +128,6 @@ const styles = theme => ({
     }
   },
   toolbar:{
-    justifyContent: 'space-between',
-    alignItems: 'center',
     [theme.breakpoints.down('sm')]: {
       paddingLeft: theme.spacing.unit * 1
     }
@@ -231,7 +229,10 @@ class App extends Component {
                   <Typography variant="h6" color="inherit">
                     {this.props.pagetitle}
                   </Typography>
-                  <img width='100px' height='auto' src={eaton} alt=""/>                           
+                  <div style={{flex: '1 1 0px'}}/>
+                  <Hidden xsDown implementation="css">
+                    <img width={'auto'} height={20} src={eaton} alt="Eaton Logo" style={{display: 'block'}}/>                           
+                  </Hidden>
                 </Toolbar>
               </AppBar>
             }
@@ -256,9 +257,10 @@ class App extends Component {
               </AppBar>
             }
             <Fab  href='mailto:pxblue@eaton.com' variant="extended" color= {'primary'} className={classes.button}>
-            <Mail style={{marginRight: 8}} />
-            Contact Us
+              <Mail style={{marginRight: 8}} />
+              Contact Us
             </Fab>
+
             {!this.state.showFrameworkSelect && window.location.pathname !== "/" && <div className={classes.spacer}/>}
 
             {/* Main Router for page content  */}

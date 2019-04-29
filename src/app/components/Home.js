@@ -18,6 +18,7 @@ import patterns from "../icons/patterns.svg";
 import Hidden from '@material-ui/core/Hidden';
 import EatonLogowhite from '../icons/EatonLogowhite.svg';
 import * as Colors from '@pxblue/colors';
+import Footer from './Footer';
 
 
 
@@ -32,6 +33,7 @@ const styles = theme => ({
     justifyContent: 'space-around',
     alignContent: 'center',
     width: '100%',
+    marginBottom: '50vh'
   },
   listBar: {
     whiteSpace: 'normal',
@@ -142,10 +144,12 @@ class HomeComponent extends React.Component {
         <AppBar className={classes.jumboHeader} color='primary'>
             <img className={classes.spinningLogo} src={pxIcon} alt=""/>
             <Typography variant={"h6"} className={classes.title}>
-              Power Xpert<sup style={{fontSize: '2rem'}}>&reg;</sup> <strong>Blue</strong>&nbsp;
+              Power Xpert <strong>Blue</strong>&nbsp;
             </Typography>
             <Typography className={classes.subtitle}>A Design System for Eaton Applications</Typography>
-            <img  style={{position: 'absolute', bottom: '1rem', right: '1rem', height: '35', marginTop: '10px', float: 'right'}} src={EatonLogowhite} alt=""/>  
+            <Hidden xsDown implementation="css">
+              <img height={35} width={'auto'} style={{position: 'absolute', bottom: '1rem', right: '1rem'}} src={EatonLogowhite} alt=""/>  
+            </Hidden>
         </AppBar>
         <Hidden smDown implementation="css">
           <div className={classes.gridList}>
@@ -174,6 +178,7 @@ class HomeComponent extends React.Component {
             ))}
           </div>
         </Hidden>
+        <Footer/>
       </div>
     );
   }

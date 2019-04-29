@@ -53,17 +53,13 @@ const styles = theme => ({
     marginLeft: '64px',
     flexGrow: 1
   },
-  contactus:{
-    // flex: 'auto', 
+  eaton:{
+    flex: '0 0 auto',
+    display: 'flex',
     alignItems: 'center',
-    // display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     padding: '15px',
-    background: Colors.gray[50],
-    '& img':{
-      marginLeft: '80px',
-      lineHeight: '64px',
-    }
+    background: Colors.gray[50]
   }
 });
 
@@ -95,8 +91,8 @@ class SideNav extends Component {
         )}
       </List>
       <Divider/>
-      <div className={classes.contactus}>
-        <img src={eatongrey} alt=""/>
+      <div className={classes.eaton}>
+        <img src={eatongrey} alt="Eaton Logo" height={50} width={'auto'} />
       </div>
     </div>);
   }
