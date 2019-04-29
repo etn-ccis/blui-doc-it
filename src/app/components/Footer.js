@@ -22,7 +22,7 @@ const Footer = ({classes}) => (
         <a className={classes.link} href="http://www.eaton.com" target="_blank" rel="noopener noreferrer">
             Power Xpert Blue is a part of the Center for Connected Intelligent Solutions (CCIS).<br/>
             <span style={{color:Colors.blue[500]}}>Learn more about our other offerings.</span>
-            <div style={{marginTop: 20, align: 'top', position: 'center', paddingLeft: '40px'}}>
+            <div style={{marginTop: 20, paddingLeft: '44px', height: '50', width: 'auto'}}>
             <img src={EatonLogo} alt=""/>
             </div>
         </a>
