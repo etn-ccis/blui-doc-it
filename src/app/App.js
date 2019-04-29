@@ -9,6 +9,7 @@ import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/
 import {SHOW_MOBILE, HIDE_MOBILE, TOGGLE_MOBILE} from './constants/ui';
 import  Drawer  from '@material-ui/core/Drawer';
 import MenuIcon from '@material-ui/icons/Menu';
+import Mail from '@material-ui/icons/Mail'
 import IconButton from '@material-ui/core/IconButton';
 import SideNav from './components/SideNav';
 import MarkdownDoc from './components/MarkdownDoc';
@@ -21,6 +22,8 @@ import ColorComponent from "./components/Color";
 import IconographyComponent from "./components/Iconography";
 import * as colors from '@pxblue/colors';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import eaton from './icons/eaton.svg';
+import { Fab } from '@material-ui/core';
 
 require('typeface-roboto-mono');
 
@@ -107,8 +110,18 @@ const styles = theme => ({
       margin: 'auto'
     },
   },
+  button: {
+    position: 'fixed',
+    bottom: '1rem',
+    right: '1rem',
+    opacity: 0.8,
+    '&:hover': {
+      opacity:1
+    }
+  },
   appBar:{
     top: 0, 
+    width: 'auto',
     left: drawerWidth,
     [theme.breakpoints.down('sm')]: {
       left: 0
@@ -216,6 +229,10 @@ class App extends Component {
                   <Typography variant="h6" color="inherit">
                     {this.props.pagetitle}
                   </Typography>
+                  <div style={{flex: '1 1 0px'}}/>
+                  <Hidden xsDown implementation="css">
+                    <img width={'auto'} height={20} src={eaton} alt="Eaton Logo" style={{display: 'block'}}/>                           
+                  </Hidden>
                 </Toolbar>
               </AppBar>
             }
@@ -228,6 +245,7 @@ class App extends Component {
                         state => ({ framework: choice })
                       )} />
                   <div style={{ flex: "1 1 0px", textAlign: "right" }}>
+
                     <Hidden xsDown>
                       <Typography color="inherit">
                         Selecting a framework will show code examples for
@@ -238,6 +256,10 @@ class App extends Component {
                 </Toolbar>
               </AppBar>
             }
+            <Fab  href='mailto:pxblue@eaton.com' variant="extended" color= {'primary'} className={classes.button}>
+              <Mail style={{marginRight: 8}} />
+              Contact Us
+            </Fab>
 
             {!this.state.showFrameworkSelect && window.location.pathname !== "/" && <div className={classes.spacer}/>}
 
