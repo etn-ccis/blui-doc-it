@@ -15,7 +15,7 @@ export const externalLinks = () => {
         { // Replaces external links with new tab anchor links
             type: 'lang',
             // regex: /\[\(?([A-Za-z -/@_,.]+?)\)??\]\((http[^\s![\]]+?)\)/g,
-            regex: /\[(.+?)\]\((http[^\s![\]]+?)\)/g,
+            regex: /\[([^\]]+?)\]\((http[^\s![\]]+?)\)/g,
             replace: (matchString, desc, url, offset) => {
                 return `<a href='${url}' target='_blank' rel='noopener noreferrer'>${desc}</a>`;
             }
