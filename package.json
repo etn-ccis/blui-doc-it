@@ -21,6 +21,7 @@
     "react": "^16.6.3",
     "react-app-polyfill": "^0.2.2",
     "react-dom": "^16.6.3",
+    "react-ga": "^2.5.7",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.2.2",
     "react-showdown": "^1.6.0",
