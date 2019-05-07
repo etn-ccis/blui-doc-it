@@ -43,4 +43,3 @@
     "ga:dev": "cp -r ./config/index.dev.html ./public/index.html && cp -r ./config/ga.dev.js ./src/ga.js"
   }
 }
-
