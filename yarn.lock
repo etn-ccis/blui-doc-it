@@ -69,6 +69,11 @@
     prop-types "^15.6.0"
     react-is "^16.6.3"
 
+"@pxblue/colors-branding@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/@pxblue/colors-branding/-/colors-branding-1.0.10.tgz#9ebbbec57ab6041ced3d20b78307af866a03ce08"
+  integrity sha512-ePu8zRVHR8vgxz+NOlN0vU96rTQp/GwYyZzOlCk2aME7dv5/iJ6lECml1tIVVj6Wf9YGM9/18+FgElLnG5w6eA==
+
 "@pxblue/colors@^1.0.1", "@pxblue/colors@^1.0.9":
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/@pxblue/colors/-/colors-1.0.10.tgz#64670d03e9ecab700f52540013408e06a4c35fa4"
@@ -6836,7 +6841,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2:
+prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -7047,6 +7052,11 @@ react-event-listener@^0.6.2:
     "@babel/runtime" "^7.2.0"
     prop-types "^15.6.0"
     warning "^4.0.1"
+
+react-ga@^2.5.7:
+  version "2.5.7"
+  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.5.7.tgz#1c80a289004bf84f84c26d46f3a6a6513081bf2e"
+  integrity sha512-UmATFaZpEQDO96KFjB5FRLcT6hFcwaxOmAJZnjrSiFN/msTqylq9G+z5Z8TYzN/dbamDTiWf92m6MnXXJkAivQ==
 
 react-is@^16.6.0, react-is@^16.6.3, react-is@^16.7.0, react-is@^16.8.1:
   version "16.8.2"

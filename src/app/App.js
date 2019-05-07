@@ -106,7 +106,7 @@ const styles = theme => ({
     height: 'calc(100% - 56px)',
     [theme.breakpoints.up('sm')]: {
       height: 'calc(100% - 64px)',
-      maxWidth:'1100px',
+      maxWidth:'1150px',
       margin: 'auto'
     },
   },
