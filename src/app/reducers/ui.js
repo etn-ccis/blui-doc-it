@@ -3,7 +3,7 @@ import { FETCH_DOC_SUCCESS, FETCH_DOC_PENDING, FETCH_DOC_FAILURE } from '../cons
 import {findTitle} from '../util/findPageTitle';
 import { UI_UPDATE_TITLE, SHOW_MOBILE, HIDE_MOBILE, TOGGLE_MOBILE } from '../constants/ui';
 import ReactGA from 'react-ga';
-import { gaID } from '../src/ga.js';
+import { gaID } from '../ga.js';
 
 if( gaID ){
   ReactGA.initialize(gaID);
