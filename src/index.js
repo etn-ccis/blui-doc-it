@@ -9,7 +9,7 @@ import './app/util/polyfills';
 import ReactGA from 'react-ga';
 import { gaID } from './ga.js';
 if( gaID ){
-  ReactGA.initialize('UA-139646200-2');
+  ReactGA.initialize(gaID);
 }
 require('typeface-open-sans');
 const store = configureStore();
