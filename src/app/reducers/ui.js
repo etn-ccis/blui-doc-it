@@ -5,10 +5,6 @@ import { UI_UPDATE_TITLE, SHOW_MOBILE, HIDE_MOBILE, TOGGLE_MOBILE } from '../con
 import ReactGA from 'react-ga';
 import { gaID } from '../../ga.js';
 
-if( gaID ){
-  ReactGA.initialize(gaID);
-}
-
 const INITIAL_STATE = fromJS({
   surprise: false,
   framework: 'angular',
