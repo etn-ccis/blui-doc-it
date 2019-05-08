@@ -39,7 +39,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "ga:prod": "cp -r ./config/index.prod.html ./public/index.html && cp -r ./config/ga.prod.js ./src/ga.js",
-    "ga:dev": "cp -r ./config/index.dev.html ./public/index.html && cp -r ./config/ga.dev.js ./src/ga.js"
+    "ga:prod": "cp -r ./config/ga.prod.js ./src/ga.js",
+    "ga:dev": "cp -r ./config/ga.dev.js ./src/ga.js"
   }
 }

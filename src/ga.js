@@ -1,2 +1,2 @@
 
-export const gaID = ('UA-139323344-3');
+export const gaID = 'UA-139646200-2';
