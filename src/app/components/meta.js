@@ -11,11 +11,11 @@ const sections = [
                 description: '',
                 palette: Colors.blue
             },
-            {
-                title: 'Light Blue',
-                description: '',
-                palette: Colors.lightBlue
-            },
+            // {
+            //     title: 'OLED Black',
+            //     description: '',
+            //     palette: Colors.oledBlack
+            // },
             {
                 title: 'Black',
                 description: 'Avoid the use of pure black (<b style="color: black">#000000</b>) in a UI, except in instances where you have a Dark Mode display on an OLED screen.',
@@ -25,6 +25,11 @@ const sections = [
                 title: 'Gray',
                 description: '',
                 palette: Colors.gray
+            },
+            {
+                title: 'White',
+                description: '',
+                palette: Colors.white
             }
         ]
     },
@@ -39,27 +44,32 @@ const sections = [
             },
             {
                 title: 'Orange',
-                description: 'Orange is used to denote a loss of communication. Avoid using it for any other purpose.',
+                description: 'Orange is used to denote warnings, loss of communication, and other types of alerts. Avoid using it for any states that do not require attention.',
                 palette: Colors.orange
             },
             {
+                title: 'Light Blue',
+                description: 'Light Blue should not be confused with the UI Blue. This can be used to indicate a variety of statuses, including Maintenance Mode, device disabled, etc.',
+                palette: Colors.lightBlue
+            },
+            {
                 title: 'Purple',
-                description: 'Purple is used to denote a device is disabled. Avoid using it for any other purpose.',
+                description: 'Purple is used to denote a device is disarmed. Avoid using it for any states that do not require attention.',
                 palette: Colors.purple
             },
             {
                 title: 'Yellow',
-                description: '',
+                description: 'Yellow can be used to indicate tripped status for electrical devices, or low-level alerts.',
                 palette: Colors.yellow
             },
             {
                 title: 'Green',
-                description: '',
+                description: 'Green can be used to indicate "safety", "good", "success", or other positive states.',
                 palette: Colors.green
             },
             {
                 title: 'Gold',
-                description: '',
+                description: 'Gold can be used to give additional variety to your alerts in combination with Red and Orange.',
                 palette: Colors.gold
             }
         ]
@@ -68,6 +78,11 @@ const sections = [
         title: "Eaton Branding Colors",
         description: "This expanded version of the Eaton color palette contains colors to be used for marketing, product identity, visualization (non-status), etc. Power Xpert Blue uses these colors as the palette for charting and graphing.",
         colors:[
+            {
+                title: 'Blue',
+                description: '',
+                palette: Branding.blue
+            },
             {
                 title: 'Teal',
                 description: '',
@@ -117,7 +132,34 @@ const sections = [
                 title: 'Sky',
                 description: '',
                 palette: Branding.sky
+            },
+            {
+                title: 'Sage',
+                description: '',
+                palette: Branding.sage
+            },
+            {
+                title: 'Toad',
+                description: '',
+                palette: Branding.toad
+            },
+            {
+                title: 'Butter',
+                description: '',
+                palette: Branding.butter
+            },
+            {
+                title: 'Goldenrod',
+                description: '',
+                palette: Branding.goldenrod
+            },
+            {
+                title: 'Trophy',
+                description: '',
+                palette: Branding.trophy
             }
+            
+
         ]
     }
 ];

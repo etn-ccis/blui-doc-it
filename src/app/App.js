@@ -114,6 +114,7 @@ const styles = theme => ({
     position: 'fixed',
     bottom: '1rem',
     right: '1rem',
+    zIndex: 100,
     opacity: 0.8,
     '&:hover': {
       opacity:1
