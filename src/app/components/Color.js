@@ -135,7 +135,7 @@ class ColorComponent extends React.Component {
             </div>
           </div>
           <p>
-            PX Blue offers a variety of different colors for use in your applications. Our color palettes utilize a weighted approach to give designers and developers a versatile set of colors for solving common color-related issues (e.g., accessibility). <a href="https://www.google.com">Learn more about weighted color palettes</a>.
+            PX Blue offers a variety of different colors for use in your applications. Our color palettes utilize a weighted approach to give designers and developers a versatile set of colors for solving common color-related issues (e.g., accessibility). <a href="https://material.io/design/color" target="_blank" rel="noopener noreferrer">Learn more about weighted color palettes</a>.
           </p>
           <p>
             Our color sets are divided into sections as outlined below. User Interface and Status colors are available in a single package (<a href="https://www.npmjs.com/package/@pxblue/colors">@pxblue/colors</a>). Eaton Branding (Charts and Graphs) colors are available as an additional package (<a href="https://www.npmjs.com/package/@pxblue/colors-branding">@pxblue/colors-branding</a>).

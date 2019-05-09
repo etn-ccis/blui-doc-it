@@ -22,7 +22,7 @@ const styles = (theme) => ({
         border: "1px solid " + ThemeColors.gray[200],
         margin: "4px",
         height: "150px",
-        width: "100px",
+        width: "90px",
         transition: "all ease-in-out 1000"
       },
       swatchSm: {
@@ -46,7 +46,7 @@ class Swatch extends React.Component {
     render(){
         const {color, weight, label, classes} = this.props;
         return(
-            <GridListTile key={color.title+'_'+weight} 
+            <GridListTile key={color+'_'+weight} 
                 className={this.getSwatchSize()} 
                 style={{ backgroundColor: color }}
             >
