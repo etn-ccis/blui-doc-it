@@ -24,7 +24,6 @@
 		]},
 		{"displayName": "Design Patterns", "url": "patterns", "pages": [
 			{"displayName": "App Bars", "url": "appbar"},
-			{"displayName": "Form Validation", "url": "forms"},
 			{"displayName": "Lists", "url": "lists"},
 			{"displayName": "Login", "url": "login"},
 			{"displayName": "Navigation", "url": "navigation"},
