@@ -5,8 +5,6 @@ import { connect } from "react-redux";
 
 // import Typography from "@material-ui/core/Typography";
 import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
-import GridListTileBar from "@material-ui/core/GridListTileBar";
 import Switch from "@material-ui/core/Switch";
 import * as ThemeColors from "@pxblue/colors";
 import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
@@ -14,16 +12,11 @@ import { updateTitle } from "../actions/ui";
 import Footer from "./Footer";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 
+import Swatch from './Swatch';
+
+import meta from './meta';
+
 const styles = theme => ({
-  root: {
-    marginBottom: "50vh",
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
-    marginLeft: "-4px",
-    backgroundColor: "transparent"
-  },
   header:{
     display: 'flex', 
     justifyContent: 'space-between',
@@ -33,43 +26,11 @@ const styles = theme => ({
       alignItems: 'flex-start'
     }
   },
-  gridList: {
-    width: "100%",
-    overflow: "visible"
-  },
   colorGrid: {
     width: "100%",
     display: "flex",
     overflow: "visible",
     backgroundColor: "transparent"
-  },
-  colorGridTitle: {
-    height: 100,
-    backgroundColor: "transparent",
-    padding: "0 !important",
-    paddingTop: "48px !important",
-    marginLeft: "2px"
-  },
-  swatch: {
-    padding: "0px !important",
-    border: "1px solid " + ThemeColors.gray[200],
-    margin: "4px",
-    height: "150px !important",
-    width: "100px !important",
-    transistion: "all ease-in-out 2s"
-  },
-  swatchSm: {
-    padding: "0px !important",
-    border: "1px solid " + ThemeColors.gray[200],
-    margin: "4px",
-    height: "200px !important",
-    width: "150px !important",
-    transistion: "all ease-in-out 2s",
-    
-  },
-  swatchTitle: {
-    color: ThemeColors.black[500],
-    fontWeight: 600
   },
   swatchSubtitle: {
     fontFamily: "Roboto Mono",
@@ -108,12 +69,7 @@ class ColorComponent extends React.Component {
     return isWidthUp("md", this.props.width) ? 10 : 5;
   }
 
-  getSwatchSize(){
-    const { classes } = this.props;
-    return isWidthUp("md", this.props.width) ? classes.swatch : classes.swatchSm;
-  }
-
-  getColorString(color) {
+  getColorLabel(color){
     const { classes } = this.props;
     if (this.state.isHex) {
       return <span className={classes.swatchSubtitle}>{color}</span>;
@@ -128,49 +84,36 @@ class ColorComponent extends React.Component {
     ) : null;
   }
 
-  makeColorPalette = () => {
-    let colorPalette = [];
 
-    Object.keys(ThemeColors).forEach(color => {
-      colorPalette.push(this.makeColorList(color));
-    });
-
-    return colorPalette;
-  };
-
-  makeColorList = color => {
+  makeColorRow = (color) => {
     const { classes } = this.props;
     let colorList = [];
 
-    Object.keys(ThemeColors[color]).forEach(weight => {
+    Object.keys(color.palette).forEach(weight => {
       if (Number.isInteger(parseInt(weight, 10))) {
-        colorList.push(<GridListTile key={color + weight} className={this.getSwatchSize()} style={{ backgroundColor: ThemeColors[color][weight] }}>
-            {weight === "500" && <GridListTileBar style={{ backgroundColor: "transparent" }} titlePosition="top" actionIcon={<BookmarkIcon style={{ color: "white", marginLeft: "6px" }} />} actionPosition="left" />}
-            <GridListTileBar style={{ backgroundColor: "white", paddingBottom: "4px" }} title={<span
-                  className={classes.swatchTitle}
-                >
-                  {weight}:
-                </span>} subtitle={this.getColorString(ThemeColors[color][weight])} />
-          </GridListTile>);
+        colorList.push(
+          <Swatch key={color.title+'_'+weight} 
+            color={color.palette[weight]} 
+            weight={weight} 
+            label={this.getColorLabel(color.palette[weight])}
+          />
+        );
       }
     });
 
     return (
-      <GridList
-        key={color + "_grid"}
-        cellHeight={"auto"}
-        cols={this.getColumns()}
-        className={classes.colorGrid}
-      >
-        <GridListTile
-          key="Subheader"
+      <React.Fragment key={color.title}>
+        <h3 style={{marginTop: '3rem'}}>{unCamelCase(color.title)}</h3>
+        {color.description ? <p dangerouslySetInnerHTML={{ __html: color.description }}></p> : null}
+        <GridList
+          key={color.title+'_grid'}
+          cellHeight={"auto"}
           cols={this.getColumns()}
-          classes={{ root: classes.colorGridTitle }}
+          className={classes.colorGrid}
         >
-          <h2>{unCamelCase(color)}</h2>
-        </GridListTile>
-        {colorList}
-      </GridList>
+          {colorList}
+        </GridList>
+      </React.Fragment>
     );
   };
 
@@ -179,22 +122,39 @@ class ColorComponent extends React.Component {
 
     return (
       <React.Fragment>
-        <div className={classes.header}>
-          <h1>PX Blue Color Palette</h1>
-          <div>
-            RGB
-            <Switch
-              checked={this.state.isHex}
-              onChange={(e, checked) => this.setState({ isHex: checked })}
-            />
-            HEX
+        <div style={{marginBottom: '50vh'}}>
+          <div className={classes.header}>
+            <h1>PX Blue Color Palette</h1>
+            <div>
+              RGB
+              <Switch
+                checked={this.state.isHex}
+                onChange={(e, checked) => this.setState({ isHex: checked })}
+              />
+              HEX
+            </div>
           </div>
-        </div>
-        <p>
-          PX Blue offers a variety of different colors for use in your applications. In most cases, you should stick to using the 500 color (<BookmarkIcon style={{marginTop: "4px"}}/>), which is the primary color for each palette. When using PX Blue themes, the most important elements of the UI will be stylized with these colors.<br />
-        </p>
+          <p>
+            PX Blue offers a variety of different colors for use in your applications. Our color palettes utilize a weighted approach to give designers and developers a versatile set of colors for solving common color-related issues (e.g., accessibility). <a href="https://material.io/design/color" target="_blank" rel="noopener noreferrer">Learn more about weighted color palettes</a>.
+          </p>
+          <p>
+            Our color sets are divided into sections as outlined below. User Interface and Status colors are available in a single package (<a href="https://www.npmjs.com/package/@pxblue/colors">@pxblue/colors</a>). Eaton Branding (Charts and Graphs) colors are available as an additional package (<a href="https://www.npmjs.com/package/@pxblue/colors-branding">@pxblue/colors-branding</a>).
+          </p>
+          <p>
+            In most cases, you should stick to using the 500 color (<BookmarkIcon style={{verticalAlign: "middle"}}/>), which is the primary color for each palette. When using PX Blue themes, the most important elements of the UI will be stylized with these colors.<br />
+          </p>
         
-        <div className={classes.root}>{this.makeColorPalette()}</div>
+        {meta.map((section) => (
+          <React.Fragment key={section.title}>
+            <br/><br/>
+            <h2>{section.title}</h2>
+            <p dangerouslySetInnerHTML={{ __html: section.description }}/>
+            {section.colors.map( color => 
+              this.makeColorRow(color)
+            )}
+          </React.Fragment>
+        ))}
+        </div>
         <Footer />
       </React.Fragment>
     );

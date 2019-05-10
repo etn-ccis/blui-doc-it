@@ -7,20 +7,20 @@ import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 import pxIcon from '../icons/pxblue-white.svg';
-// import interaction from "../icons/interaction.svg";
 import reuse from "../icons/reuse.svg";
 import mobile from "../icons/mobile.svg";
-// import cybersecurity from "../icons/cybersecurity.svg";
 import design from "../icons/design.svg";
-// import tested from "../icons/tested.svg";
 import ux from "../icons/ux.svg";
 import visual from "../icons/visual.svg";
 import circles from "../icons/circles-bg.svg";
 import code from "../icons/code.svg";
 import patterns from "../icons/patterns.svg";
 import Hidden from '@material-ui/core/Hidden';
-
+import EatonLogowhite from '../icons/EatonLogowhite.svg';
 import * as Colors from '@pxblue/colors';
+import Footer from './Footer';
+
+
 
 const styles = theme => ({
   root: {
@@ -33,6 +33,7 @@ const styles = theme => ({
     justifyContent: 'space-around',
     alignContent: 'center',
     width: '100%',
+    marginBottom: '50vh'
   },
   listBar: {
     whiteSpace: 'normal',
@@ -143,9 +144,12 @@ class HomeComponent extends React.Component {
         <AppBar className={classes.jumboHeader} color='primary'>
             <img className={classes.spinningLogo} src={pxIcon} alt=""/>
             <Typography variant={"h6"} className={classes.title}>
-              Power Xpert<sup style={{fontSize: '2rem'}}>&reg;</sup> <strong>Blue</strong>&nbsp;
+              Power Xpert <strong>Blue</strong>&nbsp;
             </Typography>
             <Typography className={classes.subtitle}>A Design System for Eaton Applications</Typography>
+            <Hidden xsDown implementation="css">
+              <img height={35} width={'auto'} style={{position: 'absolute', bottom: '1rem', right: '1rem'}} src={EatonLogowhite} alt=""/>  
+            </Hidden>
         </AppBar>
         <Hidden smDown implementation="css">
           <div className={classes.gridList}>
@@ -164,21 +168,21 @@ class HomeComponent extends React.Component {
         <Hidden mdUp implementation="css">
           <div className={classes.gridList}>
             {tileData.map((tile, i) => (
-              <div key={tile.title} style={{backgroundColor: (i % 2 === 0) ? Colors.gray[50] : 'white', width: '100%'}}>
+              <Link to={tile.url} key={tile.title} style={{backgroundColor: (i % 2 === 0) ? Colors.gray[50] : 'white', width: '100%'}}>
                 <div style={{margin: '4rem'}}>
                   <img src={tile.img} alt={tile.title}/>
                   <Typography variant="h6" style={{color: Colors.black[500]}}>{tile.title}</Typography>
                   <Typography variant="subtitle1" className={classes.listBar}>{tile.description}</Typography>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </Hidden>
+        <Footer/>
       </div>
     );
   }
 }
-
 HomeComponent.propTypes = {
   classes: PropTypes.object.isRequired,
 };

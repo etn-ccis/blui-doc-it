@@ -11,6 +11,7 @@
     "@material-ui/core": "^3.5.1",
     "@material-ui/icons": "^3.0.1",
     "@pxblue/colors": "^1.0.9",
+    "@pxblue/colors-branding": "^2.0.0",
     "@pxblue/icons-mui": "^1.0.14",
     "@pxblue/react-progress-icons": "^1.0.6",
     "@pxblue/symbols-mui": "^1.0.4",
@@ -18,9 +19,11 @@
     "basscss": "^8.0.4",
     "core-js": "^2.6.5",
     "immutable": "^3.8.2",
+    "prop-types": "^15.7.2",
     "react": "^16.6.3",
     "react-app-polyfill": "^0.2.2",
     "react-dom": "^16.6.3",
+    "react-ga": "^2.5.7",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.2.2",
     "react-showdown": "^1.6.0",
@@ -35,6 +38,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "ga:prod": "cp -r ./config/ga.prod.js ./src/ga.js",
+    "ga:dev": "cp -r ./config/ga.dev.js ./src/ga.js"
   }
 }
