@@ -11,7 +11,7 @@
     "@material-ui/core": "^3.5.1",
     "@material-ui/icons": "^3.0.1",
     "@pxblue/colors": "^1.0.9",
-    "@pxblue/colors-branding": "^2.0.0",
+    "@pxblue/colors-branding": "^2.0.2",
     "@pxblue/icons-mui": "^1.0.14",
     "@pxblue/react-progress-icons": "^1.0.6",
     "@pxblue/symbols-mui": "^1.0.4",
