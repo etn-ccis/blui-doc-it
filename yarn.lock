@@ -69,10 +69,10 @@
     prop-types "^15.6.0"
     react-is "^16.6.3"
 
-"@pxblue/colors-branding@^2.0.0":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@pxblue/colors-branding/-/colors-branding-2.0.1.tgz#e1a2fa5d50d448ab3765f6955b8ec95f9ff02b42"
-  integrity sha512-0Nl7BGjMd1dccswo5dd3mlddNVDcdXzNPzjSIneM4GrpXH3AhlielIs1tRdKxM3Zo7+dbtrJf656rEO4wL2oVQ==
+"@pxblue/colors-branding@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@pxblue/colors-branding/-/colors-branding-2.0.2.tgz#9adf68a32fec0ae375951df44d83e1c30e014396"
+  integrity sha512-3OWDb3FD0RPoO1U7ngObgyUGsJJqv2pLFw7dN8TiJ0xCORzgaAhd/bxBV1OwB2pD/bfLA9uk8yAV+l7PuzKcjg==
 
 "@pxblue/colors@^1.0.1":
   version "1.0.10"
@@ -80,9 +80,9 @@
   integrity sha512-Cz6M/0adR5BBz42uy5zuOK9+Skv7aZTCSc+kQb5xrnkkF6Vt2Mld+8Lgy5s9j1WxvDvDVMMq+6aGEZRFRMEWbw==
 
 "@pxblue/colors@^1.0.9":
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/@pxblue/colors/-/colors-1.0.11.tgz#203b95f0ca8668b0669adf497949abcc9393b758"
-  integrity sha512-FbldNAP23OaLqAtt570EdsyKV0wZe5aqcKdpkfMP6R7GKP9inAHo0NZFTcyJhWPwb7zE22H11nzTmN6T1eQ40Q==
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/@pxblue/colors/-/colors-1.0.12.tgz#9439b062e25e5c1b37fd4a45b07a2ab8818e08ea"
+  integrity sha512-9ygz2dxnUUg1ecTzCYK9TUDD1a9Icx9Koj+RK0xocrLwlASfp7t+GjGH/y1rnwOwrsDq80LPax9M+k/O1lI6NQ==
 
 "@pxblue/icons-mui@^1.0.14":
   version "1.0.15"
