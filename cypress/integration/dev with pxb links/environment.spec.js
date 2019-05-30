@@ -12,9 +12,7 @@ describe('Environment links', () => {
                 })
         });
     });
-});
 
-describe('Environment links', () => {
     it('Verify status for git download page', function () {
         cy.get(':nth-child(9) > a').then(function ($a) {
             const href = $a.prop('href')
@@ -25,9 +23,7 @@ describe('Environment links', () => {
                 })
         });
     });
-});
 
-describe('Environment links', () => {
     it('Verify status for Nodejs download page', function () {
         cy.get(':nth-child(14) > a').then(function ($a) {
             const href = $a.prop('href')
@@ -38,9 +34,7 @@ describe('Environment links', () => {
                 })
         });
     });
-});
 
-describe('Environment links', () => {
     it('Verify status for Yarn download page', function () {
         cy.get(':nth-child(16) > a').then(function ($a) {
             const href = $a.prop('href')
@@ -51,9 +45,7 @@ describe('Environment links', () => {
                 })
         });
     });
-});
 
-describe('Environment links', () => {
     it('Verify status for Android Studio download page', function () {
         cy.get(':nth-child(16) > a').then(function ($a) {
             const href = $a.prop('href')

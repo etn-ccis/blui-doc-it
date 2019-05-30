@@ -12,9 +12,7 @@ describe('Where to begin links', () => {
                 })
         });
     });
-});
 
-describe('Where to begin links', () => {
     it('Verify request status for PXB Mobile App guide', function () {
         cy.get(':nth-child(6) > a').then(function ($a) {
             const href = $a.prop('href')
@@ -53,9 +51,7 @@ describe('Mobile App links', () => {
                 })
         });
     });
-});
 
-describe('Mobile App links', () => {
     it('Verify request status for Android guide', function () {
         cy.get('ul > :nth-child(2) > a').then(function ($a) {
             const href = $a.prop('href')
@@ -66,9 +62,7 @@ describe('Mobile App links', () => {
                 })
         });
     });
-});
 
-describe('Mobile App links', () => {
     it('Verify request status for PXB Mobile Framework intro', function () {
         cy.get(':nth-child(15) > a').then(function ($a) {
             const href = $a.prop('href')
@@ -79,9 +73,7 @@ describe('Mobile App links', () => {
                 })
         });
     });
-});
 
-describe('Mobile App links', () => {
     it('Verify request status for Android Material io', function () {
         cy.get('[href="https://material.io/develop/android/"]').then(function ($a) {
             const href = $a.prop('href')
@@ -92,9 +84,7 @@ describe('Mobile App links', () => {
                 })
         });
     });
-});
 
-describe('Mobile App links', () => {
     it('Verify request status for iOS Material io', function () {
         cy.get('[href="https://material.io/develop/ios/"]').then(function ($a) {
             const href = $a.prop('href')
@@ -105,9 +95,7 @@ describe('Mobile App links', () => {
                 })
         });
     });
-});
 
-describe('Mobile App links', () => {
     it('Verify PX Blue email', function () {
         cy.get('blockquote > p > a').then(function ($a) {
             const href = $a.prop('href')

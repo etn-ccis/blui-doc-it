@@ -12,9 +12,7 @@ describe('Mobile framework intro links', () => {
                 })
         });
     });
-});
 
-describe('Mobile framework intro links', () => {
     it('Verify status for Native Script home page', function () {
         cy.get(':nth-child(7) > :nth-child(6) > a').then(function ($a) {
             const href = $a.prop('href')
@@ -25,9 +23,7 @@ describe('Mobile framework intro links', () => {
                 })
         });
     });
-});
 
-describe('Mobile framework intro links', () => {
     it('Verify status for React Native home page', function () {
         cy.get(':nth-child(8) > a').then(function ($a) {
             const href = $a.prop('href')
@@ -38,9 +34,7 @@ describe('Mobile framework intro links', () => {
                 })
         });
     });
-});
 
-describe('Mobile framework intro links', () => {
     it('Verify status for PXB Apache Cordova page', function () {
         cy.get(':nth-child(14) > :nth-child(1) > a').then(function ($a) {
             const href = $a.prop('href')
@@ -51,9 +45,7 @@ describe('Mobile framework intro links', () => {
                 })
         });
     });
-});
 
-describe('Mobile framework intro links', () => {
     it('Verify status for PXB NativeScript page', function () {
         cy.get(':nth-child(14) > :nth-child(2) > a').then(function ($a) {
             const href = $a.prop('href')
@@ -64,9 +56,7 @@ describe('Mobile framework intro links', () => {
                 })
         });
     });
-});
 
-describe('Mobile framework intro links', () => {
     it('Verify status for PXB React Native page', function () {
         cy.get(':nth-child(3) > a').then(function ($a) {
             const href = $a.prop('href')
