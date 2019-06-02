@@ -32,4 +32,5 @@ find src/docs/style -maxdepth 1 -name \*.md -exec markdown-link-check {} -c ./li
 echo "Checking Root Links... "
 find src/docs -maxdepth 1 -name \*.md -exec markdown-link-check {} -c ./link-check/config/depth-0.json \;
 
+
 exit 0
