@@ -55,7 +55,7 @@ We have also migrated all of our code samples to [StackBlitz](http://www.stackbl
 PX Blue is officially going open source in version 2.2. All of our code samples are available on [GitHub](http://www.github.com/pxblue) and we have also published a number of packages to [NPM](https://www.npmjs.com/~px-blue) to make integrating PX Blue into your applications much simpler. This will also allow us to continuously deliver and version updates to PX Blue resources. See the updated Framework Guides to learn how to pull these packages into your applications. PX Blue is licensed under the BSD-3-Clause license agreement. The text of this license can be found in any of our [resource repositories](https://github.com/pxblue/themes/blob/master/LICENSE).
 
 ### More Hybrid Support
-PX Blue now supports hybrid development in [Cordova](/development/frameworks-mobile/cordova) and [React Native](/development/frameworks-mobile/reactnative), and we have provided additional information for those already using [NativeScript](/development/frameworks-mobile/nativescript).
+PX Blue now supports hybrid development in [Cordova](/development/frameworks-mobile/cordova) and [React Native](/development/frameworks-mobile/react-native), and we have provided additional information for those already using [NativeScript](/development/frameworks-mobile/nativescript).
 
 ### Style Updates
 We've also made some minor update to our color palette and typography hierarchy to improve our alignment with corporate branding requests. We also have updated icons in our icon font. Make sure to upgrade to the latest versions to be up-to-date.

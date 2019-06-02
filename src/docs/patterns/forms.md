@@ -15,5 +15,5 @@ If there is an error with the data entered into a field, the field should indica
 
 Error messages should be succinct and should not provide information that could compromise security (e.g., "Invalid Credentials" instead of "Incorrect Password"). The following examples demonstrate this error handling behavior as well as provide some patterns that can be used for matching common form fields.
 
-{{ angular stackblitz=https://stackblitz.com/edit/pxblue-form-validation-angular?embed=1&file=app/app.component.ts&hideNavigation=1&view=preview}}
+{{ angular stackblitz=https://stackblitz.com/edit/pxblue-form-validation-angular?embed=1&file=app/app.component.ts&hideNavigation=1&view=preview }}
 {{ react stackblitz=https://stackblitz.com/edit/pxblue-form-validation-react?embed=1&file=index.js&hideNavigation=1&view=preview }}
