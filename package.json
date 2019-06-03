@@ -40,6 +40,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "check:links": "./link-check/checklinks.sh",
+    "check:links:win": "bash ./link-check/checklinks.sh",
     "check:links-ci": "./link-check/checklinksCI.sh",
     "eject": "react-scripts eject",
     "ga:prod": "cp -r ./config/ga.prod.js ./src/ga.js",
