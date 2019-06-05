@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:8.11-browsers
     working_directory: ~/doc-it-dev
     environment:
       - MASTER_BRANCH: master
@@ -28,6 +28,9 @@ jobs:
       - run:
           name: Run tests
           command: yarn test
+      - run:
+          name: e2e cypress tests
+          command: yarn cytest
       - deploy:
           name: Deploy
           command: |
