@@ -5,7 +5,9 @@
   "devDependencies": {
     "concurrently": "^3.5.1",
     "cross-env": "^5.1.4",
-    "react-scripts": "1.0.14"
+    "cypress": "^3.2.0",
+    "react-scripts": "1.0.14",
+    "start-server-and-test": "^1.9.0"
   },
   "dependencies": {
     "@material-ui/core": "^3.5.1",
@@ -44,6 +46,9 @@
     "check:links-ci": "./link-check/checklinksCI.sh",
     "eject": "react-scripts eject",
     "ga:prod": "cp -r ./config/ga.prod.js ./src/ga.js",
-    "ga:dev": "cp -r ./config/ga.dev.js ./src/ga.js"
+    "ga:dev": "cp -r ./config/ga.dev.js ./src/ga.js",
+    "cy:run": "cypress run",
+    "cypress:open": "cypress open",
+    "cytest": "start-server-and-test start http://localhost:3000 cy:run"
   }
 }
