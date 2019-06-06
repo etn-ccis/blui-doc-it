@@ -29,8 +29,19 @@ jobs:
           name: Run tests
           command: yarn test
       - run:
-          name: e2e cypress tests
-          command: yarn cytest
+          name: Verify Markdown Hyperlinks
+          command: |
+            if [ $CIRCLE_BRANCH == $MASTER_BRANCH ] || [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
+              yarn check:links-ci
+              else
+                yarn check:links
+            fi
+      - run:
+          name: Verify Custom Page Hyperlinks
+          command: |
+            if [ $CIRCLE_BRANCH == $MASTER_BRANCH ] || [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
+              yarn cytest
+            fi
       - deploy:
           name: Deploy
           command: |
