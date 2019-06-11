@@ -174,6 +174,7 @@ class App extends Component {
         classes={{
           paper: classes.drawerPaper,
         }}
+        style={{zIndex: 10000}}
         onClose={this.handleDrawerToggle}
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.
