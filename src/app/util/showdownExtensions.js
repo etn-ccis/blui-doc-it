@@ -26,7 +26,6 @@ export const externalLinks = () => {
 
 export default (config) => {
     config = Object.assign({angular:'embed', react:'embed', ionic:'embed'}, config);
-    console.log(config);
     return ([
         {
             type: 'lang',
@@ -65,9 +64,9 @@ export default (config) => {
             replace: (matchString, framework, url, offset) => {
                 if((framework === 'ionic' && config.ionic === 'embed')){
                     var urls = url.split('|');
-                    var data = '<div style="display:flex; width:33%" data-framework="${framework}">';
+                    var data = `<div style="display:flex; justfy-content:center;" data-framework="${framework}">`;
                     for(var x=0; x<urls.length; x++){
-                        data += `<img src="${urls[x]}" alt="${urls[x]}  width="500" height="500"/>`;
+                        data += `<img src="${urls[x]}" alt="${urls[x]} styles=" width=500; height=500"/>`;
                     }
                     data += '</div>';
                     return data;
