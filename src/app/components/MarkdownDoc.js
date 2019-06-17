@@ -34,8 +34,9 @@ class MarkdownDoc extends React.Component {
       parseImgDimensions: true,
       extensions: [
         stackBlitz({
-          react: props.selectedFramework === 'angular' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed', 
-          angular: props.selectedFramework === 'react' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed'
+          react: props.selectedFramework !== 'react' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed', 
+          angular: props.selectedFramework !== 'angular' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed',
+          ionic: props.selectedFramework !== 'ionic' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed'
         }),
         externalLinks
       ],
@@ -78,8 +79,9 @@ class MarkdownDoc extends React.Component {
         parseImgDimensions: true,
         extensions: [
           stackBlitz({
-            react: nextProps.selectedFramework === 'angular' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed', 
-            angular: nextProps.selectedFramework === 'react' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed'
+            react: nextProps.selectedFramework !== 'react' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed', 
+            angular: nextProps.selectedFramework !== 'angular' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed',
+            ionic: nextProps.selectedFramework !== 'ionic' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed'
           }),
           externalLinks
         ],
