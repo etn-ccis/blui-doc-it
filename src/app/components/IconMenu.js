@@ -22,23 +22,11 @@ const meta = require('@pxblue/icons-mui/index.json');
 
 const styles = theme => ({
   usageBox: {
-    paddingLeft: theme.spacing.unit *2,
-    paddingRight: theme.spacing.unit *2,
+    padding: '10px ' + theme.spacing.unit*2 + 'px 0px ' + theme.spacing.unit*2 + 'px',
     overflowX: 'auto',
     wordWrap: 'break-word',
-    paddingBottom: '0px',
-    fontSize: '14px',
-    height: '200px',
+    height: '230px',
     overflowY: 'visible',
-    paddingTop: '10px'
-  },
-  codeBox: {
-    backgroundColor: '#F6F8FA',
-    borderRadius: '1px',
-    fontFamily: 'monospace',
-    padding: '3px',
-    color: '#424E54',
-    marginBottom: '10px'
   },
   iconSheet: {
     width: '100%',
@@ -66,16 +54,18 @@ const styles = theme => ({
   },
 });
 
+const instructionLinks = [
+  "https://github.com/pxblue/icons",
+  "https://www.npmjs.com/package/@pxblue/icons-svg",
+  "https://www.npmjs.com/package/@pxblue/icons-mui"
+];
+
 class IconMenu extends React.Component {
   
   state = {
-    value: 0,
+    activeTab: 0,
     expanded: true
   };
-  handleChange = (event, newValue) => {
-    this.setState({ value : newValue });
-  };
-  
   blockScroll(){
     document.body.style.overflow="hidden"
   }
@@ -98,13 +88,14 @@ class IconMenu extends React.Component {
   }
 
   render(){
-    const{open, tag, classes} = this.props;
+    const{open, icon, classes} = this.props;
     return(
       <div className={classes.iconSheet} hidden={!open} onMouseOver={this.blockScroll} onMouseOut={this.enableScroll}>
           <ExpansionPanel 
             square
             defaultExpanded={true}
             onChange={ this.toggleExpand }
+            elevation='4'
             >
           <ExpansionPanelSummary
             expandIcon={<ExpandLessIcon />}
@@ -114,19 +105,18 @@ class IconMenu extends React.Component {
           <div>
             <Grid container spacing={0}>
               <Grid item>
-                {tag[1]===1 && <IconCard  key={tag[0]} component={MaterialIcons[tag[0]]} name={tag[0]} type={false}/>}
-                {tag[1]===0 && <IconCard  key={tag[0]} component={Icons[getMuiIconName(tag[0])]} name={tag[0]} type={false}/>}
+                <IconCard  key={icon.name} component={icon.isMaterial ? MaterialIcons[icon.name] : Icons[getMuiIconName(icon.name)]} name={icon.name} showLabel={false}/>
               </Grid>
               <Grid item xs={12} sm container>
                 <Grid item xs>
                 <Typography style={{marginBottom: '0px'}} variant="subtitle2" gutterBottom>
-                  {getMuiIconName(tag[0])}
+                  {getMuiIconName(icon.name)}
                 </Typography>
                 <Typography style={{marginTop: '0px'}} variant="caption" color="primary">
-                  {tag[1]===0 && 'PxBlue Icon'}
+                  {!icon.isMaterial && 'PX Blue Icon'}
                 </Typography>
                 <Typography style={{marginTop: '0px'}} variant="caption">
-                  {tag[1]===1 && 'Material Icon'}
+                  {icon.isMaterial && 'Material Icon'}
                 </Typography>
                 </Grid>
               </Grid>
@@ -137,8 +127,8 @@ class IconMenu extends React.Component {
           
             <Tabs
               style={{marginTop: '0px', marginLeft: '0px'}}
-              value={this.state.value}
-              onChange={this.handleChange}
+              value={this.state.activeTab}
+              onChange={(event, newTab) => this.setState({ activeTab : newTab })}
               indicatorColor="primary"
               textColor="primary"
               variant="fullWidth"
@@ -146,73 +136,73 @@ class IconMenu extends React.Component {
             >
               <Tab label="Icon Font" />
               <Tab label="SVG" />
-              {tag[1]===0 && <Tab label="Component" />}
-              {tag[1]===0 && <Tab label="About" />}
+              {!icon.isMaterial && <Tab label="Component" />}
+              {!icon.isMaterial && <Tab label="About" />}
             </Tabs>
           </div>
           <div className={classes.usageBox}>
-              {tag[1]===0 && !(this.state.value===3) &&
-                <div>For detailed usage and installation instructions, visit our <a href="https://github.com/pxblue/icons" target="_blank" rel="noopener noreferrer">GitHub</a>.</div>
+              {!icon.isMaterial && !(this.state.activeTab===3) &&
+                <Typography style={{marginBottom: '10px'}} variant="subtitle2">For detailed usage and installation instructions, visit our <a href={instructionLinks[this.state.activeTab]} target="_blank" rel="noopener noreferrer">GitHub</a>.</Typography>
               }
-              {!(this.state.value===3) &&
-                <b>React</b>
+              
+              {!(this.state.activeTab===3) &&
+                <Typography variant="subtitle2">React</Typography>
               }
-              {this.state.value===0 && tag[1]===0 &&
-                <div className={classes.codeBox}>  &lt;I className=“pxb-{tag[0]}&gt;&lt;&#47;I&gt; </div>
+              {this.state.activeTab===0 && !icon.isMaterial &&
+                <pre>&lt;I className=“pxb-{icon.name}&gt;&lt;&#47;I&gt;</pre>
               }
-              {this.state.value===0 && tag[1]===1 &&
-                <div className={classes.codeBox}>  import Icon from &#039;@material-ui&#47;core&#47;Icon&#039;; <br /> &lt;Icon&gt;{getSnakeCase(tag[0])}&lt;&#47;Icon&gt; </div>
+              {this.state.activeTab===0 && icon.isMaterial &&
+                <pre>import Icon from &#039;@material-ui&#47;core&#47;Icon&#039;; <br/>&lt;Icon&gt;{getSnakeCase(icon.name)}&lt;&#47;Icon&gt;</pre>
               }
-              {this.state.value===1 && tag[1]===0 &&
-                <div className={classes.codeBox}>  const icon = require(&#039;@pxblue&#47;icons-svg&#47;{tag[0]}.svg&#039;); <br/> &lt;img src=&#123;icon&#125;&#47;&gt; </div>
+              {this.state.activeTab===1 && !icon.isMaterial &&
+                <pre>const icon = require(&#039;@pxblue&#47;icons-svg&#47;{icon.name}.svg&#039;); <br/>&lt;img src=&#123;icon&#125;&#47;&gt;</pre>
               }
-              {this.state.value===1 && tag[1]===1 &&
-                <div className={classes.codeBox}>  import {tag[0] + 'Icon'} from &#039;@material-ui&#47;icons&#47;{tag[0]}&#039;; <br/> &lt;{tag[0] + 'Icon'}&gt;&lt;&#47;{tag[0] + 'Icon'}&gt; </div>
+              {this.state.activeTab===1 && icon.isMaterial &&
+                <pre>import {icon.name + 'Icon'} from &#039;@material-ui&#47;icons&#47;{icon.name}&#039;; <br/>&lt;{icon.name + 'Icon'}&gt;&lt;&#47;{icon.name + 'Icon'}&gt;</pre>
               }
-              {this.state.value===2 && tag[1]===0 &&
-                <div className={classes.codeBox}>  import myIcon from '@pxblue&#47;icons-mui&#47;{getMuiIconName(tag[0])}'; <br/> &lt;myIcon&gt;&lt;&#47;myIcon&gt; </div>
+              {this.state.activeTab===2 && !icon.isMaterial &&
+                <pre>import myIcon from '@pxblue&#47;icons-mui&#47;{getMuiIconName(icon.name)}'; <br/>&lt;myIcon&gt;&lt;&#47;myIcon&gt;</pre>
               }
-              {!(this.state.value===3) &&
-                <b>Angular</b>
+              {!(this.state.activeTab===3) &&
+                <Typography variant="subtitle2">Angular</Typography>
               }
-              {this.state.value===0 && tag[1]===0 &&
-                <div className={classes.codeBox}>   &lt;I class=“pxb-{tag[0]}&gt;&lt;&#47;I&gt; </div>
+              {this.state.activeTab===0 && !icon.isMaterial &&
+                <pre>&lt;I class=“pxb-{icon.name}&gt;&lt;&#47;I&gt;</pre>
               }
-              {this.state.value===0 && tag[1]===1 &&
-                <div className={classes.codeBox}>   &lt;I class="{getSnakeCase(tag[0])}"&gt;&lt;&#47;I&gt; </div>
+              {this.state.activeTab===0 && icon.isMaterial &&
+                <pre>&lt;I class="{getSnakeCase(icon.name)}"&gt;&lt;&#47;I&gt;</pre>
               }
-              {this.state.value===1 && tag[1]===0 &&
-                <div className={classes.codeBox}>   &lt;mat-icon svgIcon=&quot;{tag[0]}&quot;&gt;&lt;&#47;mat-icon&gt; </div>
+              {this.state.activeTab===1 && !icon.isMaterial &&
+                <pre>&lt;mat-icon svgIcon=&quot;{icon.name}&quot;&gt;&lt;&#47;mat-icon&gt;</pre>
               }
-              {this.state.value===1 && tag[1]===1 &&
-                <div className={classes.codeBox}>   &lt;mat-icon&gt;{getSnakeCase(tag[0])}&lt;&#47;mat-icon&gt; </div>
+              {this.state.activeTab===1 && icon.isMaterial &&
+                <pre>&lt;mat-icon&gt;{getSnakeCase(icon.name)}&lt;&#47;mat-icon&gt;</pre>
               }
-              {this.state.value===2 && tag[1]===0 &&
-                <div>Icon components are intended for use only in React applications. For a way to link svg icons for use in Angular applications, see @pxblue/icons. </div>
+              {this.state.activeTab===2 && !icon.isMaterial &&
+                <Typography variant="subtitle2">Icon components are intended for use only in React applications. For a way to link svg icons for use in Angular applications, see @pxblue/icons.</Typography>
               }
-                  
-              {this.state.value===3 && tag[1]===0 &&
-                <div className={classes.aboutPage}>{JSON.stringify(this.getIconFile(tag[0]), null, "\t").replace(/"|{|}|,/g, '').replace("\n", '')}</div>
+              {this.state.activeTab===3 && !icon.isMaterial &&
+                <div className={classes.aboutPage}>
+                  <p>Filename: {this.getIconFile(icon.name).filename}</p>
+                  <p>Family: {this.getIconFile(icon.name).family.toString()}</p>
+                  <p>Author: {this.getIconFile(icon.name).author}</p>
+                  {this.getIconFile(icon.name).description && <p>Description: {this.getIconFile(icon.name).description}</p>}
+                </div>
               }
-              {this.state.value===2 && tag[1]===1 &&
-                this.setState({value: 1})
+              {this.state.activeTab===2 && icon.isMaterial &&
+                this.setState({activeTab: 1})
               }
-              {this.state.value===3 && tag[1]===1 &&
-                this.setState({value: 1})
+              {this.state.activeTab===3 && icon.isMaterial &&
+                this.setState({activeTab: 1})
               }
           </div>
           <ExpansionPanelActions display="none">
-            <Button color= 'inherit' onClick={this.props.closeMenu}>
+            <Button variant="contained" color= 'inherit' onClick={this.props.onClose}>
               Close
             </Button>
-            {tag[1]===0 &&
-              <Button color= 'primary' target="_blank" href={"https://github.com/pxblue/icons/blob/master/svg/" + getMuiIconName(tag[0]) + ".svg"}>
-                View in Github
-              </Button>
-            }
-            {tag[1]===1 &&
-              <Button color= 'primary' target="_blank" href={"https://material.io/tools/icons/?icon=" + getSnakeCase(tag[0]) + "&style=baseline"}>
-                View Icon
+            {icon.isMaterial &&
+              <Button variant="contained" color= 'primary' target="_blank" href={"https://material.io/tools/icons/?icon=" + getSnakeCase(icon.name) + "&style=baseline"}>
+                Open in Material.io
               </Button>
             }
           </ExpansionPanelActions>

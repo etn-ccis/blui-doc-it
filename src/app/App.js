@@ -174,7 +174,7 @@ class App extends Component {
         classes={{
           paper: classes.drawerPaper,
         }}
-        style={{zIndex: 10000}}
+        style={{zIndex: 2000}}
         onClose={this.handleDrawerToggle}
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.
@@ -258,10 +258,11 @@ class App extends Component {
                 </Toolbar>
               </AppBar>
             }
+            {window.location.pathname !== "/style/iconography" && 
             <Fab  href='mailto:pxblue@eaton.com' variant="extended" color= {'primary'} className={classes.button}>
               <Mail style={{marginRight: 8}} />
               Contact Us
-            </Fab>
+            </Fab>}
 
             {!this.state.showFrameworkSelect && window.location.pathname !== "/" && <div className={classes.spacer}/>}
 
