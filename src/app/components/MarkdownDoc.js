@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect  } from 'react-redux';
 // import showdown from 'showdown';
-import stackBlitz, { externalLinks } from '../util/showdownExtensions';
+import stackBlitz, { externalLinks, images } from '../util/showdownExtensions';
 import Footer from './Footer';
 import { fetchMarkdown } from '../actions/docs';
 import { updateTitle } from "../actions/ui";
@@ -36,7 +36,11 @@ class MarkdownDoc extends React.Component {
         stackBlitz({
           react: props.selectedFramework !== 'react' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed', 
           angular: props.selectedFramework !== 'angular' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed',
-          ionic: props.selectedFramework !== 'ionic' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed'
+         
+        }),
+        images({
+          ionic: props.selectedFramework !== 'ionic' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed',
+          reactNative: props.selectedFramework !== 'reactNative' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed'
         }),
         externalLinks
       ],
@@ -81,7 +85,11 @@ class MarkdownDoc extends React.Component {
           stackBlitz({
             react: nextProps.selectedFramework !== 'react' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed', 
             angular: nextProps.selectedFramework !== 'angular' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed',
-            ionic: nextProps.selectedFramework !== 'ionic' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed'
+           
+          }),
+          images({
+            ionic: nextProps.selectedFramework !== 'ionic' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed',
+            reactNative: nextProps.selectedFramework !== 'reactNative' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed'
           }),
           externalLinks
         ],

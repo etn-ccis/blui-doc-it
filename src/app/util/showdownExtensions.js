@@ -25,7 +25,7 @@ export const externalLinks = () => {
 }
 
 export default (config) => {
-    config = Object.assign({angular:'embed', react:'embed', ionic:'embed'}, config);
+    config = Object.assign({angular:'embed', react:'embed'}, config);
     return ([
         {
             type: 'lang',
@@ -57,25 +57,31 @@ export default (config) => {
                 }
                 
             }
-        },
+        }
+     
+    ]);
+}
+export const images = (config) => {
+    config = Object.assign({ ionic:'embed', reactNative:'embed'}, config);
+    return ([
         {
             type: 'lang',
-            regex: /{{\s*(ionic)\s*image=(.+)+\s*}}/g,
+            regex: /{{\s*(ionic|reactNative)\s*images=(.+)+\s*}}/g,
             replace: (matchString, framework, url, offset) => {
-                if((framework === 'ionic' && config.ionic === 'embed')){
+                if((framework === 'ionic' && config.ionic === 'embed')|| (framework === 'reactNative' && config.reactNative=== 'embed')){
                     var urls = url.split('|');
-                    var data = `<div style="display:flex; justfy-content:center;" data-framework="${framework}">`;
+                    var data = `<div style="display:flex; justify-content:center;" data-framework="${framework}">`;
                     for(var x=0; x<urls.length; x++){
-                        data += `<img src="${urls[x]}" alt="${urls[x]} styles=" width=500; height=500"/>`;
+                        data += `<img src="${urls[x]}" alt="${urls[x]}" style=" max-width:33%; "/>`;
                     }
                     data += '</div>';
                     return data;
                  }
-                else if((framework === 'ionic' && config.ionic === 'hide')){
+                else if((framework === 'ionic' && config.ionic === 'hide') || (framework === 'reactNative' && config.reactNative === 'hide')){
                     return ``;
                 }
                 
             }
         }
-    ]);
+    ])
 }
