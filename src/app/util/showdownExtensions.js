@@ -70,14 +70,14 @@ export const images = (config) => {
             replace: (matchString, framework, url, offset) => {
                 if((framework === 'ionic' && config.ionic === 'show')|| (framework === 'reactNative' && config.reactNative=== 'show')){
                     var urls = url.split('|');
-                    var data = `<div style="display:flex; justify-content:flex-start;" data-framework="${framework}">`;
-    for(var x=0; x<urls.length; x++){
-        data += `<div style="flex: 1 1 0px; max-width: 300px; min-width: 200px; margin: 0 20px 20px 0;">
-            <img src="${urls[x]}" alt="${urls[x]}" style="width: 100%; height: auto"/>
-        </div>`;
-    }
-    data += '</div>';
-    return data;
+                    var data = `<div style="display:flex; justify-content:flex-start; flex-wrap: wrap" data-framework="${framework}">`;
+                    for(var x=0; x<urls.length; x++){
+                        data += `<div style="flex: 1 1 0px; max-width: 200px; min-width: 200px; margin: 0 20px 20px 0;">
+                            <img src="${urls[x]}" alt="${urls[x]}" style="width: 100%; height: auto"/>
+                        </div>`;
+                    }
+                    data += '</div>';
+                    return data;
                  }
                 else if((framework === 'ionic' && config.ionic === 'hide') || (framework === 'reactNative' && config.reactNative === 'hide')){
                     return ``;
