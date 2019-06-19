@@ -6,6 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import reactIcon from "../icons/icon-react.svg";
 import angularIcon from "../icons/angular-js-icon.svg";
+import ionicIcon from "../icons/ionicLogo.svg";
 import mdcIcon from "../icons/mdc-icon.svg";
 import Typography from '@material-ui/core/Typography';
 
@@ -35,7 +36,8 @@ const styles = theme => ({
 
 const frameworks = [
     'angular',
-    'react'
+    'react',
+    'ionic'
 ];
 
 class FrameworkSelector extends React.Component {
@@ -51,6 +53,8 @@ class FrameworkSelector extends React.Component {
             return angularIcon;
         case 'm':
             return mdcIcon;
+        case 'i':
+            return ionicIcon;
         default:
             return;
         }

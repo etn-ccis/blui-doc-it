@@ -6,6 +6,8 @@ A simple login presents fields for the users to enter their credentials and a bu
 
 {{ angular stackblitz=https://stackblitz.com/edit/pxblue-login-angular?embed=1&file=src/app/login/login.component.ts&hideNavigation=1&view=preview }}
 {{ react stackblitz=https://stackblitz.com/edit/pxblue-login-react?embed=1&file=App.js&hideNavigation=1&view=preview }}
+{{ ionic images=../images/gif/login.gif|../images/gif/loginfp.gif|../images/gif/loginregister.gif  }}
+
 
 ## Login Feedback
 
@@ -13,6 +15,8 @@ After a user submits their credentials, there are three possible results:
 * If authentication is successful, the user is directed to the application landing page.
 * If authentication fails, the user remains on the login page and the screen should be updated to show an appropriate error message (e.g., Invalid Credentials).
 * If an error occurs when attempting to validate the credentials (e.g., Server Unavailable), the user should be notified with an appropriate error message.
+
+
 
 > **NOTE:** be very careful when presenting error messages to users. For security, you should not present more information than is necessary (e.g., do **NOT** provide messages like "User does not exist," "Incorrect Password," etc.).
 

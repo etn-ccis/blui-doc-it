@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect  } from 'react-redux';
 // import showdown from 'showdown';
-import stackBlitz, { externalLinks } from '../util/showdownExtensions';
+import stackBlitz, { externalLinks, images } from '../util/showdownExtensions';
 import Footer from './Footer';
 import { fetchMarkdown } from '../actions/docs';
 import { updateTitle } from "../actions/ui";
@@ -19,6 +19,20 @@ const mapDispatchToProps = dispatch => ({
   fetchMarkdown: path => dispatch(fetchMarkdown(path)),
   updateToolbarTitle: () => {dispatch(updateTitle());}
 });
+const getExtensions = (framework, width, browser) => {
+  return [
+    stackBlitz({
+      react: framework !== 'react' ? 'hide' : (width === 'xs' || browser === 'ie') ? 'link' : 'embed', 
+      angular: framework !== 'angular' ? 'hide' : (width === 'xs' || browser === 'ie') ? 'link' : 'embed',
+     
+    }),
+    images({
+      ionic: framework !== 'ionic' ? 'hide' : 'show',
+      reactNative: framework !== 'reactNative' ? 'hide' : 'show'
+    }),
+    externalLinks
+  ];
+ }
 
 class MarkdownDoc extends React.Component {
   constructor(props) {
@@ -32,13 +46,7 @@ class MarkdownDoc extends React.Component {
       emoji: true,
       tables: true,
       parseImgDimensions: true,
-      extensions: [
-        stackBlitz({
-          react: props.selectedFramework === 'angular' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed', 
-          angular: props.selectedFramework === 'react' ? 'hide' : (props.width === 'xs' || props.browser === 'ie') ? 'link' : 'embed'
-        }),
-        externalLinks
-      ],
+      extensions: getExtensions(props.selectedFramework, props.width, props.browser) 
     });
   }
 
@@ -76,13 +84,7 @@ class MarkdownDoc extends React.Component {
         emoji: true,
         tables: true,
         parseImgDimensions: true,
-        extensions: [
-          stackBlitz({
-            react: nextProps.selectedFramework === 'angular' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed', 
-            angular: nextProps.selectedFramework === 'react' ? 'hide' : (nextProps.width === 'xs' || nextProps.browser === 'ie') ? 'link' : 'embed'
-          }),
-          externalLinks
-        ],
+        extensions: getExtensions(nextProps.selectedFramework, nextProps.width, nextProps.browser) 
       });
       this.forceUpdate();
     }
