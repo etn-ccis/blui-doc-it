@@ -72,7 +72,7 @@ export const images = (config) => {
                     var urls = url.split('|');
                     var data = `<div style="display:flex; justify-content:flex-start; flex-wrap: wrap" data-framework="${framework}">`;
                     for(var x=0; x<urls.length; x++){
-                        data += `<div style="flex: 1 1 0px; max-width: 300px; min-width: 200px; margin: 0 20px 20px 0;">
+                        data += `<div style="width: 200px; margin: 0 20px 20px 0;">
                             <img src="${urls[x]}" alt="${urls[x]}" style="width: 100%; height: auto"/>
                         </div>`;
                     }
