@@ -5,6 +5,7 @@ import * as MaterialIcons from '@material-ui/icons';
 // PX Blue Icons and Symbols
 import * as Icons from '@pxblue/icons-mui';
 import IconCard from './iconCard';
+import * as PXBColors from '@pxblue/colors';
 
 // Material-UI Components
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
@@ -28,6 +29,7 @@ const styles = theme => ({
     overflowY: 'hidden',
   },
   iconSheet: {
+    color: PXBColors.black[900],
     width: '100%',
     left: '0px',
     right: '0px',
@@ -92,12 +94,12 @@ class IconMenu extends React.Component {
       case 0:
         return (
           <React.Fragment>
-            {isMaterial && <Typography style={{marginBottom: '10px'}} variant="subtitle2">View detailed usage and installation instructions for <a href={instructionLinks[4]} target="_blank" rel="noopener noreferrer">React</a> and <a href={instructionLinks[5]} target="_blank" rel="noopener noreferrer">Angular</a>.</Typography>}
-            {!isMaterial && <Typography style={{marginBottom: '10px'}} variant="subtitle2">For detailed usage and installation instructions, visit our <a href={instructionLinks[0]} target="_blank" rel="noopener noreferrer">GitHub</a>.</Typography>}
-            <Typography variant="subtitle2">React</Typography>
+            {isMaterial && <Typography  color={'inherit'}  style={{marginBottom: '10px'}} variant="subtitle2">View detailed usage and installation instructions for <a href={instructionLinks[4]} target="_blank" rel="noopener noreferrer">React</a> and <a href={instructionLinks[5]} target="_blank" rel="noopener noreferrer">Angular</a>.</Typography>}
+            {!isMaterial && <Typography  color={'inherit'}  style={{marginBottom: '10px'}} variant="subtitle2">For detailed usage and installation instructions, visit our <a href={instructionLinks[0]} target="_blank" rel="noopener noreferrer">GitHub</a>.</Typography>}
+            <Typography  color={'inherit'}  variant="subtitle2">React</Typography>
             {!isMaterial && <pre>&lt;i className=“pxb-{name}&gt;&lt;&#47;i&gt;</pre>}
             {isMaterial && <pre>import Icon from &#039;@material-ui&#47;core&#47;Icon&#039;; <br/>&lt;Icon&gt;{getSnakeCase(name)}&lt;&#47;Icon&gt;</pre>}
-            <Typography variant="subtitle2">Angular</Typography>
+            <Typography  color={'inherit'}  variant="subtitle2">Angular</Typography>
             {!isMaterial && <pre>&lt;i class=“pxb-{name}&gt;&lt;&#47;i&gt;</pre>}
             {isMaterial && <pre>&lt;i class="{getSnakeCase(name)}"&gt;&lt;&#47;i&gt;</pre>}
           </React.Fragment>
@@ -105,12 +107,12 @@ class IconMenu extends React.Component {
       case 1:
         return (
           <React.Fragment>
-            {isMaterial && <Typography style={{marginBottom: '10px'}} variant="subtitle2">View detailed usage and installation instructions for <a href={instructionLinks[3]} target="_blank" rel="noopener noreferrer">React</a> and <a href={instructionLinks[6]} target="_blank" rel="noopener noreferrer">Angular</a>.</Typography>}
-            {!isMaterial && <Typography style={{marginBottom: '10px'}} variant="subtitle2">For detailed usage and installation instructions, visit our <a href={instructionLinks[1]} target="_blank" rel="noopener noreferrer">GitHub</a>.</Typography>}
-            <Typography variant="subtitle2">React</Typography>
+            {isMaterial && <Typography  color={'inherit'}  style={{marginBottom: '10px'}} variant="subtitle2">View detailed usage and installation instructions for <a href={instructionLinks[3]} target="_blank" rel="noopener noreferrer">React</a> and <a href={instructionLinks[6]} target="_blank" rel="noopener noreferrer">Angular</a>.</Typography>}
+            {!isMaterial && <Typography  color={'inherit'}  style={{marginBottom: '10px'}} variant="subtitle2">For detailed usage and installation instructions, visit our <a href={instructionLinks[1]} target="_blank" rel="noopener noreferrer">GitHub</a>.</Typography>}
+            <Typography  color={'inherit'}  variant="subtitle2">React</Typography>
             {!isMaterial && <pre>const icon = require(&#039;@pxblue&#47;icons-svg&#47;{name}.svg&#039;); <br/>&lt;img src=&#123;icon&#125;&#47;&gt;</pre>}
             {isMaterial && <pre>import {name + 'Icon'} from &#039;@material-ui&#47;icons&#47;{name}&#039;; <br/>&lt;{name + 'Icon'}&gt;&lt;&#47;{name + 'Icon'}&gt;</pre>}
-            <Typography variant="subtitle2">Angular</Typography>
+            <Typography  color={'inherit'}  variant="subtitle2">Angular</Typography>
             {!isMaterial && <pre>&lt;mat-icon svgIcon=&quot;{name}&quot;&gt;&lt;&#47;mat-icon&gt;</pre>}
             {isMaterial && <pre>&lt;mat-icon&gt;{getSnakeCase(name)}&lt;&#47;mat-icon&gt;</pre>}
           </React.Fragment>
@@ -118,11 +120,11 @@ class IconMenu extends React.Component {
       case 2:
         return (
           <React.Fragment>
-            {!isMaterial && <Typography style={{marginBottom: '10px'}} variant="subtitle2">For detailed usage and installation instructions, visit our <a href={instructionLinks[2]} target="_blank" rel="noopener noreferrer">GitHub</a>.</Typography>}
-            <Typography variant="subtitle2">React</Typography>
+            {!isMaterial && <Typography  color={'inherit'}  style={{marginBottom: '10px'}} variant="subtitle2">For detailed usage and installation instructions, visit our <a href={instructionLinks[2]} target="_blank" rel="noopener noreferrer">GitHub</a>.</Typography>}
+            <Typography  color={'inherit'}  variant="subtitle2">React</Typography>
             <pre>import {getMuiIconName(name)}Icon from '@pxblue&#47;icons-mui&#47;{getMuiIconName(name)}'; <br/>&lt;{getMuiIconName(name)}Icon&gt;&lt;&#47;{getMuiIconName(name)}Icon&gt;</pre>
-            <Typography variant="subtitle2">Angular</Typography>
-            <Typography variant="subtitle2">Icon components are intended for use only in React applications. For a way to link svg icons for use in Angular applications, see <a href={"https://github.com/pxblue/icons/tree/master/svg#angular-1"} target="_blank" rel="noopener noreferrer">@pxblue/icons</a>.</Typography>
+            <Typography  color={'inherit'}  variant="subtitle2">Angular</Typography>
+            <Typography  color={'inherit'}  variant="subtitle2">Icon components are intended for use only in React applications. For a way to link svg icons for use in Angular applications, see <a href={"https://github.com/pxblue/icons/tree/master/svg#angular-1"} target="_blank" rel="noopener noreferrer">@pxblue/icons</a>.</Typography>
           </React.Fragment>
         );
         
@@ -131,10 +133,10 @@ class IconMenu extends React.Component {
           <React.Fragment>
             {!isMaterial &&
               <div className={classes.aboutPage}>
-                <Typography variant="subtitle1">Filename: {this.getIconFile(name).filename}</Typography>
-                <Typography variant="subtitle1">Family: {this.getIconFile(name).family.toString()}</Typography>
-                <Typography variant="subtitle1">Author: {this.getIconFile(name).author}</Typography>
-                {this.getIconFile(name).description && <Typography variant="subtitle1">Description: {this.getIconFile(name).description}</Typography>}
+                <Typography  color={'inherit'}  variant="subtitle1"><b>Filename</b>: {this.getIconFile(name).filename}</Typography>
+                <Typography  color={'inherit'}  variant="subtitle1"><b>Family</b>: {this.getIconFile(name).family.toString()}</Typography>
+                <Typography  color={'inherit'}  variant="subtitle1"><b>Author</b>: {this.getIconFile(name).author}</Typography>
+                {this.getIconFile(name).description && <Typography  color={'inherit'}  variant="subtitle1"><b>Description</b>: {this.getIconFile(name).description}</Typography>}
               </div>
             }
           </React.Fragment>
@@ -174,10 +176,10 @@ class IconMenu extends React.Component {
                 />
               </div>
               <div style={{flexDirection: 'column', flex: '0 1 auto'}}> 
-                <Typography style={{marginBottom: '0px', marginLeft: '10px', flex: '0 0 auto'}} variant="subtitle2" gutterBottom>
+                <Typography  style={{marginBottom: '0px', marginLeft: '10px', flex: '0 0 auto'}} variant="subtitle2" gutterBottom>
                   {unCamelCase(getMuiIconName(name))}
                 </Typography>
-                <Typography style={{marginTop: '0px', marginLeft: '10px', flex: '0 0 auto'}} variant="caption" color={isMaterial ? "default" : "primary"}>
+                <Typography  style={{marginTop: '0px', marginLeft: '10px', flex: '0 0 auto'}} variant="caption" color={isMaterial ? "default" : "primary"}>
                   {isMaterial ? 'Material Icon' : 'PX Blue Icon'}
                 </Typography>
               </div>

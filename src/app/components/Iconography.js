@@ -132,7 +132,10 @@ class Iconography extends React.Component {
                 <div className={classes.section}>
                   {iconLetterGroups[letterGroup]
                     .filter((icon) => this.iconMatches(icon))
-                    .sort((a, b) => a.name.toUpperCase() > b.name.toUpperCase())
+                    .sort((a, b) => {
+                       if(a.name.toUpperCase() > b.name.toUpperCase()){return 1;}
+                       else{return -1;}
+                     })
                     .map((icon) => {
                       return <div
                               key={icon.name + icon.isMaterial.toString()}
