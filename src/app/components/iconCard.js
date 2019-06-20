@@ -8,11 +8,14 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   wrapper:{
-    width: '100px', 
+    //width: '100px', 
     display:'flex', 
     flexDirection: 'column', 
     alignItems: 'center', 
-    color: PXBColors.black[900]
+    color: PXBColors.black[900],
+  },
+  selected:{
+    background: theme.palette.primary['50']
   },
   label:{
     cursor: 'default', 
@@ -22,27 +25,15 @@ const styles = theme => ({
     marginTop: '5px',
     color: '#1d2529'
   },
-  hidden:{
-    display: 'none'
-  },
-  iconSizeMain:{
-    fontSize: 'inherit'
-  },
-  iconSizeDrawer:{
-    fontSize: '40px'
-    
-  }
 });
 
 
 class IconCard extends React.Component {
   render() {
-    const {component:Component, name, showLabel, classes} = this.props;
-    const cardStyle = {margin: '0 15px 30px 15px', cursor: 'pointer'};
-    const menuStyle = {margin: '5 5px 5px 5px'};
+    const {component:Component, name, showLabel=true, classes, style, selected=false, iconSize='inherit'} = this.props;
     return (
-      <div className={classes.wrapper} style={showLabel ? cardStyle : menuStyle}>
-        <Component className={showLabel ? classes.iconSizeMain : classes.iconSizeDrawer}/> 
+      <div className={classes.wrapper + ' ' + (selected ? classes.selected : '')} style={style}>
+        <Component style={{fontSize: iconSize}}/> 
         {showLabel && <Typography title={name} variant="subtitle2" className={classes.label}>{name}</Typography>}
       </div>
     );

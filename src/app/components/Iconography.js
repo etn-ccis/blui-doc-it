@@ -20,7 +20,6 @@ import {
   Divider,
   InputBase,
   Checkbox,
-  IconButton,
   FormControlLabel
 } from '@material-ui/core';
 import * as MaterialIcons from '@material-ui/icons';
@@ -43,10 +42,9 @@ class Iconography extends React.Component {
       search: '',
       hideLetterGroups: {},
       focusedIcon: {
-          name: 'Add',
+          name: '',
           isMaterial: true,
       },
-      openMenu: false,
       filterMaterial: false
     }
   }
@@ -76,10 +74,10 @@ class Iconography extends React.Component {
         
         <h1>Iconography Guidelines</h1>
         <p>
-          Power Xpert Blue is built on top of the Google Material design system, which allows us to take advantage of their extensive icon library and icon grid. These icons, found below, are available automatically when you use one of our supported Material component frameworks.
+          Power Xpert Blue is built on top of the Google Material design system, which allows us to take advantage of their extensive icon library and icon grid. These icons are available automatically when you use one of our supported Material component frameworks. PX Blue also includes a number of supplemental icons specific to Eaton products.
         </p>
         <p>
-          PX Blue also includes a number of supplemental icons specific to Eaton products. These are available in a variety of formats, similar to the Material Icon Library. These can be found on our <a href="https://github.com/pxblue/icons" target="_blank" rel="noopener noreferrer">GitHub</a> page in both SVG format and as an icon font and can also be browsed below.
+          These icons are available in a variety of formats - select an icon below to view its usage instructions.
         </p>
         
         <Paper elevation={4}>
@@ -138,8 +136,14 @@ class Iconography extends React.Component {
                     .map((icon) => {
                       return <div
                               key={icon.name + icon.isMaterial.toString()}
-                              onClick={() => this.setState({openMenu: true, focusedIcon: icon})}> 
-                            <IconCard  key={icon.name} component={icon.isMaterial ? MaterialIcons[icon.name] : Icons[getMuiIconName(icon.name)]} name={ getMuiIconName(icon.name)} showLabel={true}/>
+                              onClick={() => this.setState({focusedIcon: icon})}> 
+                              <IconCard 
+                                key={icon.name} 
+                                component={icon.isMaterial ? MaterialIcons[icon.name] : Icons[getMuiIconName(icon.name)]} 
+                                name={ unCamelCase(getMuiIconName(icon.name))} 
+                                style={{margin: '0 15px 25px 15px', cursor: 'pointer', width: 100, padding: '5px'}}
+                                selected={this.state.focusedIcon && this.state.focusedIcon.name === icon.name}
+                              />
                             </div>
                     })
                   }
@@ -195,15 +199,23 @@ class Iconography extends React.Component {
           If you have your own design resources who are able to create icons, you can build these on your own, following the <a href="https://material.io/guidelines/style/icons.html#icons-product-icons" target="_blank" rel="noopener noreferrer">Material Icon Guidelines</a> to maintain a common look and feel. If you do not have your own designers, we can work with you to build the icon you need. We can either build the icon in house or recommend external resources that you can use. Please note that going this route may take extra time, so try to get requests in as early as possible. If you are making your own icons, please consider contributing these back into the PX Blue icon library (subject to review).
         </p>
         <Footer />
-        <IconMenu 
-          onClose={() => this.setState({openMenu: false})}
-          open={this.state.openMenu} 
-          icon={this.state.focusedIcon}
-        />
+        {this.state.focusedIcon.name && 
+          <IconMenu 
+            onClose={() => this.setState({focusedIcon: {}})}
+            open={true} 
+            icon={this.state.focusedIcon}
+          />
+        }
       </div>
       
     );
   }
+}
+
+const unCamelCase = (val) => {
+  return val.replace(/([a-z])([A-Z])/g, '$1 $2')
+   .replace(/\b([A-Z]+)([A-Z])([a-z])/, '$1 $2$3')
+   .replace(/^./, function(str){ return str.toUpperCase(); })
 }
 
 const getMuiIconName = (filename)=>{
@@ -221,9 +233,7 @@ const groupIconsByLetter = ()=>{
       const mui = getMuiIconName(icon.filename);
       if(Icons[mui]){groupings[icon.filename.charAt(0).toUpperCase()].push({name: icon.filename.replace(/\.svg/, ''), isMaterial: false});}
     })
-    
-    
-    Object.keys(MaterialIcons)
+  Object.keys(MaterialIcons)
     .filter((name) => {
             if(name.indexOf('Outlined') >= 0){return false;}
             if(name.indexOf('Rounded') >= 0){return false;}
@@ -238,9 +248,6 @@ const groupIconsByLetter = ()=>{
       groupings[iconName.charAt(0)].push({name: iconName, isMaterial: true})
     }
   )
-  //returns a tuple, ID 0 if PxBlue icon, ID 1 if Material Icon
-  //icon[1] = 0  is false
-  //icon[1] = 1 is true
   return groupings;
 }
 
@@ -319,7 +326,6 @@ const styles = theme => ({
     '&:focus': {
       width: 200
     }
-  
   },
   hideIconsLabel: {
     display: 'inline-block',
