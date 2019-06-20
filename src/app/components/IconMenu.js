@@ -89,7 +89,7 @@ class IconMenu extends React.Component {
     const isMaterial = this.props.icon.isMaterial;
     const name = this.props.icon.name;
     const classes = this.props.classes;
-    
+    const iconData = this.getIconFile(name);
     switch(tab){
       case 0:
         return (
@@ -133,17 +133,17 @@ class IconMenu extends React.Component {
           <React.Fragment>
             {!isMaterial &&
               <div className={classes.aboutPage}>
-                <Typography  color={'inherit'}  variant="subtitle1"><b>Filename</b>: {this.getIconFile(name).filename}</Typography>
-                <Typography  color={'inherit'}  variant="subtitle1"><b>Family</b>: {this.getIconFile(name).family.toString()}</Typography>
-                <Typography  color={'inherit'}  variant="subtitle1"><b>Author</b>: {this.getIconFile(name).author}</Typography>
-                {this.getIconFile(name).description && <Typography  color={'inherit'}  variant="subtitle1"><b>Description</b>: {this.getIconFile(name).description}</Typography>}
+                <Typography  color={'inherit'}  variant="subtitle1"><b>Filename</b>: {iconData.filename}</Typography>
+                <Typography  color={'inherit'}  variant="subtitle1"><b>Family</b>: {iconData.family.toString()}</Typography>
+                <Typography  color={'inherit'}  variant="subtitle1"><b>Author</b>: {iconData.author}</Typography>
+                {iconData.description && <Typography  color={'inherit'}  variant="subtitle1"><b>Description</b>: {iconData.description}</Typography>}
               </div>
             }
           </React.Fragment>
         );
       
       default:
-        return (<h1>{`Yo yo ${tab}`}</h1>);
+        return null;
     }
   }
   

@@ -257,6 +257,7 @@ class App extends Component {
                 </Toolbar>
               </AppBar>
             }
+            //Find a better way of doing this 
             {window.location.pathname !== "/style/iconography" && 
             <Fab  href='mailto:pxblue@eaton.com' variant="extended" color= {'primary'} className={classes.button}>
               <Mail style={{marginRight: 8}} />
