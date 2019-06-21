@@ -30,7 +30,8 @@
 			{"displayName": "Overlays", "url": "overlay"},
 			{"displayName": "Page Layout", "url": "layout"},
 			{"displayName": "Steppers", "url": "steppers"},
-			{"displayName": "Visualizations", "url": "visualizations"}
+			{"displayName": "Visualizations", "url": "visualizations"},
+      {"displayName": "Internationalization", "url": "internationalization"}
 		]},
 		{"displayName": "Style Guide", "url": "style", "pages": [
 			{"displayName": "Color Palette", "url": "color"},
