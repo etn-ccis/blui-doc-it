@@ -32,7 +32,7 @@ const size = 48;
 const colorSet = PXBColors;
 const colors = ['red','orange','gold','yellow','green','lightBlue','blue','purple','gray', 'black'];
 const weight = 300;
-const hideResultsThreshold = 2;
+const hideResultsThreshold = 20;
 
 class Iconography extends React.Component {
   constructor(props){
@@ -67,7 +67,7 @@ class Iconography extends React.Component {
   
   render() {
     const {classes} = this.props;
-    const iconLetterGroups = groupIconsByLetter();
+    const iconList = createIconList();
 
     return (
       <div>
@@ -111,9 +111,10 @@ class Iconography extends React.Component {
           />
         </div>
         <div style={{padding: '24px'}}>
-          {Object.keys(iconLetterGroups).sort().map((letterGroup) => {
-            const iconList = iconLetterGroups[letterGroup].filter((icon) => this.iconMatches(icon)).sort();
-            if (iconList.length < 1) {return null;}
+          {Object.keys(groupIconList(iconList)).sort().map((letterGroup) => {
+            const filteredIconList = iconList.filter((icon) => this.iconMatches(icon)).sort();
+            const groupedIcons = groupIconList(filteredIconList);
+            if (!groupedIcons[letterGroup]) {return null;}
             return (<React.Fragment key={`${letterGroup}_group`}>
               <Typography variant={'h6'} 
                 color={'primary'} 
@@ -121,16 +122,16 @@ class Iconography extends React.Component {
                 onClick={() => this.toggleCollapse(letterGroup)}
                 >
                 {letterGroup}
-                {(this.state.search.length > hideResultsThreshold || (this.state.search.length > hideResultsThreshold-1 && this.state.filterMaterial)) ? null : 
+                {filteredIconList.length <= hideResultsThreshold ? null : 
                 [this.state.hideLetterGroups[letterGroup] ? 
                    <MaterialIcons.ExpandLess key={letterGroup + letterGroup.length} className={classes.toggleIcon}/>
                   :<MaterialIcons.ExpandMore  key={letterGroup + letterGroup.length} className={classes.toggleIcon}/>
                 ]
               }
               </Typography>
-              <Collapse in={(this.state.search.length > hideResultsThreshold) || (this.state.search.length > hideResultsThreshold-1 && this.state.filterMaterial) ? true : this.state.hideLetterGroups[letterGroup]} timeout="auto" unmountOnExit>
+              <Collapse in={filteredIconList.length <= hideResultsThreshold ? true : this.state.hideLetterGroups[letterGroup]} timeout="auto" unmountOnExit>
                 <div className={classes.section}>
-                  {iconLetterGroups[letterGroup]
+                  {groupedIcons[letterGroup]
                     .filter((icon) => this.iconMatches(icon))
                     .sort((a, b) => {
                        if(a.name.toUpperCase() > b.name.toUpperCase()){return 1;}
@@ -227,14 +228,11 @@ const getMuiIconName = (filename)=>{
   .replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 || p3).toUpperCase());
 }
 
-const groupIconsByLetter = ()=>{
-  let groupings = {};
+const createIconList = () =>{
+  let iconList = [];
   getFilteredIcons().forEach((icon) => {
-      if(!groupings[icon.filename.charAt(0).toUpperCase()]){
-        groupings[icon.filename.charAt(0).toUpperCase()] = []
-      }
       const mui = getMuiIconName(icon.filename);
-      if(Icons[mui]){groupings[icon.filename.charAt(0).toUpperCase()].push({name: icon.filename.replace(/\.svg/, ''), isMaterial: false});}
+      if(Icons[mui]){iconList.push({name: icon.filename.replace(/\.svg/, ''), isMaterial: false});}
     })
   Object.keys(MaterialIcons)
     .filter((name) => {
@@ -245,13 +243,22 @@ const groupIconsByLetter = ()=>{
             return true;
     })
     .forEach((iconName) => {
-      if(!groupings[iconName.charAt(0)]){
-        groupings[iconName.charAt(0)] = []
-      }
-      groupings[iconName.charAt(0)].push({name: iconName, isMaterial: true})
+      iconList.push({name: iconName, isMaterial: true})
     }
   )
-  return groupings;
+  return iconList;
+}
+
+const groupIconList = (iconList) =>{
+  let groupings = {};
+  iconList
+    .forEach((icon) => {
+      if(!groupings[icon.name.toUpperCase().charAt(0)]){
+        groupings[icon.name.toUpperCase().charAt(0)] = []
+      }
+      groupings[icon.name.toUpperCase().charAt(0)].push({name: icon.name, isMaterial: icon.isMaterial})
+    });
+  return groupings
 }
 
 const getFilteredIcons = ()=>{
