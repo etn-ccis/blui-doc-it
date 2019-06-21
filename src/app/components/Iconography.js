@@ -47,16 +47,21 @@ class Iconography extends React.Component {
       },
       filterMaterial: false
     }
+    this.icons = createIconList();
   }
 
   iconMatches(icon){
       if(this.state.filterMaterial && icon.isMaterial){
         return false;
+      }    
+      let searchArray = this.state.search.trim().toLowerCase().split(/\s+/);
+      for (var i = 0; i < searchArray.length; i++){
+        if (getMuiIconName(icon.name).toLowerCase().indexOf(searchArray[i].trim()) === -1) {
+          return false;
+        }
       }
-      if (getMuiIconName(icon.name).toLowerCase().indexOf(this.state.search.trim().toLowerCase()) !== -1) {
-        return true;
-      }
-      return false;
+      
+      return true;
   }
 
   toggleCollapse(letterGroup){
@@ -67,7 +72,9 @@ class Iconography extends React.Component {
   
   render() {
     const {classes} = this.props;
-    const iconList = createIconList();
+    const iconList = this.icons;
+    const filteredIconList = iconList.filter((icon) => this.iconMatches(icon)).sort();
+    const groupedIcons = groupIconList(filteredIconList);
 
     return (
       <div>
@@ -112,8 +119,6 @@ class Iconography extends React.Component {
         </div>
         <div style={{padding: '24px'}}>
           {Object.keys(groupIconList(iconList)).sort().map((letterGroup) => {
-            const filteredIconList = iconList.filter((icon) => this.iconMatches(icon)).sort();
-            const groupedIcons = groupIconList(filteredIconList);
             if (!groupedIcons[letterGroup]) {return null;}
             return (<React.Fragment key={`${letterGroup}_group`}>
               <Typography variant={'h6'} 
@@ -217,7 +222,8 @@ class Iconography extends React.Component {
 }
 
 const unCamelCase = (val) => {
-  return val.replace(/([a-z])([A-Z])/g, '$1 $2')
+   return val.replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+   .replace(/([a-zA-Z])([0-9])/g, '$1 $2')
    .replace(/\b([A-Z]+)([A-Z])([a-z])/, '$1 $2$3')
    .replace(/^./, function(str){ return str.toUpperCase(); })
 }
@@ -313,7 +319,7 @@ const styles = theme => ({
     }
   },
   searchIcon: {
-    width: theme.spacing.unit * 9,
+    width: theme.spacing.unit * 5,
     height: '100%',
     position: 'absolute',
     pointerEvents: 'none',
@@ -330,11 +336,11 @@ const styles = theme => ({
     paddingTop: theme.spacing.unit,
     paddingRight: theme.spacing.unit,
     paddingBottom: theme.spacing.unit,
-    paddingLeft: theme.spacing.unit * 10,
+    paddingLeft: theme.spacing.unit * 6,
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      width: 120,
+      width: 140,
       '&:focus': {
         width: 200
       }

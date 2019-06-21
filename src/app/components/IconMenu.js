@@ -24,7 +24,7 @@ const styles = theme => ({
   usageBox: {
     padding: '10px ' + theme.spacing.unit*2 + 'px 0px ' + theme.spacing.unit*2 + 'px',
     overflowX: 'auto',
-    wordWrap: 'break-word',
+    wordWrap: 'noWrap',
     height: '230px',
     overflowY: 'hidden',
   },
@@ -235,7 +235,8 @@ class IconMenu extends React.Component {
   }
   
   const unCamelCase = (val) => {
-    return val.replace(/([a-z])([A-Z])/g, '$1 $2')
+     return val.replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+     .replace(/([a-zA-Z])([0-9])/g, '$1 $2')
      .replace(/\b([A-Z]+)([A-Z])([a-z])/, '$1 $2$3')
      .replace(/^./, function(str){ return str.toUpperCase(); })
   }
