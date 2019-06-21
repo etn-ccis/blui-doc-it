@@ -121,7 +121,7 @@ const styles = theme => ({
     }
   },
   appBar:{
-    top: 0, 
+    top: 0,
     width: 'auto',
     left: drawerWidth,
     [theme.breakpoints.down('sm')]: {
@@ -144,7 +144,7 @@ class App extends Component {
         browser: (isFirefox ? 'firefox' : isIE ? 'ie' : isEdge ? 'edge' : isChrome ? 'chrome' : 'other')
     };
   }
-    
+
 
 
   handleDrawerToggle = () => {
@@ -158,7 +158,7 @@ class App extends Component {
     if(newProps.pageURL && (newProps.pageURL !== this.props.pageURL)){
         window.scrollTop = 0;
         if(document.body){
-          document.body.scrollTop = 0; 
+          document.body.scrollTop = 0;
           if(document.body.scrollIntoView){document.body.scrollIntoView()}
         }
         if(document.scrollingElement){document.scrollingElement.scrollTop = 0;}
@@ -212,7 +212,7 @@ class App extends Component {
           </Hidden>
           <div className={classes.container}>
             {/* Floating Icon Button for Menu on homepage */}
-            {window.location.pathname === "/" && 
+            {window.location.pathname === "/" &&
               <div style={{ color: "white", position: 'fixed', top: 0, zIndex: 100, background: 'rgba(0,123,193,.5)'}}>
                 <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle} className={classes.navIconHide} style={{ zIndex: "10" }}>
                   <MenuIcon />
@@ -221,7 +221,7 @@ class App extends Component {
             }
 
             {/* Toolbar with Icon Button for Menu on non-homepage */}
-            {window.location.pathname !== "/" && 
+            {window.location.pathname !== "/" &&
               <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar className={classes.toolbar}>
                   <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle} className={classes.navIconHide}>
@@ -232,14 +232,14 @@ class App extends Component {
                   </Typography>
                   <div style={{flex: '1 1 0px'}}/>
                   <Hidden xsDown implementation="css">
-                    <img width={'auto'} height={20} src={eaton} alt="Eaton Logo" style={{display: 'block'}}/>                           
+                    <img width={'auto'} height={20} src={eaton} alt="Eaton Logo" style={{display: 'block'}}/>
                   </Hidden>
                 </Toolbar>
               </AppBar>
             }
 
             {/* Select Framework Toolbar */}
-            {window.location.pathname !== "/" && 
+            {window.location.pathname !== "/" &&
               <AppBar position="static" color="default" className={classes.slidebaby + ' ' + (this.state.showFrameworkSelect ? classes.showFramework : '')}>
                 <Toolbar style={{ display: "flex", flexDirection: "row" }}>
                   <FrameworkSelector framework={this.state.framework} onSelectFramework={choice => this.setState(
@@ -257,10 +257,12 @@ class App extends Component {
                 </Toolbar>
               </AppBar>
             }
+            {/*Find a better way of doing this*/}
+            {window.location.pathname !== "/style/iconography" &&
             <Fab  href='mailto:pxblue@eaton.com' variant="extended" color= {'primary'} className={classes.button}>
               <Mail style={{marginRight: 8}} />
               Contact Us
-            </Fab>
+            </Fab>}
 
             {!this.state.showFrameworkSelect && window.location.pathname !== "/" && <div className={classes.spacer}/>}
 
