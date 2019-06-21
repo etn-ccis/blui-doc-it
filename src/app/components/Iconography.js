@@ -56,7 +56,7 @@ class Iconography extends React.Component {
       }    
       let searchArray = this.state.search.trim().toLowerCase().split(/\s+/);
       for (var i = 0; i < searchArray.length; i++){
-        if (getMuiIconName(icon.name).toLowerCase().indexOf(searchArray[i].trim()) === -1) {
+        if (icon.name.toLowerCase().indexOf(searchArray[i]) < 0) {
           return false;
         }
       }
