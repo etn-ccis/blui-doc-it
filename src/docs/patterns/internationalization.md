@@ -1,16 +1,16 @@
 # Internationalization
 
-Internationalization is a useful practice for adapting applications to various regions, languages, and cultures. This can be accomplished by considering differences in language scripts and directionality. 
+Internationalization is the practice of adapting applications to various regions, languages, and cultures. This is accomplished by considering the differences in language, scripts, and directionality. 
 
 ## Language Support
-To localize app content, create a string resource file or object containing any relevant translations of display content. Refer to the appropriate file/object constants within your application depending on the user selected language.  
+To localize your application content, you should create a string resource file or object that contains the translations for any display text used in your application. You will not want to have any text hard-coded in your application's UI. To switch your application to another language, you simply toggle the file/object used to populate the UI to the appropriate translation.  
 
-Different writing systems may require different vertical and horizontal space than English. To ensure flexibility, avoid using fixed dimensions for necessary UI components such as buttons, labels, and badges. Also consider setting different default display font sizes for languages that may have smaller glyphs. 
+Different languages/writing systems may require different vertical and horizontal space. To ensure flexibility, avoid using fixed dimensions for necessary UI components such as buttons, labels, and badges. Also consider setting different default display font sizes for languages that may have smaller glyphs. 
 
->**NOTE:** The recommended PX Blue font for all non Latin script languages is [Noto Sans](https://www.google.com/get/noto/#sans-lgc).
+>**NOTE:** PX Blue recommends using [Noto Sans](https://www.google.com/get/noto/#sans-lgc) for all non-western languages. You can read more on our [Typography](/style/typography) page.
 
-## Bidirectionally / RTL Support 
-Applications using right-to-left languages should mirror all display content. For example, navigation drawers should be displayed on the right side of the screen, icon buttons should display to the right of text, and any icons with directionality should be mirrored. 
+## Bi-directionality/ Right-to-Left (RTL) Support 
+Some languages, such as Arabic, are read from right to left. Applications supporting these languages will need to mirror the UI so the natural flow is from right to left. For example, navigation drawers should be displayed on the right side of the screen, icons should be to the right of text in buttons, and any icons with directionality should be mirrored. 
 
 {{ angular stackblitz= }}
 
