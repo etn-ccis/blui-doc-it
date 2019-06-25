@@ -12,8 +12,7 @@ Different languages/writing systems may require different vertical and horizonta
 ## Bi-directionality/ Right-to-Left (RTL) Support 
 Some languages, such as Arabic, are read from right to left. Applications supporting these languages will need to mirror the UI so the natural flow is from right to left. For example, navigation drawers should be displayed on the right side of the screen, icons should be to the right of text in buttons, and any icons with directionality should be mirrored. 
 
-{{ angular stackblitz= }}
-
-{{ react stackblitz= }}
+{{ angular stackblitz=https://stackblitz.com/edit/pxblue-internationalization-angular?embed=1&file=app/app.component.ts&hideNavigation=1&view=preview }}
+{{ react stackblitz=https://stackblitz.com/edit/pxblue-internationalization-react?embed=1&file=index.js&hideNavigation=1&view=preview }}
 
 
