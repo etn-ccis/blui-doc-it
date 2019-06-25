@@ -2,7 +2,7 @@
 
 Forms are an integral part to many applications, particularly during the user registration phase. One of the most important parts of working with forms is properly validating the information that users enter into them. In general, PX Blue follows the form behaviors explained in detail by [Google Material](https://material.io/design/components/text-fields.html#anatomy).
 
-## Optional v. Required Fields
+## Optional vs. Required Fields
 When using a mixture of optional and required fields in a form, the inputs should be labeled appropriately. 
 
 If the majority of the fields are required, you should call out the fields that are optional. These fields should be labeled with an appropriate descriptor, followed by "optional" in parentheses.
