@@ -42,8 +42,8 @@ If you want to use multiple themes in different areas of your site, you just nee
 <MuiThemeProvider theme={createMuiTheme(PXBThemes.blue)}>
     <MyApp>
         <MyNormalComponent/>
-        <MuiThemeProvider theme={createMuiTheme(this.props.currentAlarmTheme)}>
-            <MyAlarmComponent/>
+        <MuiThemeProvider theme={createMuiTheme(PXBThemes.blueDark)}>
+            <MySidebarComponent/>
         </MuiThemeProvider>
     </MyApp>
 </MuiThemeProvider/>
