@@ -30,14 +30,15 @@ const styles = theme => ({
         marginRight: theme.spacing.unit
     },
     menu:{
-        width: '100px'
+        minWidth: '100px'
     }
 });
 
 const frameworks = [
     'angular',
     'react',
-    'ionic'
+    'ionic',
+    'reactNative'
 ];
 
 class FrameworkSelector extends React.Component {
