@@ -85,12 +85,12 @@ React Native does not have a robust theming mechanism yet. There are libraries a
 Our color library is available from npm:
 
 ```
-yarn add @pxblue/themes
+yarn add @pxblue/colors
 ```
 
 You can then include these color definitions and use them in your project by doing the following:
 ```
-import * as Colors from '@pxblue/themes/react-native'
+import * as Colors from '@pxblue/colors'
 ...
 <Text style={{color: Colors.blue['500']}}>Hello World!</Text>
 ```

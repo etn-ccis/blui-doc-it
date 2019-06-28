@@ -22,6 +22,8 @@ if [ $? -gt 0 ]; then exit 1; fi
 # Mobile Framework Links
 markdown-link-check -q ./src/docs/development/frameworks-mobile/cordova.md -c ./link-check/config/depth-2.json
 if [ $? -gt 0 ]; then exit 1; fi
+markdown-link-check -q ./src/docs/development/frameworks-mobile/ionic.md -c ./link-check/config/depth-2.json
+if [ $? -gt 0 ]; then exit 1; fi
 markdown-link-check -q ./src/docs/development/frameworks-mobile/intro.md -c ./link-check/config/depth-2.json
 if [ $? -gt 0 ]; then exit 1; fi
 markdown-link-check -q ./src/docs/development/frameworks-mobile/nativescript.md -c ./link-check/config/depth-2.json
