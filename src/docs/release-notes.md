@@ -1,3 +1,25 @@
+# Power Xpert Blue 2.3.0 (June 2019)
+### Dark Themes
+We've added a dark theme for Angular and React applications. These are available starting in version 2.0.0 of our [@pxblue/themes](https://www.npmjs.com/package/@pxblue/themes) package.
+
+### Hybrid Code examples
+We have begun building out mobile pattern examples, starting with [Login](/patterns/login). You'll notice two new options in the framework selection dropdown for our supported mobile technologies.
+
+### Design Patterns
+New design patterns and examples are available for [Form Validation](/patterns/form-validation) and [Internationalization](/patterns/internationalization).
+
+### Ionic Support
+PX Blue now offer support for developing mobile applications with [Ionic](/development/frameworks-mobile/ionic). Ionic 4 is capable of working with the Angular Material component library and PX Blue themes for Angular. We will be phasing out support for NativeScript applications due to lack of adoption.
+
+### Component Library
+Re-usable components built by the PX Blue team for use in your applications. We currently have **Hero** components available for both [Angular](https://www.npmjs.com/package/@pxblue/angular-components) (version 7) and [React](https://www.npmjs.com/package/@pxblue/react-components). You can check them out on NPM or [GitHub](https://github.com/pxblue/component-library#readme).
+
+### Miscellaneous
+* Bug fixes and theme improvements
+* New icons and updated [Iconography Page](/style/iconography)
+
+
+<br/><br/><br/>
 # Power Xpert Blue 2.2.2 (March 2019)
 ### New Location
 We've moved! In order to make our documentation as accessible as possible, we've migrated our entire process over to GitHub. Our documentation can now be found at pxblue.github.io.
