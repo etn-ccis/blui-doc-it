@@ -13,7 +13,6 @@ export const externalLinks = () => {
         },
         { // Replaces external links with new tab anchor links
             type: 'lang',
-            // regex: /\[\(?([A-Za-z -/@_,.]+?)\)??\]\((http[^\s![\]]+?)\)/g,
             regex: /\[([^\]]+?)\]\((http[^\s![\]]+?)\)/g,
             replace: (matchString, desc, url, offset) => {
                 return `<a href='${url}' target='_blank' rel='noopener noreferrer'>${desc}</a>`;
@@ -24,66 +23,44 @@ export const externalLinks = () => {
     ]);
 }
 
-export const statusBadges = () => {
-    return ([
-        {
-            type: 'lang',
-            regex: /{{\s*badge\s+type=(status|commit|issues|bugs)\s+repo=([A-Z-]+)\s+branch=([A-Z-]+)\s*}}/gi,
-            replace: (matchString, type, repo, branch, offset) => {
-                // return `<h1>hello world</h1>`;
-                switch (type) {
-                    case 'commit':
-                        return `<a href="https://github.com/pxblue/${repo}/commits/${branch}" target="_blank" rel="noopener noreferrer">
-                            <img src="https://img.shields.io/github/last-commit/pxblue/${repo}.svg?style=flat" alt="" />
-                        </a>`;
-                    case 'issues':
-                        return `<a href="https://github.com/pxblue/${repo}/issues?q=is%3Aissue+is%3Aopen" target="_blank" rel="noopener noreferrer">
-                            <img src="https://img.shields.io/github/issues/pxblue/colors/bug.svg?style=flat&amp;label=bugs" alt="" />
-                        </a>`;
-                    case 'bugs':
-                        return `<a href="https://github.com/pxblue/${repo}/issues?q=is%3Aissue+is%3Aopen+label%3Abug" target="_blank" rel="noopener noreferrer">
-                            <img src="https://img.shields.io/github/issues/pxblue/colors/bug.svg?style=flat&amp;label=bugs" alt="" />
-                        </a>`;
-                    case 'status':
-                    default:
-                        return `<a href="https://circleci.com/gh/pxblue/${repo}/tree/${branch}" target="_blank" rel="noopener noreferrer">
-                            <img src="https://img.shields.io/circleci/project/github/pxblue/${repo}/${branch}.svg?style=flat" alt="" />
-                        </a>`;
-                }
-            }
-
-        }
-    ]);
-}
-
-export const statusTables = () => {
+export const examplesTable = () => {
     return ([
         {
             type: 'lang',
             regex: /{{\s*statustable\s+repo=([A-Z-]+)\s+branches=([A-Z-|]+)\s*}}/gi,
             replace: (matchString, repo, branches, offset) => {
                 branches = branches.split('|');
-                let link = `<a href="https://github.com/pxblue/${repo}" target="_blank" rel="noopener noreferrer">${repo}</a>`;
+                let link = `[${repo}](https://github.com/pxblue/${repo}) `;
                 let status = '';
                 let updates = '';
-                let issues = `<a href="https://github.com/pxblue/${repo}/issues?q=is%3Aissue+is%3Aopen+label%3Abug" target="_blank" rel="noopener noreferrer">
-                    <img src="https://img.shields.io/github/issues/pxblue/colors/bug.svg?style=flat&amp;label=bugs" alt="" />
-                </a>`;
+                let issues = `[![](https://img.shields.io/github/issues/pxblue/${repo}/bug.svg?style=flat&label=bugs)](https://github.com/pxblue/${repo}/issues?q=is%3Aissue+is%3Aopen+label%3Abug) `;
                 branches.forEach((branch) => {
-                    status += `<a href="https://circleci.com/gh/pxblue/${repo}/tree/${branch}" target="_blank" rel="noopener noreferrer">
-                        <img src="https://img.shields.io/circleci/project/github/pxblue/${repo}/${branch}.svg?label=${branch}&style=flat" alt="" />
-                    </a>`;
-                    updates += `<a href="https://github.com/pxblue/${repo}/commits/${branch}" target="_blank" rel="noopener noreferrer">
-                        <img src="https://img.shields.io/github/last-commit/pxblue/${repo}/${branch}.svg?label=${branch}&style=flat" alt="" />
-                    </a>`;
+                    status += `[![](https://img.shields.io/circleci/project/github/pxblue/${repo}/${branch}.svg?label=${branch}&style=flat)](https://circleci.com/gh/pxblue/${repo}/tree/${branch}) `;
+                    updates += `[![](https://img.shields.io/github/last-commit/pxblue/${repo}/${branch}.svg?label=${branch}&style=flat)](https://github.com/pxblue/${repo}/commits/${branch}) `;
                 });
+                return `|${link}|${status}|${updates}|${issues}|`;
+            }
 
-                return `<tr>
-                    <td>${link}</td>
-                    <td>${status}</td>
-                    <td>${updates}</td>
-                    <td>${issues}</td>
-                </tr>`;
+        }
+    ]);
+}
+
+export const npmTable = () => {
+    return ([
+        {
+            type: 'lang',
+            regex: /{{\s*npmtable\s+repo=([A-Z-]+)\s+packages=([@/A-Z-|]+)\s*}}/gi,
+            replace: (matchString, repo, packages, offset) => {
+                packages = packages.split('|');
+                let link = `[${repo}](https://github.com/pxblue/${repo}/tree/master) `;
+                let npmLinks = '';
+                let status = `[![](https://img.shields.io/circleci/project/github/pxblue/${repo}/master.svg?style=flat)](https://circleci.com/gh/pxblue/${repo}/tree/master) `;
+                let updates = `[![](https://img.shields.io/github/last-commit/pxblue/${repo}/master.svg?style=flat)](https://github.com/pxblue/${repo}/commits/master) `;
+                let issues = `[![](https://img.shields.io/github/issues/pxblue/${repo}/bug.svg?style=flat&label=bugs)](https://github.com/pxblue/${repo}/issues?q=is%3Aissue+is%3Aopen+label%3Abug) `;
+                packages.forEach((pack) => {
+                    npmLinks += `[![](https://img.shields.io/npm/v/${pack}.svg?label=${pack}&style=flat)](https://www.npmjs.com/package/${pack}) `;
+                });
+                return `|${link}|${npmLinks}|${status}|${updates}|${issues}|`;
             }
 
         }
