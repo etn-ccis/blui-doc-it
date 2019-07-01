@@ -53,8 +53,10 @@ The proxy addresses may vary depending on your location. Consult your local IT d
 yarn add <package-name>
 ```
 
+> If you are installing packages globally using yarn, you will need to ensure that your PATH variable has an entry pointing to your global yarn install directory. This location will vary based on your operating system.
+
 # Hybrid App Development
-If you are setting up for building a mobile app, there are some additional steps you will want to take to prepare. The process below describes a method which has shown some promise, though each machine is slightly different and you may run into other issues while getting started (particularly with respect to the proxy). Some of these problems may require IT intervention to resolve, so give yourself some extra time before you need to start development.
+If you are setting up for building a mobile app, there are some additional steps you will want to take to prepare. Some parts of this process may require IT intervention to resolve, so give yourself some extra time before you need to start development. The following requirements are the basics. Depending on your selected [framework](/development/frameworks-mobile/intro), there will be other specific setup steps detailed in our Getting Started Guides.
 
 ### Prerequisites
 #### Hardware
@@ -66,9 +68,7 @@ Mobile development is resource-intensive, so you will need a development machine
 - 5/6 Gen Core i7 with Virtualization Technology or better
 
 #### Software
-There are a number of software tools that you will need before you can get started:
+There are a few software tools that you will need before you can get started:
 
 - [Android Studio](https://developer.android.com/studio/) (required for building for Android)
 - xCode (Mac-only, required for building for iOS)
-
-Depending on the hybrid framework you are using, there may be additional tools that you will want to use - see our individual Framework Guides for more details.

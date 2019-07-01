@@ -1,0 +1,18 @@
+{
+    "ignorePatterns": [
+        {"pattern": "/style/iconography"},
+        {"pattern": "/style/color"}
+    ],
+    "replacementPatterns": [
+        {
+            "pattern": "^..\/images",
+            "replacement": "../../../public/images"
+        },
+        {
+            "pattern": "^\/([A-Za-z-\/]+)",
+            "replacement": "../$1.md"
+        }
+    ],
+    "httpHeaders": [
+    ]
+}

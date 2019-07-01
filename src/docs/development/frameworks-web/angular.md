@@ -11,6 +11,7 @@ To use PX Blue with your Angular project, you will need:
     * Our themes are built for these components.
 3. Our PX Blue Themes for Angular:
     * These are available from npm as [@pxblue/themes](https://www.npmjs.com/package/@pxblue/themes)
+    * See below for installation instructions 
 
 ## Integrating PX Blue
 Install the Angular Material components and PX Blue theme files from npm:
@@ -19,28 +20,27 @@ cd your-project
 yarn add @angular/material @pxblue/themes
 ```
 
-Then import the theme files into your application's main stylesheet:
+In order to use the PX Blue themes and font (Open Sans), you will need to modify your angular.json file "styles" entries (there is one under "build" and one under "test") to include the PX Blue themes and Open Sans reference:
 ```
-// styles.scss
-@import '~@pxblue/themes/angular/theme.scss';
+"styles": [
+    "src/styles.scss",
+    "./node_modules/@pxblue/themes/angular/theme.js",
+    "./node_modules/typeface-open-sans"
+],
 ```
 
-In order for your application to use the **Open Sans** font, you will also need to include the relative path to the npm package *typeface-open-sans* in your Angular.json file (2 places):
+You can then apply the theme to your application by adding the proper class to your application's top-level element:
 ```
-//build styles
-styles[
-    "styles.scss",
-    "./node_modules/typeface-open-sans"
-    ]
-...
-//testing styles
-styles[
-    "styles.scss",
-    "./node_modules/typeface-open-sans"
-    ]
-```
-Then, in your application, you can access fonts using mat-typography, e.g.:
+// Default Theme
+<app-root class="pxb-blue">
 
+// Dark Theme
+<app-root class="pxb-blue-dark">
+```
+> If you do not specify a theme class, your application will use the default Material theme.
+
+
+You can access the fonts using mat-typography, e.g.:
 ```
 <section class="mat-typography>
    <h1>H1 Text</h1>

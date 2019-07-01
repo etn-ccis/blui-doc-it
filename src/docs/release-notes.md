@@ -1,3 +1,25 @@
+# Power Xpert Blue 2.3.0 (June 2019)
+### Dark Themes
+We've added a dark theme for Angular and React applications. These are available starting in version 2.0.0 of our [@pxblue/themes](https://www.npmjs.com/package/@pxblue/themes) package.
+
+### Hybrid Code Examples
+We have begun building out mobile pattern examples, starting with [Login](/patterns/login). You'll notice two new options in the framework selection dropdown for our supported mobile technologies.
+
+### Design Patterns
+New design patterns and examples are available for [Form Validation](/patterns/forms) and [Internationalization](/patterns/internationalization).
+
+### Ionic Support
+PX Blue now offer support for developing mobile applications with [Ionic](/development/frameworks-mobile/ionic). Ionic 4+ is capable of working with the Angular Material component library and PX Blue themes for Angular. We will be phasing out support for NativeScript applications in favor of Ionic.
+
+### Component Library
+Re-usable components built by the PX Blue team for use in your applications. We currently have **Hero** components available for both [Angular](https://www.npmjs.com/package/@pxblue/angular-components) (version 7) and [React](https://www.npmjs.com/package/@pxblue/react-components). You can check them out on NPM or [GitHub](https://github.com/pxblue/component-library#readme).
+
+### Miscellaneous
+* Bug fixes and theme improvements
+* New icons and updated [Iconography Page](/style/iconography)
+
+
+<br/><br/><br/>
 # Power Xpert Blue 2.2.2 (March 2019)
 ### New Location
 We've moved! In order to make our documentation as accessible as possible, we've migrated our entire process over to GitHub. Our documentation can now be found at pxblue.github.io.
@@ -55,7 +77,7 @@ We have also migrated all of our code samples to [StackBlitz](http://www.stackbl
 PX Blue is officially going open source in version 2.2. All of our code samples are available on [GitHub](http://www.github.com/pxblue) and we have also published a number of packages to [NPM](https://www.npmjs.com/~px-blue) to make integrating PX Blue into your applications much simpler. This will also allow us to continuously deliver and version updates to PX Blue resources. See the updated Framework Guides to learn how to pull these packages into your applications. PX Blue is licensed under the BSD-3-Clause license agreement. The text of this license can be found in any of our [resource repositories](https://github.com/pxblue/themes/blob/master/LICENSE).
 
 ### More Hybrid Support
-PX Blue now supports hybrid development in [Cordova](/development/frameworks-mobile/cordova) and [React Native](/development/frameworks-mobile/reactnative), and we have provided additional information for those already using [NativeScript](/development/frameworks-mobile/nativescript).
+PX Blue now supports hybrid development in [Cordova](/development/frameworks-mobile/cordova) and [React Native](/development/frameworks-mobile/react-native), and we have provided additional information for those already using [NativeScript](/development/frameworks-mobile/nativescript).
 
 ### Style Updates
 We've also made some minor update to our color palette and typography hierarchy to improve our alignment with corporate branding requests. We also have updated icons in our icon font. Make sure to upgrade to the latest versions to be up-to-date.

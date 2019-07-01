@@ -28,7 +28,7 @@ yarn global add react-native-cli
 ```
 
 ## Writing your application
-If you are familiar with React development, React Native will be relatively simple to understand. The application logic remains the same, while the UI requires a little adjustment. Rather than typical HTML elements, React Native UIs are built with a special library of [Components](https://facebook.github.io/react-native/docs/components-and-apis), including Views, Text, Image, etc. React Native layouts are built exclusively using FlexBox.
+If you are familiar with React development, React Native will be relatively simple to understand. The application logic remains the same, while the UI requires a little adjustment. Rather than typical HTML elements, React Native UIs are built with a special library of [Components](https://facebook.github.io/react-native/docs/components-and-apis), including ```<View>```, ```<Text>```, ```<Image>```, etc. React Native layouts are built exclusively using FlexBox.
 
 ## Building your application
 If you are using Create React Native App, your app will default to running via Expo (this will require you to install the Expo app on your test device).
@@ -41,7 +41,7 @@ Running ```yarn start``` will build your app and make it available for viewing. 
 
 When the application is running in Expo, any changes you make in your JS files will automatically update in the simulator.
 
->**NOTE**: You cannot use Expo with a real device when developing on an Eaton computer. IT restrictions limit all incoming connections to your computer (including on a non-eaton network), so you will not be able to pull data from the computer to your phone. If you want to test on a real device, you will need to go through the ejection process (see below).
+>**NOTE**: When developing on an Eaton PC, it can be very challenging to connect to a real device for testing, particularly on the Eaton network. You will be best served by opting to work with the simulators in this case. If you want to test on a real device, you will need to go through the ejection process (see below).
 
 ### Ejecting from CRNA
 At some point during your development, it may become necessary to eject from Create React Native App. The most common reasons for this are for adding native libraries, for final app deployment, or if you are developing on Eaton hardware and want to test your app on a real device. 
@@ -85,12 +85,12 @@ React Native does not have a robust theming mechanism yet. There are libraries a
 Our color library is available from npm:
 
 ```
-yarn add @pxblue/themes
+yarn add @pxblue/colors
 ```
 
 You can then include these color definitions and use them in your project by doing the following:
 ```
-import * as Colors from '@pxblue/themes/react-native'
+import * as Colors from '@pxblue/colors'
 ...
 <Text style={{color: Colors.blue['500']}}>Hello World!</Text>
 ```

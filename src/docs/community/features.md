@@ -11,7 +11,7 @@ The JavaScript libraries and their associated Material Design libraries are part
 * [React](https://github.com/facebook/react/issues)
     * [Material-UI](https://github.com/mui-org/material-ui/issues)
 * [Apache Cordova](https://github.com/apache/cordova/issues)
-* [NativeScript](https://github.com/NativeScript/NativeScript/issues)
+* [Ionic](https://github.com/ionic-team/ionic/issues)
 * [React Native](https://github.com/facebook/react-native/issues)
 
 
