@@ -56,6 +56,8 @@ markdown-link-check -q ./src/docs/patterns/appbar.md -c ./link-check/config/dept
 if [ $? -gt 0 ]; then exit 1; fi
 markdown-link-check -q ./src/docs/patterns/forms.md -c ./link-check/config/depth-1.json
 if [ $? -gt 0 ]; then exit 1; fi
+markdown-link-check -q ./src/docs/patterns/internationalization.md -c ./link-check/config/depth-1.json
+if [ $? -gt 0 ]; then exit 1; fi
 markdown-link-check -q ./src/docs/patterns/layout.md -c ./link-check/config/depth-1.json
 if [ $? -gt 0 ]; then exit 1; fi
 markdown-link-check -q ./src/docs/patterns/lists.md -c ./link-check/config/depth-1.json
