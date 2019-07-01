@@ -33,8 +33,8 @@ Android and iOS are the dominant players in the mobile market, but you should ch
 - Reduces development time thanks to shared code base
 - Provides more technology options
     - Many different hybrid platforms / tools available
-- Allows a consistent look the same on different platforms
-- Makes development easier by using web technologies, but it's also easier to make something that doesn't follow standard patterns
+- Allows for a consistent look on different platforms
+- Makes development easier by using web technologies, but it's also easier to make something that doesn't follow standard mobile patterns
 
 # So, which one should you use?
 Our recommendation for mobile applications is to take a hybrid approach. This will allow you to deploy multiple versions of your application (i.e. iOS and Android) from a single code base. We offer support for several different approaches to building hybrid apps (see our [Mobile Framework Introduction](/development/frameworks-mobile/intro) to learn about the technologies we support).

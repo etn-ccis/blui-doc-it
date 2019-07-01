@@ -3,7 +3,7 @@
 ### Setting Up Your Environment
 You'll need to start by following the general instructions for setting up your development environment for mobile, found in our [Environment Guide](/development/environment). Since Ionic takes advantage of web technologies, you won't need any specific additional tools beyond what you would use for web development.
 
-Ionic uses Cordova behind the scenes, but offers some additional convenience tools on top. If you would prefer to write a pure Cordova application, you can read instructions in the [Apache Cordova Getting Started Guide](/development/frameworks-mobile/cordova).
+Ionic uses Cordova behind the scenes but offers some additional convenience tools on top. If you would prefer to write a pure Cordova application, you can read instructions in the [Apache Cordova Getting Started Guide](/development/frameworks-mobile/cordova).
 
 
 ### Installing Ionic
@@ -29,16 +29,17 @@ The easiest way to get started with Ionic is to use the [Ionic CLI](https://ioni
 ionic start --list
 ```
 
+> **NOTE**: Ionic supports a variety of different JavaScript frameworks. However, at this time, PX Blue only supports the use of Ionic for Angular applications.
+
 To create a new project, you'll need to run:
 ```
 mkdir workspace
 cd workspace
-ionic start <project-name> <template> [options]
+ionic start <project-name>
 ```
-
 This command takes several minutes to complete depending on network and PC performance.
 
-> **NOTE**: Ionic supports a variety of different JavaScript frameworks. However, at this time, PX Blue only supports the use of Ionic for Angular applications.
+> **NOTE**: If you are running this command on and Eaton PC on the Eaton network, you will need to temporarily disable TLS checks by adding an environment variable ```NODE_TLS_REJECT_UNAUTHORIZED```=0. **Remove this environment variable as soon as your project is created**.
 
 At this point you can start coding your application. If you have an existing web application, you can drop your existing files into the Ionic project.
 

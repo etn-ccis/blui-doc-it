@@ -23,7 +23,7 @@ Power Xpert Blue supports hybrid mobile application development using Ionic/Cord
   - Learn more on the [React Native Website](https://facebook.github.io/react-native/)
 
 # Which framework should I use?
-This is entirely up to you. If time is your biggest concern, Ionic or Cordova may be the best approach since it simply wraps an existing application and requires no additional code. 
+This is entirely up to you. If time is your biggest concern, Ionic or Cordova may be the best approach since they simply wrap an existing application and require no additional code. 
 
 However, if you want more control over the look and performance of your application, it may be better to use React Native. If you have a React application, you'd be able to re-use most of your application logic, but you have to write custom/dedicated UI views for mobile.
 

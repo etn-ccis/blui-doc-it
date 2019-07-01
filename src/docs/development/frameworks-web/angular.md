@@ -11,6 +11,7 @@ To use PX Blue with your Angular project, you will need:
     * Our themes are built for these components.
 3. Our PX Blue Themes for Angular:
     * These are available from npm as [@pxblue/themes](https://www.npmjs.com/package/@pxblue/themes)
+    * See below for installation instructions 
 
 ## Integrating PX Blue
 Install the Angular Material components and PX Blue theme files from npm:
