@@ -2,7 +2,7 @@
 ### Dark Themes
 We've added a dark theme for Angular and React applications. These are available starting in version 2.0.0 of our [@pxblue/themes](https://www.npmjs.com/package/@pxblue/themes) package.
 
-### Hybrid Code examples
+### Hybrid Code Examples
 We have begun building out mobile pattern examples, starting with [Login](/patterns/login). You'll notice two new options in the framework selection dropdown for our supported mobile technologies.
 
 ### Design Patterns
