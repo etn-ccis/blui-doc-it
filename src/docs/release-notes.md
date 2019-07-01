@@ -6,7 +6,7 @@ We've added a dark theme for Angular and React applications. These are available
 We have begun building out mobile pattern examples, starting with [Login](/patterns/login). You'll notice two new options in the framework selection dropdown for our supported mobile technologies.
 
 ### Design Patterns
-New design patterns and examples are available for [Form Validation](/patterns/form-validation) and [Internationalization](/patterns/internationalization).
+New design patterns and examples are available for [Form Validation](/patterns/forms) and [Internationalization](/patterns/internationalization).
 
 ### Ionic Support
 PX Blue now offer support for developing mobile applications with [Ionic](/development/frameworks-mobile/ionic). Ionic 4 is capable of working with the Angular Material component library and PX Blue themes for Angular. We will be phasing out support for NativeScript applications due to lack of adoption.

@@ -9,80 +9,123 @@ export const externalLinks = () => {
             replace: (matchString, img, url, offset) => {
                 return `<a href='${url}' target='_blank' rel='noopener noreferrer'><img src='${img}' alt=''/></a>`;
             }
-        
+
         },
         { // Replaces external links with new tab anchor links
             type: 'lang',
-            // regex: /\[\(?([A-Za-z -/@_,.]+?)\)??\]\((http[^\s![\]]+?)\)/g,
             regex: /\[([^\]]+?)\]\((http[^\s![\]]+?)\)/g,
             replace: (matchString, desc, url, offset) => {
                 return `<a href='${url}' target='_blank' rel='noopener noreferrer'>${desc}</a>`;
             }
-        
+
         }
-        
+
+    ]);
+}
+
+export const examplesTable = () => {
+    return ([
+        {
+            type: 'lang',
+            regex: /{{\s*statustable\s+repo=([A-Z-]+)\s+branches=([A-Z-|]+)\s*}}/gi,
+            replace: (matchString, repo, branches, offset) => {
+                branches = branches.split('|');
+                let link = `[${repo}](https://github.com/pxblue/${repo}) `;
+                let status = '';
+                let updates = '';
+                let issues = `[![](https://img.shields.io/github/issues/pxblue/${repo}/bug.svg?style=flat&label=bugs)](https://github.com/pxblue/${repo}/issues?q=is%3Aissue+is%3Aopen+label%3Abug) `;
+                branches.forEach((branch) => {
+                    status += `[![](https://img.shields.io/circleci/project/github/pxblue/${repo}/${branch}.svg?label=${branch}&style=flat)](https://circleci.com/gh/pxblue/${repo}/tree/${branch}) `;
+                    updates += `[![](https://img.shields.io/github/last-commit/pxblue/${repo}/${branch}.svg?label=${branch}&style=flat)](https://github.com/pxblue/${repo}/commits/${branch}) `;
+                });
+                return `|${link}|${status}|${updates}|${issues}|`;
+            }
+
+        }
+    ]);
+}
+
+export const npmTable = () => {
+    return ([
+        {
+            type: 'lang',
+            regex: /{{\s*npmtable\s+repo=([A-Z-]+)\s+packages=([@/A-Z-|]+)\s*}}/gi,
+            replace: (matchString, repo, packages, offset) => {
+                packages = packages.split('|');
+                let link = `[${repo}](https://github.com/pxblue/${repo}/tree/master) `;
+                let npmLinks = '';
+                let status = `[![](https://img.shields.io/circleci/project/github/pxblue/${repo}/master.svg?style=flat)](https://circleci.com/gh/pxblue/${repo}/tree/master) `;
+                let updates = `[![](https://img.shields.io/github/last-commit/pxblue/${repo}/master.svg?style=flat)](https://github.com/pxblue/${repo}/commits/master) `;
+                let issues = `[![](https://img.shields.io/github/issues/pxblue/${repo}/bug.svg?style=flat&label=bugs)](https://github.com/pxblue/${repo}/issues?q=is%3Aissue+is%3Aopen+label%3Abug) `;
+                packages.forEach((pack) => {
+                    npmLinks += `[![](https://img.shields.io/npm/v/${pack}.svg?label=${pack}&style=flat)](https://www.npmjs.com/package/${pack}) `;
+                });
+                return `|${link}|${npmLinks}|${status}|${updates}|${issues}|`;
+            }
+
+        }
     ]);
 }
 
 export default (config) => {
-    config = Object.assign({angular:'embed', react:'embed'}, config);
+    config = Object.assign({ angular: 'embed', react: 'embed' }, config);
     return ([
         {
             type: 'lang',
             regex: /{{\s*link\s*(angular|react)\s*stackblitz=(.+)+\s*}}/g,
             replace: (matchString, framework, url, offset) => {
-                if( (framework === 'react' && (config.react === 'embed' || config.react === 'link')) || (framework === 'angular' && (config.angular === 'embed' || config.angular === 'link'))){
-                    return  `<div class="stackblitz" data-framework="${framework}"><a href="${url.substring(0, url.indexOf('?'))}" target='_blank' rel='noopener noreferrer'><img src="../images/code.svg" alt="StackBlitz" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>Try the ${framework.substr(0,1).toUpperCase() + framework.substr(1)} StackBlitz example</a></div>`
+                if ((framework === 'react' && (config.react === 'embed' || config.react === 'link')) || (framework === 'angular' && (config.angular === 'embed' || config.angular === 'link'))) {
+                    return `<div class="stackblitz" data-framework="${framework}"><a href="${url.substring(0, url.indexOf('?'))}" target='_blank' rel='noopener noreferrer'><img src="../images/code.svg" alt="StackBlitz" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>Try the ${framework.substr(0, 1).toUpperCase() + framework.substr(1)} StackBlitz example</a></div>`
                 }
-                else if((framework === 'react' && config.react === 'hide') || (framework === 'angular' && config.angular === 'hide')){
+                else if ((framework === 'react' && config.react === 'hide') || (framework === 'angular' && config.angular === 'hide')) {
                     return ``;
                 }
             }
-        
+
         },
         {
             type: 'lang',
             regex: /{{\s*(angular|react)\s*stackblitz=(.+)+\s*}}/g,
             replace: (matchString, framework, url, offset) => {
-                if((framework === 'react' && config.react === 'embed') || (framework === 'angular' && config.angular === 'embed')){
+                if ((framework === 'react' && config.react === 'embed') || (framework === 'angular' && config.angular === 'embed')) {
                     return `<div class="stackblitz" data-framework="${framework}">
                         <iframe src="${url}" style="height:500px;"></iframe>
                     </div>`;
                 }
-                else if((framework === 'react' && config.react === 'link') || (framework === 'angular' && config.angular === 'link')){
-                    return `<div class="stackblitz" data-framework="${framework}"><a href="${url.substring(0, url.indexOf('?'))}" target='_blank' rel='noopener noreferrer'><img src="../images/code.svg" alt="StackBlitz" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>Try the ${framework.substr(0,1).toUpperCase() + framework.substr(1)} StackBlitz example</a></div>`;
+                else if ((framework === 'react' && config.react === 'link') || (framework === 'angular' && config.angular === 'link')) {
+                    return `<div class="stackblitz" data-framework="${framework}"><a href="${url.substring(0, url.indexOf('?'))}" target='_blank' rel='noopener noreferrer'><img src="../images/code.svg" alt="StackBlitz" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>Try the ${framework.substr(0, 1).toUpperCase() + framework.substr(1)} StackBlitz example</a></div>`;
                 }
-                else if((framework === 'react' && config.react === 'hide') || (framework === 'angular' && config.angular === 'hide')){
+                else if ((framework === 'react' && config.react === 'hide') || (framework === 'angular' && config.angular === 'hide')) {
                     return ``;
                 }
-                
+
             }
         }
-     
+
     ]);
 }
 export const images = (config) => {
-    
+
     return ([
         {
             type: 'lang',
             regex: /{{\s*(ionic|reactNative)\s*images=(.+)+\s*}}/g,
             replace: (matchString, framework, url, offset) => {
-                if((framework === 'ionic' && config.ionic === 'show')|| (framework === 'reactNative' && config.reactNative=== 'show')){
+                if ((framework === 'ionic' && config.ionic === 'show') || (framework === 'reactNative' && config.reactNative === 'show')) {
                     var urls = url.split('|');
                     var data = `<div style="display:flex; justify-content:flex-start; flex-wrap: wrap" data-framework="${framework}">`;
-                    for(var x=0; x<urls.length; x++){
+                    for (var x = 0; x < urls.length; x++) {
                         data += `<div style="width: 200px; margin: 0 20px 20px 0;">
                             <img src="${urls[x]}" alt="${urls[x]}" style="width: 100%; height: auto"/>
                         </div>`;
                     }
                     data += '</div>';
                     return data;
-                 }
-                else if((framework === 'ionic' && config.ionic === 'hide') || (framework === 'reactNative' && config.reactNative === 'hide')){
+                }
+                else if ((framework === 'ionic' && config.ionic === 'hide') || (framework === 'reactNative' && config.reactNative === 'hide')) {
                     return ``;
                 }
-                
+
             }
         }
     ])

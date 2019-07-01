@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect  } from 'react-redux';
 // import showdown from 'showdown';
-import stackBlitz, { externalLinks, images } from '../util/showdownExtensions';
+import stackBlitz, { externalLinks, images, examplesTable, npmTable} from '../util/showdownExtensions';
 import Footer from './Footer';
 import { fetchMarkdown } from '../actions/docs';
 import { updateTitle } from "../actions/ui";
@@ -30,6 +30,8 @@ const getExtensions = (framework, width, browser) => {
       ionic: framework !== 'ionic' ? 'hide' : 'show',
       reactNative: framework !== 'reactNative' ? 'hide' : 'show'
     }),
+    examplesTable,
+    npmTable,
     externalLinks
   ];
  }
