@@ -39,7 +39,7 @@ ionic start <project-name>
 ```
 This command takes several minutes to complete depending on network and PC performance.
 
-> **NOTE**: If you are running this command on and Eaton PC on the Eaton network, you will need to temporarily disable TLS checks by adding an environment variable ```NODE_TLS_REJECT_UNAUTHORIZED```=0. **Remove this environment variable as soon as your project is created**.
+> **NOTE**: If you are running this command on and Eaton PC on the Eaton network, you will need to temporarily disable TLS checks by adding an environment variable ```NODE_TLS_REJECT_UNAUTHORIZED```=0. **Remove this environment variable as soon as your project is created**. Alternatively, you can connect to an alternate network to create your project.
 
 At this point you can start coding your application. If you have an existing web application, you can drop your existing files into the Ionic project.
 
