@@ -29,6 +29,8 @@ There are additional test utilities that complement Jest well. Create React App 
 
 For detailed information, refer to the [Jest](https://github.com/facebook/jest), [Running React Tests](https://facebook.github.io/create-react-app/docs/running-tests), [Enzyme](https://airbnb.io/enzyme/), or [react-testing-library](https://github.com/kentcdodds/react-testing-library) documentation.
 
+### Hybrid Apps
+Unit testing your hybrid applications follows the same testing setup as the web applications. Ionic/Cordova applications built with Angular will come with Jasmine and Karma. React Native applications come pre-configured with Jest.
 
 ## End-to-End Testing
 End-to-End tests are a higher level test than Unit Tests. They focus primarily on the flow of the application, making sure that the different parts of the application work together correctly. For example, you may test that clicking a login button takes you to the appropriate sign-in page.

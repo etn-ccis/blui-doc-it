@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-### 1. How do I update to PX Blue 2.2.x if I'm currently using 2.1?
+### 1. How do I update to PX Blue 2.2+ if I'm currently using 2.1?
 1. First, delete the PX Blue 2.1 theme files from your project source tree.
 2. Next, install the new [@pxblue/themes](https://www.npmjs.com/package/@pxblue/themes) package from NPM.
 3. Update your import statements to point to the npm package instead of the local file.
@@ -11,7 +11,7 @@ Detailed instructions can be found in our updated Framework Guides.
 * [React](/development/frameworks-web/react)
 
 ### 2. Can I use Ionic with PX Blue?	
-With version 2.3.0, PX Blue introduced support for Ionic applications. While Ionic supports the use of a variety of frameworks for development, at this time PX Blue support is limited to Ionic 4 applications built using Angular and Angular Material.
+With version 2.3.0, PX Blue introduced support for Ionic applications. While Ionic supports the use of a variety of frameworks for development, at this time PX Blue support is limited to Ionic 4+ applications built using Angular and Angular Material.
 
 ### 3. Can I use Bootstrap with PX Blue?
 PX Blue does not support the use of Twitter Bootstrap for PX Blue applications. Bootstrap can cause conflicts with PX Blue components and themes and is an unnecessary addition next to the Material component libraries and frameworks supported by PX Blue. If you are accustomed to using Bootstrap for layout, you can read about the PX Blue alternative approach on our [Layout Patterns](/patterns/layout) page.

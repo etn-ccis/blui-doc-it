@@ -5,9 +5,9 @@ Forms are an integral part to many applications, particularly during the user re
 ## Optional vs. Required Fields
 When using a mixture of optional and required fields in a form, the inputs should be labeled appropriately. 
 
-If the majority of the fields are required, you should call out the fields that are optional. These fields should be labeled with an appropriate descriptor, followed by "optional" in parentheses.
+If most of the fields are required, you should call out the fields that are optional. These fields should be labeled with an appropriate descriptor, followed by "optional" in parentheses.
 
-Conversely, if the majority of your fields are optional, you should only call out the required fields. These should be identified by an asterisk (*) after the field label. There should be a descriptor nearby that indicates that a * means the field is required.
+Conversely, if most of your fields are optional, you should only call out the required fields. These should be identified by an asterisk (*) after the field label. There should be a descriptor nearby that indicates that a * means the field is required.
 
 ## Handling Errors
 

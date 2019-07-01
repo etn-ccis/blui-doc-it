@@ -98,9 +98,9 @@
   integrity sha512-tneNNYclHmNNIbo6J7XXEumoJZLBXqeO2LFufWxRvIs5yeVVfaJN3zWREl1oo5KP67aDixYgEKB7LH0oeTL+lQ==
 
 "@pxblue/icons-mui@^1.0.14":
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/@pxblue/icons-mui/-/icons-mui-1.0.16.tgz#774183f158d909753bebfa8f7afdfd0f6c5aca04"
-  integrity sha512-1ELOsD9Y43TDm5e3iPa0Ue8vshDO3GBlzfzE6BqeJyP0NsXhhHozPIKgPXA+5RHXvjaJqQkllenqhQ6TL5Q8qA==
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/@pxblue/icons-mui/-/icons-mui-1.0.17.tgz#8fe88991b419a2a239fb7ead2f6ec7f47a2d1957"
+  integrity sha512-DyGe3cr2gHRmwPKnv5Z640xdiMzEREkOU/PfhCBXg58K19/0RP1oFGKoycrpxOTIDsviCHVyquo5KEcqj978zg==
 
 "@pxblue/react-progress-icons@^1.0.6":
   version "1.0.7"

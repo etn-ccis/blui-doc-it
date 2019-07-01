@@ -6,7 +6,7 @@ The following table shows the current status for PX Blue resources available thr
 
 | Repository | NPM | Status | Updated | Issues | 
 |-------|--------|-----------| ------------|------------|
-{{ npmtable repo=colors packages=@pxblue/colors|@pxblue/colors-branding }}
+{{ npmtable repo=colors packages=@pxblue/colors }}
 {{ npmtable repo=component-library packages=@pxblue/angular-components|@pxblue/react-components }}
 {{ npmtable repo=highcharts packages=@pxblue/highcharts }}
 {{ npmtable repo=icons packages=@pxblue/icons|@pxblue/icons-svg|@pxblue/ng-progress-icons|@pxblue/react-progress-icons|@pxblue/symbols }}

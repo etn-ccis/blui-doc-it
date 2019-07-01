@@ -1,6 +1,6 @@
 # App Bar Patterns
 
-App bars are useful in a variety of locations throughout PX Blue applications. They are typically used to provide a title or description for a collection of data that follows. They may also a menu and/or various actions that can be performed.
+App bars are useful in a variety of locations throughout PX Blue applications. They are typically used to provide a title or description for a collection of data that follows. They may also contain a menu and/or various actions that can be performed.
 
 ## A Basic App Bar
 The most basic app bar is used at the top of a page as a title bar. It will have a menu button to the left (used to toggle a navigation menu/drawer) followed by one or two lines of text (title/subtitle) and, optionally, a dropdown with global page actions. Basic app bars can also be used to provide more detailed headers for Cards.

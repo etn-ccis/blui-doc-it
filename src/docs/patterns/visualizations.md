@@ -5,7 +5,7 @@ There are many opportunities to visualize data in different applications. The mo
 ## Charts & Graphs (Highcharts)
 Currently, PX Blue supports building charts and graphs using [Highcharts](http://www.highcharts.com), which is a comprehensive library for the web and works with both Angular and React. 
 
-PX Blue themes for Highcharts graphs (line, column, pie, donut) are available as an NPM package ([@pxblue/highcharts](https://www.npmjs.com/package/@pxblue/highcharts)). This package includes base configuration objects and color definitions as well as some example charts to get you started. For more information about using Highcharts, check out their documentation.
+PX Blue utilities for Highcharts graphs (line, column, pie, donut) are available as an NPM package ([@pxblue/highcharts](https://www.npmjs.com/package/@pxblue/highcharts)). This package includes base configuration objects/functions and color definitions as well as some example charts to get you started. For more information about using Highcharts, check out their documentation.
 
 > Highcharts has different [licensing](https://shop.highsoft.com/faq/licensing) requirements depending on the nature of your application - you will need to contact Highsoft directly to ensure that your product is properly licensed. You can also see the [Highcharts Pricing](https://shop.highsoft.com/highcharts/) page for pricing information. In the future, we plan to explore additional open-source charting solutions for inclusion in PX Blue.
 
