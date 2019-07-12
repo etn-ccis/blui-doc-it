@@ -9,6 +9,9 @@ Different languages/writing systems may require different vertical and horizonta
 
 >**NOTE:** PX Blue recommends using [Noto Sans](https://www.google.com/get/noto/#sans-lgc) for all non-western languages. You can read more on our [Typography](/style/typography) page.
 
+### Showing Language Options
+When showing a list of languages, you can decide whether you want to translate the language names or not (e.g., "English" vs. "Inglés"). There are pros and cons to each approach, so consider what makes the most sense for your application. Providing other cues (such as an icon) to help users find the language selection can help.
+
 ## Bi-directionality/ Right-to-Left (RTL) Support 
 Some languages, such as Arabic and Hebrew, are read from right to left. Applications supporting these languages will need to mirror the UI so the natural flow is from right to left. For example, navigation drawers should be displayed on the right side of the screen, icons should be to the right of text in buttons, and any icons with directionality should be mirrored. 
 
