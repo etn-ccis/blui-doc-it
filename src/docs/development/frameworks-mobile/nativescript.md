@@ -64,4 +64,4 @@ You can then include the theme definitions in your top-level .scss file:
 @import '~@pxblue/themes/nativescript/theme.scss';
 ```
 
-Additional theming can be accomplished through Sass styles for your application. NativeScript also allows you to specify separate style rules for Android and iOS (if desired), via app.android.scss and app.ios.scss, respectively.
+Additional theming can be accomplished through sass styles (.scss) for your application. NativeScript also allows you to specify separate style rules for Android and iOS (if desired), via app.android.scss and app.ios.scss, respectively.

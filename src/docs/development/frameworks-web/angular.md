@@ -6,7 +6,7 @@ The fastest way to create an Angular application is to use the [Angular CLI](htt
 To use PX Blue with your Angular project, you will need:
 
 1. An existing Angular application
-    * The project must be configured to use SASS stylesheets
+    * The project must be configured to use SCSS stylesheets
 2. The [Angular Material](https://material.angular.io/) Component Library
     * Our themes are built for these components.
 3. Our PX Blue Themes for Angular:
