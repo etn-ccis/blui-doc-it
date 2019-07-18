@@ -86,6 +86,10 @@
 					"url": "appbar"
 				},
 				{
+					"displayName": "Empty State",
+					"url": "states"
+				},
+				{
 					"displayName": "Form Validation",
 					"url": "forms"
 				},
