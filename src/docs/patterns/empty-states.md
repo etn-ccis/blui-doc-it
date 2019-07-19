@@ -7,7 +7,7 @@ When loading data for the first time, you do not want to show an empty screen wh
  
 The placeholder should match as closely as possible the real structure of the data. For example, if you are loading a list where each item has an icon, two lines of text, and an action button, then your placeholder should have a circle, two rectangles for the text, and another rectangle for the button. You should show as many placeholder elements as necessary to fill the area in the application that is loading data.
 
-> There are a number of libraries available to help you create this placeholder content. We have had success using [BROKEN LINK](https://broken.link.com) and [empty-state](https://www.npmjs.com/package/empty-state).
+> There are a number of libraries available to help you create this placeholder content. We have had success using [empty-state](https://www.npmjs.com/package/empty-state).
 
 {{ Loading Demos }}
 
