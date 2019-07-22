@@ -153,7 +153,8 @@ class App extends Component {
 
   componentWillReceiveProps(newProps){
     this.setState({showFrameworkSelect:
-      (window.location.pathname.match(/\/patterns\//) && !window.location.pathname.match(/\/patterns\/layout/))
+      (window.location.pathname.match(/\/patterns\//) && !window.location.pathname.match(/\/patterns\/layout/)) ||
+      (window.location.pathname.match(/\/style\/themes/))
     });
     if(newProps.pageURL && (newProps.pageURL !== this.props.pageURL)){
         window.scrollTop = 0;
