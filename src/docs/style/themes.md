@@ -20,5 +20,5 @@ As of version 2.0.0, the PX Blue themes package ([@pxblue/themes](https://www.np
 > **NOTE:** If you are using Ionic for hybrid application development, you can utilize the Angular themes and [Angular Material](https://material.angular.io/components/categories) component library. A future version of PX Blue will include more robust theming for React Native applications.
 
 ## Usage
-For detailed usage instructions for PX Blue themes, you can read the package instructions on [GitHub](https://github.com/pxblue/themes#px-blue-themes-for-eaton-applications). For additional information on how Material component libraries apply themes, see [Angular Material Theming](https://material.angular.io/guide/theming) or [Material UI Theming](https://material-ui.com/customization/themes/).
+For detailed usage instructions for PX Blue themes, you can read the package instructions on [GitHub](https://github.com/pxblue/themes#px-blue-themes-for-eaton-applications) or our getting started guides for [Angular](/development/frameworks-web/angular) and [React](/development/frameworks-web/react). For additional information on how Material component libraries apply themes, see [Angular Material Theming](https://material.angular.io/guide/theming) or [Material UI Theming](https://material-ui.com/customization/themes/).
 
