@@ -7,14 +7,14 @@ When loading data for the first time, you do not want to show an empty screen wh
  
 The placeholder should match as closely as possible the real structure of the data. For example, if you are loading a list where each item has an icon, two lines of text, and an action button, then your placeholder should have a circle, two rectangles for the text, and another rectangle for the button. You should show as many placeholder elements as necessary to fill the area in the application that is loading data.
 
-There are a number of libraries available to help you create this placeholder content. We recommend using the following libraries:
-- [react-content-loader](https://www.npmjs.com/package/react-content-loader) (React)
+{{ Loading Demos }}
+
+There are a number of libraries available to help you create this placeholder content, such as:
 - [@netbasal/ngx-content-loader](https://www.npmjs.com/package/@netbasal/ngx-content-loader) (Angular, Ionic)
 - [ion-skeleton-text](https://ionicframework.com/docs/api/skeleton-text) (Ionic)
-- [rn-placeholder](https://www.npmjs.com/package/rn-placeholder) (React Native)
 - [placeholder-loading](https://www.npmjs.com/package/placeholder-loading) (React, Angular, Ionic)
-
-{{ Loading Demos }}
+- [react-content-loader](https://www.npmjs.com/package/react-content-loader) (React)
+- [rn-placeholder](https://www.npmjs.com/package/rn-placeholder) (React Native)
 
 ### Refreshing Data
 When refreshing data, there are several approaches you can take. If you are showing real-time data (either via polling or a push mechanism from the server), there is no need to show large loading indicators. You may wish to show a small indicator or at least mention when the data was last refreshed so users can identify if the data is stale.
