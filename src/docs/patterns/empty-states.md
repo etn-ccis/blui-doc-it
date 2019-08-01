@@ -38,4 +38,3 @@ If the data is empty but could be populated by a user action (such as adding a d
 
 {{ angular stackblitz=https://stackblitz.com/edit/pxblue-empty-states-angular?embed=1&file=app/app.component.ts&hideNavigation=1&view=preview}}
 {{ react stackblitz=https://stackblitz.com/edit/pxblue-empty-states-react?embed=1&file=App.js&hideNavigation=1&view=preview }}
-{{ ionic stackblitz=https://stackblitz.com/edit/pxblue-empty-states-ionic?embed=1&file=app/app.component.ts&hideNavigation=1&view=preview}}
