@@ -20,15 +20,17 @@ const mapDispatchToProps = dispatch => ({
   updateToolbarTitle: () => {dispatch(updateTitle());}
 });
 const getExtensions = (framework, width, browser) => {
+  framework = framework.toLowerCase();
   return [
     stackBlitz({
       react: framework !== 'react' ? 'hide' : (width === 'xs' || browser === 'ie') ? 'link' : 'embed', 
       angular: framework !== 'angular' ? 'hide' : (width === 'xs' || browser === 'ie') ? 'link' : 'embed',
-     
+      reactnative: framework !== 'reactnative' ? 'hide' : (width === 'xs' || browser === 'ie') ? 'link' : 'embed',
+      ionic: framework !== 'ionic' ? 'hide' : (width === 'xs' || browser === 'ie') ? 'link' : 'embed'
     }),
     images({
       ionic: framework !== 'ionic' ? 'hide' : 'show',
-      reactNative: framework !== 'reactNative' ? 'hide' : 'show'
+      reactnative: framework !== 'reactnative' ? 'hide' : 'show'
     }),
     examplesTable,
     npmTable,

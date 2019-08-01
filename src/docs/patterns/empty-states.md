@@ -36,5 +36,5 @@ If the data is empty but could be populated by a user action (such as adding a d
  
 > **NOTE:** While less common, empty states can be used in sections of a page (rather than the entire page), such as a single card having no data. In these cases, the same guidelines should be followed, but may require slightly different formatting depending on the layout of the page.
 
-{{ angular stackblitz=https://stackblitz.com/edit/pxblue-empty-states-angular?embed=1&file=app/app.component.ts&hideNavigation=1&view=preview}}
-{{ react stackblitz=https://stackblitz.com/edit/pxblue-empty-states-react?embed=1&file=App.js&hideNavigation=1&view=preview }}
+{{ react url=https://stackblitz.com/edit/pxblue-empty-states-react?embed=1&file=App.js&hideNavigation=1&view=preview }}
+{{ reactnative url=@px-blue/empty-states-reactnative }}

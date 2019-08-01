@@ -13,12 +13,12 @@ This is a very common pattern in mobile applications, but can also be used in re
 ### Basic
 The basic bottom sheet simply contains a list of actions. The final "Cancel" action is used to dismiss the bottom sheet.
 
-{{ angular stackblitz=https://stackblitz.com/edit/pxblue-bottomsheet-angular?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
-{{ react stackblitz=https://stackblitz.com/edit/pxblue-bottomsheet-react?embed=1&file=App.js&hideNavigation=1&view=preview }}
+{{ angular url=https://stackblitz.com/edit/pxblue-bottomsheet-angular?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
+{{ react url=https://stackblitz.com/edit/pxblue-bottomsheet-react?embed=1&file=App.js&hideNavigation=1&view=preview }}
 
 ### Advanced
 A bottom sheet is essentially just a container with some attached behaviors. Though it typically contains a simple list, it can be customized to include any content that is required for your application. For example, it can be used for custom sort/filter functionality (seen in the example below), biometric authentication prompts, etc.
 
- {{ angular stackblitz=https://stackblitz.com/edit/pxblue-complex-bottomsheet-angular?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
-{{ react stackblitz=https://stackblitz.com/edit/pxblue-complex-bottomsheet-react?embed=1&file=App.js&hideNavigation=1&view=preview }}
+ {{ angular url=https://stackblitz.com/edit/pxblue-complex-bottomsheet-angular?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
+{{ react url=https://stackblitz.com/edit/pxblue-complex-bottomsheet-react?embed=1&file=App.js&hideNavigation=1&view=preview }}
 
