@@ -54,7 +54,7 @@
         if (options.id) {
           iframe.src = 'https://snack.expo.io/' + options.id + iframeQueryParams;
         } else {
-          iframe.src = 'https://snack.expo.io' + iframeQueryParams + '&waitForData=true';
+          iframe.src = 'https://snack.expo.io/' + iframeQueryParams + '&waitForData=true';
         }
         iframe.style = 'display: block';
         iframe.height = '100%';
