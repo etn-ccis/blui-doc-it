@@ -112,7 +112,7 @@ export default (config) => {
                 else if (
                     (framework === 'reactnative' && config.reactnative === 'embed')
                 ) {
-                    return `<div data-snack-id="${url.trim()}" data-snack-platform="ios" data-snack-preview="true" data-snack-theme="dark" style="overflow:hidden;background:#212733;border:1px solid rgba(0,0,0,.08);border-radius:4px;height:584px;width:100%"></div>`;
+                    return `<div data-snack-id="${url.trim()}" data-snack-platform="ios" data-snack-preview="true" data-snack-theme="dark" style="overflow:hidden;background:#212733;border:1px solid rgba(0,0,0,.08);border-radius:4px;height:790px;width:100%"></div>`;
                 }
                 else if (
                     (framework === 'react' && config.react === 'link') ||
