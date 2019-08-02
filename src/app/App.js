@@ -145,14 +145,6 @@ class App extends Component {
     };
   }
 
-  _reloadSnacks(framework){
-    // call the initializer to embed the snack iframe
-    // this doesn't work without the setTimeout
-    if(framework.toLowerCase() === 'reactnative'){
-      setTimeout(() => window.ExpoSnack.initialize(), 500);
-    }
-  }
-
   handleDrawerToggle = () => {
     this.props.toggleMobile();
   };
@@ -163,7 +155,6 @@ class App extends Component {
       (window.location.pathname.match(/\/style\/themes/))
     });
     if(newProps.pageURL && (newProps.pageURL !== this.props.pageURL)){
-        this._reloadSnacks(this.state.framework);
         window.scrollTop = 0;
         if(document.body){
           document.body.scrollTop = 0;
@@ -252,7 +243,6 @@ class App extends Component {
                 <Toolbar style={{ display: "flex", flexDirection: "row" }}>
                   <FrameworkSelector framework={this.state.framework} onSelectFramework={choice => {
                     this.setState( state => ({ framework: choice }));
-                    this._reloadSnacks(choice);
                   }} />
                   <div style={{ flex: "1 1 0px", textAlign: "right" }}>
 

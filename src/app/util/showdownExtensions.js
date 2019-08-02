@@ -106,13 +106,18 @@ export default (config) => {
                     (framework === 'ionic' && config.ionic === 'embed')
                 ) {
                     return `<div class="stackblitz" data-framework="${framework}">
-                        <iframe src="${url}" style="height:500px;"></iframe>
+                        <iframe src="${url}" height="100%"></iframe>
                     </div>`;
                 }
                 else if (
                     (framework === 'reactnative' && config.reactnative === 'embed')
                 ) {
-                    return `<div data-snack-id="${url.trim()}" data-snack-platform="ios" data-snack-preview="true" data-snack-theme="dark" style="overflow:hidden;background:#212733;border:1px solid rgba(0,0,0,.08);border-radius:4px;height:790px;width:100%"></div>`;
+                    return `<div class="snack" data-framework="${framework}">
+                        <iframe src="https://snack.expo.io/${url.trim()}?preview=true&platform=ios&theme=dark"
+                            style="display: block"
+                            height="100%"
+                            width="100%"
+                            frameBorder="0"></iframe></div>`;
                 }
                 else if (
                     (framework === 'react' && config.react === 'link') ||
@@ -124,7 +129,7 @@ export default (config) => {
                 else if (
                     (framework === 'reactnative' && config.reactnative === 'link')
                 ) {
-                    return `<div class="snack" data-framework="${framework}"><a href="${url.substring(0, url.indexOf('?'))}" target='_blank' rel='noopener noreferrer'><img src="../images/code.svg" alt="Snack" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>Try the ${framework.substr(0, 1).toUpperCase() + framework.substr(1)} Snack example</a></div>`
+                    return `<div><a href="https://snack.expo.io/${url.trim()}?platform=ios" target='_blank' rel='noopener noreferrer'><img src="../images/code.svg" alt="Snack" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>Try the ${framework.substr(0, 1).toUpperCase() + framework.substr(1)} Snack example</a></div>`
                 }
                 else if (
                     (framework === 'react' && config.react === 'hide') ||
