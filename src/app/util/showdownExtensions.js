@@ -106,7 +106,7 @@ export default (config) => {
                     (framework === 'ionic' && config.ionic === 'embed')
                 ) {
                     return `<div class="stackblitz" data-framework="${framework}">
-                        <iframe src="${url}" height="100%"></iframe>
+                        <iframe src="${url}"></iframe>
                     </div>`;
                 }
                 else if (
