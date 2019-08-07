@@ -26,7 +26,7 @@ Make sure that you have a ```GRADLE_HOME``` entry in your PATH variable pointing
 ## Writing your application
 The easiest way to get started with Ionic is to use the [Ionic CLI](https://ionicframework.com/docs/cli/commands/start). Ionic will allow you to choose from several templates that will give you a great starting point for your application. To see the template list, open terminal and run:
 ```
-ionic start --list
+ionic start --blank
 ```
 
 > **NOTE**: Ionic supports a variety of different JavaScript frameworks. However, at this time, PX Blue only supports the use of Ionic for Angular applications.
