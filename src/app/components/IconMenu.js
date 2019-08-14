@@ -1,5 +1,5 @@
 import React from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import * as MaterialIcons from '@material-ui/icons';
 
 // PX Blue Icons and Symbols
@@ -12,7 +12,7 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import {
   Tabs,
   Tab,
-  Typography, 
+  Typography,
   ExpansionPanelSummary,
   ExpansionPanel,
   ExpansionPanelActions,
@@ -22,7 +22,7 @@ const meta = require('@pxblue/icons-mui/index.json');
 
 const styles = theme => ({
   usageBox: {
-    padding: '10px ' + theme.spacing.unit*2 + 'px 0px ' + theme.spacing.unit*2 + 'px',
+    padding: '10px ' + theme.spacing.unit * 2 + 'px 0px ' + theme.spacing.unit * 2 + 'px',
     overflowX: 'auto',
     wordWrap: 'noWrap',
     height: '230px',
@@ -45,7 +45,7 @@ const styles = theme => ({
     [theme.breakpoints.down('xs')]: {
       display: 'none'
     },
-  }, 
+  },
   aboutPage: {
     padding: '5px',
     backgroundColor: 'inherit',
@@ -67,153 +67,153 @@ const instructionLinks = [
 ];
 
 class IconMenu extends React.Component {
-  
+
   state = {
     activeTab: 0,
     expanded: true
   };
   toggleExpand = (event, expanded) => {
-    if(!expanded){document.body.style.overflow="visible"}
+    if (!expanded) { document.body.style.overflow = "visible" }
   }
-  
-  getIconFile(name){
-    for(var i = 0; i < meta.icons.length; i++){
-      if(meta.icons[i].filename.includes(name)){
+
+  getIconFile(name) {
+    for (var i = 0; i < meta.icons.length; i++) {
+      if (meta.icons[i].filename.includes(name)) {
         return meta.icons[i]
       }
     }
     return -1;
   }
-  
-  getTabContent(tab){
+
+  getTabContent(tab) {
     const isMaterial = this.props.icon.isMaterial;
     const name = this.props.icon.name;
     const classes = this.props.classes;
     const iconData = this.getIconFile(name);
-    switch(tab){
+    switch (tab) {
       case 0:
         return (
           <React.Fragment>
-            {isMaterial && <Typography  color={'inherit'}  style={{marginBottom: '10px'}} variant="subtitle2">View detailed usage and installation instructions for <a href={instructionLinks[4]} target="_blank" rel="noopener noreferrer">React</a> and <a href={instructionLinks[5]} target="_blank" rel="noopener noreferrer">Angular</a>.</Typography>}
-            {!isMaterial && <Typography  color={'inherit'}  style={{marginBottom: '10px'}} variant="subtitle2">For detailed usage and installation instructions, visit our <a href={instructionLinks[0]} target="_blank" rel="noopener noreferrer">GitHub</a>.</Typography>}
-            <Typography  color={'inherit'}  variant="subtitle2">React</Typography>
-            {!isMaterial && <pre>&lt;i className=“pxb-{name}&gt;&lt;&#47;i&gt;</pre>}
-            {isMaterial && <pre>import Icon from &#039;@material-ui&#47;core&#47;Icon&#039;; <br/>&lt;Icon&gt;{getSnakeCase(name)}&lt;&#47;Icon&gt;</pre>}
-            <Typography  color={'inherit'}  variant="subtitle2">Angular</Typography>
-            {!isMaterial && <pre>&lt;i class=“pxb-{name}&gt;&lt;&#47;i&gt;</pre>}
-            {isMaterial && <pre>&lt;i class="{getSnakeCase(name)}"&gt;&lt;&#47;i&gt;</pre>}
+            {isMaterial && <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">View detailed usage and installation instructions for <a href={instructionLinks[4]} target="_blank" rel="noopener noreferrer">React</a> and <a href={instructionLinks[5]} target="_blank" rel="noopener noreferrer">Angular</a>.</Typography>}
+            {!isMaterial && <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">For detailed usage and installation instructions, visit our <a href={instructionLinks[0]} target="_blank" rel="noopener noreferrer">GitHub</a>.</Typography>}
+            <Typography color={'inherit'} variant="subtitle2">React</Typography>
+            {!isMaterial && <pre>{`<i className="pxb-${name}"></i>`}</pre>}
+            {isMaterial && <pre>{`import Icon from '@material-ui/core/Icon';`}<br />{`<Icon>${getSnakeCase(name)}</Icon>`}</pre>}
+            <Typography color={'inherit'} variant="subtitle2">Angular</Typography>
+            {!isMaterial && <pre>{`<i class="pxb-${name}"></i>`}</pre>}
+            {isMaterial && <pre>{`<i class="${getSnakeCase(name)}"></i>`}</pre>}
           </React.Fragment>
         );
       case 1:
         return (
           <React.Fragment>
-            {isMaterial && <Typography  color={'inherit'}  style={{marginBottom: '10px'}} variant="subtitle2">View detailed usage and installation instructions for <a href={instructionLinks[3]} target="_blank" rel="noopener noreferrer">React</a> and <a href={instructionLinks[6]} target="_blank" rel="noopener noreferrer">Angular</a>.</Typography>}
-            {!isMaterial && <Typography  color={'inherit'}  style={{marginBottom: '10px'}} variant="subtitle2">For detailed usage and installation instructions, visit our <a href={instructionLinks[1]} target="_blank" rel="noopener noreferrer">GitHub</a>.</Typography>}
-            <Typography  color={'inherit'}  variant="subtitle2">React</Typography>
-            {!isMaterial && <pre>const icon = require(&#039;@pxblue&#47;icons-svg&#47;{name}.svg&#039;); <br/>&lt;img src=&#123;icon&#125;&#47;&gt;</pre>}
-            {isMaterial && <pre>import {name + 'Icon'} from &#039;@material-ui&#47;icons&#47;{name}&#039;; <br/>&lt;{name + 'Icon'}&gt;&lt;&#47;{name + 'Icon'}&gt;</pre>}
-            <Typography  color={'inherit'}  variant="subtitle2">Angular</Typography>
-            {!isMaterial && <pre>&lt;mat-icon svgIcon=&quot;{name}&quot;&gt;&lt;&#47;mat-icon&gt;</pre>}
-            {isMaterial && <pre>&lt;mat-icon&gt;{getSnakeCase(name)}&lt;&#47;mat-icon&gt;</pre>}
+            {isMaterial && <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">View detailed usage and installation instructions for <a href={instructionLinks[3]} target="_blank" rel="noopener noreferrer">React</a> and <a href={instructionLinks[6]} target="_blank" rel="noopener noreferrer">Angular</a>.</Typography>}
+            {!isMaterial && <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">For detailed usage and installation instructions, visit our <a href={instructionLinks[1]} target="_blank" rel="noopener noreferrer">GitHub</a>.</Typography>}
+            <Typography color={'inherit'} variant="subtitle2">React</Typography>
+            {!isMaterial && <pre>{`const icon = require('@pxblue/icons-svg/${name}.svg');`}<br />{`<img src={icon}/>`}</pre>}
+            {isMaterial && <pre>{`import ${name + 'Icon'} from '@material-ui/icons/${name}';`}<br />{`<${name + 'Icon'}></${name + 'Icon'}>`}</pre>}
+            <Typography color={'inherit'} variant="subtitle2">Angular</Typography>
+            {!isMaterial && <pre>{`<mat-icon svgIcon="${name}"></mat-icon>`}</pre>}
+            {isMaterial && <pre>{`<mat-icon>${getSnakeCase(name)}</mat-icon>`}</pre>}
           </React.Fragment>
         );
       case 2:
         return (
           <React.Fragment>
-            {!isMaterial && <Typography  color={'inherit'}  style={{marginBottom: '10px'}} variant="subtitle2">For detailed usage and installation instructions, visit our <a href={instructionLinks[2]} target="_blank" rel="noopener noreferrer">GitHub</a>.</Typography>}
-            <Typography  color={'inherit'}  variant="subtitle2">React</Typography>
-            <pre>import {getMuiIconName(name)}Icon from '@pxblue&#47;icons-mui&#47;{getMuiIconName(name)}'; <br/>&lt;{getMuiIconName(name)}Icon&gt;&lt;&#47;{getMuiIconName(name)}Icon&gt;</pre>
-            <Typography  color={'inherit'}  variant="subtitle2">Angular</Typography>
-            <Typography  color={'inherit'}  variant="subtitle2">Icon components are intended for use only in React applications. For a way to link svg icons for use in Angular applications, see <a href={"https://github.com/pxblue/icons/tree/master/svg#angular-1"} target="_blank" rel="noopener noreferrer">@pxblue/icons</a>.</Typography>
+            {!isMaterial && <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">For detailed usage and installation instructions, visit our <a href={instructionLinks[2]} target="_blank" rel="noopener noreferrer">GitHub</a>.</Typography>}
+            <Typography color={'inherit'} variant="subtitle2">React</Typography>
+            <pre>{`import ${getMuiIconName(name)}Icon from '@pxblue/icons-mui/${getMuiIconName(name)}';`}<br />{`<${getMuiIconName(name)}Icon></${getMuiIconName(name)}Icon>`}</pre>
+            <Typography color={'inherit'} variant="subtitle2">Angular</Typography>
+            <Typography color={'inherit'} variant="subtitle2">Icon components are intended for use only in React applications. For a way to link svg icons for use in Angular applications, see <a href={"https://github.com/pxblue/icons/tree/master/svg#angular-1"} target="_blank" rel="noopener noreferrer">@pxblue/icons</a>.</Typography>
           </React.Fragment>
         );
-        
+
       case 3:
         return (
           <React.Fragment>
             {!isMaterial &&
               <div className={classes.aboutPage}>
-                <Typography  color={'inherit'}  variant="subtitle1"><b>Filename</b>: {iconData.filename}</Typography>
-                <Typography  color={'inherit'}  variant="subtitle1"><b>Family</b>: {iconData.family.toString()}</Typography>
-                <Typography  color={'inherit'}  variant="subtitle1"><b>Author</b>: {iconData.author}</Typography>
-                {iconData.description && <Typography  color={'inherit'}  variant="subtitle1"><b>Description</b>: {iconData.description}</Typography>}
+                <Typography color={'inherit'} variant="subtitle1"><b>Filename</b>: {iconData.filename}</Typography>
+                <Typography color={'inherit'} variant="subtitle1"><b>Family</b>: {iconData.family.toString()}</Typography>
+                <Typography color={'inherit'} variant="subtitle1"><b>Author</b>: {iconData.author}</Typography>
+                {iconData.description && <Typography color={'inherit'} variant="subtitle1"><b>Description</b>: {iconData.description}</Typography>}
               </div>
             }
           </React.Fragment>
         );
-      
+
       default:
         return null;
     }
   }
-  
-  render(){
-    const {open, icon, classes} = this.props;
+
+  render() {
+    const { open, icon, classes } = this.props;
     const isMaterial = icon.isMaterial;
     const name = icon.name;
-    const {activeTab} = this.state;
-    return(
+    const { activeTab } = this.state;
+    return (
       <div className={classes.iconSheet} hidden={!open} >
-          <ExpansionPanel 
-            square
-            defaultExpanded={true}
-            elevation={16}
-            >
+        <ExpansionPanel
+          square
+          defaultExpanded={true}
+          elevation={16}
+        >
           <ExpansionPanelSummary
             expandIcon={<ExpandLessIcon />}
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <div style={{flexDirection: 'row', display: 'flex'}}>
-              <div style={{flex: '0 1 auto', width: 'auto'}}>
-                <IconCard  
-                  key={name} 
-                  component={isMaterial ? MaterialIcons[name] : Icons[getMuiIconName(name)]} 
-                  name={name} 
-                  showLabel={false} 
+            <div style={{ flexDirection: 'row', display: 'flex' }}>
+              <div style={{ flex: '0 1 auto', width: 'auto' }}>
+                <IconCard
+                  key={name}
+                  component={isMaterial ? MaterialIcons[name] : Icons[getMuiIconName(name)]}
+                  name={name}
+                  showLabel={false}
                   iconSize={40}
-                  style={{margin: '5 5px 5px 5px'}}
+                  style={{ margin: '5 5px 5px 5px' }}
                 />
               </div>
-              <div style={{flexDirection: 'column', flex: '0 1 auto'}}> 
-                <Typography  style={{marginBottom: '0px', marginLeft: '10px', flex: '0 0 auto'}} variant="subtitle2" gutterBottom>
+              <div style={{ flexDirection: 'column', flex: '0 1 auto' }}>
+                <Typography style={{ marginBottom: '0px', marginLeft: '10px', flex: '0 0 auto' }} variant="subtitle2" gutterBottom>
                   {unCamelCase(getMuiIconName(name))}
                 </Typography>
-                <Typography  style={{marginTop: '0px', marginLeft: '10px', flex: '0 0 auto'}} variant="caption" color={isMaterial ? "default" : "primary"}>
+                <Typography style={{ marginTop: '0px', marginLeft: '10px', flex: '0 0 auto' }} variant="caption" color={isMaterial ? "default" : "primary"}>
                   {isMaterial ? 'Material Icon' : 'PX Blue Icon'}
                 </Typography>
               </div>
             </div>
           </ExpansionPanelSummary>
-          <div style={{width: 'auto'}}>
+          <div style={{ width: 'auto' }}>
             <Tabs
-              style={{marginTop: '0px', marginLeft: '0px'}}
+              style={{ marginTop: '0px', marginLeft: '0px' }}
               value={activeTab}
-              onChange={(event, newTab) => this.setState({ activeTab : newTab })}
+              onChange={(event, newTab) => this.setState({ activeTab: newTab })}
               indicatorColor="primary"
               textColor="primary"
             >
-              <Tab label="Icon Font" className={classes.miniTab}/>
-              <Tab label="SVG" className={classes.miniTab}/>
-              {!isMaterial && <Tab label="Component" className={classes.miniTab}/>}
-              {!isMaterial && <Tab label="About" className={classes.miniTab}/>}
+              <Tab label="Icon Font" className={classes.miniTab} />
+              <Tab label="SVG" className={classes.miniTab} />
+              {!isMaterial && <Tab label="Component" className={classes.miniTab} />}
+              {!isMaterial && <Tab label="About" className={classes.miniTab} />}
             </Tabs>
           </div>
           <div className={classes.usageBox}>
-            {activeTab===2 && isMaterial && this.setState({activeTab: 1})}
-            {activeTab===3 && isMaterial && this.setState({activeTab: 1})}
+            {activeTab === 2 && isMaterial && this.setState({ activeTab: 1 })}
+            {activeTab === 3 && isMaterial && this.setState({ activeTab: 1 })}
             {activeTab === 0 && this.getTabContent(0)}
             {activeTab === 1 && this.getTabContent(1)}
             {activeTab === 2 && this.getTabContent(2)}
             {activeTab === 3 && this.getTabContent(3)}
-            
+
           </div>
           <ExpansionPanelActions display="none">
-            <Button variant="contained" color= 'inherit' onClick={this.props.onClose}>
+            <Button variant="contained" color='inherit' onClick={this.props.onClose}>
               Close
             </Button>
             {isMaterial &&
-              <Button variant="contained" color= 'primary' target="_blank" href={"https://material.io/tools/icons/?icon=" + getSnakeCase(name) + "&style=baseline"}>
+              <Button variant="contained" color='primary' target="_blank" href={"https://material.io/tools/icons/?icon=" + getSnakeCase(name) + "&style=baseline"}>
                 Open in Material.io
               </Button>
             }
@@ -221,24 +221,24 @@ class IconMenu extends React.Component {
 
         </ExpansionPanel>
       </div>
-      );
-    }
+    );
   }
-  const getMuiIconName = (filename)=>{
-    return filename
+}
+const getMuiIconName = (filename) => {
+  return filename
     .replace(/\.svg/, '')
     .replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 || p3).toUpperCase());
-  }
-  
-  const getSnakeCase = (name) => {
-    return name.replace(/[A-Z]/g, "_$&").toLowerCase().substr(1);
-  }
-  
-  const unCamelCase = (val) => {
-     return val.replace(/([a-z0-9])([A-Z])/g, '$1 $2')
-     .replace(/([a-zA-Z])([0-9])/g, '$1 $2')
-     .replace(/\b([A-Z]+)([A-Z])([a-z])/, '$1 $2$3')
-     .replace(/^./, function(str){ return str.toUpperCase(); })
-  }
+}
+
+const getSnakeCase = (name) => {
+  return name.replace(/[A-Z]/g, "_$&").toLowerCase().substr(1);
+}
+
+const unCamelCase = (val) => {
+  return val.replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+    .replace(/([a-zA-Z])([0-9])/g, '$1 $2')
+    .replace(/\b([A-Z]+)([A-Z])([a-z])/, '$1 $2$3')
+    .replace(/^./, function (str) { return str.toUpperCase(); })
+}
 
 export default withStyles(styles)(IconMenu);
