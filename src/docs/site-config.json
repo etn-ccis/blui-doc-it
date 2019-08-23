@@ -154,10 +154,6 @@
 			"url": "community",
 			"pages": [
 				{
-					"displayName": "Contact Us",
-					"url": "contactus"
-				},
-				{
 					"displayName": "Licensing",
 					"url": "license"
 				},
@@ -176,6 +172,10 @@
 				{
 					"displayName": "FAQ",
 					"url": "faq"
+				},
+				{
+					"displayName": "Contact Us",
+					"url": "contactus"
 				}
 			]
 		},
