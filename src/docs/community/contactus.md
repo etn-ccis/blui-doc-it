@@ -4,7 +4,7 @@ PX Blue is constantly evolving and adding new technical documentation, live code
 
 ## How to Contact Us
 
-If you have any general questions or feedback that may benefit other users of the platform, please post them on our [CCIS PX Blue Yammer](https://www.yammer.com/eaton.com/#/threads/inGroup?type=in_group&feedId=13986505&view=all) 
+If you have any general questions or feedback that may benefit the greater PX Blue community, please post them on our [Yammer Forum](https://www.yammer.com/eaton.com/#/threads/inGroup?type=in_group&feedId=13986505&view=all).
 
 For more targeted, product-specific questions you can email the team directly at <a href="mailto:pxblue@eaton.com">pxblue@eaton.com</a>.
 
