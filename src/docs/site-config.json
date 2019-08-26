@@ -172,6 +172,10 @@
 				{
 					"displayName": "FAQ",
 					"url": "faq"
+				},
+				{
+					"displayName": "Contact Us",
+					"url": "contactus"
 				}
 			]
 		},

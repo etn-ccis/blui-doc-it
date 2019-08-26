@@ -41,4 +41,4 @@ Our recommendation for mobile applications is to take a hybrid approach. This wi
 
 If you prefer to build a strictly native app and adhere to the PX Blue standards, there are ways of doing this using [Material Design Components for Android](https://material.io/develop/android/) and [Material Design Components for iOS](https://material.io/develop/ios/). 
 
-> **NOTE:** PX Blue support for native mobile applications is limited - if you are planning to go this route, please <a href="mailto:pxblue@eaton.com">Contact Us</a>.
+> **NOTE:** PX Blue support for native mobile applications is limited - if you are planning to go this route, please [Contact us](/community/contactus).
