@@ -8,7 +8,6 @@ describe('Iconography page links', () => {
             cy.request(href)
                 .should((response) => {
                     expect(response.status).to.eq(200)
-
                 })
         });
     });
@@ -18,8 +17,7 @@ describe('Iconography page links', () => {
             const href = $a.prop('href')
             cy.request(href)
                 .should((response) => {
-                    expect(href).to.eq('mailto:pxblue@eaton.com')
-
+                    expect(response.status).to.eq(200)
                 })
         });
     });
@@ -30,7 +28,6 @@ describe('Iconography page links', () => {
             cy.request(href)
                 .should((response) => {
                     expect(response.status).to.eq(200)
-
                 })
         });
     });
