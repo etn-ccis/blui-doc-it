@@ -10,6 +10,7 @@ The placeholder should match as closely as possible the real structure of the da
 {{ angular url=https://stackblitz.com/edit/pxblue-loading-states-angular?embed=1&file=app/app.component.ts&hideNavigation=1&view=preview }}
 {{ react url=https://stackblitz.com/edit/pxblue-loading-states-react?embed=1&file=App.js&hideNavigation=1&view=preview }}
 {{ ionic url=https://stackblitz.com/edit/pxblue-loading-states-ionic?embed=1&file=app/app.component.ts&hideNavigation=1&view=preview }}
+{{ reactnative url=@px-blue/loading-states-reactnative }}
 
 There are a number of libraries available to help you create this placeholder content, such as:
 - [@netbasal/ngx-content-loader](https://www.npmjs.com/package/@netbasal/ngx-content-loader) (Angular, Ionic)
