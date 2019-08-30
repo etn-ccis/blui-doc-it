@@ -24,6 +24,7 @@ import {
     MuiThemeProvider, 
     createMuiTheme 
 } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import * as PXBThemes from '@pxblue/themes/react';
 require ("typeface-open-sans");
 ```
@@ -32,6 +33,7 @@ If you are looking to add the theme to your whole application, you would simply 
 
 ```
 <MuiThemeProvider theme={createMuiTheme(PXBThemes.blue)}>
+    <CssBaseline/>
     <MyApp/>
 </MuiThemeProvider>
 ```
@@ -40,6 +42,7 @@ If you want to use multiple themes in different areas of your site, you just nee
 
 ```
 <MuiThemeProvider theme={createMuiTheme(PXBThemes.blue)}>
+    <CssBaseline/>
     <MyApp>
         <MyNormalComponent/>
         <MuiThemeProvider theme={createMuiTheme(PXBThemes.blueDark)}>

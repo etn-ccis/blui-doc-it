@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import compose from 'recompose/compose';
-import { connect  } from 'react-redux';
+import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles';
-import {SHOW_MOBILE, HIDE_MOBILE, TOGGLE_MOBILE} from './constants/ui';
-import  Drawer  from '@material-ui/core/Drawer';
+import { SHOW_MOBILE, HIDE_MOBILE, TOGGLE_MOBILE } from './constants/ui';
+import Drawer from '@material-ui/core/Drawer';
 import MenuIcon from '@material-ui/icons/Menu';
 import Mail from '@material-ui/icons/Mail'
 import IconButton from '@material-ui/core/IconButton';
@@ -43,14 +43,14 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    showMobile: () => {dispatch({type: SHOW_MOBILE})},
-    hideMobile: () => {dispatch({type: HIDE_MOBILE})},
-    toggleMobile: () => {dispatch({type: TOGGLE_MOBILE})},
+    showMobile: () => { dispatch({ type: SHOW_MOBILE }) },
+    hideMobile: () => { dispatch({ type: HIDE_MOBILE }) },
+    toggleMobile: () => { dispatch({ type: TOGGLE_MOBILE }) },
   };
 };
 
 const drawerWidth = 364;
-const theme = createMuiTheme(Object.assign(EatonTheme.blue, {typography: {fontFamily: '"Open Sans", Helvetica, Roboto, sans-serif', useNextVariants: true}}));
+const theme = createMuiTheme(Object.assign(EatonTheme.blue, { typography: { fontFamily: '"Open Sans", Helvetica, Roboto, sans-serif', useNextVariants: true } }));
 
 const styles = theme => ({
   root: {
@@ -66,7 +66,7 @@ const styles = theme => ({
       marginTop: theme.spacing.unit * -7
     }
   },
-  showFramework:{
+  showFramework: {
     marginTop: theme.spacing.unit * 8,
     [theme.breakpoints.down('xs')]: {
       marginTop: theme.spacing.unit * 7
@@ -83,16 +83,16 @@ const styles = theme => ({
     maxWidth: '90%',
     height: '100%'
   },
-  spacer:{
+  spacer: {
     marginTop: theme.spacing.unit * 8,
     [theme.breakpoints.down('xs')]: {
       marginTop: theme.spacing.unit * 7
     }
   },
-  container:{
+  container: {
     backgroundColor: colors.gray[50],
     minHeight: '100%',
-    flexDirection:'column',
+    flexDirection: 'column',
     // overflowY: 'auto',
     flexShrink: '1',
     marginLeft: drawerWidth,
@@ -106,7 +106,7 @@ const styles = theme => ({
     height: 'calc(100% - 56px)',
     [theme.breakpoints.up('sm')]: {
       height: 'calc(100% - 64px)',
-      maxWidth:'1150px',
+      maxWidth: '1150px',
       margin: 'auto'
     },
   },
@@ -117,10 +117,10 @@ const styles = theme => ({
     zIndex: 100,
     opacity: 0.8,
     '&:hover': {
-      opacity:1
+      opacity: 1
     }
   },
-  appBar:{
+  appBar: {
     top: 0,
     width: 'auto',
     left: drawerWidth,
@@ -128,7 +128,7 @@ const styles = theme => ({
       left: 0
     }
   },
-  toolbar:{
+  toolbar: {
     [theme.breakpoints.down('sm')]: {
       paddingLeft: theme.spacing.unit * 1
     }
@@ -136,37 +136,37 @@ const styles = theme => ({
 });
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-        framework: 'angular',
-        showFrameworkSelect: false,
-        browser: (isFirefox ? 'firefox' : isIE ? 'ie' : isEdge ? 'edge' : isChrome ? 'chrome' : 'other')
+      framework: 'angular',
+      showFrameworkSelect: false,
+      browser: (isFirefox ? 'firefox' : isIE ? 'ie' : isEdge ? 'edge' : isChrome ? 'chrome' : 'other')
     };
   }
-
-
 
   handleDrawerToggle = () => {
     this.props.toggleMobile();
   };
 
-  componentWillReceiveProps(newProps){
-    this.setState({showFrameworkSelect:
-      (window.location.pathname.match(/\/patterns\//) && !window.location.pathname.match(/\/patterns\/layout/))
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      showFrameworkSelect:
+        (window.location.pathname.match(/\/patterns\//) && !window.location.pathname.match(/\/patterns\/layout/)) ||
+        (window.location.pathname.match(/\/style\/themes/))
     });
-    if(newProps.pageURL && (newProps.pageURL !== this.props.pageURL)){
-        window.scrollTop = 0;
-        if(document.body){
-          document.body.scrollTop = 0;
-          if(document.body.scrollIntoView){document.body.scrollIntoView()}
-        }
-        if(document.scrollingElement){document.scrollingElement.scrollTop = 0;}
+    if (newProps.pageURL && (newProps.pageURL !== this.props.pageURL)) {
+      window.scrollTop = 0;
+      if (document.body) {
+        document.body.scrollTop = 0;
+        if (document.body.scrollIntoView) { document.body.scrollIntoView() }
+      }
+      if (document.scrollingElement) { document.scrollingElement.scrollTop = 0; }
     }
   }
 
-  getMobileNavigationDrawer(){
-    const {classes} = this.props;
+  getMobileNavigationDrawer() {
+    const { classes } = this.props;
     return (
       <Drawer
         variant="temporary"
@@ -179,13 +179,13 @@ class App extends Component {
           keepMounted: true, // Better open performance on mobile.
         }}
       >
-        <SideNav pages={siteConfig.pages}/>
+        <SideNav pages={siteConfig.pages} />
       </Drawer>
     );
   }
 
-  getDesktopNavigationDrawer(){
-    const {classes} = this.props;
+  getDesktopNavigationDrawer() {
+    const { classes } = this.props;
     return (
       <Drawer
         variant="permanent"
@@ -194,90 +194,90 @@ class App extends Component {
           paper: classes.drawerPaper,
         }}
       >
-        <SideNav pages={ siteConfig.pages }/>
+        <SideNav pages={siteConfig.pages} />
       </Drawer>
     );
   }
 
   render() {
-    const {classes} = this.props;
+    const { classes } = this.props;
     return <MuiThemeProvider theme={theme}>
-        <CssBaseline/>
-        <Hidden smUp implementation="css">
-          {this.getMobileNavigationDrawer()}
+      <CssBaseline />
+      <Hidden smUp implementation="css">
+        {this.getMobileNavigationDrawer()}
+      </Hidden>
+      <div className={classes.root}>
+        <Hidden smDown implementation="css">
+          {this.getDesktopNavigationDrawer()}
         </Hidden>
-        <div className={classes.root}>
-          <Hidden smDown implementation="css">
-            {this.getDesktopNavigationDrawer()}
-          </Hidden>
-          <div className={classes.container}>
-            {/* Floating Icon Button for Menu on homepage */}
-            {window.location.pathname === "/" &&
-              <div style={{ color: "white", position: 'fixed', top: 0, zIndex: 100, background: 'rgba(0,123,193,.5)'}}>
-                <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle} className={classes.navIconHide} style={{ zIndex: "10" }}>
+        <div className={classes.container}>
+          {/* Floating Icon Button for Menu on homepage */}
+          {window.location.pathname === "/" &&
+            <div style={{ color: "white", position: 'fixed', top: 0, zIndex: 100, background: 'rgba(0,123,193,.5)' }}>
+              <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle} className={classes.navIconHide} style={{ zIndex: "10" }}>
+                <MenuIcon />
+              </IconButton>
+            </div>
+          }
+
+          {/* Toolbar with Icon Button for Menu on non-homepage */}
+          {window.location.pathname !== "/" &&
+            <AppBar position="fixed" className={classes.appBar}>
+              <Toolbar className={classes.toolbar}>
+                <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle} className={classes.navIconHide}>
                   <MenuIcon />
                 </IconButton>
-              </div>
-            }
+                <Typography variant="h6" color="inherit">
+                  {this.props.pagetitle}
+                </Typography>
+                <div style={{ flex: '1 1 0px' }} />
+                <Hidden xsDown implementation="css">
+                  <img width={'auto'} height={20} src={eaton} alt="Eaton Logo" style={{ display: 'block' }} />
+                </Hidden>
+              </Toolbar>
+            </AppBar>
+          }
 
-            {/* Toolbar with Icon Button for Menu on non-homepage */}
-            {window.location.pathname !== "/" &&
-              <AppBar position="fixed" className={classes.appBar}>
-                <Toolbar className={classes.toolbar}>
-                  <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle} className={classes.navIconHide}>
-                    <MenuIcon />
-                  </IconButton>
-                  <Typography variant="h6" color="inherit">
-                    {this.props.pagetitle}
-                  </Typography>
-                  <div style={{flex: '1 1 0px'}}/>
-                  <Hidden xsDown implementation="css">
-                    <img width={'auto'} height={20} src={eaton} alt="Eaton Logo" style={{display: 'block'}}/>
-                  </Hidden>
-                </Toolbar>
-              </AppBar>
-            }
+          {/* Select Framework Toolbar */}
+          {window.location.pathname !== "/" &&
+            <AppBar position="static" color="default" className={classes.slidebaby + ' ' + (this.state.showFrameworkSelect ? classes.showFramework : '')}>
+              <Toolbar style={{ display: "flex", flexDirection: "row" }}>
+                <FrameworkSelector framework={this.state.framework} onSelectFramework={choice => {
+                  this.setState(state => ({ framework: choice }));
+                }} />
+                <div style={{ flex: "1 1 0px", textAlign: "right" }}>
 
-            {/* Select Framework Toolbar */}
-            {window.location.pathname !== "/" &&
-              <AppBar position="static" color="default" className={classes.slidebaby + ' ' + (this.state.showFrameworkSelect ? classes.showFramework : '')}>
-                <Toolbar style={{ display: "flex", flexDirection: "row" }}>
-                  <FrameworkSelector framework={this.state.framework} onSelectFramework={choice => this.setState(
-                        state => ({ framework: choice })
-                      )} />
-                  <div style={{ flex: "1 1 0px", textAlign: "right" }}>
-
-                    <Hidden xsDown>
-                      <Typography color="inherit">
-                        Selecting a framework will show code examples for
-                        only that framework.
+                  <Hidden xsDown>
+                    <Typography color="inherit">
+                      Selecting a framework will show code examples for
+                      only that framework.
                       </Typography>
-                    </Hidden>
-                  </div>
-                </Toolbar>
-              </AppBar>
-            }
-            {/*Find a better way of doing this*/}
-            {window.location.pathname !== "/style/iconography" &&
-            <Fab  href='mailto:pxblue@eaton.com' variant="extended" color= {'primary'} className={classes.button}>
-              <Mail style={{marginRight: 8}} />
+                  </Hidden>
+                </div>
+              </Toolbar>
+            </AppBar>
+          }
+          {/*Find a better way of doing this*/}
+          {window.location.pathname !== "/style/iconography" &&
+            <Fab href='/community/contactus' variant="extended" color={'primary'} className={classes.button}>
+              <Mail style={{ marginRight: 8 }} />
               Contact Us
             </Fab>}
 
-            {!this.state.showFrameworkSelect && window.location.pathname !== "/" && <div className={classes.spacer}/>}
+          {!this.state.showFrameworkSelect && window.location.pathname !== "/" && <div className={classes.spacer} />}
 
-            {/* Main Router for page content  */}
-            <div className={window.location.pathname !== "/" ? classes.content : ""}>
-              <Switch>
-                <Route exact path="/" render={() => <HomeComponent />} />
-                <Route exact path="/style/color" render={() => <ColorComponent />} />
-                <Route exact path="/style/iconography" render={() => <IconographyComponent />} />
-                <Route path="/:doc*" render={props => <MarkdownDoc doc={props.match.params.doc} selectedFramework={this.state.framework} browser={this.state.browser} />} />
-              </Switch>
-            </div>
+          {/* Main Router for page content  */}
+          <div className={window.location.pathname !== "/" ? classes.content : ""}>
+            <Switch>
+              <Route exact path="/" render={() => <HomeComponent />} />
+              <Route exact path="/style/color" render={() => <ColorComponent />} />
+              <Route exact path="/style/iconography" render={() => <IconographyComponent />} />
+              <Route path="/:doc*" render={props => <MarkdownDoc doc={props.match.params.doc} selectedFramework={this.state.framework} browser={this.state.browser} />} />
+            </Switch>
           </div>
         </div>
-      </MuiThemeProvider>;
+      </div>
+    </MuiThemeProvider>;
   }
 }
 
@@ -289,6 +289,6 @@ export default compose(
     null,
     { pure: false }),
   withStyles(styles,
-    {name: 'App'}
+    { name: 'App' }
   )
-  )(App);
+)(App);

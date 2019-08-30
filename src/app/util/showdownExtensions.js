@@ -68,16 +68,29 @@ export const npmTable = () => {
 }
 
 export default (config) => {
-    config = Object.assign({ angular: 'embed', react: 'embed' }, config);
+    config = Object.assign({ angular: 'embed', react: 'embed', reactnative: 'embed', ionic: 'embed' }, config);
     return ([
         {
             type: 'lang',
-            regex: /{{\s*link\s*(angular|react)\s*stackblitz=(.+)+\s*}}/g,
+            regex: /{{\s*link\s*(angular|react|reactnative|ionic)\s*url=(.+)+\s*}}/g,
             replace: (matchString, framework, url, offset) => {
-                if ((framework === 'react' && (config.react === 'embed' || config.react === 'link')) || (framework === 'angular' && (config.angular === 'embed' || config.angular === 'link'))) {
+                if ((framework === 'react' && (config.react === 'embed' || config.react === 'link')) ||
+                    (framework === 'angular' && (config.angular === 'embed' || config.angular === 'link')) ||
+                    (framework === 'ionic' && (config.ionic === 'embed' || config.ionic === 'link'))
+                ) {
                     return `<div class="stackblitz" data-framework="${framework}"><a href="${url.substring(0, url.indexOf('?'))}" target='_blank' rel='noopener noreferrer'><img src="../images/code.svg" alt="StackBlitz" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>Try the ${framework.substr(0, 1).toUpperCase() + framework.substr(1)} StackBlitz example</a></div>`
                 }
-                else if ((framework === 'react' && config.react === 'hide') || (framework === 'angular' && config.angular === 'hide')) {
+                else if (
+                    (framework === 'reactnative' && (config.reactnative === 'embed' || config.reactnative === 'link'))
+                ) {
+                    return `<div class="snack" data-framework="${framework}"><a href="${url.substring(0, url.indexOf('?'))}" target='_blank' rel='noopener noreferrer'><img src="../images/code.svg" alt="Snack" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>Try the ${framework.substr(0, 1).toUpperCase() + framework.substr(1)} Snack example</a></div>`
+                }
+                else if (
+                    (framework === 'react' && config.react === 'hide') ||
+                    (framework === 'angular' && config.angular === 'hide') ||
+                    (framework === 'ionic' && config.ionic === 'hide') ||
+                    (framework === 'reactnative' && config.reactnative === 'hide')
+                ) {
                     return ``;
                 }
             }
@@ -85,17 +98,45 @@ export default (config) => {
         },
         {
             type: 'lang',
-            regex: /{{\s*(angular|react)\s*stackblitz=(.+)+\s*}}/g,
+            regex: /{{\s*(angular|react|reactnative|ionic)\s*url=(.+)+\s*}}/g,
             replace: (matchString, framework, url, offset) => {
-                if ((framework === 'react' && config.react === 'embed') || (framework === 'angular' && config.angular === 'embed')) {
+                if (
+                    (framework === 'react' && config.react === 'embed') ||
+                    (framework === 'angular' && config.angular === 'embed') ||
+                    (framework === 'ionic' && config.ionic === 'embed')
+                ) {
                     return `<div class="stackblitz" data-framework="${framework}">
-                        <iframe src="${url}" style="height:500px;"></iframe>
+                        <iframe src="${url}"></iframe>
                     </div>`;
                 }
-                else if ((framework === 'react' && config.react === 'link') || (framework === 'angular' && config.angular === 'link')) {
+                else if (
+                    (framework === 'reactnative' && config.reactnative === 'embed')
+                ) {
+                    return `<div class="snack" data-framework="${framework}">
+                        <iframe src="https://snack.expo.io/${url.trim()}?preview=true&platform=ios&theme=dark"
+                            style="display: block"
+                            height="100%"
+                            width="100%"
+                            frameBorder="0"></iframe></div>`;
+                }
+                else if (
+                    (framework === 'react' && config.react === 'link') ||
+                    (framework === 'angular' && config.angular === 'link') ||
+                    (framework === 'ionic' && config.ionic === 'link')
+                ) {
                     return `<div class="stackblitz" data-framework="${framework}"><a href="${url.substring(0, url.indexOf('?'))}" target='_blank' rel='noopener noreferrer'><img src="../images/code.svg" alt="StackBlitz" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>Try the ${framework.substr(0, 1).toUpperCase() + framework.substr(1)} StackBlitz example</a></div>`;
                 }
-                else if ((framework === 'react' && config.react === 'hide') || (framework === 'angular' && config.angular === 'hide')) {
+                else if (
+                    (framework === 'reactnative' && config.reactnative === 'link')
+                ) {
+                    return `<div><a href="https://snack.expo.io/${url.trim()}?platform=ios" target='_blank' rel='noopener noreferrer'><img src="../images/code.svg" alt="Snack" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>Try the ${framework.substr(0, 1).toUpperCase() + framework.substr(1)} Snack example</a></div>`
+                }
+                else if (
+                    (framework === 'react' && config.react === 'hide') ||
+                    (framework === 'angular' && config.angular === 'hide') ||
+                    (framework === 'ionic' && config.ionic === 'hide') ||
+                    (framework === 'reactnative' && config.reactnative === 'hide')
+                ) {
                     return ``;
                 }
 
@@ -109,9 +150,9 @@ export const images = (config) => {
     return ([
         {
             type: 'lang',
-            regex: /{{\s*(ionic|reactNative)\s*images=(.+)+\s*}}/g,
+            regex: /{{\s*(ionic|reactnative)\s*images=(.+)+\s*}}/g,
             replace: (matchString, framework, url, offset) => {
-                if ((framework === 'ionic' && config.ionic === 'show') || (framework === 'reactNative' && config.reactNative === 'show')) {
+                if ((framework === 'ionic' && config.ionic === 'show') || (framework === 'reactnative' && config.reactnative === 'show')) {
                     var urls = url.split('|');
                     var data = `<div style="display:flex; justify-content:flex-start; flex-wrap: wrap" data-framework="${framework}">`;
                     for (var x = 0; x < urls.length; x++) {
@@ -122,7 +163,7 @@ export const images = (config) => {
                     data += '</div>';
                     return data;
                 }
-                else if ((framework === 'ionic' && config.ionic === 'hide') || (framework === 'reactNative' && config.reactNative === 'hide')) {
+                else if ((framework === 'ionic' && config.ionic === 'hide') || (framework === 'reactnative' && config.reactnative === 'hide')) {
                     return ``;
                 }
 

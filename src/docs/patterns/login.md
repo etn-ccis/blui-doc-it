@@ -4,11 +4,10 @@ Most applications will require some form of login to ensure that only authorized
 ## Basic Form
 A simple login presents fields for the users to enter their credentials and a button to submit them for verification.
 
-{{ angular stackblitz=https://stackblitz.com/edit/pxblue-login-angular?embed=1&file=src/app/login/login.component.ts&hideNavigation=1&view=preview }}
-{{ react stackblitz=https://stackblitz.com/edit/pxblue-login-react?embed=1&file=App.js&hideNavigation=1&view=preview }}
+{{ angular url=https://stackblitz.com/edit/pxblue-login-angular?embed=1&file=src/app/login/login.component.ts&hideNavigation=1&view=preview }}
+{{ react url=https://stackblitz.com/edit/pxblue-login-react?embed=1&file=App.js&hideNavigation=1&view=preview }}
 {{ ionic images=../images/gif/login.gif }}
-{{ reactNative images=../images/gif/signIn-rn.png }}
-
+{{ reactnative images=../images/gif/signIn-rn.png }}
 ## Login Feedback
 
 After a user submits their credentials, there are three possible results:
@@ -24,7 +23,7 @@ After a user submits their credentials, there are three possible results:
 
 The login screen for an application should also present users with a way to recover or reset their password if they have lost or forgotten it. This is typically presented as a hyperlink below the credential fields. Clicking the link will present users with a field to enter their e-mail address. They will receive an email with a hyperlink to reset their password.
 {{ ionic images=../images/gif/loginfp.gif }}
-{{ reactNative images=../images/gif/forgot-rn.png }}
+{{ reactnative images=../images/gif/forgot-rn.png }}
 
 ## User Registration
 
@@ -38,4 +37,4 @@ After the email address is verified, users can continue the registration process
 > **NOTE:** The minimum requirements for registration are an email address, confirmation code, and password. You can also collect additional parameters as necessary for your application (e.g., Name, Phone Number, etc.). 
 
 {{ ionic images=../images/gif/loginregister.gif }}
-{{ reactNative images=../images/gif/register-rn.png }}
+{{ reactnative images=../images/gif/register-rn.png }}

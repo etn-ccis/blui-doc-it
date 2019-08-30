@@ -17,13 +17,13 @@ The content-resize implementation does not cover any of the main application con
 ### Content-Cover
 
 In this implementation, the navigation panel slides out from the side, partially obscuring the main content of the application. It is often implemented with a dark overlay that blocks the main application and directs the user's focus to the navigation panel that was opened.
-{{ angular stackblitz=https://stackblitz.com/edit/pxblue-side-navigation-angular?embed=1&file=src/app/demo-nav/demo-nav.component.ts&hideNavigation=1&view=preview }}
-{{ react stackblitz=https://stackblitz.com/edit/pxblue-side-navigation-react?embed=1&file=App.js&hideNavigation=1&view=preview }}
+{{ angular url=https://stackblitz.com/edit/pxblue-side-navigation-angular?embed=1&file=src/app/demo-nav/demo-nav.component.ts&hideNavigation=1&view=preview }}
+{{ react url=https://stackblitz.com/edit/pxblue-side-navigation-react?embed=1&file=App.js&hideNavigation=1&view=preview }}
 
 ## Icon Navigation Bar / Responsive Navigation
 The icon navigation is a minimalist approach to the navigation panel. It features a single icon to represent each of the main areas of the application. This navigation panel is typically used on larger screens only, and is expandable to a full side navigation panel on hover or when clicking the menu icon. 
 
 These may be used in conjunction with Bottom Tab navigation - on larger resolution displays, bottom tabs would become elements in the side navigation.
 
-{{ angular stackblitz=https://stackblitz.com/edit/pxblue-icon-navigation-angular?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
-{{ react stackblitz=https://stackblitz.com/edit/pxblue-icon-navigation-react?embed=1&file=App.js&hideNavigation=1&view=preview }}
+{{ angular url=https://stackblitz.com/edit/pxblue-icon-navigation-angular?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
+{{ react url=https://stackblitz.com/edit/pxblue-icon-navigation-react?embed=1&file=App.js&hideNavigation=1&view=preview }}
