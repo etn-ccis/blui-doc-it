@@ -11,6 +11,7 @@ The simplest type of list simply presents a single line (or multiple lines) of t
 
 {{ link angular repo=data-list }}
 {{ link react repo=data-list }}
+{{ link ionic repo=data-list }}
 
 ## Lists with Icons & Status
 
@@ -21,6 +22,7 @@ In this instance, the separator line between list elements should extend only to
 
 {{ link angular repo=status-list }}
 {{ link react repo=status-list }}
+{{ link ionic repo=status-list }}
 
 ## Lists with Actions
 
