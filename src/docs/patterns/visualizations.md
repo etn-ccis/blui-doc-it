@@ -10,9 +10,8 @@ PX Blue utilities for Highcharts graphs (line, column, pie, donut) are available
 > Highcharts has different [licensing](https://shop.highsoft.com/faq/licensing) requirements depending on the nature of your application - you will need to contact Highsoft directly to ensure that your product is properly licensed. You can also see the [Highcharts Pricing](https://shop.highsoft.com/highcharts/) page for pricing information. In the future, we plan to explore additional open-source charting solutions for inclusion in PX Blue.
 
 
-{{ angular url=https://stackblitz.com/edit/pxblue-highcharts-angular?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
-
-{{ react url=https://stackblitz.com/edit/pxblue-highcharts-react?embed=1&file=index.js&hideNavigation=1&view=preview }}
+{{ angular stackblitz=https://stackblitz.com/edit/pxblue-highcharts-angular?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
+{{ react stackblitz=https://stackblitz.com/edit/pxblue-highcharts-react?embed=1&file=index.js&hideNavigation=1&view=preview }}
 
 >**NOTE:** these examples merely serve to show how to bring highcharts into you application and adjust some of the common chart parameters. You will want to adjust these values to meet the design requirements of your application.
 
@@ -23,8 +22,7 @@ Mapbox can be used on Android and iOS or on the web with Angular and React. A PX
 
 > Using Mapbox is subject to certain [terms](https://www.mapbox.com/pricing/). If you would like to use Mapbox in your applications, you will need to work with Mapbox to ensure your product is properly licensed.
 
-{{ angular url=https://stackblitz.com/edit/pxblue-mapbox-angular?embed=1&file=main.ts&hideNavigation=1&view=preview }}
-
-{{ react url=https://stackblitz.com/edit/pxblue-mapbox-react?embed=1&file=index.js&hideNavigation=1&view=preview }}
+{{ angular stackblitz=https://stackblitz.com/edit/pxblue-mapbox-angular?embed=1&file=main.ts&hideNavigation=1&view=preview }}
+{{ react stackblitz=https://stackblitz.com/edit/pxblue-mapbox-react?embed=1&file=index.js&hideNavigation=1&view=preview }}
 
 

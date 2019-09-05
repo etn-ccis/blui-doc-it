@@ -7,10 +7,10 @@ When loading data for the first time, you do not want to show an empty screen wh
  
 The placeholder should match as closely as possible the real structure of the data. For example, if you are loading a list where each item has an icon, two lines of text, and an action button, then your placeholder should have a circle, two rectangles for the text, and another rectangle for the button. You should show as many placeholder elements as necessary to fill the area in the application that is loading data.
 
-{{ angular url=https://stackblitz.com/edit/pxblue-loading-states-angular?embed=1&file=app/app.component.ts&hideNavigation=1&view=preview }}
-{{ react url=https://stackblitz.com/edit/pxblue-loading-states-react?embed=1&file=App.js&hideNavigation=1&view=preview }}
-{{ ionic url=https://stackblitz.com/edit/pxblue-loading-states-ionic?embed=1&file=app/app.component.ts&hideNavigation=1&view=preview }}
-{{ reactnative url=@px-blue/loading-states-reactnative }}
+{{ angular repo=loading-states }}
+{{ react repo=loading-states }}
+{{ ionic repo=loading-states }}
+{{ reactnative repo=loading-states }}
 
 There are a number of libraries available to help you create this placeholder content, such as:
 - [@netbasal/ngx-content-loader](https://www.npmjs.com/package/@netbasal/ngx-content-loader) (Angular, Ionic)
@@ -39,7 +39,7 @@ If the data is empty but could be populated by a user action (such as adding a d
  
 > **NOTE:** While less common, empty states can be used in sections of a page (rather than the entire page), such as a single card having no data. In these cases, the same guidelines should be followed, but may require slightly different formatting depending on the layout of the page.
 
-{{ angular url=https://stackblitz.com/edit/pxblue-empty-states-angular?embed=1&file=app/app.component.ts&hideNavigation=1&view=preview }}
-{{ react url=https://stackblitz.com/edit/pxblue-empty-states-react?embed=1&file=App.js&hideNavigation=1&view=preview }}
-{{ ionic url=https://stackblitz.com/edit/pxblue-empty-states-ionic?embed=1&file=app/app.component.ts&hideNavigation=1&view=preview }}
-{{ reactnative url=@px-blue/empty-states-reactnative }}
+{{ angular repo=empty-states }}
+{{ react repo=empty-states }}
+{{ ionic repo=empty-states }}
+{{ reactnative repo=empty-states }}
