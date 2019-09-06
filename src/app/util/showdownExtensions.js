@@ -139,7 +139,7 @@ export default (config) => {
             // This pattern matches a code sample at a direct link from stackblitz (full url)
             // e.g. {{ react stackblitz=https://stackblitz.com/edit/pxblue-highcharts-react?embed=1&file=index.js&hideNavigation=1&view=preview }}
             type: 'lang',
-            regex: /{{\s*(angular|react|reactnative|ionic)\s*stackblitz=(.+)+\s*}}/g,
+            regex: /{{\s*(angular|react|reactnative|ionic)\s*url=(.+)+\s*}}/g,
             replace: (matchString, framework, url, offset) => {
                 if (
                     (framework === 'react' && config.react === 'embed') ||
