@@ -11,7 +11,6 @@ PX Blue utilities for Highcharts graphs (line, column, pie, donut) are available
 
 
 {{ angular url=https://stackblitz.com/edit/pxblue-highcharts-angular?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
-
 {{ react url=https://stackblitz.com/edit/pxblue-highcharts-react?embed=1&file=index.js&hideNavigation=1&view=preview }}
 
 >**NOTE:** these examples merely serve to show how to bring highcharts into you application and adjust some of the common chart parameters. You will want to adjust these values to meet the design requirements of your application.
@@ -23,8 +22,7 @@ Mapbox can be used on Android and iOS or on the web with Angular and React. A PX
 
 > Using Mapbox is subject to certain [terms](https://www.mapbox.com/pricing/). If you would like to use Mapbox in your applications, you will need to work with Mapbox to ensure your product is properly licensed.
 
-{{ angular url=https://stackblitz.com/edit/pxblue-mapbox-angular?embed=1&file=main.ts&hideNavigation=1&view=preview }}
-
-{{ react url=https://stackblitz.com/edit/pxblue-mapbox-react?embed=1&file=index.js&hideNavigation=1&view=preview }}
+{{ angular url=https://stackblitz.com/github/pxblue/mapbox/tree/master/angular-demo?embed=1&file=main.ts&hideNavigation=1&view=preview }}
+{{ react url=https://codesandbox.io/s/github/pxblue/mapbox/tree/master/react-demo?embed=1&file=index.js&hideNavigation=1&view=preview }}
 
 

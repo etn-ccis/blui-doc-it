@@ -66,11 +66,12 @@ a{
 iframe{
   width: 100%;
 }
-.stackblitz>iframe{
+.stackblitz>iframe,
+.sandbox>iframe{
   height: 790px;
   max-height: 90vh;
 }
-.snack{
+.snack:not(.link){
   overflow:hidden;
   background:#212733;
   border:1px solid rgba(0,0,0,.08);

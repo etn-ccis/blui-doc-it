@@ -1,6 +1,7 @@
 /* eslint import/no-webpack-loader-syntax: off */
 // const isDev = process.env.NODE_ENV === 'development';
 
+
 export const externalLinks = () => {
     return ([
         { // Replaces 'shield' style badges with new tab anchor links
@@ -71,72 +72,100 @@ export default (config) => {
     config = Object.assign({ angular: 'embed', react: 'embed', reactnative: 'embed', ionic: 'embed' }, config);
     return ([
         {
+            // {{ link <framework> repo=<name> }}
+            // This pattern matches a code sample that should be displayed only as a hyperlink (no embed)
+            // e.g. {{ link angular repo=data-list }}
             type: 'lang',
-            regex: /{{\s*link\s*(angular|react|reactnative|ionic)\s*url=(.+)+\s*}}/g,
-            replace: (matchString, framework, url, offset) => {
-                if ((framework === 'react' && (config.react === 'embed' || config.react === 'link')) ||
-                    (framework === 'angular' && (config.angular === 'embed' || config.angular === 'link')) ||
-                    (framework === 'ionic' && (config.ionic === 'embed' || config.ionic === 'link'))
+            regex: /{{\s*link\s*(angular|react|reactnative|ionic)\s*repo=(.+)+\s*}}/g,
+            replace: (matchString, framework, repo, offset) => {
+                if (
+                    (framework === 'angular' && config.angular !== 'hide') ||
+                    (framework === 'ionic' && config.ionic !== 'hide') ||
+                    (framework === 'react' && config.react !== 'hide') ||
+                    (framework === 'reactnative' && config.reactnative !== 'hide')
                 ) {
-                    return `<div class="stackblitz" data-framework="${framework}"><a href="${url.substring(0, url.indexOf('?'))}" target='_blank' rel='noopener noreferrer'><img src="../images/code.svg" alt="StackBlitz" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>Try the ${framework.substr(0, 1).toUpperCase() + framework.substr(1)} StackBlitz example</a></div>`
+                    return `<div class="${getIframeClass(framework)} link">
+                            <a href="${getUrl(repo, framework)}" target='_blank' rel='noopener noreferrer'>
+                                <img src="../images/code.svg" alt="${getHostService(framework)}" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>
+                                Try the ${titleCase(framework)} ${getHostService(framework)} example
+                            </a>
+                        </div>`;
                 }
-                else if (
-                    (framework === 'reactnative' && (config.reactnative === 'embed' || config.reactnative === 'link'))
-                ) {
-                    return `<div class="snack" data-framework="${framework}"><a href="${url.substring(0, url.indexOf('?'))}" target='_blank' rel='noopener noreferrer'><img src="../images/code.svg" alt="Snack" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>Try the ${framework.substr(0, 1).toUpperCase() + framework.substr(1)} Snack example</a></div>`
-                }
-                else if (
-                    (framework === 'react' && config.react === 'hide') ||
-                    (framework === 'angular' && config.angular === 'hide') ||
-                    (framework === 'ionic' && config.ionic === 'hide') ||
-                    (framework === 'reactnative' && config.reactnative === 'hide')
-                ) {
+                else {
                     return ``;
                 }
             }
 
         },
         {
+            // {{ <framework> repo=<name> }}
+            // This pattern matches a code sample that should be imported from github (via repository name)
+            // e.g. {{ angular repo=data-list }}
+            type: 'lang',
+            regex: /{{\s*(angular|react|reactnative|ionic)\s*repo=(.+)+\s*}}/g,
+            replace: (matchString, framework, repo, offset) => {
+                if (
+                    (framework === 'react' && config.react === 'embed') ||
+                    (framework === 'angular' && config.angular === 'embed') ||
+                    (framework === 'ionic' && config.ionic === 'embed') ||
+                    (framework === 'reactnative' && config.reactnative === 'embed')
+                ) {
+                    return `<div class="${getIframeClass(framework)}" data-framework="${framework}">
+                        <iframe src="${getUrl(repo, framework, true)}" ${getIframeStyles(framework)}></iframe>
+                    </div>`;
+                }
+
+                else if (
+                    (framework === 'react' && config.react === 'link') ||
+                    (framework === 'angular' && config.angular === 'link') ||
+                    (framework === 'ionic' && config.ionic === 'link') ||
+                    (framework === 'reactnative' && config.reactnative === 'link')
+                ) {
+                    return `<div class="${getIframeClass(framework)} link">
+                            <a href="${getUrl(repo, framework)}" target='_blank' rel='noopener noreferrer'>
+                                <img src="../images/code.svg" alt="${getHostService(framework)}" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>
+                                Try the ${titleCase(framework)} ${getHostService(framework)} example
+                            </a>
+                        </div>`;
+                }
+                else {
+                    return ``;
+                }
+
+            }
+        },
+        {
+            // {{ <framework> stackblitz=<url> }}
+            // This pattern matches a code sample at a direct link from stackblitz (full url)
+            // e.g. {{ react stackblitz=https://stackblitz.com/edit/pxblue-highcharts-react?embed=1&file=index.js&hideNavigation=1&view=preview }}
             type: 'lang',
             regex: /{{\s*(angular|react|reactnative|ionic)\s*url=(.+)+\s*}}/g,
             replace: (matchString, framework, url, offset) => {
                 if (
                     (framework === 'react' && config.react === 'embed') ||
                     (framework === 'angular' && config.angular === 'embed') ||
-                    (framework === 'ionic' && config.ionic === 'embed')
-                ) {
-                    return `<div class="stackblitz" data-framework="${framework}">
-                        <iframe src="${url}"></iframe>
-                    </div>`;
-                }
-                else if (
+                    (framework === 'ionic' && config.ionic === 'embed') ||
                     (framework === 'reactnative' && config.reactnative === 'embed')
                 ) {
-                    return `<div class="snack" data-framework="${framework}">
-                        <iframe src="https://snack.expo.io/${url.trim()}?preview=true&platform=ios&theme=dark"
-                            style="display: block"
-                            height="100%"
-                            width="100%"
-                            frameBorder="0"></iframe></div>`;
+                    return `<div class="${getIframeClass(framework)}" data-framework="${framework}">
+                        <iframe src="${url}" ${getIframeStyles(framework)}></iframe>
+                    </div>`;
                 }
+
                 else if (
                     (framework === 'react' && config.react === 'link') ||
                     (framework === 'angular' && config.angular === 'link') ||
-                    (framework === 'ionic' && config.ionic === 'link')
-                ) {
-                    return `<div class="stackblitz" data-framework="${framework}"><a href="${url.substring(0, url.indexOf('?'))}" target='_blank' rel='noopener noreferrer'><img src="../images/code.svg" alt="StackBlitz" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>Try the ${framework.substr(0, 1).toUpperCase() + framework.substr(1)} StackBlitz example</a></div>`;
-                }
-                else if (
+                    (framework === 'ionic' && config.ionic === 'link') ||
                     (framework === 'reactnative' && config.reactnative === 'link')
                 ) {
-                    return `<div><a href="https://snack.expo.io/${url.trim()}?platform=ios" target='_blank' rel='noopener noreferrer'><img src="../images/code.svg" alt="Snack" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>Try the ${framework.substr(0, 1).toUpperCase() + framework.substr(1)} Snack example</a></div>`
+                    return `<div class="${getIframeClass(framework)} link">
+                            <a href="${url}" target='_blank' rel='noopener noreferrer'>
+                                <img src="../images/code.svg" alt="${getHostService(framework)}" style="width:24px; display: inline; margin: 0 5px 0 0; transform: translateY(25%);"/>
+                                Try the ${titleCase(framework)} ${getHostService(framework)} example
+                            </a>
+                        </div>`;
                 }
-                else if (
-                    (framework === 'react' && config.react === 'hide') ||
-                    (framework === 'angular' && config.angular === 'hide') ||
-                    (framework === 'ionic' && config.ionic === 'hide') ||
-                    (framework === 'reactnative' && config.reactnative === 'hide')
-                ) {
+                else {
                     return ``;
                 }
 
@@ -145,29 +174,64 @@ export default (config) => {
 
     ]);
 }
-export const images = (config) => {
 
-    return ([
-        {
-            type: 'lang',
-            regex: /{{\s*(ionic|reactnative)\s*images=(.+)+\s*}}/g,
-            replace: (matchString, framework, url, offset) => {
-                if ((framework === 'ionic' && config.ionic === 'show') || (framework === 'reactnative' && config.reactnative === 'show')) {
-                    var urls = url.split('|');
-                    var data = `<div style="display:flex; justify-content:flex-start; flex-wrap: wrap" data-framework="${framework}">`;
-                    for (var x = 0; x < urls.length; x++) {
-                        data += `<div style="width: 200px; margin: 0 20px 20px 0;">
-                            <img src="${urls[x]}" alt="${urls[x]}" style="width: 100%; height: auto"/>
-                        </div>`;
-                    }
-                    data += '</div>';
-                    return data;
-                }
-                else if ((framework === 'ionic' && config.ionic === 'hide') || (framework === 'reactnative' && config.reactnative === 'hide')) {
-                    return ``;
-                }
+// Some helper functions to make things more readable
+const getUrl = (repo, framework, withQuery = false) => {
+    repo = repo.trim();
+    framework = framework.trim();
 
-            }
-        }
-    ])
+    switch (framework) {
+        case 'angular':
+        case 'ionic':
+            return `https://stackblitz.com/github/pxblue/${repo}/tree/${framework}${withQuery ? '?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview' : ''}`
+        case 'react':
+            return `https://codesandbox.io/embed/github/pxblue/${repo}/tree/${framework}${withQuery ? '?fontsize=14&hidenavigation=1&module=/src/App.js&view=preview' : ''}`;
+        case 'reactnative':
+            return `https://snack.expo.io/@git/github.com/pxblue/${repo}@reactnative${withQuery ? '?preview=true&platform=ios&theme=dark' : ''}`;
+        default:
+            return '';
+    }
+}
+
+const titleCase = (str) => {
+    if (str === 'reactnative') return 'React Native';
+    else return str.charAt(0).toUpperCase() + str.substr(1);
+}
+
+const getHostService = (framework) => {
+    switch (framework.trim()) {
+        case 'angular':
+        case 'ionic':
+            return 'StackBlitz';
+        case 'react':
+            return 'Code Sandbox';
+        case 'reactnative':
+            return 'Snack';
+        default:
+            return 'Code';
+    }
+}
+const getIframeClass = (framework) => {
+    switch (framework.trim()) {
+        case 'angular':
+        case 'ionic':
+            return 'stackblitz';
+        case 'react':
+            return 'sandbox';
+        case 'reactnative':
+            return 'snack';
+        default:
+            return '';
+    }
+}
+const getIframeStyles = (framework) => {
+    switch (framework.trim()) {
+        case 'reactnative':
+            return 'style="display: block" height="100%" width="100%" frameBorder="0"';
+        case 'angular':
+        case 'ionic':
+        case 'react':
+        default:
+            return '';
+    }
 }
