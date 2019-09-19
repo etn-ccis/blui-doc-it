@@ -12,7 +12,7 @@ The simplest type of list simply presents a single line (or multiple lines) of t
 {{ link angular repo=data-list }}
 {{ link react repo=data-list }}
 {{ link ionic repo=data-list }}
-{{ reactnative repo=data-list }}
+{{ link reactnative repo=data-list }}
 
 ## Lists with Icons & Status
 
