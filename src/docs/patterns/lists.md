@@ -24,6 +24,7 @@ In this instance, the separator line between list elements should extend only to
 {{ link angular repo=status-list }}
 {{ link react repo=status-list }}
 {{ link ionic repo=status-list }}
+{{ link reactnative repo=status-list }}
 
 ## Lists with Actions
 
