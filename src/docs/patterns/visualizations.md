@@ -16,7 +16,7 @@ These utilities also enable you to quickly create placeholder charts using simul
 {{ angular url=https://stackblitz.com/github/pxblue/highcharts/tree/master/angular-demo?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
 {{ react url=https://codesandbox.io/s/github/pxblue/highcharts/tree/master/react-demo?embed=1&file=index.js&hideNavigation=1&view=preview }}
 
->**NOTE:** these examples merely serve to show how to bring highcharts into you application and adjust some of the common chart parameters. You will want to adjust these values to meet the design requirements of your application.
+>**NOTE:** these examples merely serve to show how to bring highcharts into your application and adjust some of the common chart parameters. You will want to adjust these values to meet the design requirements of your application.
 
 ### ChartJS 
 
