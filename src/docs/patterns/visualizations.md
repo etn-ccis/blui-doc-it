@@ -5,6 +5,8 @@ There are many opportunities to visualize data in different applications. The mo
 ## Charts & Graphs (Highcharts & ChartJS)
 Currently, PX Blue supports building charts and graphs using [Highcharts](http://www.highcharts.com) and [ChartJS](https://www.chartjs.org/), which are comprehensive libraries compatible with both Angular and React. 
 
+>**NOTE:** the following examples merely serve to show how to bring the charting libraries into your application and adjust some of the common chart parameters. You will want to adjust these values to meet the design requirements of your application.
+
 ### Highcharts
 
 PX Blue utilities for Highcharts graphs (line, column, pie, donut) are available as an NPM package ([@pxblue/highcharts](https://www.npmjs.com/package/@pxblue/highcharts)). 
@@ -16,13 +18,11 @@ These utilities also enable you to quickly create placeholder charts using simul
 {{ angular url=https://stackblitz.com/github/pxblue/highcharts/tree/master/angular-demo?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
 {{ react url=https://codesandbox.io/s/github/pxblue/highcharts/tree/master/react-demo?embed=1&file=index.js&hideNavigation=1&view=preview }}
 
->**NOTE:** these examples merely serve to show how to bring highcharts into your application and adjust some of the common chart parameters. You will want to adjust these values to meet the design requirements of your application.
-
 ### ChartJS 
 
-ChartJS is an alternative open-source javascript charting solution.
-PX Blue utilities for ChartJS graphs (line, column, pie, donut) are available as an NPM package ([@pxblue/chartjs](https://www.npmjs.com/package/@pxblue/chartjs)). 
-For more information about using ChartJS, check out their documentation.
+ChartJS is an open source alternative to HighCharts offering a scaled-down feature set that supports basic charting needs.
+
+PX Blue utilities for ChartJS graphs (line, column, pie, donut) are available as an NPM package ([@pxblue/chartjs](https://www.npmjs.com/package/@pxblue/chartjs)). For more information, check out the [ChartJS Documentation](https://www.chartjs.org/).
 
 {{ angular url=https://stackblitz.com/github/pxblue/chartjs/tree/master/angular-demo?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
 {{ react url=https://codesandbox.io/s/github/pxblue/chartjs/tree/master/react-demo?embed=1&file=index.js&hideNavigation=1&view=preview }}
