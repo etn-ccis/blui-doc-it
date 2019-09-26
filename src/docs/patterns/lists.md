@@ -32,6 +32,8 @@ If there are actions that you would like to perform on individual list items, th
 
 {{ link angular repo=action-list }}
 {{ link react repo=action-list }}
+{{ link ionic repo=action-list }}
+{{ link reactnative repo=action-list }}
 
 ## Actions on Selected Items
 
