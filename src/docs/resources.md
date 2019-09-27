@@ -7,7 +7,8 @@ The following table shows the current status for PX Blue resources available thr
 | Repository | NPM | Status | Updated | Issues | 
 |-------|--------|-----------| ------------|------------|
 {{ npmtable repo=colors packages=@pxblue/colors|@pxblue/colors-branding }}
-{{ npmtable repo=component-library packages=@pxblue/angular-components|@pxblue/react-components }}
+{{ npmtable repo=component-library packages=@pxblue/angular-components|@pxblue/react-components|@pxblue/react-native-components }}
+{{ npmtable repo=chartjs packages=@pxblue/chartjs }}
 {{ npmtable repo=highcharts packages=@pxblue/highcharts }}
 {{ npmtable repo=icons packages=@pxblue/icons|@pxblue/icons-svg|@pxblue/ng-progress-icons|@pxblue/react-progress-icons|@pxblue/symbols }}
 {{ npmtable repo=icons-mui packages=@pxblue/icons-mui }}
@@ -22,11 +23,11 @@ The following table shows the current status of the PX Blue design pattern code 
 
 | Repository | Status | Updated | Issues | 
 |-------|--------|---------|-------------|
-{{ statustable repo=action-list branches=angular|react }}
+{{ statustable repo=action-list branches=angular|react|ionic|reactnative }}
 {{ statustable repo=bottomsheet branches=angular|react }}
 {{ statustable repo=collapsible-appbar branches=angular|react }}
 {{ statustable repo=complex-bottomsheet branches=angular|react }}
-{{ statustable repo=data-list branches=angular|react }}
+{{ statustable repo=data-list branches=angular|react|ionic|reactnative }}
 {{ statustable repo=dynamic-stepper branches=angular|react }}
 {{ statustable repo=empty-states branches=angular|react|ionic|reactnative }}
 {{ statustable repo=form-validation branches=angular|react }}
@@ -38,4 +39,4 @@ The following table shows the current status of the PX Blue design pattern code 
 {{ statustable repo=search-bar branches=angular|react }}
 {{ statustable repo=side-navigation branches=angular|react }}
 {{ statustable repo=sortable-list branches=angular|react }}
-{{ statustable repo=status-list branches=angular|react }}
+{{ statustable repo=status-list branches=angular|react|ionic|reactnative }}

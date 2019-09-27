@@ -9,9 +9,8 @@ As of version 2.0.0, the PX Blue themes package ([@pxblue/themes](https://www.np
 
 > **NOTE:** Combining multiple themes in your application is optional. You may stick to using a single theme (Blue) for your entire application and then apply one-off styling where necessary to achieve other effects. All of the PX Blue colors are available individually ([@pxblue/colors](https://www.npmjs.com/package/@pxblue/colors)) for use in your application.
 
-<!-- {{ angular url=https://stackblitz.com/edit/pxblue-themes-angular?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }} -->
-{{ react url=https://stackblitz.com/edit/pxblue-theme-demo-react?embed=1&file=index.html&hideNavigation=1&view=preview }}
-
+{{ angular url=https://stackblitz.com/github/pxblue/themes/tree/master/angular/demo?embed=1&file=main.ts&hideNavigation=1&view=preview }}
+{{ react url=https://codesandbox.io/embed/github/pxblue/themes/tree/master/react/demo?fontsize=14&hidenavigation=1&module=/src/App.js&view=preview }}
 ## Theme Formats
 - **Angular** themes are a collection of SCSS stylesheets that are imported into your application and applied through classes ('pxb-blue' or 'pxb-dark').
 
