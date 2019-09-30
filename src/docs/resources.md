@@ -21,7 +21,7 @@ The following table shows the current status for PX Blue resources available thr
 
 The following table shows the current status of the PX Blue design pattern code samples available from GitHub and [StackBlitz](https://stackblitz.com/@px-blue).
 
-| Repository | Status | Issues | Examples |
+| Repository | Status | Issues | Live Demo |
 |-------|--------|-------------|----------|
 {{ statustable repo=action-list branches=angular|react|ionic|reactnative }}
 {{ statustable repo=bottomsheet branches=angular|react }}
