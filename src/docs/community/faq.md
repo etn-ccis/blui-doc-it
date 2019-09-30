@@ -17,7 +17,7 @@ With version 2.3.0, PX Blue introduced support for Ionic applications. While Ion
 PX Blue does not support the use of Twitter Bootstrap for PX Blue applications. Bootstrap can cause conflicts with PX Blue components and themes and is an unnecessary addition next to the Material component libraries and frameworks supported by PX Blue. If you are accustomed to using Bootstrap for layout, you can read about the PX Blue alternative approach on our [Layout Patterns](/patterns/layout) page.
 
 ### 4. Can I use other charting solutions (e.g., D3) with PX Blue?
-Currently, PX Blue only supports charting using [Highcharts](http://www.highcharts.com). We will be exploring and comparing other charting options and may expand our support to include other charting libraries in a future release.
+Currently, PX Blue recommends using [Highcharts](http://www.highcharts.com) for your charting needs. If you prefer an open-source charting alternative, PX Blue also offers resources for working with [ChartJS](https://www.chartjs.org/). You can read more about this on our [Visualizations](/patterns/visualizations) page. You may use other charting solutions in your application if there is a genuine business need, but keep in mind that this may compromise the consistency and reusability of your solution when compared to other projects.
 
 ### 5. Do you have Design Patterns for...?
 We will be continuously updating the Design Patterns section of pxblue.github.io with new patterns and code samples as they are ready. We will prioritize patterns and examples based on interest expressed from development teams. If there is something you want to see, [Contact us](/community/contactus). 

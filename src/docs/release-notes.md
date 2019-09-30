@@ -1,3 +1,31 @@
+# Power Xpert Blue 2.3.1 (September 2019)
+
+### Design Patterns
+New design pattern and examples are available for [Loading/Empty States](/patterns/empty-states).
+
+### Hybrid Code Examples
+We have continued to build out our mobile pattern examples. Examples added in this release include [Loading/Empty States](/patterns/empty-states) and various [Lists](/patterns/lists) (Data List, Status List, Action List). More examples will be coming soon.
+
+### Theme Demos
+We now have examples showing how the different PX Blue [Themes](/style/themes) affect various UI elements in an application.
+
+### StackBlitz Update
+We are now running all of our embedded code examples directly from their respective GitHub repositories. This allows our examples to automatically stay up to date with all of the latest changes in source control. As a result, the standalone example repository on [StackBlitz](https://stackblitz.com/@px-blue) will be going away. If you are accustomed to browsing our examples from there, have a look at our [Resources](/resources) page, which now has links to all of our examples.
+
+### ChartJS
+PX Blue now offers resources for working with ChartJS - an open source alternative to HighCharts. You can read more on our [Visualizations](/patterns/visualizations) page or on the [ChartJS](https://www.chartjs.org) documentation site.
+
+### Component Library
+We have been working to innersource new PX Blue components for React Native applications - these are currently available as [@pxblue/react-native-components](https://www.npmjs.com/package/@pxblue/react-native-components). Documentation for these components can be found on [GitHub](https://github.com/pxblue/component-library/tree/dev/react-native/docs). This package is still in alpha, but a production version will be made available in an upcoming PX Blue release.
+
+### Miscellaneous
+* Bug fixes and improvements
+* Angular examples have all been updated to Angular 8
+* New [Icons](/style/iconography)
+
+
+<br/><br/><br/>
+
 # Power Xpert Blue 2.3.0 (June 2019)
 ### Dark Themes
 We've added a dark theme for Angular and React applications. These are available starting in version 2.0.0 of our [@pxblue/themes](https://www.npmjs.com/package/@pxblue/themes) package.
@@ -20,6 +48,7 @@ Re-usable components built by the PX Blue team for use in your applications. We 
 
 
 <br/><br/><br/>
+
 # Power Xpert Blue 2.2.2 (March 2019)
 ### New Location
 We've moved! In order to make our documentation as accessible as possible, we've migrated our entire process over to GitHub. Our documentation can now be found at pxblue.github.io.
@@ -36,6 +65,7 @@ We've added code examples for [App Bars](/patterns/appbar), [Bottom Sheets](/pat
 
 
 <br/><br/><br/>
+
 # Power Xpert Blue 2.2.1 (November 2018)
 ### Mapbox Themes
 Initial versions of Mapbox themes are now available, in both light (blue) and dark varieties. You can read more about using these themes in your application on [NPM](https://www.npmjs.com/package/@pxblue/mapbox).
@@ -60,7 +90,8 @@ We've also overhauled our [Iconography](/style/iconography) page to include a de
 
 
 <br/><br/><br/>
-# Power Xpert Blue 2.2 (September 2018)
+
+# Power Xpert Blue 2.2.0 (September 2018)
 PX Blue has seen a lot of really great enhancements behind the scenes in this latest release.
 
 ### Updated Examples & StackBlitz
@@ -83,7 +114,8 @@ PX Blue now supports hybrid development in [Cordova](/development/frameworks-mob
 We've also made some minor update to our color palette and typography hierarchy to improve our alignment with corporate branding requests. We also have updated icons in our icon font. Make sure to upgrade to the latest versions to be up-to-date.
 
 <br/><br/><br/>
-# Power Xpert Blue 2.1 (June 2018)
+
+# Power Xpert Blue 2.1.0 (June 2018)
 
 ### Hybrid Apps
 Hybrid app support. We now support NativeScript for iOS and Android app development using Angular, TypeScript and JavaScript. NativeScript allows you to use your existing web development skills to build native apps for iOS and Android that share a single common codebase. You can read more in our [NativeScript](/development/frameworks-mobile/nativescript) guide.
@@ -95,7 +127,8 @@ The PX Blue 2.1 release also includes an early beta version of the PX Blue Proje
 Power Xpert Blue continues to improve its alignment with Corporate Branding and Marketing. Open Sans is now officially supported at Eaton for application development.
 
 <br/><br/><br/>
-# Power Xpert Blue 2.0 (February 2018)
+
+# Power Xpert Blue 2.0.0 (February 2018)
 
 The inaugural release of Power Xpert Blue 2.0 is the first release of our newly updated Design System. We now support a wide range of platforms and technologies with comprehensive documentation for using the design system. 
 
