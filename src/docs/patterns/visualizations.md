@@ -28,6 +28,7 @@ PX Blue utilities for ChartJS graphs (line, column, pie, donut) are available as
 {{ react url=https://codesandbox.io/s/github/pxblue/chartjs/tree/master/react-demo?embed=1&file=index.js&hideNavigation=1&view=preview }}
 
 ## Mapping (Mapbox)
+<a id="mapping"></a>
 If your application needs to show data on a geographical map, PX Blue supports the use of [Mapbox](https://www.mapbox.com/), a visually pleasing mapping solution that uses data from OpenStreetMap.
 
 Mapbox can be used on Android and iOS or on the web with Angular and React. A PX Blue theme for styling these maps is available as an NPM package ([@pxblue/mapbox](https://www.npmjs.com/package/@pxblue/mapbox)).

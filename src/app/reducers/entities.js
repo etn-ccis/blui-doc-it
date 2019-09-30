@@ -3,6 +3,7 @@ import {
   FETCH_DOC_SUCCESS,
   FETCH_DOC_FAILURE,
 } from '../constants/docs';
+import {pageRendered} from "../App";
 
 const INITIAL_STATE = fromJS({
   docs: {},
@@ -11,6 +12,7 @@ const INITIAL_STATE = fromJS({
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case FETCH_DOC_SUCCESS:
+      setTimeout(() => { pageRendered.next() }, 10);
       return state.mergeIn(['docs'], {
         [ action.payload.path ]: action.payload.body
       })
