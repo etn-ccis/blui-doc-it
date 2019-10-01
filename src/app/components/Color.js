@@ -138,7 +138,7 @@ class ColorComponent extends React.Component {
             PX Blue offers a variety of different colors for use in your applications. Our color palettes utilize a weighted approach to give designers and developers a versatile set of colors for solving common color-related issues (e.g., accessibility). <a href="https://material.io/design/color" target="_blank" rel="noopener noreferrer">Learn more about weighted color palettes</a>.
           </p>
           <p>
-            Our color sets are divided into sections as outlined below. User Interface and Status colors are available in a single package (<a href="https://www.npmjs.com/package/@pxblue/colors">@pxblue/colors</a>). Eaton Branding (Charts and Graphs) colors are available as an additional package (<a href="https://www.npmjs.com/package/@pxblue/colors-branding">@pxblue/colors-branding</a>).
+            Our color sets are divided into sections as outlined below. User Interface and Status colors are available in a single package (<a href="https://www.npmjs.com/package/@pxblue/colors" target="_blank" rel="noopener noreferrer">@pxblue/colors</a>). Eaton Branding (Charts and Graphs) colors are available as an additional package (<a href="https://www.npmjs.com/package/@pxblue/colors-branding" target="_blank" rel="noopener noreferrer">@pxblue/colors-branding</a>).
           </p>
           <p>
             In most cases, you should stick to using the 500 color (<BookmarkIcon style={{verticalAlign: "middle"}}/>), which is the primary color for each palette. When using PX Blue themes, the most important elements of the UI will be stylized with these colors.<br />
