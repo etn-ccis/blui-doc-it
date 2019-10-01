@@ -188,7 +188,7 @@ const getExampleBadge = (repo, framework) => {
         case 'react':
             return `[![](https://img.shields.io/badge/react-Code%20Sandbox-blue)](${getUrl(repo, framework)})`;
         case 'reactnative':
-            return `[![](https://img.shields.io/badge/reactnative-Snack-blue)](${getUrl(repo, framework)}?preview=true&platform=ios)`;
+            return `[![](https://img.shields.io/badge/reactnative-Snack-blue)](${getUrl(repo, framework)})`;
         default:
             return '';
     }
@@ -205,7 +205,7 @@ const getUrl = (repo, framework, withQuery = false) => {
         case 'react':
             return `https://codesandbox.io/embed/github/pxblue/${repo}/tree/${framework}${withQuery ? '?fontsize=14&hidenavigation=1&module=/src/App.js&view=preview' : ''}`;
         case 'reactnative':
-            return `https://snack.expo.io/@git/github.com/pxblue/${repo}@reactnative${withQuery ? '?preview=true&platform=ios&theme=dark' : ''}`;
+            return `https://snack.expo.io/@git/github.com/pxblue/${repo}@reactnative?preview=true&platform=ios${withQuery ? '&theme=dark' : ''}`;
         default:
             return '';
     }
