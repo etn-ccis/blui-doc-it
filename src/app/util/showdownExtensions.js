@@ -188,7 +188,7 @@ const getExampleBadge = (repo, framework) => {
         case 'react':
             return `[![](https://img.shields.io/badge/react-Code%20Sandbox-blue)](${getUrl(repo, framework)})`;
         case 'reactnative':
-            return `[![](https://img.shields.io/badge/reactnative-Snack-blue)](${getUrl(repo, framework)})`;
+            return `[![](https://img.shields.io/badge/reactnative-Snack-blue)](${getUrl(repo, framework)}?preview=true&platform=ios)`;
         default:
             return '';
     }
