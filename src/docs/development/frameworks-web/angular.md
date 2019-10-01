@@ -1,6 +1,6 @@
 # Getting Started with Angular
 
-The fastest way to create an Angular application is to use the [Angular CLI](http://cli.angular.io/). Once you have created your project, you can follow the instructions below for adding PX Blue themes. Alternatively, you can start your project by downloading one of our code samples from [StackBlitz](http://www.stackblitz.com/@px-blue) or [Github](https://github.com/pxblue) (the Login or Navigation examples are good projects to start from).
+The fastest way to create an Angular application is to use the [Angular CLI](http://cli.angular.io/). Once you have created your project, you can follow the instructions below for adding PX Blue themes. Alternatively, you can start your project by downloading one of our code samples from [Github](https://github.com/pxblue) (the Login or Navigation examples are good projects to start from).
 
 ## Requirements
 To use PX Blue with your Angular project, you will need:

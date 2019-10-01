@@ -33,13 +33,15 @@ export const examplesTable = () => {
                 branches = branches.split('|');
                 let link = `[${repo}](https://github.com/pxblue/${repo}) `;
                 let status = '';
-                let updates = '';
+                //let updates = '';
                 let issues = `[![](https://img.shields.io/github/issues/pxblue/${repo}/bug.svg?style=flat&label=bugs)](https://github.com/pxblue/${repo}/issues?q=is%3Aissue+is%3Aopen+label%3Abug) `;
+                let examples = '';
                 branches.forEach((branch) => {
                     status += `[![](https://img.shields.io/circleci/project/github/pxblue/${repo}/${branch}.svg?label=${branch}&style=flat)](https://circleci.com/gh/pxblue/${repo}/tree/${branch}) `;
-                    updates += `[![](https://img.shields.io/github/last-commit/pxblue/${repo}/${branch}.svg?label=${branch}&style=flat)](https://github.com/pxblue/${repo}/commits/${branch}) `;
+                    //updates += `[![](https://img.shields.io/github/last-commit/pxblue/${repo}/${branch}.svg?label=${branch}&style=flat)](https://github.com/pxblue/${repo}/commits/${branch}) `;
+                    examples += `${getExampleBadge(repo, branch)} `
                 });
-                return `|${link}|${status}|${updates}|${issues}|`;
+                return `|${link}|${status}|${issues}|${examples}|`;
             }
 
         }
@@ -56,12 +58,12 @@ export const npmTable = () => {
                 let link = `[${repo}](https://github.com/pxblue/${repo}/tree/master) `;
                 let npmLinks = '';
                 let status = `[![](https://img.shields.io/circleci/project/github/pxblue/${repo}/master.svg?style=flat)](https://circleci.com/gh/pxblue/${repo}/tree/master) `;
-                let updates = `[![](https://img.shields.io/github/last-commit/pxblue/${repo}/master.svg?style=flat)](https://github.com/pxblue/${repo}/commits/master) `;
+                //let updates = `[![](https://img.shields.io/github/last-commit/pxblue/${repo}/master.svg?style=flat)](https://github.com/pxblue/${repo}/commits/master) `;
                 let issues = `[![](https://img.shields.io/github/issues/pxblue/${repo}/bug.svg?style=flat&label=bugs)](https://github.com/pxblue/${repo}/issues?q=is%3Aissue+is%3Aopen+label%3Abug) `;
                 packages.forEach((pack) => {
                     npmLinks += `[![](https://img.shields.io/npm/v/${pack}.svg?label=${pack}&style=flat)](https://www.npmjs.com/package/${pack}) `;
                 });
-                return `|${link}|${npmLinks}|${status}|${updates}|${issues}|`;
+                return `|${link}|${npmLinks}|${status}|${issues}|`;
             }
 
         }
@@ -174,7 +176,23 @@ export default (config) => {
 
     ]);
 }
+const getExampleBadge = (repo, framework) => {
+    repo = repo.trim();
+    framework = framework.trim();
 
+    switch (framework) {
+        case 'angular':
+            return `[![](https://img.shields.io/badge/angular-StackBlitz-blue)](${getUrl(repo, framework)})`;
+        case 'ionic':
+            return `[![](https://img.shields.io/badge/ionic-StackBlitz-blue)](${getUrl(repo, framework)})`;
+        case 'react':
+            return `[![](https://img.shields.io/badge/react-Code%20Sandbox-blue)](${getUrl(repo, framework)})`;
+        case 'reactnative':
+            return `[![](https://img.shields.io/badge/reactnative-Snack-blue)](${getUrl(repo, framework)})`;
+        default:
+            return '';
+    }
+}
 // Some helper functions to make things more readable
 const getUrl = (repo, framework, withQuery = false) => {
     repo = repo.trim();
@@ -187,7 +205,7 @@ const getUrl = (repo, framework, withQuery = false) => {
         case 'react':
             return `https://codesandbox.io/embed/github/pxblue/${repo}/tree/${framework}${withQuery ? '?fontsize=14&hidenavigation=1&module=/src/App.js&view=preview' : ''}`;
         case 'reactnative':
-            return `https://snack.expo.io/@git/github.com/pxblue/${repo}@reactnative${withQuery ? '?preview=true&platform=ios&theme=dark' : ''}`;
+            return `https://snack.expo.io/@git/github.com/pxblue/${repo}@reactnative?preview=true&platform=ios${withQuery ? '&theme=dark' : ''}`;
         default:
             return '';
     }
