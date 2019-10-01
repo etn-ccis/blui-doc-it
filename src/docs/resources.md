@@ -34,6 +34,7 @@ The following table shows the current status of the PX Blue design pattern code 
 {{ statustable repo=icon-navigation branches=angular|react }}
 {{ statustable repo=internationalization branches=angular|react }}
 {{ statustable repo=login branches=angular|react|ionic|reactnative }}
+{{ statustable repo=loading-states branches=angular|react|ionic|reactnative }}
 {{ statustable repo=multiselect-list branches=angular|react }}
 {{ statustable repo=responsive-table branches=angular|react }}
 {{ statustable repo=search-bar branches=angular|react }}
