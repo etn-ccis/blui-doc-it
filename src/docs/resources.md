@@ -19,7 +19,7 @@ The following table shows the current status for PX Blue resources available thr
 <br/>
 ## Design Patterns / Examples
 
-The following table shows the current status of the PX Blue design pattern code samples available from GitHub and [StackBlitz](https://stackblitz.com/@px-blue).
+The following table shows the current status of the PX Blue design pattern code samples available from GitHub. There are also links to running examples with live-editing capability.
 
 | Repository | Status | Issues | Live Demo |
 |-------|--------|-------------|----------|

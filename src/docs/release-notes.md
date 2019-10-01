@@ -10,7 +10,7 @@ We have continued to build out our mobile pattern examples. Examples added in th
 We now have examples showing how the different PX Blue [Themes](/style/themes) affect various UI elements in an application.
 
 ### StackBlitz Update
-We are now running all of our embedded code examples directly from their respective GitHub repositories. This allows our examples to automatically stay up to date with all of the latest changes in source control. As a result, the standalone example repository on [StackBlitz](https://stackblitz.com/@px-blue) will be going away. If you are accustomed to browsing our examples from there, have a look at our [Resources](/resources) page, which now has links to all of our examples.
+We are now running all of our embedded code examples directly from their respective GitHub repositories. This allows our examples to automatically stay up to date with all of the latest changes in source control. As a result, the standalone example repository on [StackBlitz](https://stackblitz.com/@px-blue) will be going away. If you are accustomed to browsing our examples from there, have a look at our [Resources](/resources) page, which now has links to all of our examples. You can also see the [Code Sharing](/community/sharing) to learn more about the different tools we are using for hosting these examples.
 
 ### ChartJS
 PX Blue now offers resources for working with ChartJS - an open source alternative to HighCharts. You can read more on our [Visualizations](/patterns/visualizations) page or on the [ChartJS](https://www.chartjs.org) documentation site.
