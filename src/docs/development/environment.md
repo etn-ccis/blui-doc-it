@@ -71,4 +71,4 @@ Mobile development is resource-intensive, so you will need a development machine
 There are a few software tools that you will need before you can get started:
 
 - [Android Studio](https://developer.android.com/studio/) (required for building for Android)
-- xCode (Mac-only, required for building for iOS)
+- [xCode](https://developer.apple.com/xcode/) (Mac-only, required for building for iOS)
