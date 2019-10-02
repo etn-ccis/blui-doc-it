@@ -5,18 +5,19 @@ You'll need to start by following the general instructions for setting up your d
 
 - [Expo Client](https://expo.io/learn) (project creation / setup tool for React Native apps)(optional)
 
+
 ### Installing React Native
 
-The fastest way to get started with a React Native application is to use [Create React Native App](https://github.com/react-community/create-react-native-app). You can install it by running:
+The fastest way to get started with a React Native application is to use the [Expo-cli](https://facebook.github.io/react-native/docs/getting-started). You can install it by running: 
 
 ```
-yarn global add create-react-native-app
+yarn global add expo-cli
 ```
 
 You can then create/start a new project by running:
 
 ```
-create-react-native-app myCoolApp
+expo init myCoolApp
 cd myCoolApp
 yarn start
 ```
@@ -31,7 +32,7 @@ yarn global add react-native-cli
 If you are familiar with React development, React Native will be relatively simple to understand. The application logic remains the same, while the UI requires a little adjustment. Rather than typical HTML elements, React Native UIs are built with a special library of [Components](https://facebook.github.io/react-native/docs/components-and-apis), including ```<View>```, ```<Text>```, ```<Image>```, etc. React Native layouts are built exclusively using FlexBox.
 
 ## Building your application
-If you are using Create React Native App, your app will default to running via Expo (this will require you to install the Expo app on your test device).
+React Native App will default to running via Expo (this will require you to install the Expo app on your test device).
 
 Running ```yarn start``` will build your app and make it available for viewing. Follow the on-screen instructions for launching the app in a simulator (press 'i' to open an iOS simulator, or 'a' to load the app into the Android emulator).
 
@@ -43,20 +44,23 @@ When the application is running in Expo, any changes you make in your JS files w
 
 >**NOTE**: When developing on an Eaton PC, it can be very challenging to connect to a real device for testing, particularly on the Eaton network. You will be best served by opting to work with the simulators in this case. If you want to test on a real device, you will need to go through the ejection process (see below).
 
-### Ejecting from CRNA
-At some point during your development, it may become necessary to eject from Create React Native App. The most common reasons for this are for adding native libraries, for final app deployment, or if you are developing on Eaton hardware and want to test your app on a real device. 
+### Ejecting
+At some point during your development, it may become necessary to eject to include your own native code. The most common reasons for this are for adding native libraries, for final app deployment, or if you are developing on Eaton hardware and want to test your app on a real device.
 
-To eject your app, run the following and follow the on-screen prompts (WARNING: Ejecting from CRNA cannot be undone. Make sure you know what you are doing and have your project in source control before proceeding):
+To eject, the [React Native CLI Quickstart](https://facebook.github.io/react-native/docs/getting-started) instructions will be required to continue working on your project.
+ 
+
+To eject your app, run the following and follow the on-screen prompts (WARNING: Ejecting cannot be undone. Make sure you know what you are doing and have your project in source control before proceeding):
 
 ```
-yarn eject
+yarn expo eject
 ```
 
 > * At the first prompt, select 'React-Native (first option)'
 > * At the second prompt, enter a name for your application
 > * At the third prompt, accept the default value (press Enter). Changing this value will cause issues when running on Android.
 
-For more information, read about [ejecting from CRNA](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md).
+For more information, read about [expo eject](https://docs.expo.io/versions/latest/expokit/eject/).
 
 ### Final Build
 After ejecting from CRNA, the process for creating a build is the same as for a standard native application. You can open the project folders in xCode (/ios/projectName.xcodeproj) or Android Studio (/android) and perform builds from the IDE. Depending on the version of React Native you are using, you may have to [manually bundle your JS code](https://stackoverflow.com/questions/44446523/unable-to-load-script-from-assets-index-android-bundle-on-windows) for Android.
