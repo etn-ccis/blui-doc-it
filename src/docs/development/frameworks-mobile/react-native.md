@@ -22,7 +22,7 @@ cd myCoolApp
 yarn start
 ```
 
-You will also want to install the React Native CLI. This will come in handy once you have ejected from Create React Native App and need to link native code plugins to your project. It can be installed by running:
+You will also want to install the React Native CLI. This will come in handy once you have ejected from React Native App and need to link native code plugins to your project. It can be installed by running:
 
 ```
 yarn global add react-native-cli
@@ -63,7 +63,7 @@ yarn expo eject
 For more information, read about [expo eject](https://docs.expo.io/versions/latest/expokit/eject/).
 
 ### Final Build
-After ejecting from CRNA, the process for creating a build is the same as for a standard native application. You can open the project folders in xCode (/ios/projectName.xcodeproj) or Android Studio (/android) and perform builds from the IDE. Depending on the version of React Native you are using, you may have to [manually bundle your JS code](https://stackoverflow.com/questions/44446523/unable-to-load-script-from-assets-index-android-bundle-on-windows) for Android.
+After ejecting from React Native app, the process for creating a build is the same as for a standard native application. You can open the project folders in xCode (/ios/projectName.xcodeproj) or Android Studio (/android) and perform builds from the IDE. Depending on the version of React Native you are using, you may have to [manually bundle your JS code](https://stackoverflow.com/questions/44446523/unable-to-load-script-from-assets-index-android-bundle-on-windows) for Android.
 
 ## Component recommendations
 There are a lot of resources and components available on the market to help speed up your development and improve reusability. React Native also comes with a built-in component library. We recommend the following:
