@@ -22,7 +22,7 @@ cd myCoolApp
 yarn start
 ```
 
-For more detailed information about using Expo to start you application, read their [Documentation](https://docs.expo.io/versions/latest/workflow/exploring-managed-workflow/).
+For more detailed information about using Expo to start your application, read their [Documentation](https://docs.expo.io/versions/latest/workflow/exploring-managed-workflow/).
 
 ## Writing your application
 If you are familiar with React development, React Native will be relatively simple to understand. The application logic remains the same, while the UI requires a little adjustment. Rather than typical HTML elements, React Native UIs are built with a special library of [Components](https://facebook.github.io/react-native/docs/components-and-apis), including ```<View>```, ```<Text>```, ```<Image>```, etc. React Native layouts are built exclusively using FlexBox.
