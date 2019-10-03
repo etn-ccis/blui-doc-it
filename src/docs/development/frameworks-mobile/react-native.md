@@ -8,7 +8,7 @@ You'll need to start by following the general instructions for setting up your d
 
 ### Installing Expo
 
-The fastest way to get started with a React Native application is to use the [Expo-cli](https://facebook.github.io/react-native/docs/getting-started). You can install it by running: 
+The fastest way to get started with a React Native application is to use the [Expo CLI](https://facebook.github.io/react-native/docs/getting-started). You can install it by running: 
 
 ```
 yarn global add expo-cli
@@ -22,7 +22,7 @@ cd myCoolApp
 yarn start
 ```
 
-For more detailed information about using Expo to start you application, read their [Documentation](https://docs.expo.io/versions/v35.0.0/workflow/exploring-managed-workflow/).
+For more detailed information about using Expo to start you application, read their [Documentation](https://docs.expo.io/versions/latest/workflow/exploring-managed-workflow/).
 
 ## Writing your application
 If you are familiar with React development, React Native will be relatively simple to understand. The application logic remains the same, while the UI requires a little adjustment. Rather than typical HTML elements, React Native UIs are built with a special library of [Components](https://facebook.github.io/react-native/docs/components-and-apis), including ```<View>```, ```<Text>```, ```<Image>```, etc. React Native layouts are built exclusively using FlexBox.
@@ -41,7 +41,7 @@ When the application is running in Expo, any changes you make in your JS files w
 >**NOTE**: When developing on an Eaton PC, it can be very challenging to connect to a real device for testing, particularly on the Eaton network. You will be best served by opting to work with the simulators in this case. If you want to test on a real device, you will need to go through the ejection process (see below).
 
 ### Ejecting
-At some point during your development, it may become necessary to eject to include your own native code. The most common reasons for this are for adding native libraries, for final app deployment, or if you are developing on Eaton hardware and want to test your app on a real device.
+At some point during your development, it may become necessary to eject from Expo. The most common reasons for this are for adding native libraries, for final app deployment, or if you are developing on Eaton hardware and want to test your app on a real device.
 
 To eject your app, run the following and follow the on-screen prompts (WARNING: Ejecting from Expo cannot be undone. Make sure you know what you are doing and have your project in source control before proceeding):
 
@@ -49,14 +49,14 @@ To eject your app, run the following and follow the on-screen prompts (WARNING: 
 yarn eject
 ```
 
-> * At the first prompt, select 'React-Native (first option)'
-> * At the second prompt, enter a name for your application
-> * At the third prompt, accept the default value (press Enter). Changing this value will cause issues when running on Android.
+> * At the first prompt, select 'Bare (first option)'
+> * At the second prompt, accept the default value (press Enter). Changing this can cause issues running your project.
+> * At the third prompt, enter a name for the solution folder.
 
 For more information, read about [ejecting from Expo](https://docs.expo.io/versions/latest/workflow/customizing/).
 
 ### Final Build
-After ejecting from Expo, the process for creating a build is the same as for a standard native application. You can open the project folders in xCode (/ios/projectName.xcodeproj) or Android Studio (/android) and perform builds from the IDE. There are also npm scripts added to your package.json file during ejection that will allow you to perform builds from the command line. Depending on the version of React Native you are using, you may have to [manually bundle your JS code](https://stackoverflow.com/questions/44446523/unable-to-load-script-from-assets-index-android-bundle-on-windows) for Android.
+After ejecting from Expo, the process for creating a build is the same as for a standard native application. You can open the project folders in xCode (/ios/projectName.xcodeproj) or Android Studio (/android) and perform builds from the IDE. There are also npm scripts added to your package.json file during ejection that will allow you to perform builds and/or run from the command line. Depending on the version of React Native you are using, you may have to [manually bundle your JS code](https://stackoverflow.com/questions/44446523/unable-to-load-script-from-assets-index-android-bundle-on-windows) for Android.
 
 ## Component recommendations
 There are a lot of resources and components available on the market to help speed up your development and improve reusability. React Native also comes with a built-in component library. We recommend the following:
