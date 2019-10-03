@@ -43,9 +43,6 @@ When the application is running in Expo, any changes you make in your JS files w
 ### Ejecting
 At some point during your development, it may become necessary to eject to include your own native code. The most common reasons for this are for adding native libraries, for final app deployment, or if you are developing on Eaton hardware and want to test your app on a real device.
 
-To eject, the [React Native CLI Quickstart](https://facebook.github.io/react-native/docs/getting-started) instructions will be required to continue working on your project.
- 
-
 To eject your app, run the following and follow the on-screen prompts (WARNING: Ejecting from Expo cannot be undone. Make sure you know what you are doing and have your project in source control before proceeding):
 
 ```
