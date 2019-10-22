@@ -43,6 +43,7 @@ You may want to take action on several list items at once, but not all. These sh
 
 {{ link angular repo=multiselect-list }}
 {{ link react repo=multiselect-list }}
+{{ link ionic repo=multiselect-list }}
 {{ link reactnative repo=multiselect-list }}
 
 ## Drag and Drop
@@ -53,6 +54,7 @@ Occasionally, you may want users to be able to re-order the items in a list manu
 
 {{ link angular repo=sortable-list }}
 {{ link react repo=sortable-list }}
+{{ link ionic repo=sortable-list }}
 {{ link reactnative repo=sortable-list }}
 
 ## Tables
