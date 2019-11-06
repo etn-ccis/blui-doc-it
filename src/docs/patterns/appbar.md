@@ -11,6 +11,7 @@ In some situations, you may want to present more information in an app bar, such
 {{ angular repo=collapsible-appbar }}
 {{ react repo=collapsible-appbar }}
 {{ reactnative repo=collapsible-appbar }}
+{{ ionic repo=collapsible-appbar }}
 
 ## Search Bar
 A very common pattern seen in many types of applications is the ability to search data on a page. This is achieved by placing a search icon/button in the app bar. When this button is clicked, a white Search Bar slides in from the right to cover the default toolbar. As the user enters text into the search field, the data is filtered in real-time.
