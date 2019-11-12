@@ -21,6 +21,7 @@ import HomeComponent from "./components/Home";
 import ColorComponent from "./components/Color";
 import IconographyComponent from "./components/Iconography";
 import * as colors from '@pxblue/colors';
+import * as brandingColors from '@pxblue/colors-branding';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import eaton from './icons/eaton.svg';
 import {Fab} from '@material-ui/core';
@@ -59,7 +60,12 @@ const mapDispatchToProps = dispatch => {
 };
 
 const drawerWidth = 364;
-const theme = createMuiTheme(Object.assign(EatonTheme.blue, {
+
+const isFall = false;
+const isWinter = true;
+const appliedTheme = isFall ? EatonTheme.fall : isWinter ? EatonTheme.winter : EatonTheme.blue;
+
+const theme = createMuiTheme(Object.assign(appliedTheme, {
     typography: {
         fontFamily: '"Open Sans", Helvetica, Roboto, sans-serif',
         useNextVariants: true
@@ -93,6 +99,7 @@ const styles = theme => ({
     },
     drawerHeader: theme.mixins.toolbar,
     drawerPaper: {
+        background: isFall ? brandingColors.toad[50] : isWinter ? brandingColors.pine[50] : 'inherit',
         width: drawerWidth,
         maxWidth: '90%',
         height: '100%'
@@ -104,7 +111,8 @@ const styles = theme => ({
         }
     },
     container: {
-        backgroundColor: colors.gray[50],
+        color: isFall ? brandingColors.toad[900] : isWinter ? brandingColors.pine[900] : 'inherit',
+        backgroundColor: isFall ? brandingColors.sunset[50] : isWinter ? brandingColors.sage[50] : colors.gray[50],
         minHeight: '100%',
         flexDirection: 'column',
         // overflowY: 'auto',
@@ -228,6 +236,21 @@ class App extends Component {
 
     render() {
         const {classes} = this.props;
+
+        let seasonalTheme;
+        if (appliedTheme === EatonTheme.fall) {
+            seasonalTheme = 'fallTheme';
+        }
+        if (appliedTheme === EatonTheme.winter) {
+            seasonalTheme = 'winterTheme';
+        }
+        if (seasonalTheme) {
+            const body = document.body;
+            if (body && body.classList) {
+                body.classList.add(seasonalTheme);
+            }
+        }
+
         return <MuiThemeProvider theme={theme}>
             <CssBaseline/>
             <Hidden smUp implementation="css">

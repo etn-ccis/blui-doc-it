@@ -21,6 +21,14 @@ blockquote, q {
   margin: 0px;
   padding-left: 10px;
 }
+.fallTheme blockquote, .fallTheme q {
+  border-left: 6px #d17127 solid; /* rust[500] */
+  background: #fcecc2; /* goldrenrod[100] */
+}
+.winterTheme blockquote, .winterTheme q {
+  border-left: 6px #408b35 solid; /* emerald[500] */
+  background: #e6edea; /* pine[50] */
+}
 
 blockquote:before, blockquote:after,
 q:before, q:after {
@@ -42,6 +50,15 @@ pre, code {
   border-radius: 3px;
   padding: 10px;
 }
+.fallTheme pre, .fallTheme code {
+  background-color: #fadf99; /* goldrenrod[200] */
+  color: #774e08; /* toad[900] */
+}
+.winterTheme pre, .winterTheme code {
+  background-color: #f3e2e7; /* wine[50] */
+  color: #800820; /* wine[800] */
+}
+
 code{
   padding: 0px;
 }
@@ -55,6 +72,12 @@ code{
 h1, h2, h3{
   color: #007bc1;
   font-weight: 500;
+}
+.fallTheme h1, .fallTheme h2, .fallTheme h3 {
+  color:#d17127; /* rust[500] */
+}
+.winterTheme h1, .winterTheme h2, .winterTheme h3 {
+  color: #408b35;  /* Emerald[500] */
 }
 
 a{
@@ -94,6 +117,12 @@ table a:not(:last-child){
 td, th{
   border: 1px solid #CCCCCC;
   padding: 15px;
+}
+.fallThem td, .fall th {
+  border: saddlebrown;
+}
+.winterTheme td, .winterTheme th {
+  border: crimson;
 }
 
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
