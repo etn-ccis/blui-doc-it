@@ -118,11 +118,5 @@ td, th{
   border: 1px solid #CCCCCC;
   padding: 15px;
 }
-.fallThem td, .fall th {
-  border: saddlebrown;
-}
-.winterTheme td, .winterTheme th {
-  border: crimson;
-}
 
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
