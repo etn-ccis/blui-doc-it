@@ -26,7 +26,7 @@ blockquote, q {
   background: #fcecc2; /* goldrenrod[100] */
 }
 .winterTheme blockquote, .winterTheme q {
-  border-left: 6px #408b35 solid; /* emerald[500] */
+  border-left: 6px #2e6750 solid; /* pine[500] */
   background: #e6edea; /* pine[50] */
 }
 
@@ -55,7 +55,7 @@ pre, code {
   color: #774e08; /* toad[900] */
 }
 .winterTheme pre, .winterTheme code {
-  background-color: #f3e2e7; /* wine[50] */
+  background-color: #e6edea; /* pine[100] */
   color: #800820; /* wine[800] */
 }
 
@@ -77,7 +77,7 @@ h1, h2, h3{
   color:#d17127; /* rust[500] */
 }
 .winterTheme h1, .winterTheme h2, .winterTheme h3 {
-  color: #408b35;  /* Emerald[500] */
+  color: #ca3c3d;  /* red[500] */
 }
 
 a{

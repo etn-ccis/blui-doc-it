@@ -24,9 +24,12 @@ import * as colors from '@pxblue/colors';
 import * as brandingColors from '@pxblue/colors-branding';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import eaton from './icons/eaton.svg';
+import snowflake from './icons/snowflake.svg';
+import fall from './icons/fall.png';
 import {Fab} from '@material-ui/core';
 import {Subject} from 'rxjs';
-
+import fallTheme from './themes/fallTheme';
+import winterTheme from './themes/winterTheme';
 require('typeface-roboto-mono');
 
 export const pageRendered = new Subject();
@@ -63,7 +66,7 @@ const drawerWidth = 364;
 
 const isFall = false;
 const isWinter = true;
-const appliedTheme = isFall ? EatonTheme.fall : isWinter ? EatonTheme.winter : EatonTheme.blue;
+const appliedTheme = isFall ? fallTheme : isWinter ? winterTheme : EatonTheme.blue;
 
 const theme = createMuiTheme(Object.assign(appliedTheme, {
     typography: {
@@ -99,7 +102,7 @@ const styles = theme => ({
     },
     drawerHeader: theme.mixins.toolbar,
     drawerPaper: {
-        background: isFall ? brandingColors.toad[50] : isWinter ? brandingColors.pine[50] : 'inherit',
+        background: isFall ? brandingColors.toad[50] : isWinter ? 'white' : 'inherit',
         width: drawerWidth,
         maxWidth: '90%',
         height: '100%'
@@ -112,7 +115,7 @@ const styles = theme => ({
     },
     container: {
         color: isFall ? brandingColors.toad[900] : isWinter ? brandingColors.pine[900] : 'inherit',
-        backgroundColor: isFall ? brandingColors.sunset[50] : isWinter ? brandingColors.sage[50] : colors.gray[50],
+        backgroundColor: isFall ? brandingColors.sunset[50] : isWinter ? 'white' : colors.gray[50],
         minHeight: '100%',
         flexDirection: 'column',
         // overflowY: 'auto',
@@ -238,10 +241,10 @@ class App extends Component {
         const {classes} = this.props;
 
         let seasonalTheme;
-        if (appliedTheme === EatonTheme.fall) {
+        if (appliedTheme === fallTheme) {
             seasonalTheme = 'fallTheme';
         }
-        if (appliedTheme === EatonTheme.winter) {
+        if (appliedTheme === winterTheme) {
             seasonalTheme = 'winterTheme';
         }
         if (seasonalTheme) {
@@ -290,8 +293,15 @@ class App extends Component {
                             </Typography>
                             <div style={{flex: '1 1 0px'}}/>
                             <Hidden xsDown implementation="css">
+                                {!appliedTheme &&
                                 <img width={'auto'} height={20} src={eaton} alt="Eaton Logo"
-                                     style={{display: 'block'}}/>
+                                     style={{display: 'block'}}/> }
+                                {isWinter &&
+                                <img width={'auto'} height={50} src={snowflake} alt="Eaton Logo"
+                                     style={{display: 'block'}}/> }
+                                {isFall &&
+                                <img width={'auto'} height={60} src={fall} alt="Eaton Logo"
+                                     style={{display: 'block'}}/> }
                             </Hidden>
                         </Toolbar>
                     </AppBar>
