@@ -65,7 +65,7 @@ const mapDispatchToProps = dispatch => {
 const drawerWidth = 364;
 
 const isFall = false;
-const isWinter = false;
+const isWinter = true;
 const appliedTheme = isFall ? fallTheme : isWinter ? winterTheme : EatonTheme.blue;
 
 const theme = createMuiTheme(Object.assign(appliedTheme, {
@@ -168,15 +168,6 @@ class App extends Component {
             showFrameworkSelect: false,
             browser: (isFirefox ? 'firefox' : isIE ? 'ie' : isEdge ? 'edge' : isChrome ? 'chrome' : 'other')
         };
-        pageRendered.subscribe(() => {
-            const anchor = window.location.hash;
-            if (anchor) {
-                const section = document.getElementById(anchor.replace('#', ''));
-                if (section) {
-                    section.scrollIntoView();
-                }
-            }
-        })
     }
 
     handleDrawerToggle = () => {
