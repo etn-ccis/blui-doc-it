@@ -297,10 +297,10 @@ class App extends Component {
                                 <img width={'auto'} height={20} src={eaton} alt="Eaton Logo"
                                      style={{display: 'block'}}/> }
                                 {isWinter &&
-                                <img width={'auto'} height={50} src={snowflake} alt="Eaton Logo"
+                                <img width={'auto'} height={50} src={snowflake} alt="Snowflake"
                                      style={{display: 'block'}}/> }
                                 {isFall &&
-                                <img width={'auto'} height={60} src={fall} alt="Eaton Logo"
+                                <img width={'auto'} height={60} src={fall} alt="Thanksgiving"
                                      style={{display: 'block'}}/> }
                             </Hidden>
                         </Toolbar>
