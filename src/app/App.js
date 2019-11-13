@@ -65,7 +65,7 @@ const mapDispatchToProps = dispatch => {
 const drawerWidth = 364;
 
 const isFall = false;
-const isWinter = true;
+const isWinter = false;
 const appliedTheme = isFall ? fallTheme : isWinter ? winterTheme : EatonTheme.blue;
 
 const theme = createMuiTheme(Object.assign(appliedTheme, {
@@ -293,7 +293,7 @@ class App extends Component {
                             </Typography>
                             <div style={{flex: '1 1 0px'}}/>
                             <Hidden xsDown implementation="css">
-                                {!appliedTheme &&
+                                {!seasonalTheme &&
                                 <img width={'auto'} height={20} src={eaton} alt="Eaton Logo"
                                      style={{display: 'block'}}/> }
                                 {isWinter &&
