@@ -19,7 +19,7 @@ import Hidden from '@material-ui/core/Hidden';
 import EatonLogowhite from '../icons/EatonLogowhite.svg';
 import * as Colors from '@pxblue/colors';
 import Footer from './Footer';
-
+import { isFall, isWinter } from "../App";
 
 
 const styles = theme => ({
@@ -81,6 +81,14 @@ const styles = theme => ({
       fontSize: '.9rem',
       textAlign: 'center'
     }
+  },
+  holidayMessage:{
+      color: 'white',
+      fontSize: '1.5rem',
+      [theme.breakpoints.down('xs')]: {
+          fontSize: '.7rem',
+          textAlign: 'center'
+      }
   }
 });
 
@@ -147,6 +155,8 @@ class HomeComponent extends React.Component {
               Power Xpert <strong>Blue</strong>&nbsp;
             </Typography>
             <Typography className={classes.subtitle}>A Design System for Eaton Applications</Typography>
+            {isFall && <Typography className={classes.holidayMessage}>Happy Thanksgiving from PX Blue</Typography>}
+            {isWinter && <Typography className={classes.holidayMessage}>Happy Holidays from PX Blue</Typography>}
             <Hidden xsDown implementation="css">
               <img height={35} width={'auto'} style={{position: 'absolute', bottom: '1rem', right: '1rem'}} src={EatonLogowhite} alt=""/>  
             </Hidden>
