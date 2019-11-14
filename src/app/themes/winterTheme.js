@@ -66,9 +66,6 @@ const winterTheme =
             MuiListItem:{
                 root:{
                     color: ThemeColors.black['500'],
-                    '&:hover':{
-                        backgroundColor: 'rgba(0, 0, 0, 0.08)'
-                    },
                     // OVERRIDES FOR ACTIVE ROUTE IN SIDE NAVIGATION
                     '&.routeActive':{
                         position: 'relative',
