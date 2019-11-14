@@ -21,6 +21,12 @@ const rust = {
 
 const fallTheme =
     {
+        navbarBackground: {
+            backgroundImage: "url(" + require('../icons/leaves.png') + ")",
+            backgroundRepeat: 'repeat-x',
+            backgroundPositionY: 'center',
+            backgroundSize: '300px'
+        },
         palette:{
             primary: rust,
             secondary: ThemeColors.gray,

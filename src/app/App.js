@@ -24,15 +24,10 @@ import * as colors from '@pxblue/colors';
 import * as brandingColors from '@pxblue/colors-branding';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import eaton from './icons/eaton.svg';
-import snowflake from './icons/snowflake.svg';
-import fall from './icons/fall.png';
 import {Fab} from '@material-ui/core';
-import {Subject} from 'rxjs';
 import fallTheme from './themes/fallTheme';
 import winterTheme from './themes/winterTheme';
 require('typeface-roboto-mono');
-
-export const pageRendered = new Subject();
 
 const siteConfig = require('../docs/site-config.json');
 
@@ -273,7 +268,8 @@ class App extends Component {
 
                     {/* Toolbar with Icon Button for Menu on non-homepage */}
                     {window.location.pathname !== "/" &&
-                    <AppBar position="fixed" className={classes.appBar}>
+                    <AppBar position="fixed" className={classes.appBar}
+                            style={appliedTheme.navbarBackground}>
                         <Toolbar className={classes.toolbar}>
                             <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle}
                                         className={classes.navIconHide}>
@@ -286,12 +282,6 @@ class App extends Component {
                             <Hidden xsDown implementation="css">
                                 {!seasonalTheme &&
                                 <img width={'auto'} height={20} src={eaton} alt="Eaton Logo"
-                                     style={{display: 'block'}}/> }
-                                {isWinter &&
-                                <img width={'auto'} height={50} src={snowflake} alt="Snowflake"
-                                     style={{display: 'block'}}/> }
-                                {isFall &&
-                                <img width={'auto'} height={60} src={fall} alt="Thanksgiving"
                                      style={{display: 'block'}}/> }
                             </Hidden>
                         </Toolbar>

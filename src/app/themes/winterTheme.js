@@ -32,6 +32,13 @@ const wine = {
 
 const winterTheme =
     {
+        navbarBackground: {
+            backgroundImage: "url(" + require('../icons/snowflake.svg') + ")",
+            backgroundRepeat: 'repeat-x',
+            backgroundPositionY: 'center',
+            backgroundBlendMode: 'soft-light',
+            backgroundSize: '60px'
+        },
         palette:{
             primary: wine,
             secondary: pine,
