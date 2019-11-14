@@ -109,7 +109,7 @@ const styles = theme => ({
     },
     container: {
         color: isFall ? brandingColors.toad[900] : isWinter ? brandingColors.pine[900] : 'inherit',
-        backgroundColor: isFall ? brandingColors.sunset[50] : isWinter ? 'white' : colors.gray[50],
+        backgroundColor: isFall ? brandingColors.sunset[50] : isWinter ? brandingColors.pine[50] : colors.gray[50],
         minHeight: '100%',
         flexDirection: 'column',
         // overflowY: 'auto',
