@@ -30,8 +30,8 @@ require('typeface-roboto-mono');
 
 const siteConfig = require('../docs/site-config.json');
 
-export const isFall = false;
-export const isWinter = true;
+export const isFall = true;
+export const isWinter = false;
 const appliedTheme = isFall ? fallTheme : isWinter ? winterTheme : EatonTheme.blue;
 
 // Browser detection

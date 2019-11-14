@@ -12,7 +12,9 @@ import mobile from "../icons/mobile.svg";
 import design from "../icons/design.svg";
 import ux from "../icons/ux.svg";
 import visual from "../icons/visual.svg";
-import circles from "../icons/circles-bg.svg";
+import circles from "../icons/circles-bg.svg"
+import snowman from "../icons/snowman.png";
+import turkey from "../icons/turkey.png";
 import code from "../icons/code.svg";
 import patterns from "../icons/patterns.svg";
 import Hidden from '@material-ui/core/Hidden';
@@ -44,7 +46,8 @@ const styles = theme => ({
     textDecoration: 'none'
   },
   jumboHeader: {
-    backgroundImage: `url(${circles})`,
+    textShadow: isFall || isWinter ? '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black' : 'none',
+    backgroundImage: `url(${isFall ? turkey : isWinter ? snowman : circles})`,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
     backgroundSize: 'cover',
@@ -59,6 +62,14 @@ const styles = theme => ({
       padding: '1rem',
       alignItems: 'center',
       justifyContent: 'center'
+    }
+  },
+  fallImage: {
+    opacity: .1,
+    [theme.breakpoints.down('xs')]: {
+        padding: '1rem',
+        alignItems: 'center',
+        justifyContent: 'center'
     }
   },
   spinningLogo:{
