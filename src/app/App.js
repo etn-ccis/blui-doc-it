@@ -36,6 +36,10 @@ export const pageRendered = new Subject();
 
 const siteConfig = require('../docs/site-config.json');
 
+export const isFall = true;
+export const isWinter = false;
+const appliedTheme = isFall ? fallTheme : isWinter ? winterTheme : EatonTheme.blue;
+
 // Browser detection
 var isFirefox = typeof InstallTrigger !== 'undefined';
 var isIE = /*@cc_on!@*/false || !!document.documentMode;
@@ -63,10 +67,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 const drawerWidth = 364;
-
-const isFall = false;
-const isWinter = true;
-const appliedTheme = isFall ? fallTheme : isWinter ? winterTheme : EatonTheme.blue;
 
 const theme = createMuiTheme(Object.assign(appliedTheme, {
     typography: {
