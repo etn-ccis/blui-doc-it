@@ -262,7 +262,7 @@ class App extends Component {
                         position: 'fixed',
                         top: 0,
                         zIndex: 100,
-                        background: 'rgba(0,123,193,.5)'
+                        background: isFall ? brandingColors.toad[900] : isWinter ? brandingColors.wine[900] : 'rgba(0,123,193,.5)'
                     }}>
                         <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle}
                                     className={classes.navIconHide} style={{zIndex: "10"}}>
