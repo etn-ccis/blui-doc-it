@@ -25,8 +25,7 @@ import * as brandingColors from '@pxblue/colors-branding';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import eaton from './icons/eaton.svg';
 import {Fab} from '@material-ui/core';
-import fallTheme from './themes/fallTheme';
-import winterTheme from './themes/winterTheme';
+import {fallTheme, winterTheme} from "./holidayStyles";
 require('typeface-roboto-mono');
 
 const siteConfig = require('../docs/site-config.json');
