@@ -30,8 +30,8 @@ require('typeface-roboto-mono');
 
 const siteConfig = require('../docs/site-config.json');
 
-export const isFall = true;
-export const isWinter = false;
+export const isFall = false;
+export const isWinter = true;
 const appliedTheme = isFall ? fallTheme : isWinter ? winterTheme : EatonTheme.blue;
 
 // Browser detection
@@ -109,7 +109,7 @@ const styles = theme => ({
     },
     container: {
         color: isFall ? brandingColors.toad[900] : isWinter ? brandingColors.pine[900] : 'inherit',
-        backgroundColor: isFall ? brandingColors.sunset[50] : isWinter ? brandingColors.pine[50] : colors.gray[50],
+        backgroundColor: isFall ? brandingColors.sunset[50] : isWinter ? brandingColors.wine[50] : colors.gray[50],
         minHeight: '100%',
         flexDirection: 'column',
         // overflowY: 'auto',

@@ -27,7 +27,7 @@ blockquote, q {
 }
 .winterTheme blockquote, .winterTheme q {
   border-left: 6px #2e6750 solid; /* pine[500] */
-  background: #c0d1cb; /* pine[100] */
+  background: #e6edea; /* pine[50] */
 }
 
 blockquote:before, blockquote:after,
@@ -55,7 +55,7 @@ pre, code {
   color: #774e08; /* toad[900] */
 }
 .winterTheme pre, .winterTheme code {
-  background-color: #c0d1cb; /* pine[100] */
+  background-color: #e6edea; /* pine[50] */
   color: #800820; /* wine[800] */
 }
 
