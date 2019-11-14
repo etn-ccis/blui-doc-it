@@ -84,7 +84,8 @@ const styles = theme => ({
   },
   holidayMessage:{
       color: 'white',
-      fontSize: '1.5rem',
+      marginTop: '10px',
+      fontSize: '1.2rem',
       [theme.breakpoints.down('xs')]: {
           fontSize: '.7rem',
           textAlign: 'center'
