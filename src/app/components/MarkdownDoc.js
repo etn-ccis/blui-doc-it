@@ -9,14 +9,13 @@ import withWidth from '@material-ui/core/withWidth';
 
 const Converter = require('react-showdown').Converter;
 
-
 const mapStateToProps = state => ({
   alldocs: state.entities.get('docs'),
   showFooter: state.ui.get('showFooter')
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchMarkdown: path => dispatch(fetchMarkdown(path)),
+  fetchMarkdown: (path) => dispatch(fetchMarkdown(path)),
   updateToolbarTitle: () => {dispatch(updateTitle());}
 });
 const getExtensions = (framework, width, browser) => {

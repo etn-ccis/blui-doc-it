@@ -12,15 +12,13 @@ import mobile from "../icons/mobile.svg";
 import design from "../icons/design.svg";
 import ux from "../icons/ux.svg";
 import visual from "../icons/visual.svg";
-import circles from "../icons/circles-bg.svg";
 import code from "../icons/code.svg";
 import patterns from "../icons/patterns.svg";
 import Hidden from '@material-ui/core/Hidden';
 import EatonLogowhite from '../icons/EatonLogowhite.svg';
 import * as Colors from '@pxblue/colors';
 import Footer from './Footer';
-
-
+import {appliedTheme, isDefaultTheme} from "../App";
 
 const styles = theme => ({
   root: {
@@ -44,10 +42,11 @@ const styles = theme => ({
     textDecoration: 'none'
   },
   jumboHeader: {
-    backgroundImage: `url(${circles})`,
+    textShadow: isDefaultTheme ? 'none' : '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black',
+    backgroundImage: appliedTheme.backgroundImage,
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center center',
-    backgroundSize: 'cover',
+    backgroundPosition: isDefaultTheme ? 'center center' : 'center right',
+    backgroundSize: isDefaultTheme ? 'cover' : 'contain',
     position: 'relative',
     padding: '4rem',
     display: 'flex',
@@ -58,7 +57,8 @@ const styles = theme => ({
     [theme.breakpoints.down('xs')]: {
       padding: '1rem',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      backgroundPosition: 'center center'
     }
   },
   spinningLogo:{
@@ -81,6 +81,15 @@ const styles = theme => ({
       fontSize: '.9rem',
       textAlign: 'center'
     }
+  },
+  holidayMessage:{
+      color: 'white',
+      marginTop: '10px',
+      fontSize: '1.2rem',
+      [theme.breakpoints.down('xs')]: {
+          fontSize: '.7rem',
+          textAlign: 'center'
+      }
   }
 });
 
@@ -147,6 +156,9 @@ class HomeComponent extends React.Component {
               Power Xpert <strong>Blue</strong>&nbsp;
             </Typography>
             <Typography className={classes.subtitle}>A Design System for Eaton Applications</Typography>
+            {!appliedTheme.message !== '' &&
+              <Typography className={classes.holidayMessage}>{appliedTheme.message}</Typography>
+            }
             <Hidden xsDown implementation="css">
               <img height={35} width={'auto'} style={{position: 'absolute', bottom: '1rem', right: '1rem'}} src={EatonLogowhite} alt=""/>  
             </Hidden>
