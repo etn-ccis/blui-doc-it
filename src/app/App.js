@@ -21,19 +21,43 @@ import HomeComponent from "./components/Home";
 import ColorComponent from "./components/Color";
 import IconographyComponent from "./components/Iconography";
 import * as colors from '@pxblue/colors';
-import * as brandingColors from '@pxblue/colors-branding';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import eaton from './icons/eaton.svg';
 import {Fab} from '@material-ui/core';
 import {fallTheme, winterTheme} from "./holidayThemes/holidayStyles";
+import circles from "./icons/circles-bg.svg"
+import snowman from "./icons/snowman80.png";
+import turkey from "./icons/turkey80.png";
 require('typeface-roboto-mono');
 
 const siteConfig = require('../docs/site-config.json');
 
-export const isFall = true;
-export const isWinter = false;
-const appliedTheme = isFall ? fallTheme : isWinter ? winterTheme : EatonTheme.blue;
+const themes = {
+    fall: {
+        name: 'Fall',
+        message: 'Happy Thanksgiving from PX Blue',
+        theme: fallTheme,
+        class: 'fallTheme',
+        bannerImage: turkey
+    },
+    winter: {
+        name: 'Winter',
+        message: 'Happy Holidays from PX Blue',
+        theme: winterTheme,
+        class: 'winterTheme',
+        bannerImage: snowman
+    },
+    blue: {
+        name: 'default',
+        message: '',
+        theme: EatonTheme.blue,
+        class: '',
+        bannerImage: circles
+    }
+};
 
+export const appliedTheme = themes.fall;
+export const isDefaultTheme = (appliedTheme.name === 'default');
 // Browser detection
 var isFirefox = typeof InstallTrigger !== 'undefined';
 var isIE = /*@cc_on!@*/false || !!document.documentMode;
@@ -62,7 +86,7 @@ const mapDispatchToProps = dispatch => {
 
 const drawerWidth = 364;
 
-const theme = createMuiTheme(Object.assign(appliedTheme, {
+const theme = createMuiTheme(Object.assign(appliedTheme.theme, {
     typography: {
         fontFamily: '"Open Sans", Helvetica, Roboto, sans-serif',
         useNextVariants: true
@@ -96,7 +120,7 @@ const styles = theme => ({
     },
     drawerHeader: theme.mixins.toolbar,
     drawerPaper: {
-        background: isFall ? brandingColors.toad[50] : isWinter ? 'white' : 'inherit',
+        background: isDefaultTheme ? 'inherit' : appliedTheme.theme.overrides.drawerPaper.background,
         width: drawerWidth,
         maxWidth: '90%',
         height: '100%'
@@ -108,8 +132,8 @@ const styles = theme => ({
         }
     },
     container: {
-        color: isFall ? brandingColors.toad[900] : isWinter ? brandingColors.pine[900] : 'inherit',
-        backgroundColor: isFall ? brandingColors.sunset[50] : isWinter ? brandingColors.wine[50] : colors.gray[50],
+        color: isDefaultTheme ? 'inherit' : appliedTheme.theme.overrides.container.color,
+        backgroundColor: isDefaultTheme ? colors.gray[50] : appliedTheme.theme.overrides.container.backgroundColor,
         minHeight: '100%',
         flexDirection: 'column',
         // overflowY: 'auto',
@@ -119,6 +143,13 @@ const styles = theme => ({
         [theme.breakpoints.down('sm')]: {
             marginLeft: 0
         }
+    },
+    navIconShown: {
+        color: "white",
+        position: 'fixed',
+        top: 0,
+        zIndex: 100,
+        background: isDefaultTheme ? 'rgba(0,123,193,.5)' : appliedTheme.theme.overrides.navIconShown.background
     },
     content: {
         padding: '24px',
@@ -225,18 +256,9 @@ class App extends Component {
     render() {
         const {classes} = this.props;
 
-        let seasonalTheme;
-        if (appliedTheme === fallTheme) {
-            seasonalTheme = 'fallTheme';
-        }
-        if (appliedTheme === winterTheme) {
-            seasonalTheme = 'winterTheme';
-        }
-        if (seasonalTheme) {
-            const body = document.body;
-            if (body && body.classList) {
-                body.classList.add(seasonalTheme);
-            }
+        const body = document.body;
+        if (body && body.classList && appliedTheme.class) {
+            body.classList.add(appliedTheme.class);
         }
 
         return <MuiThemeProvider theme={theme}>
@@ -251,13 +273,7 @@ class App extends Component {
                 <div className={classes.container}>
                     {/* Floating Icon Button for Menu on homepage */}
                     {window.location.pathname === "/" &&
-                    <div style={{
-                        color: "white",
-                        position: 'fixed',
-                        top: 0,
-                        zIndex: 100,
-                        background: isFall ? brandingColors.rust[500] : isWinter ? brandingColors.wine[500] : 'rgba(0,123,193,.5)'
-                    }}>
+                    <div className={classes.navIconShown}>
                         <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle}
                                     className={classes.navIconHide} style={{zIndex: "10"}}>
                             <MenuIcon/>
@@ -279,7 +295,7 @@ class App extends Component {
                             </Typography>
                             <div style={{flex: '1 1 0px'}}/>
                             <Hidden xsDown implementation="css">
-                                {!seasonalTheme &&
+                                {!isDefaultTheme &&
                                 <img width={'auto'} height={20} src={eaton} alt="Eaton Logo"
                                      style={{display: 'block'}}/> }
                             </Hidden>

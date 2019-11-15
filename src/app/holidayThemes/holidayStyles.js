@@ -56,6 +56,16 @@ export const winterTheme =
                 colorSecondary:{
                     backgroundColor: BrandingColors.pine['700']
                 }
+            },
+            container: {
+                color: BrandingColors.pine[900],
+                backgroundColor: BrandingColors.wine[50]
+            },
+            drawerPaper: {
+                background: 'white'
+            },
+            navIconShown: {
+                background: BrandingColors.wine[500]
             }
         }
     };
@@ -89,6 +99,16 @@ export const fallTheme =
                 colorSecondary:{
                     backgroundColor: ThemeColors.yellow['700']
                 }
+            },
+            container: {
+                color: BrandingColors.toad[900],
+                backgroundColor: BrandingColors.sunset[50]
+            },
+            drawerPaper: {
+                background: BrandingColors.toad[50]
+            },
+            navIconShown: {
+                background: BrandingColors.rust[500]
             }
         }
     };
