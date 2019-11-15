@@ -20,7 +20,6 @@ import Hidden from '@material-ui/core/Hidden';
 import HomeComponent from "./components/Home";
 import ColorComponent from "./components/Color";
 import IconographyComponent from "./components/Iconography";
-import * as colors from '@pxblue/colors';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import eaton from './icons/eaton.svg';
 import {Fab} from '@material-ui/core';
@@ -58,6 +57,7 @@ const themes = {
 
 export const appliedTheme = themes.fall;
 export const isDefaultTheme = (appliedTheme.name === 'default');
+
 // Browser detection
 var isFirefox = typeof InstallTrigger !== 'undefined';
 var isIE = /*@cc_on!@*/false || !!document.documentMode;
@@ -120,7 +120,7 @@ const styles = theme => ({
     },
     drawerHeader: theme.mixins.toolbar,
     drawerPaper: {
-        background: isDefaultTheme ? 'inherit' : appliedTheme.theme.overrides.drawerPaper.background,
+        background: appliedTheme.theme.palette.background.paper,
         width: drawerWidth,
         maxWidth: '90%',
         height: '100%'
@@ -132,8 +132,8 @@ const styles = theme => ({
         }
     },
     container: {
-        color: isDefaultTheme ? 'inherit' : appliedTheme.theme.overrides.container.color,
-        backgroundColor: isDefaultTheme ? colors.gray[50] : appliedTheme.theme.overrides.container.backgroundColor,
+        color: theme.palette.text.primary,
+        backgroundColor: theme.palette.background.default,
         minHeight: '100%',
         flexDirection: 'column',
         // overflowY: 'auto',
@@ -149,7 +149,7 @@ const styles = theme => ({
         position: 'fixed',
         top: 0,
         zIndex: 100,
-        background: isDefaultTheme ? 'rgba(0,123,193,.5)' : appliedTheme.theme.overrides.navIconShown.background
+        background: theme.palette.primary[500]
     },
     content: {
         padding: '24px',
@@ -284,7 +284,7 @@ class App extends Component {
                     {/* Toolbar with Icon Button for Menu on non-homepage */}
                     {window.location.pathname !== "/" &&
                     <AppBar position="fixed" className={classes.appBar}
-                            style={appliedTheme.navbarBackground}>
+                            style={appliedTheme.theme.navbarBackground}>
                         <Toolbar className={classes.toolbar}>
                             <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle}
                                         className={classes.navIconHide}>
@@ -295,9 +295,8 @@ class App extends Component {
                             </Typography>
                             <div style={{flex: '1 1 0px'}}/>
                             <Hidden xsDown implementation="css">
-                                {!isDefaultTheme &&
                                 <img width={'auto'} height={20} src={eaton} alt="Eaton Logo"
-                                     style={{display: 'block'}}/> }
+                                     style={{display: 'block'}}/>
                             </Hidden>
                         </Toolbar>
                     </AppBar>

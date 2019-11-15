@@ -16,9 +16,14 @@ const input = {
     inputText: ThemeColors.black['500']
 };
 
-const background = {
-    default:  ThemeColors.gray['50'],
-    paper: ThemeColors.white['50']
+const backgroundWinter = {
+    default: BrandingColors.wine[50],
+    paper: ThemeColors.white[50]
+};
+
+const backgroundFall = {
+    default: BrandingColors.sunset[50],
+    paper: BrandingColors.toad[50]
 };
 
 const action = {
@@ -39,7 +44,7 @@ export const winterTheme =
             primary: BrandingColors.wine,
             secondary: BrandingColors.pine,
             error: ThemeColors.red,
-            background: background,
+            background: backgroundWinter,
             action: action,
             line: {stepper: ThemeColors.white['500']},
             input: input
@@ -57,16 +62,6 @@ export const winterTheme =
                     backgroundColor: BrandingColors.pine['700']
                 }
             },
-            container: {
-                color: BrandingColors.pine[900],
-                backgroundColor: BrandingColors.wine[50]
-            },
-            drawerPaper: {
-                background: 'white'
-            },
-            navIconShown: {
-                background: BrandingColors.wine[500]
-            }
         }
     };
 
@@ -82,7 +77,7 @@ export const fallTheme =
             primary: BrandingColors.rust,
             secondary: ThemeColors.gray,
             error: ThemeColors.red,
-            background: background,
+            background: backgroundFall,
             action: action,
             line: {stepper: ThemeColors.yellow['500']},
             input: input
@@ -100,15 +95,5 @@ export const fallTheme =
                     backgroundColor: ThemeColors.yellow['700']
                 }
             },
-            container: {
-                color: BrandingColors.toad[900],
-                backgroundColor: BrandingColors.sunset[50]
-            },
-            drawerPaper: {
-                background: BrandingColors.toad[50]
-            },
-            navIconShown: {
-                background: BrandingColors.rust[500]
-            }
         }
     };

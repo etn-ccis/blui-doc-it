@@ -155,7 +155,7 @@ class HomeComponent extends React.Component {
               Power Xpert <strong>Blue</strong>&nbsp;
             </Typography>
             <Typography className={classes.subtitle}>A Design System for Eaton Applications</Typography>
-            {!isDefaultTheme &&
+            {!appliedTheme.message !== '' &&
               <Typography className={classes.holidayMessage}>{appliedTheme.message}</Typography>
             }
             <Hidden xsDown implementation="css">
