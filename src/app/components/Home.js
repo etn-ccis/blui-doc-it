@@ -43,7 +43,7 @@ const styles = theme => ({
   },
   jumboHeader: {
     textShadow: isDefaultTheme ? 'none' : '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black',
-    backgroundImage: `url(${appliedTheme.bannerImage})`,
+    backgroundImage: appliedTheme.backgroundImage,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: isDefaultTheme ? 'center center' : 'center right',
     backgroundSize: isDefaultTheme ? 'cover' : 'contain',

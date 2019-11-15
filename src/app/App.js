@@ -24,6 +24,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import eaton from './icons/eaton.svg';
 import {Fab} from '@material-ui/core';
 import {fallTheme, winterTheme} from "./holidayThemes/holidayStyles";
+import * as ColorsBranding from "@pxblue/colors-branding";
 import circles from "./icons/circles-bg.svg"
 import snowman from "./icons/snowman80.png";
 import turkey from "./icons/turkey80.png";
@@ -37,21 +38,21 @@ const themes = {
         message: 'Happy Thanksgiving from PX Blue',
         theme: fallTheme,
         class: 'fallTheme',
-        bannerImage: turkey
+        backgroundImage: `url(${turkey}), linear-gradient(to right, ${ColorsBranding.sunset[500]} , ${ColorsBranding.rust[900]})`
     },
     winter: {
         name: 'Winter',
         message: 'Happy Holidays from PX Blue',
         theme: winterTheme,
         class: 'winterTheme',
-        bannerImage: snowman
+        backgroundImage: `url(${snowman})`
     },
     blue: {
         name: 'default',
         message: '',
         theme: EatonTheme.blue,
         class: '',
-        bannerImage: circles
+        backgroundImage: `url(${circles})`
     }
 };
 
