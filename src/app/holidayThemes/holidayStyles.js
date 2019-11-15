@@ -29,7 +29,7 @@ const action = {
 export const winterTheme =
     {
         navbarBackground: {
-            backgroundImage: "url(" + require('./icons/snowflake.svg') + ")",
+            backgroundImage: "url(" + require('../icons/snowflake.svg') + ")",
             backgroundRepeat: 'repeat-x',
             backgroundPositionY: 'center',
             backgroundBlendMode: 'soft-light',
@@ -63,7 +63,7 @@ export const winterTheme =
 export const fallTheme =
     {
         navbarBackground: {
-            backgroundImage: "url(" + require('./icons/leaves.png') + ")",
+            backgroundImage: "url(" + require('../icons/leaves.png') + ")",
             backgroundRepeat: 'repeat-x',
             backgroundPositionY: 'center',
             backgroundSize: '300px'
