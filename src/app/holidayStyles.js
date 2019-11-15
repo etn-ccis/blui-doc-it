@@ -1,4 +1,8 @@
 import * as ThemeColors from '@pxblue/colors';
+import * as BrandingColors from '@pxblue/colors-branding';
+BrandingColors.pine['A400'] = BrandingColors.pine[500];
+BrandingColors.rust['A400'] = BrandingColors.rust[500];
+BrandingColors.wine['A400'] = BrandingColors.wine[500];
 
 const typography = {
     fontFamily: '"Open Sans", Helvetica, Roboto, sans-serif',
@@ -22,53 +26,6 @@ const action = {
     disabled:"rgba(0, 0, 0, .25)"
 };
 
-const pine = {
-    50: '#e6edea',
-    100: '#c0d1cb',
-    200: '#97b3a8',
-    300: '#6d9485',
-    400: '#4d7e6a',
-    500: '#2e6750',
-    600: '#295f49',
-    700: '#235440',
-    800: '#1d4a37',
-    900: '#123927',
-    A400: '#2e6750',
-};
-
-const wine = {
-    50: '#f3e2e7',
-    100: '#e1b7c2',
-    200: '#ce8799',
-    300: '#ba5670',
-    400: '#ab3252',
-    500: '#9c0e33',
-    600: '#940c2e',
-    700: '#8a0a27',
-    800: '#800820',
-    900: '#6e0414',
-    A400: '#9c0e33',
-    'contrastDefaultColor': 'light'
-};
-
-const rust = {
-    50: '#f8ede5',
-    100: '#f0d5bd',
-    200: '#e8b892',
-    300: '#e09c66',
-    400: '#d78645',
-    500: '#d17126',
-    600: '#cc6a21',
-    700: '#c55f1e',
-    800: '#c05516',
-    900: '#b5430f',
-    A100: '#101417',
-    A200: '#181f22',
-    A400: '#e36b16',
-    A700: '#000000',
-    'contrastDefaultColor': 'light'
-};
-
 export const winterTheme =
     {
         navbarBackground: {
@@ -79,8 +36,8 @@ export const winterTheme =
             backgroundSize: '60px'
         },
         palette:{
-            primary: wine,
-            secondary: pine,
+            primary: BrandingColors.wine,
+            secondary: BrandingColors.pine,
             error: ThemeColors.red,
             background: background,
             action: action,
@@ -97,7 +54,7 @@ export const winterTheme =
                     backgroundColor: ThemeColors.gray['50']
                 },
                 colorSecondary:{
-                    backgroundColor: pine['700']
+                    backgroundColor: BrandingColors.pine['700']
                 }
             }
         }
@@ -112,7 +69,7 @@ export const fallTheme =
             backgroundSize: '300px'
         },
         palette:{
-            primary: rust,
+            primary: BrandingColors.rust,
             secondary: ThemeColors.gray,
             error: ThemeColors.red,
             background: background,
