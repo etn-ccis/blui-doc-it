@@ -45,8 +45,8 @@ const styles = theme => ({
     textShadow: isDefaultTheme ? 'none' : '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black',
     backgroundImage: `url(${appliedTheme.bannerImage})`,
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center center',
-    backgroundSize: 'cover',
+    backgroundPosition: isDefaultTheme ? 'center center' : 'center right',
+    backgroundSize: isDefaultTheme ? 'cover' : 'contain',
     position: 'relative',
     padding: '4rem',
     display: 'flex',
@@ -57,7 +57,8 @@ const styles = theme => ({
     [theme.breakpoints.down('xs')]: {
       padding: '1rem',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      backgroundPosition: 'center center'
     }
   },
   spinningLogo:{
