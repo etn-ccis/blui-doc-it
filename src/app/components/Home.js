@@ -64,14 +64,6 @@ const styles = theme => ({
       justifyContent: 'center'
     }
   },
-  fallImage: {
-    opacity: .1,
-    [theme.breakpoints.down('xs')]: {
-        padding: '1rem',
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-  },
   spinningLogo:{
     height: '5rem', 
     width: '5rem', 
