@@ -93,8 +93,8 @@ export const winterTheme =
             // APP BAR OVERRIDES
             MuiAppBar:{
                 colorDefault:{
-                    color: pine['500'],
-                    backgroundColor: ThemeColors.red['50']
+                    color: ThemeColors.black['500'],
+                    backgroundColor: ThemeColors.gray['50']
                 },
                 colorSecondary:{
                     backgroundColor: pine['700']
