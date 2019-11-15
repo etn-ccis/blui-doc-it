@@ -13,8 +13,8 @@ import design from "../icons/design.svg";
 import ux from "../icons/ux.svg";
 import visual from "../icons/visual.svg";
 import circles from "../icons/circles-bg.svg"
-import snowman from "../icons/snowman.png";
-import turkey from "../icons/turkey.png";
+import snowman from "../icons/snowman80.png";
+import turkey from "../icons/turkey80.png";
 import code from "../icons/code.svg";
 import patterns from "../icons/patterns.svg";
 import Hidden from '@material-ui/core/Hidden';
