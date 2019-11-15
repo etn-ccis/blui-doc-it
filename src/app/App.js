@@ -37,21 +37,21 @@ const themes = {
         message: 'Happy Thanksgiving from PX Blue',
         theme: fallTheme,
         class: 'fallTheme',
-        bannerImage: turkey
+        backgroundImage: `url(${turkey}), linear-gradient(to right, #eb8f2b , #b5430f)`
     },
     winter: {
         name: 'Winter',
         message: 'Happy Holidays from PX Blue',
         theme: winterTheme,
         class: 'winterTheme',
-        bannerImage: snowman
+        backgroundImage: `url(${snowman})`
     },
     blue: {
         name: 'default',
         message: '',
         theme: EatonTheme.blue,
         class: '',
-        bannerImage: circles
+        backgroundImage: `url(${circles})`
     }
 };
 
