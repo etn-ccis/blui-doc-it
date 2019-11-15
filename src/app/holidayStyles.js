@@ -99,45 +99,6 @@ export const winterTheme =
                 colorSecondary:{
                     backgroundColor: pine['700']
                 }
-            },
-
-            // TABS OVERRIDES
-            MuiTabs:{
-                indicator:{
-                    backgroundColor: ThemeColors.white['50']
-                }
-            },
-
-            //LIST ITEM OVERRIDES (plus nav drawer)
-            MuiListItem:{
-                root:{
-                    color: ThemeColors.black['500'],
-                    // OVERRIDES FOR ACTIVE ROUTE IN SIDE NAVIGATION
-                    '&.routeActive':{
-                        position: 'relative',
-                        '&:hover': {
-                            backgroundColor: 'transparent'
-                        },
-                        '&:before':{
-                            content: '""',
-                            zIndex: -1,
-                            position: 'absolute',
-                            height: '100%',
-                            width: 'calc(100% - 8px)',
-                            left: 0,
-                            top: 0,
-                            backgroundColor: ThemeColors.red['50'],
-                            borderRadius: '0px 24px 24px 0px'
-                        },
-                        '&.drawerOpen:hover:before':{
-                            backgroundColor: pine['100'],
-                        },
-                        '& svg':{
-                            fill: pine['500']
-                        }
-                    }
-                },
-
             }
         }
     };
@@ -171,45 +132,6 @@ export const fallTheme =
                 colorSecondary:{
                     backgroundColor: ThemeColors.yellow['700']
                 }
-            },
-
-            // TABS OVERRIDES
-            MuiTabs:{
-                indicator:{
-                    backgroundColor: '#996633'
-                }
-            },
-
-            //LIST ITEM OVERRIDES (plus nav drawer)
-            MuiListItem:{
-                root:{
-                    color: ThemeColors.black['500'],
-                    // OVERRIDES FOR ACTIVE ROUTE IN SIDE NAVIGATION
-                    '&.routeActive':{
-                        position: 'relative',
-                        '&:hover': {
-                            backgroundColor: 'transparent'
-                        },
-                        '&:before':{
-                            content: '""',
-                            zIndex: -1,
-                            position: 'absolute',
-                            height: '100%',
-                            width: 'calc(100% - 8px)',
-                            left: 0,
-                            top: 0,
-                            backgroundColor: ThemeColors.yellow['50'],
-                            borderRadius: '0px 24px 24px 0px'
-                        },
-                        '&.drawerOpen:hover:before':{
-                            backgroundColor: ThemeColors.yellow['100'],
-                        },
-                        '& svg':{
-                            fill: rust['500']
-                        }
-                    }
-                },
-
             }
         }
     };
