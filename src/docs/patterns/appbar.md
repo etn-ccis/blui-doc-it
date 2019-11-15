@@ -18,3 +18,5 @@ A very common pattern seen in many types of applications is the ability to searc
 
 {{ angular repo=search-bar }}
 {{ react repo=search-bar }}
+{{ reactnative repo=search-bar }}
+{{ ionic repo=search-bar }}
