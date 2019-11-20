@@ -134,7 +134,7 @@ const styles = theme => ({
     },
     container: {
         color: theme.palette.text.primary,
-        backgroundColor: theme.palette.background.default,
+        backgroundColor: appliedTheme.theme.palette.background.default,
         minHeight: '100%',
         flexDirection: 'column',
         // overflowY: 'auto',
