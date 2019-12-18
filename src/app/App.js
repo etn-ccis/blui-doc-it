@@ -56,7 +56,7 @@ const themes = {
     }
 };
 
-export const appliedTheme = themes.fall;
+export const appliedTheme = themes.winter;
 export const isDefaultTheme = (appliedTheme.name === 'default');
 
 // Browser detection
