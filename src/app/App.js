@@ -38,6 +38,7 @@ const themes = {
         message: 'Happy Thanksgiving from PX Blue',
         theme: fallTheme,
         class: 'fallTheme',
+        backgroundSize: 'contain',
         backgroundImage: `url(${turkey}), linear-gradient(to right, ${ColorsBranding.sunset[500]} , ${ColorsBranding.rust[900]})`
     },
     winter: {
@@ -45,18 +46,20 @@ const themes = {
         message: 'Happy Holidays from PX Blue',
         theme: winterTheme,
         class: 'winterTheme',
-        backgroundImage: `url(${snowman})`
+        backgroundSize: 'auto 140%',
+        backgroundImage: `url(${snowman}), linear-gradient(to right, ${ColorsBranding.wine[500]} , ${ColorsBranding.wine[900]})`
     },
     blue: {
         name: 'default',
         message: '',
         theme: EatonTheme.blue,
         class: '',
+        backgroundSize: 'cover',
         backgroundImage: `url(${circles})`
     }
 };
 
-export const appliedTheme = themes.fall;
+export const appliedTheme = themes.winter;
 export const isDefaultTheme = (appliedTheme.name === 'default');
 
 // Browser detection
