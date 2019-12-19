@@ -38,4 +38,4 @@ End-to-End tests are a higher level test than Unit Tests. They focus primarily o
 ### Cypress
 Cypress is an open source testing framework that boasts support for any modern JavaScript framework. It works well for E2E tests in both Angular and React applications and is easier to use than some of the more traditional tools, such as Selenium. 
 
-For a more detailed write-up on Cypress, check out our [GitHub](https://github.com/pxblue/pxblue-docs/blob/testing_strategies/cypress.md) document, or refer to the official [Cypress Documentation](https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements).
+For a more detailed write-up on Cypress, check out the official [Cypress Documentation](https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements).
