@@ -46,7 +46,7 @@ const styles = theme => ({
     backgroundImage: appliedTheme.backgroundImage,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: isDefaultTheme ? 'center center' : 'center right',
-    backgroundSize: isDefaultTheme ? 'cover' : 'contain',
+    backgroundSize: appliedTheme.backgroundSize,
     position: 'relative',
     padding: '4rem',
     display: 'flex',
