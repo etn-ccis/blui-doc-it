@@ -1,3 +1,24 @@
+# Power Xpert Blue 2.3.2 (December 2019)
+
+### Hybrid Code Examples
+- The [List](/patterns/lists) patterns have added examples for Multiselect List and Sortable List. 
+- The [App Bars](/patterns/appbar) patterns have added examples for Collapsible Appbar and Search Bar.
+
+### Component Library
+We have been continuing to develop new components to build out our component library. 
+- For React Native, we have added components for [Header](https://github.com/pxblue/component-library/blob/dev/reactnative/docs/header.md), [InfoListItem](https://github.com/pxblue/component-library/blob/dev/reactnative/docs/infoListItem.md), and [ScoreCard](https://github.com/pxblue/component-library/blob/dev/reactnative/docs/scorecard.md). 
+- For React, we have added components for [InfoListItem](https://github.com/pxblue/component-library/blob/dev/react/docs/InfoListItem.md) and [ScoreCard](https://github.com/pxblue/component-library/blob/dev/react/docs/ScoreCard.md).
+
+### Moving to TypeScript
+To take advantage of it's many benefits, new resources for React and React Native will be built using Typescript instead of plain JavaScript. We have also begun the process of migrating our existing resources to TypeScript.
+
+### Miscellaneous
+* Bug fixes and improvements
+
+
+<br/><br/><br/>
+
+
 # Power Xpert Blue 2.3.1 (September 2019)
 
 ### Design Patterns
