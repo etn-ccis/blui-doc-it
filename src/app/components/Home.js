@@ -18,7 +18,7 @@ import Hidden from '@material-ui/core/Hidden';
 import EatonLogowhite from '../icons/EatonLogowhite.svg';
 import * as Colors from '@pxblue/colors';
 import Footer from './Footer';
-import {appliedTheme, isDefaultTheme} from "../App";
+import {appliedTheme} from "../App";
 
 const styles = theme => ({
   root: {
@@ -42,10 +42,10 @@ const styles = theme => ({
     textDecoration: 'none'
   },
   jumboHeader: {
-    textShadow: isDefaultTheme ? 'none' : '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black',
+    textShadow: appliedTheme.textShadow,
     backgroundImage: appliedTheme.backgroundImage,
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: isDefaultTheme ? 'center center' : 'center right',
+    backgroundPosition: appliedTheme.backgroundPosition,
     backgroundSize: appliedTheme.backgroundSize,
     position: 'relative',
     padding: '4rem',

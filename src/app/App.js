@@ -32,35 +32,60 @@ require('typeface-roboto-mono');
 
 const siteConfig = require('../docs/site-config.json');
 
-const themes = {
-    fall: {
-        name: 'Fall',
-        message: 'Happy Thanksgiving from PX Blue',
-        theme: fallTheme,
-        class: 'fallTheme',
-        backgroundSize: 'contain',
-        backgroundImage: `url(${turkey}), linear-gradient(to right, ${ColorsBranding.sunset[500]} , ${ColorsBranding.rust[900]})`
-    },
-    winter: {
-        name: 'Winter',
-        message: 'Happy Holidays from PX Blue',
-        theme: winterTheme,
-        class: 'winterTheme',
-        backgroundSize: 'auto 140%',
-        backgroundImage: `url(${snowman}), linear-gradient(to right, ${ColorsBranding.wine[500]} , ${ColorsBranding.wine[900]})`
-    },
-    blue: {
+const themes = [
+    {
         name: 'default',
         message: '',
         theme: EatonTheme.blue,
         class: '',
         backgroundSize: 'cover',
-        backgroundImage: `url(${circles})`
-    }
-};
-
-export const appliedTheme = themes.winter;
-export const isDefaultTheme = (appliedTheme.name === 'default');
+        backgroundImage: `url(${circles})`,
+        backgroundPosition: 'center center',
+        textShadow: 'none',
+        dateRanges: [
+            {start: 1, end: 11}, // January through October
+        ]
+    },
+    {
+        name: 'Thanksgiving',
+        message: 'Happy Thanksgiving from PX Blue',
+        theme: fallTheme,
+        class: 'fallTheme',
+        backgroundSize: 'contain',
+        backgroundImage: `url(${turkey}), linear-gradient(to right, ${ColorsBranding.sunset[500]} , ${ColorsBranding.rust[900]})`,
+        backgroundPosition: 'center right',
+        textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black',
+        dateRanges: [
+            {start: 11, end: 12} // November only
+        ]
+    },
+    {
+        name: 'Winter',
+        message: 'Happy Holidays from PX Blue',
+        theme: winterTheme,
+        class: 'winterTheme',
+        backgroundSize: 'auto 140%',
+        backgroundImage: `url(${snowman}), linear-gradient(to right, ${ColorsBranding.wine[500]} , ${ColorsBranding.wine[900]})`,
+        backgroundPosition: 'center right',
+        textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black',
+        dateRanges: [
+            {start: 12, end: 13}, // December only
+        ]
+    },
+];
+const getCurrentTheme = () => {
+    const now = new Date(Date.now());
+    const month = now.getMonth() + 1;
+    const activeTheme = themes.find((theme) => {
+        for(let i = 0; i < theme.dateRanges.length; i++){
+            if(month >= theme.dateRanges[i].start && month < theme.dateRanges[i].end) return true;
+        }
+        return false;
+    });
+    if(!activeTheme) return themes[0];
+    return activeTheme;
+}
+export const appliedTheme = getCurrentTheme();
 
 // Browser detection
 var isFirefox = typeof InstallTrigger !== 'undefined';
