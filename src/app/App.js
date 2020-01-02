@@ -62,6 +62,18 @@ const themes = {
 export const appliedTheme = themes.winter;
 export const isDefaultTheme = (appliedTheme.name === 'default');
 
+// 'reach-in' test for localStorage
+function lsTest(){
+    var test = 'test';
+    try {
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        return true;
+    } catch(e) {
+        return false;
+    }
+}
+
 // Browser detection
 var isFirefox = typeof InstallTrigger !== 'undefined';
 var isIE = /*@cc_on!@*/false || !!document.documentMode;
@@ -193,7 +205,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            framework: localStorage.getItem('frameworkSelectKey') || 'angular',
+            framework: (lsTest ? (localStorage.getItem('frameworkSelectKey') || 'angular') : 'angular'),
             showFrameworkSelect: false,
             browser: (isFirefox ? 'firefox' : isIE ? 'ie' : isEdge ? 'edge' : isChrome ? 'chrome' : 'other'),
         };
@@ -206,7 +218,8 @@ class App extends Component {
     // set state and change local storage to selected framework
     onFrameworkChange = framework => {
       this.setState({framework: framework});
-      localStorage.setItem('frameworkSelectKey', framework);
+      if(lsTest){localStorage.setItem('frameworkSelectKey', framework);}
+
     };
 
     componentWillReceiveProps(newProps) {
