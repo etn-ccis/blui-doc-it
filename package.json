@@ -6,7 +6,7 @@
     "concurrently": "^3.5.1",
     "cross-env": "^5.1.4",
     "cypress": "^3.2.0",
-    "react-scripts": "1.0.14",
+    "react-scripts": "3.3.0",
     "start-server-and-test": "^1.9.0"
   },
   "dependencies": {
@@ -49,5 +49,17 @@
     "cy:run": "cypress run",
     "cypress:open": "cypress open",
     "cytest": "start-server-and-test start http://localhost:3000 cy:run"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
