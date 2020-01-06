@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import compose from 'recompose/compose';
 import {connect} from 'react-redux';
+import * as ls from "local-storage";
 import {Route, Switch} from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -61,18 +62,6 @@ const themes = {
 
 export const appliedTheme = themes.winter;
 export const isDefaultTheme = (appliedTheme.name === 'default');
-
-// 'reach-in' test for localStorage
-function lsTest(){
-    var test = 'test';
-    try {
-        localStorage.setItem(test, test);
-        localStorage.removeItem(test);
-        return true;
-    } catch(e) {
-        return false;
-    }
-}
 
 // Browser detection
 var isFirefox = typeof InstallTrigger !== 'undefined';
@@ -205,7 +194,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            framework: (lsTest ? (localStorage.getItem('frameworkSelectKey') || 'angular') : 'angular'),
+            framework: ls.get('frameworkSelectKey') || 'angular',
             showFrameworkSelect: false,
             browser: (isFirefox ? 'firefox' : isIE ? 'ie' : isEdge ? 'edge' : isChrome ? 'chrome' : 'other'),
         };
@@ -216,10 +205,9 @@ class App extends Component {
     };
 
     // set state and change local storage to selected framework
-    onFrameworkChange = framework => {
-      this.setState({framework: framework});
-      if(lsTest){localStorage.setItem('frameworkSelectKey', framework);}
-
+    onFrameworkChange = frameworkChange => {
+      this.setState({framework: frameworkChange});
+      ls.set('frameworkSelectKey', frameworkChange);
     };
 
     componentWillReceiveProps(newProps) {
