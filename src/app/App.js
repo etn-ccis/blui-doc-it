@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import compose from 'recompose/compose';
 import {connect} from 'react-redux';
+import * as ls from "local-storage";
 import {Route, Switch} from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -218,14 +219,20 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            framework: 'angular',
+            framework: ls.get('frameworkSelectKey') || 'angular',
             showFrameworkSelect: false,
-            browser: (isFirefox ? 'firefox' : isIE ? 'ie' : isEdge ? 'edge' : isChrome ? 'chrome' : 'other')
+            browser: (isFirefox ? 'firefox' : isIE ? 'ie' : isEdge ? 'edge' : isChrome ? 'chrome' : 'other'),
         };
     }
 
     handleDrawerToggle = () => {
         this.props.toggleMobile();
+    };
+
+    // set state and change local storage to selected framework
+    onFrameworkChange = frameworkChange => {
+      this.setState({framework: frameworkChange});
+      ls.set('frameworkSelectKey', frameworkChange);
     };
 
     componentWillReceiveProps(newProps) {
@@ -280,7 +287,8 @@ class App extends Component {
                 <SideNav pages={siteConfig.pages}/>
             </Drawer>
         );
-    }
+    };
+
 
     render() {
         const {classes} = this.props;
@@ -336,9 +344,7 @@ class App extends Component {
                     <AppBar position="static" color="default"
                             className={classes.slidebaby + ' ' + (this.state.showFrameworkSelect ? classes.showFramework : '')}>
                         <Toolbar style={{display: "flex", flexDirection: "row"}}>
-                            <FrameworkSelector framework={this.state.framework} onSelectFramework={choice => {
-                                this.setState(state => ({framework: choice}));
-                            }}/>
+                            <FrameworkSelector framework={this.state.framework} onFrameworkChange={this.onFrameworkChange} />
                             <div style={{flex: "1 1 0px", textAlign: "right"}}>
 
                                 <Hidden xsDown>
