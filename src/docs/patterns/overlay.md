@@ -15,6 +15,8 @@ The basic bottom sheet simply contains a list of actions. The final "Cancel" act
 
 {{ angular repo=bottomsheet }}
 {{ react repo=bottomsheet }}
+{{ ionic repo=bottomsheet }}
+{{ reactnative repo=bottomsheet }}
 
 ### Advanced
 A bottom sheet is essentially just a container with some attached behaviors. Though it typically contains a simple list, it can be customized to include any content that is required for your application. For example, it can be used for custom sort/filter functionality (seen in the example below), biometric authentication prompts, etc.
