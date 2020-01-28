@@ -6,6 +6,6 @@ PX Blue is constantly evolving and adding new technical documentation, live code
 
 If you have any general questions or feedback that may benefit the greater PX Blue community, please post them on our [Yammer Forum](https://www.yammer.com/eaton.com/#/threads/inGroup?type=in_group&feedId=13986505&view=all).
 
-For more targeted, product-specific questions you can email the team directly at <a href="mailto:pxblue@eaton.com">pxblue@eaton.com</a>.
+For more targeted, product-specific questions you can email the team directly at <a href="mailto:pxblue@eaton.com">pxblue@eaton.com</a>. We typically respond to all inquiries within one business day.
 
 We look forward to hearing from you!
