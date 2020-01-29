@@ -1,10 +1,10 @@
 # Getting Started with Ionic/Cordova
+The following instructions will guide you through setting up your computer for Ionic development and starting a new PX Blue project. Alternatively, you can start your project by downloading one of our code samples from [Github](https://github.com/pxblue) (the Login example is a good project to start from) once you configure your environment.
 
 ### Setting Up Your Environment
 You'll need to start by following the general instructions for setting up your development environment for mobile, found in our [Environment Guide](/development/environment). Since Ionic takes advantage of web technologies, you won't need any specific additional tools beyond what you would use for web development.
 
 Ionic uses Cordova behind the scenes but offers some additional convenience tools on top. If you would prefer to write a pure Cordova application, you can read instructions in the [Apache Cordova Getting Started Guide](/development/frameworks-mobile/cordova).
-
 
 ### Installing Ionic
 The most up-to-date instructions for setting up Ionic can be found on the [Ionic Website](https://ionicframework.com/docs/installation/cli).
@@ -67,3 +67,6 @@ ionic cordova run android
 ionic cordova run ios
 ```
 > **NOTE**: Depending on your version of Xcode, you may need to specify additional build flags to run on ios: ```ionic cordova run ios --buildFlag="-UseModernBuildSystem=0"```.
+
+## License Information
+[Ionic](https://ionicframework.com/docs/intro#license) is available under the MIT License. 

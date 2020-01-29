@@ -1,5 +1,5 @@
 # New Project Guide
-When approaching a potential new project, it can be challenging to know where to start. As a first step, it's helpful to decide if this is going to be a web application, mobile application, or both? Here is a run-down of these different types of applications.
+When approaching a potential new project, it can be challenging to know where to start. As a first step, it's helpful to decide if this is going to be a web application, mobile application, or both. Here is a run-down of these different types of applications.
 
 ### Web Applications
 These applications are accessible over the web. They can be accessed from any device with a network connection and a web browser (personal computer, mobile phone). To learn more about what a web application entails, check out our [Web App](/get-started/web) guide.

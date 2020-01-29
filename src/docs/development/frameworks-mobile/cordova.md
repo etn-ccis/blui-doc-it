@@ -132,3 +132,6 @@ Then, make sure that the script is available before loading your application:
     ```
 
 The plugins will then be available from the cordova object (window.cordova.```<plugin_name>```.```<function>```). Refer to the specific plugin documentation for proper usage.
+
+## License Information
+[Cordova](https://github.com/apache/cordova-cli/blob/master/LICENSE) is available under the Apache 2.0 License. 

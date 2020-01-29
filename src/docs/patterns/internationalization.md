@@ -15,6 +15,9 @@ When showing a list of languages, you can decide whether you want to translate t
 ## Bi-directionality/ Right-to-Left (RTL) Support 
 Some languages, such as Arabic and Hebrew, are read from right to left. Applications supporting these languages will need to mirror the UI so the natural flow is from right to left. For example, navigation drawers should be displayed on the right side of the screen, icons should be to the right of text in buttons, and any icons with directionality should be mirrored. 
 
+## Technical Implementation
+There are a number of available libraries to assist with implementing internationalization in your applications. The Angular CLI includes some support for [internationalization](https://angular.io/guide/i18n) out of the box. For React/React Native projects, we have used [i18next](https://www.i18next.com/). Depending on the size of your application, you can also build your own simple mechanism for changing languages, as in the below examples.
+
 {{ angular repo=internationalization }}
 {{ react repo=internationalization }}
 
