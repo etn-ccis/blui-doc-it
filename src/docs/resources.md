@@ -26,7 +26,7 @@ The following table shows the current status of the PX Blue design pattern code 
 {{ statustable repo=action-list branches=angular|react|ionic|reactnative }}
 {{ statustable repo=bottomsheet branches=angular|react|ionic|reactnative }}
 {{ statustable repo=collapsible-appbar branches=angular|react|ionic|reactnative }}
-{{ statustable repo=complex-bottomsheet branches=angular|react }}
+{{ statustable repo=complex-bottomsheet branches=angular|react|ionic|reactnative }}
 {{ statustable repo=data-list branches=angular|react|ionic|reactnative }}
 {{ statustable repo=dynamic-stepper branches=angular|react }}
 {{ statustable repo=empty-states branches=angular|react|ionic|reactnative }}
