@@ -23,3 +23,5 @@ A bottom sheet is essentially just a container with some attached behaviors. Tho
 
 {{ angular repo=complex-bottomsheet }}
 {{ react repo=complex-bottomsheet }}
+{{ ionic repo=bottomsheet }}
+{{ reactnative repo=bottomsheet }}
