@@ -1,5 +1,5 @@
 # Getting Started with React Native
-The following instructions will guide you through setting up your computer for Ionic development and starting a new PX Blue project. Alternatively, you can start your project by downloading one of our code samples from [Github](https://github.com/pxblue) (the Login example is a good project to start from) once you configure your environment.
+The following instructions will guide you through setting up your computer for React Native development and starting a new PX Blue project. Alternatively, you can start your project by downloading one of our code samples from [Github](https://github.com/pxblue) (the Login example is a good project to start from) once you configure your environment.
 
 ## Setting up your environment
 You'll need to start by following the general instructions for setting up your development environment for mobile found in our [Environment Guide](/development/environment). In addition to the base requirements, you may also want the following:
