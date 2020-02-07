@@ -37,7 +37,7 @@ We are now running all of our embedded code examples directly from their respect
 PX Blue now offers resources for working with ChartJS - an open source alternative to HighCharts. You can read more on our [Visualizations](/patterns/visualizations) page or on the [ChartJS](https://www.chartjs.org) documentation site.
 
 ### Component Library
-We have been working to innersource new PX Blue components for React Native applications - these are currently available as [@pxblue/react-native-components](https://www.npmjs.com/package/@pxblue/react-native-components). Documentation for these components can be found on [GitHub](https://github.com/pxblue/component-library/tree/dev/react-native/docs). This package is still in alpha, but a production version will be made available in an upcoming PX Blue release.
+We have been working to innersource new PX Blue components for React Native applications - these are currently available as [@pxblue/react-native-components](https://www.npmjs.com/package/@pxblue/react-native-components). Documentation for these components can be found on [GitHub](https://github.com/pxblue/component-library/tree/dev/reactnative/docs). This package is still in alpha, but a production version will be made available in an upcoming PX Blue release.
 
 ### Miscellaneous
 * Bug fixes and improvements
