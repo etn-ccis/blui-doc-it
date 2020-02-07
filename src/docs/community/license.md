@@ -15,7 +15,7 @@ If you are interested in contributing to PX Blue, please check out our [Sharing 
 ```
 BSD 3-Clause License
 
-Copyright (c) 2018, Eaton
+Copyright (c) 2020, Eaton
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
