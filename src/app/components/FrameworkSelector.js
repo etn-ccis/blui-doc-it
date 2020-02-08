@@ -18,14 +18,14 @@ const styles = theme => ({
         alignItems: 'center'
     },
     frameworkLabel:{
-        display:"flex", 
+        display:"flex",
         flexDirection:"row",
         alignItems: 'center'
     },
     frameworkIcon:{
-        height: '20px', 
-        width: 'auto', 
-        position: 'relative', 
+        height: '20px',
+        width: 'auto',
+        position: 'relative',
         margin: '0',
         marginRight: theme.spacing.unit
     },
@@ -74,7 +74,7 @@ class FrameworkSelector extends React.Component {
             <div className={classes.formControl}>
                 <Select
                     value={this.props.framework}
-                    onChange={ e => this.props.onSelectFramework(e.target.value) }
+                    onChange={ e => this.props.onFrameworkChange(e.target.value) }
                     name="Framework"
                     style={{marginRight: '10px'}}
                     classes={{selectMenu: classes.menu}}

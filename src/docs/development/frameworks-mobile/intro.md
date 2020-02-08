@@ -3,6 +3,7 @@ Power Xpert Blue supports hybrid mobile application development using Ionic/Cord
 
 ## Ionic / Cordova
   - Built with web technology (framework agnostic)
+     - PX Blue only supports Ionic with Angular
   - Runs in a WebView
   - Is the fastest way to have a mobile app (if you already have a web app)
   - Requires your web app to be optimized for mobile
@@ -44,4 +45,4 @@ Once you have built your application into a distributable binary, there are two 
 Visual Studio App Center gives you a way to test your app with users before you are ready for final distribution. This service allows you to upload app binaries and create lists of people with whom to share them. These people will be notified via email when new versions of the app are available, and they will be prompted to download and install them directly onto their device. You will need to request access to Visual Studio App Center from IT.
 
 ### App Store / Play Store
-For final distribution of your application, you will need to connect to iTunesConnect and/or Google Play Console. The Eaton official accounts for these distribution channels are controlled by IT, so you will need to contact them for further instructions on releasing your app to the world.
+For final distribution of your application, you will need to utilize App Store Connect and/or Google Play Console. The Eaton official accounts for these distribution channels are controlled by IT, so you will need to contact them for further instructions on releasing your app to the world.

@@ -9,7 +9,7 @@ The goal of the Power Xpert Blue design system is to ensure consistency between 
 Power Xpert Blue is based on the [Material Design](https://material.io/) language. If you are working with our Studio Blue design team, their designs will follow this standard. If you are not utilizing Studio Blue, ensure that your designers are following the Material Guidelines as well as any additional PX Blue [design patterns](/patterns/appbar).
 
 ## Development
-Power Xpert Blue is also a development platform. This platform is intended to help development teams work quickly and efficiently by providing recommendations for technologies, tools/libraries, and approaches to common challenges. We support a variety of technologies to give your team the flexibility to choose what will work best for you.
+Power Xpert Blue is also a development platform. This platform is intended to help development teams work quickly and efficiently by providing recommendations for technologies, tools/libraries, approaches to common challenges, as well as re-usable components. We support a variety of technologies to give your team the flexibility to choose what will work best for you.
 
 * To learn about the technologies we support, check out our [Web](/development/frameworks-web/intro) or [Mobile](/development/frameworks-mobile/intro) technology pages.
 * To learn about the different resources provided by PX Blue, see our [Resources](/resources) page.

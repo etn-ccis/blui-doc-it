@@ -6,7 +6,9 @@ Tests come in a variety of different flavors. The following sections discuss Uni
 ## Unit Testing 
 Unit testing focuses on testing small pieces of your application (such as testing that functions return the expected values for various inputs). These will likely make up the bulk of your tests. They are quick to write, easy to automate, and can help you achieve significant code coverage.
 
-Angular and React both come with built-in unit testing frameworks (if you are using the Angular CLI or Create React App). For consistency, you should stick to using these standard tools unless you have a good reason for using alternatives. 
+Angular, React, and React Native all come with built-in unit testing frameworks (if you are using the respective CLI tools). Ionic can be unit tested using the same tools you would use for a standard Angular application.
+
+For consistency, you should stick to using these standard tools unless you have a good reason for using alternatives. 
 
 ### Angular
 The Angular CLI comes pre-configured with Jasmine and Karma for unit testing. When you create a new project, sample tests are created in your project for you (test files are identified by the ```.spec.ts``` file extension). You can execute the tests by running the following in your terminal:
@@ -25,12 +27,15 @@ yarn test
 
 This will run your tests and show the pass/fail output in the terminal.
 
-There are additional test utilities that complement Jest well. Create React App provides access to ```react-testing-library``` through the ```react-dom``` dependency. The PX Blue team has also made use of Enzyme, a testing framework created by AirBnB. 
+There are additional test utilities that complement Jest well. Create React App provides access to ```react-testing-library``` through the ```react-dom``` dependency. The PX Blue team has also made use of Enzyme, a testing framework created by AirBnB, and Test Renderer. 
 
-For detailed information, refer to the [Jest](https://github.com/facebook/jest), [Running React Tests](https://facebook.github.io/create-react-app/docs/running-tests), [Enzyme](https://airbnb.io/enzyme/), or [react-testing-library](https://github.com/kentcdodds/react-testing-library) documentation.
+For detailed information, refer to the [Jest](https://github.com/facebook/jest), [Running React Tests](https://facebook.github.io/create-react-app/docs/running-tests), [Enzyme](https://airbnb.io/enzyme/), [react-testing-library](https://github.com/kentcdodds/react-testing-library), and [Test Renderer](https://reactjs.org/docs/test-renderer.html) documentation.
 
-### Hybrid Apps
-Unit testing your hybrid applications follows the same testing setup as the web applications. Ionic/Cordova applications built with Angular will come with Jasmine and Karma. React Native applications come pre-configured with Jest.
+### React Native
+Like React, the React Native CLI also bundles Jest into your application. Most of the testing strategies and libraries can be shared between the two frameworks.
+
+### Ionic
+When creating an Ionic project with Angular, the Angular CLI is used to generate the underlying project, so you have access to all the same testing tools as you would with a regular Angular project.
 
 ## End-to-End Testing
 End-to-End tests are a higher level test than Unit Tests. They focus primarily on the flow of the application, making sure that the different parts of the application work together correctly. For example, you may test that clicking a login button takes you to the appropriate sign-in page.

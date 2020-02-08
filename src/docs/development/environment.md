@@ -29,7 +29,7 @@ The proxy addresses may vary depending on your location. Consult your local IT d
 
 ## Node
 
-The majority of JavaScript frameworks are available via the Node Package Manager (NPM). This package manager allows you to install a variety of third party tools, packages, and other dependencies that you need for your applications. To use NPM, you will need to install [NodeJS](https://nodejs.org/en/download/).
+The majority of JavaScript frameworks (and PX Blue resources) are available via the Node Package Manager (NPM). This package manager allows you to install a variety of third party tools, packages, and other dependencies that you need for your applications. To use NPM, you will need to install [NodeJS](https://nodejs.org/en/download/).
 
 ## Yarn
 Our projects and example code are set up to be run using yarn. Instructions for installing yarn on various operating systems can be found on the [Yarn Website](https://yarnpkg.com/en/docs/install).

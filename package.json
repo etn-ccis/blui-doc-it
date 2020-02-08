@@ -6,7 +6,7 @@
     "concurrently": "^3.5.1",
     "cross-env": "^5.1.4",
     "cypress": "^3.2.0",
-    "react-scripts": "1.0.14",
+    "react-scripts": "3.3.0",
     "start-server-and-test": "^1.9.0"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "basscss": "^8.0.4",
     "core-js": "^2.6.5",
     "immutable": "^3.8.2",
+    "local-storage": "2.0.0",
     "markdown-link-check": "^3.7.3",
     "prop-types": "^15.7.2",
     "react": "^16.6.3",
@@ -49,5 +50,17 @@
     "cy:run": "cypress run",
     "cypress:open": "cypress open",
     "cytest": "start-server-and-test start http://localhost:3000 cy:run"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
