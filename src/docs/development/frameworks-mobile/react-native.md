@@ -32,7 +32,7 @@ If you do not want to use Expo, you can use the [React Native CLI](https://githu
 There is no standard component library for React Native that implements Material Design. At the bottom of this page is a list of recommended component libraries that you can use, depending on your requirements.
 
 ### PX Blue Components
-We have a [supplemental library](https://github.com/pxblue/component-library/tree/dev/reactnative) of components designed specifically for Eaton applications. If you wish to use these components, you can install them by running:
+We have a [supplemental library](https://github.com/pxblue/react-native-component-library/tree/dev) of components designed specifically for Eaton applications. If you wish to use these components, you can install them by running:
 ```
 yarn add @pxblue/react-native-components
 ```
@@ -56,7 +56,7 @@ import * as PXBThemes from '@pxblue/themes/react-native';
     <App />
 </ThemeProvider>
 ```
-> NOTE: This theme only applies to the components in the @pxblue/react-native-components package. It will not theme the components from other third party libraries. If you wish to use our theme to style your own components, refer to our [documentation](https://github.com/pxblue/component-library/blob/dev/reactnative/docs/theme.md#using-the-theme-in-custom-components).
+> NOTE: This theme only applies to the components in the @pxblue/react-native-components package. It will not theme the components from other third party libraries. If you wish to use our theme to style your own components, refer to our [documentation](https://github.com/pxblue/react-native-component-library/blob/dev/docs/theme.md#using-the-theme-in-custom-components).
 
 
 ### Avoid Repeated Styles

@@ -16,7 +16,7 @@ yarn add @angular/material
 For detailed documentation about the various components available in Angular Material, as well as sample code and API reference, refer to the [Angular Material Documentation](https://material.angular.io/components/).
 
 ### PX Blue Components
-Additionally, we have a [supplemental library](https://github.com/pxblue/component-library/tree/dev/angular) of components designed specifically for Eaton applications. If you wish to use these components, you can install them by running:
+Additionally, we have a [supplemental library](https://github.com/pxblue/angular-component-library/tree/dev) of components designed specifically for Eaton applications. If you wish to use these components, you can install them by running:
 ```
 yarn add @pxblue/angular-components
 ```
