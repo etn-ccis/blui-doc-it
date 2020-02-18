@@ -6,8 +6,8 @@
 
 ### Component Library
 We have been continuing to develop new components to build out our component library. 
-- For React Native, we have added components for [Header](https://github.com/pxblue/component-library/blob/dev/reactnative/docs/header.md), [InfoListItem](https://github.com/pxblue/component-library/blob/dev/reactnative/docs/infoListItem.md), and [ScoreCard](https://github.com/pxblue/component-library/blob/dev/reactnative/docs/scorecard.md). 
-- For React, we have added components for [InfoListItem](https://github.com/pxblue/component-library/blob/dev/react/docs/InfoListItem.md) and [ScoreCard](https://github.com/pxblue/component-library/blob/dev/react/docs/ScoreCard.md).
+- For React Native, we have added components for [Header](https://github.com/pxblue/react-native-component-library/blob/dev/docs/header.md), [InfoListItem](https://github.com/pxblue/react-native-component-library/blob/dev/docs/infoListItem.md), and [ScoreCard](https://github.com/pxblue/react-native-component-library/blob/dev/docs/scorecard.md). 
+- For React, we have added components for [InfoListItem](https://github.com/pxblue/react-component-library/blob/dev/docs/InfoListItem.md) and [ScoreCard](https://github.com/pxblue/react-component-library/blob/dev/docs/ScoreCard.md).
 
 ### Moving to TypeScript
 To take advantage of it's many benefits, new resources for React and React Native will be built using Typescript instead of plain JavaScript. We have also begun the process of migrating our existing resources to TypeScript.
@@ -37,7 +37,7 @@ We are now running all of our embedded code examples directly from their respect
 PX Blue now offers resources for working with ChartJS - an open source alternative to HighCharts. You can read more on our [Visualizations](/patterns/visualizations) page or on the [ChartJS](https://www.chartjs.org) documentation site.
 
 ### Component Library
-We have been working to innersource new PX Blue components for React Native applications - these are currently available as [@pxblue/react-native-components](https://www.npmjs.com/package/@pxblue/react-native-components). Documentation for these components can be found on [GitHub](https://github.com/pxblue/component-library/tree/dev/reactnative/docs). This package is still in alpha, but a production version will be made available in an upcoming PX Blue release.
+We have been working to innersource new PX Blue components for React Native applications - these are currently available as [@pxblue/react-native-components](https://www.npmjs.com/package/@pxblue/react-native-components). Documentation for these components can be found on [GitHub](https://github.com/pxblue/react-native-component-library/tree/dev/docs). This package is still in alpha, but a production version will be made available in an upcoming PX Blue release.
 
 ### Miscellaneous
 * Bug fixes and improvements

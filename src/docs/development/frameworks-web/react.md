@@ -16,7 +16,7 @@ yarn add @material-ui/core @material-ui/icons
 For detailed documentation about the various components available in Material UI, as well as sample code and API reference, refer to the [Material UI Documentation](https://material-ui.com/).
 
 ### PX Blue Components
-Additionally, we have a [supplemental library](https://github.com/pxblue/component-library/tree/dev/react) of components designed specifically for Eaton applications. If you wish to use these components, you can install them by running:
+Additionally, we have a [supplemental library](https://github.com/pxblue/react-component-library/tree/dev) of components designed specifically for Eaton applications. If you wish to use these components, you can install them by running:
 ```
 yarn add @pxblue/react-components
 ```
