@@ -8,8 +8,8 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import * as PXBThemes from '@pxblue/themes/react';
 import 'typeface-open-sans';
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import { MainRouter } from './app/router';
 import { Reducer } from './app/redux/reducers';
 const store = createStore(Reducer());

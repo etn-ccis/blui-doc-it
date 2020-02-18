@@ -1,20 +1,21 @@
 import { combineReducers } from 'redux';
+import { CHANGE_PAGE_TITLE } from '../actions';
 // import { connectRouter } from 'connected-react-router';
 // import { History } from 'history';
 // import { AppActions } from '../actions/actionTypes';
 
 export type AppState = {
     app: CommonState;
-}
+};
 type CommonState = {
     pageTitle: string;
-}
+};
 const initialAppState: CommonState = {
-    pageTitle: ''
-}
+    pageTitle: '',
+};
 const appReducer = (state = initialAppState, action: any): CommonState => {
     switch (action.type) {
-        case 'changename':
+        case CHANGE_PAGE_TITLE:
             return {
                 ...state,
                 pageTitle: action.payload,

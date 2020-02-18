@@ -1,0 +1,3 @@
+const PREFIX = '@DOC-IT//';
+
+export const CHANGE_PAGE_TITLE = `${PREFIX}CHANGE-PAGE-TITLE`;

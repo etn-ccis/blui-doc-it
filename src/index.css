@@ -2,53 +2,53 @@
 html,
 body,
 #root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 blockquote,
 q {
-  quotes: none;
-  border-left: 6px #007bc1 solid;
-  background: rgba(0, 123, 193, 0.1);
-  margin: 0px;
-  margin-bottom: 1rem;
-  padding-left: 16px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+    quotes: none;
+    border-left: 6px #007bc1 solid;
+    background: rgba(0, 123, 193, 0.1);
+    margin: 0px;
+    margin-bottom: 1rem;
+    padding-left: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
-  content: none;
+    content: '';
+    content: none;
 }
 
 blockquote > p:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 /* Spacing between items in bulleted list */
 .mdLi:not(:last-child) {
-  margin-bottom: 0.75rem;
+    margin-bottom: 0.75rem;
 }
 
-.rotateMe{
-  animation: 2500ms spin linear infinite;
+.rotateMe {
+    animation: 2500ms spin linear infinite;
 }
 
-.verticalFlex{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.verticalFlex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-} 
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

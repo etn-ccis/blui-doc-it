@@ -14,7 +14,11 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
 
     const _navigationIcon = useCallback(() => {
         if (navigationIcon) {
-            return <Hidden smUp><div style={{ marginRight: 32, cursor: 'pointer' }}>{navigationIcon}</div></Hidden>;
+            return (
+                <Hidden smUp>
+                    <div style={{ marginRight: 32, cursor: 'pointer' }}>{navigationIcon}</div>
+                </Hidden>
+            );
         }
     }, [navigationIcon]);
 
@@ -42,10 +46,10 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
 };
 SharedToolbar.propTypes = {
     title: PropTypes.string.isRequired,
-    color: PropTypes.oneOf(['primary','secondary','default']),
+    color: PropTypes.oneOf(['primary', 'secondary', 'default']),
     subtitle: PropTypes.string,
     navigationIcon: PropTypes.element,
-}
+};
 SharedToolbar.defaultProps = {
     color: 'primary',
-}
+};
