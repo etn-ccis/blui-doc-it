@@ -1,9 +1,4 @@
 Update Readme
 Check the Favicon
 Google Analytics
-Make CircleCI work
 Automatic Link Checking
-Remove the Custom Toolbar
-Update drawer and make it functional
-Integrate redux for the toolbar titles
-Use MDX to mix Markdown and components
