@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, NavItem } from '@pxblue/react-components';
 
 //@ts-ignore
@@ -12,6 +12,7 @@ import { navigationData } from '../../__configuration__/navigationMenu/navigatio
 export const NavigationDrawer = (): JSX.Element => {
     const [open, setOpen] = useState(false);
     const history = useHistory();
+    const location = useLocation();
 
     return (
         <Drawer
@@ -37,7 +38,7 @@ export const NavigationDrawer = (): JSX.Element => {
                         items.push({
                             title: data.title,
                             icon: <Info />,
-                            active: false, //TODO
+                            active: location.pathname.includes(data.url || ''),
                             onClick: () => {
                                 if (data.url) {
                                     history.push(data.url);
