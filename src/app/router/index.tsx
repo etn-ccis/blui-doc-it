@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import { Introduction, Color, Typography, Iconography, GettingStarted, LandingPage } from '../pages';
+import { Introduction, Typography, LandingPage } from '../pages';
 import { DrawerLayout } from '@pxblue/react-components';
 import { SharedToolbar } from '../components/SharedToolbar';
 import { NavigationDrawer } from './navigationDrawer';
@@ -32,16 +32,7 @@ export const MainRouter = (): JSX.Element => {
                                     <Route exact path="/introduction">
                                         <Introduction />
                                     </Route>
-                                    <Route exact path="/getting-started">
-                                        <GettingStarted />
-                                    </Route>
                                     {/* Style Pages */}
-                                    <Route exact path="/style/color">
-                                        <Color />
-                                    </Route>
-                                    <Route exact path="/style/iconography">
-                                        <Iconography />
-                                    </Route>
                                     <Route exact path="/style/typography">
                                         <Typography />
                                     </Route>
