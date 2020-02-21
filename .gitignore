@@ -1,13 +1,9 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/src/examples/angular/node_modules
-/src/examples/angularjs/.idea
-/src/examples/angularjs/bower_components
-/src/examples/angularjs/node_modules
-/src/examples/mdc/node_modules
-/src/examples/react/node_modules
+**/**/node_modules
+**/**/bower_components
+**/**/.idea
 
 # testing
 /coverage

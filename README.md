@@ -1,7 +1,7 @@
 # Doc-It (a.k.a. pxblue.github.io)
 [![CircleCI](https://circleci.com/gh/pxblue/doc-it/tree/master.svg?style=shield&circle-token=fc2656a76d70b4ff9cdc66cccc758c0dfbf89d25)](https://circleci.com/gh/pxblue/doc-it/tree/master)
 
-Doc-It is the source code for the pxblue.github.io documentation site for Power Xpert Blue 2.0. The site is built to both provide documentation on how to use the system, but also as an example of how to use it. The entire site is using using the PX Blue design system - built with React+Redux and Material UI.
+Doc-It is the source code for the pxblue.github.io documentation site for Power Xpert Blue 2.0. The site is built to both provide documentation on how to use the system, but also as an example of how to use it. The entire site is using using the PX Blue design system - built with React+Redux, Material UI, and the PX Blue component library.
 
 ## Contributing
 To contribute to the documentation site, you will need to clone a local copy of the repository:
@@ -19,9 +19,11 @@ yarn start
 ```
 
 ## Project Structure
+TODO: Update this section
 This project uses a react skeleton to handle the functional aspects of the site, including navigation, routing, etc. However, the majority of the site content is written in markdown files to simplify the ability to add and update content. This is made possible through the use of the [Showdown](https://github.com/showdownjs/showdown) converter.
 
 ### Folder Structure
+TODO: Update this section
 The folder structure of the application is likewise segregated to keep the application and the content separate.
 
 ```
@@ -65,5 +67,4 @@ When changes are committed to the master branch and the tests pass, the changes 
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | 
 | --------- | --------- | --------- | --------- | 
-| IE11*, Edge| last 2 versions| last 2 versions| last 2 versions| 
-> \*Stackblitz examples currently do not work in IE
+| IE11, Edge| last 2 versions| last 2 versions| last 2 versions| 
