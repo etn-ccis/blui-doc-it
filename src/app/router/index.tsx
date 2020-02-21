@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import { Introduction, Typography, LandingPage } from '../pages';
+import { LandingPage } from '../pages';
 import { DrawerLayout } from '@pxblue/react-components';
 import { SharedToolbar } from '../components/SharedToolbar';
 import { NavigationDrawer } from './navigationDrawer';
@@ -9,10 +9,28 @@ import { AppState } from '../redux/reducers';
 import { Pxblue } from '@pxblue/icons-mui';
 import { useSelector } from 'react-redux';
 
+import { pageDefinitions } from '../../__configuration__/navigationMenu/navigation';
+
+const buildRoutes = (routes: any[], url: string): JSX.Element[] => {
+    let ret: any[] = [];
+    for (let i = 0; i < routes.length; i++) {
+        if (routes[i].component) {
+            ret.push(
+                <Route exact path={`${url}${routes[i].url}`} key={`${url}/${routes[i].url}`}>
+                    {routes[i].component}
+                </Route>
+            );
+        }
+        if (routes[i].pages) {
+            ret = ret.concat(buildRoutes(routes[i].pages, `${url}${routes[i].url}`));
+        }
+    }
+    return ret;
+};
+
 export const MainRouter = (): JSX.Element => {
     const [open, setOpen] = useState(false);
     const title = useSelector((state: AppState) => state.app.pageTitle);
-
     return (
         <Router>
             <Switch>
@@ -28,15 +46,9 @@ export const MainRouter = (): JSX.Element => {
                             />
                             <div style={{ padding: 20 }}>
                                 <Switch>
-                                    {/* Intro Pages */}
-                                    <Route exact path="/introduction">
-                                        <Introduction />
-                                    </Route>
-                                    {/* Style Pages */}
-                                    <Route exact path="/style/typography">
-                                        <Typography />
-                                    </Route>
-                                    {/* Catch-All Redirect to Home */}
+                                    {buildRoutes(pageDefinitions, '')}
+
+                                    {/* Catch-All Redirect to Landing Page */}
                                     <Route path="*">
                                         <Redirect to={'/'} />
                                     </Route>

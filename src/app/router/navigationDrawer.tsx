@@ -7,7 +7,7 @@ import { Pxblue } from '@pxblue/icons-mui';
 import { Info } from '@material-ui/icons';
 
 import * as Colors from '@pxblue/colors';
-import { navigationData } from '../../__configuration__/navigationMenu/navigation';
+import { pageDefinitions } from '../../__configuration__/navigationMenu/navigation';
 
 export const NavigationDrawer = (): JSX.Element => {
     const [open, setOpen] = useState(false);
@@ -32,16 +32,16 @@ export const NavigationDrawer = (): JSX.Element => {
                 onIconClick={(): void => setOpen(!open)}
             />
             <DrawerBody>
-                {navigationData.map((group, index) => {
+                {pageDefinitions.map((group, index) => {
                     const items: NavItem[] = [];
-                    group.data.forEach((data) => {
+                    group.pages.forEach((page) => {
                         items.push({
-                            title: data.title,
+                            title: page.title,
                             icon: <Info />,
-                            active: location.pathname.includes(data.url || ''),
+                            active: location.pathname.includes(page.url || ''),
                             onClick: () => {
-                                if (data.url) {
-                                    history.push(data.url);
+                                if (page.url) {
+                                    history.push(group.url + page.url);
                                 }
                             },
                         });
