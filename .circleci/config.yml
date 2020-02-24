@@ -66,7 +66,7 @@ jobs:
               # fi
               cd ..
 
-              # Copy the correct Google Analytics files (master/dev)
+#              # Copy the correct Google Analytics files (master/dev)
 #              if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]
 #              then
 #                yarn ga:prod
