@@ -16,9 +16,26 @@ export const componentsMap = {
     h6: (props: TypographyProps): JSX.Element => (
         <Typography paragraph variant={'body2'} style={{ fontSize: '0.75rem' }} color={'primary'} {...props} />
     ),
-    a: (props: LinkProps): JSX.Element => (
-        <Link to={props.href} target={(props.href && props.href.match(/^http/gi)) ? '_blank' : undefined} rel="noopener noreferrer" style={{ fontWeight: 600, textDecoration: 'none', color: '#007bc1' }} {...props} />
-    ),
-    p: (props: TypographyProps): JSX.Element => <Typography paragraph {...props} /> ,
-        li: (props: TypographyProps<'li'>): JSX.Element => <Typography component={'li'} className={'mdLi'} {...props} /> ,
+    a: (props: TypographyProps<'a'> | LinkProps): JSX.Element => {
+        let tProps;
+        if (props.href && props.href.match(/^http/gi)) {
+            tProps = props as TypographyProps<'a'>;
+            return (
+                <Typography
+                    component={'a'}
+                    target={'_blank'}
+                    rel="noopener noreferrer"
+                    style={{ fontWeight: 600, textDecoration: 'none', color: '#007bc1' }}
+                    {...tProps}
+                />
+            );
+        }
+        tProps = props as LinkProps;
+        return (
+            <Link to={props.href} rel="noopener noreferrer" style={{ fontWeight: 600, textDecoration: 'none', color: '#007bc1' }} {...tProps} />
+
+        );
+    },
+    p: (props: TypographyProps): JSX.Element => <Typography paragraph {...props} />,
+    li: (props: TypographyProps<'li'>): JSX.Element => <Typography component={'li'} className={'mdLi'} {...props} />,
 };
