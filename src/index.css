@@ -31,11 +31,6 @@ blockquote > p:last-child {
     margin-bottom: 0;
 }
 
-/* Spacing between items in bulleted list */
-.mdLi:not(:last-child) {
-    margin-bottom: 0.75rem;
-}
-
 .rotateMe {
     animation: 2500ms spin linear infinite;
 }

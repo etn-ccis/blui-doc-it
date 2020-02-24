@@ -10,13 +10,12 @@ import * as PXBThemes from '@pxblue/themes/react';
 import 'typeface-open-sans';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { MDXProvider } from '@mdx-js/react'
+import { MDXProvider } from '@mdx-js/react';
 import { MainRouter } from './app/router';
 import { Reducer } from './app/redux/reducers';
 import { componentsMap } from './__configuration__/markdown/markdownMapping';
 
 const store = createStore(Reducer());
-
 
 ReactDOM.render(
     <MuiThemeProvider theme={createMuiTheme(PXBThemes.blue)}>
