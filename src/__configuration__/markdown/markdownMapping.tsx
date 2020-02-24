@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name */
 import React from 'react';
 import { Typography, TypographyProps } from '@material-ui/core';
+import { Link, LinkProps } from 'react-router-dom';
 
 export const componentsMap = {
     h1: (props: TypographyProps): JSX.Element => <Typography paragraph variant={'h4'} color={'primary'} {...props} />,
@@ -15,27 +16,9 @@ export const componentsMap = {
     h6: (props: TypographyProps): JSX.Element => (
         <Typography paragraph variant={'body2'} style={{ fontSize: '0.75rem' }} color={'primary'} {...props} />
     ),
-    a: (props: TypographyProps<'a'>): JSX.Element => {
-        if (props.href && props.href.match(/^http/gi)) {
-            return (
-                <Typography
-                    component={'a'}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ fontWeight: 600, textDecoration: 'none', color: '#007bc1' }}
-                    {...props}
-                />
-            );
-        }
-        return (
-            <Typography
-                component={'a'}
-                rel="noopener noreferrer"
-                style={{ fontWeight: 600, textDecoration: 'none', color: '#007bc1' }}
-                {...props}
-            />
-        );
-    },
-    p: (props: TypographyProps): JSX.Element => <Typography paragraph {...props} />,
-    li: (props: TypographyProps<'li'>): JSX.Element => <Typography component={'li'} className={'mdLi'} {...props} />,
+    a: (props: LinkProps): JSX.Element => (
+        <Link to={props.href} target={(props.href && props.href.match(/^http/gi)) ? '_blank' : undefined} rel="noopener noreferrer" style={{ fontWeight: 600, textDecoration: 'none', color: '#007bc1' }} {...props} />
+    ),
+    p: (props: TypographyProps): JSX.Element => <Typography paragraph {...props} /> ,
+        li: (props: TypographyProps<'li'>): JSX.Element => <Typography component={'li'} className={'mdLi'} {...props} /> ,
 };
