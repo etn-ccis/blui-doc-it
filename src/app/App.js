@@ -24,29 +24,17 @@ import IconographyComponent from "./components/Iconography";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import eaton from './icons/eaton.svg';
 import {Fab} from '@material-ui/core';
-import {fallTheme, winterTheme} from "./holidayThemes/holidayStyles";
+import {fallTheme, winterTheme, marchTheme} from "./holidayThemes/holidayStyles";
 import * as ColorsBranding from "@pxblue/colors-branding";
 import circles from "./icons/circles-bg.svg"
 import snowman from "./icons/snowman80.png";
+import leprechaun from './icons/leprechaun-02.png';
 import turkey from "./icons/turkey80.png";
 require('typeface-roboto-mono');
 
 const siteConfig = require('../docs/site-config.json');
 
 const themes = [
-    {
-        name: 'default',
-        message: '',
-        theme: EatonTheme.blue,
-        class: '',
-        backgroundSize: 'cover',
-        backgroundImage: `url(${circles})`,
-        backgroundPosition: 'center center',
-        textShadow: 'none',
-        dateRanges: [
-            {start: 1, end: 11}, // January through October
-        ]
-    },
     {
         name: 'Thanksgiving',
         message: 'Happy Thanksgiving from PX Blue',
@@ -73,6 +61,33 @@ const themes = [
             {start: 12, end: 13}, // December only
         ]
     },
+    {
+        name: 'St Patricks Day',
+        message: '',
+        theme: marchTheme,
+        class: 'marchTheme',
+        backgroundSize: 'contain',
+        backgroundImage: `url(${leprechaun}), linear-gradient(to right, ${ColorsBranding.emerald[400]} , ${ColorsBranding.emerald[800]})`,
+        backgroundPosition: 'center right',
+        textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black',
+        dateRanges: [
+            {start: 3, end: 4}, // March only
+        ]
+    },
+    {
+        name: 'default',
+        message: '',
+        theme: EatonTheme.blue,
+        class: '',
+        backgroundSize: 'cover',
+        backgroundImage: `url(${circles})`,
+        backgroundPosition: 'center center',
+        textShadow: 'none',
+        dateRanges: [
+            {start: 1, end: 3}, // January, February
+            {start: 4, end: 11}, // April through October
+        ]
+    },
 ];
 const getCurrentTheme = () => {
     const now = new Date(Date.now());
@@ -83,6 +98,7 @@ const getCurrentTheme = () => {
         }
         return false;
     });
+    console.log(activeTheme);
     if(!activeTheme) return themes[0];
     return activeTheme;
 }

@@ -26,74 +26,76 @@ const backgroundFall = {
     paper: BrandingColors.toad[50]
 };
 
+const backgroundMarch = {
+    default: BrandingColors.pine[50],
+    paper: BrandingColors.sage[50]
+};
+
 const action = {
-    active:"rgba(0, 0, 0, .6)",
-    disabled:"rgba(0, 0, 0, .25)"
+    active: "rgba(0, 0, 0, .6)",
+    disabled: "rgba(0, 0, 0, .25)"
 };
 
 export const winterTheme =
-    {
-        navbarBackground: {
-            backgroundImage: "url(" + require('../icons/snowflake.svg') + ")",
-            backgroundRepeat: 'repeat-x',
-            backgroundPositionY: 'center',
-            backgroundBlendMode: 'soft-light',
-            backgroundSize: '60px'
-        },
-        palette:{
-            primary: BrandingColors.wine,
-            secondary: BrandingColors.pine,
-            error: ThemeColors.red,
-            background: backgroundWinter,
-            action: action,
-            line: {stepper: ThemeColors.white['500']},
-            input: input
-        },
-        typography: typography,
-        direction: "ltr",
-        overrides:{
-            // APP BAR OVERRIDES
-            MuiAppBar:{
-                colorDefault:{
-                    color: ThemeColors.black['500'],
-                    backgroundColor: ThemeColors.gray['50']
-                },
-                colorSecondary:{
-                    backgroundColor: BrandingColors.pine['700']
-                }
-            },
-        }
-    };
+{
+    navbarBackground: {
+        backgroundImage: "url(" + require('../icons/snowflake.svg') + ")",
+        backgroundRepeat: 'repeat-x',
+        backgroundPositionY: 'center',
+        backgroundBlendMode: 'soft-light',
+        backgroundSize: '60px'
+    },
+    palette: {
+        primary: BrandingColors.wine,
+        secondary: BrandingColors.pine,
+        error: ThemeColors.red,
+        background: backgroundWinter,
+        action: action,
+        line: { stepper: ThemeColors.white['500'] },
+        input: input
+    },
+    typography: typography,
+    direction: "ltr",
+};
 
 export const fallTheme =
-    {
-        navbarBackground: {
-            backgroundImage: "url(" + require('../icons/leaves.png') + ")",
-            backgroundRepeat: 'repeat-x',
-            backgroundPositionY: 'center',
-            backgroundSize: '300px'
-        },
-        palette:{
-            primary: BrandingColors.rust,
-            secondary: ThemeColors.gray,
-            error: ThemeColors.red,
-            background: backgroundFall,
-            action: action,
-            line: {stepper: ThemeColors.yellow['500']},
-            input: input
-        },
-        typography: typography,
-        direction: "ltr",
-        overrides:{
-            // APP BAR OVERRIDES
-            MuiAppBar:{
-                colorDefault:{
-                    color: ThemeColors.black['500'],
-                    backgroundColor: ThemeColors.gray['50']
-                },
-                colorSecondary:{
-                    backgroundColor: ThemeColors.yellow['700']
-                }
-            },
-        }
-    };
+{
+    navbarBackground: {
+        backgroundImage: "url(" + require('../icons/leaves.png') + ")",
+        backgroundRepeat: 'repeat-x',
+        backgroundPositionY: 'center',
+        backgroundSize: '300px'
+    },
+    palette: {
+        primary: BrandingColors.rust,
+        secondary: ThemeColors.gray,
+        error: ThemeColors.red,
+        background: backgroundFall,
+        action: action,
+        line: { stepper: ThemeColors.yellow['500'] },
+        input: input
+    },
+    typography: typography,
+    direction: "ltr",
+};
+
+export const marchTheme =
+{
+    navbarBackground: {
+        backgroundImage: "url(" + require('../icons/clover.png') + ")",
+        backgroundRepeat: 'repeat-x',
+        backgroundPositionY: 'center',
+        backgroundSize: '100px'
+    },
+    palette: {
+        primary: BrandingColors.emerald,
+        secondary: ThemeColors.gray,
+        error: ThemeColors.red,
+        background: backgroundMarch,
+        action: action,
+        line: { stepper: ThemeColors.black['50'] },
+        input: input
+    },
+    typography: typography,
+    direction: "ltr",
+};
