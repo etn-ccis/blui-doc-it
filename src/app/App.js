@@ -98,7 +98,6 @@ const getCurrentTheme = () => {
         }
         return false;
     });
-    console.log(activeTheme);
     if(!activeTheme) return themes[0];
     return activeTheme;
 }
