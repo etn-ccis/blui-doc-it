@@ -28,7 +28,7 @@ import {fallTheme, winterTheme, marchTheme} from "./holidayThemes/holidayStyles"
 import * as ColorsBranding from "@pxblue/colors-branding";
 import circles from "./icons/circles-bg.svg"
 import snowman from "./icons/snowman80.png";
-import leprechaun from './icons/leprechaun-02.png';
+import leprechaun from './icons/leprechaun-01.png';
 import turkey from "./icons/turkey80.png";
 require('typeface-roboto-mono');
 
