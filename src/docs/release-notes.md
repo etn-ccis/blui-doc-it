@@ -6,7 +6,7 @@
 
 ### Component Library
 We have been continuing to develop new components to build out our component library. 
-- For React Native, we have added components for [Header](https://github.com/pxblue/react-native-component-library/blob/dev/docs/header.md), [InfoListItem](https://github.com/pxblue/react-native-component-library/blob/dev/docs/infoListItem.md), and [ScoreCard](https://github.com/pxblue/react-native-component-library/blob/dev/docs/scorecard.md). 
+- For React Native, we have added components for [Header](https://github.com/pxblue/react-native-component-library/blob/dev/docs/header.md), [InfoListItem](https://github.com/pxblue/react-native-component-library/blob/dev/docs/infoListItem.md), and [ScoreCard](https://github.com/pxblue/react-native-component-library/blob/dev/docs/scoreCard.md). 
 - For React, we have added components for [InfoListItem](https://github.com/pxblue/react-component-library/blob/dev/docs/InfoListItem.md) and [ScoreCard](https://github.com/pxblue/react-component-library/blob/dev/docs/ScoreCard.md).
 
 ### Moving to TypeScript
