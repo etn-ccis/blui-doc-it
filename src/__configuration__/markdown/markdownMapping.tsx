@@ -32,8 +32,12 @@ export const componentsMap = {
         }
         tProps = props as LinkProps;
         return (
-            <Link to={props.href} rel="noopener noreferrer" style={{ fontWeight: 600, textDecoration: 'none', color: '#007bc1' }} {...tProps} />
-
+            <Link
+                to={props.href}
+                rel="noopener noreferrer"
+                style={{ fontWeight: 600, textDecoration: 'none', color: '#007bc1' }}
+                {...tProps}
+            />
         );
     },
     p: (props: TypographyProps): JSX.Element => <Typography paragraph {...props} />,

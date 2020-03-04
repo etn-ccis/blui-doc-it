@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { Typography, AppBar, Toolbar, ListItemText, AppBarProps, Hidden } from '@material-ui/core';
+import { Typography, AppBar, Toolbar, ListItemText, AppBarProps, Hidden, useTheme } from '@material-ui/core';
 
 export type SharedToolbarProps = AppBarProps & {
     title: string;
@@ -11,12 +11,13 @@ export type SharedToolbarProps = AppBarProps & {
 
 export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const { title, color, subtitle, navigationIcon, ...other } = props;
+    const theme = useTheme();
 
     const _navigationIcon = useCallback(() => {
         if (navigationIcon) {
             return (
                 <Hidden smUp>
-                    <div style={{ marginRight: 32, cursor: 'pointer' }}>{navigationIcon}</div>
+                    <div style={{ marginRight: theme.spacing(4), cursor: 'pointer' }}>{navigationIcon}</div>
                 </Hidden>
             );
         }
@@ -25,7 +26,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     return (
         <>
             <AppBar position="sticky" color={color} {...other}>
-                <Toolbar data-testid={'dropdown-toolbar'} style={{ paddingLeft: 16, paddingRight: 16 }}>
+                <Toolbar data-testid={'dropdown-toolbar'} style={{ padding: `0 ${theme.spacing(2)}px` }}>
                     <>
                         {_navigationIcon()}
                         <ListItemText

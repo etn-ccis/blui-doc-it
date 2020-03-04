@@ -9,4 +9,15 @@ import * as GetStarted from './get-started';
 import * as Development from './development';
 import * as Community from './community';
 
-export { Overview, NotFound, ReleaseNotes, LatestReleases, Resources, Style, Patterns, GetStarted, Development, Community };
+export {
+    Overview,
+    NotFound,
+    ReleaseNotes,
+    LatestReleases,
+    Resources,
+    Style,
+    Patterns,
+    GetStarted,
+    Development,
+    Community,
+};

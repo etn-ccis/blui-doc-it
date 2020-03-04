@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { LandingPage } from '../pages';
 import { DrawerLayout } from '@pxblue/react-components';
-import { SharedToolbar } from '../components/SharedToolbar';
+import { SharedToolbar } from '../components';
 import { NavigationDrawer } from './navigationDrawer';
 import { AppState } from '../redux/reducers';
 //@ts-ignore
