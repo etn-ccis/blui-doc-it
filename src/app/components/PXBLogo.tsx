@@ -12,3 +12,13 @@ export const PXBLogo: React.FC = (): JSX.Element => (
     </>
 );
 PXBLogo.displayName = 'PXBLogo';
+
+export const SmallPXBLogo: React.FC = (): JSX.Element => (
+    <div style={{ display: 'inline-flex', alignItems: 'center' }}>
+        <img src={pxb} height={32} width={'auto'} alt={'PX Blue logo'} />
+        <Typography variant={'h5'} style={{ fontWeight: 300, marginLeft: 8 }}>
+            Power Xpert <b>Blue</b>
+        </Typography>
+    </div>
+);
+PXBLogo.displayName = 'PXBLogo';

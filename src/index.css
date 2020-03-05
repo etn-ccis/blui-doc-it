@@ -47,3 +47,22 @@ blockquote > p:last-child {
         transform: rotate(360deg);
     }
 }
+
+/* Carousel Overrides */
+.BrainhubCarousel {
+    position: relative;
+    color: white;
+}
+.BrainhubCarousel__customArrows {
+    position: absolute;
+    width: 0;
+    top: calc(50%);
+    transform: translateY(-50%);
+    z-index: 100;
+}
+.BrainhubCarousel__custom-arrowLeft {
+    left: 0;
+}
+.BrainhubCarousel__custom-arrowRight {
+    right: 59px;
+}

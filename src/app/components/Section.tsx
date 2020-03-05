@@ -13,9 +13,29 @@ type SectionProps = {
 export const Section: React.FC<SectionProps> = (props) => {
     const theme = useTheme();
     return (
-        <div style={Object.assign({ backgroundColor: props.background === 'light' ? Colors.white[50] : Colors.white[200], width: '100%', padding: `${theme.spacing(4)}px 0` }, props.style)}>
-            <div style={{ margin: '0 auto', maxWidth: props.maxWidth, padding: `0 ${theme.spacing(6)}px`, textAlign: props.align }}>
-                <Typography variant={'h5'} align={props.align} style={{ fontWeight: 600, marginBottom: theme.spacing(2) }}>
+        <div
+            style={Object.assign(
+                {
+                    backgroundColor: props.background === 'light' ? Colors.white[50] : Colors.white[200],
+                    width: '100%',
+                    padding: `${theme.spacing(6)}px 0`,
+                },
+                props.style
+            )}
+        >
+            <div
+                style={{
+                    margin: '0 auto',
+                    maxWidth: props.maxWidth,
+                    padding: `0 ${theme.spacing(6)}px`,
+                    textAlign: props.align,
+                }}
+            >
+                <Typography
+                    variant={'h5'}
+                    align={props.align}
+                    style={{ fontWeight: 600, marginBottom: theme.spacing(2) }}
+                >
                     {props.title}
                 </Typography>
                 <Divider style={{ width: '100%', opacity: props.align === 'center' ? 0 : 1 }} />
@@ -30,8 +50,8 @@ export const Section: React.FC<SectionProps> = (props) => {
                 {props.children}
             </div>
         </div>
-    )
-}
+    );
+};
 Section.displayName = 'PageSection';
 Section.defaultProps = {
     maxWidth: 1072,

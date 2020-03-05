@@ -42,8 +42,8 @@ export const InfoCard: React.FC<InfoCardProps> = (props): JSX.Element => {
                 {props.description}
             </Typography>
         </div>
-    )
-}
+    );
+};
 InfoCard.displayName = 'InfoCard';
 InfoCard.defaultProps = {
     aspectRatio: '2x1',

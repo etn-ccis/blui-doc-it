@@ -1,31 +1,28 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Hidden, Button, Grid, useTheme } from '@material-ui/core';
-import { PXBLogo, InfoCard, Section as LandingSection } from '../components';
+import {
+    PXBLogo,
+    InfoCard,
+    Section as LandingSection,
+    CardCarousel,
+    CarouselCard,
+    NavLink,
+    FooterLinks,
+} from '../components';
 import { LatestReleases } from '../../docs';
 
 //@ts-ignore
 import { PxblueSmall } from '@pxblue/icons-mui';
 import * as Colors from '@pxblue/colors';
 import circles from '../assets/circles.svg';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { cardData } from '../../__configuration__/landingPage/cardData';
 import { Spacer } from '@pxblue/react-components';
 import { ReleaseInfo } from '../../docs/release-notes';
 
-type NavLinkProps = {
-    title: string;
-    to: string;
-};
-const NavLink: React.FC<NavLinkProps> = (props): JSX.Element => (
-    <Link
-        rel="noopener noreferrer"
-        style={{ fontWeight: 400, textDecoration: 'none', color: '#ffffff', marginLeft: 16 }}
-        to={props.to}
-    >
-        {props.title}
-    </Link>
-);
+import computer from '../assets/placeholder/develop.jpg';
+import paper from '../assets/placeholder/paper.jpg';
 
 export const LandingPage: React.FC = (): JSX.Element => {
     const history = useHistory();
@@ -34,7 +31,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
     return (
         <>
             <AppBar position="fixed" color={'primary'}>
-                <Toolbar style={{ padding: `0 ${theme.spacing(2)}px`}}>
+                <Toolbar style={{ padding: `0 ${theme.spacing(2)}px` }}>
                     <PxblueSmall style={{ marginRight: theme.spacing(1) }} />
                     <Typography>
                         Power Xpert <b>Blue</b>
@@ -87,12 +84,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     ))}
                 </Grid>
             </LandingSection>
-            <LandingSection
-                title={'Latest Updates'}
-                align={'center'}
-                maxWidth={750}
-                background={'dark'}
-            >
+            <LandingSection title={'Latest Updates'} align={'center'} maxWidth={750} background={'dark'}>
                 <Typography style={{ marginTop: theme.spacing(2), color: Colors.gray[500] }}>
                     Get the latest updates on guidelines, components, and documentation across platforms.
                 </Typography>
@@ -109,11 +101,48 @@ export const LandingPage: React.FC = (): JSX.Element => {
                         {item.summary}
                     </div>
                 ))}
-                <Button variant={'outlined'} color={'primary'} style={{ marginTop: theme.spacing(1) }} onClick={(): void => history.push('/release-notes')}>
+                <Button
+                    variant={'outlined'}
+                    color={'primary'}
+                    style={{ marginTop: theme.spacing(1) }}
+                    onClick={(): void => history.push('/release-notes')}
+                >
                     VIEW ALL
                 </Button>
             </LandingSection>
+
+            {/* Carousel Section */}
+            <CardCarousel>
+                <CarouselCard
+                    backgroundImage={paper}
+                    title={'Getting started as a designer'}
+                    description={
+                        'We offer asset library on Sketch and Figma, with all the icons, fonts, colors and components.'
+                    }
+                    onClick={(): void => history.push('/style/color')}
+                />
+                <CarouselCard
+                    backgroundImage={computer}
+                    title={'Getting started as a developer'}
+                    description={
+                        'We offer asset library on Sketch and Figma, with all the icons, fonts, colors and components.'
+                    }
+                    onClick={(): void => history.push('/development/environment')}
+                />
+            </CardCarousel>
+
             {/* Footer Section */}
+            <FooterLinks />
+            <div
+                style={{
+                    background: Colors.black[900],
+                    color: Colors.white[50],
+                    textAlign: 'center',
+                    padding: theme.spacing(6),
+                }}
+            >
+                <Typography variant={'h3'}>WORK IN PROGRESS</Typography>
+            </div>
         </>
     );
 };
