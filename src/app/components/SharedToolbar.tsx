@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Typography, AppBar, Tabs, Tab, Toolbar, ListItemText, AppBarProps, Hidden, useTheme } from '@material-ui/core';
 import { NavLink } from '../components';
 import { PxblueSmall } from '@pxblue/icons-mui';
+import { Spacer } from '@pxblue/react-components';
 
 export type SharedToolbarProps = AppBarProps & {
     title?: string;
@@ -50,16 +51,18 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                             secondary={subtitle}
                         />
                     ) : (
-                        <Typography>
-                            Power Xpert <b>Blue</b>
-                        </Typography>
-                    )}
-                    <div style={{ flex: '1 1 0px' }} />
+                            <Typography>
+                                Power Xpert <b>Blue</b>
+                            </Typography>
+                        )}
+                    <Spacer />
                     <Hidden xsDown>
-                        <NavLink to={'/overview'} title={'Getting Started'} />
-                        <NavLink to={'/style/color'} title={'Styles'} />
-                        <NavLink to={'/patterns/appbar'} title={'Patterns'} />
-                        <NavLink to={'/resources'} title={'Resources'} />
+                        <div style={{display: 'flex', flexWrap: 'wrap', flex: '1 1 auto'}}>
+                            <NavLink to={'/overview'} title={'Getting Started'} />
+                            <NavLink to={'/style/color'} title={'Styles'} />
+                            <NavLink to={'/patterns/appbar'} title={'Patterns'} />
+                            <NavLink to={'/resources'} title={'Resources'} />
+                        </div>
                     </Hidden>
                 </Toolbar>
             </AppBar>
