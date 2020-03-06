@@ -57,7 +57,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                         )}
                     <Spacer />
                     <Hidden xsDown>
-                        <div style={{display: 'flex', flexWrap: 'wrap', flex: '1 1 auto'}}>
+                        <div style={{display: 'flex', flexWrap: 'wrap', flex: '1 1 auto', justifyContent:'flex-end'}}>
                             <NavLink to={'/overview'} title={'Getting Started'} />
                             <NavLink to={'/style/color'} title={'Styles'} />
                             <NavLink to={'/patterns/appbar'} title={'Patterns'} />

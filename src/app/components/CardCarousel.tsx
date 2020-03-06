@@ -81,7 +81,7 @@ export const CardCarousel: React.FC<CardCarouselProps> = (props): JSX.Element =>
     const displayCount = xs ? 1 : props.slidesPerPage || 2;
     const isArray = Array.isArray(props.children);
     const showArrows = isArray ? (props.children as any[]).length > displayCount : false;
-    return (
+    return xs ? <>{props.children}</> : (
         <Carousel
             draggable={false}
             infinite={isArray && props.infinite}
@@ -92,8 +92,8 @@ export const CardCarousel: React.FC<CardCarouselProps> = (props): JSX.Element =>
                         <ChevronLeft fontSize={'large'} />
                     </IconButton>
                 ) : (
-                    undefined
-                )
+                        undefined
+                    )
             }
             arrowRight={
                 showArrows ? (
@@ -101,8 +101,8 @@ export const CardCarousel: React.FC<CardCarouselProps> = (props): JSX.Element =>
                         <ChevronRight fontSize={'large'} />
                     </IconButton>
                 ) : (
-                    undefined
-                )
+                        undefined
+                    )
             }
             addArrowClickHandler
         >
