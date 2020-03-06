@@ -10,7 +10,7 @@ import { makeStyles, createStyles } from '@material-ui/core/styles';
 
 import * as Colors from '@pxblue/colors';
 import { SmallPXBLogo, NavLink } from '../components';
-import { Dribbble, GitHub, NPM } from '../assets/icons';
+import { /*Dribbble, GitHub, NPM,*/ Eaton } from '../assets/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -115,9 +115,16 @@ export const FooterLinks: React.FC = (): JSX.Element => {
 
             {/* Section 3: Contact Us */}
             <div style={{ flex: '1 0 auto', minWidth: xxs ? '100%' : 250, padding: padding, color: Colors.white[100] }}>
-                <Typography variant={'subtitle1'}>Connect with us</Typography>
+                {/* <Typography variant={'subtitle1'}>Connect with us</Typography> */}
                 <div style={{ color: Colors.white[500], marginTop: theme.spacing(1) }}>
-                    <Dribbble
+                    <Eaton
+                        className={classes.socialIcon}
+                        style={{ fontSize: 120 }}
+                        onClick={(): void => {
+                            window.open('https://www.eaton.com', '_blank');
+                        }}
+                    />
+                    {/* <Dribbble
                         style={{ margin: 0 }}
                         className={classes.socialIcon}
                         onClick={(): void => {
@@ -135,7 +142,7 @@ export const FooterLinks: React.FC = (): JSX.Element => {
                         onClick={(): void => {
                             window.open('https://www.npmjs.com/~px-blue', '_blank');
                         }}
-                    />
+                    /> */}
                 </div>
             </div>
         </div>

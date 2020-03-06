@@ -2,33 +2,22 @@ import React from 'react';
 import * as Docs from '../../docs';
 import { MarkdownPage } from '../../app/pages';
 
-export type NavItem = {
+export type SimpleNavItem = {
     title: string;
     url?: string;
-    pages?: NavItem[];
+    icon?: JSX.Element;
+    pages?: SimpleNavItem[];
     component?: JSX.Element;
 };
-export type NavGroup = {
-    title?: string;
-    url: string;
-    pages: NavItem[];
-};
-export type NavData = NavGroup[];
 
-export const pageDefinitions: NavGroup[] = [
+export const pageDefinitions: SimpleNavItem[] = [
     {
-        // title: 'Introduction',
-        url: '',
-        pages: [
-            {
-                title: 'What is PX Blue?',
-                url: '/overview',
-                component: <MarkdownPage title={'What is PX Blue?'} markdown={Docs.Overview} />,
-            },
-        ],
+        title: 'What is PX Blue?',
+        url: '/overview',
+        component: <MarkdownPage title={'What is PX Blue?'} markdown={Docs.Overview} />,
     },
     {
-        title: 'Getting Started',
+        title: 'Starting a Project',
         url: '/get-started',
         pages: [
             {
@@ -56,11 +45,6 @@ export const pageDefinitions: NavGroup[] = [
                 title: 'Environment Setup',
                 url: '/environment',
                 component: <MarkdownPage title={'Environment Setup'} markdown={Docs.Development.Environment} />,
-            },
-            {
-                title: 'Testing',
-                url: '/testing',
-                component: <MarkdownPage title={'Testing'} markdown={Docs.Development.Testing} />,
             },
             {
                 title: 'Web Frameworks',
@@ -134,6 +118,11 @@ export const pageDefinitions: NavGroup[] = [
                         ),
                     },
                 ],
+            },
+            {
+                title: 'Testing',
+                url: '/testing',
+                component: <MarkdownPage title={'Testing'} markdown={Docs.Development.Testing} />,
             },
         ],
     },
@@ -261,19 +250,13 @@ export const pageDefinitions: NavGroup[] = [
         ],
     },
     {
-        // title: 'Introduction',
-        url: '',
-        pages: [
-            {
-                title: 'Resources',
-                url: '/resources',
-                component: <MarkdownPage title={'Resources'} markdown={Docs.Resources} />,
-            },
-            {
-                title: 'Release Notes',
-                url: '/release-notes',
-                component: <MarkdownPage title={'Release Notes'} markdown={Docs.ReleaseNotes} />,
-            },
-        ],
+        title: 'Resources',
+        url: '/resources',
+        component: <MarkdownPage title={'Resources'} markdown={Docs.Resources} />,
+    },
+    {
+        title: 'Release Notes',
+        url: '/release-notes',
+        component: <MarkdownPage title={'Release Notes'} markdown={Docs.ReleaseNotes} />,
     },
 ];

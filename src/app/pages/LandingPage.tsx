@@ -1,18 +1,32 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Hidden, Button, Grid, useTheme } from '@material-ui/core';
+import {
+    AppBar,
+    Toolbar,
+    Typography,
+    // Hidden,
+    Button,
+    Grid,
+    Theme,
+    // Tabs,
+    // Tab,
+    useTheme,
+    createStyles,
+    makeStyles,
+} from '@material-ui/core';
 import {
     PXBLogo,
     InfoCard,
     Section as LandingSection,
     CardCarousel,
     CarouselCard,
-    NavLink,
+    // NavLink,
     FooterLinks,
+    SharedToolbar,
 } from '../components';
 import { LatestReleases } from '../../docs';
 
 //@ts-ignore
-import { PxblueSmall } from '@pxblue/icons-mui';
+// import { PxblueSmall } from '@pxblue/icons-mui';
 import * as Colors from '@pxblue/colors';
 import circles from '../assets/circles.svg';
 import { useHistory } from 'react-router-dom';
@@ -24,40 +38,43 @@ import { ReleaseInfo } from '../../docs/release-notes';
 import computer from '../assets/placeholder/develop.jpg';
 import paper from '../assets/placeholder/paper.jpg';
 
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        banner: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            // marginTop: theme.spacing(8),
+            padding: `${theme.spacing(8)}px ${theme.spacing(4)}px`,
+            width: '100%',
+            color: '#ffffff',
+            backgroundColor: Colors.blue[500],
+            backgroundImage: `url(${circles})`,
+            backgroundSize: 1200,
+            backgroundPosition: '-240px center',
+            [theme.breakpoints.down('xs')]: {
+                // marginTop: theme.spacing(7)
+            },
+        },
+        footer: {
+            zIndex: 0,
+            backgroundColor: Colors.black[900],
+            textAlign: 'center',
+            // position: 'absolute',
+            // bottom: 0,
+        },
+    })
+);
+
 export const LandingPage: React.FC = (): JSX.Element => {
     const history = useHistory();
     const theme = useTheme();
+    const classes = useStyles();
 
     return (
         <>
-            <AppBar position="fixed" color={'primary'}>
-                <Toolbar style={{ padding: `0 ${theme.spacing(2)}px` }}>
-                    <PxblueSmall style={{ marginRight: theme.spacing(1) }} />
-                    <Typography>
-                        Power Xpert <b>Blue</b>
-                    </Typography>
-                    <div style={{ flex: '1 1 0px' }} />
-                    <Hidden xsDown>
-                        <NavLink to={'/overview'} title={'Getting Started'} />
-                        <NavLink to={'/style/color'} title={'Styles'} />
-                        <NavLink to={'/patterns/appbar'} title={'Patterns'} />
-                        <NavLink to={'/resources'} title={'Resources'} />
-                    </Hidden>
-                </Toolbar>
-            </AppBar>
-            <div
-                className={'verticalFlex'}
-                style={{
-                    marginTop: theme.spacing(8),
-                    padding: `${theme.spacing(16)}px ${theme.spacing(4)}px`,
-                    width: '100%',
-                    color: '#ffffff',
-                    backgroundColor: Colors.blue[500],
-                    backgroundImage: `url(${circles})`,
-                    backgroundSize: 1200,
-                    backgroundPosition: '-240px center',
-                }}
-            >
+            <SharedToolbar />
+            <div className={classes.banner}>
                 <PXBLogo />
                 <Button
                     variant={'outlined'}
@@ -133,16 +150,13 @@ export const LandingPage: React.FC = (): JSX.Element => {
 
             {/* Footer Section */}
             <FooterLinks />
-            <div
-                style={{
-                    background: Colors.black[900],
-                    color: Colors.white[50],
-                    textAlign: 'center',
-                    padding: theme.spacing(6),
-                }}
-            >
-                <Typography variant={'h3'}>WORK IN PROGRESS</Typography>
-            </div>
+            <AppBar position={'static'} className={classes.footer} elevation={0}>
+                <Toolbar variant={'dense'}>
+                    <Typography variant={'caption'} align={'center'} style={{ flex: '1 1 0px' }}>
+                        Copyright 2020 Eaton. Licensed under BSD-3-Clause.
+                    </Typography>
+                </Toolbar>
+            </AppBar>
         </>
     );
 };

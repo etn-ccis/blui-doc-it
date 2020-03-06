@@ -23,7 +23,7 @@
     "@pxblue/colors": "^2.0.0",
     "@pxblue/colors-branding": "^3.0.0",
     "@pxblue/icons-mui": "^2.1.0",
-    "@pxblue/react-components": "^2.1.0",
+    "@pxblue/react-components": "^3.0.0-beta.0",
     "@pxblue/react-progress-icons": "^2.0.0",
     "@pxblue/themes": "^3.0.2",
     "clsx": "^1.1.0",

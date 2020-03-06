@@ -5,8 +5,7 @@ import { DrawerLayout } from '@pxblue/react-components';
 import { SharedToolbar } from '../components';
 import { NavigationDrawer } from './navigationDrawer';
 import { AppState } from '../redux/reducers';
-//@ts-ignore
-import { Pxblue } from '@pxblue/icons-mui';
+import { Menu } from '@material-ui/icons';
 import { useSelector } from 'react-redux';
 
 import { pageDefinitions } from '../../__configuration__/navigationMenu/navigation';
@@ -38,24 +37,26 @@ export const MainRouter = (): JSX.Element => {
                     <LandingPage />
                 </Route>
                 <Route path="*">
-                    <DrawerLayout drawer={<NavigationDrawer />}>
-                        <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                            <SharedToolbar
-                                title={title}
-                                navigationIcon={<Pxblue onClick={(): void => setOpen(!open)} />}
-                            />
-                            <div style={{ padding: 20 }}>
-                                <Switch>
-                                    {buildRoutes(pageDefinitions, '')}
+                    <div style={{ height: '100vh' }}>
+                        <DrawerLayout drawer={<NavigationDrawer />}>
+                            <>
+                                <SharedToolbar
+                                    title={title}
+                                    navigationIcon={<Menu onClick={(): void => setOpen(!open)} />}
+                                />
+                                <div style={{ padding: 20 }}>
+                                    <Switch>
+                                        {buildRoutes(pageDefinitions, '')}
 
-                                    {/* Catch-All Redirect to Landing Page */}
-                                    <Route path="*">
-                                        <Redirect to={'/'} />
-                                    </Route>
-                                </Switch>
-                            </div>
-                        </div>
-                    </DrawerLayout>
+                                        {/* Catch-All Redirect to Landing Page */}
+                                        <Route path="*">
+                                            <Redirect to={'/'} />
+                                        </Route>
+                                    </Switch>
+                                </div>
+                            </>
+                        </DrawerLayout>
+                    </div>
                 </Route>
             </Switch>
         </Router>
