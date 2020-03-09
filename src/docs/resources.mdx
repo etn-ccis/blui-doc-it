@@ -1,3 +1,29 @@
+import { AppBar, Toolbar, Tabs, Tab } from '@material-ui/core';
+
+<AppBar position="sticky" color={'primary'} style={{ top: 56 }}>
+    <Tabs variant={'fullWidth'} value={'test'}>
+        <Tab
+            label="Getting Started"
+            value={'/overview'}
+            onClick={() => console.log('test')}
+        />
+        <Tab
+            label="Styles"
+            value={'/style/color'}
+        />
+        <Tab
+            label="Patterns"
+            value={'/patterns/appbars'}
+        />
+        <Tab
+            label="Resources"
+            value={'/resources'}
+        />
+    </Tabs>
+</AppBar>
+
+<div style={{padding: 20}}>
+
 # Power Xpert Blue Resources
 Power Xpert Blue offers a number of resources for developers, available through [NPM](https://www.npmjs.com/org/pxblue) and [Github](https://github.com/pxblue). These include utility packages as well as sample code/design pattern examples.
 
@@ -19,6 +45,7 @@ The following table shows the current status for PX Blue resources available thr
 {{ npmtable repo=themes packages=@pxblue/themes }}
 
 <br/>
+
 ## Design Patterns / Examples
 
 The following table shows the current status of the PX Blue design pattern code samples available from GitHub. There are also links to running examples with live-editing capability.
@@ -43,3 +70,4 @@ The following table shows the current status of the PX Blue design pattern code 
 {{ statustable repo=side-navigation branches=angular|react }}
 {{ statustable repo=sortable-list branches=angular|react|ionic|reactnative }}
 {{ statustable repo=status-list branches=angular|react|ionic|reactnative }}
+</div>

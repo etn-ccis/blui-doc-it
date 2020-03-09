@@ -5,6 +5,7 @@ import { CHANGE_PAGE_TITLE } from '../redux/actions';
 export type MarkdownPageProps = {
     title: string;
     markdown: React.FC;
+    noPadding?: boolean;
 };
 
 export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element => {
@@ -12,5 +13,5 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element =>
     useEffect(() => {
         dispatch({ type: CHANGE_PAGE_TITLE, payload: props.title });
     }, [dispatch]);
-    return <props.markdown />;
+    return <div style={{ padding: props.noPadding ? 0 : 20 }}><props.markdown /></div>;
 };

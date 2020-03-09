@@ -44,7 +44,7 @@ export const MainRouter = (): JSX.Element => {
                                     title={title}
                                     navigationIcon={<Menu onClick={(): void => setOpen(!open)} />}
                                 />
-                                <div style={{ padding: 20 }}>
+                                {/* <div style={{ padding: 20 }}> */}
                                     <Switch>
                                         {buildRoutes(pageDefinitions, '')}
 
@@ -53,7 +53,7 @@ export const MainRouter = (): JSX.Element => {
                                             <Redirect to={'/'} />
                                         </Route>
                                     </Switch>
-                                </div>
+                                {/* </div> */}
                             </>
                         </DrawerLayout>
                     </div>
