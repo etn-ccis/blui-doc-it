@@ -74,7 +74,12 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
             </AppBar>
             <Hidden smUp>
                 <AppBar position="sticky" color={'primary'} style={{ top: 56 }}>
-                    <Tabs variant={'fullWidth'} value={activeRoute}>
+                    <Tabs variant={'fullWidth'} value={
+                        activeRoute.startsWith('/overview') ? '/overview' : 
+                        activeRoute.startsWith('/style') ? '/style' :
+                        activeRoute.startsWith('/patterns') ? '/patterns' : 
+                        activeRoute.startsWith('/resources') ? '/resources' : false
+                    }>
                         <Tab
                             label="Getting Started"
                             value={'/overview'}
@@ -85,18 +90,18 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                         />
                         <Tab
                             label="Styles"
-                            value={'/style/color'}
+                            value={'/style'}
                             onClick={(): void => {
                                 history.push('/style/color');
-                                setActiveRoute('/style/color');
+                                setActiveRoute('/style');
                             }}
                         />
                         <Tab
                             label="Patterns"
-                            value={'/patterns/appbars'}
+                            value={'/patterns'}
                             onClick={(): void => {
                                 history.push('/patterns/appbars');
-                                setActiveRoute('/patterns/appbars');
+                                setActiveRoute('/patterns');
                             }}
                         />
                         <Tab
