@@ -5,3 +5,4 @@ export { Section } from './Section';
 export { CardCarousel, CarouselCard } from './CardCarousel';
 export { NavLink } from './NavLink';
 export { FooterLinks } from './FooterLinks';
+export { ResourceRow } from './ResourceRow';

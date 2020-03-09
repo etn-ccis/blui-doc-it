@@ -15,142 +15,305 @@ import {
     ExpansionPanelSummary,
     ExpansionPanelDetails,
     Divider,
+    ExpansionPanelActions,
 } from '@material-ui/core';
 
 import * as Colors from '@pxblue/colors';
 import circles from '../assets/circles.svg';
-import { InfoListItem, ListItemTag } from '@pxblue/react-components';
+import { ListItemTag } from '@pxblue/react-components';
 import { BugReport, CheckCircle, Description, ExpandMore } from '@material-ui/icons';
-// import { useHistory } from 'react-router-dom';
+import { ResourceRow } from '../components/ResourceRow';
 
+type Filter = 'all' | 'angular' | 'react' | 'ionic' | 'reactnative';
 
-const resources = [
+type Resource = {
+    name: string;
+    description: string;
+    bugs?: number;
+    build?: boolean;
+    version?: string;
+    package?: string;
+    repository?: string;
+    applies?: Filter[];
+    readme?: string;
+}
+type ResourceBucket = {
+    title: string;
+    description: string;
+    version?: string;
+    bugs?: number;
+    build?: boolean;
+    package?: string;
+    applies: Filter[];
+    readme?: string;
+    items: Resource[];
+}
+
+const resources: ResourceBucket[] = [
     {
-        title: 'All Utilities',
-        description: 'Here is a brief description of what utilities are',
-        bugs: Math.floor(Math.random() * 6),
-        build: true,
-        applies: ['all'],
-        readme: 'https://www.google.com',
-        items: [
-            {
-                name: '@pxblue/colors',
-                version: '1.2.1',
-                description: 'Here is a brief description of what the colors package is',
-                bugs: Math.floor(Math.random() * 6),
-                build: true,
-                readme: 'https://www.google.com',
-            },
-            {
-                name: '@pxblue/colors',
-                version: '1.2.1',
-                description: 'Here is a brief description of what the colors package is',
-                bugs: Math.floor(Math.random() * 6),
-                build: true,
-                readme: 'https://www.google.com',
-            },
-            {
-                name: '@pxblue/colors',
-                version: '1.2.1',
-                description: 'Here is a brief description of what the colors package is',
-                bugs: Math.floor(Math.random() * 6),
-                build: true,
-                readme: 'https://www.google.com',
-            },
-            {
-                name: '@pxblue/colors',
-                version: '1.2.1',
-                description: 'Here is a brief description of what the colors package is',
-                bugs: Math.floor(Math.random() * 6),
-                build: true,
-                readme: 'https://www.google.com',
-            },
-        ]
-    },
-    {
-        title: 'Angular Utilities',
-        description: 'Here is a brief description of what utilities are',
-        bugs: Math.floor(Math.random() * 6),
-        build: true,
+        title: 'Misc Stuff',
+        description: 'miscellaneous testing stuff',
+        // bugs: Math.floor(Math.random() * 6),
+        // build: true,
+        // package: '@pxblue/angular-components',
         applies: ['angular'],
-        readme: 'https://www.google.com',
+        readme: 'https://github.com/pxblue/angular-component-library',
         items: [
             {
                 name: '@pxblue/colors',
-                version: '1.2.1',
-                description: 'Here is a brief description of what the colors package is',
-                bugs: Math.floor(Math.random() * 6),
-                build: true,
-                readme: 'https://www.google.com',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'colors',
+                package: '@pxblue/colors'
+            },
+            {
+                name: '@pxblue/icons',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'icons',
+                package: '@pxblue/icons'
+            },
+            {
+                name: '@pxblue/icons-mui',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'icons-mui',
+                package: '@pxblue/icons-mui'
+            },
+            {
+                name: '@pxblue/react-component-library',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'react-component-library',
+                package: '@pxblue/react-components'
+            },
+            {
+                name: '@pxblue/angular-components',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'angular-component-library',
+                package: '@pxblue/angular-components'
+            },
+            {
+                name: '@pxblue/mapbox',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'mapbox',
+                package: '@pxblue/mapbox'
             },
             {
                 name: '@pxblue/colors',
-                version: '1.2.1',
-                description: 'Here is a brief description of what the colors package is',
-                bugs: Math.floor(Math.random() * 6),
-                build: true,
-                readme: 'https://www.google.com',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'colors',
+                package: '@pxblue/colors'
+            },
+            {
+                name: '@pxblue/icons',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'icons',
+                package: '@pxblue/icons'
+            },
+            {
+                name: '@pxblue/icons-mui',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'icons-mui',
+                package: '@pxblue/icons-mui'
+            },
+            {
+                name: '@pxblue/react-component-library',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'react-component-library',
+                package: '@pxblue/react-components'
+            },
+            {
+                name: '@pxblue/angular-components',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'angular-component-library',
+                package: '@pxblue/angular-components'
+            },
+            {
+                name: '@pxblue/mapbox',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'mapbox',
+                package: '@pxblue/mapbox'
             },
             {
                 name: '@pxblue/colors',
-                version: '1.2.1',
-                description: 'Here is a brief description of what the colors package is',
-                bugs: Math.floor(Math.random() * 6),
-                build: true,
-                readme: 'https://www.google.com',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'colors',
+                package: '@pxblue/colors'
             },
             {
-                name: '@pxblue/colors',
-                version: '1.2.1',
-                description: 'Here is a brief description of what the colors package is',
-                bugs: Math.floor(Math.random() * 6),
-                build: true,
-                readme: 'https://www.google.com',
+                name: '@pxblue/icons',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'icons',
+                package: '@pxblue/icons'
+            },
+            {
+                name: '@pxblue/icons-mui',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'icons-mui',
+                package: '@pxblue/icons-mui'
+            },
+            {
+                name: '@pxblue/react-component-library',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'react-component-library',
+                package: '@pxblue/react-components'
+            },
+            {
+                name: '@pxblue/angular-components',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'angular-component-library',
+                package: '@pxblue/angular-components'
+            },
+            {
+                name: '@pxblue/mapbox',
+                description: 'A component used to render a value with units',
+                readme: 'https://github.com/pxblue/angular-component-library/blob/dev/docs/ChannelValue.md',
+                repository: 'mapbox',
+                package: '@pxblue/mapbox'
             },
         ]
     },
-    {
-        title: 'React Utilities',
-        description: 'Here is a brief description of what utilities are',
-        bugs: Math.floor(Math.random() * 6),
-        build: true,
-        applies: ['react'],
-        readme: 'https://www.google.com',
-        items: [
-            {
-                name: '@pxblue/colors',
-                version: '1.2.1',
-                description: 'Here is a brief description of what the colors package is',
-                bugs: Math.floor(Math.random() * 6),
-                build: true,
-                readme: 'https://www.google.com',
-            },
-            {
-                name: '@pxblue/colors',
-                version: '1.2.1',
-                description: 'Here is a brief description of what the colors package is',
-                bugs: Math.floor(Math.random() * 6),
-                build: true,
-                readme: 'https://www.google.com',
-            },
-            {
-                name: '@pxblue/colors',
-                version: '1.2.1',
-                description: 'Here is a brief description of what the colors package is',
-                bugs: Math.floor(Math.random() * 6),
-                build: true,
-                readme: 'https://www.google.com',
-            },
-            {
-                name: '@pxblue/colors',
-                version: '1.2.1',
-                description: 'Here is a brief description of what the colors package is',
-                bugs: Math.floor(Math.random() * 6),
-                build: true,
-                readme: 'https://www.google.com',
-            },
-        ]
-    },
+    // {
+    //     title: 'All Utilities',
+    //     description: 'Here is a brief description of what utilities are',
+    //     bugs: Math.floor(Math.random() * 6),
+    //     build: true,
+    //     applies: ['all'],
+    //     readme: 'https://www.google.com',
+    //     items: [
+    //         {
+    //             name: 'React Colors',
+    //             version: '1.2.1',
+    //             description: 'Here is a brief description of what the colors package is',
+    //             bugs: Math.floor(Math.random() * 6),
+    //             build: true,
+    //             applies: ['react'],
+    //             readme: 'https://www.google.com',
+    //         },
+    //         {
+    //             name: '@pxblue/colors',
+    //             version: '1.2.1',
+    //             description: 'Here is a brief description of what the colors package is',
+    //             bugs: Math.floor(Math.random() * 6),
+    //             build: true,
+    //             readme: 'https://www.google.com',
+    //         },
+    //         {
+    //             name: '@pxblue/colors',
+    //             version: '1.2.1',
+    //             description: 'Here is a brief description of what the colors package is',
+    //             bugs: Math.floor(Math.random() * 6),
+    //             build: true,
+    //             readme: 'https://www.google.com',
+    //         },
+    //         {
+    //             name: '@pxblue/colors',
+    //             version: '1.2.1',
+    //             description: 'Here is a brief description of what the colors package is',
+    //             bugs: Math.floor(Math.random() * 6),
+    //             build: true,
+    //             readme: 'https://www.google.com',
+    //         },
+    //     ]
+    // },
+    // {
+    //     title: 'Angular Utilities',
+    //     description: 'Here is a brief description of what utilities are',
+    //     bugs: Math.floor(Math.random() * 6),
+    //     build: true,
+    //     applies: ['angular'],
+    //     readme: 'https://www.google.com',
+    //     items: [
+    //         {
+    //             name: '@pxblue/colors',
+    //             version: '1.2.1',
+    //             description: 'Here is a brief description of what the colors package is',
+    //             bugs: Math.floor(Math.random() * 6),
+    //             build: true,
+    //             readme: 'https://www.google.com',
+    //         },
+    //         {
+    //             name: '@pxblue/colors',
+    //             version: '1.2.1',
+    //             description: 'Here is a brief description of what the colors package is',
+    //             bugs: Math.floor(Math.random() * 6),
+    //             build: true,
+    //             readme: 'https://www.google.com',
+    //         },
+    //         {
+    //             name: '@pxblue/colors',
+    //             version: '1.2.1',
+    //             description: 'Here is a brief description of what the colors package is',
+    //             bugs: Math.floor(Math.random() * 6),
+    //             build: true,
+    //             readme: 'https://www.google.com',
+    //         },
+    //         {
+    //             name: '@pxblue/colors',
+    //             version: '1.2.1',
+    //             description: 'Here is a brief description of what the colors package is',
+    //             bugs: Math.floor(Math.random() * 6),
+    //             build: true,
+    //             readme: 'https://www.google.com',
+    //         },
+    //     ]
+    // },
+    // {
+    //     title: 'React Utilities',
+    //     description: 'Here is a brief description of what utilities are',
+    //     bugs: Math.floor(Math.random() * 6),
+    //     build: true,
+    //     applies: ['react'],
+    //     readme: 'https://www.google.com',
+    //     items: [
+    //         {
+    //             name: '@pxblue/colors',
+    //             version: '1.2.1',
+    //             description: 'Here is a brief description of what the colors package is',
+    //             bugs: Math.floor(Math.random() * 6),
+    //             build: true,
+    //             readme: 'https://www.google.com',
+    //         },
+    //         {
+    //             name: '@pxblue/colors',
+    //             version: '1.2.1',
+    //             description: 'Here is a brief description of what the colors package is',
+    //             bugs: Math.floor(Math.random() * 6),
+    //             build: true,
+    //             readme: 'https://www.google.com',
+    //         },
+    //         {
+    //             name: '@pxblue/colors',
+    //             version: '1.2.1',
+    //             description: 'Here is a brief description of what the colors package is',
+    //             bugs: Math.floor(Math.random() * 6),
+    //             build: true,
+    //             readme: 'https://www.google.com',
+    //         },
+    //         {
+    //             name: '@pxblue/colors',
+    //             version: '1.2.1',
+    //             description: 'Here is a brief description of what the colors package is',
+    //             bugs: Math.floor(Math.random() * 6),
+    //             build: true,
+    //             readme: 'https://www.google.com',
+    //         },
+    //     ]
+    // },
 ]
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -178,6 +341,9 @@ const useStyles = makeStyles((theme: Theme) =>
             // position: 'absolute',
             // bottom: 0,
         },
+        noMargin: {
+            margin: '0 !important'
+        }
     })
 );
 
@@ -185,7 +351,7 @@ export const Resources: React.FC = (): JSX.Element => {
     // const history = useHistory();
     // const theme = useTheme();
     const classes = useStyles();
-    const [filter, setFilter] = useState('all');
+    const [filter, setFilter] = useState<Filter>('all');
 
     return (
         <>
@@ -221,34 +387,33 @@ export const Resources: React.FC = (): JSX.Element => {
 
             {/* First expander */}
             <div style={{ padding: 20 }}>
-                {resources.map((bucket) => (bucket.applies.includes(filter) || bucket.applies.includes('all') || filter === 'all') &&
+                {resources.map((bucket, bIndex) => (bucket.applies.includes(filter) || bucket.applies.includes('all') || filter === 'all') &&
                     (
-                        <ExpansionPanel key={bucket.title} defaultExpanded>
-                            <ExpansionPanelSummary expandIcon={<ExpandMore color={'primary'} />} style={{ padding: '0 16px' }}>
-                                <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <ExpansionPanel key={`${bucket.title}_${bIndex}`} defaultExpanded>
+
+                            <ExpansionPanelSummary expandIcon={<ExpandMore color={'primary'} />} style={{ padding: '0 16px', margin: 0 }} classes={{ content: classes.noMargin }}>
+                                <div style={{ flex: '1 1 0px', display: 'flex', alignItems: 'center' }}>
                                     <Typography variant={'subtitle1'} color={'primary'} style={{ fontWeight: 600 }}>{`${bucket.title} -`}</Typography>
                                     <Typography color={'primary'} style={{ fontWeight: 300 }}>&nbsp;{`${bucket.description}`}</Typography>
                                 </div>
+                                <ExpansionPanelActions>
+                                    <ListItemTag label={`@99.99.99`} style={{ fontWeight: 600, textTransform: 'none' }} />
+                                    <IconButton style={{ color: Colors.black[500] }}><Badge badgeContent={3} color={'error'}><BugReport /></Badge></IconButton>
+                                    <IconButton style={{ color: Colors.green[500] }}><CheckCircle /></IconButton>
+                                    <IconButton style={{ color: Colors.black[500] }}><Description /></IconButton>
+                                </ExpansionPanelActions>
                             </ExpansionPanelSummary>
                             <ExpansionPanelDetails style={{ display: 'block', padding: 0 }}>
                                 <Divider />
                                 <List style={{ padding: 0 }}>
                                     {
                                         bucket.items.map((item, index): JSX.Element => (
-                                            <InfoListItem key={item.name}
-                                                hidePadding
-                                                divider={index < bucket.items.length - 1 ? 'full' : undefined}
-                                                title={item.name}
-                                                subtitle={item.description}
-                                                // statusColor={Math.random() < 0.5 ? Colors.red[500] : Math.random() < 0.5 ? Colors.green[500] : undefined}
-                                                rightComponent={
-                                                    <>
-                                                        <ListItemTag label={`@${item.version}`} style={{ fontWeight: 600, textTransform: 'none' }} />
-                                                        <IconButton style={{ color: Colors.black[500] }}><Badge badgeContent={item.bugs} color={'error'}><BugReport /></Badge></IconButton>
-                                                        <IconButton style={{ color: Colors.green[500] }}><CheckCircle /></IconButton>
-                                                        <IconButton style={{ color: Colors.black[500] }}><Description /></IconButton>
-                                                    </>
-                                                }
+                                            <ResourceRow key={`${item.name}_${index}`}
+                                                title={item.name} 
+                                                description={item.description} 
+                                                divider={index < bucket.items.length - 1}
+                                                repository={item.repository} 
+                                                package={item.package}
                                             />
                                         ))
                                     }
