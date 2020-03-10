@@ -1,61 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import {
-    // AppBar,
-    // Toolbar,
-    // Typography,
-    // Tabs, Tab,
-    // Theme,
-    // useTheme,
-    // createStyles,
-    // makeStyles,
-    // List,
     IconButton,
     Badge,
-    // ExpansionPanel,
-    // ExpansionPanelSummary,
-    // ExpansionPanelDetails,
-    // Divider,
-    // ExpansionPanelActions,
 } from '@material-ui/core';
 
 import * as Colors from '@pxblue/colors';
-// import circles from '../assets/circles.svg';
 import { InfoListItem, ListItemTag } from '@pxblue/react-components';
 import { BugReport, CheckCircle, Description, RemoveCircle, Cancel } from '@material-ui/icons';
-// import { useHistory } from 'react-router-dom';
-import { github, circleci, /*npm*/ } from '../api';
+import { github, circleci, npm } from '../api';
+import axios from 'axios';
 
-// type Filter = 'all' | 'angular' | 'react' | 'ionic' | 'reactnative';
-
-// type Resource = {
-//     name: string;
-//     description: string;
-//     bugs?: number;
-//     build?: boolean;
-//     version?: string;
-//     package?: string;
-//     applies?: Filter[];
-//     readme?: string;
-// }
-// type ResourceBucket = {
-//     title: string;
-//     description: string;
-//     version?: string;
-//     bugs?: number;
-//     build?: boolean;
-//     package?: string;
-//     applies: Filter[];
-//     readme?: string;
-//     items: Resource[];
-// }
-
-// const useStyles = makeStyles((theme: Theme) =>
-//     createStyles({
-//         noMargin: {
-//             margin: '0 !important'
-//         }
-//     })
-// );
 type BuildPassedStatus = boolean | undefined;
 type BugsCount = number | undefined;
 
@@ -67,36 +21,46 @@ type ResourceRowProps = {
     labels?: string[];
     branch?: string;
     package?: string;
+    bugLabels?: string[];
 }
 
-const getBuildIcon = (hasBuild: boolean, status: boolean | undefined): JSX.Element | null => {
-    if (!hasBuild) return null;
+const getBuildIcon = (repository: string | undefined, status: boolean | undefined): JSX.Element | null => {
+    if (repository === undefined) return null;
+    const onClick = repository ? (): void => { window.open(`https://circleci.com/gh/pxblue/${repository}/tree/master`, '_blank') } : undefined;
 
     if (status === undefined) {
-        return <IconButton style={{ color: Colors.gray[500] }}><RemoveCircle /></IconButton>
+        return <IconButton style={{ color: Colors.gray[500] }} onClick={onClick}><RemoveCircle /></IconButton>
     }
-    else if (status) return <IconButton style={{ color: Colors.green[500] }}><CheckCircle /></IconButton>
+    else if (status) return <IconButton style={{ color: Colors.green[500] }} onClick={onClick}><CheckCircle /></IconButton>
 
-    return <IconButton style={{ color: Colors.red[500] }}><Cancel /></IconButton>
+    return <IconButton style={{ color: Colors.red[500] }} onClick={onClick}><Cancel /></IconButton>
 }
 
 export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
-    // const history = useHistory();
-    // const theme = useTheme();
-    // const classes = useStyles();
     const [build, setBuild] = useState<BuildPassedStatus>();
     const [bugs, setBugs] = useState<BugsCount>();
     const [version, setVersion] = useState<string>();
 
     useEffect(() => {
+        const cancel = axios.CancelToken.source();
+
         if (props.repository) {
-            github.get(`/repos/pxblue/${props.repository}/issues?labels=bug`)
+            const labels = props.bugLabels ? [...props.bugLabels, 'bug'].join(',') : 'bug';
+            github.get(`/repos/pxblue/${props.repository}/issues?labels=${labels}`, { cancelToken: cancel.token })
                 .then((response) => {
                     if (response && response.status === 200) {
                         setBugs(response.data.length);
                     }
                 })
-            circleci.get(`/${props.repository}/tree/${props.branch || 'master'}?limit=1&filter=completed&circle-token=${process.env.REACT_APP_CIRCLECITOKEN}`)
+                .catch((thrown) => {
+                    if (axios.isCancel(thrown)) {
+                        // request canceled
+                    }
+                    else {
+                        // handle error
+                    }
+                });
+            circleci.get(`/${props.repository}/tree/${props.branch || 'master'}?limit=1&filter=completed&circle-token=${process.env.REACT_APP_CIRCLECITOKEN}`, { cancelToken: cancel.token })
                 .then((response) => {
                     if (response && response.status === 200) {
                         setBuild(response.data[0].failed === false);
@@ -104,22 +68,39 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
                     }
                     setBuild(false);
                 })
+                .catch((thrown) => {
+                    if (axios.isCancel(thrown)) {
+                        // request canceled
+                    }
+                    else {
+                        // handle error
+                        setBuild(false);
+                    }
+                });
         }
         if (props.package) {
-            // npm.get(`/package/${encodeURIComponent(props.package)}`)
-            //     .then((response) => {
-            //         // eslint-disable-next-line
-            //         console.log(response);
-            //         if (response && response.status === 200) {
-            //             // eslint-disable-next-line
-            //             console.log(response.data);
-            //             setVersion(response.data.collected.metadata.version);
-            //             return;
-            //         }
-            //     })
-            setVersion('x.x.x');
+            npm.get(`/package/${encodeURIComponent(props.package)}`, { cancelToken: cancel.token })
+                .then((response) => {
+                    if (response && response.status === 200) {
+                        setVersion(response.data.collected.metadata.version);
+                        return;
+                    }
+                })
+                .catch((thrown) => {
+                    if (axios.isCancel(thrown)) {
+                        // request canceled
+                    }
+                    else {
+                        // handle error
+                    }
+                });
+        }
+        return (): void => {
+            cancel.cancel();
         }
     }, [])
+
+    const bugString = (props.bugLabels ? [...props.bugLabels, 'bug'] : ['bug']).map((label) => `+label%3A${label}`).join('');
 
     return (
         <InfoListItem
@@ -129,10 +110,22 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
             subtitle={props.description}
             rightComponent={
                 <>
-                    <ListItemTag label={`@${version}`} style={{ fontWeight: 600, textTransform: 'none' }} />
-                    <IconButton style={{ color: Colors.black[500] }}><Badge badgeContent={bugs} color={'error'}><BugReport /></Badge></IconButton>
-                    {getBuildIcon(props.repository !== undefined, build)}
-                    <IconButton style={{ color: Colors.black[500] }}><Description /></IconButton>
+                    {props.package && <ListItemTag label={`@${version || '-.-.-'}`} onClick={(): void => { window.open(`https://www.npmjs.com/package/${props.package}`) }} />}
+                    <IconButton
+                        style={{ color: Colors.black[500] }}
+                        onClick={props.repository ? (): void => { window.open(`https://github.com/pxblue/${props.repository}/issues?q=is%3Aissue+is%3Aopen${bugString}`, '_blank') } : undefined}
+                    >
+                        <Badge badgeContent={bugs} color={'error'}>
+                            <BugReport />
+                        </Badge>
+                    </IconButton>
+                    {getBuildIcon(props.repository, build)}
+                    <IconButton
+                        style={{ color: Colors.black[500] }}
+                        onClick={props.repository ? (): void => { window.open(`https://github.com/pxblue/${props.repository}`, '_blank') } : undefined}
+                    >
+                        <Description />
+                    </IconButton>
                 </>
             }
         />
