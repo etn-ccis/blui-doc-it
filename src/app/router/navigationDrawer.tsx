@@ -1,57 +1,62 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, NavItem } from '@pxblue/react-components';
-
-//@ts-ignore
 import { Pxblue } from '@pxblue/icons-mui';
-import { Info } from '@material-ui/icons';
 
 import * as Colors from '@pxblue/colors';
-import { pageDefinitions } from '../../__configuration__/navigationMenu/navigation';
+import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
+import { Eaton } from '../assets/icons';
 
 export const NavigationDrawer = (): JSX.Element => {
-    const [open, setOpen] = useState(false);
-    const history = useHistory();
+    const [open, setOpen] = useState(true);
     const location = useLocation();
+    const history = useHistory();
+    const [activeRoute, setActiveRoute] = useState(location.pathname);
+
+    const createNavItems = useCallback((navData: SimpleNavItem[], parentUrl: string, depth: number): NavItem[] => {
+        const convertedItems: NavItem[] = [];
+        for (let i = 0; i < navData.length; i++) {
+            const item = navData[i];
+            const fullURL = `${parentUrl}${item.url}`;
+            convertedItems.push({
+                title: item.title,
+                icon: depth === 0 ? item.icon : undefined,
+                itemID: fullURL,
+                onClick: item.component
+                    ? (): void => {
+                          history.push(fullURL);
+                          setActiveRoute(fullURL);
+                      }
+                    : undefined,
+                items: item.pages ? createNavItems(item.pages, `${parentUrl}${item.url}`, depth + 1) : undefined,
+            });
+        }
+        return convertedItems;
+    }, []);
+
+    const [menuItems] = useState(createNavItems(pageDefinitions, '', 0));
 
     return (
         <Drawer
             open={open}
-            width={380}
+            width={300}
             ModalProps={{
                 onBackdropClick: (): void => setOpen(!open),
             }}
         >
             <DrawerHeader
                 title={'Power Xpert Blue'}
-                subtitle={'A design system for Eaton applications'}
                 backgroundColor={Colors.blue[500]}
                 fontColor={Colors.white[50]}
-                // backgroundImage={top}
                 icon={<Pxblue />}
                 onIconClick={(): void => setOpen(!open)}
             />
             <DrawerBody>
-                {pageDefinitions.map((group, index) => {
-                    const items: NavItem[] = [];
-                    group.pages.forEach((page) => {
-                        items.push({
-                            title: page.title,
-                            icon: <Info />,
-                            active: location.pathname.includes(page.url || ''),
-                            onClick: () => {
-                                if (page.url) {
-                                    history.push(group.url + page.url);
-                                }
-                            },
-                        });
-                    });
-                    return <DrawerNavGroup key={`group_${index}`} title={group.title} items={items} />;
-                })}
+                <DrawerNavGroup hidePadding activeItem={activeRoute} items={menuItems} />
             </DrawerBody>
             <DrawerFooter>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    {/* <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/> */}
+                <div style={{ display: 'flex', justifyContent: 'center', background: Colors.gray[50] }}>
+                    <Eaton style={{ fontSize: 92 }} />
                 </div>
             </DrawerFooter>
         </Drawer>

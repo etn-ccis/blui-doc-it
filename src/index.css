@@ -1,8 +1,12 @@
 /* @import "holidayThemes/holidayStyles.css"; */
 html,
-body,
-#root {
+body {
     height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#root {
+    min-height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -30,15 +34,18 @@ q:after {
 blockquote > p:last-child {
     margin-bottom: 0;
 }
+pre {
+    background-color: #ddd;
+    color: #333;
+    font-family: Roboto Mono, Monospaced;
+    font-size: 0.75rem;
+    overflow: auto;
+    border-radius: 3px;
+    padding: 10px;
+}
 
 .rotateMe {
     animation: 2500ms spin linear infinite;
-}
-
-.verticalFlex {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 @keyframes spin {
@@ -46,4 +53,23 @@ blockquote > p:last-child {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
+}
+
+/* Carousel Overrides */
+.BrainhubCarousel {
+    position: relative;
+    color: white;
+}
+.BrainhubCarousel__customArrows {
+    position: absolute;
+    width: 0;
+    top: calc(50%);
+    transform: translateY(-50%);
+    z-index: 100;
+}
+.BrainhubCarousel__custom-arrowLeft {
+    left: 0;
+}
+.BrainhubCarousel__custom-arrowRight {
+    right: 59px;
 }

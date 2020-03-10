@@ -1123,6 +1123,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@brainhubeu/react-carousel@^1.12.15":
+  version "1.12.15"
+  resolved "https://registry.yarnpkg.com/@brainhubeu/react-carousel/-/react-carousel-1.12.15.tgz#6a80f52c696c81917f07059da8f87148dc2cb1a0"
+  integrity sha512-+rf8yzDZMd9AObspSUIck3nQejDG1nQO1I3gdHrHaam5h1u+dx3Jbk9j5DkiyygppuNRsnkGNKCUje+GF8p0xQ==
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.3.tgz#099139eaec7ebf07a27c1786a3ff64f39464d2ef"
@@ -1581,10 +1586,10 @@
   resolved "https://registry.yarnpkg.com/@pxblue/prettier-config/-/prettier-config-1.0.2.tgz#fb00503df6557b66c3d91d43c9101e614c35d2ec"
   integrity sha512-/3cLBoTjZs3kV1ATPA/Sp0tsL7XmlV/b8HW/qt0jqR/uP5+cdXL2YIhMXQngLRa7PhpSkEiRIYK5sl0rKsXTUg==
 
-"@pxblue/react-components@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/react-components/-/react-components-2.1.0.tgz#e9a0337e5c8ce63e8ae253b44f9dbdb3e5e5a199"
-  integrity sha512-5vAUhgNjy1StEWcCOhLEYf0O+2ROqI1v8UPQ4pWJ74PjxdVXcCw/2ZJAYtr6uOqVF3rJvncYxukfz0mFQzs54g==
+"@pxblue/react-components@^3.0.0-beta.0":
+  version "3.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@pxblue/react-components/-/react-components-3.0.0-beta.0.tgz#71d2177af28709c2eea784f651951d6104a58f46"
+  integrity sha512-K+QvBiogvMnySVvrIsf7o8f09ZW8Lrm3aGbxzu8CLBpX8F//tGxf8yhERBtO7XKGMRAGDlgiGMyGmFFn2SwBxQ==
   dependencies:
     "@pxblue/colors" "^2.0.0"
     color "^3.1.2"
@@ -1882,6 +1887,13 @@
   integrity sha512-yGeB2dHEdvxjP0y4UbRtQaSkXJ9649fYCmIdRoul5kfAoGCwxuCbMhag0k3RPfnuh9kPGm8x89btcfDEXdVWGw==
   dependencies:
     "@babel/types" "^7.3.0"
+
+"@types/brainhubeu__react-carousel@^1.10.2":
+  version "1.10.2"
+  resolved "https://registry.yarnpkg.com/@types/brainhubeu__react-carousel/-/brainhubeu__react-carousel-1.10.2.tgz#23417f9201f48d6b4924fe33a9927b507d4e6421"
+  integrity sha512-qdLoplCSYevbBFPFxhOBR/38NqoVlyM799JvURZgzAWruKHRPqPDnSzNBYrMm4dEjiBvDrOck4tl2GdfRwmugA==
+  dependencies:
+    "@types/react" "*"
 
 "@types/cheerio@*":
   version "0.22.16"
@@ -3517,6 +3529,11 @@ clsx@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.0.4.tgz#0c0171f6d5cb2fe83848463c15fcc26b4df8c2ec"
   integrity sha512-1mQ557MIZTrL/140j+JVdRM6e31/OA4vTYxXgqIIZlndyfjHpyawKZia1Im05Vp9BWmImkcNrNtFYQMyFcgJDg==
+
+clsx@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.1.0.tgz#62937c6adfea771247c34b54d320fb99624f5702"
+  integrity sha512-3avwM37fSK5oP6M5rQ9CNe99lwxhXDOeSWVPAOYF6OazUTgZCMb0yWlJpmdD74REy1gkEaFiub2ULv4fq9GUhA==
 
 co@^4.6.0:
   version "4.6.0"
