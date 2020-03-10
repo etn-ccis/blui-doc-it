@@ -83,6 +83,22 @@ export const resources: ResourceBucket[] = [
                 repository: 'symbols-mui',
                 applies: ['react']
             },
+            {
+                name: '@pxblue/ng-progress-icons',
+                description: 'Dynamic progress icons for Angular',
+                package: '@pxblue/ng-progress-icons',
+                repository: 'icons',
+                applies: ['angular'],
+                bugLabels: ['progress', 'angular']
+            },
+            {
+                name: '@pxblue/react-progress-icons',
+                description: 'Dynamic progress icons for React',
+                package: '@pxblue/react-progress-icons',
+                repository: 'icons',
+                applies: ['react'],
+                bugLabels: ['progress', 'react']
+            },
         ]
     },
     {
@@ -159,6 +175,29 @@ export const resources: ResourceBucket[] = [
                 description: 'Theme files for MapBox',
                 package: '@pxblue/mapbox',
                 repository: 'mapbox',
+            },
+        ]
+    },
+    {
+        name: 'Code Quality',
+        description: 'Formatting and linting packages to keep your code consistent',
+        applies: ['all'],
+        items: [
+            {
+                name: '@pxblue/eslint-config',
+                description: 'ESLint configuration files',
+                package: '@pxblue/eslint-config',
+                repository: 'code-standards',
+                applies: ['all'],
+                bugLabels: ['eslint']
+            },
+            {
+                name: '@pxblue/prettier-config',
+                description: 'Prettier configuration files',
+                package: '@pxblue/prettier-config',
+                repository: 'code-standards',
+                applies: ['all'],
+                bugLabels: ['eslint'],
             },
         ]
     },

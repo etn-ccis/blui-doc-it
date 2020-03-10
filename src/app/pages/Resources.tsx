@@ -103,6 +103,7 @@ export const Resources: React.FC = (): JSX.Element => {
 
             {/* First expander */}
             <div style={{ padding: 20 }}>
+                <Typography variant={'h6'} color={'primary'} style={{ marginBottom: 16 }}>NPM Packages</Typography>
                 {resources.map((bucket, bIndex) => (!bucket.applies || bucket.applies.includes(filter) || bucket.applies.includes('all') || filter === 'all') &&
                     (
                         <ExpansionPanel key={`${bucket.name}_${bIndex}`} defaultExpanded>
