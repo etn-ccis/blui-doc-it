@@ -8,10 +8,10 @@ type Resource = {
     figma?: string;
     applies?: Filter[];
     bugLabels?: string[];
-}
+};
 type ResourceBucket = Resource & {
     items: Resource[];
-}
+};
 
 export const resources: ResourceBucket[] = [
     {
@@ -24,30 +24,29 @@ export const resources: ResourceBucket[] = [
                 description: 'Components for Angular applications',
                 package: '@pxblue/angular-components',
                 repository: 'angular-component-library',
-                applies: ['angular','ionic']
+                applies: ['angular', 'ionic'],
             },
             {
                 name: '@pxblue/react-components',
                 description: 'Components for React applications',
                 package: '@pxblue/react-components',
                 repository: 'react-component-library',
-                applies: ['react']
+                applies: ['react'],
             },
             {
                 name: '@pxblue/react-native-components',
                 description: 'Components for React Native applications',
                 package: '@pxblue/react-native-components',
                 repository: 'react-native-component-library',
-                applies: ['reactnative']
+                applies: ['reactnative'],
             },
-        ]
+        ],
     },
     {
         name: 'Icons & Symbols',
         description: 'Iconography in a variety of formats',
         applies: ['all'],
         items: [
-            
             {
                 name: '@pxblue/icons',
                 description: 'Icon font for PX Blue custom icons',
@@ -67,7 +66,7 @@ export const resources: ResourceBucket[] = [
                 description: 'Material-UI icon components for PX Blue custom icons',
                 package: '@pxblue/icons-mui',
                 repository: 'icons-mui',
-                applies: ['react']
+                applies: ['react'],
             },
             {
                 name: '@pxblue/symbols',
@@ -81,7 +80,7 @@ export const resources: ResourceBucket[] = [
                 description: 'Material-UI icon components for PX Blue oneline symbols',
                 package: '@pxblue/symbols-mui',
                 repository: 'symbols-mui',
-                applies: ['react']
+                applies: ['react'],
             },
             {
                 name: '@pxblue/ng-progress-icons',
@@ -89,7 +88,7 @@ export const resources: ResourceBucket[] = [
                 package: '@pxblue/ng-progress-icons',
                 repository: 'icons',
                 applies: ['angular'],
-                bugLabels: ['progress', 'angular']
+                bugLabels: ['progress', 'angular'],
             },
             {
                 name: '@pxblue/react-progress-icons',
@@ -97,9 +96,9 @@ export const resources: ResourceBucket[] = [
                 package: '@pxblue/react-progress-icons',
                 repository: 'icons',
                 applies: ['react'],
-                bugLabels: ['progress', 'react']
+                bugLabels: ['progress', 'react'],
             },
-        ]
+        ],
     },
     {
         name: 'Themes & Colors',
@@ -151,7 +150,7 @@ export const resources: ResourceBucket[] = [
                 repository: 'themes',
                 bugLabels: ['storybook'],
             },
-        ]
+        ],
     },
     {
         name: 'Visualizations',
@@ -176,7 +175,7 @@ export const resources: ResourceBucket[] = [
                 package: '@pxblue/mapbox',
                 repository: 'mapbox',
             },
-        ]
+        ],
     },
     {
         name: 'Code Quality',
@@ -189,7 +188,7 @@ export const resources: ResourceBucket[] = [
                 package: '@pxblue/eslint-config',
                 repository: 'code-standards',
                 applies: ['all'],
-                bugLabels: ['eslint']
+                bugLabels: ['eslint'],
             },
             {
                 name: '@pxblue/prettier-config',
@@ -199,6 +198,6 @@ export const resources: ResourceBucket[] = [
                 applies: ['all'],
                 bugLabels: ['eslint'],
             },
-        ]
+        ],
     },
-]
+];
