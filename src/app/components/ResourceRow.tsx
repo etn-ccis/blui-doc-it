@@ -1,56 +1,27 @@
-import React, { useState, useEffect, ComponentProps } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     IconButton,
     Button,
     Divider,
     Badge,
     useMediaQuery,
-    // ListItem,
     ListItemText,
     Typography,
+    makeStyles,
+    createStyles,
+    Theme,
 } from '@material-ui/core';
 
 import * as Colors from '@pxblue/colors';
-import { InfoListItem, Spacer /*ChannelValue*/ } from '@pxblue/react-components';
+import { InfoListItem, Spacer } from '@pxblue/react-components';
 import { BugReport, CheckCircle, Description, RemoveCircle, Cancel } from '@material-ui/icons';
 import { github, circleci, npm } from '../api';
 import axios from 'axios';
+import { MiniBug } from './MiniBug';
 
 type BuildPassedStatus = boolean | undefined;
 type BugsCount = number | undefined;
-
-type ResourceRowProps = {
-    title: string;
-    description: string;
-    divider?: boolean;
-    repository?: string;
-    labels?: string[];
-    branch?: string;
-    package?: string;
-    bugLabels?: string[];
-};
 type FontSize = 'default' | 'small' | 'inherit' | 'large' | undefined;
-
-type MiniBugProps = ComponentProps<'div'> & {
-    count: BugsCount;
-};
-const MiniBug: React.FC<MiniBugProps> = (props): JSX.Element | null => {
-    const { count, style, ...other } = props;
-    const color =
-        count === undefined
-            ? Colors.gray[500]
-            : count < 1
-            ? Colors.green[500]
-            : count < 5
-            ? Colors.orange[500]
-            : Colors.red[500];
-    return (
-        <div style={Object.assign({ display: 'flex', alignItems: 'center' }, style)} {...other}>
-            <BugReport fontSize={'small'} htmlColor={color} />
-            <Typography style={{ color: color, fontSize: 12 }}>{count}</Typography>
-        </div>
-    );
-};
 
 const getBuildIcon = (
     repository: string | undefined,
@@ -65,13 +36,62 @@ const getBuildIcon = (
 
     return <Cancel fontSize={size} htmlColor={Colors.red[500]} />;
 };
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        buttonWrapper: {
+            width: '100%',
+            padding: `0 ${theme.spacing(2)}px ${theme.spacing(2)}px`,
+        },
+        flex: {
+            display: 'flex',
+            alignItems: 'center',
+        },
+        iconButton: {
+            color: Colors.gray[500],
+            padding: theme.spacing(1),
+        },
+        listItemText: {
+            width: '100%',
+            marginRight: theme.spacing(-1),
+        },
+        miniBug: {
+            margin: `0 ${theme.spacing(1)}px`,
+        },
+        subtitle: {
+            fontWeight: 400,
+            lineHeight: 1.3,
+            color: 'inherit',
+        },
+        title: {
+            fontWeight: 600,
+            lineHeight: 1.2,
+            fontSize: '0.875rem',
+        },
+        version: {
+            color: Colors.gray[500],
+            cursor: 'pointer',
+            marginLeft: theme.spacing(0.5),
+        },
+    })
+);
 
+type ResourceRowProps = {
+    title: string;
+    description: string;
+    divider?: boolean;
+    repository?: string;
+    labels?: string[];
+    branch?: string;
+    package?: string;
+    bugLabels?: string[];
+};
 export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
     const [build, setBuild] = useState<BuildPassedStatus>();
     const [bugs, setBugs] = useState<BugsCount>();
     const [version, setVersion] = useState<string>();
     const small = useMediaQuery('(max-width:799px)');
     const xs = useMediaQuery('(max-width:499px)');
+    const classes = useStyles();
 
     // Make the API calls for the live information
     useEffect(() => {
@@ -140,133 +160,108 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
     const bugString = (props.bugLabels ? [...props.bugLabels, 'bug'] : ['bug'])
         .map((label) => `+label%3A${label}`)
         .join('');
+    const bugLink = `https://github.com/pxblue/${props.repository}/issues?q=is%3Aissue+is%3Aopen${bugString}`;
+    const npmLink = `https://www.npmjs.com/package/${props.package}`;
+    const repositoryLink = `https://circleci.com/gh/pxblue/${props.repository}/tree/master`;
 
-    return small ? (
+    return (
         <div>
             <InfoListItem
                 hidePadding
+                divider={!small && props.divider ? 'full' : undefined}
                 title={''}
                 subtitle={''}
                 leftComponent={
                     <ListItemText
                         title={props.title}
-                        style={{ width: '100%', marginRight: -16 }}
+                        className={classes.listItemText}
                         primaryTypographyProps={{ display: 'block', style: { width: '100%' } }}
                         primary={
-                            <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
-                                <Typography style={{ fontWeight: 600, lineHeight: 1.2, fontSize: '0.875rem' }} noWrap>
+                            <div className={classes.flex} style={{ width: small ? '100%' : 'auto' }}>
+                                <Typography className={classes.title} noWrap>
                                     {xs ? props.title.replace('@pxblue/', '') : props.title}
                                 </Typography>
                                 {version && (
                                     <Typography
                                         variant={'subtitle2'}
-                                        style={{ color: Colors.gray[500], cursor: 'pointer', marginLeft: 4 }}
+                                        className={classes.version}
                                         onClick={(): void => {
-                                            window.open(`https://www.npmjs.com/package/${props.package}`);
+                                            window.open(npmLink, '_blank');
                                         }}
                                     >{`@${version}`}</Typography>
                                 )}
-
-                                <Spacer />
-                                {/* <Badge badgeContent={bugs} color={'error'} style={{ marginRight: 16 }} onClick={props.repository ? (): void => { window.open(`https://github.com/pxblue/${props.repository}/issues?q=is%3Aissue+is%3Aopen${bugString}`, '_blank') } : undefined}>
-                                        <BugReport />
-                                    </Badge> */}
-                                <MiniBug count={bugs} style={{ marginLeft: 8, marginRight: 8 }} />
-                                {getBuildIcon(props.repository, build, 'small')}
+                                {small && (
+                                    <>
+                                        <Spacer />
+                                        <MiniBug count={bugs} className={classes.miniBug} />
+                                        {getBuildIcon(props.repository, build, 'small')}
+                                    </>
+                                )}
                             </div>
                         }
                         secondary={props.description}
-                        secondaryTypographyProps={{ style: { fontWeight: 400, lineHeight: 1.3, color: 'inherit' } }}
+                        secondaryTypographyProps={{ className: classes.subtitle }}
                     />
                 }
+                rightComponent={
+                    small ? (
+                        undefined
+                    ) : (
+                        <>
+                            <IconButton
+                                className={classes.iconButton}
+                                onClick={
+                                    props.repository
+                                        ? (): void => {
+                                              window.open(bugLink, '_blank');
+                                          }
+                                        : undefined
+                                }
+                            >
+                                <Badge badgeContent={bugs} color={'error'}>
+                                    <BugReport fontSize={'small'} />
+                                </Badge>
+                            </IconButton>
+                            <IconButton
+                                className={classes.iconButton}
+                                onClick={
+                                    props.repository
+                                        ? (): void => {
+                                              window.open(repositoryLink, '_blank');
+                                          }
+                                        : undefined
+                                }
+                            >
+                                {getBuildIcon(props.repository, build, 'small')}
+                            </IconButton>
+                            <IconButton
+                                className={classes.iconButton}
+                                onClick={
+                                    props.repository
+                                        ? (): void => {
+                                              window.open(repositoryLink, '_blank');
+                                          }
+                                        : undefined
+                                }
+                            >
+                                <Description fontSize={'small'} />
+                            </IconButton>
+                        </>
+                    )
+                }
             />
-            <div style={{ width: '100%', padding: '0 16px 16px' }}>
-                <Button variant={'outlined'} color={'primary'} style={{ width: '100%', fontWeight: 600 }}>
-                    <Description style={{ marginRight: 8 }} />
-                    Documentation
-                </Button>
-            </div>
-            {props.divider && <Divider />}
-        </div>
-    ) : (
-        <InfoListItem
-            hidePadding
-            divider={props.divider ? 'full' : undefined}
-            title={''}
-            subtitle={''}
-            leftComponent={
-                <ListItemText
-                    title={props.title}
-                    style={{ width: '100%', marginRight: -16 }}
-                    primaryTypographyProps={{ display: 'block', style: { width: '100%' } }}
-                    primary={
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                            <Typography style={{ fontWeight: 600, lineHeight: 1.2, fontSize: '0.875rem' }} noWrap>
-                                {props.title}
-                            </Typography>
-                            {version && (
-                                <Typography
-                                    variant={'subtitle2'}
-                                    style={{ color: Colors.gray[500], cursor: 'pointer', marginLeft: 4 }}
-                                    onClick={(): void => {
-                                        window.open(`https://www.npmjs.com/package/${props.package}`);
-                                    }}
-                                >{`@${version}`}</Typography>
-                            )}
-                        </div>
-                    }
-                    secondary={props.description}
-                    secondaryTypographyProps={{ style: { fontWeight: 400, lineHeight: 1.3, color: 'inherit' } }}
-                />
-            }
-            rightComponent={
+            {small && (
                 <>
-                    <IconButton
-                        style={{ color: Colors.black[500], padding: 8 }}
-                        onClick={
-                            props.repository
-                                ? (): void => {
-                                      window.open(
-                                          `https://github.com/pxblue/${props.repository}/issues?q=is%3Aissue+is%3Aopen${bugString}`,
-                                          '_blank'
-                                      );
-                                  }
-                                : undefined
-                        }
-                    >
-                        <Badge badgeContent={bugs} color={'error'}>
-                            <BugReport fontSize={'small'} />
-                        </Badge>
-                    </IconButton>
-                    <IconButton
-                        style={{ color: Colors.gray[500], padding: 8 }}
-                        onClick={
-                            props.repository
-                                ? (): void => {
-                                      window.open(
-                                          `https://circleci.com/gh/pxblue/${props.repository}/tree/master`,
-                                          '_blank'
-                                      );
-                                  }
-                                : undefined
-                        }
-                    >
-                        {getBuildIcon(props.repository, build, 'small')}
-                    </IconButton>
-                    <IconButton
-                        style={{ color: Colors.black[500], padding: 8 }}
-                        onClick={
-                            props.repository
-                                ? (): void => {
-                                      window.open(`https://github.com/pxblue/${props.repository}`, '_blank');
-                                  }
-                                : undefined
-                        }
-                    >
-                        <Description fontSize={'small'} />
-                    </IconButton>
+                    <div className={classes.buttonWrapper}>
+                        <Button variant={'outlined'} color={'primary'} style={{ width: '100%', fontWeight: 600 }}>
+                            <Description style={{ marginRight: 8 }} />
+                            Documentation
+                        </Button>
+                    </div>
+                    {props.divider && <Divider />}
                 </>
-            }
-        />
+            )}
+        </div>
     );
 };
+ResourceRow.displayName = 'ResourceRow';

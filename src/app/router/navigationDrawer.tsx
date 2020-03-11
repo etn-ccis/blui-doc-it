@@ -39,7 +39,7 @@ export const NavigationDrawer = (): JSX.Element => {
     return (
         <Drawer
             open={open}
-            width={300}
+            width={270}
             ModalProps={{
                 onBackdropClick: (): void => setOpen(!open),
             }}

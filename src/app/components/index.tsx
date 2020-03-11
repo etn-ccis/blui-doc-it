@@ -6,3 +6,4 @@ export { CardCarousel, CarouselCard } from './CardCarousel';
 export { NavLink } from './NavLink';
 export { FooterLinks } from './FooterLinks';
 export { ResourceRow } from './ResourceRow';
+export { MiniBug } from './MiniBug';
