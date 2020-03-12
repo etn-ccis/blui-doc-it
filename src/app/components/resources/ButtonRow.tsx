@@ -47,6 +47,10 @@ const useStyles = makeStyles((theme: Theme) =>
         iconButton: {
             color: Colors.gray[500],
             padding: theme.spacing(1),
+            marginLeft: theme.spacing(1),
+        },
+        badge:{
+            fontWeight: 600,
         },
         demo: {
             '&:hover': {
@@ -143,7 +147,7 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
                             window.open(demoLink, '_blank');
                         }}
                     >
-                        <Badge badgeContent={branches ? (branches.length > 1 ? branches.length : 0) : 0} color={'default'} >
+                        <Badge style={{fontWeight: 600}} badgeContent={branches ? (branches.length > 1 ? branches.length : 0) : 0} color={'default'} classes={{badge: classes.badge}} >
                             <Code fontSize={'small'} />
                         </Badge>
                     </IconButton>
@@ -155,7 +159,7 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
                         window.open(bugLink, '_blank');
                     }}
                 >
-                    <Badge badgeContent={bugs} color={'error'} classes={{colorSecondary: classes.color}}>
+                    <Badge badgeContent={bugs} color={'error'} classes={{colorSecondary: classes.color, badge: classes.badge}}>
                         <BugReport fontSize={'small'} />
                     </Badge>
                 </IconButton>

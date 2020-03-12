@@ -158,6 +158,7 @@ export const Resources: React.FC = (): JSX.Element => {
                                                         package={item.package}
                                                         repository={item.repository || ''}
                                                         description={item.description}
+                                                        divider={index < bucket.items.length -1}
                                                     />
                                                 ) : (
                                                     <ExampleRow
@@ -167,6 +168,7 @@ export const Resources: React.FC = (): JSX.Element => {
                                                         description={item.description}
                                                         branches={filter !== 'all' ? [filter] : item.applies}
                                                         bugLabels={filter !== 'all' ? [filter] : []}
+                                                        divider={index < bucket.items.length -1}
                                                     />
                                                 )
                                             ) : null
