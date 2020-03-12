@@ -80,6 +80,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     variant={'outlined'}
                     color={'inherit'}
                     style={{ minWidth: 150, fontWeight: 600, margin: `${theme.spacing(2)}px 0 0` }}
+                    onClick={(): void => { history.push('overview') }}
                 >
                     GET STARTED
                 </Button>

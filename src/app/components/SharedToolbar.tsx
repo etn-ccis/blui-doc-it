@@ -52,14 +52,19 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
         [navigationIcon]
     );
 
+    // TODO: Revisit this when the DrawerLayout is fixed - this is going to be goofy on the pages with multiple appbars
     useEffect(() => {
-        window.addEventListener('scroll', (e) => {
+        const updateShadow = (e: Event): void => {
             if (e && matchesSM && window.scrollY > 20) {
                 setShadow(true);
             } else {
                 setShadow(false);
             }
-        });
+        }
+        window.addEventListener('scroll', updateShadow);
+        return (): void => {
+            window.removeEventListener('scroll', updateShadow)
+        }
     });
 
     return (

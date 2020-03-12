@@ -43,14 +43,18 @@ export const PackageRow: React.FC<PackageRowProps> = (props): JSX.Element => {
     // Make the API calls for the live information
     useEffect(() => {
         const cancel = axios.CancelToken.source();
+        let isMounted = true;
 
         const loadVersion = async (): Promise<void> => {
             const npmVersion = await getNpmVersion(packageName, cancel);
-            if (npmVersion !== undefined) {
+            if (isMounted) {
                 setVersion(npmVersion);
             }
         };
         loadVersion();
+        return (): void => {
+            isMounted = false;
+        }
     }, [repository, bugLabels, packageName]);
 
     const buttons = <ButtonRow isPackage small={small} repository={repository} />;

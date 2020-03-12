@@ -52,7 +52,7 @@ export const getBuildStatus = async (
             // request canceled
             return undefined;
         }
-        return false;
+        return undefined;
     }
 };
 

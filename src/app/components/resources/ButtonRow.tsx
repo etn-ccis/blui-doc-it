@@ -53,19 +53,24 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
     // Make the API calls for the live information
     useEffect(() => {
         const cancel = axios.CancelToken.source();
+        let isMounted = true;
 
         const loadMetrics = async (): Promise<void> => {
             const buildStatus = await getBuildStatus(repository, branches || ['master'], cancel);
-            if (buildStatus !== undefined) {
+            if (isMounted) {
                 setBuild(buildStatus);
             }
 
             const bugCount = await getBugCount(repository, bugLabels || [], cancel);
-            if (bugCount !== undefined) {
+            if (isMounted) {
                 setBugs(bugCount);
             }
         };
         loadMetrics();
+
+        return (): void => {
+            isMounted = false;
+        }
     }, [repository, bugLabels, branches]);
 
     const bugString = (bugLabels ? [...bugLabels, 'bug'] : ['bug']).map((label) => `+label%3A${label}`).join('');
