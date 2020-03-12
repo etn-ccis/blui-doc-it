@@ -77,9 +77,9 @@ export const getBugCount = async (
     }
 };
 
-export const getNpmVersion = async (packagename: string, cancel: CancelTokenSource): Promise<string | undefined> => {
+export const getNpmVersion = async (packageName: string, cancel: CancelTokenSource): Promise<string | undefined> => {
     try {
-        const response = await npm.get(`/package/${encodeURIComponent(packagename)}`, { cancelToken: cancel.token });
+        const response = await npm.get(`/package/${encodeURIComponent(packageName)}`, { cancelToken: cancel.token });
         if (response && response.status === 200) return response.data.collected.metadata.version;
         return undefined;
     } catch (thrown) {
