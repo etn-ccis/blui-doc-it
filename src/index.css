@@ -34,14 +34,22 @@ q:after {
 blockquote > p:last-child {
     margin-bottom: 0;
 }
-pre {
+pre, code {
     background-color: #ddd;
     color: #333;
     font-family: Roboto Mono, Monospaced;
     font-size: 0.75rem;
-    overflow: auto;
     border-radius: 3px;
+    overflow: auto;
+}
+pre {
     padding: 10px;
+}
+code {
+    padding: 4px;
+}
+pre > code {
+    padding: 0px;
 }
 
 .rotateMe {

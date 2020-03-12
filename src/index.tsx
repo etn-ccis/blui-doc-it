@@ -8,6 +8,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import * as PXBThemes from '@pxblue/themes/react';
 import 'typeface-open-sans';
+import 'typeface-roboto-mono';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { MDXProvider } from '@mdx-js/react';
