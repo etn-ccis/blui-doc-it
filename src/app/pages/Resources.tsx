@@ -17,7 +17,7 @@ import {
 import * as Colors from '@pxblue/colors';
 import circles from '../assets/circles.svg';
 import { ExpandMore } from '@material-ui/icons';
-import { ResourceRow } from '../components/ResourceRow';
+import { PackageRow /*ResourceRow*/, ExampleRow } from '../components';
 import { useDispatch } from 'react-redux';
 import { CHANGE_PAGE_TITLE } from '../redux/actions';
 
@@ -40,6 +40,23 @@ const useStyles = makeStyles((theme: Theme) =>
             [theme.breakpoints.down('xs')]: {
                 // marginTop: theme.spacing(7)
             },
+        },
+        expanderHeader: {
+            flex: '1 1 0px',
+            display: 'flex',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            overflow: 'hidden',
+        },
+        expanderSubtitle: {
+            fontWeight: 300,
+            fontSize: '0.875rem',
+        },
+        expanderTitle: {
+            fontWeight: 600,
+            flex: '0 0 auto',
+            marginRight: 4,
+            fontSize: '0.875rem',
         },
         noMargin: {
             overflow: 'hidden',
@@ -89,17 +106,14 @@ export const Resources: React.FC = (): JSX.Element => {
                     <Tab
                         style={{ minWidth: 'auto' }}
                         label="React Native"
-                        value={'reactnative'}
-                        onClick={(): void => setFilter('reactnative')}
+                        value={'react-native'}
+                        onClick={(): void => setFilter('react-native')}
                     />
                 </Tabs>
             </AppBar>
 
             {/* First expander */}
             <div style={{ padding: 20, margin: '0 auto', maxWidth: 1024 }}>
-                <Typography variant={'h6'} color={'primary'} style={{ marginBottom: 16 }}>
-                    NPM Packages
-                </Typography>
                 {resources.map(
                     (bucket, bIndex) =>
                         (!bucket.applies ||
@@ -112,38 +126,19 @@ export const Resources: React.FC = (): JSX.Element => {
                                     style={{ padding: '0 16px', margin: 0 }}
                                     classes={{ content: classes.noMargin }}
                                 >
-                                    <div
-                                        style={{
-                                            flex: '1 1 0px',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            flexWrap: 'wrap',
-                                            overflow: 'hidden',
-                                        }}
-                                    >
+                                    <div className={classes.expanderHeader}>
                                         <Typography
                                             variant={'subtitle1'}
                                             noWrap
                                             color={'primary'}
-                                            style={{
-                                                fontWeight: 600,
-                                                flex: '0 0 auto',
-                                                marginRight: 4,
-                                                fontSize: '0.875rem',
-                                            }}
+                                            className={classes.expanderTitle}
                                         >{`${bucket.name}: `}</Typography>
                                         <Typography
                                             color={'primary'}
                                             noWrap
-                                            style={{ fontWeight: 300, fontSize: '0.875rem' }}
+                                            className={classes.expanderSubtitle}
                                         >{`${bucket.description}`}</Typography>
                                     </div>
-                                    {/* <ExpansionPanelActions>
-                                    <ListItemTag label={`@99.99.99`} style={{ fontWeight: 600, textTransform: 'none' }} />
-                                    <IconButton style={{ color: Colors.black[500] }}><Badge badgeContent={3} color={'error'}><BugReport /></Badge></IconButton>
-                                    <IconButton style={{ color: Colors.green[500] }}><CheckCircle /></IconButton>
-                                    <IconButton style={{ color: Colors.black[500] }}><Description /></IconButton>
-                                </ExpansionPanelActions> */}
                                 </ExpansionPanelSummary>
                                 <ExpansionPanelDetails style={{ display: 'block', padding: 0 }}>
                                     <Divider />
@@ -153,15 +148,23 @@ export const Resources: React.FC = (): JSX.Element => {
                                             item.applies.includes(filter) ||
                                             item.applies.includes('all') ||
                                             filter === 'all' ? (
-                                                <ResourceRow
-                                                    key={`${item.name}_${index}`}
-                                                    title={item.name}
-                                                    description={item.description}
-                                                    divider={index < bucket.items.length - 1}
-                                                    repository={item.repository}
-                                                    package={item.package}
-                                                    bugLabels={item.bugLabels}
-                                                />
+                                                item.package ? (
+                                                    <PackageRow
+                                                        key={`${item.name}_${index}`}
+                                                        package={item.package}
+                                                        repository={item.repository || ''}
+                                                        description={item.description}
+                                                    />
+                                                ) : (
+                                                    <ExampleRow
+                                                        key={`${item.name}_${index}`}
+                                                        name={item.name}
+                                                        repository={item.repository || ''}
+                                                        description={item.description}
+                                                        branches={filter !== 'all' ? [filter] : item.applies}
+                                                        bugLabels={filter !== 'all' ? [filter] : []}
+                                                    />
+                                                )
                                             ) : null
                                         )}
                                     </List>
