@@ -61,7 +61,11 @@ const useStyles = makeStyles((theme: Theme) =>
         noMargin: {
             overflow: 'hidden',
             margin: '0 !important',
+            '&$expanded':{
+                minHeight: theme.spacing(6)
+            }
         },
+        expanded: { }
     })
 );
 
@@ -124,7 +128,7 @@ export const Resources: React.FC = (): JSX.Element => {
                                 <ExpansionPanelSummary
                                     expandIcon={<ExpandMore color={'primary'} />}
                                     style={{ padding: '0 16px', margin: 0 }}
-                                    classes={{ content: classes.noMargin }}
+                                    classes={{ root: classes.noMargin, content: classes.noMargin, expanded: classes.expanded }}
                                 >
                                     <div className={classes.expanderHeader}>
                                         <Typography

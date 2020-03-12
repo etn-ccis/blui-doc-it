@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { IconButton, Badge, makeStyles, createStyles, Theme } from '@material-ui/core';
 
 import * as Colors from '@pxblue/colors';
-import { BugReport, CheckCircle, Description, RemoveCircle, Cancel, Computer } from '@material-ui/icons';
+import { BugReport, CheckCircle, Description, RemoveCircle, Cancel, Code } from '@material-ui/icons';
 import { getBuildStatus, getBugCount } from '../../api';
 import axios from 'axios';
 import { Spacer } from '@pxblue/react-components';
@@ -55,13 +55,19 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         bugs: {
             '&:hover': {
-                color: Colors.yellow[900]
+                color: Colors.yellow[900],
+                '& $color':{
+                    backgroundColor: Colors.red[500]
+                }
             }
         },
         repo: {
             '&:hover': {
                 color: theme.palette.primary.main
             }
+        },
+        color:{
+            backgroundColor: Colors.gray[300],
         },
         miniIcon: {
             marginRight: theme.spacing(1),
@@ -137,8 +143,8 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
                             window.open(demoLink, '_blank');
                         }}
                     >
-                        <Badge badgeContent={branches ? (branches.length > 1 ? branches.length : 0) : 0} color={'default'}>
-                            <Computer fontSize={'small'} />
+                        <Badge badgeContent={branches ? (branches.length > 1 ? branches.length : 0) : 0} color={'default'} >
+                            <Code fontSize={'small'} />
                         </Badge>
                     </IconButton>
                 }
@@ -149,7 +155,7 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
                         window.open(bugLink, '_blank');
                     }}
                 >
-                    <Badge badgeContent={bugs} color={'default'}>
+                    <Badge badgeContent={bugs} color={'error'} classes={{colorSecondary: classes.color}}>
                         <BugReport fontSize={'small'} />
                     </Badge>
                 </IconButton>
