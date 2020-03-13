@@ -25,20 +25,10 @@ import { resources, Filter } from '../../__configuration__/resources';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        banner: {
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            // marginTop: theme.spacing(8),
-            padding: `${theme.spacing(8)}px ${theme.spacing(4)}px`,
-            width: '100%',
-            color: '#ffffff',
-            backgroundColor: Colors.blue[500],
-            backgroundImage: `url(${circles})`,
-            backgroundSize: 1200,
-            backgroundPosition: '-240px center',
+        tabs:{
+            top: theme.spacing(8),
             [theme.breakpoints.down('xs')]: {
-                // marginTop: theme.spacing(7)
+                top: theme.spacing(7),
             },
         },
         expanderHeader: {
