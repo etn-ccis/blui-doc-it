@@ -148,7 +148,7 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
                         }}
                     >
                         <Badge style={{fontWeight: 600}} badgeContent={branches ? (branches.length > 1 ? branches.length : 0) : 0} color={'default'} classes={{badge: classes.badge}} >
-                            <Code fontSize={'small'} />
+                            <Code />
                         </Badge>
                     </IconButton>
                 }
@@ -160,7 +160,7 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
                     }}
                 >
                     <Badge badgeContent={bugs} color={'error'} classes={{colorSecondary: classes.color, badge: classes.badge}}>
-                        <BugReport fontSize={'small'} />
+                        <BugReport />
                     </Badge>
                 </IconButton>
                 <IconButton
@@ -179,7 +179,7 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
                         window.open(repoLink, '_blank');
                     }}
                 >
-                    <Description fontSize={'small'} />
+                    <Description />
                 </IconButton>
 
             </>
