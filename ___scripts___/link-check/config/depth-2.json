@@ -2,6 +2,7 @@
     "ignorePatterns": [
         {"pattern": "/style/iconography"},
         {"pattern": "/style/color"},
+        {"pattern": "/resources"},
         {"pattern": "^..\/images"}
     ],
     "replacementPatterns": [

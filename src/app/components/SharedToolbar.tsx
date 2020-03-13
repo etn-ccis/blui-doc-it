@@ -1,7 +1,18 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Typography, AppBar, Tabs, Tab, Toolbar, ListItemText, AppBarProps, Hidden, useTheme } from '@material-ui/core';
-import { NavLink } from '../components';
+import {
+    Typography,
+    AppBar,
+    Tabs,
+    Tab,
+    Toolbar,
+    ListItemText,
+    AppBarProps,
+    Hidden,
+    useTheme,
+    useMediaQuery,
+} from '@material-ui/core';
+// import { NavLink } from '../components';
 import { PxblueSmall } from '@pxblue/icons-mui';
 import { Spacer } from '@pxblue/react-components';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -19,7 +30,9 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const theme = useTheme();
     const history = useHistory();
     const [activeRoute, setActiveRoute] = useState(location.pathname);
+    const [hasShadow, setShadow] = useState(false);
     const icon = navigationIcon ? navigationIcon : <PxblueSmall />;
+    const matchesSM = useMediaQuery(theme.breakpoints.up('sm'));
 
     const _navigationIcon = useCallback(
         () => (
@@ -39,10 +52,27 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
         [navigationIcon]
     );
 
+    // TODO: Revisit this when the DrawerLayout is fixed - this is going to be goofy on the pages with multiple appbars
+    useEffect(() => {
+        const updateShadow = (e: Event): void => {
+            if (e && matchesSM && window.scrollY > 20) {
+                setShadow(true);
+            } else {
+                setShadow(false);
+            }
+        };
+        window.addEventListener('scroll', updateShadow);
+        return (): void => {
+            window.removeEventListener('scroll', updateShadow);
+        };
+    });
+
     return (
         <>
             <AppBar position="sticky" color={color} elevation={0} style={{ zIndex: 10000 }} {...other}>
-                <Toolbar style={{ padding: `0 ${theme.spacing(2)}px` }}>
+                <Toolbar
+                    style={{ padding: `0 ${theme.spacing(2)}px`, boxShadow: hasShadow ? theme.shadows[12] : undefined }}
+                >
                     {_navigationIcon()}
                     {props.title ? (
                         <ListItemText
@@ -60,7 +90,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                         </Typography>
                     )}
                     <Spacer />
-                    <Hidden xsDown>
+                    {/* <Hidden xsDown>
                         <div
                             style={{ display: 'flex', flexWrap: 'wrap', flex: '1 1 auto', justifyContent: 'flex-end' }}
                         >
@@ -69,17 +99,25 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                             <NavLink to={'/patterns/appbars'} title={'Patterns'} />
                             <NavLink to={'/resources'} title={'Resources'} />
                         </div>
-                    </Hidden>
+                    </Hidden> */}
                 </Toolbar>
             </AppBar>
             <Hidden smUp>
                 <AppBar position="sticky" color={'primary'} style={{ top: 56 }}>
-                    <Tabs variant={'fullWidth'} value={
-                        activeRoute.startsWith('/overview') ? '/overview' : 
-                        activeRoute.startsWith('/style') ? '/style' :
-                        activeRoute.startsWith('/patterns') ? '/patterns' : 
-                        activeRoute.startsWith('/resources') ? '/resources' : false
-                    }>
+                    <Tabs
+                        variant={'fullWidth'}
+                        value={
+                            activeRoute.startsWith('/overview')
+                                ? '/overview'
+                                : activeRoute.startsWith('/style')
+                                ? '/style'
+                                : activeRoute.startsWith('/patterns')
+                                ? '/patterns'
+                                : activeRoute.startsWith('/resources')
+                                ? '/resources'
+                                : false
+                        }
+                    >
                         <Tab
                             label="Getting Started"
                             value={'/overview'}

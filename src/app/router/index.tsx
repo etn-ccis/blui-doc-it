@@ -9,6 +9,8 @@ import { Menu } from '@material-ui/icons';
 import { useSelector } from 'react-redux';
 
 import { pageDefinitions } from '../../__configuration__/navigationMenu/navigation';
+import { AppBar, Toolbar, Typography, makeStyles, createStyles } from '@material-ui/core';
+import * as Colors from '@pxblue/colors';
 
 const buildRoutes = (routes: any[], url: string): JSX.Element[] => {
     let ret: any[] = [];
@@ -27,9 +29,21 @@ const buildRoutes = (routes: any[], url: string): JSX.Element[] => {
     return ret;
 };
 
+const useStyles = makeStyles(() =>
+    createStyles({
+        footer: {
+            zIndex: 0,
+            backgroundColor: Colors.black[900],
+            textAlign: 'center',
+            marginTop: '50vh',
+        },
+    })
+);
+
 export const MainRouter = (): JSX.Element => {
     const [open, setOpen] = useState(false);
     const title = useSelector((state: AppState) => state.app.pageTitle);
+    const classes = useStyles();
     return (
         <Router>
             <Switch>
@@ -44,16 +58,24 @@ export const MainRouter = (): JSX.Element => {
                                     title={title}
                                     navigationIcon={<Menu onClick={(): void => setOpen(!open)} />}
                                 />
-                                <div style={{ padding: 20 }}>
-                                    <Switch>
-                                        {buildRoutes(pageDefinitions, '')}
+                                {/* <div style={{ padding: 20 }}> */}
+                                <Switch>
+                                    {buildRoutes(pageDefinitions, '')}
 
-                                        {/* Catch-All Redirect to Landing Page */}
-                                        <Route path="*">
-                                            <Redirect to={'/'} />
-                                        </Route>
-                                    </Switch>
-                                </div>
+                                    {/* Catch-All Redirect to Landing Page */}
+                                    <Route path="*">
+                                        <Redirect to={'/'} />
+                                    </Route>
+                                </Switch>
+                                {/* </div> */}
+                                {/* Footer Section */}
+                                <AppBar position={'static'} className={classes.footer} elevation={0}>
+                                    <Toolbar variant={'dense'}>
+                                        <Typography variant={'caption'} align={'center'} style={{ flex: '1 1 0px' }}>
+                                            {`Copyright ${new Date().getFullYear()} Eaton. Licensed under BSD-3-Clause.`}
+                                        </Typography>
+                                    </Toolbar>
+                                </AppBar>
                             </>
                         </DrawerLayout>
                     </div>
