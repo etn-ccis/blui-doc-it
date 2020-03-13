@@ -54,7 +54,7 @@ export const PackageRow: React.FC<PackageRowProps> = (props): JSX.Element => {
         loadVersion();
         return (): void => {
             isMounted = false;
-        }
+        };
     }, [repository, bugLabels, packageName]);
 
     const buttons = <ButtonRow isPackage small={small} repository={repository} />;

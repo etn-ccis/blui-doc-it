@@ -17,7 +17,7 @@ export const MiniBug: React.FC<MiniBugProps> = (props): JSX.Element | null => {
             ? Colors.orange[500]
             : Colors.red[500];
     return (
-        <div style={Object.assign({ display: 'flex', alignItems: 'center' }, style)} {...other}>
+        <div style={Object.assign({ cursor: 'pointer', display: 'flex', alignItems: 'center' }, style)} {...other}>
             <BugReport fontSize={'small'} htmlColor={color} />
             <Typography style={{ color: color, fontSize: 12 }}>{count}</Typography>
         </div>
@@ -25,16 +25,17 @@ export const MiniBug: React.FC<MiniBugProps> = (props): JSX.Element | null => {
 };
 MiniBug.displayName = 'MiniBug';
 
-
 type MiniDemoProps = ComponentProps<'div'> & {
     count: number | undefined;
 };
 export const MiniDemo: React.FC<MiniDemoProps> = (props): JSX.Element | null => {
     const { count, style, ...other } = props;
     return (
-        <div style={Object.assign({ display: 'flex', alignItems: 'center' }, style)} {...other}>
+        <div style={Object.assign({ cursor: 'pointer', display: 'flex', alignItems: 'center' }, style)} {...other}>
             <Code fontSize={'small'} htmlColor={Colors.blue[400]} />
-            {(count && count > 0) && <Typography style={{ color: Colors.blue[500], fontSize: 12 }}>{count}</Typography>}
+            {count !== undefined && count > 0 && (
+                <Typography style={{ color: Colors.blue[500], fontSize: 12 }}>{count}</Typography>
+            )}
         </div>
     );
 };

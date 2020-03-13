@@ -61,11 +61,11 @@ const useStyles = makeStyles((theme: Theme) =>
         noMargin: {
             overflow: 'hidden',
             margin: '0 !important',
-            '&$expanded':{
-                minHeight: theme.spacing(6)
-            }
+            '&$expanded': {
+                minHeight: theme.spacing(6),
+            },
         },
-        expanded: { }
+        expanded: {},
     })
 );
 
@@ -128,7 +128,11 @@ export const Resources: React.FC = (): JSX.Element => {
                                 <ExpansionPanelSummary
                                     expandIcon={<ExpandMore color={'primary'} />}
                                     style={{ padding: '0 16px', margin: 0 }}
-                                    classes={{ root: classes.noMargin, content: classes.noMargin, expanded: classes.expanded }}
+                                    classes={{
+                                        root: classes.noMargin,
+                                        content: classes.noMargin,
+                                        expanded: classes.expanded,
+                                    }}
                                 >
                                     <div className={classes.expanderHeader}>
                                         <Typography
@@ -158,7 +162,7 @@ export const Resources: React.FC = (): JSX.Element => {
                                                         package={item.package}
                                                         repository={item.repository || ''}
                                                         description={item.description}
-                                                        divider={index < bucket.items.length -1}
+                                                        divider={index < bucket.items.length - 1}
                                                     />
                                                 ) : (
                                                     <ExampleRow
@@ -168,7 +172,7 @@ export const Resources: React.FC = (): JSX.Element => {
                                                         description={item.description}
                                                         branches={filter !== 'all' ? [filter] : item.applies}
                                                         bugLabels={filter !== 'all' ? [filter] : []}
-                                                        divider={index < bucket.items.length -1}
+                                                        divider={index < bucket.items.length - 1}
                                                     />
                                                 )
                                             ) : null

@@ -60,11 +60,11 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
             } else {
                 setShadow(false);
             }
-        }
+        };
         window.addEventListener('scroll', updateShadow);
         return (): void => {
-            window.removeEventListener('scroll', updateShadow)
-        }
+            window.removeEventListener('scroll', updateShadow);
+        };
     });
 
     return (
