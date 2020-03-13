@@ -114,7 +114,7 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundColor: Colors.gray[300],
         },
         miniIcon: {
-            marginRight: theme.spacing(1),
+            marginRight: theme.spacing(2),
         },
     })
 );
@@ -170,7 +170,7 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
 
     return small ? (
         <>
-            <Spacer style={{ marginRight: 8 }} />
+            <Spacer style={{ marginRight: 16 }} />
             {!isPackage && (
                 <MiniDemo
                     className={classes.miniIcon}

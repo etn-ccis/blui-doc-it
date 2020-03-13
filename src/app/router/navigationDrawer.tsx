@@ -1,11 +1,12 @@
 import React, { useState, useCallback } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, NavItem } from '@pxblue/react-components';
-import { Pxblue } from '@pxblue/icons-mui';
+import { PxblueSmall } from '@pxblue/icons-mui';
 
 import * as Colors from '@pxblue/colors';
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { Eaton } from '../assets/icons';
+import { Typography } from '@material-ui/core';
 
 export const NavigationDrawer = (): JSX.Element => {
     const [open, setOpen] = useState(true);
@@ -45,11 +46,28 @@ export const NavigationDrawer = (): JSX.Element => {
             }}
         >
             <DrawerHeader
-                title={'Power Xpert Blue'}
                 backgroundColor={Colors.blue[500]}
                 fontColor={Colors.white[50]}
-                icon={<Pxblue />}
+                icon={<PxblueSmall />}
                 onIconClick={(): void => setOpen(!open)}
+                titleContent={
+                    <div
+                        style={{
+                            height: '100%',
+                            flex: '1 1 0px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            cursor: 'pointer',
+                        }}
+                        onClick={(): void => {
+                            history.push('/');
+                        }}
+                    >
+                        <Typography>
+                            Power Xpert <b>Blue</b>
+                        </Typography>
+                    </div>
+                }
             />
             <DrawerBody>
                 <DrawerNavGroup hidePadding activeItem={activeRoute} items={menuItems} />

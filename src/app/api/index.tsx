@@ -5,7 +5,10 @@ export const github = axios.create({
     timeout: 2000,
     headers: {
         Accept: 'application/vnd.github.v3+json',
-        Authorization: `token ${(process.env.REACT_APP_DOCIT_GITHUB_TOKEN || '').split('').reverse().join('')}`,
+        Authorization: `token ${(process.env.REACT_APP_DOCIT_GITHUB_TOKEN || '')
+            .split('')
+            .reverse()
+            .join('')}`,
     },
 });
 export const circleci = axios.create({

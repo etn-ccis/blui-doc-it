@@ -85,7 +85,7 @@ export const FooterLinks: React.FC = (): JSX.Element => {
                         hoverColor={Colors.white[50]}
                     />
                     <NavLink
-                        to={'/patterns/appbar'}
+                        to={'/patterns/appbars'}
                         title={'Design Patterns'}
                         className={classes.navLink}
                         hoverColor={Colors.white[50]}
