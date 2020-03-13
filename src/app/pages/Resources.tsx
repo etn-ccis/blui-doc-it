@@ -14,8 +14,6 @@ import {
     Divider,
 } from '@material-ui/core';
 
-import * as Colors from '@pxblue/colors';
-import circles from '../assets/circles.svg';
 import { ExpandMore } from '@material-ui/icons';
 import { PackageRow /*ResourceRow*/, ExampleRow } from '../components';
 import { useDispatch } from 'react-redux';
