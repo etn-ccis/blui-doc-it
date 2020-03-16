@@ -105,7 +105,7 @@ export const Resources: React.FC = (): JSX.Element => {
             </AppBar>
 
             {/* First expander */}
-            <div style={{ padding: 20, margin: '0 auto', maxWidth: 1024 }}>
+            <div style={{ padding: 20, margin: '0 auto', maxWidth: 1000 }}>
                 {resources.map(
                     (bucket, bIndex) =>
                         (!bucket.applies ||

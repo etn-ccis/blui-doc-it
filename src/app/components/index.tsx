@@ -9,3 +9,4 @@ export { ResourceRow } from './resources/ResourceRow';
 export { PackageRow } from './resources/PackageRow';
 export { ExampleRow } from './resources/ExampleRow';
 export { MiniBug, MiniDemo } from './MiniMetrics';
+export { ColorSwatch, ColorPalette } from './Colors';
