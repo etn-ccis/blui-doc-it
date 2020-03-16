@@ -3,6 +3,22 @@ import React from 'react';
 import { Typography, TypographyProps } from '@material-ui/core';
 import { Link, LinkProps } from 'react-router-dom';
 
+export const ExternalLink = (tProps: TypographyProps<'a'>): JSX.Element => (
+    <Typography
+        component={'a'}
+        target={'_blank'}
+        rel="noopener noreferrer"
+        style={{ fontWeight: 600, textDecoration: 'none', color: '#007bc1' }}
+        {...tProps}
+    />
+);
+type InternalLinkProps = LinkProps & {
+    href?: string;
+};
+export const InternalLink = (props: InternalLinkProps): JSX.Element => (
+    <Link rel="noopener noreferrer" style={{ fontWeight: 600, textDecoration: 'none', color: '#007bc1' }} {...props} />
+);
+
 export const componentsMap = {
     h1: (props: TypographyProps): JSX.Element => <Typography paragraph variant={'h4'} color={'primary'} {...props} />,
     h2: (props: TypographyProps): JSX.Element => (
@@ -30,25 +46,10 @@ export const componentsMap = {
         let tProps;
         if (props.href && props.href.match(/^http/gi)) {
             tProps = props as TypographyProps<'a'>;
-            return (
-                <Typography
-                    component={'a'}
-                    target={'_blank'}
-                    rel="noopener noreferrer"
-                    style={{ fontWeight: 600, textDecoration: 'none', color: '#007bc1' }}
-                    {...tProps}
-                />
-            );
+            return <ExternalLink {...tProps} />;
         }
         tProps = props as LinkProps;
-        return (
-            <Link
-                to={props.href}
-                rel="noopener noreferrer"
-                style={{ fontWeight: 600, textDecoration: 'none', color: '#007bc1' }}
-                {...tProps}
-            />
-        );
+        return <InternalLink href={props.href} {...tProps} />;
     },
     p: (props: TypographyProps): JSX.Element => <Typography paragraph {...props} />,
     li: (props: TypographyProps<'li'>): JSX.Element => <Typography component={'li'} className={'mdLi'} {...props} />,

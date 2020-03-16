@@ -194,7 +194,7 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Color Palette',
                 url: '/color',
-                component: <h1>COMING SOON</h1>,
+                component: <MarkdownPage title={'Color Palette'} markdown={Docs.Style.Color} />,
             },
             {
                 title: 'Iconography',
