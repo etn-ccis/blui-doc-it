@@ -23,7 +23,7 @@ import { resources, Filter } from '../../__configuration__/resources';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        tabs:{
+        tabs: {
             top: theme.spacing(8),
             [theme.breakpoints.down('xs')]: {
                 top: theme.spacing(7),
