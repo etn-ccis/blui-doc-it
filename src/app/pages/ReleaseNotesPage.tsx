@@ -1,8 +1,5 @@
 import React, { useEffect } from 'react';
-import {
-    Typography,
-    useTheme,
-} from '@material-ui/core';
+import { Typography, useTheme } from '@material-ui/core';
 import { LatestReleases } from '../../docs';
 import * as Colors from '@pxblue/colors';
 
@@ -21,9 +18,6 @@ export const ReleaseNotesPage: React.FC = (): JSX.Element => {
     return (
         <>
             <div style={{ padding: 20, margin: '0 auto', maxWidth: 1024 }}>
-                <Typography style={{ marginTop: theme.spacing(2), color: Colors.gray[500] }}>
-                    Get the latest updates on guidelines, components, and documentation across platforms.
-                </Typography>
                 {LatestReleases.map((item: ReleaseInfo) => (
                     <div key={item.title} style={{ color: Colors.gray[500], textAlign: 'left' }}>
                         <div style={{ marginTop: theme.spacing(2), display: 'flex' }}>
