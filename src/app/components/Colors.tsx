@@ -50,8 +50,8 @@ const useStyles = makeStyles((theme: Theme) =>
             marginRight: theme.spacing(1), 
             marginBottom: theme.spacing(1), 
             flex: '1 1 0px', 
-            maxWidth: 88, 
-            minWidth: 88,
+            maxWidth: 90, 
+            minWidth: 90,
         },
         swatch: {
             paddingTop: '100%',
