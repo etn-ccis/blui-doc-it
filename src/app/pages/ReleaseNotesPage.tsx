@@ -17,7 +17,7 @@ export const ReleaseNotesPage: React.FC = (): JSX.Element => {
         <>
             <div style={{ padding: 20, margin: '0 auto', maxWidth: 1024 }}>
                 {LatestReleases.map((item: ReleaseInfo) => (
-                    <div key={item.title} style={{ color: Colors.gray[500], textAlign: 'left', marginBottom: '8rem' }}>
+                    <div key={item.title} style={{ color: Colors.gray[500], textAlign: 'left', marginBottom: theme.spacing(16) }}>
                         <div style={{ marginTop: theme.spacing(2), display: 'flex' }}>
                             <Typography variant={'h4'} color={'primary'}>
                                 {item.title}
