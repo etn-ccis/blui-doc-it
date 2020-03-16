@@ -34,7 +34,7 @@ export const ReleaseNotesPage: React.FC = (): JSX.Element => {
                             <Typography color={'inherit'}>{item.date}</Typography>
                         </div>
                         <Typography variant={'subtitle2'}>{`v${item.version}`}</Typography>
-                        {item.summary}
+                        {item.details}
                     </div>
                 ))}
             </div>
