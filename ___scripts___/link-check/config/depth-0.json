@@ -3,6 +3,7 @@
         {"pattern": "/style/iconography"},
         {"pattern": "/style/color"},
         {"pattern": "/resources"},
+        {"pattern": "/release-notes"},
         {"pattern": "^..\/images"}
     ],
     "replacementPatterns": [
