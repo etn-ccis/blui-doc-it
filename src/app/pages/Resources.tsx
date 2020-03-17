@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
     AppBar,
-    Typography,
     Tabs,
     Tab,
     Theme,
@@ -9,13 +8,11 @@ import {
     makeStyles,
     List,
     ExpansionPanel,
-    ExpansionPanelSummary,
     ExpansionPanelDetails,
     Divider,
 } from '@material-ui/core';
 
-import { ExpandMore } from '@material-ui/icons';
-import { PackageRow, ExampleRow, PageContent } from '../components';
+import { PackageRow, ExampleRow, PageContent, ExpansionHeader } from '../components';
 
 import { resources } from '../../__configuration__/resources';
 import { usePageTitle } from '../hooks/usePageTitle';
@@ -29,31 +26,6 @@ const useStyles = makeStyles((theme: Theme) =>
                 top: theme.spacing(7),
             },
         },
-        expanderHeader: {
-            flex: '1 1 0px',
-            display: 'flex',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            overflow: 'hidden',
-        },
-        expanderSubtitle: {
-            fontWeight: 300,
-            fontSize: '0.875rem',
-        },
-        expanderTitle: {
-            fontWeight: 600,
-            flex: '0 0 auto',
-            marginRight: 4,
-            fontSize: '0.875rem',
-        },
-        noMargin: {
-            overflow: 'hidden',
-            margin: '0 !important',
-            '&$expanded': {
-                minHeight: theme.spacing(6),
-            },
-        },
-        expanded: {},
     })
 );
 
@@ -108,29 +80,7 @@ export const Resources: React.FC = (): JSX.Element => {
                             bucket.applies.includes('all') ||
                             filter === 'all') && (
                             <ExpansionPanel key={`${bucket.name}_${bIndex}`} defaultExpanded>
-                                <ExpansionPanelSummary
-                                    expandIcon={<ExpandMore color={'primary'} />}
-                                    style={{ padding: '0 16px', margin: 0 }}
-                                    classes={{
-                                        root: classes.noMargin,
-                                        content: classes.noMargin,
-                                        expanded: classes.expanded,
-                                    }}
-                                >
-                                    <div className={classes.expanderHeader}>
-                                        <Typography
-                                            variant={'subtitle1'}
-                                            noWrap
-                                            color={'primary'}
-                                            className={classes.expanderTitle}
-                                        >{`${bucket.name}: `}</Typography>
-                                        <Typography
-                                            color={'primary'}
-                                            noWrap
-                                            className={classes.expanderSubtitle}
-                                        >{`${bucket.description}`}</Typography>
-                                    </div>
-                                </ExpansionPanelSummary>
+                                <ExpansionHeader name={bucket.name} description={bucket.description}/>
                                 <ExpansionPanelDetails style={{ display: 'block', padding: 0 }}>
                                     <Divider />
                                     <List style={{ padding: 0 }}>
