@@ -19,10 +19,9 @@ export const ReleaseNotesPage: React.FC = (): JSX.Element => {
                 {LatestReleases.map((item: ReleaseInfo) => (
                     <div key={item.title} style={{ color: Colors.gray[500], textAlign: 'left', marginBottom: theme.spacing(16) }}>
                         <Typography variant={'h4'} color={'primary'} style={{ marginTop: theme.spacing(2), display: 'flex' }}>
-                            {item.title}
+                            {item.date}
                         </Typography>
-                        <Typography color={'inherit'}>{item.date}</Typography>
-                        <Typography variant={'subtitle2'}>{`v${item.version}`}</Typography>
+                        <Typography color={'inherit'} variant={'h6'}>{`v${item.version} (${item.title})` }</Typography>
                         {item.details}
                     </div>
                 ))}
