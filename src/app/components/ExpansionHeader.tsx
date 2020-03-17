@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-    Typography,
-    Theme,
-    createStyles,
-    makeStyles,
-    ExpansionPanelSummary,
-} from '@material-ui/core';
+import { Typography, Theme, createStyles, makeStyles, ExpansionPanelSummary } from '@material-ui/core';
 
 import { ExpandMore } from '@material-ui/icons';
 
@@ -42,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
 type ExpansionHeaderProps = {
     name: string;
     description: string;
-}
+};
 export const ExpansionHeader: React.FC<ExpansionHeaderProps> = (props): JSX.Element => {
     const classes = useStyles();
 

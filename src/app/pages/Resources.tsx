@@ -80,7 +80,7 @@ export const Resources: React.FC = (): JSX.Element => {
                             bucket.applies.includes('all') ||
                             filter === 'all') && (
                             <ExpansionPanel key={`${bucket.name}_${bIndex}`} defaultExpanded>
-                                <ExpansionHeader name={bucket.name} description={bucket.description}/>
+                                <ExpansionHeader name={bucket.name} description={bucket.description} />
                                 <ExpansionPanelDetails style={{ display: 'block', padding: 0 }}>
                                     <Divider />
                                     <List style={{ padding: 0 }}>

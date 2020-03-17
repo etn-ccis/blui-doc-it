@@ -72,7 +72,6 @@ export const roadmap: RoadmapBucket[] = [
                 status: 'finished',
                 author: 'Innersource',
             },
-
         ],
     },
     {

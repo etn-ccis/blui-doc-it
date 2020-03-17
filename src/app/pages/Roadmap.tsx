@@ -2,8 +2,6 @@ import React, { useState, useCallback } from 'react';
 import {
     AppBar,
     Typography,
-    // Tabs,
-    // Tab,
     Theme,
     createStyles,
     makeStyles,
@@ -101,7 +99,10 @@ export const Roadmap: React.FC = (): JSX.Element => {
 
     const filteredBuckets = roadmap.filter(
         (bucket) =>
-            !bucket.applies || bucket.applies.includes(frameworkFilter) || bucket.applies.includes('all') || frameworkFilter === 'all'
+            !bucket.applies ||
+            bucket.applies.includes(frameworkFilter) ||
+            bucket.applies.includes('all') ||
+            frameworkFilter === 'all'
     );
 
     return (
@@ -134,12 +135,15 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     </Select>
                 </Toolbar>
             </AppBar>
-            {/* First expander */}
+
             <PageContent>
                 {filteredBuckets.map((bucket, bIndex) => {
                     const filteredItems = bucket.items.filter(
                         (item) =>
-                            (item.applies === undefined || item.applies.includes(frameworkFilter) || item.applies.includes('all') || frameworkFilter === 'all') &&
+                            (item.applies === undefined ||
+                                item.applies.includes(frameworkFilter) ||
+                                item.applies.includes('all') ||
+                                frameworkFilter === 'all') &&
                             (item.quarter === quarterFilter || quarterFilter === 'Quarter')
                     );
                     if (filteredItems.length === 0) return null;
@@ -180,7 +184,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                                 }
                                                 rightComponent={getTags(item)}
                                             />
-                                        )
+                                        );
                                     })}
                                 </List>
                             </ExpansionPanelDetails>
