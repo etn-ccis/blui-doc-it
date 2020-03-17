@@ -10,3 +10,5 @@ export { PackageRow } from './resources/PackageRow';
 export { ExampleRow } from './resources/ExampleRow';
 export { MiniBug, MiniDemo } from './MiniMetrics';
 export { ColorSwatch, ColorPalette } from './Colors';
+export { PageContent } from './PageContent';
+export { ExpansionHeader } from './ExpansionHeader';

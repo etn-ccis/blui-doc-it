@@ -20,7 +20,7 @@ const getColorLabel = (color: string): JSX.Element | null => {
     ) : null;
 };
 
-type PXBlueColor = {
+export type PXBlueColor = {
     50: string;
     100: string;
     200: string;
