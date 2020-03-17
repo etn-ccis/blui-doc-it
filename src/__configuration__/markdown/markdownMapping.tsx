@@ -12,10 +12,8 @@ export const ExternalLink = (tProps: TypographyProps<'a'>): JSX.Element => (
         {...tProps}
     />
 );
-type InternalLinkProps = LinkProps & {
-    href?: string;
-};
-export const InternalLink = (props: InternalLinkProps): JSX.Element => (
+
+export const InternalLink = (props: LinkProps): JSX.Element => (
     <Link rel="noopener noreferrer" style={{ fontWeight: 600, textDecoration: 'none', color: '#007bc1' }} {...props} />
 );
 
@@ -49,7 +47,7 @@ export const componentsMap = {
             return <ExternalLink {...tProps} />;
         }
         tProps = props as LinkProps;
-        return <InternalLink href={props.href} {...tProps} />;
+        return <InternalLink to={props.href} {...tProps} />;
     },
     p: (props: TypographyProps): JSX.Element => <Typography paragraph {...props} />,
     li: (props: TypographyProps<'li'>): JSX.Element => <Typography component={'li'} className={'mdLi'} {...props} />,

@@ -262,6 +262,6 @@ export const pageDefinitions: SimpleNavItem[] = [
     {
         title: 'Release Notes',
         url: '/release-notes',
-        component: <ReleaseNotesPage />,
+        component: <ReleaseNotes />,
     },
 ];
