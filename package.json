@@ -90,6 +90,7 @@
     "jest": "24.9.0",
     "jest-environment-jsdom-fourteen": "0.1.0",
     "jest-resolve": "24.9.0",
+    "jest-transformer-mdx": "^2.1.0",
     "jest-watch-typeahead": "0.4.2",
     "markdown-link-check": "^3.8.0",
     "mini-css-extract-plugin": "0.8.0",
@@ -154,6 +155,7 @@
     ],
     "testEnvironment": "jest-environment-jsdom-fourteen",
     "transform": {
+      "^.+\\.(mdx)$": "jest-transformer-mdx",
       "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
       "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"

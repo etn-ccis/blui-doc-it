@@ -1,7 +1,9 @@
 import React from 'react';
 import * as Docs from '../../docs';
-import { MarkdownPage, Resources } from '../../app/pages';
 import { IconographyPage } from '../../app/pages/IconographyPage';
+import { MarkdownPage, Resources } from '../../app/pages';
+import { Roadmap } from '../../app/pages/Roadmap';
+import { ReleaseNotes } from '../../app/pages/ReleaseNotes';
 
 export type SimpleNavItem = {
     title: string;
@@ -256,8 +258,13 @@ export const pageDefinitions: SimpleNavItem[] = [
         component: <Resources />,
     },
     {
+        title: 'Roadmap',
+        url: '/roadmap',
+        component: <Roadmap />,
+    },
+    {
         title: 'Release Notes',
         url: '/release-notes',
-        component: <MarkdownPage title={'Release Notes'} markdown={Docs.ReleaseNotes} />,
+        component: <ReleaseNotes />,
     },
 ];

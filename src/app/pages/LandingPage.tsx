@@ -37,6 +37,7 @@ import { ReleaseInfo } from '../../docs/release-notes';
 
 import computer from '../assets/placeholder/develop.jpg';
 import paper from '../assets/placeholder/paper.jpg';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -70,6 +71,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
     const history = useHistory();
     const theme = useTheme();
     const classes = useStyles();
+    usePageTitle('');
 
     return (
         <>
