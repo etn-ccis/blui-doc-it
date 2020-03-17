@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Docs from '../../docs';
 import { MarkdownPage, Resources } from '../../app/pages';
+import { IconographyPage } from '../../app/pages/IconographyPage';
 
 export type SimpleNavItem = {
     title: string;
@@ -199,7 +200,7 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Iconography',
                 url: '/iconography',
-                component: <h1>COMING SOON</h1>,
+                component: <IconographyPage />,
             },
             {
                 title: 'Typography',
