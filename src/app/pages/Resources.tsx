@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
     AppBar,
     Typography,
@@ -15,11 +15,11 @@ import {
 } from '@material-ui/core';
 
 import { ExpandMore } from '@material-ui/icons';
-import { PackageRow /*ResourceRow*/, ExampleRow } from '../components';
-import { useDispatch } from 'react-redux';
-import { CHANGE_PAGE_TITLE } from '../redux/actions';
+import { PackageRow, ExampleRow, PageContent } from '../components';
 
-import { resources, Filter } from '../../__configuration__/resources';
+import { resources } from '../../__configuration__/resources';
+import { usePageTitle } from '../hooks/usePageTitle';
+import { FrameworkFilter } from '../../__types__';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -58,14 +58,9 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const Resources: React.FC = (): JSX.Element => {
-    // const history = useHistory();
-    // const theme = useTheme();
     const classes = useStyles();
-    const [filter, setFilter] = useState<Filter>('all');
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch({ type: CHANGE_PAGE_TITLE, payload: 'Resources' });
-    }, [dispatch]);
+    const [filter, setFilter] = useState<FrameworkFilter>('all');
+    usePageTitle('Resources');
 
     return (
         <>
@@ -105,7 +100,7 @@ export const Resources: React.FC = (): JSX.Element => {
             </AppBar>
 
             {/* First expander */}
-            <div style={{ padding: 20, margin: '0 auto', maxWidth: 1024 }}>
+            <PageContent>
                 {resources.map(
                     (bucket, bIndex) =>
                         (!bucket.applies ||
@@ -170,7 +165,7 @@ export const Resources: React.FC = (): JSX.Element => {
                             </ExpansionPanel>
                         )
                 )}
-            </div>
+            </PageContent>
         </>
     );
 };

@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { CHANGE_PAGE_TITLE } from '../redux/actions';
+import React from 'react';
+import { usePageTitle } from '../hooks/usePageTitle';
+import { PageContent } from '../components';
 
 export type MarkdownPageProps = {
     title: string;
@@ -9,13 +9,10 @@ export type MarkdownPageProps = {
 };
 
 export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element => {
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch({ type: CHANGE_PAGE_TITLE, payload: props.title });
-    }, [dispatch]);
+    usePageTitle(props.title);
     return (
-        <div style={{ padding: props.noPadding ? 0 : 20, maxWidth: 1024, margin: '0 auto' }}>
+        <PageContent noPadding={props.noPadding}>
             <props.markdown />
-        </div>
+        </PageContent>
     );
 };

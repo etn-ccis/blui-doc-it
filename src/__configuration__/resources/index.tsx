@@ -1,11 +1,11 @@
-export type Filter = 'all' | 'angular' | 'react' | 'ionic' | 'react-native';
+import { FrameworkFilter } from '../../__types__';
 
 type Resource = {
     name: string;
     description: string;
     package?: string;
     repository: string;
-    applies?: Filter[];
+    applies?: FrameworkFilter[];
     bugLabels?: string[];
 };
 type ResourceBucket = Omit<Resource, 'repository'> & {
