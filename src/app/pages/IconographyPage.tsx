@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { CHANGE_PAGE_TITLE } from '../redux/actions';
-import { useDispatch } from 'react-redux';
+import React, { useState, useCallback } from 'react';
 
 // PX Blue Icons and Symbols
 import * as Progress from '@pxblue/react-progress-icons';
@@ -26,6 +24,9 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import meta from '@pxblue/icons-mui/index.json';
 import { IconCard } from '../components/IconCard';
 import { IconMenu } from '../components/IconMenu';
+import { usePageTitle } from '../hooks/usePageTitle';
+import { ExternalLink, InternalLink } from '../../__configuration__/markdown/markdownMapping';
+import { unCamelCase } from '../utilities';
 
 // const percent = 66;
 const size = 48;
@@ -115,6 +116,52 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+const getMuiIconName = (filename: string): string =>
+    filename.replace(/\.svg/, '').replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 || p3).toUpperCase());
+
+const getFilteredIcons = (): any => meta.icons.filter((icon: any) => !icon.family.includes('Progress'));
+
+const createIconList = (): any => {
+    const iconList: any[] = [];
+    getFilteredIcons().forEach((icon: any) => {
+        const mui = getMuiIconName(icon.filename);
+        if (Icons[mui]) {
+            iconList.push({ name: icon.filename.replace(/\.svg/, ''), isMaterial: false });
+        }
+    });
+    Object.keys(MaterialIcons)
+        .filter((name) => {
+            if (name.includes('Outlined')) {
+                return false;
+            }
+            if (name.includes('Rounded')) {
+                return false;
+            }
+            if (name.includes('Sharp')) {
+                return false;
+            }
+            if (name.includes('TwoTone')) {
+                return false;
+            }
+            return true;
+        })
+        .forEach((iconName) => {
+            iconList.push({ name: iconName, isMaterial: true });
+        });
+    return iconList;
+};
+
+const groupIconList = (iconListToGroup: any): any => {
+    const groupings: any = {};
+    iconListToGroup.forEach((icon: any) => {
+        if (!groupings[icon.name.toUpperCase().charAt(0)]) {
+            groupings[icon.name.toUpperCase().charAt(0)] = [];
+        }
+        groupings[icon.name.toUpperCase().charAt(0)].push({ name: icon.name, isMaterial: icon.isMaterial });
+    });
+    return groupings;
+};
+
 export const IconographyPage = (props: any): JSX.Element => {
     const [search, setSearch] = useState('');
     const [hideLetterGroups, setHideLetterGroups] = useState<any>({});
@@ -122,93 +169,41 @@ export const IconographyPage = (props: any): JSX.Element => {
     const [filterMaterial, setFilterMaterial] = useState(false);
     const classes = useStyles(props);
     const theme = useTheme();
+    usePageTitle('Iconography');
 
-    const getMuiIconName = (filename: string): string =>
-        filename.replace(/\.svg/, '').replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 || p3).toUpperCase());
-
-    const getFilteredIcons = (): any => meta.icons.filter((icon: any) => !icon.family.includes('Progress'));
-
-    const createIconList = (): any => {
-        const iconList: any[] = [];
-        getFilteredIcons().forEach((icon: any) => {
-            const mui = getMuiIconName(icon.filename);
-            if (Icons[mui]) {
-                iconList.push({ name: icon.filename.replace(/\.svg/, ''), isMaterial: false });
-            }
-        });
-        Object.keys(MaterialIcons)
-            .filter((name) => {
-                if (name.includes('Outlined')) {
-                    return false;
-                }
-                if (name.includes('Rounded')) {
-                    return false;
-                }
-                if (name.includes('Sharp')) {
-                    return false;
-                }
-                if (name.includes('TwoTone')) {
-                    return false;
-                }
-                return true;
-            })
-            .forEach((iconName) => {
-                iconList.push({ name: iconName, isMaterial: true });
-            });
-        return iconList;
-    };
-
-    const iconMatches = (icon: any): boolean => {
-        if (filterMaterial && icon.isMaterial) {
-            return false;
-        }
-        const searchArray = search
-            .trim()
-            .toLowerCase()
-            .split(/\s+/);
-        for (let i = 0; i < searchArray.length; i++) {
-            if (icon.name.toLowerCase().indexOf(searchArray[i]) < 0) {
+    const iconMatches = useCallback(
+        (icon: any): boolean => {
+            if (filterMaterial && icon.isMaterial) {
                 return false;
             }
-        }
+            const searchArray = search
+                .trim()
+                .toLowerCase()
+                .split(/\s+/);
+            for (let i = 0; i < searchArray.length; i++) {
+                if (icon.name.toLowerCase().indexOf(searchArray[i]) < 0) {
+                    return false;
+                }
+            }
 
-        return true;
-    };
+            return true;
+        },
+        [search, filterMaterial]
+    );
 
     const icons = createIconList();
     const iconList = icons;
     const filteredIconList = iconList.filter((icon: any): any => iconMatches(icon)).sort();
-
-    const groupIconList = (iconListToGroup: any): any => {
-        const groupings: any = {};
-        iconListToGroup.forEach((icon: any) => {
-            if (!groupings[icon.name.toUpperCase().charAt(0)]) {
-                groupings[icon.name.toUpperCase().charAt(0)] = [];
-            }
-            groupings[icon.name.toUpperCase().charAt(0)].push({ name: icon.name, isMaterial: icon.isMaterial });
-        });
-        return groupings;
-    };
-
     const groupedIcons = groupIconList(filteredIconList);
 
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch({ type: CHANGE_PAGE_TITLE, payload: 'Iconography' });
-    }, [dispatch]);
-
-    const toggleCollapse = (letterGroup: any): void => {
-        const hidden: any = hideLetterGroups;
-        hidden[letterGroup] = !hideLetterGroups[letterGroup];
-        setHideLetterGroups({ ...hidden });
-    };
-
-    const unCamelCase = (val: string): string =>
-        val
-            .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
-            .replace(/([a-zA-Z])([0-9])/g, '$1 $2')
-            .replace(/\b([A-Z]+)([A-Z])([a-z])/, '$1 $2$3')
-            .replace(/^./, (str: string): string => str.toUpperCase());
+    const toggleCollapse = useCallback(
+        (letterGroup: any): void => {
+            const hidden: any = hideLetterGroups;
+            hidden[letterGroup] = !hideLetterGroups[letterGroup];
+            setHideLetterGroups({ ...hidden });
+        },
+        [hideLetterGroups]
+    );
 
     return (
         <div style={{ padding: 20, margin: '0 auto', maxWidth: 1024 }}>
@@ -348,10 +343,7 @@ export const IconographyPage = (props: any): JSX.Element => {
                 PX Blue also offers a number of icons that can be used to show progress, health, or other
                 percentage-based metrics. These can be dynamically adjusted programmatically (fill amount, color, size)
                 based on properties in your application. You can read more about using these components on{' '}
-                <a href="https://github.com/pxblue/icons/tree/master/progress" target="blank" rel="noopener noreferrer">
-                    GitHub
-                </a>
-                .
+                <ExternalLink href="https://github.com/pxblue/icons/tree/master/progress">GitHub</ExternalLink>.
             </Typography>
             <Paper elevation={4}>
                 <AppBar position="static" color="primary" classes={{ root: classes.header }}>
@@ -413,28 +405,24 @@ export const IconographyPage = (props: any): JSX.Element => {
             </Typography>
             <Typography paragraph>
                 If you decide that an icon is appropriate and there are no suitable options available, you can{' '}
-                <a href="/community/contactus">Contact Us</a> to request a new icon. Please include a brief description
-                of what the intended use is, and if possible a picture of where it will live in the context of your
-                application. The UX team will review your request and provide a recommendation within 48 hours as to
-                whether a new icon should be created or if an existing icon is available for you to use.
+                <InternalLink href="/community/contactus" to="/community/contactus">
+                    Contact Us
+                </InternalLink>{' '}
+                to request a new icon. Please include a brief description of what the intended use is, and if possible a
+                picture of where it will live in the context of your application. The UX team will review your request
+                and provide a recommendation within 48 hours as to whether a new icon should be created or if an
+                existing icon is available for you to use.
             </Typography>
             <Typography paragraph>
                 If you are looking for the PX Blue 1.0 symbols, please refer to our{' '}
-                <a href="https://github.com/pxblue/icons/tree/master/symbols" target="_blank" rel="noopener noreferrer">
-                    GitHub
-                </a>
-                .
+                <ExternalLink href="https://github.com/pxblue/icons/tree/master/symbols">GitHub</ExternalLink>.
             </Typography>
             <Typography style={{ marginBottom: '50vh' }} paragraph>
                 If you have your own design resources who are able to create icons, you can build these on your own,
                 following the{' '}
-                <a
-                    href="https://material.io/guidelines/style/icons.html#icons-product-icons"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+                <ExternalLink href="https://material.io/guidelines/style/icons.html#icons-product-icons">
                     Material Icon Guidelines
-                </a>{' '}
+                </ExternalLink>{' '}
                 to maintain a common look and feel. If you do not have your own designers, we can work with you to build
                 the icon you need. We can either build the icon in house or recommend external resources that you can
                 use. Please note that going this route may take extra time, so try to get requests in as early as
