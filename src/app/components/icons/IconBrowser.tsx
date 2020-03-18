@@ -20,9 +20,9 @@ import {
 import * as AllMaterialIcons from '@material-ui/icons';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import meta from '@pxblue/icons-mui/index.json';
-import { IconCard } from '../components/IconCard';
-import { IconMenu } from '../components/IconMenu';
-import { unCamelCase } from '../shared/utilities';
+import { IconCard } from './IconCard';
+import { IconMenu } from './IconMenu';
+import { unCamelCase } from '../../shared/utilities';
 
 const hideResultsThreshold = 20;
 const Icons: any = MuiIcons;

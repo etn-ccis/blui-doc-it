@@ -6,7 +6,6 @@ import * as PXBColors from '@pxblue/colors';
 
 // Material-UI Components
 import { Typography, AppBar, Paper, Toolbar, makeStyles } from '@material-ui/core';
-import { usePageTitle } from '../hooks/usePageTitle';
 
 const size = 48;
 const colorSet: any = PXBColors;
@@ -21,7 +20,6 @@ const useStyles = makeStyles(() => ({
 
 export const ProgressIconCard = (props: any): JSX.Element => {
     const classes = useStyles(props);
-    usePageTitle('Iconography');
 
     return (
         <Paper elevation={4}>

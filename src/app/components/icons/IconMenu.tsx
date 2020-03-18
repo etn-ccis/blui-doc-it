@@ -3,7 +3,6 @@ import * as AllMaterialIcons from '@material-ui/icons';
 
 // PX Blue Icons and Symbols
 import * as MuiIcons from '@pxblue/icons-mui';
-import { IconCard } from '../components/IconCard';
 import * as PXBColors from '@pxblue/colors';
 
 // Material-UI Components
@@ -20,8 +19,9 @@ import {
     Theme,
 } from '@material-ui/core';
 import meta from '@pxblue/icons-mui/index.json';
-import { ExternalLink } from '../../__configuration__/markdown/markdownMapping';
-import { unCamelCase, getSnakeCase } from '../shared/utilities';
+import { ExternalLink } from '../../../__configuration__/markdown/markdownMapping';
+import { unCamelCase, getSnakeCase } from '../../shared/utilities';
+import { IconCard } from './IconCard';
 
 const useStyles = makeStyles((theme: Theme): any => ({
     usageBox: {
