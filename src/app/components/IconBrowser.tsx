@@ -23,7 +23,7 @@ import meta from '@pxblue/icons-mui/index.json';
 import { IconCard } from '../components/IconCard';
 import { IconMenu } from '../components/IconMenu';
 import { usePageTitle } from '../hooks/usePageTitle';
-import { unCamelCase } from '../utilities';
+import { unCamelCase } from '../shared/utilities';
 
 const hideResultsThreshold = 20;
 const Icons: any = MuiIcons;

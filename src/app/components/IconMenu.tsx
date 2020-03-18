@@ -20,8 +20,8 @@ import {
     Theme,
 } from '@material-ui/core';
 import meta from '@pxblue/icons-mui/index.json';
-import { unCamelCase, getSnakeCase } from '../utilities';
 import { ExternalLink } from '../../__configuration__/markdown/markdownMapping';
+import { unCamelCase, getSnakeCase } from '../shared/utilities';
 
 const useStyles = makeStyles((theme: Theme): any => ({
     usageBox: {

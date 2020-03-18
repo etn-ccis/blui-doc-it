@@ -1,3 +1,9 @@
+export const getSnakeCase = (str: string): string =>
+    str
+        .replace(/[A-Z]/g, '_$&')
+        .toLowerCase()
+        .substr(1);
+
 export const unCamelCase = (val: string): string =>
     val
         .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
