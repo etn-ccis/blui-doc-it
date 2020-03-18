@@ -111,11 +111,11 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                         {isMaterial && (
                             <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                 View detailed usage and installation instructions for{' '}
-                                <ExternalLink href={instructionLinks[4]} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink href={instructionLinks[4]}>
                                     React
                                 </ExternalLink>{' '}
                                 and{' '}
-                                <ExternalLink href={instructionLinks[5]} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink href={instructionLinks[5]}>
                                     Angular
                                 </ExternalLink>
                                 .
@@ -124,7 +124,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                         {!isMaterial && (
                             <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                 For detailed usage and installation instructions, visit our{' '}
-                                <ExternalLink href={instructionLinks[0]} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink href={instructionLinks[0]}>
                                     GitHub
                                 </ExternalLink>
                                 .
@@ -154,11 +154,11 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                         {isMaterial && (
                             <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                 View detailed usage and installation instructions for{' '}
-                                <ExternalLink href={instructionLinks[3]} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink href={instructionLinks[3]}>
                                     React
                                 </ExternalLink>{' '}
                                 and{' '}
-                                <ExternalLink href={instructionLinks[6]} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink href={instructionLinks[6]}>
                                     Angular
                                 </ExternalLink>
                                 .
@@ -167,7 +167,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                         {!isMaterial && (
                             <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                 For detailed usage and installation instructions, visit our{' '}
-                                <ExternalLink href={instructionLinks[1]} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink href={instructionLinks[1]}>
                                     GitHub
                                 </ExternalLink>
                                 .
@@ -203,7 +203,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                         {!isMaterial && (
                             <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                 For detailed usage and installation instructions, visit our{' '}
-                                <ExternalLink href={instructionLinks[2]} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink href={instructionLinks[2]}>
                                     GitHub
                                 </ExternalLink>
                                 .
@@ -225,8 +225,6 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                             for use in Angular applications, see{' '}
                             <ExternalLink
                                 href={'https://github.com/pxblue/icons/tree/master/svg#angular-1'}
-                                target="_blank"
-                                rel="noopener noreferrer"
                             >
                                 @pxblue/icons
                             </ExternalLink>
