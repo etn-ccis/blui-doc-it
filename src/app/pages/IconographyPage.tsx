@@ -318,7 +318,7 @@ export const IconographyPage = (props: any): JSX.Element => {
                                                                     : Icons[getMuiIconName(icon.name)]
                                                             }
                                                             name={unCamelCase(getMuiIconName(icon.name))}
-                                                            additionalClasses={classes.iconCard}
+                                                            className={classes.iconCard}
                                                             selected={focusedIcon && focusedIcon.name === icon.name}
                                                         />
                                                     </div>
