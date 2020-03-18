@@ -34,14 +34,15 @@ type IconCardProps = {
     showLabel?: boolean;
     style?: CSSProperties;
     selected?: boolean;
+    additionalClasses?: string;
 };
 
 export const IconCard: React.FC<IconCardProps> = (props): JSX.Element => {
     const classes = useStyles(props);
 
-    const { component: Component, name, showLabel, style, selected, iconSize } = props;
+    const { component: Component, name, showLabel, style, selected, iconSize, additionalClasses } = props;
     return (
-        <div className={`${classes.wrapper} ${selected ? classes.selected : ''}`} style={style}>
+        <div className={`${classes.wrapper} ${selected ? classes.selected : ''} + ${additionalClasses}`} style={style}>
             <Component style={{ fontSize: iconSize }} />
             {showLabel && (
                 <Typography title={name} variant="subtitle2" className={classes.label}>

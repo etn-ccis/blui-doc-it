@@ -28,7 +28,6 @@ import { usePageTitle } from '../hooks/usePageTitle';
 import { ExternalLink, InternalLink } from '../../__configuration__/markdown/markdownMapping';
 import { unCamelCase } from '../utilities';
 
-// const percent = 66;
 const size = 48;
 const colorSet: any = PXBColors;
 const colors = ['red', 'orange', 'gold', 'yellow', 'green', 'lightBlue', 'blue', 'purple', 'gray', 'black'];
@@ -113,6 +112,12 @@ const useStyles = makeStyles((theme) => ({
         display: 'inline-block',
         float: 'right',
         paddingRight: '25px',
+    },
+    iconCard: {
+        margin: '0 15px 25px 15px',
+        cursor: 'pointer',
+        width: 100,
+        padding: '5px',
     },
 }));
 
@@ -313,12 +318,7 @@ export const IconographyPage = (props: any): JSX.Element => {
                                                                     : Icons[getMuiIconName(icon.name)]
                                                             }
                                                             name={unCamelCase(getMuiIconName(icon.name))}
-                                                            style={{
-                                                                margin: '0 15px 25px 15px',
-                                                                cursor: 'pointer',
-                                                                width: 100,
-                                                                padding: '5px',
-                                                            }}
+                                                            additionalClasses={classes.iconCard}
                                                             selected={focusedIcon && focusedIcon.name === icon.name}
                                                         />
                                                     </div>
