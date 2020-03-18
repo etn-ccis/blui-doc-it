@@ -17,10 +17,13 @@ import {
     ExpansionPanelActions,
     Button,
     makeStyles,
+    Theme,
 } from '@material-ui/core';
 import meta from '@pxblue/icons-mui/index.json';
+import { unCamelCase, getSnakeCase } from '../utilities';
+import { ExternalLink } from '../../__configuration__/markdown/markdownMapping';
 
-const useStyles = makeStyles((theme: any): any => ({
+const useStyles = makeStyles((theme: Theme): any => ({
     usageBox: {
         padding: `10px ${theme.spacing(2)}px 0px ${theme.spacing(2)}px`,
         overflowX: 'auto',
@@ -66,65 +69,63 @@ const instructionLinks = [
     'https://material.angular.io/components/icon/overview#svg-icons',
 ];
 
-export const IconMenu = (props: any): JSX.Element => {
-    const [activeTab, setActiveTab] = useState(0);
+const getIconFile = (iconName: string): any => {
+    for (let i = 0; i < meta.icons.length; i++) {
+        if (meta.icons[i].filename.includes(iconName)) {
+            return meta.icons[i];
+        }
+    }
+    return -1;
+};
 
+const getMuiIconName = (filename: string): string =>
+    filename.replace(/\.svg/, '').replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 || p3).toUpperCase());
+
+type Icon = {
+    name: string;
+    isMaterial: boolean;
+};
+
+type IconMenuProps = {
+    onClose: Function;
+    open: boolean;
+    icon: Icon;
+};
+
+export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
+    const [activeTab, setActiveTab] = useState(0);
     const MaterialIcons: any = AllMaterialIcons;
     const Icons: any = MuiIcons;
-
-    const getIconFile = (name: string): any => {
-        for (let i = 0; i < meta.icons.length; i++) {
-            if (meta.icons[i].filename.includes(name)) {
-                return meta.icons[i];
-            }
-        }
-        return -1;
-    };
-
-    const getMuiIconName = (filename: string): string =>
-        filename.replace(/\.svg/, '').replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 || p3).toUpperCase());
-
-    const getSnakeCase = (name: string): string =>
-        name
-            .replace(/[A-Z]/g, '_$&')
-            .toLowerCase()
-            .substr(1);
-
-    const unCamelCase = (val: string): string =>
-        val
-            .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
-            .replace(/([a-zA-Z])([0-9])/g, '$1 $2')
-            .replace(/\b([A-Z]+)([A-Z])([a-z])/, '$1 $2$3')
-            .replace(/^./, (str) => str.toUpperCase());
+    const isMaterial = props.icon.isMaterial;
+    const name = props.icon.name;
+    const classes: any = useStyles(props);
+    const { open } = props;
+    const iconData = getIconFile(name);
 
     const getTabContent = (tab: number): any => {
-        const isMaterial = props.icon.isMaterial;
-        const name = props.icon.name;
-        const classes: any = useStyles(props);
-        const iconData = getIconFile(name);
         switch (tab) {
             case 0:
                 return (
-                    <React.Fragment>
+                    <>
                         {isMaterial && (
                             <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                 View detailed usage and installation instructions for{' '}
-                                <a href={instructionLinks[4]} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink href={instructionLinks[4]} target="_blank" rel="noopener noreferrer">
                                     React
-                                </a>{' '}
+                                </ExternalLink>{' '}
                                 and{' '}
-                                <a href={instructionLinks[5]} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink href={instructionLinks[5]} target="_blank" rel="noopener noreferrer">
                                     Angular
-                                </a>
+                                </ExternalLink>
                                 .
                             </Typography>
                         )}
                         {!isMaterial && (
                             <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                 For detailed usage and installation instructions, visit our{' '}
-                                <a href={instructionLinks[0]} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink href={instructionLinks[0]} target="_blank" rel="noopener noreferrer">
                                     GitHub
-                                </a>
+                                </ExternalLink>
                                 .
                             </Typography>
                         )}
@@ -144,30 +145,30 @@ export const IconMenu = (props: any): JSX.Element => {
                         </Typography>
                         {!isMaterial && <pre>{`<i class="pxb-${name}"></i>`}</pre>}
                         {isMaterial && <pre>{`<i class="${getSnakeCase(name)}"></i>`}</pre>}
-                    </React.Fragment>
+                    </>
                 );
             case 1:
                 return (
-                    <React.Fragment>
+                    <>
                         {isMaterial && (
                             <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                 View detailed usage and installation instructions for{' '}
-                                <a href={instructionLinks[3]} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink href={instructionLinks[3]} target="_blank" rel="noopener noreferrer">
                                     React
-                                </a>{' '}
+                                </ExternalLink>{' '}
                                 and{' '}
-                                <a href={instructionLinks[6]} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink href={instructionLinks[6]} target="_blank" rel="noopener noreferrer">
                                     Angular
-                                </a>
+                                </ExternalLink>
                                 .
                             </Typography>
                         )}
                         {!isMaterial && (
                             <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                 For detailed usage and installation instructions, visit our{' '}
-                                <a href={instructionLinks[1]} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink href={instructionLinks[1]} target="_blank" rel="noopener noreferrer">
                                     GitHub
-                                </a>
+                                </ExternalLink>
                                 .
                             </Typography>
                         )}
@@ -193,17 +194,17 @@ export const IconMenu = (props: any): JSX.Element => {
                         </Typography>
                         {!isMaterial && <pre>{`<mat-icon svgIcon="${name}"></mat-icon>`}</pre>}
                         {isMaterial && <pre>{`<mat-icon>${getSnakeCase(name)}</mat-icon>`}</pre>}
-                    </React.Fragment>
+                    </>
                 );
             case 2:
                 return (
-                    <React.Fragment>
+                    <>
                         {!isMaterial && (
                             <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                 For detailed usage and installation instructions, visit our{' '}
-                                <a href={instructionLinks[2]} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink href={instructionLinks[2]} target="_blank" rel="noopener noreferrer">
                                     GitHub
-                                </a>
+                                </ExternalLink>
                                 .
                             </Typography>
                         )}
@@ -221,21 +222,21 @@ export const IconMenu = (props: any): JSX.Element => {
                         <Typography color={'inherit'} variant="subtitle2">
                             Icon components are intended for use only in React applications. For a way to link svg icons
                             for use in Angular applications, see{' '}
-                            <a
+                            <ExternalLink
                                 href={'https://github.com/pxblue/icons/tree/master/svg#angular-1'}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 @pxblue/icons
-                            </a>
+                            </ExternalLink>
                             .
                         </Typography>
-                    </React.Fragment>
+                    </>
                 );
 
             case 3:
                 return (
-                    <React.Fragment>
+                    <>
                         {!isMaterial && (
                             <div className={classes.aboutPage}>
                                 <Typography color={'inherit'} variant="subtitle1">
@@ -254,18 +255,13 @@ export const IconMenu = (props: any): JSX.Element => {
                                 )}
                             </div>
                         )}
-                    </React.Fragment>
+                    </>
                 );
 
             default:
                 return null;
         }
     };
-
-    const classes: any = useStyles(props);
-    const { open, icon } = props;
-    const isMaterial = icon.isMaterial;
-    const name = icon.name;
 
     return (
         <div className={classes.iconSheet} hidden={!open}>
@@ -327,7 +323,7 @@ export const IconMenu = (props: any): JSX.Element => {
                     {activeTab === 3 && getTabContent(3)}
                 </div>
                 <ExpansionPanelActions>
-                    <Button variant="contained" color="inherit" onClick={props.onClose}>
+                    <Button variant="contained" color="inherit" onClick={(): any => props.onClose()}>
                         Close
                     </Button>
                     {isMaterial && (
