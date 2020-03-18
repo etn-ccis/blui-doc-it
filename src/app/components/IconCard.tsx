@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { ElementType } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import * as PXBColors from '@pxblue/colors';
 
 // Material-UI Components
 import Typography from '@material-ui/core/Typography';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 
 const useStyles = makeStyles((theme: any) => ({
     wrapper: {
@@ -26,10 +27,19 @@ const useStyles = makeStyles((theme: any) => ({
     },
 }));
 
-export const IconCard = (props: any): JSX.Element => {
+type IconCardProps = {
+    component: ElementType;
+    iconSize?: number | 'inherit';
+    name?: string;
+    showLabel?: boolean;
+    style?: CSSProperties;
+    selected?: boolean;
+};
+
+export const IconCard: React.FC<IconCardProps> = (props): JSX.Element => {
     const classes = useStyles(props);
 
-    const { component: Component, name, showLabel = true, style, selected = false, iconSize = 'inherit' } = props;
+    const { component: Component, name, showLabel, style, selected, iconSize } = props;
     return (
         <div className={`${classes.wrapper} ${selected ? classes.selected : ''}`} style={style}>
             <Component style={{ fontSize: iconSize }} />
@@ -40,4 +50,10 @@ export const IconCard = (props: any): JSX.Element => {
             )}
         </div>
     );
+};
+
+IconCard.defaultProps = {
+    showLabel: true,
+    selected: false,
+    iconSize: 'inherit',
 };
