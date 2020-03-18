@@ -12,3 +12,7 @@ export { MiniBug, MiniDemo } from './MiniMetrics';
 export { ColorSwatch, ColorPalette } from './Colors';
 export { PageContent } from './PageContent';
 export { ExpansionHeader } from './ExpansionHeader';
+export { IconCard } from './IconCard';
+export { IconMenu } from './IconMenu';
+export { IconBrowser } from './IconBrowser';
+export { ProgressIconCard } from './ProgressIconCard';

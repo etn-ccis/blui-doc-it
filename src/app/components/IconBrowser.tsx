@@ -1,8 +1,6 @@
 import React, { useState, useCallback } from 'react';
 
 // PX Blue Icons and Symbols
-import * as Progress from '@pxblue/react-progress-icons';
-import * as PXBColors from '@pxblue/colors';
 import * as MuiIcons from '@pxblue/icons-mui';
 
 // Material-UI Components
@@ -17,7 +15,7 @@ import {
     Checkbox,
     FormControlLabel,
     makeStyles,
-    useTheme,
+    Theme,
 } from '@material-ui/core';
 import * as AllMaterialIcons from '@material-ui/icons';
 import { fade } from '@material-ui/core/styles/colorManipulator';
@@ -25,18 +23,13 @@ import meta from '@pxblue/icons-mui/index.json';
 import { IconCard } from '../components/IconCard';
 import { IconMenu } from '../components/IconMenu';
 import { usePageTitle } from '../hooks/usePageTitle';
-import { ExternalLink, InternalLink } from '../../__configuration__/markdown/markdownMapping';
 import { unCamelCase } from '../utilities';
 
-const size = 48;
-const colorSet: any = PXBColors;
-const colors = ['red', 'orange', 'gold', 'yellow', 'green', 'lightBlue', 'blue', 'purple', 'gray', 'black'];
-const weight = 300;
 const hideResultsThreshold = 20;
 const Icons: any = MuiIcons;
 const MaterialIcons: any = AllMaterialIcons;
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
     section: {
         marginTop: '20px',
         display: 'flex',
@@ -167,13 +160,12 @@ const groupIconList = (iconListToGroup: any): any => {
     return groupings;
 };
 
-export const IconographyPage = (props: any): JSX.Element => {
+export const IconBrowser = (props: any): JSX.Element => {
     const [search, setSearch] = useState('');
     const [hideLetterGroups, setHideLetterGroups] = useState<any>({});
     const [focusedIcon, setFocusedIcon] = useState<any>({ name: '', isMaterial: true });
     const [filterMaterial, setFilterMaterial] = useState(false);
     const classes = useStyles(props);
-    const theme = useTheme();
     usePageTitle('Iconography');
 
     const iconMatches = useCallback(
@@ -211,20 +203,7 @@ export const IconographyPage = (props: any): JSX.Element => {
     );
 
     return (
-        <div style={{ padding: 20, margin: '0 auto', maxWidth: 1024 }}>
-            <Typography variant={'h4'} color={'primary'} style={{ flex: '1 1 auto', marginBottom: theme.spacing(4) }}>
-                Iconography Guidelines
-            </Typography>
-            <Typography paragraph>
-                Power Xpert Blue is built on top of the Google Material design system, which allows us to take advantage
-                of their extensive icon library and icon grid. These icons are available automatically when you use one
-                of our supported Material component frameworks. PX Blue also includes a number of supplemental icons
-                specific to Eaton products.
-            </Typography>
-            <Typography paragraph>
-                These icons are available in a variety of formats - select an icon below to view its usage instructions.
-            </Typography>
-
+        <>
             <Paper elevation={4}>
                 <AppBar position="static" color="primary" classes={{ root: classes.header }}>
                     <Toolbar>
@@ -332,104 +311,7 @@ export const IconographyPage = (props: any): JSX.Element => {
                 </div>
             </Paper>
 
-            <Typography
-                variant={'h5'}
-                color={'primary'}
-                style={{ flex: '1 1 auto', marginTop: theme.spacing(4), marginBottom: theme.spacing(4) }}
-            >
-                Progress Icons
-            </Typography>
-            <Typography paragraph>
-                PX Blue also offers a number of icons that can be used to show progress, health, or other
-                percentage-based metrics. These can be dynamically adjusted programmatically (fill amount, color, size)
-                based on properties in your application. You can read more about using these components on{' '}
-                <ExternalLink href="https://github.com/pxblue/icons/tree/master/progress">GitHub</ExternalLink>.
-            </Typography>
-            <Paper elevation={4}>
-                <AppBar position="static" color="primary" classes={{ root: classes.header }}>
-                    <Toolbar>
-                        <Typography variant="h6" color="inherit" noWrap>
-                            PX Blue Progress Icons
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
-                <div style={{ textAlign: 'center', padding: '24px' }}>
-                    <Typography variant={'h6'}>{'Battery'}</Typography>
-                    {colors.map((key, index) => (
-                        <Progress.Battery
-                            key={`battery_${key}`}
-                            percent={(index + 1) * 10}
-                            size={size}
-                            color={colorSet[key][weight]}
-                        />
-                    ))}
-                    <br />
-                    <Typography variant={'h6'}>{'Pie'}</Typography>
-                    {colors.map((key, index) => (
-                        <Progress.Pie
-                            key={`pie_${key}`}
-                            percent={(index + 1) * 10}
-                            size={size}
-                            color={colorSet[key][weight]}
-                        />
-                    ))}
-                    <br />
-                    <Typography variant={'h6'}>{'Donut'}</Typography>
-                    {colors.map((key, index) => (
-                        <Progress.Pie
-                            key={`donut_${key}`}
-                            percent={(index + 1) * 10}
-                            size={size}
-                            color={colorSet[key][weight]}
-                            ring={4}
-                        />
-                    ))}
-                    <br />
-                    <Typography variant={'h6'}>{'Heart'}</Typography>
-                    {colors.map((key, index) => (
-                        <Progress.Heart
-                            key={`heart_${key}`}
-                            percent={(index + 1) * 10}
-                            size={size}
-                            color={colorSet[key][weight]}
-                        />
-                    ))}
-                </div>
-            </Paper>
-            <Typography
-                variant={'h5'}
-                color={'primary'}
-                style={{ flex: '1 1 auto', marginTop: theme.spacing(4), marginBottom: theme.spacing(4) }}
-            >
-                {"Still can't find what you need?"}
-            </Typography>
-            <Typography paragraph>
-                If you decide that an icon is appropriate and there are no suitable options available, you can{' '}
-                <InternalLink href="/community/contactus" to="/community/contactus">
-                    Contact Us
-                </InternalLink>{' '}
-                to request a new icon. Please include a brief description of what the intended use is, and if possible a
-                picture of where it will live in the context of your application. The UX team will review your request
-                and provide a recommendation within 48 hours as to whether a new icon should be created or if an
-                existing icon is available for you to use.
-            </Typography>
-            <Typography paragraph>
-                If you are looking for the PX Blue 1.0 symbols, please refer to our{' '}
-                <ExternalLink href="https://github.com/pxblue/icons/tree/master/symbols">GitHub</ExternalLink>.
-            </Typography>
-            <Typography style={{ marginBottom: '50vh' }} paragraph>
-                If you have your own design resources who are able to create icons, you can build these on your own,
-                following the{' '}
-                <ExternalLink href="https://material.io/guidelines/style/icons.html#icons-product-icons">
-                    Material Icon Guidelines
-                </ExternalLink>{' '}
-                to maintain a common look and feel. If you do not have your own designers, we can work with you to build
-                the icon you need. We can either build the icon in house or recommend external resources that you can
-                use. Please note that going this route may take extra time, so try to get requests in as early as
-                possible. If you are making your own icons, please consider contributing these back into the PX Blue
-                icon library (subject to review).
-            </Typography>
             {focusedIcon.name && <IconMenu onClose={(): any => setFocusedIcon({})} open={true} icon={focusedIcon} />}
-        </div>
+        </>
     );
 };

@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme: Theme): any => ({
         left: '0px',
         right: '0px',
         bottom: '0px',
+        zIndex: '2',
         position: 'fixed',
         marginLeft: 'auto',
         marginRight: 'auto',
