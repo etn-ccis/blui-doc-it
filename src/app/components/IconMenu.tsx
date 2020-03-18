@@ -102,8 +102,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
     const { open } = props;
     const iconData = getIconFile(name);
 
-    const getTabContent = useCallback(
-        (tab: number): any => {
+    const getTabContent = useCallback((tab: number): any => {
         switch (tab) {
             case 0:
                 return (
@@ -111,23 +110,14 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                         {isMaterial && (
                             <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                 View detailed usage and installation instructions for{' '}
-                                <ExternalLink href={instructionLinks[4]}>
-                                    React
-                                </ExternalLink>{' '}
-                                and{' '}
-                                <ExternalLink href={instructionLinks[5]}>
-                                    Angular
-                                </ExternalLink>
-                                .
+                                <ExternalLink href={instructionLinks[4]}>React</ExternalLink> and{' '}
+                                <ExternalLink href={instructionLinks[5]}>Angular</ExternalLink>.
                             </Typography>
                         )}
                         {!isMaterial && (
                             <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                 For detailed usage and installation instructions, visit our{' '}
-                                <ExternalLink href={instructionLinks[0]}>
-                                    GitHub
-                                </ExternalLink>
-                                .
+                                <ExternalLink href={instructionLinks[0]}>GitHub</ExternalLink>.
                             </Typography>
                         )}
                         <Typography color={'inherit'} variant="subtitle2">
@@ -154,23 +144,14 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                         {isMaterial && (
                             <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                 View detailed usage and installation instructions for{' '}
-                                <ExternalLink href={instructionLinks[3]}>
-                                    React
-                                </ExternalLink>{' '}
-                                and{' '}
-                                <ExternalLink href={instructionLinks[6]}>
-                                    Angular
-                                </ExternalLink>
-                                .
+                                <ExternalLink href={instructionLinks[3]}>React</ExternalLink> and{' '}
+                                <ExternalLink href={instructionLinks[6]}>Angular</ExternalLink>.
                             </Typography>
                         )}
                         {!isMaterial && (
                             <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                 For detailed usage and installation instructions, visit our{' '}
-                                <ExternalLink href={instructionLinks[1]}>
-                                    GitHub
-                                </ExternalLink>
-                                .
+                                <ExternalLink href={instructionLinks[1]}>GitHub</ExternalLink>.
                             </Typography>
                         )}
                         <Typography color={'inherit'} variant="subtitle2">
@@ -203,10 +184,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                         {!isMaterial && (
                             <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                 For detailed usage and installation instructions, visit our{' '}
-                                <ExternalLink href={instructionLinks[2]}>
-                                    GitHub
-                                </ExternalLink>
-                                .
+                                <ExternalLink href={instructionLinks[2]}>GitHub</ExternalLink>.
                             </Typography>
                         )}
                         <Typography color={'inherit'} variant="subtitle2">
@@ -223,9 +201,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                         <Typography color={'inherit'} variant="subtitle2">
                             Icon components are intended for use only in React applications. For a way to link svg icons
                             for use in Angular applications, see{' '}
-                            <ExternalLink
-                                href={'https://github.com/pxblue/icons/tree/master/svg#angular-1'}
-                            >
+                            <ExternalLink href={'https://github.com/pxblue/icons/tree/master/svg#angular-1'}>
                                 @pxblue/icons
                             </ExternalLink>
                             .
@@ -260,7 +236,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
             default:
                 return null;
         }
-    },[]);
+    }, []);
 
     return (
         <div className={classes.iconSheet} hidden={!open}>
