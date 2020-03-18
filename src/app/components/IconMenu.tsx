@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import * as AllMaterialIcons from '@material-ui/icons';
 
 // PX Blue Icons and Symbols
@@ -102,7 +102,8 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
     const { open } = props;
     const iconData = getIconFile(name);
 
-    const getTabContent = (tab: number): any => {
+    const getTabContent = useCallback(
+        (tab: number): any => {
         switch (tab) {
             case 0:
                 return (
@@ -261,7 +262,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
             default:
                 return null;
         }
-    };
+    },[]);
 
     return (
         <div className={classes.iconSheet} hidden={!open}>
