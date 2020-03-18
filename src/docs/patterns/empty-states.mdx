@@ -1,3 +1,9 @@
+import { DemoCard } from '../../app/components';
+import Image1 from '../../app/assets/design-patterns/loading-states/mobile-loading-state-load.png';
+import Image2 from '../../app/assets/design-patterns/loading-states/mobile-loading-state.png';
+import Image3 from '../../app/assets/design-patterns/empty-states/mobile-empty-state-actions.png';
+import Image4 from '../../app/assets/design-patterns/empty-states/mobile-empty-state-placeholder.png';
+
 # Loading / Empty State Patterns
  
 Often times, your application will need to load data from a remote location with some amount of latency. Other times, there may be areas of your application where there is no available data to display. This is where loading and empty state indicators come into play.
@@ -7,10 +13,13 @@ When loading data for the first time, you do not want to show an empty screen wh
  
 The placeholder should match as closely as possible the real structure of the data. For example, if you are loading a list where each item has an icon, two lines of text, and an action button, then your placeholder should have a circle, two rectangles for the text, and another rectangle for the button. You should show as many placeholder elements as necessary to fill the area in the application that is loading data.
 
-{{ angular repo=loading-states }}
-{{ react repo=loading-states }}
-{{ ionic repo=loading-states }}
-{{ reactnative repo=loading-states }}
+<p float="left">
+<img src={Image1} width="400" hspace="20" />
+<img src={Image2} width="400" hspace="20" />
+</p>
+
+<DemoCard repository={'loading-states'} angular react ionic reactNative/>
+&nbsp;
 
 There are a number of libraries available to help you create this placeholder content, such as:
 - [@netbasal/ngx-content-loader](https://www.npmjs.com/package/@netbasal/ngx-content-loader) (Angular, Ionic)
@@ -39,7 +48,9 @@ If the data is empty but could be populated by a user action (such as adding a d
  
 > **NOTE:** While less common, empty states can be used in sections of a page (rather than the entire page), such as a single card having no data. In these cases, the same guidelines should be followed, but may require slightly different formatting depending on the layout of the page.
 
-{{ angular repo=empty-states }}
-{{ react repo=empty-states }}
-{{ ionic repo=empty-states }}
-{{ reactnative repo=empty-states }}
+<p float="left">
+<img src={Image3} width="400" hspace="20" />
+<img src={Image4} width="400" hspace="20" />
+</p>
+
+<DemoCard repository={'empty-states'} angular react ionic reactNative/>

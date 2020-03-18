@@ -1,3 +1,8 @@
+import { DemoCard } from '../../app/components';
+import Image1 from '../../app/assets/design-patterns/form-validation/web-basic-form-fields.png';
+import Image2 from '../../app/assets/design-patterns/form-validation/web-character-limits.png';
+import Image3 from '../../app/assets/design-patterns/form-validation/web-password-validation.png';
+
 # Form Validation Patterns
 
 Forms are an integral part to many applications, particularly during the user registration phase. One of the most important parts of working with forms is properly validating the information that users enter into them. In general, PX Blue follows the form behaviors explained in detail by [Google Material](https://material.io/design/components/text-fields.html#anatomy).
@@ -15,5 +20,10 @@ If there is an error with the data entered into a field, the field should indica
 
 Error messages should be succinct and should not provide information that could compromise security (e.g., "Invalid Credentials" instead of "Incorrect Password"). The following examples demonstrate this error handling behavior as well as provide some patterns that can be used for matching common form fields.
 
-{{ angular repo=form-validation }}
-{{ react repo=form-validation }}
+<p float="left">
+<img src={Image1} width="400" hspace="20" />
+<img src={Image2} width="400" hspace="20" />
+<img src={Image3} width="400" hspace="20" />
+</p>
+
+<DemoCard repository={'form-validation'} angular react />
