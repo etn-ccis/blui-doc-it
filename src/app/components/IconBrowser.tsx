@@ -22,7 +22,6 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import meta from '@pxblue/icons-mui/index.json';
 import { IconCard } from '../components/IconCard';
 import { IconMenu } from '../components/IconMenu';
-import { usePageTitle } from '../hooks/usePageTitle';
 import { unCamelCase } from '../shared/utilities';
 
 const hideResultsThreshold = 20;
@@ -166,7 +165,6 @@ export const IconBrowser = (props: any): JSX.Element => {
     const [focusedIcon, setFocusedIcon] = useState<any>({ name: '', isMaterial: true });
     const [filterMaterial, setFilterMaterial] = useState(false);
     const classes = useStyles(props);
-    usePageTitle('Iconography');
 
     const iconMatches = useCallback(
         (icon: any): boolean => {
