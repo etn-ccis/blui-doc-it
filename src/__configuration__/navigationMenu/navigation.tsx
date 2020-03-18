@@ -1,9 +1,6 @@
 import React from 'react';
 import * as Docs from '../../docs';
-import { IconographyPage } from '../../app/pages/IconographyPage';
-import { MarkdownPage, Resources } from '../../app/pages';
-import { Roadmap } from '../../app/pages/Roadmap';
-import { ReleaseNotes } from '../../app/pages/ReleaseNotes';
+import { MarkdownPage, Resources, IconographyPage, Roadmap, ReleaseNotes } from '../../app/pages';
 
 export type SimpleNavItem = {
     title: string;
