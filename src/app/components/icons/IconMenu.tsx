@@ -22,9 +22,9 @@ import meta from '@pxblue/icons-mui/index.json';
 import { ExternalLink } from '../../../__configuration__/markdown/markdownMapping';
 import { unCamelCase, getSnakeCase } from '../../shared/utilities';
 import { IconCard } from './IconCard';
-import { Icon, MatIconList } from '../../../__types__';
+import { Icon, MatIconList, TODOFIXME } from '../../../__types__';
 
-const useStyles = makeStyles((theme: Theme): any => ({
+const useStyles = makeStyles((theme: Theme): TODOFIXME => ({
     usageBox: {
         padding: `10px ${theme.spacing(2)}px 0px ${theme.spacing(2)}px`,
         overflowX: 'auto',
@@ -35,9 +35,9 @@ const useStyles = makeStyles((theme: Theme): any => ({
     iconSheet: {
         color: PXBColors.black[900],
         width: '100%',
-        left: '0px',
-        right: '0px',
-        bottom: '0px',
+        left: 0,
+        right: 0,
+        bottom: 0,
         zIndex: '2',
         position: 'fixed',
         marginLeft: 'auto',
@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme: Theme): any => ({
         },
     },
     aboutPage: {
-        padding: '5px',
+        padding: theme.spacing(0.5),
         backgroundColor: 'inherit',
         whiteSpace: 'pre-wrap',
     },
@@ -71,7 +71,7 @@ const instructionLinks = [
     'https://material.angular.io/components/icon/overview#svg-icons',
 ];
 
-const getIconFile = (iconName: string): any => {
+const getIconFile = (iconName: string): TODOFIXME => {
     for (let i = 0; i < meta.icons.length; i++) {
         if (meta.icons[i].filename.includes(iconName)) {
             return meta.icons[i];
@@ -95,7 +95,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
     const Icons: MatIconList = MuiIcons;
     const isMaterial = props.icon.isMaterial;
     const name = props.icon.name;
-    const classes: any = useStyles(props);
+    const classes: TODOFIXME = useStyles(props);
     const { open } = props;
     const iconData = getIconFile(name);
 
@@ -276,7 +276,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                     <Tabs
                         style={{ marginTop: '0px', marginLeft: '0px' }}
                         value={activeTab}
-                        onChange={(event: any, newTab: any): any => setActiveTab(newTab)}
+                        onChange={(event: TODOFIXME, newTab: number): void => setActiveTab(newTab)}
                         indicatorColor="primary"
                         textColor="primary"
                     >
@@ -295,7 +295,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                     {activeTab === 3 && getTabContent(3)}
                 </div>
                 <ExpansionPanelActions>
-                    <Button variant="contained" color="inherit" onClick={(): any => props.onClose()}>
+                    <Button variant="contained" color="inherit" onClick={(): void => props.onClose()}>
                         Close
                     </Button>
                     {isMaterial && (

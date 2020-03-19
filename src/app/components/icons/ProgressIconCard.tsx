@@ -6,9 +6,10 @@ import * as PXBColors from '@pxblue/colors';
 
 // Material-UI Components
 import { Typography, AppBar, Paper, Toolbar, makeStyles } from '@material-ui/core';
+import { TODOFIXME } from '../../../__types__';
 
 const size = 48;
-const colorSet: any = PXBColors;
+const colorSet: TODOFIXME = PXBColors;
 const colors = ['red', 'orange', 'gold', 'yellow', 'green', 'lightBlue', 'blue', 'purple', 'gray', 'black'];
 const weight = 300;
 
