@@ -23,7 +23,7 @@ import meta from '@pxblue/icons-mui/index.json';
 import { IconCard } from './IconCard';
 import { IconMenu } from './IconMenu';
 import { unCamelCase } from '../../shared/utilities';
-import { Icon, MatIconList, TODOFIXME } from '../../../__types__';
+import { Icon, MatIconList, DetailedIcon } from '../../../__types__';
 
 type MetaIcon = {
     name: string;
@@ -137,7 +137,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 const getMuiIconName = (filename: string): string =>
     filename.replace(/\.svg/, '').replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 || p3).toUpperCase());
 
-const getFilteredIcons = (): TODOFIXME => meta.icons.filter((icon: TODOFIXME) => !icon.family.includes('Progress'));
+const getFilteredIcons = (): DetailedIcon[] => (meta.icons as DetailedIcon[]).filter((icon) => !icon.family.includes('Progress'));
 
 const createIconList = (): Icon[] => {
     const iconList: Icon[] = [];
