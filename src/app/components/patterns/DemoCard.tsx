@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles, createStyles, Theme, Card, Typography, CardProps, Chip } from '@material-ui/core';
 import { Angular, ReactBlue, Ionic } from '../../assets/icons';
 import * as Colors from '@pxblue/colors';
+import clsx from 'clsx';
 
 type Framework = 'angular' | 'react' | 'ionic' | 'react-native';
 type DemoCardProps = CardProps & {
@@ -10,6 +11,7 @@ type DemoCardProps = CardProps & {
     react?: true;
     ionic?: true;
     reactNative?: true;
+    float?: 'right' | 'left';
 };
 
 type DemoButtonProps = {
@@ -77,6 +79,18 @@ const useStyles = makeStyles((theme: Theme) =>
             marginBottom: theme.spacing(1),
             fontWeight: 600,
         },
+        floatRight: {
+            float: 'right',
+            margin: 0,
+            marginLeft: theme.spacing(4),
+            marginBottom: theme.spacing(4),
+        },
+        floatLeft: {
+            float: 'left',
+            margin: 0,
+            marginRight: theme.spacing(4),
+            marginBottom: theme.spacing(4),
+        },
     })
 );
 
@@ -99,10 +113,10 @@ const DemoButton: React.FC<DemoButtonProps> = (props): JSX.Element => {
 };
 
 export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
-    const { repository, angular, react, ionic, reactNative, ...cardProps } = props;
+    const { repository, angular, react, ionic, reactNative, float, ...cardProps } = props;
     const classes = useStyles();
     return (
-        <Card className={classes.demoCard} elevation={8} {...cardProps}>
+        <Card className={clsx(classes.demoCard, {[classes.floatLeft]: float === 'left', [classes.floatRight]: float === 'right'})} elevation={8} {...cardProps}>
             <div className={classes.demoTitle}>
                 <Typography variant={'subtitle1'} style={{lineHeight: 1, fontWeight: 'inherit'}}>
                     INTERACTIVE EXAMPLE

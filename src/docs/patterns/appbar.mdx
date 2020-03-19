@@ -14,12 +14,19 @@ App bars are useful in a variety of locations throughout PX Blue applications. T
 The most basic app bar is used at the top of a page as a title bar. It will have a menu button to the left (used to toggle a navigation menu/drawer) followed by one or two lines of text (title/subtitle) and, optionally, a dropdown with global page actions. Basic app bars can also be used to provide more detailed headers for Cards.
 
 ## Collapsible App Bar
+
+<ImageGrid images={[Image1, Image2]} style={{marginBottom: 32}}/>
+
+<DemoCard repository={'collapsible-appbar'} angular react ionic reactNative float={'right'}/>
+
 In some situations, you may want to present more information in an app bar, such as a large graphic, buttons, or multiple lines of text. In these cases, you can use a taller app bar that will shrink as the user scrolls down the page and be replaced by a basic app bar. This allows you the flexibility to present an eye-catching banner without permanently reducing the amount of usable space on the page. This is a pattern most commonly used for mobile applications, but could also be used at larger scale.
 
-<ImageGrid images={[Image1, Image2, <DemoCard repository={'collapsible-appbar'} angular react ionic reactNative/>]}/>
 
 ## Search Bar
+
+<ImageGrid images={[Image3, Image4]} style={{marginBottom: 32}}/>
+
+<DemoCard repository={'search-bar'} angular react ionic reactNative float={'right'}/>
 A very common pattern seen in many types of applications is the ability to search data on a page. This is achieved by placing a search icon/button in the app bar. When this button is clicked, a white Search Bar slides in from the right to cover the default toolbar. As the user enters text into the search field, the data is filtered in real-time.
 
-<ImageGrid images={[Image3, Image4, <DemoCard repository={'search-bar'} angular react ionic reactNative/>]}/>
 
