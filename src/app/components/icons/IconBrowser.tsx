@@ -23,10 +23,31 @@ import meta from '@pxblue/icons-mui/index.json';
 import { IconCard } from './IconCard';
 import { IconMenu } from './IconMenu';
 import { unCamelCase } from '../../shared/utilities';
+import { Icon, MatIconList, TODOFIXME } from '../../../__types__';
+
+type MetaIcon = {
+    name: string;
+    filename: string;
+    family: string | string[];
+    style: string;
+    tags: string | string[];
+    author: string;
+    size: number;
+    description?: string;
+    status?: string;
+};
+
+type LetterGroups = {
+    [key: string]: boolean;
+};
+
+type LetterGrouping = {
+    [key: string]: Icon[];
+};
 
 const hideResultsThreshold = 20;
-const Icons: any = MuiIcons;
-const MaterialIcons: any = AllMaterialIcons;
+const Icons: MatIconList = MuiIcons;
+const MaterialIcons: MatIconList = AllMaterialIcons;
 
 const useStyles = makeStyles((theme: Theme) => ({
     section: {
@@ -116,11 +137,11 @@ const useStyles = makeStyles((theme: Theme) => ({
 const getMuiIconName = (filename: string): string =>
     filename.replace(/\.svg/, '').replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 || p3).toUpperCase());
 
-const getFilteredIcons = (): any => meta.icons.filter((icon: any) => !icon.family.includes('Progress'));
+const getFilteredIcons = (): TODOFIXME => meta.icons.filter((icon: TODOFIXME) => !icon.family.includes('Progress'));
 
-const createIconList = (): any => {
-    const iconList: any[] = [];
-    getFilteredIcons().forEach((icon: any) => {
+const createIconList = (): Icon[] => {
+    const iconList: Icon[] = [];
+    getFilteredIcons().forEach((icon: MetaIcon) => {
         const mui = getMuiIconName(icon.filename);
         if (Icons[mui]) {
             iconList.push({ name: icon.filename.replace(/\.svg/, ''), isMaterial: false });
@@ -148,9 +169,9 @@ const createIconList = (): any => {
     return iconList;
 };
 
-const groupIconList = (iconListToGroup: any): any => {
-    const groupings: any = {};
-    iconListToGroup.forEach((icon: any) => {
+const groupIconList = (iconListToGroup: Icon[]): LetterGrouping => {
+    const groupings: LetterGrouping = {};
+    iconListToGroup.forEach((icon: Icon) => {
         if (!groupings[icon.name.toUpperCase().charAt(0)]) {
             groupings[icon.name.toUpperCase().charAt(0)] = [];
         }
@@ -159,41 +180,40 @@ const groupIconList = (iconListToGroup: any): any => {
     return groupings;
 };
 
-export const IconBrowser = (props: any): JSX.Element => {
-    const [search, setSearch] = useState('');
-    const [hideLetterGroups, setHideLetterGroups] = useState<any>({});
-    const [focusedIcon, setFocusedIcon] = useState<any>({ name: '', isMaterial: true });
+const iconMatches = (icon: Icon, search: string, filterMaterial: boolean): boolean => {
+    if (filterMaterial && icon.isMaterial) {
+        return false;
+    }
+    const searchArray = search
+        .trim()
+        .toLowerCase()
+        .split(/\s+/);
+    for (let i = 0; i < searchArray.length; i++) {
+        if (!icon.name.toLowerCase().includes(searchArray[i])) {
+            return false;
+        }
+    }
+
+    return true;
+};
+
+export const IconBrowser: React.FC = (): JSX.Element => {
+    const [search, setSearch] = useState<string>('');
+    const [hideLetterGroups, setHideLetterGroups] = useState<LetterGroups>({});
+    const [focusedIcon, setFocusedIcon] = useState<Icon>({ name: '', isMaterial: true });
     const [filterMaterial, setFilterMaterial] = useState(false);
-    const classes = useStyles(props);
+    const classes = useStyles();
 
-    const iconMatches = useCallback(
-        (icon: any): boolean => {
-            if (filterMaterial && icon.isMaterial) {
-                return false;
-            }
-            const searchArray = search
-                .trim()
-                .toLowerCase()
-                .split(/\s+/);
-            for (let i = 0; i < searchArray.length; i++) {
-                if (icon.name.toLowerCase().indexOf(searchArray[i]) < 0) {
-                    return false;
-                }
-            }
-
-            return true;
-        },
-        [search, filterMaterial]
-    );
-
-    const icons = createIconList();
-    const iconList = icons;
-    const filteredIconList = iconList.filter((icon: any): any => iconMatches(icon)).sort();
+    const icons: Icon[] = createIconList();
+    const iconList: Icon[] = icons;
+    const filteredIconList: Icon[] = iconList
+        .filter((icon: Icon): boolean => iconMatches(icon, search, filterMaterial))
+        .sort();
     const groupedIcons = groupIconList(filteredIconList);
 
     const toggleCollapse = useCallback(
-        (letterGroup: any): void => {
-            const hidden: any = hideLetterGroups;
+        (letterGroup: string): void => {
+            const hidden: LetterGroups = hideLetterGroups;
             hidden[letterGroup] = !hideLetterGroups[letterGroup];
             setHideLetterGroups({ ...hidden });
         },
@@ -220,14 +240,14 @@ export const IconBrowser = (props: any): JSX.Element => {
                                     input: classes.inputInput,
                                 }}
                                 value={search}
-                                onChange={(evt): any => setSearch(evt.target.value)}
+                                onChange={(evt): void => setSearch(evt.target.value)}
                             />
                         </div>
                     </Toolbar>
                 </AppBar>
                 <div className={classes.hideIconsLabel}>
                     <FormControlLabel
-                        control={<Checkbox color="primary" onClick={(): any => setFilterMaterial(!filterMaterial)} />}
+                        control={<Checkbox color="primary" onClick={(): void => setFilterMaterial(!filterMaterial)} />}
                         label="Hide Material Icons"
                         labelPlacement="start"
                     />
@@ -275,17 +295,20 @@ export const IconBrowser = (props: any): JSX.Element => {
                                     >
                                         <div className={classes.section}>
                                             {groupedIcons[letterGroup]
-                                                .filter((icon: any) => iconMatches(icon))
-                                                .sort((a: any, b: any) => {
+                                                .filter((icon: Icon) => iconMatches(icon, search, filterMaterial))
+                                                .sort((a: Icon, b: Icon) => {
                                                     if (a.name.toUpperCase() > b.name.toUpperCase()) {
                                                         return 1;
                                                     }
                                                     return -1;
                                                 })
-                                                .map((icon: any) => (
+                                                .map((icon: Icon) => (
                                                     <div
                                                         key={`${icon.name} + ${icon.isMaterial.toString()}`}
-                                                        onClick={(): any => setFocusedIcon(icon)}
+                                                        onClick={(): void => {
+                                                            setFocusedIcon({ name: '', isMaterial: true });
+                                                            setFocusedIcon(icon);
+                                                        }}
                                                     >
                                                         <IconCard
                                                             key={icon.name}
@@ -309,7 +332,13 @@ export const IconBrowser = (props: any): JSX.Element => {
                 </div>
             </Paper>
 
-            {focusedIcon.name && <IconMenu onClose={(): any => setFocusedIcon({})} open={true} icon={focusedIcon} />}
+            {focusedIcon.name && (
+                <IconMenu
+                    onClose={(): void => setFocusedIcon({ name: '', isMaterial: true })}
+                    open={true}
+                    icon={focusedIcon}
+                />
+            )}
         </>
     );
 };

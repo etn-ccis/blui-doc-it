@@ -22,6 +22,7 @@ import meta from '@pxblue/icons-mui/index.json';
 import { ExternalLink } from '../../../__configuration__/markdown/markdownMapping';
 import { unCamelCase, getSnakeCase } from '../../shared/utilities';
 import { IconCard } from './IconCard';
+import { Icon, MatIconList } from '../../../__types__';
 
 const useStyles = makeStyles((theme: Theme): any => ({
     usageBox: {
@@ -82,11 +83,6 @@ const getIconFile = (iconName: string): any => {
 const getMuiIconName = (filename: string): string =>
     filename.replace(/\.svg/, '').replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 || p3).toUpperCase());
 
-type Icon = {
-    name: string;
-    isMaterial: boolean;
-};
-
 type IconMenuProps = {
     onClose: Function;
     open: boolean;
@@ -95,15 +91,15 @@ type IconMenuProps = {
 
 export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
     const [activeTab, setActiveTab] = useState(0);
-    const MaterialIcons: any = AllMaterialIcons;
-    const Icons: any = MuiIcons;
+    const MaterialIcons: MatIconList = AllMaterialIcons;
+    const Icons: MatIconList = MuiIcons;
     const isMaterial = props.icon.isMaterial;
     const name = props.icon.name;
     const classes: any = useStyles(props);
     const { open } = props;
     const iconData = getIconFile(name);
 
-    const getTabContent = useCallback((tab: number): any => {
+    const getTabContent = useCallback((tab: number): JSX.Element | null => {
         switch (tab) {
             case 0:
                 return (

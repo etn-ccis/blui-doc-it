@@ -7,7 +7,7 @@ import * as PXBColors from '@pxblue/colors';
 import Typography from '@material-ui/core/Typography';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles(() => ({
     wrapper: {
         display: 'flex',
         flexDirection: 'column',
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: any) => ({
         color: PXBColors.black[900],
     },
     selected: {
-        background: theme.palette.primary['50'],
+        background: PXBColors.blue[50],
     },
     label: {
         cursor: 'default',

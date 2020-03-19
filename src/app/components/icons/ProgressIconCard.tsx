@@ -18,8 +18,8 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export const ProgressIconCard = (props: any): JSX.Element => {
-    const classes = useStyles(props);
+export const ProgressIconCard: React.FC = (): JSX.Element => {
+    const classes = useStyles();
 
     return (
         <Paper elevation={4}>
