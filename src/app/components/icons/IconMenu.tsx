@@ -232,7 +232,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
             default:
                 return null;
         }
-    }, []);
+    }, [iconData]);
 
     return (
         <div className={classes.iconSheet} hidden={!open}>
