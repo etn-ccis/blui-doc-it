@@ -124,13 +124,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     hideIconsLabel: {
         display: 'inline-block',
         float: 'right',
-        paddingRight: '25px',
+        paddingRight: theme.spacing(3),
     },
     iconCard: {
         margin: '0 15px 25px 15px',
         cursor: 'pointer',
         width: 100,
-        padding: '5px',
+        padding: theme.spacing(0.5),
     },
 }));
 
