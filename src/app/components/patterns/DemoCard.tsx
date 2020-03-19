@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, createStyles, Theme, Card, Typography, CardProps, Chip } from '@material-ui/core';
-import { Angular, ReactBlue, Ionic } from '../assets/icons';
+import { Angular, ReactBlue, Ionic } from '../../assets/icons';
 import * as Colors from '@pxblue/colors';
 
 type Framework = 'angular' | 'react' | 'ionic' | 'react-native';
@@ -67,9 +67,9 @@ const useStyles = makeStyles((theme: Theme) =>
         demoCard: {
             width: theme.spacing(35),
             maxWidth: '100%',
-            margin: `${theme.spacing(8)}px auto`,
+            margin: `0 auto`,
             padding: theme.spacing(1.5),
-            borderLeft: `${theme.spacing(1)}px solid ${theme.palette.primary.main}`,
+            borderLeft: `${theme.spacing(1)}px solid ${theme.palette.secondary.main}`,
         },
         demoTitle: {
             color: Colors.gray[500],
@@ -105,7 +105,7 @@ export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
         <Card className={classes.demoCard} elevation={8} {...cardProps}>
             <div className={classes.demoTitle}>
                 <Typography variant={'subtitle1'} style={{lineHeight: 1, fontWeight: 'inherit'}}>
-                    INTERACTIVE CODE SAMPLES
+                    INTERACTIVE CODE SAMPLE
                 </Typography>
                 <Typography variant={'caption'}>{repository}</Typography>
             </div>
