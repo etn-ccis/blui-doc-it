@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
         textAlign: 'center',
         wordBreak: 'break-word',
         marginTop: '5px',
-        color: '#1d2529',
+        color: PXBColors.black[900],
     },
 }));
 
