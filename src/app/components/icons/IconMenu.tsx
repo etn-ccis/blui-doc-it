@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, ChangeEvent } from 'react';
 import * as AllMaterialIcons from '@material-ui/icons';
 
 // PX Blue Icons and Symbols
@@ -17,18 +17,18 @@ import {
     Button,
     makeStyles,
     Theme,
+    createStyles,
 } from '@material-ui/core';
 import meta from '@pxblue/icons-mui/index.json';
 import { ExternalLink } from '../../../__configuration__/markdown/markdownMapping';
 import { unCamelCase, getSnakeCase } from '../../shared/utilities';
 import { IconCard } from './IconCard';
-import { Icon, MatIconList, TODOFIXME } from '../../../__types__';
+import { Icon, MatIconList, DetailedIcon } from '../../../__types__';
 
-const useStyles = makeStyles((theme: Theme): TODOFIXME => ({
+const useStyles = makeStyles((theme: Theme) => createStyles({
     usageBox: {
         padding: `10px ${theme.spacing(2)}px 0px ${theme.spacing(2)}px`,
         overflowX: 'auto',
-        wordWrap: 'noWrap',
         height: '230px',
         overflowY: 'hidden',
     },
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme): TODOFIXME => ({
         left: 0,
         right: 0,
         bottom: 0,
-        zIndex: '2',
+        zIndex: 2,
         position: 'fixed',
         marginLeft: 'auto',
         marginRight: 'auto',
@@ -53,7 +53,6 @@ const useStyles = makeStyles((theme: Theme): TODOFIXME => ({
     },
     aboutPage: {
         padding: theme.spacing(0.5),
-        backgroundColor: 'inherit',
         whiteSpace: 'pre-wrap',
     },
     miniTab: {
@@ -71,10 +70,10 @@ const instructionLinks = [
     'https://material.angular.io/components/icon/overview#svg-icons',
 ];
 
-const getIconFile = (iconName: string): TODOFIXME => {
+const getIconFile = (iconName: string): DetailedIcon | -1 => {
     for (let i = 0; i < meta.icons.length; i++) {
         if (meta.icons[i].filename.includes(iconName)) {
-            return meta.icons[i];
+            return meta.icons[i] as DetailedIcon;
         }
     }
     return -1;
@@ -95,7 +94,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
     const Icons: MatIconList = MuiIcons;
     const isMaterial = props.icon.isMaterial;
     const name = props.icon.name;
-    const classes: TODOFIXME = useStyles(props);
+    const classes = useStyles(props);
     const { open } = props;
     const iconData = getIconFile(name);
 
@@ -209,7 +208,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
             case 3:
                 return (
                     <>
-                        {!isMaterial && (
+                        {!isMaterial && iconData !== -1 && (
                             <div className={classes.aboutPage}>
                                 <Typography color={'inherit'} variant="subtitle1">
                                     <b>Filename</b>: {iconData.filename}
@@ -276,7 +275,8 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                     <Tabs
                         style={{ marginTop: '0px', marginLeft: '0px' }}
                         value={activeTab}
-                        onChange={(event: TODOFIXME, newTab: number): void => setActiveTab(newTab)}
+                        onChange={(event: ChangeEvent<{}>, newTab: number): void => {
+                            setActiveTab(newTab)}}
                         indicatorColor="primary"
                         textColor="primary"
                     >
