@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, makeStyles, createStyles, Theme, Card, Typography, CardProps } from '@material-ui/core';
+import { makeStyles, createStyles, Theme, Card, Typography, CardProps, Chip } from '@material-ui/core';
 import { Angular, ReactBlue, Ionic } from '../assets/icons';
 import * as Colors from '@pxblue/colors';
 
@@ -17,42 +17,65 @@ type DemoButtonProps = {
     framework: Framework;
 };
 
-const getUrl = (repository: string, framework: string): string => {
+type Details = {
+    url: string;
+    displayName: string;
+    icon: JSX.Element | undefined;
+}
+const getDetails = (repository: string, framework: string): Details => {
     switch (framework) {
         case 'angular':
+            return {
+                url: `https://stackblitz.com/github/pxblue/${repository}/tree/angular`,
+                displayName: 'Angular',
+                icon: <Angular />
+            }
         case 'ionic':
-            return `https://stackblitz.com/github/pxblue/${repository}/tree/${framework}`;
+            return {
+                url: `https://stackblitz.com/github/pxblue/${repository}/tree/ionic`,
+                displayName: 'Ionic',
+                icon: <Ionic />
+            }
         case 'react':
-            return `https://codesandbox.io/s/github/pxblue/${repository}/tree/${framework}`;
+            return {
+                url: `https://codesandbox.io/s/github/pxblue/${repository}/tree/react`,
+                displayName: 'React',
+                icon: <ReactBlue />
+            }
         case 'react-native':
-            return `https://snack.expo.io/@git/github.com/pxblue/${repository}@reactnative?preview=true&platform=ios`;
+            return {
+                url: `https://snack.expo.io/@git/github.com/pxblue/${repository}@reactnative?preview=true&platform=ios`,
+                displayName: 'React Native',
+                icon: <ReactBlue />
+            }
         default:
-            return '';
+            return {
+                url: '',
+                displayName: '',
+                icon: undefined
+            };
     }
 };
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         button: {
-            minWidth: 140,
-            padding: `0 ${theme.spacing(1)}px`,
-            height: theme.spacing(4),
-            borderRadius: theme.spacing(2),
             fontWeight: 600,
             margin: theme.spacing(0.5),
-        },
-        buttonIcon: {
-            marginRight: theme.spacing(1),
+            color: theme.palette.text.primary,
         },
         demoCard: {
-            width: theme.spacing(40),
+            width: theme.spacing(35),
             maxWidth: '100%',
-            margin: '0 auto',
-            padding: theme.spacing(1.5)
+            margin: `${theme.spacing(8)}px auto`,
+            padding: theme.spacing(1.5),
+            borderLeft: `${theme.spacing(1)}px solid ${theme.palette.primary.main}`,
         },
         demoTitle: {
             color: Colors.gray[500],
             margin: theme.spacing(0.5),
+            marginBottom: theme.spacing(1),
+            fontWeight: 600,
         },
     })
 );
@@ -60,72 +83,32 @@ const useStyles = makeStyles((theme: Theme) =>
 const DemoButton: React.FC<DemoButtonProps> = (props): JSX.Element => {
     const { framework, repository } = props;
     const classes = useStyles();
+    const { url, displayName, icon } = getDetails(repository, framework);
 
-    switch (framework) {
-        case 'angular':
-            return (
-                <Button
-                    variant={'outlined'}
-                    classes={{ outlined: classes.button }}
-                    onClick={(): void => {
-                        window.open(getUrl(repository, framework), '_blank');
-                    }}
-                >
-                    <Angular className={classes.buttonIcon} />
-                    Angular
-                </Button>
-            );
-        case 'react':
-            return (
-                <Button
-                    variant={'outlined'}
-                    classes={{ outlined: classes.button }}
-                    onClick={(): void => {
-                        window.open(getUrl(repository, framework), '_blank');
-                    }}
-                >
-                    <ReactBlue className={classes.buttonIcon} />
-                    React
-                </Button>
-            );
-        case 'ionic':
-            return (
-                <Button
-                    variant={'outlined'}
-                    classes={{ outlined: classes.button }}
-                    onClick={(): void => {
-                        window.open(getUrl(repository, framework), '_blank');
-                    }}
-                >
-                    <Ionic className={classes.buttonIcon} />
-                    Ionic
-                </Button>
-            );
-        case 'react-native':
-        default:
-            return (
-                <Button
-                    variant={'outlined'}
-                    classes={{ outlined: classes.button }}
-                    onClick={(): void => {
-                        window.open(getUrl(repository, framework), '_blank');
-                    }}
-                >
-                    <ReactBlue className={classes.buttonIcon} />
-                    React Native
-                </Button>
-            );
-    }
+    return (
+        <Chip
+            avatar={icon}
+            label={displayName}
+            onClick={(): void => {
+                window.open(url);
+            }}
+            className={classes.button}
+            variant="outlined"
+        />
+    );
 };
 
 export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
-    const {repository, angular, react, ionic, reactNative, ...cardProps } = props;
+    const { repository, angular, react, ionic, reactNative, ...cardProps } = props;
     const classes = useStyles();
     return (
-        <Card className={classes.demoCard} elevation={4} {...cardProps}>
-            <Typography variant={'subtitle1'} className={classes.demoTitle}>
-                INTERACTIVE CODE SAMPLES
-            </Typography>
+        <Card className={classes.demoCard} elevation={8} {...cardProps}>
+            <div className={classes.demoTitle}>
+                <Typography variant={'subtitle1'} style={{lineHeight: 1, fontWeight: 'inherit'}}>
+                    INTERACTIVE CODE SAMPLES
+                </Typography>
+                <Typography variant={'caption'}>{repository}</Typography>
+            </div>
             <div style={{ textAlign: 'center' }}>
                 {angular && <DemoButton repository={repository} framework={'angular'} />}
                 {react && <DemoButton repository={repository} framework={'react'} />}
