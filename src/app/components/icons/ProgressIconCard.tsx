@@ -11,7 +11,7 @@ import { PXBlueColor } from '../Colors';
 const size = 48;
 type ColorPalette = {
     [key: string]: PXBlueColor;
-}
+};
 const colorSet: ColorPalette = PXBColors;
 const colors = ['red', 'orange', 'gold', 'yellow', 'green', 'lightBlue', 'blue', 'purple', 'gray', 'black'];
 const weight = 300;

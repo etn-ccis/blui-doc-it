@@ -11,7 +11,7 @@ export type DetailedIcon = {
     description: string;
     author: string;
     size: number;
-}
+};
 export type Icon = {
     name: string;
     isMaterial: boolean;

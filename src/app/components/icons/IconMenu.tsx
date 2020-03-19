@@ -25,40 +25,42 @@ import { unCamelCase, getSnakeCase } from '../../shared/utilities';
 import { IconCard } from './IconCard';
 import { Icon, MatIconList, DetailedIcon } from '../../../__types__';
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-    usageBox: {
-        padding: `10px ${theme.spacing(2)}px 0px ${theme.spacing(2)}px`,
-        overflowX: 'auto',
-        height: '230px',
-        overflowY: 'hidden',
-    },
-    iconSheet: {
-        color: PXBColors.black[900],
-        width: '100%',
-        left: 0,
-        right: 0,
-        bottom: 0,
-        zIndex: 2,
-        position: 'fixed',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        outline: 'none',
-        [theme.breakpoints.up('md')]: {
-            left: '364px',
-            width: '600px',
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        usageBox: {
+            padding: `10px ${theme.spacing(2)}px 0px ${theme.spacing(2)}px`,
+            overflowX: 'auto',
+            height: '230px',
+            overflowY: 'hidden',
         },
-        [theme.breakpoints.down('xs')]: {
-            display: 'none',
+        iconSheet: {
+            color: PXBColors.black[900],
+            width: '100%',
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 2,
+            position: 'fixed',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            outline: 'none',
+            [theme.breakpoints.up('md')]: {
+                left: '364px',
+                width: '600px',
+            },
+            [theme.breakpoints.down('xs')]: {
+                display: 'none',
+            },
         },
-    },
-    aboutPage: {
-        padding: theme.spacing(0.5),
-        whiteSpace: 'pre-wrap',
-    },
-    miniTab: {
-        minWidth: '50px',
-    },
-}));
+        aboutPage: {
+            padding: theme.spacing(0.5),
+            whiteSpace: 'pre-wrap',
+        },
+        miniTab: {
+            minWidth: '50px',
+        },
+    })
+);
 
 const instructionLinks = [
     'https://github.com/pxblue/icons',
@@ -98,141 +100,144 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
     const { open } = props;
     const iconData = getIconFile(name);
 
-    const getTabContent = useCallback((tab: number): JSX.Element | null => {
-        switch (tab) {
-            case 0:
-                return (
-                    <>
-                        {isMaterial && (
-                            <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
-                                View detailed usage and installation instructions for{' '}
-                                <ExternalLink href={instructionLinks[4]}>React</ExternalLink> and{' '}
-                                <ExternalLink href={instructionLinks[5]}>Angular</ExternalLink>.
+    const getTabContent = useCallback(
+        (tab: number): JSX.Element | null => {
+            switch (tab) {
+                case 0:
+                    return (
+                        <>
+                            {isMaterial && (
+                                <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
+                                    View detailed usage and installation instructions for{' '}
+                                    <ExternalLink href={instructionLinks[4]}>React</ExternalLink> and{' '}
+                                    <ExternalLink href={instructionLinks[5]}>Angular</ExternalLink>.
+                                </Typography>
+                            )}
+                            {!isMaterial && (
+                                <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
+                                    For detailed usage and installation instructions, visit our{' '}
+                                    <ExternalLink href={instructionLinks[0]}>GitHub</ExternalLink>.
+                                </Typography>
+                            )}
+                            <Typography color={'inherit'} variant="subtitle2">
+                                React
                             </Typography>
-                        )}
-                        {!isMaterial && (
-                            <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
-                                For detailed usage and installation instructions, visit our{' '}
-                                <ExternalLink href={instructionLinks[0]}>GitHub</ExternalLink>.
+                            {!isMaterial && <pre>{`<i className="pxb-${name}"></i>`}</pre>}
+                            {isMaterial && (
+                                <pre>
+                                    {`import Icon from '@material-ui/core/Icon';`}
+                                    <br />
+                                    {`<Icon>${getSnakeCase(name)}</Icon>`}
+                                </pre>
+                            )}
+                            <Typography color={'inherit'} variant="subtitle2">
+                                Angular
                             </Typography>
-                        )}
-                        <Typography color={'inherit'} variant="subtitle2">
-                            React
-                        </Typography>
-                        {!isMaterial && <pre>{`<i className="pxb-${name}"></i>`}</pre>}
-                        {isMaterial && (
+                            {!isMaterial && <pre>{`<i class="pxb-${name}"></i>`}</pre>}
+                            {isMaterial && <pre>{`<i class="${getSnakeCase(name)}"></i>`}</pre>}
+                        </>
+                    );
+                case 1:
+                    return (
+                        <>
+                            {isMaterial && (
+                                <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
+                                    View detailed usage and installation instructions for{' '}
+                                    <ExternalLink href={instructionLinks[3]}>React</ExternalLink> and{' '}
+                                    <ExternalLink href={instructionLinks[6]}>Angular</ExternalLink>.
+                                </Typography>
+                            )}
+                            {!isMaterial && (
+                                <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
+                                    For detailed usage and installation instructions, visit our{' '}
+                                    <ExternalLink href={instructionLinks[1]}>GitHub</ExternalLink>.
+                                </Typography>
+                            )}
+                            <Typography color={'inherit'} variant="subtitle2">
+                                React
+                            </Typography>
+                            {!isMaterial && (
+                                <pre>
+                                    {`const icon = require('@pxblue/icons-svg/${name}.svg');`}
+                                    <br />
+                                    {`<img src={icon}/>`}
+                                </pre>
+                            )}
+                            {isMaterial && (
+                                <pre>
+                                    {`import ${`${name}Icon`} from '@material-ui/icons/${name}';`}
+                                    <br />
+                                    {`<${`${name}Icon`}></${`${name}Icon`}>`}
+                                </pre>
+                            )}
+                            <Typography color={'inherit'} variant="subtitle2">
+                                Angular
+                            </Typography>
+                            {!isMaterial && <pre>{`<mat-icon svgIcon="${name}"></mat-icon>`}</pre>}
+                            {isMaterial && <pre>{`<mat-icon>${getSnakeCase(name)}</mat-icon>`}</pre>}
+                        </>
+                    );
+                case 2:
+                    return (
+                        <>
+                            {!isMaterial && (
+                                <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
+                                    For detailed usage and installation instructions, visit our{' '}
+                                    <ExternalLink href={instructionLinks[2]}>GitHub</ExternalLink>.
+                                </Typography>
+                            )}
+                            <Typography color={'inherit'} variant="subtitle2">
+                                React
+                            </Typography>
                             <pre>
-                                {`import Icon from '@material-ui/core/Icon';`}
+                                {`import ${getMuiIconName(name)}Icon from '@pxblue/icons-mui/${getMuiIconName(name)}';`}
                                 <br />
-                                {`<Icon>${getSnakeCase(name)}</Icon>`}
+                                {`<${getMuiIconName(name)}Icon></${getMuiIconName(name)}Icon>`}
                             </pre>
-                        )}
-                        <Typography color={'inherit'} variant="subtitle2">
-                            Angular
-                        </Typography>
-                        {!isMaterial && <pre>{`<i class="pxb-${name}"></i>`}</pre>}
-                        {isMaterial && <pre>{`<i class="${getSnakeCase(name)}"></i>`}</pre>}
-                    </>
-                );
-            case 1:
-                return (
-                    <>
-                        {isMaterial && (
-                            <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
-                                View detailed usage and installation instructions for{' '}
-                                <ExternalLink href={instructionLinks[3]}>React</ExternalLink> and{' '}
-                                <ExternalLink href={instructionLinks[6]}>Angular</ExternalLink>.
+                            <Typography color={'inherit'} variant="subtitle2">
+                                Angular
                             </Typography>
-                        )}
-                        {!isMaterial && (
-                            <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
-                                For detailed usage and installation instructions, visit our{' '}
-                                <ExternalLink href={instructionLinks[1]}>GitHub</ExternalLink>.
+                            <Typography color={'inherit'} variant="subtitle2">
+                                Icon components are intended for use only in React applications. For a way to link svg
+                                icons for use in Angular applications, see{' '}
+                                <ExternalLink href={'https://github.com/pxblue/icons/tree/master/svg#angular-1'}>
+                                    @pxblue/icons
+                                </ExternalLink>
+                                .
                             </Typography>
-                        )}
-                        <Typography color={'inherit'} variant="subtitle2">
-                            React
-                        </Typography>
-                        {!isMaterial && (
-                            <pre>
-                                {`const icon = require('@pxblue/icons-svg/${name}.svg');`}
-                                <br />
-                                {`<img src={icon}/>`}
-                            </pre>
-                        )}
-                        {isMaterial && (
-                            <pre>
-                                {`import ${`${name}Icon`} from '@material-ui/icons/${name}';`}
-                                <br />
-                                {`<${`${name}Icon`}></${`${name}Icon`}>`}
-                            </pre>
-                        )}
-                        <Typography color={'inherit'} variant="subtitle2">
-                            Angular
-                        </Typography>
-                        {!isMaterial && <pre>{`<mat-icon svgIcon="${name}"></mat-icon>`}</pre>}
-                        {isMaterial && <pre>{`<mat-icon>${getSnakeCase(name)}</mat-icon>`}</pre>}
-                    </>
-                );
-            case 2:
-                return (
-                    <>
-                        {!isMaterial && (
-                            <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
-                                For detailed usage and installation instructions, visit our{' '}
-                                <ExternalLink href={instructionLinks[2]}>GitHub</ExternalLink>.
-                            </Typography>
-                        )}
-                        <Typography color={'inherit'} variant="subtitle2">
-                            React
-                        </Typography>
-                        <pre>
-                            {`import ${getMuiIconName(name)}Icon from '@pxblue/icons-mui/${getMuiIconName(name)}';`}
-                            <br />
-                            {`<${getMuiIconName(name)}Icon></${getMuiIconName(name)}Icon>`}
-                        </pre>
-                        <Typography color={'inherit'} variant="subtitle2">
-                            Angular
-                        </Typography>
-                        <Typography color={'inherit'} variant="subtitle2">
-                            Icon components are intended for use only in React applications. For a way to link svg icons
-                            for use in Angular applications, see{' '}
-                            <ExternalLink href={'https://github.com/pxblue/icons/tree/master/svg#angular-1'}>
-                                @pxblue/icons
-                            </ExternalLink>
-                            .
-                        </Typography>
-                    </>
-                );
+                        </>
+                    );
 
-            case 3:
-                return (
-                    <>
-                        {!isMaterial && iconData !== -1 && (
-                            <div className={classes.aboutPage}>
-                                <Typography color={'inherit'} variant="subtitle1">
-                                    <b>Filename</b>: {iconData.filename}
-                                </Typography>
-                                <Typography color={'inherit'} variant="subtitle1">
-                                    <b>Family</b>: {iconData.family.toString()}
-                                </Typography>
-                                <Typography color={'inherit'} variant="subtitle1">
-                                    <b>Author</b>: {iconData.author}
-                                </Typography>
-                                {iconData.description && (
+                case 3:
+                    return (
+                        <>
+                            {!isMaterial && iconData !== -1 && (
+                                <div className={classes.aboutPage}>
                                     <Typography color={'inherit'} variant="subtitle1">
-                                        <b>Description</b>: {iconData.description}
+                                        <b>Filename</b>: {iconData.filename}
                                     </Typography>
-                                )}
-                            </div>
-                        )}
-                    </>
-                );
+                                    <Typography color={'inherit'} variant="subtitle1">
+                                        <b>Family</b>: {iconData.family.toString()}
+                                    </Typography>
+                                    <Typography color={'inherit'} variant="subtitle1">
+                                        <b>Author</b>: {iconData.author}
+                                    </Typography>
+                                    {iconData.description && (
+                                        <Typography color={'inherit'} variant="subtitle1">
+                                            <b>Description</b>: {iconData.description}
+                                        </Typography>
+                                    )}
+                                </div>
+                            )}
+                        </>
+                    );
 
-            default:
-                return null;
-        }
-    }, [iconData]);
+                default:
+                    return null;
+            }
+        },
+        [iconData]
+    );
 
     return (
         <div className={classes.iconSheet} hidden={!open}>
@@ -276,7 +281,8 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                         style={{ marginTop: '0px', marginLeft: '0px' }}
                         value={activeTab}
                         onChange={(event: ChangeEvent<{}>, newTab: number): void => {
-                            setActiveTab(newTab)}}
+                            setActiveTab(newTab);
+                        }}
                         indicatorColor="primary"
                         textColor="primary"
                     >
