@@ -25,18 +25,6 @@ import { IconMenu } from './IconMenu';
 import { unCamelCase } from '../../shared/utilities';
 import { Icon, MatIconList, DetailedIcon } from '../../../__types__';
 
-type MetaIcon = {
-    name: string;
-    filename: string;
-    family: string | string[];
-    style: string;
-    tags: string | string[];
-    author: string;
-    size: number;
-    description?: string;
-    status?: string;
-};
-
 type LetterGroups = {
     [key: string]: boolean;
 };
@@ -141,7 +129,7 @@ const getFilteredIcons = (): DetailedIcon[] => (meta.icons as DetailedIcon[]).fi
 
 const createIconList = (): Icon[] => {
     const iconList: Icon[] = [];
-    getFilteredIcons().forEach((icon: MetaIcon) => {
+    getFilteredIcons().forEach((icon: DetailedIcon) => {
         const mui = getMuiIconName(icon.filename);
         if (Icons[mui]) {
             iconList.push({ name: icon.filename.replace(/\.svg/, ''), isMaterial: false });
