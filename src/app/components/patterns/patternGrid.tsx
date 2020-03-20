@@ -8,12 +8,12 @@ type Pattern = {
     url: string;
     description: string;
     image: string;
-}
+};
 type PatternGridProps = GridProps & {
     patterns: Pattern[];
-}
+};
 export const PatternGrid: React.FC<PatternGridProps> = (props): JSX.Element => {
-    const {patterns, ...gridProps} = props;
+    const { patterns, ...gridProps } = props;
     const history = useHistory();
     return (
         <Grid container spacing={6} {...gridProps}>
@@ -29,6 +29,5 @@ export const PatternGrid: React.FC<PatternGridProps> = (props): JSX.Element => {
                 </Grid>
             ))}
         </Grid>
-    )
-}
-
+    );
+};

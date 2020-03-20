@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-    Typography,
-    Theme,
-    useTheme,
-    useMediaQuery,
-} from '@material-ui/core';
+import { Typography, Theme, useTheme, useMediaQuery } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 
 import * as Colors from '@pxblue/colors';

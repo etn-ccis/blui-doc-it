@@ -1,19 +1,22 @@
-import placeholder1 from '../../app/assets/placeholder/1.png'
-import placeholder2 from '../../app/assets/placeholder/2.png'
-import placeholder3 from '../../app/assets/placeholder/3.png'
-import placeholder4 from '../../app/assets/placeholder/4.png'
+import placeholder1 from '../../app/assets/placeholder/1.png';
+import placeholder2 from '../../app/assets/placeholder/2.png';
+import placeholder3 from '../../app/assets/placeholder/3.png';
+import placeholder4 from '../../app/assets/placeholder/4.png';
 
 const getRandomPlaceholder = (): string => {
-    const ind = Math.ceil(Math.random()*4);
-    switch(ind){
-        case 1: return placeholder1;
-        case 2: return placeholder2;
-        case 3: return placeholder3;
+    const ind = Math.ceil(Math.random() * 4);
+    switch (ind) {
+        case 1:
+            return placeholder1;
+        case 2:
+            return placeholder2;
+        case 3:
+            return placeholder3;
         case 4:
         default:
             return placeholder4;
     }
-}
+};
 
 export const patterns = [
     {
@@ -82,4 +85,4 @@ export const patterns = [
         description: 'Adding charts and maps to your applications.',
         image: getRandomPlaceholder(),
     },
-]
+];
