@@ -3,30 +3,22 @@ import {
     AppBar,
     Toolbar,
     Typography,
-    // Hidden,
     Button,
     Grid,
     Theme,
-    // Tabs,
-    // Tab,
     useTheme,
     createStyles,
     makeStyles,
 } from '@material-ui/core';
 import {
-    PXBLogo,
     InfoCard,
     Section as LandingSection,
     CardCarousel,
     CarouselCard,
-    // NavLink,
     FooterLinks,
     SharedToolbar,
 } from '../components';
 import { LatestReleases } from '../../docs';
-
-//@ts-ignore
-// import { PxblueSmall } from '@pxblue/icons-mui';
 import * as Colors from '@pxblue/colors';
 import circles from '../assets/circles.svg';
 import { useHistory } from 'react-router-dom';
@@ -38,6 +30,7 @@ import { ReleaseInfo } from '../../docs/release-notes';
 import computer from '../assets/placeholder/develop.jpg';
 import paper from '../assets/placeholder/paper.jpg';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { PXBLogo } from '../assets/icons/PXBLogo';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -45,7 +38,6 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            // marginTop: theme.spacing(8),
             padding: `${theme.spacing(8)}px ${theme.spacing(4)}px`,
             width: '100%',
             color: '#ffffff',
@@ -53,16 +45,11 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundImage: `url(${circles})`,
             backgroundSize: 1200,
             backgroundPosition: '-240px center',
-            [theme.breakpoints.down('xs')]: {
-                // marginTop: theme.spacing(7)
-            },
         },
         footer: {
             zIndex: 0,
             backgroundColor: Colors.black[900],
             textAlign: 'center',
-            // position: 'absolute',
-            // bottom: 0,
         },
     })
 );
@@ -96,6 +83,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                             <InfoCard
                                 source={item.image}
                                 title={item.title}
+                                aspectRatio={'3x2'}
                                 description={item.description}
                                 onClick={(): void => {
                                     if (item.path.startsWith('/')) history.push(item.path);
@@ -141,7 +129,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     description={
                         'We offer asset library on Sketch and Figma, with all the icons, fonts, colors and components.'
                     }
-                    onClick={(): void => history.push('/style/color')}
+                    onClick={(): void => history.push('/design/environment')}
                 />
                 <CarouselCard
                     backgroundImage={computer}

@@ -6,7 +6,7 @@ import { BugReport, CheckCircle, Description, RemoveCircle, Cancel, Code } from 
 import { getBuildStatus, getBugCount } from '../../api';
 import axios from 'axios';
 import { Spacer } from '@pxblue/react-components';
-import { MiniBug, MiniDemo } from '../MiniMetrics';
+import { MiniBug, MiniDemo } from './MiniMetrics';
 import clsx from 'clsx';
 
 type BuildPassedStatus = boolean | undefined;

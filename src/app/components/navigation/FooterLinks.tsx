@@ -1,16 +1,11 @@
 import React from 'react';
-import {
-    Typography,
-    Theme,
-    useTheme,
-    useMediaQuery,
-    // useMediaQuery,
-} from '@material-ui/core';
+import { Typography, Theme, useTheme, useMediaQuery } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 
 import * as Colors from '@pxblue/colors';
-import { SmallPXBLogo, NavLink } from '../components';
-import { /*Dribbble, GitHub, NPM,*/ Eaton } from '../assets/icons';
+import { NavLink } from './NavLink';
+import { Eaton } from '../../assets/icons';
+import { SmallPXBLogo } from '../../assets/icons/PXBLogo';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -78,20 +73,14 @@ export const FooterLinks: React.FC = (): JSX.Element => {
                         className={classes.navLink}
                         hoverColor={Colors.white[50]}
                     />
-                    <NavLink
+                    {/* <NavLink
                         to={'/style/color'}
                         title={'Brand Language'}
                         className={classes.navLink}
                         hoverColor={Colors.white[50]}
-                    />
+                    /> */}
                     <NavLink
-                        to={'/patterns/appbars'}
-                        title={'Design Patterns'}
-                        className={classes.navLink}
-                        hoverColor={Colors.white[50]}
-                    />
-                    <NavLink
-                        to={'/style/color'}
+                        to={'/design/environment'}
                         title={'For Designers'}
                         className={classes.navLink}
                         hoverColor={Colors.white[50]}
@@ -103,8 +92,20 @@ export const FooterLinks: React.FC = (): JSX.Element => {
                         hoverColor={Colors.white[50]}
                     />
                     <NavLink
+                        to={'/patterns'}
+                        title={'Design Patterns'}
+                        className={classes.navLink}
+                        hoverColor={Colors.white[50]}
+                    />
+                    <NavLink
                         to={'/resources'}
                         title={'Resources'}
+                        className={classes.navLink}
+                        hoverColor={Colors.white[50]}
+                    />
+                    <NavLink
+                        to={'/roadmap'}
+                        title={'Roadmap'}
                         className={classes.navLink}
                         hoverColor={Colors.white[50]}
                     />

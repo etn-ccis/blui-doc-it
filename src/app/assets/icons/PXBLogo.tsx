@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import pxb from '../assets/pxb.svg';
+import pxb from '../pxb.svg';
 
 export const PXBLogo: React.FC = (): JSX.Element => (
     <>

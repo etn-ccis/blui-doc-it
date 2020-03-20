@@ -1,2 +1,3 @@
-export { DemoCard } from './DemoCard';
-export { ImageGrid } from './ImageGrid';
+export * from './patternGrid';
+export * from './DemoCard';
+export * from './ImageGrid';

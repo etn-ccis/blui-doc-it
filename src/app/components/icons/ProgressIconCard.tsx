@@ -6,7 +6,7 @@ import * as PXBColors from '@pxblue/colors';
 
 // Material-UI Components
 import { Typography, AppBar, Paper, Toolbar, makeStyles } from '@material-ui/core';
-import { PXBlueColor } from '../Colors';
+import { PXBlueColor } from '../colors/Colors';
 
 const size = 48;
 type ColorPalette = {
