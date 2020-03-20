@@ -116,7 +116,7 @@ export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
     const { repository, angular, react, ionic, reactNative, float, ...cardProps } = props;
     const classes = useStyles();
     return (
-        <Card className={clsx(classes.demoCard, {[classes.floatLeft]: float === 'left', [classes.floatRight]: float === 'right'})} elevation={8} {...cardProps}>
+        <Card className={clsx(classes.demoCard, {[classes.floatLeft]: float === 'left', [classes.floatRight]: float === 'right'})} {...cardProps}>
             <div className={classes.demoTitle}>
                 <Typography variant={'subtitle1'} style={{lineHeight: 1, fontWeight: 'inherit'}}>
                     INTERACTIVE EXAMPLE
