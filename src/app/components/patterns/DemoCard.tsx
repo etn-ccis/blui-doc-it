@@ -1,5 +1,15 @@
 import React from 'react';
-import { makeStyles, createStyles, Theme, Card, Typography, CardProps, Chip, useMediaQuery, useTheme } from '@material-ui/core';
+import {
+    makeStyles,
+    createStyles,
+    Theme,
+    Card,
+    Typography,
+    CardProps,
+    Chip,
+    useMediaQuery,
+    useTheme,
+} from '@material-ui/core';
 import { Angular, ReactBlue, Ionic } from '../../assets/icons';
 import * as Colors from '@pxblue/colors';
 import clsx from 'clsx';
@@ -24,38 +34,38 @@ type Details = {
     url: string;
     displayName: string;
     icon: JSX.Element | undefined;
-}
+};
 const getDetails = (repository: string, framework: string): Details => {
     switch (framework) {
         case 'angular':
             return {
                 url: `https://stackblitz.com/github/pxblue/${repository}/tree/angular`,
                 displayName: 'Angular',
-                icon: <Angular />
-            }
+                icon: <Angular />,
+            };
         case 'ionic':
             return {
                 url: `https://stackblitz.com/github/pxblue/${repository}/tree/ionic`,
                 displayName: 'Ionic',
-                icon: <Ionic />
-            }
+                icon: <Ionic />,
+            };
         case 'react':
             return {
                 url: `https://codesandbox.io/s/github/pxblue/${repository}/tree/react`,
                 displayName: 'React',
-                icon: <ReactBlue />
-            }
+                icon: <ReactBlue />,
+            };
         case 'react-native':
             return {
                 url: `https://snack.expo.io/@git/github.com/pxblue/${repository}@reactnative?preview=true&platform=ios`,
                 displayName: 'React Native',
-                icon: <ReactBlue />
-            }
+                icon: <ReactBlue />,
+            };
         default:
             return {
                 url: '',
                 displayName: '',
-                icon: undefined
+                icon: undefined,
             };
     }
 };
@@ -101,7 +111,7 @@ const DemoButton: React.FC<DemoButtonProps> = (props): JSX.Element => {
             avatar={icon}
             label={displayName}
             onClick={(): void => {
-                window.open((typeof props.url === 'string') ? props.url : url, '_blank');
+                window.open(typeof props.url === 'string' ? props.url : url, '_blank');
             }}
             className={classes.button}
             variant="outlined"
@@ -115,21 +125,42 @@ export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
     const theme = useTheme();
     const mdUp = useMediaQuery(theme.breakpoints.up('md'));
     return (
-        <Card className={clsx(classes.demoCard, mdUp && {[classes.floatLeft]: float === 'left', [classes.floatRight]: float === 'right'})} {...cardProps}>
+        <Card
+            className={clsx(
+                classes.demoCard,
+                mdUp && { [classes.floatLeft]: float === 'left', [classes.floatRight]: float === 'right' }
+            )}
+            {...cardProps}
+        >
             <div className={classes.demoTitle}>
-                <Typography variant={'subtitle1'} style={{lineHeight: 1, fontWeight: 'inherit'}}>
+                <Typography variant={'subtitle1'} style={{ lineHeight: 1, fontWeight: 'inherit' }}>
                     INTERACTIVE EXAMPLE
                 </Typography>
                 <Typography variant={'caption'}>{repository}</Typography>
             </div>
             <div style={{ textAlign: 'center' }}>
-                {angular && <DemoButton repository={repository} framework={'angular'} url={angular === true ? undefined : angular} />}
-                {react && <DemoButton repository={repository} framework={'react'} url={react === true ? undefined : react}/>}
-                {ionic && <DemoButton repository={repository} framework={'ionic'} url={ionic === true ? undefined : ionic}/>}
-                {reactNative && <DemoButton repository={repository} framework={'react-native'} url={reactNative === true ? undefined : reactNative}/>}
+                {angular && (
+                    <DemoButton
+                        repository={repository}
+                        framework={'angular'}
+                        url={angular === true ? undefined : angular}
+                    />
+                )}
+                {react && (
+                    <DemoButton repository={repository} framework={'react'} url={react === true ? undefined : react} />
+                )}
+                {ionic && (
+                    <DemoButton repository={repository} framework={'ionic'} url={ionic === true ? undefined : ionic} />
+                )}
+                {reactNative && (
+                    <DemoButton
+                        repository={repository}
+                        framework={'react-native'}
+                        url={reactNative === true ? undefined : reactNative}
+                    />
+                )}
             </div>
-
         </Card>
-    )
+    );
 };
 DemoCard.displayName = 'DemoCard';
