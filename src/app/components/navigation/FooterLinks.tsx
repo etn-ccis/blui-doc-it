@@ -4,13 +4,13 @@ import {
     Theme,
     useTheme,
     useMediaQuery,
-    // useMediaQuery,
 } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 
 import * as Colors from '@pxblue/colors';
-import { SmallPXBLogo, NavLink } from '../components';
-import { /*Dribbble, GitHub, NPM,*/ Eaton } from '../assets/icons';
+import { NavLink } from './NavLink';
+import { Eaton } from '../../assets/icons';
+import { SmallPXBLogo } from '../../assets/icons/PXBLogo';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({

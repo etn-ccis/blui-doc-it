@@ -3,30 +3,22 @@ import {
     AppBar,
     Toolbar,
     Typography,
-    // Hidden,
     Button,
     Grid,
     Theme,
-    // Tabs,
-    // Tab,
     useTheme,
     createStyles,
     makeStyles,
 } from '@material-ui/core';
 import {
-    PXBLogo,
     InfoCard,
     Section as LandingSection,
     CardCarousel,
     CarouselCard,
-    // NavLink,
     FooterLinks,
     SharedToolbar,
 } from '../components';
 import { LatestReleases } from '../../docs';
-
-//@ts-ignore
-// import { PxblueSmall } from '@pxblue/icons-mui';
 import * as Colors from '@pxblue/colors';
 import circles from '../assets/circles.svg';
 import { useHistory } from 'react-router-dom';
@@ -38,6 +30,7 @@ import { ReleaseInfo } from '../../docs/release-notes';
 import computer from '../assets/placeholder/develop.jpg';
 import paper from '../assets/placeholder/paper.jpg';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { PXBLogo } from '../assets/icons/PXBLogo';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({

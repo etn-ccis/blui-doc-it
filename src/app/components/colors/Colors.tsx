@@ -2,7 +2,7 @@ import React, { ComponentProps } from 'react';
 import { Typography, makeStyles, createStyles, Theme } from '@material-ui/core';
 import { Bookmark } from '@material-ui/icons';
 import * as Colors from '@pxblue/colors';
-import { AppState } from '../redux/reducers';
+import { AppState } from '../../redux/reducers';
 import { useSelector } from 'react-redux';
 
 const getColorLabel = (color: string): JSX.Element | null => {

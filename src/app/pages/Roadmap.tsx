@@ -22,7 +22,7 @@ import { FrameworkFilter } from '../../__types__';
 import { InfoListItem, ListItemTag } from '@pxblue/react-components';
 
 import * as Colors from '@pxblue/colors';
-import { PXBlueColor } from '../components/Colors';
+import { PXBlueColor } from '../components/colors/Colors';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
