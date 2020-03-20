@@ -7,16 +7,17 @@ import clsx from 'clsx';
 type Framework = 'angular' | 'react' | 'ionic' | 'react-native';
 type DemoCardProps = CardProps & {
     repository: string;
-    angular?: true;
-    react?: true;
-    ionic?: true;
-    reactNative?: true;
+    angular?: true | string;
+    react?: true | string;
+    ionic?: true | string;
+    reactNative?: true | string;
     float?: 'right' | 'left';
 };
 
 type DemoButtonProps = {
     repository: string;
     framework: Framework;
+    url?: string;
 };
 
 type Details = {
@@ -104,7 +105,7 @@ const DemoButton: React.FC<DemoButtonProps> = (props): JSX.Element => {
             avatar={icon}
             label={displayName}
             onClick={(): void => {
-                window.open(url);
+                window.open((typeof props.url === 'string') ? props.url : url, '_blank');
             }}
             className={classes.button}
             variant="outlined"
@@ -124,10 +125,10 @@ export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
                 <Typography variant={'caption'}>{repository}</Typography>
             </div>
             <div style={{ textAlign: 'center' }}>
-                {angular && <DemoButton repository={repository} framework={'angular'} />}
-                {react && <DemoButton repository={repository} framework={'react'} />}
-                {ionic && <DemoButton repository={repository} framework={'ionic'} />}
-                {reactNative && <DemoButton repository={repository} framework={'react-native'} />}
+                {angular && <DemoButton repository={repository} framework={'angular'} url={angular === true ? undefined : angular} />}
+                {react && <DemoButton repository={repository} framework={'react'} url={react === true ? undefined : react}/>}
+                {ionic && <DemoButton repository={repository} framework={'ionic'} url={ionic === true ? undefined : ionic}/>}
+                {reactNative && <DemoButton repository={repository} framework={'react-native'} url={reactNative === true ? undefined : reactNative}/>}
             </div>
 
         </Card>

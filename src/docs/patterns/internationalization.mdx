@@ -1,9 +1,13 @@
-import { DemoCard } from '../../app/components';
+import { DemoCard, ImageGrid } from '../../app/components';
 import Image1 from '../../app/assets/design-patterns/internationalization/web-internationalization-english.png';
 import Image2 from '../../app/assets/design-patterns/internationalization/web-internationalization-arabic.png';
 import Image3 from '../../app/assets/design-patterns/internationalization/web-internationalization-spanish.png';
 
 # Internationalization
+
+<ImageGrid images={[Image1, Image2, Image3]} style={{marginBottom: 32}}/>
+
+<DemoCard repository={'internationalization'} angular react float={'right'}/>
 
 Internationalization is the practice of adapting applications to various regions, languages, and cultures. You can accomplish this in your applications by considering the differences in language, scripts, and directionality. 
 
@@ -22,13 +26,3 @@ Some languages, such as Arabic and Hebrew, are read from right to left. Applicat
 
 ## Technical Implementation
 There are a number of available libraries to assist with implementing internationalization in your applications. The Angular CLI includes some support for [internationalization](https://angular.io/guide/i18n) out of the box. For React/React Native projects, we have used [i18next](https://www.i18next.com/). Depending on the size of your application, you can also build your own simple mechanism for changing languages, as in the below examples.
-
-<p float="left">
-<img src={Image1} width="400" hspace="20" />
-<img src={Image2} width="400" hspace="20" />
-</p>
-<p float="left">
-<img src={Image3} width="400" hspace="20" />
-</p>
-
-<DemoCard repository={'form-validation'} angular react />
