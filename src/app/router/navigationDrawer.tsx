@@ -70,7 +70,7 @@ export const NavigationDrawer = (): JSX.Element => {
                 }
             />
             <DrawerBody>
-                <DrawerNavGroup hidePadding activeItem={activeRoute} items={menuItems} divider={false} />
+                <DrawerNavGroup hidePadding activeItem={activeRoute} items={menuItems} />
             </DrawerBody>
             <DrawerFooter>
                 <div style={{ display: 'flex', justifyContent: 'center', background: Colors.gray[50] }}>

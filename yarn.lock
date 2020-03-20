@@ -1832,10 +1832,10 @@
   resolved "https://registry.yarnpkg.com/@pxblue/prettier-config/-/prettier-config-1.0.2.tgz#fb00503df6557b66c3d91d43c9101e614c35d2ec"
   integrity sha512-/3cLBoTjZs3kV1ATPA/Sp0tsL7XmlV/b8HW/qt0jqR/uP5+cdXL2YIhMXQngLRa7PhpSkEiRIYK5sl0rKsXTUg==
 
-"@pxblue/react-components@^3.0.0-beta.0":
-  version "3.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/react-components/-/react-components-3.0.0-beta.0.tgz#71d2177af28709c2eea784f651951d6104a58f46"
-  integrity sha512-K+QvBiogvMnySVvrIsf7o8f09ZW8Lrm3aGbxzu8CLBpX8F//tGxf8yhERBtO7XKGMRAGDlgiGMyGmFFn2SwBxQ==
+"@pxblue/react-components@^3.0.0-beta.1":
+  version "3.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@pxblue/react-components/-/react-components-3.0.0-beta.1.tgz#68e7293ba9107da7794c0548187a958597dbb7a8"
+  integrity sha512-bqnfjHhRlQP24UDpfkZb8sSJ8ZzjH24PpU2Lx84tqL5F0h/bmyvdKIxEmn9ciO7qthJMlD7oM8wmvKfBj6+BqQ==
   dependencies:
     "@pxblue/colors" "^2.0.0"
     color "^3.1.2"
@@ -1845,13 +1845,13 @@
   resolved "https://registry.yarnpkg.com/@pxblue/react-progress-icons/-/react-progress-icons-2.0.0.tgz#b1e1aa21ae871b60a3cdadd926569737e581a7e2"
   integrity sha512-S1upGm3FReTL/mwzjxAAvHubtCfgwbqKzJbOA47pRkE9tKpebi/eMoitA1RwATTYdwxjcvVF7373UZctcLa0+A==
 
-"@pxblue/themes@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@pxblue/themes/-/themes-3.0.2.tgz#d5b83b414a83e2f96a8e0f28b034b8470ae48f69"
-  integrity sha512-csaANyUWvKBphw+2p2GbdECZLmjs6Vp0FtghprwQhLyztK5BHnhm4vJaXkYNlfGnJazNxMZwU+JQtrTEL0LSZg==
+"@pxblue/react-themes@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@pxblue/react-themes/-/react-themes-4.0.0.tgz#5b3b2f87b9558439a59a0fadd06cc9bcb375c477"
+  integrity sha512-w0VFVZ+BLPk0AVNL0vWK7z8cl8Ec2seHOu68Dwl2R+CZ7iVuz6f+1I/KXjzjL458YWjNK1lu9UiaCX34MxvpHQ==
   dependencies:
     "@pxblue/colors" "^2.0.0"
-    typeface-open-sans "^0.0.54"
+    typeface-open-sans "^0.0.75"
 
 "@sheerun/mutationobserver-shim@^0.3.2":
   version "0.3.2"
@@ -11921,15 +11921,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typeface-open-sans@0.0.75:
+typeface-open-sans@0.0.75, typeface-open-sans@^0.0.75:
   version "0.0.75"
   resolved "https://registry.yarnpkg.com/typeface-open-sans/-/typeface-open-sans-0.0.75.tgz#20d0c330f14c0c40463c334adbedd6005389abe4"
   integrity sha512-0lLmB7pfj113OP4T78SbpSmC4OCdFQ0vUxdSXQccsSb6qF76F92iEuC/DghFgmPswTyidk8+Hwf+PS/htiJoRQ==
-
-typeface-open-sans@^0.0.54:
-  version "0.0.54"
-  resolved "https://registry.yarnpkg.com/typeface-open-sans/-/typeface-open-sans-0.0.54.tgz#20f5b5ea5c7f95d89dc1f8b2d2b1457680129cee"
-  integrity sha512-w6wOd6EicZdZKf0jSU/K3EzEi3zFgvWQSN7NOpRIQI5KeMWmC5Pg/lqtBVJHB0pRChYRmLdhf4h8ROur0A3JZQ==
 
 typeface-roboto-mono@^0.0.75:
   version "0.0.75"

@@ -53,6 +53,11 @@ pre > code {
     padding: 0px;
 }
 
+p.MuiTypography-h6.MuiTypography-paragraph,
+p.MuiTypography-h5.MuiTypography-paragraph {
+    clear: both;
+}
+
 .rotateMe {
     animation: 2500ms spin linear infinite;
 }

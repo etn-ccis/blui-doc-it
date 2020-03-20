@@ -1,13 +1,20 @@
+import { DemoCard, ImageGrid } from '../../app/components';
+import Image1 from '../../app/assets/design-patterns/login/mobile-login-screen.png';
+import Image2 from '../../app/assets/design-patterns/login/mobile-reg.png';
+import Image3 from '../../app/assets/design-patterns/login/mobile-password-create.png';
+import Image4 from '../../app/assets/design-patterns/login/mobile-reg-create-account.png';
+
 # Login Patterns
+
+<ImageGrid images={[Image1, Image2, Image3, Image4]} style={{marginBottom: 32}}/>
+
+<DemoCard repository={'login'} angular react ionic reactNative style={{marginBottom: 32}} float={'right'}/>
+
 Most applications will require some form of login to ensure that only authorized users have access. The most basic login is with a simple username and password.
 
 ## Basic Form
-A simple login presents fields for the users to enter their credentials and a button to submit them for verification.
 
-{{ angular repo=login }}
-{{ react repo=login }}
-{{ ionic repo=login }}
-{{ reactnative repo=login }}
+A simple login presents fields for the users to enter their credentials and a button to submit them for verification.
 
 ## Login Feedback
 
@@ -31,4 +38,4 @@ To register for an account, a new user must supply their e-mail address. After e
 
 After the email address is verified, users can continue the registration process by choosing a password. You should display password requirements (if any) near this field.
 
-> **NOTE:** The minimum requirements for registration are an email address, confirmation code, and password. You can also collect additional parameters as necessary for your application (e.g., Name, Phone Number, etc.). 
+> **NOTE:** The minimum requirements for registration are an email address, confirmation code, and password. You can also collect additional parameters as necessary for your application (e.g., Name, Phone Number, etc.).

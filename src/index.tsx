@@ -6,7 +6,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import * as PXBThemes from '@pxblue/themes/react';
+import * as PXBThemes from '@pxblue/react-themes';
 import 'typeface-open-sans';
 import 'typeface-roboto-mono';
 import { createStore } from 'redux';
