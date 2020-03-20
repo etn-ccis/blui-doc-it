@@ -1,3 +1,5 @@
+import { DemoCard, ImageGrid } from '../../app/components';
+
 # Visualizations
 
 There are many opportunities to visualize data in different applications. The most common visualizations used in PX Blue applications come in the form of charts/graphs and maps.
@@ -9,32 +11,42 @@ Currently, PX Blue supports building charts and graphs using [Highcharts](http:/
 
 ### Highcharts
 
+<DemoCard repository={'highcharts'} 
+    angular={`https://stackblitz.com/github/pxblue/highcharts/tree/master/angular-demo`}
+    react={`https://codesandbox.io/s/github/pxblue/highcharts/tree/master/react-demo`}
+    float={'right'}
+/>
+
 PX Blue utilities for Highcharts graphs (line, column, pie, donut) are available as an NPM package ([@pxblue/highcharts](https://www.npmjs.com/package/@pxblue/highcharts)). 
 This package includes helper functions to generate chart configurations using recommended PX Blue styles. 
 These utilities also enable you to quickly create placeholder charts using simulated data. For more information about using Highcharts, check out their documentation.
 
 > Highcharts has different [licensing](https://shop.highsoft.com/faq) requirements depending on the nature of your application - you will need to contact Highsoft directly to ensure that your product is properly licensed. You can also see the [Highcharts Pricing](https://shop.highsoft.com/highcharts/) page for pricing information.
 
-{{ angular url=https://stackblitz.com/github/pxblue/highcharts/tree/master/angular-demo?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
-{{ react url=https://codesandbox.io/embed/github/pxblue/highcharts/tree/master/react-demo?fontsize=14&hidenavigation=1&module=/src/App.tsx&view=preview }}
-
 ### ChartJS 
+
+<DemoCard repository={'chartjs'} 
+    angular={`https://stackblitz.com/github/pxblue/chartjs/tree/master/angular-demo`}
+    react={`https://codesandbox.io/s/github/pxblue/chartjs/tree/master/react-demo`}
+    float={'right'}
+/>
 
 ChartJS is an open source alternative to HighCharts offering a scaled-down feature set that supports basic charting needs.
 
 PX Blue utilities for ChartJS graphs (line, column, pie, donut) are available as an NPM package ([@pxblue/chartjs](https://www.npmjs.com/package/@pxblue/chartjs)). For more information, check out the [ChartJS Documentation](https://www.chartjs.org/).
 
-{{ angular url=https://stackblitz.com/github/pxblue/chartjs/tree/master/angular-demo?embed=1&file=src/app/app.component.ts&hideNavigation=1&view=preview }}
-{{ react url=https://codesandbox.io/embed/github/pxblue/chartjs/tree/master/react-demo?fontsize=14&hidenavigation=1&module=/src/App.tsx&view=preview }}
-
 ## Mapping (Mapbox)
+
+<DemoCard repository={'mapbox'} 
+    angular={`https://stackblitz.com/github/pxblue/mapbox/tree/master/angular-demo`}
+    react={`https://codesandbox.io/s/github/pxblue/mapbox/tree/master/react-demo`}
+    float={'right'}
+/>
+
 If your application needs to show data on a geographical map, PX Blue supports the use of [Mapbox](https://www.mapbox.com/), a visually pleasing mapping solution that uses data from OpenStreetMap.
 
 Mapbox can be used on Android and iOS or on the web with Angular and React. A PX Blue theme for styling these maps is available as an NPM package ([@pxblue/mapbox](https://www.npmjs.com/package/@pxblue/mapbox)).
 
 > Using Mapbox is subject to certain [terms](https://www.mapbox.com/pricing/). If you would like to use Mapbox in your applications, you will need to work with Mapbox to ensure your product is properly licensed.
-
-{{ angular url=https://stackblitz.com/github/pxblue/mapbox/tree/master/angular-demo?embed=1&file=main.ts&hideNavigation=1&view=preview }}
-{{ react url=https://codesandbox.io/embed/github/pxblue/mapbox/tree/master/react-demo?fontsize=14&hidenavigation=1&module=/src/App.js&view=preview }}
 
 
