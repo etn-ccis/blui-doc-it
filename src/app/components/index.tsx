@@ -13,3 +13,7 @@ export { ColorSwatch, ColorPalette } from './Colors';
 export { PageContent } from './PageContent';
 export { ExpansionHeader } from './ExpansionHeader';
 export * from './patterns';
+export { IconCard } from './icons/IconCard';
+export { IconMenu } from './icons/IconMenu';
+export { IconBrowser } from './icons/IconBrowser';
+export { ProgressIconCard } from './icons/ProgressIconCard';
