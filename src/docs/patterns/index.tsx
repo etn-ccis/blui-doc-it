@@ -9,5 +9,6 @@ import Navigation from './navigation.mdx';
 import Overlays from './overlay.mdx';
 import Steppers from './steppers.mdx';
 import Visualizations from './visualizations.mdx';
+import Home from './home.mdx';
 
-export { AppBar, EmptyStates, Forms, I18N, Layout, Lists, Login, Navigation, Overlays, Steppers, Visualizations };
+export { AppBar, EmptyStates, Forms, Home, I18N, Layout, Lists, Login, Navigation, Overlays, Steppers, Visualizations };

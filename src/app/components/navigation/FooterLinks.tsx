@@ -78,20 +78,14 @@ export const FooterLinks: React.FC = (): JSX.Element => {
                         className={classes.navLink}
                         hoverColor={Colors.white[50]}
                     />
-                    <NavLink
+                    {/* <NavLink
                         to={'/style/color'}
                         title={'Brand Language'}
                         className={classes.navLink}
                         hoverColor={Colors.white[50]}
-                    />
+                    /> */}
                     <NavLink
-                        to={'/patterns/appbars'}
-                        title={'Design Patterns'}
-                        className={classes.navLink}
-                        hoverColor={Colors.white[50]}
-                    />
-                    <NavLink
-                        to={'/style/color'}
+                        to={'/design/environment'}
                         title={'For Designers'}
                         className={classes.navLink}
                         hoverColor={Colors.white[50]}
@@ -103,8 +97,20 @@ export const FooterLinks: React.FC = (): JSX.Element => {
                         hoverColor={Colors.white[50]}
                     />
                     <NavLink
+                        to={'/patterns'}
+                        title={'Design Patterns'}
+                        className={classes.navLink}
+                        hoverColor={Colors.white[50]}
+                    />
+                    <NavLink
                         to={'/resources'}
                         title={'Resources'}
+                        className={classes.navLink}
+                        hoverColor={Colors.white[50]}
+                    />
+                    <NavLink
+                        to={'/roadmap'}
+                        title={'Roadmap'}
                         className={classes.navLink}
                         hoverColor={Colors.white[50]}
                     />

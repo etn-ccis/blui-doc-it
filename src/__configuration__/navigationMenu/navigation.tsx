@@ -127,8 +127,25 @@ export const pageDefinitions: SimpleNavItem[] = [
         ],
     },
     {
+        title: 'Designing w/ PX Blue',
+        url: '/design',
+        pages: [
+            {
+                title: 'Environment Setup',
+                url: '/environment',
+                component: <h1>Coming Soon!</h1>,
+            },
+            {
+                title: 'How to Design',
+                url: '/how-to',
+                component: <h1>Coming Soon!</h1>,
+            },
+        ],
+    },
+    {
         title: 'Design Patterns',
         url: '/patterns',
+        component: <MarkdownPage title={'Design Patterns'} markdown={Docs.Patterns.Home} />,
         pages: [
             {
                 title: 'App Bars',

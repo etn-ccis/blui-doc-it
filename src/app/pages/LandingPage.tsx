@@ -38,7 +38,6 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            // marginTop: theme.spacing(8),
             padding: `${theme.spacing(8)}px ${theme.spacing(4)}px`,
             width: '100%',
             color: '#ffffff',
@@ -46,16 +45,11 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundImage: `url(${circles})`,
             backgroundSize: 1200,
             backgroundPosition: '-240px center',
-            [theme.breakpoints.down('xs')]: {
-                // marginTop: theme.spacing(7)
-            },
         },
         footer: {
             zIndex: 0,
             backgroundColor: Colors.black[900],
             textAlign: 'center',
-            // position: 'absolute',
-            // bottom: 0,
         },
     })
 );
@@ -89,6 +83,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                             <InfoCard
                                 source={item.image}
                                 title={item.title}
+                                aspectRatio={'3x2'}
                                 description={item.description}
                                 onClick={(): void => {
                                     if (item.path.startsWith('/')) history.push(item.path);
@@ -134,7 +129,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     description={
                         'We offer asset library on Sketch and Figma, with all the icons, fonts, colors and components.'
                     }
-                    onClick={(): void => history.push('/style/color')}
+                    onClick={(): void => history.push('/design/environment')}
                 />
                 <CarouselCard
                     backgroundImage={computer}
