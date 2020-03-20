@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, createStyles, Theme, Card, Typography, CardProps, Chip } from '@material-ui/core';
+import { makeStyles, createStyles, Theme, Card, Typography, CardProps, Chip, useMediaQuery, useTheme } from '@material-ui/core';
 import { Angular, ReactBlue, Ionic } from '../../assets/icons';
 import * as Colors from '@pxblue/colors';
 import clsx from 'clsx';
@@ -73,6 +73,7 @@ const useStyles = makeStyles((theme: Theme) =>
             margin: `0 auto`,
             padding: theme.spacing(1.5),
             borderLeft: `${theme.spacing(1)}px solid ${theme.palette.secondary.main}`,
+            marginBottom: theme.spacing(4),
         },
         demoTitle: {
             color: Colors.gray[500],
@@ -82,15 +83,11 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         floatRight: {
             float: 'right',
-            margin: 0,
             marginLeft: theme.spacing(4),
-            marginBottom: theme.spacing(4),
         },
         floatLeft: {
             float: 'left',
-            margin: 0,
             marginRight: theme.spacing(4),
-            marginBottom: theme.spacing(4),
         },
     })
 );
@@ -99,7 +96,6 @@ const DemoButton: React.FC<DemoButtonProps> = (props): JSX.Element => {
     const { framework, repository } = props;
     const classes = useStyles();
     const { url, displayName, icon } = getDetails(repository, framework);
-
     return (
         <Chip
             avatar={icon}
@@ -116,8 +112,10 @@ const DemoButton: React.FC<DemoButtonProps> = (props): JSX.Element => {
 export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
     const { repository, angular, react, ionic, reactNative, float, ...cardProps } = props;
     const classes = useStyles();
+    const theme = useTheme();
+    const mdUp = useMediaQuery(theme.breakpoints.up('md'));
     return (
-        <Card className={clsx(classes.demoCard, {[classes.floatLeft]: float === 'left', [classes.floatRight]: float === 'right'})} {...cardProps}>
+        <Card className={clsx(classes.demoCard, mdUp && {[classes.floatLeft]: float === 'left', [classes.floatRight]: float === 'right'})} {...cardProps}>
             <div className={classes.demoTitle}>
                 <Typography variant={'subtitle1'} style={{lineHeight: 1, fontWeight: 'inherit'}}>
                     INTERACTIVE EXAMPLE

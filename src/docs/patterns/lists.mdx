@@ -12,13 +12,17 @@ Lists are frequently used throughout PX Blue applications. Typically, lists are 
 
 ## A Basic List
 
-<ImageGrid images={[Image2, <DemoCard repository={'data-list'} angular react ionic reactNative />]} style={{marginBottom: 32}}/>
+<ImageGrid images={[Image2]} style={{marginBottom: 32}}/>
+
+<DemoCard repository={'data-list'} angular react ionic reactNative float={'right'} />
 
 The simplest type of list simply presents a single line (or multiple lines) of text for each element in the collection.
 
 ## Lists with Icons & Status
 
-<ImageGrid images={[Image3, <DemoCard repository={'status-list'} angular react ionic reactNative />]} style={{marginBottom: 32}}/>
+<ImageGrid images={[Image3]} style={{marginBottom: 32}}/>
+
+<DemoCard repository={'status-list'} angular react ionic reactNative float={'right'} />
 
 The most common lists in PX Blue applications will present some graphical representation of type of status for the items in the list. This is achieved by using status/type icons (avatars) and sometimes a colored left (inset) border to indicate status.
 
@@ -26,23 +30,23 @@ In this instance, the separator line between list elements should extend only to
 
 ## Lists with Actions
 
-<ImageGrid images={[Image1, <DemoCard repository={'action-list'} angular react ionic reactNative />]} style={{marginBottom: 32}}/>
+<ImageGrid images={[Image1]} style={{marginBottom: 32}}/>
 
-
+<DemoCard repository={'action-list'} angular react ionic reactNative float={'right'} />
 
 If there are actions that you would like to perform on individual list items, these can be included via icons or a 3-dot action menu (multiple actions) on each list item. Depending on the space available, you typically will want to use the action menu if you have more than three actions that can be taken. Global actions that affect the whole list (such as Add or Clear) should be placed in the list header.
 
 ## Actions on Selected Items
 
-<ImageGrid images={[Image4, <DemoCard repository={'multiselect-list'} angular react ionic reactNative />]} style={{marginBottom: 32}}/>
+<ImageGrid images={[Image4]} style={{marginBottom: 32}}/>
+
+<DemoCard repository={'multiselect-list'} angular react ionic reactNative float={'right'} />
 
 You may want to take action on several list items at once, but not all. These should be presented in a persistent snackbar (similar to a [bottom sheet](/patterns/overlay)) after selecting items. Selection can be handled in several ways, the simplest of which is to include a checkbox for each list item.
 
 ## Drag and Drop
 
 <ImageGrid images={[Image5, Image6, <DemoCard repository={'sortable-list'} angular react ionic reactNative />]} style={{marginBottom: 32}}/>
-
-
 
 Occasionally, you may want users to be able to re-order the items in a list manually. This should be accomplished by placing a drag handle as the leftmost element in the row. The ability to re-order the list should be locked behind an Edit Mode toggle mechanism.
 
