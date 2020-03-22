@@ -13,6 +13,8 @@ const useStyles = makeStyles((theme: Theme) =>
         image: {
             boxShadow: theme.shadows[2],
             cursor: 'zoom-in',
+            maxHeight: '100%',
+            maxWidth: '100%',
         },
         fullScreenZoom: {
             width: '100vw',
