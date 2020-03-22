@@ -1,18 +1,19 @@
 import React, { useState, useCallback } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, NavItem } from '@pxblue/react-components';
+import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, NavItem, } from '@pxblue/react-components';
 import { PxblueSmall } from '@pxblue/icons-mui';
 
 import * as Colors from '@pxblue/colors';
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { Eaton } from '../assets/icons';
-import { Typography } from '@material-ui/core';
+import { Typography, useTheme } from '@material-ui/core';
 
 export const NavigationDrawer = (): JSX.Element => {
     const [open, setOpen] = useState(true);
     const location = useLocation();
     const history = useHistory();
     const [activeRoute, setActiveRoute] = useState(location.pathname);
+    const theme = useTheme();
 
     const createNavItems = useCallback((navData: SimpleNavItem[], parentUrl: string, depth: number): NavItem[] => {
         const convertedItems: NavItem[] = [];
@@ -73,7 +74,7 @@ export const NavigationDrawer = (): JSX.Element => {
                 <DrawerNavGroup hidePadding activeItem={activeRoute} items={menuItems} />
             </DrawerBody>
             <DrawerFooter>
-                <div style={{ display: 'flex', justifyContent: 'center', background: Colors.gray[50] }}>
+                <div style={{ display: 'flex', justifyContent: 'center', background: theme.palette.background.default}}>
                     <Eaton style={{ fontSize: 92 }} />
                 </div>
             </DrawerFooter>

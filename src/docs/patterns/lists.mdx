@@ -1,10 +1,12 @@
 import { DemoCard, ImageGrid } from '../../app/components';
-import Image1 from '../../app/assets/design-patterns/action-list/mobile-action-list.png';
-import Image2 from '../../app/assets/design-patterns/data-list/mobile-data-list.png';
-import Image3 from '../../app/assets/design-patterns/status-list/mobile-status-list.png';
-import Image4 from '../../app/assets/design-patterns/multiselect-list/mobile-multiselect-list.png';
-import Image5 from '../../app/assets/design-patterns/sortable-list/mobile-sortable-list.png';
-import Image6 from '../../app/assets/design-patterns/sortable-list/mobile-sortable-list-sorted.png';
+import Image1 from '../../app/assets/design-patterns/data-list/simple-list.png';
+import Image2 from '../../app/assets/design-patterns/status-list/status-list.png';
+import Image3 from '../../app/assets/design-patterns/action-list/action-list.png';
+import Image4 from '../../app/assets/design-patterns/action-list/action-list-overlay.png';
+import Image5 from '../../app/assets/design-patterns/action-list/action-list-item-action.png';
+import Image6 from '../../app/assets/design-patterns/multiselect-list/multiselect-list.png';
+import Image7 from '../../app/assets/design-patterns/sortable-list/sortable-list.png';
+import Image8 from '../../app/assets/design-patterns/sortable-list/sortable-list-sorted.png';
 
 # List Patterns
 
@@ -12,7 +14,7 @@ Lists are frequently used throughout PX Blue applications. Typically, lists are 
 
 ## A Basic List
 
-<ImageGrid images={[Image2]} style={{marginBottom: 32}}/>
+<ImageGrid images={[Image1]} style={{marginBottom: 32}}/>
 
 <DemoCard repository={'data-list'} angular react ionic reactNative float={'right'} />
 
@@ -20,17 +22,17 @@ The simplest type of list simply presents a single line (or multiple lines) of t
 
 ## Lists with Icons & Status
 
-<ImageGrid images={[Image3]} style={{marginBottom: 32}}/>
+<ImageGrid images={[Image2]} style={{marginBottom: 32}}/>
 
 <DemoCard repository={'status-list'} angular react ionic reactNative float={'right'} />
 
-The most common lists in PX Blue applications will present some graphical representation of type of status for the items in the list. This is achieved by using status/type icons (avatars) and sometimes a colored left (inset) border to indicate status.
+The most common lists in PX Blue applications will present some graphical representation of types of status for the items on the list. This is achieved by using status/type icons (avatars) and sometimes a colored left (inset) border to indicate status.
 
 In this instance, the separator line between list elements should extend only to the edge of the text, not below the avatar.
 
 ## Lists with Actions
 
-<ImageGrid images={[Image1]} style={{marginBottom: 32}}/>
+<ImageGrid images={[Image3, Image4, Image5]} style={{marginBottom: 32}}/>
 
 <DemoCard repository={'action-list'} angular react ionic reactNative float={'right'} />
 
@@ -38,7 +40,7 @@ If there are actions that you would like to perform on individual list items, th
 
 ## Actions on Selected Items
 
-<ImageGrid images={[Image4]} style={{marginBottom: 32}}/>
+<ImageGrid images={[Image6]} style={{marginBottom: 32}}/>
 
 <DemoCard repository={'multiselect-list'} angular react ionic reactNative float={'right'} />
 
@@ -46,7 +48,9 @@ You may want to take action on several list items at once, but not all. These sh
 
 ## Drag and Drop
 
-<ImageGrid images={[Image5, Image6, <DemoCard repository={'sortable-list'} angular react ionic reactNative />]} style={{marginBottom: 32}}/>
+<ImageGrid images={[Image7, Image8]} style={{marginBottom: 32}} caption={''} />
+
+<DemoCard repository={'sortable-list'} angular react ionic reactNative />
 
 Occasionally, you may want users to be able to re-order the items in a list manually. This should be accomplished by placing a drag handle as the leftmost element in the row. The ability to re-order the list should be locked behind an Edit Mode toggle mechanism.
 
@@ -56,5 +60,5 @@ Occasionally, you may want users to be able to re-order the items in a list manu
 
 <DemoCard repository={'responsive-table'} angular react float={'right'}/>
 
-Tables are similar to lists, but are slightly more structured by ordering data for a list item into columns. These work well on larger screens, but at mobile size, they should collapse into a list for better formatting.
+Tables are similar to lists but are slightly more structured by ordering data for a list item into columns. These work well on larger screens, but at a mobile size, they should collapse into a list for better formatting.
 
