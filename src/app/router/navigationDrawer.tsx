@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, NavItem, } from '@pxblue/react-components';
+import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, NavItem } from '@pxblue/react-components';
 import { PxblueSmall } from '@pxblue/icons-mui';
 
 import * as Colors from '@pxblue/colors';
@@ -74,7 +74,9 @@ export const NavigationDrawer = (): JSX.Element => {
                 <DrawerNavGroup hidePadding activeItem={activeRoute} items={menuItems} />
             </DrawerBody>
             <DrawerFooter>
-                <div style={{ display: 'flex', justifyContent: 'center', background: theme.palette.background.default}}>
+                <div
+                    style={{ display: 'flex', justifyContent: 'center', background: theme.palette.background.default }}
+                >
                     <Eaton style={{ fontSize: 92 }} />
                 </div>
             </DrawerFooter>

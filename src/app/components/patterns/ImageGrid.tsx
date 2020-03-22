@@ -72,13 +72,10 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
             <Typography variant={'caption'}>{caption}</Typography>
             {imageOpened !== -1 && (
                 <Hidden xsDown>
-                    <div
-                        className={classes.fullScreenZoom}
-                        onClick={(): void => setImageOpened(-1)}
-                    >
+                    <div className={classes.fullScreenZoom} onClick={(): void => setImageOpened(-1)}>
                         <img
                             className={classes.image}
-                            style={{cursor: 'inherit'}}
+                            style={{ cursor: 'inherit' }}
                             src={images[imageOpened] as string}
                         />
                     </div>
