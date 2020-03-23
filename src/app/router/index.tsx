@@ -46,7 +46,7 @@ export const MainRouter = (): JSX.Element => {
     const title = useSelector((state: AppState) => state.app.pageTitle);
     const classes = useStyles();
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.up('sm'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
     return (
         <Router>
             <Switch>
@@ -61,7 +61,7 @@ export const MainRouter = (): JSX.Element => {
                                     title={title}
                                     navigationIcon={<Menu onClick={(): void => setOpen(!open)} />}
                                 />
-                                <div style={ isMobile ? {minHeight: 'calc(50vh - 128px)'} : {minHeight: 'calc(50vh - 102px)'}}>
+                                <div style={ isMobile ? {minHeight: 'calc(50vh - 102px)'} : {minHeight: 'calc(50vh - 128px)'}}>
                                 <Switch>
                                     {buildRoutes(pageDefinitions, '')}
 
