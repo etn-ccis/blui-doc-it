@@ -7,14 +7,18 @@ import * as Colors from '@pxblue/colors';
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { Eaton } from '../assets/icons';
 import { Typography, useTheme, useMediaQuery } from '@material-ui/core';
+import { useSelector, useDispatch } from 'react-redux';
+import { AppState } from '../redux/reducers';
+import { TOGGLE_DRAWER } from '../redux/actions';
 
 export const NavigationDrawer = (): JSX.Element => {
-    const [open, setOpen] = useState(true);
+    const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
     const location = useLocation();
     const history = useHistory();
     const [activeRoute, setActiveRoute] = useState(location.pathname);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
+    const dispatch = useDispatch();
 
     const createNavItems = useCallback((navData: SimpleNavItem[], parentUrl: string, depth: number): NavItem[] => {
         const convertedItems: NavItem[] = [];
@@ -27,9 +31,9 @@ export const NavigationDrawer = (): JSX.Element => {
                 itemID: fullURL,
                 onClick: item.component
                     ? (): void => {
-                          history.push(fullURL);
-                          setActiveRoute(fullURL);
-                      }
+                        history.push(fullURL);
+                        setActiveRoute(fullURL);
+                    }
                     : undefined,
                 items: item.pages ? createNavItems(item.pages, `${parentUrl}${item.url}`, depth + 1) : undefined,
             });
@@ -41,18 +45,23 @@ export const NavigationDrawer = (): JSX.Element => {
 
     return (
         <Drawer
-            open={open}
+            open={drawerOpen}
             width={270}
             ModalProps={{
-                onBackdropClick: (): void => setOpen(!open),
+                onBackdropClick: (): void => {
+                    dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                },
             }}
-            variant={ isMobile ? 'temporary' : 'persistent' }
+            variant={isMobile ? 'temporary' : 'permanent'}
         >
             <DrawerHeader
                 backgroundColor={Colors.blue[500]}
                 fontColor={Colors.white[50]}
                 icon={<PxblueSmall />}
-                onIconClick={(): void => setOpen(!open)}
+                onIconClick={(): void => {
+                    dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen })
+                }
+                }
                 titleContent={
                     <div
                         style={{

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { LandingPage } from '../pages';
 import { DrawerLayout } from '@pxblue/react-components';
@@ -6,11 +6,12 @@ import { SharedToolbar } from '../components';
 import { NavigationDrawer } from './navigationDrawer';
 import { AppState } from '../redux/reducers';
 import { Menu } from '@material-ui/icons';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { pageDefinitions } from '../../__configuration__/navigationMenu/navigation';
 import { AppBar, Toolbar, Typography, makeStyles, createStyles, useTheme, useMediaQuery } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
+import { TOGGLE_DRAWER } from '../redux/actions';
 
 const buildRoutes = (routes: any[], url: string): JSX.Element[] => {
     let ret: any[] = [];
@@ -42,11 +43,13 @@ const useStyles = makeStyles(() =>
 );
 
 export const MainRouter = (): JSX.Element => {
-    const [open, setOpen] = useState(false);
     const title = useSelector((state: AppState) => state.app.pageTitle);
+    const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
     const classes = useStyles();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
+    const dispatch = useDispatch();
+
     return (
         <Router>
             <Switch>
@@ -59,17 +62,20 @@ export const MainRouter = (): JSX.Element => {
                             <>
                                 <SharedToolbar
                                     title={title}
-                                    navigationIcon={<Menu onClick={(): void => setOpen(!open)} />}
+                                    navigationIcon={<Menu onClick={(): void => {
+                                        dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen })
+                                    }
+                                    } />}
                                 />
-                                <div style={ isMobile ? {minHeight: 'calc(50vh - 102px)'} : {minHeight: 'calc(50vh - 128px)'}}>
-                                <Switch>
-                                    {buildRoutes(pageDefinitions, '')}
+                                <div style={isMobile ? { minHeight: 'calc(50vh - 102px)' } : { minHeight: 'calc(50vh - 128px)' }}>
+                                    <Switch>
+                                        {buildRoutes(pageDefinitions, '')}
 
-                                    {/* Catch-All Redirect to Landing Page */}
-                                    <Route path="*">
-                                        <Redirect to={'/'} />
-                                    </Route>
-                                </Switch>
+                                        {/* Catch-All Redirect to Landing Page */}
+                                        <Route path="*">
+                                            <Redirect to={'/'} />
+                                        </Route>
+                                    </Switch>
                                 </div>
                                 {/* Footer Section */}
                                 <AppBar position={'static'} className={classes.footer} elevation={0}>

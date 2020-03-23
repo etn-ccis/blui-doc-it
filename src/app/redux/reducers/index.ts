@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { CHANGE_PAGE_TITLE, CHANGE_COLOR_FORMAT } from '../actions';
+import { CHANGE_PAGE_TITLE, CHANGE_COLOR_FORMAT, TOGGLE_DRAWER } from '../actions';
 // import { connectRouter } from 'connected-react-router';
 // import { History } from 'history';
 // import { AppActions } from '../actions/actionTypes';
@@ -10,10 +10,12 @@ export type AppState = {
 type CommonState = {
     pageTitle: string;
     colorFormat: 'rgb' | 'hex';
+    drawerOpen: boolean;
 };
 const initialAppState: CommonState = {
     pageTitle: '',
     colorFormat: 'hex',
+    drawerOpen: true,
 };
 const appReducer = (state = initialAppState, action: any): CommonState => {
     switch (action.type) {
@@ -26,6 +28,11 @@ const appReducer = (state = initialAppState, action: any): CommonState => {
             return {
                 ...state,
                 colorFormat: action.payload,
+            };
+        case TOGGLE_DRAWER:
+            return {
+                ...state,
+                drawerOpen: action.payload,
             };
         default:
             return state;
