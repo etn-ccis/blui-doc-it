@@ -12,6 +12,10 @@
             "replacement": "../../../public/images"
         },
         {
+            "pattern": "^\/patterns$",
+            "replacement": "../../patterns/home.mdx"
+        },
+        {
             "pattern": "^\/([A-Za-z-\/]+)",
             "replacement": "../../$1.mdx"
         }
