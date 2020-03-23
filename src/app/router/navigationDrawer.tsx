@@ -6,13 +6,15 @@ import { PxblueSmall } from '@pxblue/icons-mui';
 import * as Colors from '@pxblue/colors';
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { Eaton } from '../assets/icons';
-import { Typography } from '@material-ui/core';
+import { Typography, useTheme, useMediaQuery } from '@material-ui/core';
 
 export const NavigationDrawer = (): JSX.Element => {
     const [open, setOpen] = useState(true);
     const location = useLocation();
     const history = useHistory();
     const [activeRoute, setActiveRoute] = useState(location.pathname);
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
 
     const createNavItems = useCallback((navData: SimpleNavItem[], parentUrl: string, depth: number): NavItem[] => {
         const convertedItems: NavItem[] = [];
@@ -44,6 +46,7 @@ export const NavigationDrawer = (): JSX.Element => {
             ModalProps={{
                 onBackdropClick: (): void => setOpen(!open),
             }}
+            variant={ isMobile ? 'temporary' : 'persistent' }
         >
             <DrawerHeader
                 backgroundColor={Colors.blue[500]}
