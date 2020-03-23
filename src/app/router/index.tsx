@@ -9,7 +9,7 @@ import { Menu } from '@material-ui/icons';
 import { useSelector } from 'react-redux';
 
 import { pageDefinitions } from '../../__configuration__/navigationMenu/navigation';
-import { AppBar, Toolbar, Typography, makeStyles, createStyles } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, makeStyles, createStyles, useTheme, useMediaQuery } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
 
 const buildRoutes = (routes: any[], url: string): JSX.Element[] => {
@@ -36,6 +36,7 @@ const useStyles = makeStyles(() =>
             backgroundColor: Colors.black[900],
             textAlign: 'center',
             marginTop: '50vh',
+            transform: 'inherit',
         },
     })
 );
@@ -44,6 +45,8 @@ export const MainRouter = (): JSX.Element => {
     const [open, setOpen] = useState(false);
     const title = useSelector((state: AppState) => state.app.pageTitle);
     const classes = useStyles();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.up('sm'));
     return (
         <Router>
             <Switch>
@@ -58,7 +61,7 @@ export const MainRouter = (): JSX.Element => {
                                     title={title}
                                     navigationIcon={<Menu onClick={(): void => setOpen(!open)} />}
                                 />
-                                {/* <div style={{ padding: 20 }}> */}
+                                <div style={ isMobile ? {minHeight: 'calc(50vh - 128px)'} : {minHeight: 'calc(50vh - 102px)'}}>
                                 <Switch>
                                     {buildRoutes(pageDefinitions, '')}
 
@@ -67,7 +70,7 @@ export const MainRouter = (): JSX.Element => {
                                         <Redirect to={'/'} />
                                     </Route>
                                 </Switch>
-                                {/* </div> */}
+                                </div>
                                 {/* Footer Section */}
                                 <AppBar position={'static'} className={classes.footer} elevation={0}>
                                     <Toolbar variant={'dense'}>
