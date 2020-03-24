@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, HTMLAttributes } from 'react';
 import {
     Grid,
     GridProps,
@@ -42,18 +42,22 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type Content = string | JSX.Element;
-type ImageGridProps = GridProps & {
-    images: Content[];
+type ImageGridProps = {
     caption?: string;
+    gridContainerProps?: GridProps;
+    gridComponentProps?: GridProps;
+    gridImageProps?: GridProps;
+    images: Content[];
+    rootProps?: HTMLAttributes<HTMLDivElement>;
 };
 export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
-    const { images, caption, style, ...gridProps } = props;
+    const { images, caption, rootProps, gridContainerProps, gridImageProps, gridComponentProps } = props;
     const classes = useStyles();
     const theme = useTheme();
     const [imageOpened, setImageOpened] = useState(-1);
     const smUp = useMediaQuery(theme.breakpoints.up('sm'));
     return (
-        <div className={classes.root} style={style}>
+        <div className={classes.root} {...rootProps}>
             <Grid
                 container
                 spacing={2}
@@ -61,11 +65,11 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
                 alignItems={'center'}
                 wrap={'wrap'}
                 style={{ marginBottom: theme.spacing(0.5) }}
-                {...gridProps}
+                {...gridContainerProps}
             >
                 {images.map((item, index) =>
                     typeof item === 'string' ? (
-                        <Grid key={`content_${index}`} item xs={12} sm={6} md={4}>
+                        <Grid key={`content_${index}`} item xs={12} sm={6} md={4} {...gridImageProps}>
                             <img
                                 className={classes.image}
                                 src={item}
@@ -78,7 +82,7 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
                             />
                         </Grid>
                     ) : (
-                        <Grid key={`content_${index}`} item xs={12} sm={6} md={4}>
+                        <Grid key={`content_${index}`} item xs={12} sm={6} md={4} {...gridComponentProps}>
                             {item}
                         </Grid>
                     )

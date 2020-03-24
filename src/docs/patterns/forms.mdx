@@ -8,7 +8,7 @@ import Image6 from '../../app/assets/design-patterns/form-validation/form-valida
 
 # Form Validation Patterns
 
-<ImageGrid images={[Image1, Image2, Image3]} style={{marginBottom: 32}}/>
+<ImageGrid images={[Image1, Image2, Image3]} />
 
 <DemoCard repository={'form-validation'} angular react float={'right'}/>
 
@@ -21,13 +21,14 @@ If most of the fields are required, you should call out the fields that are opti
 
 Conversely, if most of your fields are optional, you should only call out the required fields. These should be identified by an asterisk (*) after the field label. There should be a descriptor nearby that indicates that a * means the field is required.
 
+## Form Field Requirements
+<ImageGrid images={[Image4, Image5, Image6]} caption={'A common application of form validation -- reset password.'} />
+
+If your form fields have complex requirements for valid values, you can list these criteria below the input. A common use case for this is when displaying password complexity requirements.
+
 ## Handling Errors
 
 If there is an error with the data entered into a field, the field should indicate to the user that there is a problem. Label and helper text should be changed to a red color and a warning icon should appear in the text input. The error message should be displayed in the helper text location below the field (any existing helper text should be replaced with the error message). 
 
-## Password
-<ImageGrid images={[Image4, Image5, Image6]} style={{marginBottom: 32}} caption={'A common application of form validation -- reset password.'} />
-
-If you need to further regulate your user input, for example when the user is entering a new password for their account, you may provide further information that hints the conditions to make the input field valid.
-
 Error messages should be succinct and should not provide information that could compromise security (e.g., "Invalid Credentials" instead of "Incorrect Password"). 
+

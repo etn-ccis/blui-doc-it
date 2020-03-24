@@ -14,17 +14,17 @@ Lists are frequently used throughout PX Blue applications. Typically, lists are 
 
 ## Basic Lists
 
-<ImageGrid images={[Image1, Image2]} style={{marginBottom: 32}}/>
+<ImageGrid images={[Image1, Image2]} />
 
 <ImageGrid images={[<DemoCard repository={'data-list'} angular react ionic reactNative />, <DemoCard repository={'status-list'} angular react ionic reactNative />]} />
 
 The simplest type of list simply presents a single line (or multiple lines) of text for each element in the collection.
 
-The most common lists in PX Blue applications will present some graphical representation of types of status for the items on the list. This is achieved by using status/type icons (avatars) and sometimes a colored left (inset) border to indicate status. In this instance, the separator line between list elements should extend only to the edge of the text, not below the avatar.
+The most common lists in PX Blue applications will present some graphical representation of status for the items on the list. This is achieved by using status/type icons (avatars) and sometimes a colored left (inset) border.
 
 ## Lists with Actions
 
-<ImageGrid images={[Image3, Image4, Image5]} style={{marginBottom: 32}}/>
+<ImageGrid images={[Image3, Image4, Image5]} />
 
 <DemoCard repository={'action-list'} angular react ionic reactNative float={'right'} />
 
@@ -32,7 +32,7 @@ If there are actions that you would like to perform on individual list items, th
 
 ## Actions on Selected Items
 
-<ImageGrid images={[Image6]} style={{marginBottom: 32}}/>
+<ImageGrid images={[Image6]} />
 
 <DemoCard repository={'multiselect-list'} angular react ionic reactNative float={'right'} />
 
@@ -40,7 +40,7 @@ You may want to take action on several list items at once, but not all. These sh
 
 ## Drag and Drop
 
-<ImageGrid images={[Image7, Image8]} style={{marginBottom: 32}} caption={''} />
+<ImageGrid images={[Image7, Image8]} />
 
 <DemoCard repository={'sortable-list'} angular react ionic reactNative />
 
