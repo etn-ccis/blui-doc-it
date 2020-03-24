@@ -15,7 +15,7 @@ type CommonState = {
 const initialAppState: CommonState = {
     pageTitle: '',
     colorFormat: 'hex',
-    drawerOpen: true,
+    drawerOpen: false,
 };
 const appReducer = (state = initialAppState, action: any): CommonState => {
     switch (action.type) {
