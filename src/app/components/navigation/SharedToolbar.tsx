@@ -39,7 +39,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
 
     const _navigationIcon = useCallback(
         () => (
-            <Hidden smUp={navigationIcon !== undefined && !isLandingPage}>
+            <Hidden mdUp={navigationIcon !== undefined && !isLandingPage}>
                 <div
                     style={{
                         display: 'flex',

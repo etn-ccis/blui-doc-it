@@ -17,7 +17,7 @@ export const NavigationDrawer = (): JSX.Element => {
     const history = useHistory();
     const [activeRoute, setActiveRoute] = useState(location.pathname);
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const dispatch = useDispatch();
     const isLandingPage = history.location.pathname === '/';
 
