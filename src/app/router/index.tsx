@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { LandingPage } from '../pages';
 import { DrawerLayout } from '@pxblue/react-components';
 import { SharedToolbar } from '../components';
@@ -42,6 +42,16 @@ const useStyles = makeStyles(() =>
     })
 );
 
+const ScrollToTop = (): any => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
+    return null;
+}
+
 export const MainRouter = (): JSX.Element => {
     const title = useSelector((state: AppState) => state.app.pageTitle);
     const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
@@ -52,6 +62,7 @@ export const MainRouter = (): JSX.Element => {
 
     return (
         <Router>
+            <ScrollToTop/>
             <Switch>
                 <Route exact path="/">
                     <LandingPage />
