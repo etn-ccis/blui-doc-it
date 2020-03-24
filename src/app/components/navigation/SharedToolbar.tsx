@@ -11,6 +11,7 @@ import {
     Hidden,
     useTheme,
     useMediaQuery,
+    IconButton,
 } from '@material-ui/core';
 // import { NavLink } from '../components';
 import { PxblueSmall } from '@pxblue/icons-mui';
@@ -40,7 +41,8 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const _navigationIcon = useCallback(
         () => (
             <Hidden mdUp={navigationIcon !== undefined && !isLandingPage}>
-                <div
+                <IconButton
+                    color={'inherit'}
                     style={{
                         display: 'flex',
                         alignItems: 'center',
@@ -49,7 +51,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                     }}
                 >
                     {icon}
-                </div>
+                </IconButton>
             </Hidden>
         ),
         [navigationIcon]
