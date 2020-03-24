@@ -52,11 +52,27 @@ export const MainRouter = (): JSX.Element => {
                 </Route>
                 <Route path="*">
                     <div style={{ height: '100vh' }}>
-                        <DrawerLayout drawer={<NavigationDrawer />}>
+                        <DrawerLayout
+                            drawer={
+                                <NavigationDrawer
+                                    open={open}
+                                    ModalProps={{
+                                        onBackdropClick: (): void => setOpen(!open),
+                                    }}
+                                />
+                            }
+                        >
                             <>
                                 <SharedToolbar
                                     title={title}
-                                    navigationIcon={<Menu onClick={(): void => setOpen(!open)} />}
+                                    navigationIcon={
+                                        <Menu
+                                            onClick={(): void => {
+                                                console.log(open); // eslint-disable-line no-console
+                                                setOpen(!open);
+                                            }}
+                                        />
+                                    }
                                 />
                                 {/* <div style={{ padding: 20 }}> */}
                                 <Switch>

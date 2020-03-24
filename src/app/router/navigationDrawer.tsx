@@ -1,19 +1,28 @@
 import React, { useState, useCallback } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, NavItem } from '@pxblue/react-components';
+import {
+    Drawer,
+    DrawerBody,
+    DrawerNavGroup,
+    DrawerFooter,
+    DrawerHeader,
+    NavItem,
+    DrawerComponentProps,
+} from '@pxblue/react-components';
 import { PxblueSmall } from '@pxblue/icons-mui';
 
 import * as Colors from '@pxblue/colors';
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { Eaton } from '../assets/icons';
-import { Typography, useTheme } from '@material-ui/core';
+import { Typography, useTheme, useMediaQuery } from '@material-ui/core';
 
-export const NavigationDrawer = (): JSX.Element => {
-    const [open, setOpen] = useState(true);
+export const NavigationDrawer: React.FC<DrawerComponentProps> = (props) => {
+    const { open, ...drawerProps } = props;
     const location = useLocation();
     const history = useHistory();
     const [activeRoute, setActiveRoute] = useState(location.pathname);
     const theme = useTheme();
+    const xsDown = useMediaQuery(theme.breakpoints.down('xs'));
 
     const createNavItems = useCallback((navData: SimpleNavItem[], parentUrl: string, depth: number): NavItem[] => {
         const convertedItems: NavItem[] = [];
@@ -39,18 +48,11 @@ export const NavigationDrawer = (): JSX.Element => {
     const [menuItems] = useState(createNavItems(pageDefinitions, '', 0));
 
     return (
-        <Drawer
-            open={open}
-            width={270}
-            ModalProps={{
-                onBackdropClick: (): void => setOpen(!open),
-            }}
-        >
+        <Drawer open={open} width={270} variant={xsDown ? 'temporary' : 'permanent'} {...drawerProps}>
             <DrawerHeader
                 backgroundColor={Colors.blue[500]}
                 fontColor={Colors.white[50]}
                 icon={<PxblueSmall />}
-                onIconClick={(): void => setOpen(!open)}
                 titleContent={
                     <div
                         style={{

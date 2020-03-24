@@ -1,8 +1,6 @@
 import { DemoCard, ImageGrid } from '../../app/components';
 import BasicBottomsheet from '../../app/assets/design-patterns/action-list/action-list-overlay.png';
-import BasicBottomsheetDesktop from '../../app/assets/design-patterns/action-list/action-list-overlay-desktop.png';
 import ComplexBottomsheet from '../../app/assets/design-patterns/bottom-sheet/complex-bottomsheet.png';
-import ComplexBottomsheetDesktop from '../../app/assets/design-patterns/bottom-sheet/complex-bottomsheet-desktop.png';
 
 # Overlay Patterns
 
@@ -18,15 +16,13 @@ This is a very common pattern in mobile applications, but can also be used in re
 
 ### Basic
 
-<ImageGrid images={[BasicBottomsheet, BasicBottomsheetDesktop]} style={{marginBottom: 32}} caption={'On desktop view, the basic bottom sheet has a fixed width and is centered in the display area. '} />
+<ImageGrid images={[BasicBottomsheet, ComplexBottomsheet]} caption={'A Bottom Sheet can be simple or complex.'} />
 
 <DemoCard repository={'bottomsheet'} angular react ionic reactNative float={'right'}/>
 
 The basic bottom sheet simply contains a list of actions. The final "Cancel" action is used to dismiss the bottom sheet.
 
 ### Advanced
-
-<ImageGrid images={[ComplexBottomsheet, ComplexBottomsheetDesktop]} style={{marginBottom: 32}} caption={'A Bottom Sheet can use some complex componnets for advanced functionalities, e.g., a filter.'} />
 
 <DemoCard repository={'complex-bottomsheet'} angular react ionic reactNative float={'right'}/>
 

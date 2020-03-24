@@ -12,23 +12,15 @@ import Image8 from '../../app/assets/design-patterns/sortable-list/sortable-list
 
 Lists are frequently used throughout PX Blue applications. Typically, lists are used to represent groups of similar data. They can be used to show simple name-value pairs in a sidebar all the way to complex timelines or device lists.
 
-## A Basic List
+## Basic Lists
 
-<ImageGrid images={[Image1]} style={{marginBottom: 32}}/>
+<ImageGrid images={[Image1, Image2]} style={{marginBottom: 32}}/>
 
-<DemoCard repository={'data-list'} angular react ionic reactNative float={'right'} />
+<ImageGrid images={[<DemoCard repository={'data-list'} angular react ionic reactNative />, <DemoCard repository={'status-list'} angular react ionic reactNative />]} />
 
 The simplest type of list simply presents a single line (or multiple lines) of text for each element in the collection.
 
-## Lists with Icons & Status
-
-<ImageGrid images={[Image2]} style={{marginBottom: 32}}/>
-
-<DemoCard repository={'status-list'} angular react ionic reactNative float={'right'} />
-
-The most common lists in PX Blue applications will present some graphical representation of types of status for the items on the list. This is achieved by using status/type icons (avatars) and sometimes a colored left (inset) border to indicate status.
-
-In this instance, the separator line between list elements should extend only to the edge of the text, not below the avatar.
+The most common lists in PX Blue applications will present some graphical representation of types of status for the items on the list. This is achieved by using status/type icons (avatars) and sometimes a colored left (inset) border to indicate status. In this instance, the separator line between list elements should extend only to the edge of the text, not below the avatar.
 
 ## Lists with Actions
 
