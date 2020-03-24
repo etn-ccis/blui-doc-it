@@ -149,7 +149,7 @@ export const pageDefinitions: SimpleNavItem[] = [
         pages: [
             {
                 title: 'App Bars',
-                url: '/appbars',
+                url: '/appbar',
                 component: <MarkdownPage title={'App Bars'} markdown={Docs.Patterns.AppBar} />,
             },
             {

@@ -21,7 +21,7 @@ const getRandomPlaceholder = (): string => {
 export const patterns = [
     {
         title: 'App Bars',
-        url: '/patterns/appbars',
+        url: '/patterns/appbar',
         description: 'Common interactions in the header of an application.',
         image: getRandomPlaceholder(),
     },
