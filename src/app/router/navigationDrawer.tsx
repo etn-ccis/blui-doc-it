@@ -19,6 +19,7 @@ export const NavigationDrawer = (): JSX.Element => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
     const dispatch = useDispatch();
+    const isLandingPage = history.location.pathname === '/';
 
     const createNavItems = useCallback((navData: SimpleNavItem[], parentUrl: string, depth: number): NavItem[] => {
         const convertedItems: NavItem[] = [];
@@ -31,9 +32,9 @@ export const NavigationDrawer = (): JSX.Element => {
                 itemID: fullURL,
                 onClick: item.component
                     ? (): void => {
-                        history.push(fullURL);
-                        setActiveRoute(fullURL);
-                    }
+                          history.push(fullURL);
+                          setActiveRoute(fullURL);
+                      }
                     : undefined,
                 items: item.pages ? createNavItems(item.pages, `${parentUrl}${item.url}`, depth + 1) : undefined,
             });
@@ -52,16 +53,15 @@ export const NavigationDrawer = (): JSX.Element => {
                     dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
                 },
             }}
-            variant={isMobile ? 'temporary' : 'permanent'}
+            variant={isMobile || isLandingPage ? 'temporary' : 'permanent'}
         >
             <DrawerHeader
                 backgroundColor={Colors.blue[500]}
                 fontColor={Colors.white[50]}
                 icon={<PxblueSmall />}
                 onIconClick={(): void => {
-                    dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen })
-                }
-                }
+                    dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                }}
                 titleContent={
                     <div
                         style={{

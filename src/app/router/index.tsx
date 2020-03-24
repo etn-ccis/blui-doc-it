@@ -50,7 +50,7 @@ const ScrollToTop = (): any => {
     }, [pathname]);
 
     return null;
-}
+};
 
 export const MainRouter = (): JSX.Element => {
     const title = useSelector((state: AppState) => state.app.pageTitle);
@@ -62,10 +62,12 @@ export const MainRouter = (): JSX.Element => {
 
     return (
         <Router>
-            <ScrollToTop/>
+            <ScrollToTop />
             <Switch>
                 <Route exact path="/">
-                    <LandingPage />
+                    <DrawerLayout drawer={<NavigationDrawer />}>
+                        <LandingPage />
+                    </DrawerLayout>
                 </Route>
                 <Route path="*">
                     <div style={{ height: '100vh' }}>
@@ -73,12 +75,21 @@ export const MainRouter = (): JSX.Element => {
                             <>
                                 <SharedToolbar
                                     title={title}
-                                    navigationIcon={<Menu onClick={(): void => {
-                                        dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen })
+                                    navigationIcon={
+                                        <Menu
+                                            onClick={(): void => {
+                                                dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                                            }}
+                                        />
                                     }
-                                    } />}
                                 />
-                                <div style={isMobile ? { minHeight: 'calc(50vh - 102px)' } : { minHeight: 'calc(50vh - 128px)' }}>
+                                <div
+                                    style={
+                                        isMobile
+                                            ? { minHeight: 'calc(50vh - 102px)' }
+                                            : { minHeight: 'calc(50vh - 128px)' }
+                                    }
+                                >
                                     <Switch>
                                         {buildRoutes(pageDefinitions, '')}
 

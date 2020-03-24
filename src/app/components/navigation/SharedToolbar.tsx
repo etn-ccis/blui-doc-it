@@ -15,6 +15,7 @@ import {
 // import { NavLink } from '../components';
 import { PxblueSmall } from '@pxblue/icons-mui';
 import { Spacer } from '@pxblue/react-components';
+import { useHistory } from 'react-router-dom';
 // import { useHistory, useLocation } from 'react-router-dom';
 
 export type SharedToolbarProps = AppBarProps & {
@@ -33,10 +34,12 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const [hasShadow, setShadow] = useState(false);
     const icon = navigationIcon ? navigationIcon : <PxblueSmall />;
     const matchesSM = useMediaQuery(theme.breakpoints.up('sm'));
+    const history = useHistory();
+    const isLandingPage = history.location.pathname === '/';
 
     const _navigationIcon = useCallback(
         () => (
-            <Hidden smUp={navigationIcon !== undefined}>
+            <Hidden smUp={navigationIcon !== undefined && !isLandingPage}>
                 <div
                     style={{
                         display: 'flex',
