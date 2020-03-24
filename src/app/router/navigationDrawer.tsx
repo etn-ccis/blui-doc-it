@@ -33,7 +33,7 @@ export const NavigationDrawer = (): JSX.Element => {
                 onClick: item.component
                     ? (): void => {
                           history.push(fullURL);
-                          setActiveRoute(fullURL);
+													setActiveRoute(fullURL);
                       }
                     : undefined,
                 items: item.pages ? createNavItems(item.pages, `${parentUrl}${item.url}`, depth + 1) : undefined,
@@ -72,7 +72,8 @@ export const NavigationDrawer = (): JSX.Element => {
                             cursor: 'pointer',
                         }}
                         onClick={(): void => {
-                            history.push('/');
+														history.push('/');
+														dispatch({ type: TOGGLE_DRAWER, payload: false });
                         }}
                     >
                         <Typography>
