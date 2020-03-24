@@ -33,8 +33,10 @@ export const NavigationDrawer = (): JSX.Element => {
                 onClick: item.component
                     ? (): void => {
                           history.push(fullURL);
-													setActiveRoute(fullURL);
-                        	if(!item.pages || (item.pages && item.pages.length === 0)) {(dispatch({ type: TOGGLE_DRAWER, payload: false }))};
+                          setActiveRoute(fullURL);
+                          if (!item.pages || (item.pages && item.pages.length === 0)) {
+                              dispatch({ type: TOGGLE_DRAWER, payload: false });
+                          }
                       }
                     : undefined,
                 items: item.pages ? createNavItems(item.pages, `${parentUrl}${item.url}`, depth + 1) : undefined,
@@ -73,8 +75,8 @@ export const NavigationDrawer = (): JSX.Element => {
                             cursor: 'pointer',
                         }}
                         onClick={(): void => {
-														history.push('/');
-														dispatch({ type: TOGGLE_DRAWER, payload: false });
+                            history.push('/');
+                            dispatch({ type: TOGGLE_DRAWER, payload: false });
                         }}
                     >
                         <Typography>

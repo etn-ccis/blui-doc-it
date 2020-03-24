@@ -55,7 +55,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                         display: 'flex',
                         alignItems: 'center',
                         marginRight: theme.spacing(0.5),
-                        marginLeft: theme.spacing(-1.5)
+                        marginLeft: theme.spacing(-1.5),
                     }}
                 >
                     {icon}

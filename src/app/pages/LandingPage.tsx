@@ -63,11 +63,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
 
     return (
         <>
-            <SharedToolbar
-                navigationIcon={
-                    <Menu />
-                }
-            />
+            <SharedToolbar navigationIcon={<Menu />} />
             <div className={classes.banner}>
                 <PXBLogo />
                 <Button

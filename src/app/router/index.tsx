@@ -70,46 +70,42 @@ export const MainRouter = (): JSX.Element => {
                     </DrawerLayout>
                 </Route>
                 <Route path="*">
-                    <div style={{ height: '100vh' }}>
-                        <DrawerLayout drawer={<NavigationDrawer />}>
-                            <>
-                                <SharedToolbar
-                                    title={title}
-                                    navigationIcon={
-                                        <Menu
-                                            onClick={(): void => {
-                                                dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
-                                            }}
-                                        />
-                                    }
-                                />
-                                <div
-                                    style={
-                                        isMobile
-                                            ? { minHeight: 'calc(50vh - 102px)' }
-                                            : { minHeight: 'calc(50vh - 128px)' }
-                                    }
-                                >
-                                    <Switch>
-                                        {buildRoutes(pageDefinitions, '')}
+                    <DrawerLayout drawer={<NavigationDrawer />}>
+                        <>
+                            <SharedToolbar
+                                title={title}
+                                navigationIcon={
+                                    <Menu
+                                        onClick={(): void => {
+                                            dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                                        }}
+                                    />
+                                }
+                            />
+                            <div
+                                style={
+                                    isMobile ? { minHeight: 'calc(50vh - 102px)' } : { minHeight: 'calc(50vh - 128px)' }
+                                }
+                            >
+                                <Switch>
+                                    {buildRoutes(pageDefinitions, '')}
 
-                                        {/* Catch-All Redirect to Landing Page */}
-                                        <Route path="*">
-                                            <Redirect to={'/'} />
-                                        </Route>
-                                    </Switch>
-                                </div>
-                                {/* Footer Section */}
-                                <AppBar position={'static'} className={classes.footer} elevation={0}>
-                                    <Toolbar variant={'dense'}>
-                                        <Typography variant={'caption'} align={'center'} style={{ flex: '1 1 0px' }}>
-                                            {`Copyright ${new Date().getFullYear()} Eaton. Licensed under BSD-3-Clause.`}
-                                        </Typography>
-                                    </Toolbar>
-                                </AppBar>
-                            </>
-                        </DrawerLayout>
-                    </div>
+                                    {/* Catch-All Redirect to Landing Page */}
+                                    <Route path="*">
+                                        <Redirect to={'/'} />
+                                    </Route>
+                                </Switch>
+                            </div>
+                            {/* Footer Section */}
+                            <AppBar position={'static'} className={classes.footer} elevation={0}>
+                                <Toolbar variant={'dense'}>
+                                    <Typography variant={'caption'} align={'center'} style={{ flex: '1 1 0px' }}>
+                                        {`Copyright ${new Date().getFullYear()} Eaton. Licensed under BSD-3-Clause.`}
+                                    </Typography>
+                                </Toolbar>
+                            </AppBar>
+                        </>
+                    </DrawerLayout>
                 </Route>
             </Switch>
         </Router>
