@@ -31,10 +31,7 @@ import computer from '../assets/placeholder/develop.jpg';
 import paper from '../assets/placeholder/paper.jpg';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { PXBLogo } from '../assets/icons/PXBLogo';
-import { TOGGLE_DRAWER } from '../redux/actions';
 import { PxblueSmall } from '@pxblue/icons-mui';
-import { AppState } from '../redux/reducers';
-import { useSelector, useDispatch } from 'react-redux';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -63,18 +60,12 @@ export const LandingPage: React.FC = (): JSX.Element => {
     const theme = useTheme();
     const classes = useStyles();
     usePageTitle('');
-    const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
-    const dispatch = useDispatch();
 
     return (
         <>
             <SharedToolbar
                 navigationIcon={
-                    <PxblueSmall
-                        onClick={(): void => {
-                            dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
-                        }}
-                    />
+                    <PxblueSmall/>
                 }
             />
             <div className={classes.banner}>

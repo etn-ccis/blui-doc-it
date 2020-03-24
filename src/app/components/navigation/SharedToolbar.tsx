@@ -17,6 +17,9 @@ import {
 import { PxblueSmall } from '@pxblue/icons-mui';
 import { Spacer } from '@pxblue/react-components';
 import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { TOGGLE_DRAWER } from '../../redux/actions';
+import { AppState } from '../../redux/reducers';
 // import { useHistory, useLocation } from 'react-router-dom';
 
 export type SharedToolbarProps = AppBarProps & {
@@ -37,12 +40,17 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const matchesSM = useMediaQuery(theme.breakpoints.up('sm'));
     const history = useHistory();
     const isLandingPage = history.location.pathname === '/';
+    const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
+    const dispatch = useDispatch();
 
     const _navigationIcon = useCallback(
         () => (
             <Hidden mdUp={navigationIcon !== undefined && !isLandingPage}>
                 <IconButton
                     color={'inherit'}
+                    onClick={(): void => {
+                        dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                    }}
                     style={{
                         display: 'flex',
                         alignItems: 'center',
