@@ -75,7 +75,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     return (
         <AppBar position="sticky" color={color} elevation={0} style={{ zIndex: 1000 }} {...other}>
             <Toolbar
-                style={{ padding: `0 ${theme.spacing(2)}px`, /*boxShadow: hasShadow ? theme.shadows[12] : undefined*/ }}
+                style={{ padding: `0 ${theme.spacing(2)}px` /*boxShadow: hasShadow ? theme.shadows[12] : undefined*/ }}
             >
                 {_navigationIcon()}
                 {props.title ? (
@@ -89,10 +89,10 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                         secondary={subtitle}
                     />
                 ) : (
-                        <Typography>
-                            Power Xpert <b>Blue</b>
-                        </Typography>
-                    )}
+                    <Typography>
+                        Power Xpert <b>Blue</b>
+                    </Typography>
+                )}
                 <Spacer />
             </Toolbar>
         </AppBar>

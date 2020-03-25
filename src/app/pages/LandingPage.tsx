@@ -127,18 +127,14 @@ export const LandingPage: React.FC = (): JSX.Element => {
                 <CarouselCard
                     backgroundImage={paper}
                     title={'Getting started as a designer'}
-                    description={
-                        'We offer many resources and assets for designers getting acquainted with PX Blue.'
-                    }
+                    description={'We offer many resources and assets for designers getting acquainted with PX Blue.'}
                     // TODO: Update this link
                     onClick={(): void => history.push('/design/environment')}
                 />
                 <CarouselCard
                     backgroundImage={computer}
                     title={'Getting started as a developer'}
-                    description={
-                        'We have numerous guides and resources to prepare you for working with PX Blue.'
-                    }
+                    description={'We have numerous guides and resources to prepare you for working with PX Blue.'}
                     onClick={(): void => history.push('/development/environment')}
                 />
             </CardCarousel>
@@ -148,7 +144,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
             <AppBar position={'static'} className={classes.footer} elevation={0}>
                 <Toolbar variant={'dense'}>
                     <Typography variant={'caption'} align={'center'} style={{ flex: '1 1 0px' }}>
-                        Copyright {(new Date()).getFullYear()} Eaton. Licensed under BSD-3-Clause.
+                        Copyright {new Date().getFullYear()} Eaton. Licensed under BSD-3-Clause.
                     </Typography>
                 </Toolbar>
             </AppBar>
