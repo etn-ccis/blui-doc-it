@@ -6,12 +6,11 @@ import { SharedToolbar } from '../components';
 import { NavigationDrawer } from './navigationDrawer';
 import { AppState } from '../redux/reducers';
 import { Menu } from '@material-ui/icons';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { pageDefinitions } from '../../__configuration__/navigationMenu/navigation';
 import { AppBar, Toolbar, Typography, makeStyles, createStyles, useTheme, useMediaQuery } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
-import { TOGGLE_DRAWER } from '../redux/actions';
 
 const buildRoutes = (routes: any[], url: string): JSX.Element[] => {
     let ret: any[] = [];
@@ -54,11 +53,9 @@ const ScrollToTop = (): any => {
 
 export const MainRouter = (): JSX.Element => {
     const title = useSelector((state: AppState) => state.app.pageTitle);
-    const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
     const classes = useStyles();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    const dispatch = useDispatch();
 
     return (
         <Router>
@@ -75,11 +72,7 @@ export const MainRouter = (): JSX.Element => {
                             <SharedToolbar
                                 title={title}
                                 navigationIcon={
-                                    <Menu
-                                        onClick={(): void => {
-                                            dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
-                                        }}
-                                    />
+                                    <Menu/>
                                 }
                             />
                             <div
