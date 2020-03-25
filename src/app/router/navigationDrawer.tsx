@@ -5,7 +5,7 @@ import { PxblueSmall } from '@pxblue/icons-mui';
 
 import * as Colors from '@pxblue/colors';
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
-import { Eaton } from '../assets/icons';
+import { EatonTagline } from '../assets/icons';
 import { Typography } from '@material-ui/core';
 
 export const NavigationDrawer = (): JSX.Element => {
@@ -73,8 +73,8 @@ export const NavigationDrawer = (): JSX.Element => {
                 <DrawerNavGroup hidePadding activeItem={activeRoute} items={menuItems} />
             </DrawerBody>
             <DrawerFooter>
-                <div style={{ display: 'flex', justifyContent: 'center', background: Colors.gray[50] }}>
-                    <Eaton style={{ fontSize: 92 }} />
+                <div style={{ display: 'flex', justifyContent: 'center', background: Colors.gray[50], padding: 16 }}>
+                    <EatonTagline style={{ fontSize: 150, height: 'auto' }} />
                 </div>
             </DrawerFooter>
         </Drawer>
