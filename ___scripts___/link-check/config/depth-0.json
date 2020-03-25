@@ -1,8 +1,7 @@
 {
     "ignorePatterns": [
-        {"pattern": "/style/iconography"},
-        {"pattern": "/style/color"},
         {"pattern": "/resources"},
+        {"pattern": "/roadmap"},
         {"pattern": "/release-notes"},
         {"pattern": "^..\/images"}
     ],
@@ -10,6 +9,10 @@
         {
             "pattern": "^..\/images",
             "replacement": "../../../public/images"
+        },
+        {
+            "pattern": "^\/patterns$",
+            "replacement": "./patterns/home.mdx"
         },
         {
             "pattern": "^\/([A-Za-z-\/]+)",

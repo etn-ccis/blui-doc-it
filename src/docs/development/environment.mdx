@@ -8,7 +8,7 @@ There are a bunch of different IDEs on the market, and in general you should be 
 
 ## Git
 
-Chances are, you probably want to keep your application in source control. Git is one of the big players in this space (it's also the backbone for BitBucket, which is Eaton's approved source control platform). 
+Chances are, you probably want to keep your application in source control. Git is one of the big players in this space (it's also the backbone for BitBucket). 
 
 You may already have git installed. To check, run:
 
@@ -18,7 +18,7 @@ git --version
 
 in a command prompt. If you don't have git installed, you can download it from the [Git Website](http://git-scm.com/downloads).
 
-To do development on the Eaton network, you'll also need to set up the git proxies as well:
+If you are behind a proxy, you'll also need to set up the git proxies as well:
 
 ```
 git config --global http.proxy http://url.to.your.proxy:port
@@ -40,7 +40,7 @@ To check if you have yarn installed, run:
 yarn -v
 ```
 
-from a command prompt. To run the install commands on the Eaton network, you will also need to configure your proxy settings. It may be sufficient for you to set ```HTTP_PROXY``` and ```HTTPS_PROXY``` in your environment variables. However, you may need to also explicitly set proxy values for yarn:
+from a command prompt. If you are behind a proxy, you will also need to configure your proxy settings. It may be sufficient for you to set ```HTTP_PROXY``` and ```HTTPS_PROXY``` in your environment variables. However, you may need to also explicitly set proxy values for yarn:
 
 ```
 yarn config set proxy http://url.to.your.proxy:port
@@ -56,7 +56,7 @@ yarn add <package-name>
 > If you are installing packages globally using yarn, you will need to ensure that your PATH variable has an entry pointing to your global yarn install directory. This location will vary based on your operating system.
 
 # Hybrid App Development
-If you are setting up for building a mobile app, there are some additional steps you will want to take to prepare. Some parts of this process may require IT intervention to resolve, so give yourself some extra time before you need to start development. The following requirements are the basics. Depending on your selected [framework](/development/frameworks-mobile/intro), there will be other specific setup steps detailed in our Getting Started Guides.
+If you are setting up for building a mobile app, there are some additional steps you will want to take to prepare. The following requirements are the basics. Depending on your selected [framework](/development/frameworks-mobile/intro), there will be other specific setup steps detailed in our Getting Started Guides.
 
 ### Prerequisites
 #### Hardware

@@ -107,7 +107,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
 
     return (
         <>
-            <AppBar position="sticky" color={'default'} className={classes.secondaryToolbar} style={{}}>
+            <AppBar position="sticky" color={'default'} className={classes.secondaryToolbar} elevation={0}>
                 <Toolbar>
                     <Select
                         value={frameworkFilter}

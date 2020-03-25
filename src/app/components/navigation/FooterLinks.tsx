@@ -55,9 +55,9 @@ export const FooterLinks: React.FC = (): JSX.Element => {
                 <div style={{ minWidth: xxs ? '100%' : 300 }}>
                     <SmallPXBLogo />
                     <Typography variant={'caption'} display={'block'} style={{ marginTop: theme.spacing(2) }}>
-                        Power Xpert Blue is a complete design system for front-end development at Eaton. This system
-                        will help your team build beautiful applications that adhere to our design guidelines while
-                        ensuring flexibility and code reusability.
+                        Power Xpert Blue is a complete design system for front-end development. This system will help
+                        your team build beautiful applications that adhere to our design guidelines while ensuring
+                        flexibility and code reusability.
                     </Typography>
                 </div>
             </div>
@@ -73,13 +73,8 @@ export const FooterLinks: React.FC = (): JSX.Element => {
                         className={classes.navLink}
                         hoverColor={Colors.white[50]}
                     />
-                    {/* <NavLink
-                        to={'/style/color'}
-                        title={'Brand Language'}
-                        className={classes.navLink}
-                        hoverColor={Colors.white[50]}
-                    /> */}
                     <NavLink
+                        // TODO: Update this link
                         to={'/design/environment'}
                         title={'For Designers'}
                         className={classes.navLink}
