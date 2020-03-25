@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { LandingPage } from '../pages';
 import { DrawerLayout } from '@pxblue/react-components';
 import { SharedToolbar } from '../components';
@@ -9,7 +9,7 @@ import { Menu } from '@material-ui/icons';
 import { useSelector } from 'react-redux';
 
 import { pageDefinitions } from '../../__configuration__/navigationMenu/navigation';
-import { AppBar, Toolbar, Typography, makeStyles, createStyles } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, makeStyles, createStyles, useTheme, useMediaQuery } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
 
 const buildRoutes = (routes: any[], url: string): JSX.Element[] => {
@@ -36,29 +36,42 @@ const useStyles = makeStyles(() =>
             backgroundColor: Colors.black[900],
             textAlign: 'center',
             marginTop: '50vh',
+            transform: 'inherit',
         },
     })
 );
 
+const ScrollToTop = (): any => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
+    return null;
+};
+
 export const MainRouter = (): JSX.Element => {
-    const [open, setOpen] = useState(false);
     const title = useSelector((state: AppState) => state.app.pageTitle);
     const classes = useStyles();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const toolbarHeight = isMobile ? 102 : 128;
+
     return (
         <Router>
+            <ScrollToTop />
             <Switch>
                 <Route exact path="/">
-                    <LandingPage />
+                    <DrawerLayout drawer={<NavigationDrawer />}>
+                        <LandingPage />
+                    </DrawerLayout>
                 </Route>
                 <Route path="*">
-                    <div style={{ height: '100vh' }}>
-                        <DrawerLayout drawer={<NavigationDrawer />}>
-                            <>
-                                <SharedToolbar
-                                    title={title}
-                                    navigationIcon={<Menu onClick={(): void => setOpen(!open)} />}
-                                />
-                                {/* <div style={{ padding: 20 }}> */}
+                    <DrawerLayout drawer={<NavigationDrawer />}>
+                        <>
+                            <SharedToolbar title={title} navigationIcon={<Menu />} />
+                            <div style={{ minHeight: `calc(50vh - ${toolbarHeight}px)` }}>
                                 <Switch>
                                     {buildRoutes(pageDefinitions, '')}
 
@@ -67,18 +80,17 @@ export const MainRouter = (): JSX.Element => {
                                         <Redirect to={'/'} />
                                     </Route>
                                 </Switch>
-                                {/* </div> */}
-                                {/* Footer Section */}
-                                <AppBar position={'static'} className={classes.footer} elevation={0}>
-                                    <Toolbar variant={'dense'}>
-                                        <Typography variant={'caption'} align={'center'} style={{ flex: '1 1 0px' }}>
-                                            {`Copyright ${new Date().getFullYear()} Eaton. Licensed under BSD-3-Clause.`}
-                                        </Typography>
-                                    </Toolbar>
-                                </AppBar>
-                            </>
-                        </DrawerLayout>
-                    </div>
+                            </div>
+                            {/* Footer Section */}
+                            <AppBar position={'static'} className={classes.footer} elevation={0}>
+                                <Toolbar variant={'dense'}>
+                                    <Typography variant={'caption'} align={'center'} style={{ flex: '1 1 0px' }}>
+                                        {`Copyright ${new Date().getFullYear()} Eaton. Licensed under BSD-3-Clause.`}
+                                    </Typography>
+                                </Toolbar>
+                            </AppBar>
+                        </>
+                    </DrawerLayout>
                 </Route>
             </Switch>
         </Router>
