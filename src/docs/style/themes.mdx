@@ -1,7 +1,13 @@
+import { ImageGrid } from '../../app/components';
+import LightThemeImage from '../../app/assets/design-patterns/theme/theme-light.png';
+import DarkThemeImage from '../../app/assets/design-patterns/theme/theme-dark.png';
+
 # Power Xpert Blue Themes
 One of the key benefits of PX Blue is consistency of look & feel between different applications. This is achieved primarily through the use of PX Blue themes.
 
 ## Available Themes
+<ImageGrid images={[LightThemeImage, DarkThemeImage]} caption={'PXBlue offers a light theme (default theme) and a dark theme (for low-light condition usage).'} />
+
 As of version 2.0.0, the PX Blue themes packages includes two distinct themes:
 
 - **Blue** is the default theme for all PX Blue applications. It should be applied at the root level of your app. It provides a variety of shades of blue for use in buttons, toolbars, etc. The standard background color is a light gray.

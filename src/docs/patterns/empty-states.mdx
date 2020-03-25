@@ -1,9 +1,6 @@
 import { DemoCard, ImageGrid } from '../../app/components';
-
-
-
-import Image1 from '../../app/assets/design-patterns/loading-states/mobile-loading-state-load.png';
-import Image2 from '../../app/assets/design-patterns/loading-states/mobile-loading-state.png';
+import Image1 from '../../app/assets/design-patterns/loading-states/loading-state-load.png';
+import Image2 from '../../app/assets/design-patterns/loading-states/loading-state.png';
 import Image3 from '../../app/assets/design-patterns/empty-states/mobile-empty-state-actions.png';
 import Image4 from '../../app/assets/design-patterns/empty-states/mobile-empty-state-placeholder.png';
 
@@ -13,7 +10,7 @@ Often times, your application will need to load data from a remote location with
  
 ## Loading Data
 
-<ImageGrid images={[Image1, Image2]} style={{marginBottom: 32}}/>
+<ImageGrid images={[Image1, Image2]} caption={'When data is loading, use placeholder shapes for where the data will appear.'}/>
 
 <DemoCard repository={'loading-states'} angular react ionic reactNative float={'right'}/>
 
@@ -36,7 +33,7 @@ If your users can manually refresh, you may wish to show the placeholder element
 
 ## Empty States
 
-<ImageGrid images={[Image3, Image4]} style={{marginBottom: 32}}/>
+<ImageGrid images={[Image3, Image4]} />
 
 <DemoCard repository={'empty-states'} angular react ionic reactNative float={'right'}/>
 
@@ -44,9 +41,9 @@ Empty states can be used in a variety of ways in your application. They can aler
  
 You can refer to the [Material Design Empty States](https://material.io/design/communication/empty-states.html) guidelines for general usage instructions. 
  
-Empty states should include a large icon or graphic, centered in the screen, followed a brief message. In some cases, you may wish to use a large graphic as the background of the entire page as well (such as for features that will be coming soon).
+Empty states should include a large icon or graphic, centered on the screen, followed a brief message. In some cases, you may wish to use a large graphic as the background of the entire page as well (such as for features that will be coming soon).
  
-If necessary, additional explanatory text may follow. The text on the screen should clearly indicate why there is no data to display, and what (if anything) can be done to make data available. Text should be minimal, but enough to convey the necessary message.
+If necessary, additional explanatory text may follow. The text on the screen should clearly indicate why there is no data to display, and what (if anything) can be done to make data available. The text should be minimal, but enough to convey the necessary message.
  
 If the data is empty but could be populated by a user action (such as adding a device to an empty device list), there should be a call-to-action button that will allow the user to add data.
  

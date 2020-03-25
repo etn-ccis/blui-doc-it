@@ -1,4 +1,7 @@
 import { DemoCard, ImageGrid } from '../../app/components';
+import PermanentImg from '../../app/assets/design-patterns/navigation/navigation-permanent.png';
+import TemporaryImg from '../../app/assets/design-patterns/navigation/navigation-temporary.png';
+import PersistentImg from '../../app/assets/design-patterns/navigation/navigation-persistent.png';
 
 # Navigation Patterns
 
@@ -14,9 +17,13 @@ A more common implementation of the navigation panel is a collapsible panel that
 
 ### Content-Resize / Content-Push
 
+<ImageGrid images={[PermanentImg]} />
+
 The content-resize implementation does not cover any of the main application content. Rather, the navigation panel slides in and the main application container resizes to accommodate (the navigation panel and main panel are side by side instead of one on top of the other).
 
 ### Content-Cover
+
+<ImageGrid images={[TemporaryImg]} />
 
 <DemoCard repository={'side-navigation'} angular react float={'right'}/>
 
@@ -24,9 +31,11 @@ In this implementation, the navigation panel slides out from the side, partially
 
 ## Icon Navigation Bar / Responsive Navigation
 
+<ImageGrid images={[PersistentImg, PermanentImg]}  caption={'When the user hovers on the Navigation Rail, the side navigation will expand temporarily, revealing the text details of each navigation item; when the user moves their cursor away, the whole side navigation panel collapses.'} />
+
 <DemoCard repository={'icon-navigation'} angular react float={'right'}/>
 
-The icon navigation is a minimalist approach to the navigation panel. It features a single icon to represent each of the main areas of the application. This navigation panel is typically used on larger screens only, and is expandable to a full side navigation panel on hover or when clicking the menu icon. 
+The icon navigation bar (a.k.a. "[navigation rail](https://material.io/components/navigation-rail/#anatomy)" on Material.io) is a minimalist approach to the navigation panel. It features a single icon to represent each of the main areas of the application. This navigation panel is typically used on larger screens only, and is expandable to a full side navigation panel on hover or when clicking the menu icon. 
 
 These may be used in conjunction with Bottom Tab navigation - on larger resolution displays, bottom tabs would become elements in the side navigation.
 
