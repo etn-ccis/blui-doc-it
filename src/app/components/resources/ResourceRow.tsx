@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-    Button,
-    Divider,
-    useMediaQuery,
-    makeStyles,
-    createStyles,
-    Theme,
-    useTheme,
-} from '@material-ui/core';
+import { Button, Divider, useMediaQuery, makeStyles, createStyles, Theme, useTheme } from '@material-ui/core';
 import { InfoListItem } from '@pxblue/react-components';
 import { Description } from '@material-ui/icons';
 

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { LandingPage } from '../pages';
 import { DrawerLayout } from '@pxblue/react-components';
-import { SharedToolbar } from '../components';
+import { SharedToolbar, ContactFab } from '../components';
 import { NavigationDrawer } from './navigationDrawer';
 import { AppState } from '../redux/reducers';
 import { Menu } from '@material-ui/icons';
@@ -66,6 +66,7 @@ export const MainRouter = (): JSX.Element => {
                     <DrawerLayout drawer={<NavigationDrawer />}>
                         <LandingPage />
                     </DrawerLayout>
+                    <ContactFab />
                 </Route>
                 <Route path="*">
                     <DrawerLayout drawer={<NavigationDrawer />}>
@@ -91,6 +92,7 @@ export const MainRouter = (): JSX.Element => {
                             </AppBar>
                         </>
                     </DrawerLayout>
+                    <ContactFab />
                 </Route>
             </Switch>
         </Router>
