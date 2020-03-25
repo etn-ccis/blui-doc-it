@@ -68,7 +68,6 @@ export const MainRouter = (): JSX.Element => {
                         <LandingPage />
                     </Route>
                     <Route path="*">
-
                         <>
                             <SharedToolbar title={title} navigationIcon={<Menu />} />
                             <div style={{ minHeight: `calc(50vh - ${toolbarHeight}px)` }}>
