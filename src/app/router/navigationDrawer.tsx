@@ -34,9 +34,7 @@ export const NavigationDrawer = (): JSX.Element => {
                     ? (): void => {
                           history.push(fullURL);
                           setActiveRoute(fullURL);
-                          if (!item.pages || (item.pages && item.pages.length === 0)) {
-                              dispatch({ type: TOGGLE_DRAWER, payload: false });
-                          }
+                          dispatch({ type: TOGGLE_DRAWER, payload: false });
                       }
                     : undefined,
                 items: item.pages ? createNavItems(item.pages, `${parentUrl}${item.url}`, depth + 1) : undefined,
