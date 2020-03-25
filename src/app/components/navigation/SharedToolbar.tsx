@@ -1,4 +1,4 @@
-import React, { useCallback, /*useState/*, useEffect*/ } from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import {
     Typography,
@@ -9,9 +9,14 @@ import {
     Hidden,
     useTheme,
     // useMediaQuery,
+    IconButton,
 } from '@material-ui/core';
 import { PxblueSmall } from '@pxblue/icons-mui';
 import { Spacer } from '@pxblue/react-components';
+import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { TOGGLE_DRAWER } from '../../redux/actions';
+import { AppState } from '../../redux/reducers';
 
 export type SharedToolbarProps = AppBarProps & {
     title?: string;
@@ -23,23 +28,30 @@ export type SharedToolbarProps = AppBarProps & {
 export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const { title, color, subtitle, navigationIcon, ...other } = props;
     const theme = useTheme();
-    // const [hasShadow, setShadow] = useState(false);
     const icon = navigationIcon ? navigationIcon : <PxblueSmall />;
     // const matchesSM = useMediaQuery(theme.breakpoints.up('sm'));
+    const history = useHistory();
+    const isLandingPage = history.location.pathname === '/';
+    const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
+    const dispatch = useDispatch();
 
     const _navigationIcon = useCallback(
         () => (
-            <Hidden smUp={navigationIcon !== undefined}>
-                <div
+            <Hidden mdUp={navigationIcon !== undefined && !isLandingPage}>
+                <IconButton
+                    color={'inherit'}
+                    onClick={(): void => {
+                        dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                    }}
                     style={{
                         display: 'flex',
                         alignItems: 'center',
-                        marginRight: theme.spacing(2),
-                        cursor: 'pointer',
+                        marginRight: theme.spacing(0.5),
+                        marginLeft: theme.spacing(-1.5),
                     }}
                 >
                     {icon}
-                </div>
+                </IconButton>
             </Hidden>
         ),
         [navigationIcon]

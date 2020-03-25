@@ -31,6 +31,7 @@ import computer from '../assets/placeholder/develop.jpg';
 import paper from '../assets/placeholder/paper.jpg';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { PXBLogo } from '../assets/icons/PXBLogo';
+import { Menu } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -62,7 +63,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
 
     return (
         <>
-            <SharedToolbar />
+            <SharedToolbar navigationIcon={<Menu />} />
             <div className={classes.banner}>
                 <PXBLogo />
                 <Button
