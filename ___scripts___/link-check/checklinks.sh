@@ -4,6 +4,8 @@
 echo "Checking Community Links... "
 find src/docs/community -maxdepth 1 -name \*.mdx -exec markdown-link-check {} -c ./___scripts___/link-check/config/depth-1.json \;
 
+# TODO Design paths
+
 # Development Links
 echo "Checking Development Links... "
 find src/docs/development -maxdepth 1 -name \*.mdx -exec markdown-link-check {} -c ./___scripts___/link-check/config/depth-1.json \;
@@ -24,13 +26,13 @@ find src/docs/get-started -maxdepth 1 -name \*.mdx -exec markdown-link-check {} 
 echo "Checking Design Pattern Links... "
 find src/docs/patterns -maxdepth 1 -name \*.mdx -exec markdown-link-check {} -c ./___scripts___/link-check/config/depth-1.json \;
 
-# Style Links
-echo "Checking Style Links... "
-find src/docs/style -maxdepth 1 -name \*.mdx -exec markdown-link-check {} -c ./___scripts___/link-check/config/depth-1.json \; 
-
 # Release Notes Links
 echo "Checking Release Notes Links... "
 find src/docs/release-notes -maxdepth 2 -name \*.mdx -exec markdown-link-check {} -c ./___scripts___/link-check/config/depth-2.json \;
+
+# Style Links
+echo "Checking Style Links... "
+find src/docs/style -maxdepth 1 -name \*.mdx -exec markdown-link-check {} -c ./___scripts___/link-check/config/depth-1.json \; 
 
 # Root Links
 echo "Checking Root Links... "

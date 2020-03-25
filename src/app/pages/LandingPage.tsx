@@ -77,7 +77,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     GET STARTED
                 </Button>
             </div>
-            <LandingSection title={'Guidance'} align={'left'} background={'light'}>
+            <LandingSection title={'Design and Development'} align={'left'} background={'light'}>
                 <Grid container spacing={6} style={{ marginTop: theme.spacing(2) }}>
                     {cardData.map((item, ind) => (
                         <Grid key={`grid${ind}`} item xs={12} sm={6} md={4}>
@@ -127,17 +127,14 @@ export const LandingPage: React.FC = (): JSX.Element => {
                 <CarouselCard
                     backgroundImage={paper}
                     title={'Getting started as a designer'}
-                    description={
-                        'We offer asset library on Sketch and Figma, with all the icons, fonts, colors and components.'
-                    }
+                    description={'We offer many resources and assets for designers getting acquainted with PX Blue.'}
+                    // TODO: Update this link
                     onClick={(): void => history.push('/design/environment')}
                 />
                 <CarouselCard
                     backgroundImage={computer}
                     title={'Getting started as a developer'}
-                    description={
-                        'We offer asset library on Sketch and Figma, with all the icons, fonts, colors and components.'
-                    }
+                    description={'We have numerous guides and resources to prepare you for working with PX Blue.'}
                     onClick={(): void => history.push('/development/environment')}
                 />
             </CardCarousel>
@@ -147,7 +144,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
             <AppBar position={'static'} className={classes.footer} elevation={0}>
                 <Toolbar variant={'dense'}>
                     <Typography variant={'caption'} align={'center'} style={{ flex: '1 1 0px' }}>
-                        Copyright 2020 Eaton. Licensed under BSD-3-Clause.
+                        Copyright {new Date().getFullYear()} Eaton. Licensed under BSD-3-Clause.
                     </Typography>
                 </Toolbar>
             </AppBar>

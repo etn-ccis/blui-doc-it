@@ -104,7 +104,7 @@ export const pageDefinitions: SimpleNavItem[] = [
                         title: 'Ionic Guide',
                         url: '/ionic',
                         component: (
-                            <MarkdownPage title={'Ionic Guide'} markdown={Docs.Development.MobileFrameworks.Intro} />
+                            <MarkdownPage title={'Ionic Guide'} markdown={Docs.Development.MobileFrameworks.Ionic} />
                         ),
                     },
                     {
@@ -149,7 +149,7 @@ export const pageDefinitions: SimpleNavItem[] = [
         pages: [
             {
                 title: 'App Bars',
-                url: '/appbars',
+                url: '/appbar',
                 component: <MarkdownPage title={'App Bars'} markdown={Docs.Patterns.AppBar} />,
             },
             {
@@ -241,7 +241,7 @@ export const pageDefinitions: SimpleNavItem[] = [
             },
             {
                 title: 'Share Code',
-                url: '/share',
+                url: '/sharing',
                 component: <MarkdownPage title={'Sharing Code'} markdown={Docs.Community.Sharing} />,
             },
             {

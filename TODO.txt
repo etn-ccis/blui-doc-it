@@ -1,4 +1,0 @@
-Update Readme
-Check the Favicon
-Google Analytics
-Automatic Link Checking
