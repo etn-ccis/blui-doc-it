@@ -62,14 +62,12 @@ export const MainRouter = (): JSX.Element => {
         <Router>
             <ScrollToTop />
             <Switch>
-                <Route exact path="/">
-                    <DrawerLayout drawer={<NavigationDrawer />}>
+                <DrawerLayout drawer={<NavigationDrawer />}>
+                    <Route exact path="/">
                         <LandingPage />
-                    </DrawerLayout>
-                    <ContactFab />
-                </Route>
-                <Route path="*">
-                    <DrawerLayout drawer={<NavigationDrawer />}>
+                    </Route>
+                    <Route path="*">
+
                         <>
                             <SharedToolbar title={title} navigationIcon={<Menu />} />
                             <div style={{ minHeight: `calc(50vh - ${toolbarHeight}px)` }}>
@@ -91,9 +89,9 @@ export const MainRouter = (): JSX.Element => {
                                 </Toolbar>
                             </AppBar>
                         </>
-                    </DrawerLayout>
+                    </Route>
                     <ContactFab />
-                </Route>
+                </DrawerLayout>
             </Switch>
         </Router>
     );
