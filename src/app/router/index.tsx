@@ -61,8 +61,9 @@ export const MainRouter = (): JSX.Element => {
     return (
         <Router>
             <ScrollToTop />
-            <Switch>
-                <DrawerLayout drawer={<NavigationDrawer />}>
+
+            <DrawerLayout drawer={<NavigationDrawer />}>
+                <Switch>
                     <Route exact path="/">
                         <LandingPage />
                     </Route>
@@ -91,8 +92,8 @@ export const MainRouter = (): JSX.Element => {
                         </>
                     </Route>
                     <ContactFab />
-                </DrawerLayout>
-            </Switch>
+                </Switch>
+            </DrawerLayout>
         </Router>
     );
 };
