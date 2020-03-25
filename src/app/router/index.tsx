@@ -70,15 +70,8 @@ export const MainRouter = (): JSX.Element => {
                 <Route path="*">
                     <DrawerLayout drawer={<NavigationDrawer />}>
                         <>
-                            <SharedToolbar
-                                title={title}
-                                navigationIcon={
-                                    <Menu/>
-                                }
-                            />
-                            <div
-                                style={{minHeight: `calc(50vh - ${toolbarHeight}px)`}}
-                            >
+                            <SharedToolbar title={title} navigationIcon={<Menu />} />
+                            <div style={{ minHeight: `calc(50vh - ${toolbarHeight}px)` }}>
                                 <Switch>
                                     {buildRoutes(pageDefinitions, '')}
 

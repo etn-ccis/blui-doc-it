@@ -61,12 +61,12 @@ export const NavigationDrawer = (): JSX.Element => {
                 fontColor={Colors.white[50]}
                 icon={<PxblueSmall />}
                 onIconClick={(): void => {
-										if (isMobile) { 
-											dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
-										} else {
-											history.push('/');
-											dispatch({ type: TOGGLE_DRAWER, payload: false });
-										}
+                    if (isMobile) {
+                        dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                    } else {
+                        history.push('/');
+                        dispatch({ type: TOGGLE_DRAWER, payload: false });
+                    }
                 }}
                 titleContent={
                     <div
