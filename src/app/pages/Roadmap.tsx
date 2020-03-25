@@ -49,6 +49,11 @@ const useStyles = makeStyles((theme: Theme) =>
                 },
             },
         },
+        title: {
+            fontWeight: 600,
+            lineHeight: 1.2,
+            fontSize: '0.875rem',
+        },
     })
 );
 
@@ -160,7 +165,9 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                                 key={`roadmap_item_${index}`}
                                                 hidePadding
                                                 divider={index === bucket.items.length - 1 ? undefined : 'full'}
-                                                title={item.name}
+                                                title={<Typography className={classes.title} noWrap>
+                                                    {item.name}
+                                                </Typography>}
                                                 subtitle={item.description}
                                                 statusColor={statusColor ? statusColor[500] : undefined}
                                                 leftComponent={

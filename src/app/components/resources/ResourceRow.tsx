@@ -3,7 +3,6 @@ import {
     Button,
     Divider,
     useMediaQuery,
-    ListItemText,
     makeStyles,
     createStyles,
     Theme,
@@ -18,20 +17,11 @@ const useStyles = makeStyles((theme: Theme) =>
             width: '100%',
             padding: `0 ${theme.spacing(2)}px ${theme.spacing(2)}px`,
         },
-        listItemText: {
-            width: '100%',
-            marginRight: theme.spacing(-1),
-        },
-        subtitle: {
-            fontWeight: 400,
-            lineHeight: 1.3,
-            color: 'inherit',
-        },
     })
 );
 
 type ResourceRowProps = {
-    title: string | JSX.Element;
+    title: React.ReactElement;
     description: string;
     package?: string;
     repository: string;
@@ -51,20 +41,12 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element | nu
         <div>
             <InfoListItem
                 hidePadding
+                statusColor={'red'}
                 style={{ paddingRight: theme.spacing(1) }}
                 divider={!small && props.divider ? 'full' : undefined}
-                title={''}
-                subtitle={''}
-                leftComponent={
-                    <ListItemText
-                        title={typeof props.title === 'string' ? props.title : props.package || undefined}
-                        className={classes.listItemText}
-                        primaryTypographyProps={{ display: 'block', style: { width: '100%' } }}
-                        primary={props.title}
-                        secondary={props.description}
-                        secondaryTypographyProps={{ className: classes.subtitle }}
-                    />
-                }
+                title={props.title}
+                subtitle={props.description}
+                wrapSubtitle
                 rightComponent={small ? undefined : props.rightComponent}
             />
             {small && (
