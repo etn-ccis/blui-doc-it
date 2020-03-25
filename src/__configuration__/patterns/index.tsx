@@ -23,7 +23,6 @@ export const patterns = [
         title: 'App Bars',
         url: '/patterns/appbars',
         description: 'Common interactions in the header of an application.',
-        image: getRandomPlaceholder(),
     },
     {
         title: 'Empty States',

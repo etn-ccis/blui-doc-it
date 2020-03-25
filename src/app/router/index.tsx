@@ -68,7 +68,6 @@ export const MainRouter = (): JSX.Element => {
                                     navigationIcon={
                                         <Menu
                                             onClick={(): void => {
-                                                console.log(open); // eslint-disable-line no-console
                                                 setOpen(!open);
                                             }}
                                         />

@@ -42,16 +42,15 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type Content = string | JSX.Element;
-type ImageGridProps = {
+type ImageGridProps = HTMLAttributes<HTMLDivElement> & {
     caption?: string;
     gridContainerProps?: GridProps;
     gridComponentProps?: GridProps;
     gridImageProps?: GridProps;
     images: Content[];
-    rootProps?: HTMLAttributes<HTMLDivElement>;
 };
 export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
-    const { images, caption, rootProps, gridContainerProps, gridImageProps, gridComponentProps } = props;
+    const { images, caption, gridContainerProps, gridImageProps, gridComponentProps, ...rootProps } = props;
     const classes = useStyles();
     const theme = useTheme();
     const [imageOpened, setImageOpened] = useState(-1);
