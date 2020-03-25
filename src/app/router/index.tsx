@@ -56,6 +56,7 @@ export const MainRouter = (): JSX.Element => {
     const classes = useStyles();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const toolbarHeight = isMobile ? 102 : 128;
 
     return (
         <Router>
@@ -76,9 +77,7 @@ export const MainRouter = (): JSX.Element => {
                                 }
                             />
                             <div
-                                style={
-                                    isMobile ? { minHeight: 'calc(50vh - 102px)' } : { minHeight: 'calc(50vh - 128px)' }
-                                }
+                                style={{minHeight: `calc(50vh - ${toolbarHeight}px)`}}
                             >
                                 <Switch>
                                     {buildRoutes(pageDefinitions, '')}
