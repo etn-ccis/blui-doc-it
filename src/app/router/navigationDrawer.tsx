@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, NavItem } from '@pxblue/react-components';
 import { PxblueSmall } from '@pxblue/icons-mui';
@@ -33,7 +33,6 @@ export const NavigationDrawer = (): JSX.Element => {
                 onClick: item.component
                     ? (): void => {
                           history.push(fullURL);
-                          setActiveRoute(fullURL);
                           dispatch({ type: TOGGLE_DRAWER, payload: false });
                       }
                     : undefined,
@@ -42,6 +41,10 @@ export const NavigationDrawer = (): JSX.Element => {
         }
         return convertedItems;
     }, []);
+
+    useEffect(() => {
+        setActiveRoute(location.pathname);
+    }, [location.pathname]);
 
     const [menuItems] = useState(createNavItems(pageDefinitions, '', 0));
 
