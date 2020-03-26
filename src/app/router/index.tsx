@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { LandingPage } from '../pages';
 import { DrawerLayout } from '@pxblue/react-components';
-import { SharedToolbar } from '../components';
+import { SharedToolbar, ContactFab } from '../components';
 import { NavigationDrawer } from './navigationDrawer';
 import { AppState } from '../redux/reducers';
 import { Menu } from '@material-ui/icons';
@@ -61,14 +61,13 @@ export const MainRouter = (): JSX.Element => {
     return (
         <Router>
             <ScrollToTop />
-            <Switch>
-                <Route exact path="/">
-                    <DrawerLayout drawer={<NavigationDrawer />}>
+
+            <DrawerLayout drawer={<NavigationDrawer />}>
+                <Switch>
+                    <Route exact path="/">
                         <LandingPage />
-                    </DrawerLayout>
-                </Route>
-                <Route path="*">
-                    <DrawerLayout drawer={<NavigationDrawer />}>
+                    </Route>
+                    <Route path="*">
                         <>
                             <SharedToolbar title={title} navigationIcon={<Menu />} />
                             <div style={{ minHeight: `calc(50vh - ${toolbarHeight}px)` }}>
@@ -90,9 +89,10 @@ export const MainRouter = (): JSX.Element => {
                                 </Toolbar>
                             </AppBar>
                         </>
-                    </DrawerLayout>
-                </Route>
-            </Switch>
+                    </Route>
+                </Switch>
+                <ContactFab />
+            </DrawerLayout>
         </Router>
     );
 };

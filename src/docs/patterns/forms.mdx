@@ -9,26 +9,26 @@ import Image6 from '../../app/assets/design-patterns/form-validation/form-valida
 # Form Validation Patterns
 
 <ImageGrid images={[Image1, Image2, Image3]} />
-
-<DemoCard repository={'form-validation'} angular react float={'right'}/>
+<DemoCard repository={'form-validation'} angular react float={'right'} />
 
 Forms are an integral part of many applications, particularly during the user registration phase. One of the most important parts of working with forms is properly validating the information that users enter into them. In general, PX Blue follows the form behaviors explained in detail by [Google Material](https://material.io/design/components/text-fields.html#anatomy).
 
 ## Optional vs. Required Fields
-When using a mixture of optional and required fields in a form, the inputs should be labeled appropriately. 
+
+When using a mixture of optional and required fields in a form, the inputs should be labeled appropriately.
 
 If most of the fields are required, you should call out the fields that are optional. These fields should be labeled with an appropriate descriptor, followed by "optional" in parentheses.
 
-Conversely, if most of your fields are optional, you should only call out the required fields. These should be identified by an asterisk (*) after the field label. There should be a descriptor nearby that indicates that a * means the field is required.
+Conversely, if most of your fields are optional, you should only call out the required fields. These should be identified by an asterisk (_) after the field label. There should be a descriptor nearby that indicates that a _ means the field is required.
 
 ## Form Field Requirements
+
 <ImageGrid images={[Image4, Image5, Image6]} caption={'A common application of form validation -- reset password.'} />
 
 If your form fields have complex requirements for valid values, you can list these criteria below the input. A common use case for this is when displaying password complexity requirements.
 
 ## Handling Errors
 
-If there is an error with the data entered into a field, the field should indicate to the user that there is a problem. Label and helper text should be changed to a red color and a warning icon should appear in the text input. The error message should be displayed in the helper text location below the field (any existing helper text should be replaced with the error message). 
+If there is an error with the data entered into a field, the field should indicate to the user that there is a problem. Label and helper text should be changed to a red color and a warning icon should appear in the text input. The error message should be displayed in the helper text location below the field (any existing helper text should be replaced with the error message).
 
-Error messages should be succinct and should not provide information that could compromise security (e.g., "Invalid Credentials" instead of "Incorrect Password"). 
-
+Error messages should be succinct and should not provide information that could compromise security (e.g., "Invalid Credentials" instead of "Incorrect Password").

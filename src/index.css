@@ -36,7 +36,7 @@ blockquote > p:last-child {
 }
 pre,
 code {
-    background-color: #ddd;
+    background-color: #eef0f0; /* gray[50] */
     color: #333;
     font-family: Roboto Mono, Monospaced;
     font-size: 0.75rem;

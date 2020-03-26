@@ -2,6 +2,7 @@
 import React from 'react';
 import { Typography, TypographyProps } from '@material-ui/core';
 import { Link, LinkProps } from 'react-router-dom';
+import './markdown.css';
 
 export const ExternalLink = (tProps: TypographyProps<'a'>): JSX.Element => (
     <Typography
@@ -18,7 +19,9 @@ export const InternalLink = (props: LinkProps): JSX.Element => (
 );
 
 export const componentsMap = {
-    h1: (props: TypographyProps): JSX.Element => <Typography paragraph variant={'h4'} color={'primary'} {...props} />,
+    h1: (props: TypographyProps): JSX.Element => (
+        <Typography paragraph variant={'h4'} color={'primary'} className={'markdownH1'} {...props} />
+    ),
     h2: (props: TypographyProps): JSX.Element => (
         <Typography paragraph variant={'h5'} color={'primary'} {...props} style={{ marginTop: 48 }} />
     ),

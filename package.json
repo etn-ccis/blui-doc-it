@@ -13,7 +13,7 @@
     "ga:dev": "cp -r ./config/ga.dev.js ./src/ga.js",
     "lint": "eslint \"src/**/**.{tsx,ts}\"",
     "lint:fix": "eslint \"src/**/**.{tsx,ts}\" --fix",
-    "prettier": "prettier \"src/**/**.{ts,tsx,js,jsx,json,css,scss,html}\" --write"
+    "prettier": "prettier \"src/**/**.{ts,tsx,js,jsx,json,css,scss,html,mdx}\" --write"
   },
   "prettier": "@pxblue/prettier-config",
   "dependencies": {
@@ -23,7 +23,7 @@
     "@pxblue/colors": "^2.0.0",
     "@pxblue/colors-branding": "^3.0.0",
     "@pxblue/icons-mui": "^2.1.0",
-    "@pxblue/react-components": "3.0.0-beta.4",
+    "@pxblue/react-components": "^3.0.0-beta.8",
     "@pxblue/react-progress-icons": "^2.0.0",
     "@pxblue/react-themes": "^4.0.0",
     "axios": "^0.19.2",

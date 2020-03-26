@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { IconButton, Typography, makeStyles, createStyles, useMediaQuery, Theme } from '@material-ui/core';
 import Carousel from '@brainhubeu/react-carousel';
 import * as Colors from '@pxblue/colors';
@@ -81,6 +81,14 @@ export const CardCarousel: React.FC<CardCarouselProps> = (props): JSX.Element =>
     const displayCount = xs ? 1 : props.slidesPerPage || 2;
     const isArray = Array.isArray(props.children);
     const showArrows = isArray ? (props.children as any[]).length > displayCount : false;
+
+    useEffect(() => {
+        // Hacky way to fix width bug when coming back from another page with a drawer
+        const resizeEvent = window.document.createEvent('UIEvents');
+        resizeEvent.initEvent('resize', true, false);
+        window.dispatchEvent(resizeEvent);
+    }, []);
+
     return xs ? (
         <>{props.children}</>
     ) : (
