@@ -4,7 +4,9 @@
 echo "Checking Community Links... "
 find src/docs/community -maxdepth 1 -name \*.mdx -exec markdown-link-check {} -c ./___scripts___/link-check/config/depth-1.json \;
 
-# TODO Design paths
+# Design Links
+echo "Checking Development Links... "
+find src/docs/design -maxdepth 1 -name \*.mdx -exec markdown-link-check {} -c ./___scripts___/link-check/config/depth-1.json \;
 
 # Development Links
 echo "Checking Development Links... "
