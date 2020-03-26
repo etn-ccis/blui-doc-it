@@ -24,6 +24,7 @@ type InfoCardProps = {
     aspectRatio?: AspectRatio;
     title: string;
     description: string;
+    spacing: number;
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -32,6 +33,12 @@ const useStyles = makeStyles((theme: Theme) =>
             width: '100%',
             backgroundSize: 'cover',
             marginBottom: theme.spacing(2),
+            border: `1px solid ${Colors.black[50]}`,
+        },
+        card: {
+            '&:hover': {
+                backgroundColor: Colors.black[50],
+            },
         },
     })
 );
@@ -40,7 +47,7 @@ export const InfoCard: React.FC<InfoCardProps> = (props): JSX.Element => {
     const theme = useTheme();
     const classes = useStyles();
     return (
-        <div style={{ cursor: props.onClick ? 'pointer' : 'default' }} onClick={props.onClick}>
+        <div style={{ cursor: props.onClick ? 'pointer' : 'default', margin: theme.spacing(-1*props.spacing/2), padding: theme.spacing(props.spacing/2) }} onClick={props.onClick} className={props.onClick ? classes.card : ''}>
             <div
                 style={{
                     backgroundImage: `url(${props.source})`,

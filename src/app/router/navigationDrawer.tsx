@@ -6,15 +6,24 @@ import { PxblueSmall } from '@pxblue/icons-mui';
 import * as Colors from '@pxblue/colors';
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { EatonTagline } from '../assets/icons';
-import { Typography, useTheme, useMediaQuery } from '@material-ui/core';
+import { Typography, useTheme, useMediaQuery, createStyles, makeStyles, Theme } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../redux/reducers';
 import { TOGGLE_DRAWER } from '../redux/actions';
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        drawer: {
+            boxShadow: theme.shadows[6],
+        },
+    })
+);
 
 export const NavigationDrawer = (): JSX.Element => {
     const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
     const location = useLocation();
     const history = useHistory();
+    const classes = useStyles();
     const [activeRoute, setActiveRoute] = useState(location.pathname);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -57,6 +66,8 @@ export const NavigationDrawer = (): JSX.Element => {
                     dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
                 },
             }}
+            style={{boxShadow: theme.shadows[12]}}
+            className={classes.drawer}
             variant={isMobile || isLandingPage ? 'temporary' : 'permanent'}
         >
             <DrawerHeader

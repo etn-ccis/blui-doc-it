@@ -90,8 +90,8 @@ export const MainRouter = (): JSX.Element => {
                             </AppBar>
                         </>
                     </Route>
-                    <ContactFab />
                 </Switch>
+                <ContactFab />
             </DrawerLayout>
         </Router>
     );
