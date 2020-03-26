@@ -1,82 +1,52 @@
+import { Divider } from '../../app/components/layout/Divider';
+import { ImageGrid } from '../../app/components/patterns/ImageGrid';
+import TypeScaleImg from '../../app/assets/typography/TypeScale.png';
+import LargerApplicationImg from '../../app/assets/typography/Larger Application.png';
+import ApplicationImg from '../../app/assets/typography/Application.png';
+import HeadlineOptions from '../../app/assets/typography/Headline Options.png';
+
 # Typography Guidelines
 
 In general, refer to the typography guidance for [Material.io](https://material.io/guidelines/style/typography.html#).
 
-## Web
-
 Unlike Material Design, the primary desktop font for Power Xpert Blue is [Open Sans](https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans) (licensed under [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)). This version contains the complete 897 character set, which includes the standard ISO Latin 1, Latin CE, Greek and Cyrillic character sets. Open Sans was optimized for print, web, and mobile interfaces, and has excellent legibility characteristics in its letter forms.
 
-> Note: if you need to support non-western languages, [Noto Sans](https://fonts.google.com/specimen/Noto+Sans) is a suitable substitution. For applications that require a monospace font (such as when dealing with numerical data), we recommend [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono).
+## Type Scale
 
-![](../images/opensans.png)
+PX Blue provides a type scale that includes a range of styles to support the needs of your application. All styles and fonts are available in the design library. As PX Blue continues to grow, additional font patterns will be added.
 
-## Mobile
+<ImageGrid images={[TypeScaleImg]} gridImageProps={{ xs: 12, sm: 12, md: 12 }} />
+<Divider fullScreen />
 
-For mobile applications, the best practice is to use the font recommendation for the specific target platform ([Material Design Platform Adaptation](https://material.io/guidelines/platforms/platform-adaptation.html)):
+# Customization
 
--   iOS
-    -   San Francisco (Primary)
-    -   San Francisco Mono (Monospace)
--   Android
-    -   Roboto (Primary)
-    -   Roboto Mono (Monospace)
+With a wide range of product needs it is expected that not every predefined style will fit for every application. Slight customization of styles, such as changing Body 2 from semi bold to regular, are acceptable and do not need to be reviewed by the PX Blue governance body. In any case, there should be an understanding from the projects development team that any new style will need to be created by them and not PX Blue. Any created style should still follow the PX Blue system font and adhere to the color guidelines. New font families and colors will need to be approved by the PX Blue governance body.
 
-## Using Typography
+<ImageGrid images={[LargerApplicationImg]} gridImageProps={{ xs: 12, sm: 12, md: 12 }} />
+<Divider />
 
-### Progressive Example
+## When to create custom font styles
 
-Effective use of typography must take into account not only the type itself, but also the use of spacing and color to achieve the desired effect. This section will build a progressive example (of an alarm row for a tripped breaker) by incrementally considering these different elements.
+New font styles can be created when designs call for font sizes or states that are currently not provided in PX Blue. The most common cases where designs have created a new font style has been the addition of new headline styles and the modification of Body 2 from semi bold to regular. Ultimately it will come down to the designer and whats best for the product. PX Blue is available to provide recommendations and design reviews. If you need help defining a new style do not hesitate to reach to us!
 
-To start, you must consider the different types of typographic content in an application, which can include headline, subhead, body text, pull quotes, listings, column headings, as well as other elements – and then design to visually reinforce this hierarchy.
+The examples below depict how the designs would look using standard PX Blue comparied to how the design looks with new created font styles.
 
-We'll start with unformatted text, set in Open Sans.
+<ImageGrid
+    images={[ApplicationImg]}
+    gridImageProps={{ xs: 12, sm: 12, md: 12 }}
+    style={{ marginBottom: 8, marginTop: 40 }}
+/>
 
-![](../images/typo-hierarchy_Base.svg)
+1: Two line headline using standard PX Blue styles
 
-#### Type Style
+2: Two line headline using custom created styles
 
-Typeface and weight play a key role in establishing typographic hierarchy, especially for headlines and subheads. Generally speaking, bold, decorative, or more distinctive type styles command attention and denote importance, but so can an ultra light typeface in the right setting. We'll add some varying weights to the example.
+<ImageGrid
+    images={[HeadlineOptions]}
+    gridImageProps={{ xs: 12, sm: 12, md: 12 }}
+    style={{ marginBottom: 8, marginTop: 40 }}
+/>
 
-![](../images/typo-hierarchy_Style.svg)
+1: Two line headline using standard PX Blue styles
 
-#### Type Size
-
-The viewer’s eye is usually drawn to the largest-sized type first (which is usually, but not always, the headline), and then moves on to other elements. Although headlines most commonly appear at the top of a page, this placement is not a requirement. A well-designed composition will guide the reader to the headline and other important elements no matter where they are located.
-
-#### Case
-
-The use of all caps in small doses can be an effective way to draw attention and denote importance, particularly for headings or subheads. On the other hand, all caps are known to have reduced readability, so using upper and lowercase is preferable for lengthy settings, including running text.
-
-![](../images/typo-hierarchy_Case.svg)
-
-#### Color
-
-The use of color can either draw attention to or de-emphasize an element. For instance, red type on a page with mostly black text will instantly stand out, while making a less important element gray amidst black text will downplay it. Keep in mind that too much color used in too many instances can create visual confusion, which in turn undermines its effectiveness.
-
-![](../images/typo-hierarchy_Color.svg)
-
-#### Placement & Spacing
-
-The placement of all elements, as well as the space between and around them, is part of the overall hierarchy. Keep the most important information prominent. Place all related elements together, while visually separating others to organize the content.
-
-#### Alignment
-
-How elements are aligned can imply their relative level of significance. Centering, for instance, conveys a sense of importance, and is frequently used for titles, headlines, announcements and invitations. Conversely, running body copy usually calls for less emphasis than headings and subheads, and is commonly set flush left, which is easier to read.
-
-#### White Space
-
-Use white, or negative, space to create emphasis and draw attention to important elements. Resist the temptation to fill up every bit of space on a page, which can create too much “visual noise” that can confuse or fatigue the viewer.
-
-![](../images/typo-hierarchy_Placement.svg)
-
-A strong design provides visual cues to lead the viewer through the content. Good typographic hierarchy is essential to communicating the desired message and maximizing the likelihood of its being read and understood.
-
-### Additional Examples
-
-This is an example of how type style and color combine to make it easy to differentiate a data value from units and status.
-
-![](../images/extra1.png)
-
-This example shows typography in use against a darker background. Note how color and weight still come into play to differentiate information.
-
-![](../images/Luminaire.png)
+2: Two line headline using custom created styles
