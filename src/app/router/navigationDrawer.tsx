@@ -85,7 +85,7 @@ export const NavigationDrawer = (): JSX.Element => {
                 titleContent={
                     <div
                         style={{
-                            height: '100%',
+                            alignSelf: 'stretch',
                             flex: '1 1 0px',
                             display: 'flex',
                             alignItems: 'center',

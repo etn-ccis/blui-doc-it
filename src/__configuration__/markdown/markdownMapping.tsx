@@ -19,7 +19,9 @@ export const InternalLink = (props: LinkProps): JSX.Element => (
 );
 
 export const componentsMap = {
-    h1: (props: TypographyProps): JSX.Element => <Typography paragraph variant={'h4'} color={'primary'} className={'markdownH1'} {...props} />,
+    h1: (props: TypographyProps): JSX.Element => (
+        <Typography paragraph variant={'h4'} color={'primary'} className={'markdownH1'} {...props} />
+    ),
     h2: (props: TypographyProps): JSX.Element => (
         <Typography paragraph variant={'h5'} color={'primary'} {...props} style={{ marginTop: 48 }} />
     ),
