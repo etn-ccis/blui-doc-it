@@ -66,7 +66,7 @@ export const NavigationDrawer = (): JSX.Element => {
                     dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
                 },
             }}
-            style={{boxShadow: theme.shadows[12]}}
+            style={{ boxShadow: theme.shadows[12] }}
             className={classes.drawer}
             variant={isMobile || isLandingPage ? 'temporary' : 'permanent'}
         >

@@ -47,7 +47,15 @@ export const InfoCard: React.FC<InfoCardProps> = (props): JSX.Element => {
     const theme = useTheme();
     const classes = useStyles();
     return (
-        <div style={{ cursor: props.onClick ? 'pointer' : 'default', margin: theme.spacing(-1*props.spacing/2), padding: theme.spacing(props.spacing/2) }} onClick={props.onClick} className={props.onClick ? classes.card : ''}>
+        <div
+            style={{
+                cursor: props.onClick ? 'pointer' : 'default',
+                margin: theme.spacing((-1 * props.spacing) / 2),
+                padding: theme.spacing(props.spacing / 2),
+            }}
+            onClick={props.onClick}
+            className={props.onClick ? classes.card : ''}
+        >
             <div
                 style={{
                     backgroundImage: `url(${props.source})`,
