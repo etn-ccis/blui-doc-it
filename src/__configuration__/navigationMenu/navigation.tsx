@@ -136,16 +136,6 @@ export const pageDefinitions: SimpleNavItem[] = [
                 url: '/intro',
                 component: <MarkdownPage title={'Design Introduction'} markdown={Docs.Design.Introduction} />,
             },
-            {
-                title: 'Environment Setup',
-                url: '/environment',
-                component: <h1>Coming Soon!</h1>,
-            },
-            {
-                title: 'How to Design',
-                url: '/how-to',
-                component: <h1>Coming Soon!</h1>,
-            },
         ],
     },
     {

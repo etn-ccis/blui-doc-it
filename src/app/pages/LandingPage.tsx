@@ -129,8 +129,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     backgroundImage={paper}
                     title={'Getting started as a designer'}
                     description={'We offer many resources and assets for designers getting acquainted with PX Blue.'}
-                    // TODO: Update this link
-                    onClick={(): void => history.push('/design/environment')}
+                    onClick={(): void => history.push('/design/intro')}
                 />
                 <CarouselCard
                     backgroundImage={computer}
