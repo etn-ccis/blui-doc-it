@@ -13,7 +13,7 @@ import { TOGGLE_DRAWER } from '../redux/actions';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        drawer: {
+        shadow: {
             boxShadow: theme.shadows[6],
         },
     })
@@ -67,7 +67,7 @@ export const NavigationDrawer = (): JSX.Element => {
                 },
             }}
             style={{ boxShadow: theme.shadows[12] }}
-            className={classes.drawer}
+            className={!isMobile && !isLandingPage ? classes.shadow : undefined}
             variant={isMobile || isLandingPage ? 'temporary' : 'permanent'}
         >
             <DrawerHeader

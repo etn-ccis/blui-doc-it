@@ -1,0 +1,6 @@
+.markdownH1:first-child {
+    margin-top: 32px;
+}
+.markdownH1:not(:first-child){
+    margin-top: 96px;
+}
