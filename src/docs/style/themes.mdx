@@ -1,4 +1,4 @@
-import { ImageGrid } from '../../app/components';
+import { ImageGrid, DemoCard } from '../../app/components';
 import LightThemeImage from '../../app/assets/design-patterns/theme/theme-light.png';
 import DarkThemeImage from '../../app/assets/design-patterns/theme/theme-dark.png';
 
@@ -18,10 +18,13 @@ As of version 2.0.0, the PX Blue themes packages includes two distinct themes:
 -   **Blue** is the default theme for all PX Blue applications. It should be applied at the root level of your app. It provides a variety of shades of blue for use in buttons, toolbars, etc. The standard background color is a light gray.
 -   **Blue Dark** is complementary to the Blue theme. It is intended primarily for applications used in low-light conditions. The primary colors used in the Blue Dark theme are various shades of gray with blue accents. It can be used as a standalone theme or combined with the Blue (default) theme to provide contrast for areas such as detail sidebars.
 
-> **NOTE:** Combining multiple themes in your application is optional. You may stick to using a single theme (Blue) for your entire application and then apply one-off styling where necessary to achieve other effects. All of the PX Blue colors are available individually ([@pxblue/colors](https://www.npmjs.com/package/@pxblue/colors)) for use in your application.
+<DemoCard
+    repository={'themes'}
+    angular={`https://stackblitz.com/github/pxblue/themes/tree/master/angular/demo`}
+    react={`https://codesandbox.io/embed/github/pxblue/themes/tree/master/react/demo`}
+/>
 
-{{ angular url=https://stackblitz.com/github/pxblue/themes/tree/master/angular/demo?embed=1&file=main.ts&hideNavigation=1&view=preview }}
-{{ react url=https://codesandbox.io/embed/github/pxblue/themes/tree/master/react/demo?fontsize=14&hidenavigation=1&module=/src/App.js&view=preview }}
+> **NOTE:** Combining multiple themes in your application is optional. You may stick to using a single theme (Blue) for your entire application and then apply one-off styling where necessary to achieve other effects. All of the PX Blue colors are available individually ([@pxblue/colors](https://www.npmjs.com/package/@pxblue/colors)) for use in your application.
 
 ## Theme Formats
 

@@ -13,10 +13,11 @@ import {
 } from '@material-ui/core';
 
 import { PackageRow, ExampleRow, PageContent, ExpansionHeader } from '../components';
-
+import * as Colors from '@pxblue/colors';
 import { resources } from '../../__configuration__/resources';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { FrameworkFilter } from '../../__types__';
+import { useBackgroundColor } from '../hooks/useBackgroundColor';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -33,6 +34,7 @@ export const Resources: React.FC = (): JSX.Element => {
     const classes = useStyles();
     const [filter, setFilter] = useState<FrameworkFilter>('all');
     usePageTitle('Resources');
+    useBackgroundColor(Colors.gray[50]);
 
     return (
         <>

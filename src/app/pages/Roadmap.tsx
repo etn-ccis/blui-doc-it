@@ -23,6 +23,7 @@ import { InfoListItem, ListItemTag } from '@pxblue/react-components';
 
 import * as Colors from '@pxblue/colors';
 import { PXBlueColor } from '../components/colors/Colors';
+import { useBackgroundColor } from '../hooks/useBackgroundColor';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -49,6 +50,11 @@ const useStyles = makeStyles((theme: Theme) =>
                 },
             },
         },
+        title: {
+            fontWeight: 600,
+            lineHeight: 1.2,
+            fontSize: '0.875rem',
+        },
     })
 );
 
@@ -66,6 +72,7 @@ const getStatusColor = (status: Status): PXBlueColor | undefined => {
 
 export const Roadmap: React.FC = (): JSX.Element => {
     usePageTitle('Roadmap');
+    useBackgroundColor(Colors.gray[50]);
     const classes = useStyles();
     const [frameworkFilter, setFrameworkFilter] = useState<FrameworkFilter>('all');
     const [quarterFilter, setQuarterFilter] = useState<Quarter | 'Quarter'>('Quarter');
@@ -160,7 +167,11 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                                 key={`roadmap_item_${index}`}
                                                 hidePadding
                                                 divider={index === bucket.items.length - 1 ? undefined : 'full'}
-                                                title={item.name}
+                                                title={
+                                                    <Typography className={classes.title} noWrap>
+                                                        {item.name}
+                                                    </Typography>
+                                                }
                                                 subtitle={item.description}
                                                 statusColor={statusColor ? statusColor[500] : undefined}
                                                 leftComponent={

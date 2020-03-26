@@ -82,6 +82,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     {cardData.map((item, ind) => (
                         <Grid key={`grid${ind}`} item xs={12} sm={6} md={4}>
                             <InfoCard
+                                spacing={6}
                                 source={item.image}
                                 title={item.title}
                                 aspectRatio={'3x2'}
