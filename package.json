@@ -13,7 +13,7 @@
     "ga:dev": "cp -r ./config/ga.dev.js ./src/ga.js",
     "lint": "eslint \"src/**/**.{tsx,ts}\"",
     "lint:fix": "eslint \"src/**/**.{tsx,ts}\" --fix",
-    "prettier": "prettier \"src/**/**.{ts,tsx,js,jsx,json,css,scss,html}\" --write"
+    "prettier": "prettier \"src/**/**.{ts,tsx,js,jsx,json,css,scss,html,mdx}\" --write"
   },
   "prettier": "@pxblue/prettier-config",
   "dependencies": {
