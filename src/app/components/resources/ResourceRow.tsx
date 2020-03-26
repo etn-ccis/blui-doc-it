@@ -33,7 +33,6 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element | nu
         <div>
             <InfoListItem
                 hidePadding
-                statusColor={'red'}
                 style={{ paddingRight: theme.spacing(1) }}
                 divider={!small && props.divider ? 'full' : undefined}
                 title={props.title}
