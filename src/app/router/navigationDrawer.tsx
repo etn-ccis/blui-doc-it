@@ -107,7 +107,7 @@ export const NavigationDrawer = (): JSX.Element => {
             </DrawerBody>
             <DrawerFooter>
                 <div style={{ display: 'flex', justifyContent: 'center', background: Colors.gray[50], padding: 16 }}>
-                    <EatonTagline style={{ fontSize: 150, height: 'auto' }} />
+                    <EatonTagline style={{ fontSize: 150, height: 48 }} />
                 </div>
             </DrawerFooter>
         </Drawer>
