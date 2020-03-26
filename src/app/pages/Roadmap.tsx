@@ -23,6 +23,7 @@ import { InfoListItem, ListItemTag } from '@pxblue/react-components';
 
 import * as Colors from '@pxblue/colors';
 import { PXBlueColor } from '../components/colors/Colors';
+import { useBackgroundColor } from '../hooks/useBackgroundColor';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -71,6 +72,7 @@ const getStatusColor = (status: Status): PXBlueColor | undefined => {
 
 export const Roadmap: React.FC = (): JSX.Element => {
     usePageTitle('Roadmap');
+    useBackgroundColor(Colors.gray[50]);
     const classes = useStyles();
     const [frameworkFilter, setFrameworkFilter] = useState<FrameworkFilter>('all');
     const [quarterFilter, setQuarterFilter] = useState<Quarter | 'Quarter'>('Quarter');

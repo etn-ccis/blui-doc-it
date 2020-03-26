@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Docs from '../../docs';
 import { MarkdownPage, Resources, Roadmap, ReleaseNotes } from '../../app/pages';
+import * as Colors from '@pxblue/colors';
 
 export type SimpleNavItem = {
     title: string;
@@ -216,7 +217,9 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Iconography',
                 url: '/iconography',
-                component: <MarkdownPage title={'Typography'} markdown={Docs.Style.Iconography} />,
+                component: (
+                    <MarkdownPage title={'Typography'} markdown={Docs.Style.Iconography} background={Colors.gray[50]} />
+                ),
             },
             {
                 title: 'Typography',

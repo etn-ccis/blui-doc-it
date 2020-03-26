@@ -1,38 +1,35 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Typography, useTheme } from '@material-ui/core';
 import { LatestReleases } from '../../docs';
 import * as Colors from '@pxblue/colors';
 import { ReleaseInfo } from '../../docs/release-notes';
-import { CHANGE_PAGE_TITLE } from '../redux/actions';
-import { useDispatch } from 'react-redux';
+import { PageContent } from '../components';
+import { useBackgroundColor } from '../hooks/useBackgroundColor';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 export const ReleaseNotes: React.FC = (): JSX.Element => {
     const theme = useTheme();
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch({ type: CHANGE_PAGE_TITLE, payload: 'Release Notes' });
-    }, [dispatch]);
+    usePageTitle('Release Notes');
+    useBackgroundColor(Colors.white[50]);
 
     return (
-        <>
-            <div style={{ padding: 20, margin: '0 auto', maxWidth: 1024 }}>
-                {LatestReleases.map((item: ReleaseInfo) => (
-                    <div
-                        key={item.title}
-                        style={{ color: Colors.gray[500], textAlign: 'left', marginBottom: theme.spacing(16) }}
+        <PageContent backgroundColor={Colors.white[50]}>
+            {LatestReleases.map((item: ReleaseInfo) => (
+                <div
+                    key={item.title}
+                    style={{ color: Colors.gray[500], textAlign: 'left', marginBottom: theme.spacing(16) }}
+                >
+                    <Typography
+                        variant={'h4'}
+                        color={'primary'}
+                        style={{ marginTop: theme.spacing(2), display: 'flex' }}
                     >
-                        <Typography
-                            variant={'h4'}
-                            color={'primary'}
-                            style={{ marginTop: theme.spacing(2), display: 'flex' }}
-                        >
-                            {item.date}
-                        </Typography>
-                        <Typography color={'inherit'} variant={'h6'}>{`v${item.version} (${item.title})`}</Typography>
-                        {item.details}
-                    </div>
-                ))}
-            </div>
-        </>
+                        {item.date}
+                    </Typography>
+                    <Typography color={'inherit'} variant={'h6'}>{`v${item.version} (${item.title})`}</Typography>
+                    {item.details}
+                </div>
+            ))}
+        </PageContent>
     );
 };
