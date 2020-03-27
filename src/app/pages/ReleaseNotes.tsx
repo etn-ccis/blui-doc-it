@@ -13,7 +13,7 @@ export const ReleaseNotes: React.FC = (): JSX.Element => {
     useBackgroundColor(Colors.white[50]);
 
     return (
-        <PageContent backgroundColor={Colors.white[50]}>
+        <PageContent>
             {LatestReleases.map((item: ReleaseInfo) => (
                 <div
                     key={item.title}
@@ -22,7 +22,7 @@ export const ReleaseNotes: React.FC = (): JSX.Element => {
                     <Typography
                         variant={'h4'}
                         color={'primary'}
-                        style={{ marginTop: theme.spacing(2), display: 'flex' }}
+                        style={{ marginTop: theme.spacing(4), display: 'flex' }}
                     >
                         {item.date}
                     </Typography>
