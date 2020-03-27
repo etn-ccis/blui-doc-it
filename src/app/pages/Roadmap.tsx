@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         selectIcon: {
             color: Colors.white[50],
-        }
+        },
     })
 );
 
@@ -125,7 +125,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         disableUnderline
                         style={{ minWidth: 100, alignSelf: 'stretch', color: Colors.white[50] }}
                         onChange={(e): void => setFrameworkFilter(e.target.value as FrameworkFilter)}
-                        classes={{icon: classes.selectIcon}}
+                        classes={{ icon: classes.selectIcon }}
                     >
                         <MenuItem value={'all'}>All Frameworks</MenuItem>
                         <MenuItem value={'angular'}>Angular</MenuItem>
@@ -138,7 +138,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         disableUnderline
                         style={{ marginLeft: 16, minWidth: 100, alignSelf: 'stretch', color: Colors.white[50] }}
                         onChange={(e): void => setQuarterFilter(e.target.value as Quarter)}
-                        classes={{icon: classes.selectIcon}}
+                        classes={{ icon: classes.selectIcon }}
                     >
                         <MenuItem value={'Quarter'}>All Quarters</MenuItem>
                         {/* <MenuItem value={'Q1'}>Q1</MenuItem> */}

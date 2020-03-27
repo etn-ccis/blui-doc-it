@@ -3,7 +3,6 @@ import { useMediaQuery, Typography, makeStyles, createStyles, Theme } from '@mat
 
 import * as Colors from '@pxblue/colors';
 import { getNpmVersion } from '../../api';
-import axios from 'axios';
 import { ResourceRow } from './ResourceRow';
 import { ButtonRow } from './ButtonRow';
 
@@ -42,11 +41,10 @@ export const PackageRow: React.FC<PackageRowProps> = (props): JSX.Element => {
 
     // Make the API calls for the live information
     useEffect(() => {
-        const cancel = axios.CancelToken.source();
         let isMounted = true;
 
         const loadVersion = async (): Promise<void> => {
-            const npmVersion = await getNpmVersion(packageName, cancel);
+            const npmVersion = await getNpmVersion(packageName);
             if (isMounted) {
                 setVersion(npmVersion);
             }
@@ -57,9 +55,10 @@ export const PackageRow: React.FC<PackageRowProps> = (props): JSX.Element => {
         };
     }, [repository, bugLabels, packageName]);
 
-    const buttons = useCallback((): JSX.Element => (
-        <ButtonRow isPackage small={small} repository={repository} />
-    ), [small, repository]);
+    const buttons = useCallback((): JSX.Element => <ButtonRow isPackage small={small} repository={repository} />, [
+        small,
+        repository,
+    ]);
 
     return (
         <ResourceRow
