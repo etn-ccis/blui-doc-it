@@ -70,7 +70,7 @@ export const MainRouter = (): JSX.Element => {
                     <Route path="*">
                         <>
                             <SharedToolbar title={title} navigationIcon={<Menu />} />
-                            <div style={{ minHeight: `calc(50vh - ${toolbarHeight}px)`, overflowX: 'hidden' }}>
+                            <div style={{ minHeight: `calc(50vh - ${toolbarHeight}px)` }}>
                                 <Switch>
                                     {buildRoutes(pageDefinitions, '')}
 
