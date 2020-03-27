@@ -137,9 +137,9 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Design Introduction'} markdown={Docs.Design.Introduction} />,
             },
             {
-                title: 'Resource Anatomy',
-                url: '/resource-anatomy',
-                component: <MarkdownPage title={'PX Blue Resource Anatomy'} markdown={Docs.Design.ResourceAnatomy} />,
+                title: 'Design Anatomy',
+                url: '/anatomy',
+                component: <MarkdownPage title={'PX Blue Resource Anatomy'} markdown={Docs.Design.Anatomy} />,
             },
         ],
     },

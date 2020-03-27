@@ -1,4 +1,4 @@
 import Introduction from './intro.mdx';
-import ResourceAnatomy from './resource-anatomy.mdx';
+import Anatomy from './anatomy.mdx';
 
-export { Introduction, ResourceAnatomy };
+export { Introduction, Anatomy };
