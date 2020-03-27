@@ -9,6 +9,7 @@ export type SimpleNavItem = {
     icon?: JSX.Element;
     pages?: SimpleNavItem[];
     component?: JSX.Element;
+    hidden?: boolean;
 };
 
 export const pageDefinitions: SimpleNavItem[] = [
@@ -136,6 +137,12 @@ export const pageDefinitions: SimpleNavItem[] = [
                 url: '/intro',
                 component: <MarkdownPage title={'Design Introduction'} markdown={Docs.Design.Introduction} />,
             },
+            {
+                title: 'Design Anatomy',
+                url: '/anatomy',
+                component: <MarkdownPage title={'Design System Anatomy'} markdown={Docs.Design.Anatomy} />,
+                hidden: true,
+            },
         ],
     },
     {
@@ -213,7 +220,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 title: 'Iconography',
                 url: '/iconography',
                 component: (
-                    <MarkdownPage title={'Iconography'} markdown={Docs.Style.Iconography} background={Colors.gray[50]} />
+                    <MarkdownPage
+                        title={'Iconography'}
+                        markdown={Docs.Style.Iconography}
+                        background={Colors.gray[50]}
+                    />
                 ),
             },
             {

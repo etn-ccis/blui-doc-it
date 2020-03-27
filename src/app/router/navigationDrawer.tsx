@@ -34,6 +34,9 @@ export const NavigationDrawer = (): JSX.Element => {
         const convertedItems: NavItem[] = [];
         for (let i = 0; i < navData.length; i++) {
             const item = navData[i];
+            if (item.hidden) {
+                continue;
+            }
             const fullURL = `${parentUrl}${item.url}`;
             convertedItems.push({
                 title: item.title,
