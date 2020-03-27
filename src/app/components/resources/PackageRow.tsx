@@ -57,9 +57,10 @@ export const PackageRow: React.FC<PackageRowProps> = (props): JSX.Element => {
         };
     }, [repository, bugLabels, packageName]);
 
-    const buttons = useCallback((): JSX.Element => (
-        <ButtonRow isPackage small={small} repository={repository} />
-    ), [small, repository]);
+    const buttons = useCallback((): JSX.Element => <ButtonRow isPackage small={small} repository={repository} />, [
+        small,
+        repository,
+    ]);
 
     return (
         <ResourceRow

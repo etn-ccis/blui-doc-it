@@ -31,14 +31,19 @@ export const ExampleRow: React.FC<ExampleRowProps> = (props): JSX.Element => {
     const small = useMediaQuery('(max-width:799px)');
     const classes = useStyles();
 
-    const buttons = useCallback(() => (
-        <ButtonRow
-            small={small}
-            repository={repository}
-            branches={!branches || branches.includes('all') ? ['angular', 'react', 'ionic', 'reactnative'] : branches}
-            bugLabels={bugLabels}
-        />
-    ), [repository, bugLabels, small]);
+    const buttons = useCallback(
+        () => (
+            <ButtonRow
+                small={small}
+                repository={repository}
+                branches={
+                    !branches || branches.includes('all') ? ['angular', 'react', 'ionic', 'reactnative'] : branches
+                }
+                bugLabels={bugLabels}
+            />
+        ),
+        [repository, bugLabels, small]
+    );
 
     return (
         <ResourceRow

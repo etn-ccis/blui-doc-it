@@ -19,11 +19,6 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-// these page will not appear in the nav drawer, but still get the routing
-const ignoredPage = new Set([
-    'Design Anatomy',
-]);
-
 export const NavigationDrawer = (): JSX.Element => {
     const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
     const location = useLocation();
@@ -39,7 +34,7 @@ export const NavigationDrawer = (): JSX.Element => {
         const convertedItems: NavItem[] = [];
         for (let i = 0; i < navData.length; i++) {
             const item = navData[i];
-            if(ignoredPage.has(item.title)) {
+            if (item.hidden) {
                 continue;
             }
             const fullURL = `${parentUrl}${item.url}`;
