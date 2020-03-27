@@ -213,7 +213,7 @@ export const pageDefinitions: SimpleNavItem[] = [
                 title: 'Iconography',
                 url: '/iconography',
                 component: (
-                    <MarkdownPage title={'Typography'} markdown={Docs.Style.Iconography} background={Colors.gray[50]} />
+                    <MarkdownPage title={'Iconography'} markdown={Docs.Style.Iconography} background={Colors.gray[50]} />
                 ),
             },
             {
