@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useMediaQuery, Typography, makeStyles, createStyles } from '@material-ui/core';
 
 import { ResourceRow } from './ResourceRow';
@@ -27,18 +27,18 @@ type ExampleRowProps = {
     branches?: string[];
 };
 export const ExampleRow: React.FC<ExampleRowProps> = (props): JSX.Element => {
-    const { branches } = props;
+    const { branches, repository, bugLabels, description, divider } = props;
     const small = useMediaQuery('(max-width:799px)');
     const classes = useStyles();
 
-    const buttons = (
+    const buttons = useCallback(() => (
         <ButtonRow
             small={small}
-            repository={props.repository}
+            repository={repository}
             branches={!branches || branches.includes('all') ? ['angular', 'react', 'ionic', 'reactnative'] : branches}
-            bugLabels={props.bugLabels}
+            bugLabels={bugLabels}
         />
-    );
+    ), [repository, bugLabels, small]);
 
     return (
         <ResourceRow
@@ -47,13 +47,13 @@ export const ExampleRow: React.FC<ExampleRowProps> = (props): JSX.Element => {
                     <Typography className={classes.title} noWrap>
                         {props.name}
                     </Typography>
-                    {small && buttons}
+                    {small && buttons()}
                 </div>
             }
-            description={props.description}
-            repository={props.repository}
-            divider={props.divider}
-            rightComponent={small ? undefined : buttons}
+            description={description}
+            repository={repository}
+            divider={divider}
+            rightComponent={small ? undefined : buttons()}
         />
     );
 };

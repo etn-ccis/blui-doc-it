@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useMediaQuery, Typography, makeStyles, createStyles, Theme } from '@material-ui/core';
 
 import * as Colors from '@pxblue/colors';
@@ -57,7 +57,9 @@ export const PackageRow: React.FC<PackageRowProps> = (props): JSX.Element => {
         };
     }, [repository, bugLabels, packageName]);
 
-    const buttons = <ButtonRow isPackage small={small} repository={repository} />;
+    const buttons = useCallback((): JSX.Element => (
+        <ButtonRow isPackage small={small} repository={repository} />
+    ), [small, repository]);
 
     return (
         <ResourceRow
@@ -75,13 +77,13 @@ export const PackageRow: React.FC<PackageRowProps> = (props): JSX.Element => {
                             }}
                         >{`@${version}`}</Typography>
                     )}
-                    {small && buttons}
+                    {small && buttons()}
                 </div>
             }
             description={description}
             repository={repository}
             divider={divider}
-            rightComponent={small ? undefined : buttons}
+            rightComponent={small ? undefined : buttons()}
         />
     );
 };

@@ -19,61 +19,6 @@ type RoadmapBucket = {
 };
 
 export const roadmap: RoadmapBucket[] = [
-    // {
-    //     name: 'Sample Data',
-    //     description: 'Just showing the different possible states',
-    //     applies: ['all'],
-    //     items: [
-    //         {
-    //             name: 'Backlog Item 1',
-    //             description: 'Something we are planning to work on',
-    //             year: 2020,
-    //             quarter: 'Q2',
-    //             status: 'backlog',
-    //             author: 'PX Blue',
-    //         },
-    //         {
-    //             name: 'Backlog Item 2',
-    //             description: 'Something we are planning to work on',
-    //             year: 2020,
-    //             quarter: 'Q2',
-    //             status: 'in-progress',
-    //             author: 'PX Blue',
-    //         },
-    //         {
-    //             name: 'Backlog Item 3',
-    //             description: 'Something we are planning to work on',
-    //             year: 2020,
-    //             quarter: 'Q2',
-    //             status: 'finished',
-    //             author: 'PX Blue',
-    //         },
-    //         {
-    //             name: 'Backlog Item 4',
-    //             description: 'Something we are planning to work on',
-    //             year: 2020,
-    //             quarter: 'Q2',
-    //             status: 'backlog',
-    //             author: 'Innersource',
-    //         },
-    //         {
-    //             name: 'Backlog Item 5',
-    //             description: 'Something we are planning to work on',
-    //             year: 2020,
-    //             quarter: 'Q2',
-    //             status: 'in-progress',
-    //             author: 'Innersource',
-    //         },
-    //         {
-    //             name: 'Backlog Item 6',
-    //             description: 'Something we are planning to work on',
-    //             year: 2020,
-    //             quarter: 'Q2',
-    //             status: 'finished',
-    //             author: 'Innersource',
-    //         },
-    //     ],
-    // },
     {
         name: 'Angular Component Library',
         description: 'Reusable UI elements from @pxblue/angular-components',
@@ -131,7 +76,7 @@ export const roadmap: RoadmapBucket[] = [
                 description: 'Add support for multiline/wrapping title and automatic hover states',
                 year: 2020,
                 quarter: 'Q2',
-                status: 'in-progress',
+                status: 'finished',
                 author: 'PX Blue',
             },
             {
@@ -139,7 +84,7 @@ export const roadmap: RoadmapBucket[] = [
                 description: 'Add support for non-clickable menu items',
                 year: 2020,
                 quarter: 'Q2',
-                status: 'backlog',
+                status: 'finished',
                 author: 'PX Blue',
             },
             {

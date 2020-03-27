@@ -28,6 +28,7 @@ import { useBackgroundColor } from '../hooks/useBackgroundColor';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         secondaryToolbar: {
+            color: Colors.white[50],
             top: theme.spacing(8),
             [theme.breakpoints.down('xs')]: {
                 top: theme.spacing(7),
@@ -55,6 +56,9 @@ const useStyles = makeStyles((theme: Theme) =>
             lineHeight: 1.2,
             fontSize: '0.875rem',
         },
+        selectIcon: {
+            color: Colors.white[50],
+        }
     })
 );
 
@@ -114,13 +118,14 @@ export const Roadmap: React.FC = (): JSX.Element => {
 
     return (
         <>
-            <AppBar position="sticky" color={'default'} className={classes.secondaryToolbar} elevation={0}>
+            <AppBar position="sticky" color={'secondary'} className={classes.secondaryToolbar} elevation={0}>
                 <Toolbar>
                     <Select
                         value={frameworkFilter}
                         disableUnderline
-                        style={{ minWidth: 100, alignSelf: 'stretch' }}
+                        style={{ minWidth: 100, alignSelf: 'stretch', color: Colors.white[50] }}
                         onChange={(e): void => setFrameworkFilter(e.target.value as FrameworkFilter)}
+                        classes={{icon: classes.selectIcon}}
                     >
                         <MenuItem value={'all'}>All Frameworks</MenuItem>
                         <MenuItem value={'angular'}>Angular</MenuItem>
@@ -131,8 +136,9 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     <Select
                         value={quarterFilter}
                         disableUnderline
-                        style={{ marginLeft: 16, minWidth: 100, alignSelf: 'stretch' }}
+                        style={{ marginLeft: 16, minWidth: 100, alignSelf: 'stretch', color: Colors.white[50] }}
                         onChange={(e): void => setQuarterFilter(e.target.value as Quarter)}
+                        classes={{icon: classes.selectIcon}}
                     >
                         <MenuItem value={'Quarter'}>All Quarters</MenuItem>
                         {/* <MenuItem value={'Q1'}>Q1</MenuItem> */}

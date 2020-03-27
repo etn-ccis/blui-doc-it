@@ -25,8 +25,8 @@ export const Picker = (): JSX.Element => {
 };
 
 export const HeadlineWithToggle = (): JSX.Element => (
-    <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', marginBottom: 16 }}>
-        <Typography variant={'h4'} color={'primary'} style={{ flex: '1 1 auto' }}>
+    <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', marginBottom: 16 }} className={'markdownH1'}>
+        <Typography variant={'h4'} color={'primary'} style={{ flex: '1 1 auto' }} >
             PX Blue Color Palette
         </Typography>
         <Picker />
