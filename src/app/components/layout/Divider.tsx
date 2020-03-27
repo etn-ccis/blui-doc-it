@@ -14,7 +14,8 @@ type DividerProps = MuiDividerProps & {
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            margin: `${theme.spacing(2)}px -100vw`,
+            width: 'calc(100% + 40px)',
+            margin: `${theme.spacing(2)}px -20px`,
         },
     })
 );

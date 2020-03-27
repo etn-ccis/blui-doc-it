@@ -38,7 +38,7 @@ export const Resources: React.FC = (): JSX.Element => {
 
     return (
         <>
-            <AppBar position="sticky" color={'primary'} className={classes.tabs} elevation={0}>
+            <AppBar position="sticky" color={'secondary'} className={classes.tabs} elevation={0}>
                 <Tabs variant={'standard'} value={filter}>
                     <Tab
                         style={{ minWidth: 'auto' }}

@@ -14,11 +14,12 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export const ContactFab = (): JSX.Element => {
+export const ContactFab = (): JSX.Element | null => {
     const classes = useStyles();
     const history = useHistory();
+    const isContactPage = history.location.pathname === '/community/contactus';
 
-    return (
+    return !isContactPage ? (
         <Fab
             color={'primary'}
             aria-label={'Contact Us'}
@@ -29,5 +30,5 @@ export const ContactFab = (): JSX.Element => {
         >
             <Feedback />
         </Fab>
-    );
+    ) : null;
 };

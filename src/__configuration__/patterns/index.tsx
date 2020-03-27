@@ -1,4 +1,4 @@
-import AppBarsImg from '../../app/assets/design-patterns/collapsible-appbar/collapsible-appbar-collapsed.png';
+import AppBarsImg from '../../app/assets/design-patterns/collapsible-appbar/collapsible-appbar-expanded.png';
 import EmptyStatesImg from '../../app/assets/design-patterns/empty-states/empty-states.png';
 import FormValidationImg from '../../app/assets/design-patterns/form-validation/form-validation-feedback-thumb.png';
 import InternationalizationImg from '../../app/assets/design-patterns/internationalization/internationalization.png';
