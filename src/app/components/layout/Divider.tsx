@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             width: 'calc(100% + 40px)',
-            margin: `${theme.spacing(2)}px -20px`,
+            margin: `${theme.spacing(3)}px -20px`,
         },
     })
 );
