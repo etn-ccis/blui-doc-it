@@ -1,0 +1,53 @@
+import { Divider } from '../../app/components/layout/Divider';
+import { ImageGrid } from '../../app/components';
+import CategoriesImg from '../../app/assets/resource-anatomy/resource-categories.png';
+import PatternStatesImg from '../../app/assets/resource-anatomy/pattern-states.png';
+
+# PXBlue Resources Anatomy
+
+PXBlue categorizes its adopter UI resources into five categories: elements, components, templates, pages, and workflows. When you are communicating with us, or you are having a conversation between the designers and the developers, you should use the terminologies defined on this page.
+
+<ImageGrid
+    images={[CategoriesImg]}
+    gridImageProps={{ xs: 12, sm: 12, md: 12 }}
+    caption={'The five categories of PXBlue resources.'}
+/>
+
+## Element
+
+Elements are the UI resources that do not form any UI gadgets or UI logic by itself, but rather helps during the rendering process. These are usually "properties" of design patterns -- for example, properties like [base color palette](/style/color), [icons](/style/iconography), [typographies](/style/typography), elevations, [themes](/style/themes), etc. They usually set up the tone of your application.
+
+## Component
+
+Components are UI resources that form the basic functional units of the UI and are interactable by reading, clicking, etc. They can be as simple as buttons, tabs, sliders, or as complex as [navigation drawers](). Components can be built upon each other. The simple components are usually defined and built by Material Design and its derivatives, and our task as PXBlue is to identify, regulate and craft the more advanced components.
+
+If you are a reader of [Brad Frost's _Atomic Design_](https://atomicdesign.bradfrost.com/chapter-2/#the-atomic-design-methodology), our components are essentially a combination of atoms, molecules, and organisms in the Atomic Design System.
+
+## Template
+
+Templates are UI layouts that can be used as a starting point for new projects. They are pre-built with placeholder components that you may conveniently swap in with your own to create your own design under certain principles. This aligns with [templates](https://atomicdesign.bradfrost.com/chapter-2/#templates) in Atomic Design.
+
+## Page
+
+Pages are large-scaled UI resources that place components into a layout and articulate the specific design, and typically take up an entire screen. Like our components, pages are an opinionated way to specify what a screen should look like at a certain moment during the interaction. Some examples for pages will be "login -- filling user name", or "create a password -- new password rejected".
+
+## Workflow
+
+Note that "[login](/patterns/login)" and "create password" themselves are not single pages. Those are a sequence of pages, chained together with certain UI navigation logics, which form what we call "workflows". Workflows are UI hierarchies or pathways that a user will walkthrough for completing a certain task. For example, you always make the user enters their email verification code to verify their email address before they can register for a new account, or you always discover nearby devices before you hook them up with one central controller.
+
+<Divider fullScreen />
+
+# Design Patterns
+
+<ImageGrid images={[PatternStatesImg]} gridImageProps={{ xs: 12, sm: 8, md: 8 }} />
+
+So, you might have heard of the term "design patterns" under different contexts. Design patterns (termed "[components](https://material.io/components/)" by Material Design) consist of the more palpable ones from the five categories aforementioned: components, templates, pages, and workflows.
+
+Each design pattern has its own state. A button can be hovered, pressed, or just left alone. Similarly, a login workflow can involve login with 2FA, with Captcha, or just a username and password.
+
+For each state, PX Blue tries to provide:
+
+-   Guidelines: How it is used in the context for what purpose
+-   Design Specs: How it appears in front of the user's eye
+-   Interactions: How it behaves by changing the state of itself or other design patterns
+-   Code: How it is implemented

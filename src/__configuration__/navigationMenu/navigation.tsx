@@ -136,6 +136,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 url: '/intro',
                 component: <MarkdownPage title={'Design Introduction'} markdown={Docs.Design.Introduction} />,
             },
+            {
+                title: 'Resource Anatomy',
+                url: '/resource-anatomy',
+                component: <MarkdownPage title={'PX Blue Resource Anatomy'} markdown={Docs.Design.ResourceAnatomy} />,
+            },
         ],
     },
     {
@@ -213,7 +218,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 title: 'Iconography',
                 url: '/iconography',
                 component: (
-                    <MarkdownPage title={'Typography'} markdown={Docs.Style.Iconography} background={Colors.gray[50]} />
+                    <MarkdownPage
+                        title={'Iconography'}
+                        markdown={Docs.Style.Iconography}
+                        background={Colors.gray[50]}
+                    />
                 ),
             },
             {
