@@ -17,7 +17,7 @@ export const ReleaseNotes: React.FC = (): JSX.Element => {
             {LatestReleases.map((item: ReleaseInfo) => (
                 <div
                     key={item.title}
-                    style={{ color: Colors.gray[500], textAlign: 'left', marginBottom: theme.spacing(16) }}
+                    style={{ marginBottom: theme.spacing(16) }}
                 >
                     <Typography
                         variant={'h4'}
