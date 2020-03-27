@@ -1,16 +1,16 @@
-import { Divider } from '../../app/components/layout/Divider';
+import { Divider } from '../../app/components';
 import { ImageGrid } from '../../app/components';
 import CategoriesImg from '../../app/assets/resource-anatomy/resource-categories.png';
 import PatternStatesImg from '../../app/assets/resource-anatomy/pattern-states.png';
 
-# PX Blue Design Anatomy
+# Design System Anatomy
 
 The building blocks of the PX Blue design system are broken down into five levels of increasing complexity: elements, components, templates, pages, and workflows. When communicating with other members of the PX Blue community, you should use strive to use this terminology to promote effective collaboration and understanding. This is applicable to designers, developers, product managers, etc.
 
 <ImageGrid
     images={[CategoriesImg]}
     gridImageProps={{ xs: 12, sm: 12, md: 12 }}
-    caption={'The five categories of PXBlue resources.'}
+    caption={'The five levels of the PX Blue design system hierarchy.'}
 />
 
 ## Elements
@@ -37,7 +37,7 @@ Workflows are a sequence of pages combined with rules surrounding how a user goe
 
 Examples of very common workflows include the [login](/patterns/login) experience and user registration/sign up.
 
-<Divider />
+<Divider style={{ marginTop: 96 }} />
 
 # Design Patterns
 

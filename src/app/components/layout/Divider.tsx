@@ -14,14 +14,13 @@ type DividerProps = MuiDividerProps & {
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            width: 'calc(100% + 40px)',
-            margin: `${theme.spacing(3)}px -20px`,
+            width: `100%`,
+            margin: `${theme.spacing(12)}px 0`,
         },
     })
 );
 
 export const Divider: React.FC<DividerProps> = (props): JSX.Element => {
-    const { fullScreen, ...DividerProps } = props;
     const classes = useStyles();
-    return <MuiDivider classes={fullScreen && classes} {...DividerProps} />;
+    return <MuiDivider classes={classes} {...props} />;
 };
