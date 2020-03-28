@@ -39,7 +39,7 @@ export const Resources: React.FC = (): JSX.Element => {
     return (
         <>
             <AppBar position="sticky" color={'secondary'} className={classes.tabs} elevation={0}>
-                <Tabs variant={'standard'} value={filter}>
+                <Tabs variant={'scrollable'} value={filter}>
                     <Tab
                         style={{ minWidth: 'auto' }}
                         label="All"

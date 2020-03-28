@@ -173,13 +173,10 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                                 key={`roadmap_item_${index}`}
                                                 hidePadding
                                                 divider={index === bucket.items.length - 1 ? undefined : 'full'}
-                                                title={
-                                                    <Typography className={classes.title} noWrap>
-                                                        {item.name}
-                                                    </Typography>
-                                                }
+                                                title={<Typography className={classes.title}>{item.name}</Typography>}
                                                 subtitle={item.description}
                                                 statusColor={statusColor ? statusColor[500] : undefined}
+                                                wrapSubtitle
                                                 leftComponent={
                                                     <div style={{ display: 'block' }}>
                                                         <Typography

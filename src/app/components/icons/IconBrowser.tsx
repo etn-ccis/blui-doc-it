@@ -66,6 +66,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     toggleIcon: {
         display: 'inline-block',
         verticalAlign: 'text-bottom',
+        transition: 'transform 200ms',
     },
     search: {
         position: 'relative',
@@ -260,17 +261,15 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                                         {filteredIconList.length <= hideResultsThreshold
                                             ? null
                                             : [
-                                                  hideLetterGroups[letterGroup] ? (
-                                                      <MaterialIcons.ExpandLess
-                                                          key={`${letterGroup} + ${letterGroup.length}`}
-                                                          className={classes.toggleIcon}
-                                                      />
-                                                  ) : (
-                                                      <MaterialIcons.ExpandMore
-                                                          key={`${letterGroup} + ${letterGroup.length}`}
-                                                          className={classes.toggleIcon}
-                                                      />
-                                                  ),
+                                                  <MaterialIcons.ExpandLess
+                                                      key={`${letterGroup} + ${letterGroup.length}`}
+                                                      className={classes.toggleIcon}
+                                                      style={{
+                                                          transform: hideLetterGroups[letterGroup]
+                                                              ? 'rotate(180deg)'
+                                                              : undefined,
+                                                      }}
+                                                  />,
                                               ]}
                                     </Typography>
                                     <Collapse
