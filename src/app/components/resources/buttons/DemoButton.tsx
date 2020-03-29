@@ -2,7 +2,7 @@ import React, { ComponentProps } from 'react';
 import { IconButton, Badge, makeStyles, createStyles, Theme, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 import * as Colors from '@pxblue/colors';
-import { Code } from '@material-ui/icons';
+import {LiveDemo} from '../../../assets/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -45,7 +45,7 @@ export const DemoButton: React.FC<DemoButtonProps> = (props) => {
                 color={'default'}
                 classes={{ badge: classes.badge }}
             >
-                <Code />
+                <LiveDemo />
             </Badge>
         </IconButton>
     ) : (
@@ -56,7 +56,7 @@ export const DemoButton: React.FC<DemoButtonProps> = (props) => {
             }}
             {...other}
         >
-            <Code fontSize={'small'} htmlColor={Colors.blue[400]} />
+            <LiveDemo fontSize={'small'} htmlColor={Colors.blue[400]} />
             {count !== undefined && count > 0 && (
                 <Typography style={{ color: Colors.blue[500], fontSize: 12 }}>{count}</Typography>
             )}

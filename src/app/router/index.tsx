@@ -56,7 +56,7 @@ export const MainRouter = (): JSX.Element => {
     const classes = useStyles();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    const toolbarHeight = isMobile ? 102 : 128;
+    const toolbarHeight = isMobile ? 104 : 112;
 
     return (
         <Router>
