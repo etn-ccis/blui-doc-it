@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Divider, useMediaQuery, makeStyles, createStyles, Theme, useTheme } from '@material-ui/core';
 import { InfoListItem } from '@pxblue/react-components';
-import { Description } from '@material-ui/icons';
+import { GitHub } from '../../assets/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -51,8 +51,8 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element | nu
                                 window.open(repositoryLink, '_blank');
                             }}
                         >
-                            <Description style={{ marginRight: theme.spacing(1) }} />
-                            Documentation
+                            <GitHub style={{ marginRight: theme.spacing(1) }} />
+                            View GitHub Repository
                         </Button>
                     </div>
                     {props.divider && <Divider />}
