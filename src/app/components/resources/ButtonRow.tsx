@@ -1,7 +1,6 @@
 import React from 'react';
 import { IconButton, makeStyles, createStyles, Theme } from '@material-ui/core';
-
-import { Description } from '@material-ui/icons';
+import { GitHub } from '../../assets/icons/github';
 import { Spacer } from '@pxblue/react-components';
 import * as Colors from '@pxblue/colors';
 import { DemoButton, BugsButton, BuildButton } from './buttons';
@@ -98,7 +97,7 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
                         window.open(repoLink, '_blank');
                     }}
                 >
-                    <Description />
+                    <GitHub />
                 </IconButton>
             )}
         </>
