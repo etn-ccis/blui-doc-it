@@ -261,7 +261,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                                         {filteredIconList.length <= hideResultsThreshold
                                             ? null
                                             : [
-                                                  <MaterialIcons.ExpandLess
+                                                  <MaterialIcons.ExpandMore
                                                       key={`${letterGroup} + ${letterGroup.length}`}
                                                       className={classes.toggleIcon}
                                                       style={{
