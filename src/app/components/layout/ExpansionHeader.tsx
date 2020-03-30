@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme: Theme) =>
             alignItems: 'center',
             flexWrap: 'wrap',
             overflow: 'hidden',
+            [theme.breakpoints.down('xs')]: {
+                padding: `${theme.spacing(1)}px 0`,
+            },
         },
         expanderSubtitle: {
             fontWeight: 300,
@@ -57,11 +60,7 @@ export const ExpansionHeader: React.FC<ExpansionHeaderProps> = (props): JSX.Elem
                     color={'primary'}
                     className={classes.expanderTitle}
                 >{`${props.name}: `}</Typography>
-                <Typography
-                    color={'primary'}
-                    noWrap
-                    className={classes.expanderSubtitle}
-                >{`${props.description}`}</Typography>
+                <Typography color={'primary'} className={classes.expanderSubtitle}>{`${props.description}`}</Typography>
             </div>
         </ExpansionPanelSummary>
     );

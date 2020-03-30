@@ -12,6 +12,7 @@ import {
     Select,
     MenuItem,
     Toolbar,
+    useTheme,
 } from '@material-ui/core';
 
 import { PageContent, ExpansionHeader } from '../components';
@@ -28,8 +29,9 @@ import { useBackgroundColor } from '../hooks/useBackgroundColor';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         secondaryToolbar: {
-            color: Colors.white[50],
+            color: theme.palette.primary.contrastText,
             top: theme.spacing(8),
+            height: theme.spacing(6),
             [theme.breakpoints.down('xs')]: {
                 top: theme.spacing(7),
             },
@@ -80,6 +82,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const classes = useStyles();
     const [frameworkFilter, setFrameworkFilter] = useState<FrameworkFilter>('all');
     const [quarterFilter, setQuarterFilter] = useState<Quarter | 'Quarter'>('Quarter');
+    const theme = useTheme();
 
     const getTags = useCallback(
         (item: RoadmapItem): JSX.Element | undefined => {
@@ -119,11 +122,11 @@ export const Roadmap: React.FC = (): JSX.Element => {
     return (
         <>
             <AppBar position="sticky" color={'secondary'} className={classes.secondaryToolbar} elevation={0}>
-                <Toolbar>
+                <Toolbar style={{ minHeight: theme.spacing(6) }}>
                     <Select
                         value={frameworkFilter}
                         disableUnderline
-                        style={{ minWidth: 100, alignSelf: 'stretch', color: Colors.white[50] }}
+                        style={{ minWidth: 100, alignSelf: 'stretch', color: theme.palette.primary.contrastText }}
                         onChange={(e): void => setFrameworkFilter(e.target.value as FrameworkFilter)}
                         classes={{ icon: classes.selectIcon }}
                     >
@@ -136,7 +139,12 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     <Select
                         value={quarterFilter}
                         disableUnderline
-                        style={{ marginLeft: 16, minWidth: 100, alignSelf: 'stretch', color: Colors.white[50] }}
+                        style={{
+                            marginLeft: theme.spacing(2),
+                            minWidth: 100,
+                            alignSelf: 'stretch',
+                            color: theme.palette.primary.contrastText,
+                        }}
                         onChange={(e): void => setQuarterFilter(e.target.value as Quarter)}
                         classes={{ icon: classes.selectIcon }}
                     >
@@ -173,13 +181,10 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                                 key={`roadmap_item_${index}`}
                                                 hidePadding
                                                 divider={index === bucket.items.length - 1 ? undefined : 'full'}
-                                                title={
-                                                    <Typography className={classes.title} noWrap>
-                                                        {item.name}
-                                                    </Typography>
-                                                }
+                                                title={<Typography className={classes.title}>{item.name}</Typography>}
                                                 subtitle={item.description}
                                                 statusColor={statusColor ? statusColor[500] : undefined}
+                                                wrapSubtitle
                                                 leftComponent={
                                                     <div style={{ display: 'block' }}>
                                                         <Typography
