@@ -1,0 +1,55 @@
+import { Divider } from '../../app/components';
+import { ImageGrid } from '../../app/components';
+import CategoriesImg from '../../app/assets/resource-anatomy/resource-categories.png';
+import PatternStatesImg from '../../app/assets/resource-anatomy/pattern-states.png';
+
+# Design System Anatomy
+
+The building blocks of the PX Blue design system are broken down into five levels of increasing complexity: elements, components, templates, pages, and workflows. When communicating with other members of the PX Blue community, you should use strive to use this terminology to promote effective collaboration and understanding. This is applicable to designers, developers, product managers, etc.
+
+<ImageGrid
+    images={[CategoriesImg]}
+    gridImageProps={{ xs: 12, sm: 12, md: 12 }}
+    caption={'The five levels of the PX Blue design system hierarchy.'}
+/>
+
+## Elements
+
+Elements are the most basic visual elements on the page, such as [color](/style/color), [icons](/style/iconography), [typography](/style/typography), etc. These typically have no behavior or interaction on their own, but instead are used to communicate information to a user.
+
+## Components
+
+Components are the basic functional units of the UI. They are usually interactive (though some components may be purely presentational) through clicking, expanding, etc. Components can be as simple (such as buttons, tabs, sliders) or complex (such as [navigation drawers](/patterns/navigation)). Simpler components are often combined to form complex ones.
+
+Most of the simple components in PX Blue are defined and built by Material Design and the component libraries that implement it. PX Blue focuses on defining and building advanced components that are shared across PX Blue applications.
+
+## Templates
+
+Templates are UI layouts that can be used as a starting point for new projects. They present typical layouts pre-populated with placeholder components. You can swap out the components in these templates with your own to create new designs.
+
+## Pages
+
+Pages are the largest single unit in the PX Blue design system. These are typically full-screen designs that specify exactly how certain pages in an application should look. Unlike templates, pages are prescriptive and should not be modified unless there is a strong reason for it. Examples of pages include "login (empty fields)" and "create password (invalid)".
+
+## Workflows
+
+Workflows are a sequence of pages combined with rules surrounding how a user goes from one page to another. These usually represent a common pathway that a user is expected to take to complete various tasks. Workflows that are defined in PX Blue are intended to be _identical_ between applications.
+
+Examples of very common workflows include the [login](/patterns/login) experience and user registration/sign up.
+
+<Divider />
+
+# Design Patterns
+
+<ImageGrid images={[PatternStatesImg]} gridImageProps={{ xs: 12, sm: 8, md: 8 }} />
+
+[Design patterns](/patterns) are very common in PX Blue. A design pattern is a common interaction or behavior that can exist at any level in the design system hierarchy. For example, we may have a design pattern for showing actions available on a list item or how to interact with individual settings on a settings page.
+
+Because a design pattern centers around interactions, they typically include different states. A button can be normal, hovered, or pressed. Similarly, a login workflow can involve login with 2FA, Captcha, or simply a username and password.
+
+For each state, PX Blue tries to provide:
+
+-   Guidelines: How it's used and in what context
+-   Design Specifications: How it looks
+-   Interactions: How it goes from one state to another
+-   Code: How it can be implemented

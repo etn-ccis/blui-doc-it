@@ -1,0 +1,89 @@
+/* @import "holidayThemes/holidayStyles.css"; */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#root {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+blockquote,
+q {
+    quotes: none;
+    border-left: 6px #007bc1 solid;
+    background: rgba(0, 123, 193, 0.1);
+    margin: 0px;
+    margin-bottom: 1rem;
+    padding-left: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+blockquote > p:last-child {
+    margin-bottom: 0;
+}
+pre,
+code {
+    background-color: #eef0f0; /* gray[50] */
+    color: #333;
+    font-family: Roboto Mono, Monospaced;
+    font-size: 0.75rem;
+    border-radius: 3px;
+    overflow: auto;
+}
+pre {
+    padding: 10px;
+}
+code {
+    padding: 4px;
+}
+pre > code {
+    padding: 0px;
+}
+
+p.MuiTypography-h6.MuiTypography-paragraph,
+p.MuiTypography-h5.MuiTypography-paragraph {
+    clear: both;
+}
+
+.rotateMe {
+    animation: 2500ms spin linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+/* Carousel Overrides */
+.BrainhubCarousel {
+    position: relative;
+    color: white;
+}
+.BrainhubCarousel__customArrows {
+    position: absolute;
+    width: 0;
+    top: calc(50%);
+    transform: translateY(-50%);
+    z-index: 100;
+}
+.BrainhubCarousel__custom-arrowLeft {
+    left: 0;
+}
+.BrainhubCarousel__custom-arrowRight {
+    right: 59px;
+}

@@ -1,0 +1,32 @@
+import { DemoCard, ImageGrid } from '../../app/components';
+import Image1 from '../../app/assets/design-patterns/collapsible-appbar/collapsible-appbar-expanded.png';
+import Image2 from '../../app/assets/design-patterns/collapsible-appbar/collapsible-appbar-collapsed.png';
+import Image3 from '../../app/assets/design-patterns/search-bar/search-bar.png';
+import Image4 from '../../app/assets/design-patterns/search-bar/search-bar-search.png';
+
+# App Bar Patterns
+
+App bars are useful in a variety of locations throughout PX Blue applications. They are typically used to provide a title or description for a collection of data that follows. They may also contain a menu and/or various actions that can be performed.
+
+## A Basic App Bar
+
+The most basic app bar is used at the top of a page as a title bar. It will have a menu button to the left (used to toggle a navigation menu/drawer) followed by one or two lines of text (title/subtitle) and, optionally, a dropdown with global page actions. Basic app bars can also be used to provide more detailed headers for Cards.
+
+## Collapsible App Bar
+
+<ImageGrid
+    images={[Image1, Image2]}
+    caption={'A collapsible app bar shrinks and gets pinned to the top when the page is scrolled.'}
+/>
+<DemoCard repository={'collapsible-appbar'} angular react ionic reactNative float={'right'} />
+
+In some situations, you may want to present more information in an app bar, such as a large graphic, buttons, or multiple lines of text. In these cases, you can use a taller app bar that will shrink as the user scrolls down the page and be replaced by a basic app bar. This allows you the flexibility to present an eye-catching banner without permanently reducing the amount of usable space on the page. This is a pattern most commonly used for mobile applications, but could also be used at a larger scale.
+
+## Search Bar
+
+<ImageGrid
+    images={[Image3, Image4]}
+    caption={'When the search icon is clicked, a white search bar will slide in and cover the default tool bar. '}
+/>
+<DemoCard repository={'search-bar'} angular react ionic reactNative float={'right'}/>
+A very common pattern seen in many types of applications is the ability to search for data on a page. This is achieved by placing a search icon/button in the app bar. When this button is clicked, a white Search Bar slides in from the right to cover the default toolbar. As the user enters text into the search field, the data is filtered in real-time.
