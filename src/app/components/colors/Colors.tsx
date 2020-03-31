@@ -4,6 +4,7 @@ import { Bookmark } from '@material-ui/icons';
 import * as Colors from '@pxblue/colors';
 import { AppState } from '../../redux/reducers';
 import { useSelector } from 'react-redux';
+import {PXBlueColor} from "@pxblue/types";
 
 const getColorLabel = (color: string): JSX.Element | null => {
     const format = useSelector((state: AppState) => state.app.colorFormat);
@@ -20,23 +21,6 @@ const getColorLabel = (color: string): JSX.Element | null => {
     ) : null;
 };
 
-export type PXBlueColor = {
-    50: string;
-    100: string;
-    200: string;
-    300: string;
-    400: string;
-    500: string;
-    600: string;
-    700: string;
-    800: string;
-    900: string;
-    A100?: string;
-    A200?: string;
-    A400?: string;
-    A700?: string;
-    contrastDefaultColor?: string;
-};
 type SwatchProps = ComponentProps<'div'> & {
     color: string;
     weight: string;

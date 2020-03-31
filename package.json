@@ -26,6 +26,7 @@
     "@pxblue/react-components": "^3.0.2",
     "@pxblue/react-progress-icons": "^2.0.0",
     "@pxblue/react-themes": "^4.0.0",
+    "@pxblue/types": "^1.0.0",
     "axios": "^0.19.2",
     "clsx": "^1.1.0",
     "prop-types": "^15.7.2",
