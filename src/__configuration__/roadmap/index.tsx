@@ -181,7 +181,7 @@ export const roadmap: RoadmapBucket[] = [
         items: [
             {
                 name: 'React Login',
-                description: 'Expanded documentation for using PX Blue as a designer',
+                description: 'Shared login experience across applications',
                 year: 2020,
                 quarter: 'Q2',
                 status: 'in-progress',
@@ -190,7 +190,7 @@ export const roadmap: RoadmapBucket[] = [
             },
             {
                 name: 'React User Registration',
-                description: 'New format and content for design patterns',
+                description: 'Shared registration experience across applications',
                 year: 2020,
                 quarter: 'Q2',
                 status: 'in-progress',
