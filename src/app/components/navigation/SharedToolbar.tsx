@@ -37,6 +37,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
 
     const _navigationIcon = useCallback(
         () => (
+
             <Hidden mdUp={navigationIcon !== undefined && !isLandingPage}>
                 <IconButton
                     color={'inherit'}
