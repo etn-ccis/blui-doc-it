@@ -37,7 +37,7 @@ export const roadmap: RoadmapBucket[] = [
                 description: 'Add a component for stylized list items',
                 year: 2020,
                 quarter: 'Q2',
-                status: 'backlog',
+                status: 'in-progress',
                 author: 'PX Blue',
             },
             {
@@ -45,7 +45,7 @@ export const roadmap: RoadmapBucket[] = [
                 description: 'Add a component for stylized cards',
                 year: 2020,
                 quarter: 'Q2',
-                status: 'backlog',
+                status: 'in-progress',
                 author: 'PX Blue',
             },
             {
