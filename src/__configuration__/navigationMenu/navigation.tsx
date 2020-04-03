@@ -141,7 +141,6 @@ export const pageDefinitions: SimpleNavItem[] = [
                 title: 'Design Anatomy',
                 url: '/anatomy',
                 component: <MarkdownPage title={'Design System Anatomy'} markdown={Docs.Design.Anatomy} />,
-                hidden: true,
             },
         ],
     },
