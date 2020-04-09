@@ -4,7 +4,7 @@ import { Bookmark } from '@material-ui/icons';
 import * as Colors from '@pxblue/colors';
 import { AppState } from '../../redux/reducers';
 import { useSelector } from 'react-redux';
-import {PXBlueColor} from "@pxblue/types";
+import { PXBlueColor } from '@pxblue/types';
 
 const getColorLabel = (color: string): JSX.Element | null => {
     const format = useSelector((state: AppState) => state.app.colorFormat);

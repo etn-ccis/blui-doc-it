@@ -24,7 +24,7 @@ import { InfoListItem, ListItemTag } from '@pxblue/react-components';
 
 import * as Colors from '@pxblue/colors';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
-import {PXBlueColor} from "@pxblue/types";
+import { PXBlueColor } from '@pxblue/types';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({

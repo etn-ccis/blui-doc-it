@@ -44,9 +44,9 @@ export const NavigationDrawer = (): JSX.Element => {
                 itemID: fullURL,
                 onClick: item.component
                     ? (): void => {
-                          history.push(fullURL);
-                          dispatch({ type: TOGGLE_DRAWER, payload: false });
-                      }
+                        history.push(fullURL);
+                        dispatch({ type: TOGGLE_DRAWER, payload: false });
+                    }
                     : undefined,
                 items: item.pages ? createNavItems(item.pages, `${parentUrl}${item.url}`, depth + 1) : undefined,
             });
@@ -72,6 +72,7 @@ export const NavigationDrawer = (): JSX.Element => {
             style={{ boxShadow: theme.shadows[12] }}
             className={!isMobile && !isLandingPage ? classes.shadow : undefined}
             variant={isMobile || isLandingPage ? 'temporary' : 'permanent'}
+            activeItemBackgroundColor={theme.palette.primary.light}
         >
             <DrawerHeader
                 backgroundColor={Colors.blue[500]}
