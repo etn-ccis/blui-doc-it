@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
         textArea: {
             flex: 1,
             margin: `0 ${theme.spacing(2)}px`,
-            minHeight: theme.spacing(12),
+            minHeight: theme.spacing(15),
         },
     })
 );
@@ -61,9 +61,9 @@ export const MaterialDesignDescription: React.FC<MaterialDesignDescriptionProps>
     const classes = useStyles();
     const {
         avatar = <MaterialDesign style={{ height: theme.spacing(6), width: theme.spacing(6) }} />,
-        description = 'Read about how the pattern is defined in Material.io. Follow their instructions unless PX Blue has defined it otherwise.',
+        description = `Learn about Material Design's description of this pattern. Follow their guidance unless PX Blue recommends specific changes.`,
         icon = <OpenInNew style={{ color: theme.palette.text.hint }} />,
-        title = "Material's Description",
+        title = `Material's Description`,
         url,
         ...cardProps
     } = props;
@@ -73,7 +73,7 @@ export const MaterialDesignDescription: React.FC<MaterialDesignDescriptionProps>
                 className={classes.actionArea}
                 onClick={(e): void => {
                     if (e) {
-                        window.open(url);
+                        window.open(url, '_blank');
                     }
                 }}
                 {...props.CardActionAreaProps}
