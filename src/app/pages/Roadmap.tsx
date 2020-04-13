@@ -157,7 +157,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                 </Toolbar>
             </AppBar>
 
-            <PageContent>
+            <PageContent wideLayout>
                 {filteredBuckets.map((bucket, bIndex) => {
                     const filteredItems = bucket.items.filter(
                         (item) =>

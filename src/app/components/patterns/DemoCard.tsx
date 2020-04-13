@@ -7,8 +7,6 @@ import {
     Typography,
     CardProps,
     Chip,
-    useMediaQuery,
-    useTheme,
 } from '@material-ui/core';
 import { Angular, ReactBlue, Ionic } from '../../assets/icons';
 import * as Colors from '@pxblue/colors';
@@ -78,12 +76,14 @@ const useStyles = makeStyles((theme: Theme) =>
             color: theme.palette.text.primary,
         },
         demoCard: {
-            width: theme.spacing(35),
+            width: theme.spacing(38),
             maxWidth: '100%',
             margin: `0 auto`,
             padding: theme.spacing(1.5),
-            borderLeft: `${theme.spacing(1)}px solid ${theme.palette.secondary.main}`,
-            marginBottom: theme.spacing(4),
+            // borderLeft: `${theme.spacing(1)}px solid ${theme.palette.secondary.main}`,
+            marginBottom: theme.spacing(2),
+            display: 'inline-block',
+            minHeight: theme.spacing(19),
         },
         demoTitle: {
             color: Colors.gray[500],
@@ -91,14 +91,14 @@ const useStyles = makeStyles((theme: Theme) =>
             marginBottom: theme.spacing(1),
             fontWeight: 600,
         },
-        floatRight: {
-            float: 'right',
-            marginLeft: theme.spacing(4),
-        },
-        floatLeft: {
-            float: 'left',
-            marginRight: theme.spacing(4),
-        },
+        // floatRight: {
+        //     float: 'right',
+        //     marginLeft: theme.spacing(4),
+        // },
+        // floatLeft: {
+        //     float: 'left',
+        //     marginRight: theme.spacing(4),
+        // },
     })
 );
 
@@ -120,15 +120,12 @@ const DemoButton: React.FC<DemoButtonProps> = (props): JSX.Element => {
 };
 
 export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
-    const { repository, angular, react, ionic, reactNative, float, ...cardProps } = props;
+    const { repository, angular, react, ionic, reactNative, ...cardProps } = props;
     const classes = useStyles();
-    const theme = useTheme();
-    const mdUp = useMediaQuery(theme.breakpoints.up('md'));
     return (
         <Card
             className={clsx(
-                classes.demoCard,
-                mdUp && { [classes.floatLeft]: float === 'left', [classes.floatRight]: float === 'right' }
+                classes.demoCard
             )}
             {...cardProps}
         >

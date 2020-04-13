@@ -74,7 +74,7 @@ export const Resources: React.FC = (): JSX.Element => {
             </AppBar>
 
             {/* First expander */}
-            <PageContent>
+            <PageContent wideLayout>
                 {resources.map(
                     (bucket, bIndex) =>
                         (!bucket.applies ||
@@ -88,29 +88,29 @@ export const Resources: React.FC = (): JSX.Element => {
                                     <List style={{ padding: 0 }}>
                                         {bucket.items.map((item, index): JSX.Element | null =>
                                             item.applies === undefined ||
-                                            item.applies.includes(filter) ||
-                                            item.applies.includes('all') ||
-                                            filter === 'all' ? (
-                                                item.package ? (
-                                                    <PackageRow
-                                                        key={`${item.name}_${index}`}
-                                                        package={item.package}
-                                                        repository={item.repository || ''}
-                                                        description={item.description}
-                                                        divider={index < bucket.items.length - 1}
-                                                    />
-                                                ) : (
-                                                    <ExampleRow
-                                                        key={`${item.name}_${index}`}
-                                                        name={item.name}
-                                                        repository={item.repository || ''}
-                                                        description={item.description}
-                                                        branches={filter !== 'all' ? [filter] : item.applies}
-                                                        bugLabels={filter !== 'all' ? [filter] : []}
-                                                        divider={index < bucket.items.length - 1}
-                                                    />
-                                                )
-                                            ) : null
+                                                item.applies.includes(filter) ||
+                                                item.applies.includes('all') ||
+                                                filter === 'all' ? (
+                                                    item.package ? (
+                                                        <PackageRow
+                                                            key={`${item.name}_${index}`}
+                                                            package={item.package}
+                                                            repository={item.repository || ''}
+                                                            description={item.description}
+                                                            divider={index < bucket.items.length - 1}
+                                                        />
+                                                    ) : (
+                                                            <ExampleRow
+                                                                key={`${item.name}_${index}`}
+                                                                name={item.name}
+                                                                repository={item.repository || ''}
+                                                                description={item.description}
+                                                                branches={filter !== 'all' ? [filter] : item.applies}
+                                                                bugLabels={filter !== 'all' ? [filter] : []}
+                                                                divider={index < bucket.items.length - 1}
+                                                            />
+                                                        )
+                                                ) : null
                                         )}
                                     </List>
                                 </ExpansionPanelDetails>

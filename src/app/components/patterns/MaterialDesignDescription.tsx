@@ -37,21 +37,25 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             width: theme.spacing(38),
+            maxWidth: '100%',
             marginBottom: theme.spacing(2),
-            marginRight: theme.spacing(2),
+            marginRight: theme.spacing(4),
             display: 'inline-block',
+            [theme.breakpoints.down('xs')]: {
+                marginRight: 0,
+            }
         },
-        actionArea: {
+        contentArea: {
             flexDirection: 'row',
             display: 'flex',
+            minHeight: theme.spacing(19),
+            alignItems: 'flex-start',
             padding: theme.spacing(1),
             paddingBottom: theme.spacing(2),
-            alignItems: 'flex-start',
         },
         textArea: {
             flex: 1,
             margin: `0 ${theme.spacing(2)}px`,
-            minHeight: theme.spacing(15),
         },
     })
 );
@@ -70,7 +74,6 @@ export const MaterialDesignDescription: React.FC<MaterialDesignDescriptionProps>
     return (
         <Card className={classes.root} {...cardProps}>
             <CardActionArea
-                className={classes.actionArea}
                 onClick={(e): void => {
                     if (e) {
                         window.open(url, '_blank');
@@ -78,14 +81,17 @@ export const MaterialDesignDescription: React.FC<MaterialDesignDescriptionProps>
                 }}
                 {...props.CardActionAreaProps}
             >
-                {avatar}
-                <div className={classes.textArea}>
-                    <Typography variant={'body2'} style={{ fontWeight: 600 }}>
-                        {title}
-                    </Typography>
-                    <Typography variant={'caption'}>{description}</Typography>
+                <div
+                    className={classes.contentArea}>
+                    {avatar}
+                    <div className={classes.textArea}>
+                        <Typography variant={'body2'} style={{ fontWeight: 600 }}>
+                            {title}
+                        </Typography>
+                        <Typography variant={'caption'}>{description}</Typography>
+                    </div>
+                    {icon}
                 </div>
-                {icon}
             </CardActionArea>
         </Card>
     );

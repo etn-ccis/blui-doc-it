@@ -9,6 +9,7 @@ import {
     useTheme,
     useMediaQuery,
 } from '@material-ui/core';
+import { gray } from '@pxblue/colors';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
             marginBottom: theme.spacing(5),
         },
         image: {
-            boxShadow: theme.shadows[2],
+            border: `1px solid ${gray[50]}`,
             maxHeight: '100%',
             maxWidth: '100%',
             [theme.breakpoints.up('sm')]: {
@@ -68,7 +69,7 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
             >
                 {images.map((item, index) =>
                     typeof item === 'string' ? (
-                        <Grid key={`content_${index}`} item xs={12} sm={6} md={4} {...gridImageProps}>
+                        <Grid key={`content_${index}`} item xs={12} sm={6} {...gridImageProps}>
                             <img
                                 className={classes.image}
                                 src={item}
@@ -81,10 +82,10 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
                             />
                         </Grid>
                     ) : (
-                        <Grid key={`content_${index}`} item xs={12} sm={6} md={4} {...gridComponentProps}>
-                            {item}
-                        </Grid>
-                    )
+                            <Grid key={`content_${index}`} item xs={12} sm={6} {...gridComponentProps}>
+                                {item}
+                            </Grid>
+                        )
                 )}
             </Grid>
             <Typography variant={'caption'}>{caption}</Typography>
