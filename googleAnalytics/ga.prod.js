@@ -1,1 +1,1 @@
-export const gaID = "UA-139646200-1";
+export const gaID = 'UA-139646200-1';
