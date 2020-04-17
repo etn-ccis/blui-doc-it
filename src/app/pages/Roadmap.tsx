@@ -19,6 +19,8 @@ import { PageContent, ExpansionHeader } from '../components';
 
 import { roadmap, Status, RoadmapItem, Quarter } from '../../__configuration__/roadmap';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
+
 import { FrameworkFilter } from '../../__types__';
 import { InfoListItem, ListItemTag } from '@pxblue/react-components';
 
@@ -78,6 +80,7 @@ const getStatusColor = (status: Status): PXBlueColor | undefined => {
 
 export const Roadmap: React.FC = (): JSX.Element => {
     usePageTitle('Roadmap');
+    useGoogleAnalyticsPageView();
     useBackgroundColor(Colors.gray[50]);
     const classes = useStyles();
     const [frameworkFilter, setFrameworkFilter] = useState<FrameworkFilter>('all');

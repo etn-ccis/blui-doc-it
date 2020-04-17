@@ -6,10 +6,13 @@ import { ReleaseInfo } from '../../docs/release-notes';
 import { PageContent } from '../components';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
+
 
 export const ReleaseNotes: React.FC = (): JSX.Element => {
     const theme = useTheme();
     usePageTitle('Release Notes');
+    useGoogleAnalyticsPageView();
     useBackgroundColor(Colors.white[50]);
 
     return (
