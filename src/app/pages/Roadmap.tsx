@@ -17,7 +17,7 @@ import {
 
 import { PageContent, ExpansionHeader } from '../components';
 
-import { Status, RoadmapItem, Quarter, RoadmapBucket } from '../../__configuration__/roadmap';
+import {Status, RoadmapItem, Quarter, RoadmapBucket, backupRoadmap} from '../../__configuration__/roadmap';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
@@ -99,10 +99,11 @@ export const Roadmap: React.FC = (): JSX.Element => {
         getRoadmap()
             .then((data: RoadmapBucket[] | undefined) => {
                 setRoadmap(data || []);
-                //setLoading(false);
+              //  setLoading(false);
             })
             .catch(() => {
                 setLoading(false);
+                setRoadmap(backupRoadmap);
             });
     }, []);
 
