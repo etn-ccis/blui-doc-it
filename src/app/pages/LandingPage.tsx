@@ -30,6 +30,8 @@ import { ReleaseInfo } from '../../docs/release-notes';
 import computer from '../assets/placeholder/develop.jpg';
 import paper from '../assets/placeholder/paper.jpg';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
+
 import { PXBLogo } from '../assets/icons/PXBLogo';
 import { Menu } from '@material-ui/icons';
 
@@ -60,6 +62,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
     const theme = useTheme();
     const classes = useStyles();
     usePageTitle('');
+    useGoogleAnalyticsPageView();
 
     return (
         <>
