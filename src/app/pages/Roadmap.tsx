@@ -17,7 +17,7 @@ import {
 
 import { PageContent, ExpansionHeader } from '../components';
 
-import {Status, RoadmapItem, Quarter, RoadmapBucket, backupRoadmap} from '../../__configuration__/roadmap';
+import { Status, RoadmapItem, Quarter, RoadmapBucket, backupRoadmap } from '../../__configuration__/roadmap';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
@@ -96,15 +96,20 @@ export const Roadmap: React.FC = (): JSX.Element => {
     ];
 
     useEffect(() => {
-        getRoadmap()
-            .then((data: RoadmapBucket[] | undefined) => {
+        let isMounted = true;
+
+        setLoading(true);
+        const loadRoadmap = async (): Promise<void> => {
+            const data = await getRoadmap();
+            if (isMounted) {
                 setRoadmap(data || backupRoadmap);
-                setLoading(false);
-            })
-            .catch(() => {
-                setLoading(false);
-                setRoadmap(backupRoadmap);
-            });
+            }
+            setLoading(false);
+        };
+        loadRoadmap();
+        return (): void => {
+            isMounted = false;
+        };
     }, []);
 
     const filteredBuckets = roadmap.filter(
@@ -191,11 +196,11 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                     style={{ marginBottom: groupNumber > 0 && i === 0 ? 48 : 0 }}
                                 >
                                     <div className="ph-col-12">
-                                        <div className="ph-row" style={{flexWrap: 'unset'}}>
-                                            <div className="ph-avatar" style={{width:30, height: 30, minWidth: 0}} />
-                                            <div style={{marginLeft: 16, width: '100%', backgroundColor: 'unset'}}>
-                                                <div style={{display: "flex", width: "33%", height: 12}} />
-                                                <div style={{display: "flex", width: "66%", height: 12}} />
+                                        <div className="ph-row" style={{ flexWrap: 'unset' }}>
+                                            <div className="ph-avatar" style={{ width: 30, height: 30, minWidth: 0 }} />
+                                            <div style={{ marginLeft: 16, width: '100%', backgroundColor: 'unset' }}>
+                                                <div style={{ display: 'flex', width: '33%', height: 12 }} />
+                                                <div style={{ display: 'flex', width: '66%', height: 12 }} />
                                             </div>
                                         </div>
                                     </div>
