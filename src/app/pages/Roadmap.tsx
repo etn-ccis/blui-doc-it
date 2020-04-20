@@ -90,8 +90,8 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const [loading, setLoading] = useState<boolean>(true);
     const theme = useTheme();
     const loadingGroups = [
-        [1, 2],
         [1, 2, 3, 4],
+        [1, 2, 3],
         [1, 2, 3],
     ];
 
@@ -99,7 +99,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
         getRoadmap()
             .then((data: RoadmapBucket[] | undefined) => {
                 setRoadmap(data || []);
-                setLoading(false);
+                //setLoading(false);
             })
             .catch(() => {
                 setLoading(false);
@@ -190,9 +190,12 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                     style={{ marginBottom: groupNumber > 0 && i === 0 ? 48 : 0 }}
                                 >
                                     <div className="ph-col-12">
-                                        <div className="ph-row">
-                                            <div className="ph-col-4"></div>
-                                            <div className="ph-col-12"></div>
+                                        <div className="ph-row" style={{flexWrap: 'unset'}}>
+                                            <div className="ph-avatar" style={{width:30, height: 30, minWidth: 0}} />
+                                            <div style={{marginLeft: 16, width: '100%', backgroundColor: 'unset'}}>
+                                                <div style={{display: "flex", width: "33%", height: 12}} />
+                                                <div style={{display: "flex", width: "66%", height: 12}} />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
