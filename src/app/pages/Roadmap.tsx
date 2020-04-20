@@ -98,8 +98,8 @@ export const Roadmap: React.FC = (): JSX.Element => {
     useEffect(() => {
         getRoadmap()
             .then((data: RoadmapBucket[] | undefined) => {
-                setRoadmap(data || []);
-              //  setLoading(false);
+                setRoadmap(data || backupRoadmap);
+                setLoading(false);
             })
             .catch(() => {
                 setLoading(false);
