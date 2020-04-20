@@ -15,6 +15,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { MainRouter } from './app/router';
 import { Reducer } from './app/redux/reducers';
 import { componentsMap } from './__configuration__/markdown/markdownMapping';
+import 'placeholder-loading/src/scss/placeholder-loading.scss';
 
 const store = createStore(Reducer());
 
