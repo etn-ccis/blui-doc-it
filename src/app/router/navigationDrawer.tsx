@@ -72,6 +72,7 @@ export const NavigationDrawer = (): JSX.Element => {
             style={{ boxShadow: theme.shadows[12] }}
             className={!isMobile && !isLandingPage ? classes.shadow : undefined}
             variant={isMobile || isLandingPage ? 'temporary' : 'permanent'}
+            activeItemBackgroundColor={theme.palette.primary.light}
         >
             <DrawerHeader
                 backgroundColor={Colors.blue[500]}

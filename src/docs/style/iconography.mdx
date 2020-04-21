@@ -1,4 +1,4 @@
-import { IconBrowser, ProgressIconCard } from '../../app/components';
+import { IconBrowser, ProgressIconCard, MaterialDesignDescription } from '../../app/components';
 
 # Iconography guidelines
 
@@ -9,7 +9,20 @@ specific to PX Blue products.
 
 These icons are available in a variety of formats - select an icon below to view its usage instructions.
 
-<IconBrowser />
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'System icons'}
+        url={'https://material.io/design/iconography/system-icons.html#'}
+        description={`Material Design's guidelines on creating your own icons.`}
+    />
+    <MaterialDesignDescription
+        title={`Material's icon`}
+        url={'https://material.io/resources/icons/'}
+        description={'List of Material Design icons. They are also included in the table below.'}
+        style={{ marginRight: 0 }}
+    />
+    <IconBrowser />
+</React.Fragment>
 
 ## Progress icons
 
@@ -31,7 +44,7 @@ existing icon is available for you to use.
 If you are looking for the PX Blue 1.0 symbols, please refer to our [Github](https://github.com/pxblue/icons/tree/master/symbols).
 
 If you have your own design resources who are able to create icons, you can build these on your own,
-following the [Material Icon Guidelines](https://material.io/guidelines/style/icons.html#icons-product-icons)
+following the [Material Icon Guidelines](https://material.io/design/iconography/system-icons.html)
 to maintain a common look and feel. If you do not have your own designers, we can work with you to build
 the icon you need. We can either build the icon in house or recommend external resources that you can
 use. Please note that going this route may take extra time, so try to get requests in as early as

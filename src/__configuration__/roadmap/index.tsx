@@ -11,14 +11,14 @@ export type RoadmapItem = {
     author?: string;
     applies?: FrameworkFilter[];
 };
-type RoadmapBucket = {
+export type RoadmapBucket = {
     name: string;
     description: string;
     applies?: FrameworkFilter[];
     items: RoadmapItem[];
 };
 
-export const roadmap: RoadmapBucket[] = [
+export const backupRoadmap: RoadmapBucket[] = [
     {
         name: 'Angular Component Library',
         description: 'Reusable UI elements from @pxblue/angular-components',
@@ -180,22 +180,22 @@ export const roadmap: RoadmapBucket[] = [
         applies: ['all'],
         items: [
             {
-                name: 'React Login',
+                name: 'React Native Login',
                 description: 'Shared login experience across applications',
                 year: 2020,
                 quarter: 'Q2',
                 status: 'in-progress',
                 author: 'Innersource',
-                applies: ['react'],
+                applies: ['react-native'],
             },
             {
-                name: 'React User Registration',
+                name: 'React Native User Registration',
                 description: 'Shared registration experience across applications',
                 year: 2020,
                 quarter: 'Q2',
                 status: 'in-progress',
                 author: 'Innersource',
-                applies: ['react'],
+                applies: ['react-native'],
             },
         ],
     },
