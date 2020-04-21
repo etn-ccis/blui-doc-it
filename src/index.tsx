@@ -20,6 +20,7 @@ if (gaID) {
     ReactGA.initialize(gaID);
 }
 import { componentsMap } from './__configuration__/markdown/markdownMapping';
+import 'placeholder-loading/src/scss/placeholder-loading.scss';
 
 const store = createStore(Reducer());
 
