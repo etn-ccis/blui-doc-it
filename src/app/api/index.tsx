@@ -21,7 +21,7 @@ export const npm = axios.create({
     timeout: 5000,
 });
 export const roadmap = axios.create({
-    baseURL: 'https://us-central1-doc-it-api.cloudfunctions.net',
+    baseURL: 'https://raw.githubusercontent.com/pxblue/pxb-database/master/database/doc-it',
     timeout: 5000,
 });
 
@@ -90,8 +90,8 @@ export const getNpmVersion = async (packageName: string): Promise<string | undef
 
 export const getRoadmap = async (): Promise<RoadmapBucket[] | undefined> => {
     try {
-        const response = await roadmap.get('/roadmap');
-        if (response && response.status === 200) return response.data;
+        const response = await roadmap.get('/roadmap.json');
+        if (response && response.status === 200 && response.data) return response.data.roadmap;
         return undefined;
     } catch (thrown) {
         if (axios.isCancel(thrown)) {

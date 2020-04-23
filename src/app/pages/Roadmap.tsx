@@ -17,17 +17,18 @@ import {
 
 import { PageContent, ExpansionHeader } from '../components';
 
-import { Status, RoadmapItem, Quarter, RoadmapBucket, backupRoadmap } from '../../__configuration__/roadmap';
+import {Status, RoadmapItem, Quarter, RoadmapBucket } from '../../__configuration__/roadmap';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
 import { FrameworkFilter } from '../../__types__';
-import { InfoListItem, ListItemTag } from '@pxblue/react-components';
+import {EmptyState, InfoListItem, ListItemTag} from '@pxblue/react-components';
 
 import * as Colors from '@pxblue/colors';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
 import { PXBlueColor } from '@pxblue/types';
 import { getRoadmap } from '../api';
+import { ErrorOutline } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -102,7 +103,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
         const loadRoadmap = async (): Promise<void> => {
             const data = await getRoadmap();
             if (isMounted) {
-                setRoadmap(data || backupRoadmap);
+                setRoadmap(data || []);
             }
             setLoading(false);
         };
@@ -209,6 +210,14 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         )}
                     </div>
                 )}
+
+                {!loading && filteredBuckets.length === 0 &&
+                    <EmptyState
+                        icon={<ErrorOutline fontSize={'inherit'} style={{ marginTop: 50, marginBottom: '0' }} />}
+                        title={'No Roadmap Data'}
+                        description={'Roadmap data could not be retrieved at this time.'}
+                    />
+                }
 
                 {!loading &&
                     filteredBuckets.map((bucket, bIndex) => {
