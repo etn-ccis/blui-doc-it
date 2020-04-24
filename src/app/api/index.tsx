@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { RoadmapBucket } from '../../__configuration__/roadmap';
+import { RoadmapBucket } from '../../__types__';
 
 export const github = axios.create({
     baseURL: 'https://api.github.com/',
@@ -21,7 +21,7 @@ export const npm = axios.create({
     timeout: 5000,
 });
 export const roadmap = axios.create({
-    baseURL: 'https://us-central1-doc-it-api.cloudfunctions.net',
+    baseURL: 'https://raw.githubusercontent.com/pxblue/pxb-database/master/deployed/doc-it',
     timeout: 5000,
 });
 
@@ -90,7 +90,7 @@ export const getNpmVersion = async (packageName: string): Promise<string | undef
 
 export const getRoadmap = async (): Promise<RoadmapBucket[] | undefined> => {
     try {
-        const response = await roadmap.get('/roadmap');
+        const response = await roadmap.get('/R16Roadmap.json');
         if (response && response.status === 200) return response.data;
         return undefined;
     } catch (thrown) {
