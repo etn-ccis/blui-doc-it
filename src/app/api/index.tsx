@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {RoadmapBucket} from "../../__types__";
+import { RoadmapBucket } from '../../__types__';
 
 export const github = axios.create({
     baseURL: 'https://api.github.com/',

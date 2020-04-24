@@ -17,17 +17,17 @@ import {
 
 import { PageContent, ExpansionHeader } from '../components';
 
-import {Status, RoadmapItem, Quarter, RoadmapBucket, FrameworkFilter} from '../../__types__';
+import { Status, RoadmapItem, Quarter, RoadmapBucket, FrameworkFilter } from '../../__types__';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
-import {EmptyState, InfoListItem, ListItemTag} from '@pxblue/react-components';
+import { EmptyState, InfoListItem, ListItemTag } from '@pxblue/react-components';
 
 import * as Colors from '@pxblue/colors';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
 import { PXBlueColor } from '@pxblue/types';
 import { getRoadmap } from '../api';
-import { ErrorOutline } from "@material-ui/icons";
+import { ErrorOutline } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -68,9 +68,9 @@ const useStyles = makeStyles((theme: Theme) =>
             position: 'relative',
             top: '28h',
             [theme.breakpoints.down('sm')]: {
-                top: '15vh'
-            }
-        }
+                top: '15vh',
+            },
+        },
     })
 );
 
@@ -217,7 +217,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     </div>
                 )}
 
-                {!loading && filteredBuckets.length === 0 &&
+                {!loading && filteredBuckets.length === 0 && (
                     <div className={classes.emptyStateWrapper}>
                         <EmptyState
                             icon={<ErrorOutline fontSize={'inherit'} style={{ marginBottom: '0' }} />}
@@ -225,7 +225,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                             description={'Roadmap data could not be retrieved at this time.'}
                         />
                     </div>
-                }
+                )}
 
                 {!loading &&
                     filteredBuckets.map((bucket, bIndex) => {
