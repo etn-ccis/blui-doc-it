@@ -91,7 +91,7 @@ export const getNpmVersion = async (packageName: string): Promise<string | undef
 export const getRoadmap = async (): Promise<RoadmapBucket[] | undefined> => {
     try {
         const response = await roadmap.get('/R16Roadmap.json');
-        if (response && response.status === 200 && response.data) return response.data.roadmap;
+        if (response && response.status === 200) return response.data;
         return undefined;
     } catch (thrown) {
         if (axios.isCancel(thrown)) {
