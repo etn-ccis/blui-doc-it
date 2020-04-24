@@ -66,9 +66,9 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         emptyStateWrapper: {
             position: 'relative',
-            top: '28h',
+            top: '28vh',
             [theme.breakpoints.down('sm')]: {
-                top: '15vh',
+                top: '22vh',
             },
         },
     })

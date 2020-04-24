@@ -21,7 +21,7 @@ export const npm = axios.create({
     timeout: 5000,
 });
 export const roadmap = axios.create({
-    baseURL: 'https://raw.githubusercontent.com/pxblue/pxb-database/master/database/doc-it',
+    baseURL: 'https://raw.githubusercontent.com/pxblue/pxb-database/master/deployed/doc-it',
     timeout: 5000,
 });
 
