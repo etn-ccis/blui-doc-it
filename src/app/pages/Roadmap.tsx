@@ -17,11 +17,10 @@ import {
 
 import { PageContent, ExpansionHeader } from '../components';
 
-import {Status, RoadmapItem, Quarter, RoadmapBucket } from '../../__configuration__/roadmap';
+import {Status, RoadmapItem, Quarter, RoadmapBucket, FrameworkFilter} from '../../__types__';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
-import { FrameworkFilter } from '../../__types__';
 import {EmptyState, InfoListItem, ListItemTag} from '@pxblue/react-components';
 
 import * as Colors from '@pxblue/colors';
@@ -212,11 +211,13 @@ export const Roadmap: React.FC = (): JSX.Element => {
                 )}
 
                 {!loading && filteredBuckets.length === 0 &&
-                    <EmptyState
-                        icon={<ErrorOutline fontSize={'inherit'} style={{ marginTop: 50, marginBottom: '0' }} />}
-                        title={'No Roadmap Data'}
-                        description={'Roadmap data could not be retrieved at this time.'}
-                    />
+                    <div style={{position: 'relative', top: '20vh'}}>
+                        <EmptyState
+                            icon={<ErrorOutline fontSize={'inherit'} style={{ marginBottom: '0' }} />}
+                            title={'No Roadmap Data'}
+                            description={'Roadmap data could not be retrieved at this time.'}
+                        />
+                    </div>
                 }
 
                 {!loading &&
