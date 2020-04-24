@@ -64,6 +64,13 @@ const useStyles = makeStyles((theme: Theme) =>
         selectIcon: {
             color: Colors.white[50],
         },
+        emptyStateWrapper: {
+            position: 'relative',
+            top: '28h',
+            [theme.breakpoints.down('sm')]: {
+                top: '15vh'
+            }
+        }
     })
 );
 
@@ -211,7 +218,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                 )}
 
                 {!loading && filteredBuckets.length === 0 &&
-                    <div style={{position: 'relative', top: '20vh'}}>
+                    <div className={classes.emptyStateWrapper}>
                         <EmptyState
                             icon={<ErrorOutline fontSize={'inherit'} style={{ marginBottom: '0' }} />}
                             title={'No Roadmap Data'}
