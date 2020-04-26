@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { RoadmapBucket } from '../../__types__';
 
 export const github = axios.create({
     baseURL: 'https://api.github.com/',
@@ -17,6 +18,10 @@ export const circleci = axios.create({
 });
 export const npm = axios.create({
     baseURL: 'https://api.npms.io/v2/',
+    timeout: 5000,
+});
+export const roadmap = axios.create({
+    baseURL: 'https://raw.githubusercontent.com/pxblue/pxb-database/master/deployed/doc-it',
     timeout: 5000,
 });
 
@@ -73,6 +78,20 @@ export const getNpmVersion = async (packageName: string): Promise<string | undef
     try {
         const response = await npm.get(`/package/${encodeURIComponent(packageName)}`);
         if (response && response.status === 200) return response.data.collected.metadata.version;
+        return undefined;
+    } catch (thrown) {
+        if (axios.isCancel(thrown)) {
+            // request canceled
+            return undefined;
+        }
+        return undefined;
+    }
+};
+
+export const getRoadmap = async (): Promise<RoadmapBucket[] | undefined> => {
+    try {
+        const response = await roadmap.get('/R16Roadmap.json');
+        if (response && response.status === 200) return response.data;
         return undefined;
     } catch (thrown) {
         if (axios.isCancel(thrown)) {

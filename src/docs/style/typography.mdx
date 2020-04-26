@@ -3,7 +3,7 @@ import TypeScaleImg from '../../app/assets/typography/type-scale.png';
 import LargerApplicationImg from '../../app/assets/typography/larger-application.png';
 import ApplicationImg from '../../app/assets/typography/application.png';
 import HeadlineOptionsImg from '../../app/assets/typography/headline-options.png';
-import {Divider} from '@material-ui/core';
+import { Divider } from '@material-ui/core';
 
 # Typography Guidelines
 
@@ -12,7 +12,7 @@ PX Blue builds off of the Material Design system, so in general, you may refer t
 <MaterialDesignDescription
     title={'The Type System'}
     url={'https://material.io/guidelines/style/typography.html'}
-    description={`Material Design's typography guideline.`}
+    description={`Material Design's typography guidelines.`}
 />
 
 Unlike Material Design, the primary font for Power Xpert Blue is [Open Sans](https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans) (licensed under [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)). This version contains the complete 897 character set, which includes the standard ISO Latin 1, Latin CE, Greek and Cyrillic character sets. Open Sans was optimized for print, web, and mobile interfaces, and has excellent legibility characteristics in its letter forms.
@@ -21,15 +21,14 @@ Unlike Material Design, the primary font for Power Xpert Blue is [Open Sans](htt
 
 PX Blue provides a type scale that includes a range of styles to support the needs of your application. All styles and fonts are available in the design library. As PX Blue continues to grow, additional font patterns will be added.
 
-<ImageGrid images={[TypeScaleImg]} style={{ marginTop: 32 }} gridImageProps={{sm: 12}} />
-
+<ImageGrid images={[TypeScaleImg]} style={{ marginTop: 32 }} gridImageProps={{ sm: 12 }} />
 <Divider />
 
 # Customization
 
 Different products have different needs, and we do not expect these pre-defined styles will cover every potential use case. Slight customization of these styles, such as changing a font weight in a particular component, are acceptable and expected. In most cases, you should be able to adjust existing styles without having to define an entirely new style. If you find that you must create new styles (see below), they should still use the PX Blue font (Open Sans) and adhere to our color guidelines.
 
-<ImageGrid images={[LargerApplicationImg]} style={{ marginTop: 32 }}  gridImageProps={{sm: 12}} />
+<ImageGrid images={[LargerApplicationImg]} style={{ marginTop: 32 }} gridImageProps={{ sm: 12 }} />
 
 ## When to create custom font styles
 
@@ -37,21 +36,13 @@ New font styles can be created when a design calls for additional font sizes or 
 
 The examples below depict how the designs would look using standard PX Blue comparied to how the design looks with new created font styles.
 
-<ImageGrid
-    images={[ApplicationImg]}
-    style={{ marginTop: 48, marginBottom: 16 }}
-    gridImageProps={{sm: 12}}
-/>
+<ImageGrid images={[ApplicationImg]} style={{ marginTop: 48, marginBottom: 16 }} gridImageProps={{ sm: 12 }} />
 
 1: Card layout using default PX Blue styles
 
 2: Card layout using custom created styles
 
-<ImageGrid
-    images={[HeadlineOptionsImg]}
-    style={{ marginTop: 48, marginBottom: 16 }}
-    gridImageProps={{sm: 12}}
-/>
+<ImageGrid images={[HeadlineOptionsImg]} style={{ marginTop: 48, marginBottom: 16 }} gridImageProps={{ sm: 12 }} />
 
 1: Two line headline using default PX Blue styles
 

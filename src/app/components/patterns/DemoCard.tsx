@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-    makeStyles,
-    createStyles,
-    Theme,
-    Card,
-    Typography,
-    CardProps,
-    Chip,
-} from '@material-ui/core';
+import { makeStyles, createStyles, Theme, Card, Typography, CardProps, Chip } from '@material-ui/core';
 import { Angular, ReactBlue, Ionic } from '../../assets/icons';
 import * as Colors from '@pxblue/colors';
 import clsx from 'clsx';
@@ -123,12 +115,7 @@ export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
     const { repository, angular, react, ionic, reactNative, ...cardProps } = props;
     const classes = useStyles();
     return (
-        <Card
-            className={clsx(
-                classes.demoCard
-            )}
-            {...cardProps}
-        >
+        <Card className={clsx(classes.demoCard)} {...cardProps}>
             <div className={classes.demoTitle}>
                 <Typography variant={'subtitle1'} style={{ lineHeight: 1, fontWeight: 'inherit' }}>
                     INTERACTIVE EXAMPLE

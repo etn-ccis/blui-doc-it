@@ -16,6 +16,8 @@ import { PackageRow, ExampleRow, PageContent, ExpansionHeader } from '../compone
 import * as Colors from '@pxblue/colors';
 import { resources } from '../../__configuration__/resources';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
+
 import { FrameworkFilter } from '../../__types__';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
 
@@ -34,6 +36,7 @@ export const Resources: React.FC = (): JSX.Element => {
     const classes = useStyles();
     const [filter, setFilter] = useState<FrameworkFilter>('all');
     usePageTitle('Resources');
+    useGoogleAnalyticsPageView();
     useBackgroundColor(Colors.gray[50]);
 
     return (
@@ -88,29 +91,29 @@ export const Resources: React.FC = (): JSX.Element => {
                                     <List style={{ padding: 0 }}>
                                         {bucket.items.map((item, index): JSX.Element | null =>
                                             item.applies === undefined ||
-                                                item.applies.includes(filter) ||
-                                                item.applies.includes('all') ||
-                                                filter === 'all' ? (
-                                                    item.package ? (
-                                                        <PackageRow
-                                                            key={`${item.name}_${index}`}
-                                                            package={item.package}
-                                                            repository={item.repository || ''}
-                                                            description={item.description}
-                                                            divider={index < bucket.items.length - 1}
-                                                        />
-                                                    ) : (
-                                                            <ExampleRow
-                                                                key={`${item.name}_${index}`}
-                                                                name={item.name}
-                                                                repository={item.repository || ''}
-                                                                description={item.description}
-                                                                branches={filter !== 'all' ? [filter] : item.applies}
-                                                                bugLabels={filter !== 'all' ? [filter] : []}
-                                                                divider={index < bucket.items.length - 1}
-                                                            />
-                                                        )
-                                                ) : null
+                                            item.applies.includes(filter) ||
+                                            item.applies.includes('all') ||
+                                            filter === 'all' ? (
+                                                item.package ? (
+                                                    <PackageRow
+                                                        key={`${item.name}_${index}`}
+                                                        package={item.package}
+                                                        repository={item.repository || ''}
+                                                        description={item.description}
+                                                        divider={index < bucket.items.length - 1}
+                                                    />
+                                                ) : (
+                                                    <ExampleRow
+                                                        key={`${item.name}_${index}`}
+                                                        name={item.name}
+                                                        repository={item.repository || ''}
+                                                        description={item.description}
+                                                        branches={filter !== 'all' ? [filter] : item.applies}
+                                                        bugLabels={filter !== 'all' ? [filter] : []}
+                                                        divider={index < bucket.items.length - 1}
+                                                    />
+                                                )
+                                            ) : null
                                         )}
                                     </List>
                                 </ExpansionPanelDetails>

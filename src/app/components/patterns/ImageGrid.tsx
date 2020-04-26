@@ -82,10 +82,10 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
                             />
                         </Grid>
                     ) : (
-                            <Grid key={`content_${index}`} item xs={12} sm={6} {...gridComponentProps}>
-                                {item}
-                            </Grid>
-                        )
+                        <Grid key={`content_${index}`} item xs={12} sm={6} {...gridComponentProps}>
+                            {item}
+                        </Grid>
+                    )
                 )}
             </Grid>
             <Typography variant={'caption'}>{caption}</Typography>

@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import {
     AppBar,
     Typography,
@@ -17,14 +17,17 @@ import {
 
 import { PageContent, ExpansionHeader } from '../components';
 
-import { roadmap, Status, RoadmapItem, Quarter } from '../../__configuration__/roadmap';
+import { Status, RoadmapItem, Quarter, RoadmapBucket, FrameworkFilter } from '../../__types__';
 import { usePageTitle } from '../hooks/usePageTitle';
-import { FrameworkFilter } from '../../__types__';
-import { InfoListItem, ListItemTag } from '@pxblue/react-components';
+import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
+
+import { EmptyState, InfoListItem, ListItemTag } from '@pxblue/react-components';
 
 import * as Colors from '@pxblue/colors';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
 import { PXBlueColor } from '@pxblue/types';
+import { getRoadmap } from '../api';
+import { ErrorOutline } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -61,6 +64,13 @@ const useStyles = makeStyles((theme: Theme) =>
         selectIcon: {
             color: Colors.white[50],
         },
+        emptyStateWrapper: {
+            position: 'relative',
+            top: '28vh',
+            [theme.breakpoints.down('sm')]: {
+                top: '22vh',
+            },
+        },
     })
 );
 
@@ -78,11 +88,44 @@ const getStatusColor = (status: Status): PXBlueColor | undefined => {
 
 export const Roadmap: React.FC = (): JSX.Element => {
     usePageTitle('Roadmap');
+    useGoogleAnalyticsPageView();
     useBackgroundColor(Colors.gray[50]);
     const classes = useStyles();
     const [frameworkFilter, setFrameworkFilter] = useState<FrameworkFilter>('all');
     const [quarterFilter, setQuarterFilter] = useState<Quarter | 'Quarter'>('Quarter');
+    const [roadmap, setRoadmap] = useState<RoadmapBucket[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
     const theme = useTheme();
+    const loadingGroups = [
+        [1, 2, 3, 4],
+        [1, 2, 3],
+        [1, 2, 3],
+    ];
+
+    useEffect(() => {
+        let isMounted = true;
+
+        setLoading(true);
+        const loadRoadmap = async (): Promise<void> => {
+            const data = await getRoadmap();
+            if (isMounted) {
+                setRoadmap(data || []);
+            }
+            setLoading(false);
+        };
+        loadRoadmap();
+        return (): void => {
+            isMounted = false;
+        };
+    }, []);
+
+    const filteredBuckets = roadmap.filter(
+        (bucket) =>
+            !bucket.applies ||
+            bucket.applies.includes(frameworkFilter) ||
+            bucket.applies.includes('all') ||
+            frameworkFilter === 'all'
+    );
 
     const getTags = useCallback(
         (item: RoadmapItem): JSX.Element | undefined => {
@@ -108,15 +151,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
             const result = authorTags.concat(statusTags);
             return result.length ? <div className={classes.tagWrapper}>{result}</div> : undefined;
         },
-        [classes]
-    );
-
-    const filteredBuckets = roadmap.filter(
-        (bucket) =>
-            !bucket.applies ||
-            bucket.applies.includes(frameworkFilter) ||
-            bucket.applies.includes('all') ||
-            frameworkFilter === 'all'
+        [classes, roadmap]
     );
 
     return (
@@ -156,63 +191,99 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     </Select>
                 </Toolbar>
             </AppBar>
-
             <PageContent wideLayout>
-                {filteredBuckets.map((bucket, bIndex) => {
-                    const filteredItems = bucket.items.filter(
-                        (item) =>
-                            (item.applies === undefined ||
-                                item.applies.includes(frameworkFilter) ||
-                                item.applies.includes('all') ||
-                                frameworkFilter === 'all') &&
-                            (item.quarter === quarterFilter || quarterFilter === 'Quarter')
-                    );
-                    if (filteredItems.length === 0) return null;
-                    return (
-                        <ExpansionPanel key={`${bucket.name}_${bIndex}`} defaultExpanded>
-                            <ExpansionHeader name={bucket.name} description={bucket.description} />
-                            <ExpansionPanelDetails style={{ display: 'block', padding: 0 }}>
-                                <Divider />
-                                <List style={{ padding: 0 }}>
-                                    {filteredItems.map((item, index): JSX.Element | null => {
-                                        const statusColor = getStatusColor(item.status);
-                                        return (
-                                            <InfoListItem
-                                                key={`roadmap_item_${index}`}
-                                                hidePadding
-                                                divider={index === bucket.items.length - 1 ? undefined : 'full'}
-                                                title={<Typography className={classes.title}>{item.name}</Typography>}
-                                                subtitle={item.description}
-                                                statusColor={statusColor ? statusColor[500] : undefined}
-                                                wrapSubtitle
-                                                leftComponent={
-                                                    <div style={{ display: 'block' }}>
-                                                        <Typography
-                                                            variant={'subtitle2'}
-                                                            align={'center'}
-                                                            style={{ fontWeight: 600, lineHeight: 1.5 }}
-                                                        >
-                                                            {item.quarter}
-                                                        </Typography>
-                                                        <Typography
-                                                            variant={'caption'}
-                                                            display={'block'}
-                                                            align={'center'}
-                                                            style={{ color: Colors.gray[500], lineHeight: 1 }}
-                                                        >
-                                                            {item.year}
-                                                        </Typography>
-                                                    </div>
-                                                }
-                                                rightComponent={getTags(item)}
-                                            />
-                                        );
-                                    })}
-                                </List>
-                            </ExpansionPanelDetails>
-                        </ExpansionPanel>
-                    );
-                })}
+                {loading && (
+                    <div>
+                        {loadingGroups.map((group, groupNumber) =>
+                            group.map((item, i) => (
+                                <div
+                                    className="ph-item"
+                                    key={`ph-group${groupNumber}-${i}`}
+                                    style={{ marginBottom: groupNumber > 0 && i === 0 ? 48 : 0 }}
+                                >
+                                    <div className="ph-col-12">
+                                        <div className="ph-row" style={{ flexWrap: 'unset' }}>
+                                            <div className="ph-avatar" style={{ width: 30, height: 30, minWidth: 0 }} />
+                                            <div style={{ marginLeft: 16, width: '100%', backgroundColor: 'unset' }}>
+                                                <div style={{ display: 'flex', width: '33%', height: 12 }} />
+                                                <div style={{ display: 'flex', width: '66%', height: 12 }} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))
+                        )}
+                    </div>
+                )}
+
+                {!loading && filteredBuckets.length === 0 && (
+                    <div className={classes.emptyStateWrapper}>
+                        <EmptyState
+                            icon={<ErrorOutline fontSize={'inherit'} style={{ marginBottom: '0' }} />}
+                            title={'No Roadmap Data'}
+                            description={'Roadmap data could not be retrieved at this time.'}
+                        />
+                    </div>
+                )}
+
+                {!loading &&
+                    filteredBuckets.map((bucket, bIndex) => {
+                        const filteredItems = bucket.items.filter(
+                            (item) =>
+                                (item.applies === undefined ||
+                                    item.applies.includes(frameworkFilter) ||
+                                    item.applies.includes('all') ||
+                                    frameworkFilter === 'all') &&
+                                (item.quarter === quarterFilter || quarterFilter === 'Quarter')
+                        );
+                        if (filteredItems.length === 0) return null;
+                        return (
+                            <ExpansionPanel key={`${bucket.name}_${bIndex}`} defaultExpanded>
+                                <ExpansionHeader name={bucket.name} description={bucket.description} />
+                                <ExpansionPanelDetails style={{ display: 'block', padding: 0 }}>
+                                    <Divider />
+                                    <List style={{ padding: 0 }}>
+                                        {filteredItems.map((item, index): JSX.Element | null => {
+                                            const statusColor = getStatusColor(item.status);
+                                            return (
+                                                <InfoListItem
+                                                    key={`roadmap_item_${index}`}
+                                                    hidePadding
+                                                    divider={index === bucket.items.length - 1 ? undefined : 'full'}
+                                                    title={
+                                                        <Typography className={classes.title}>{item.name}</Typography>
+                                                    }
+                                                    subtitle={item.description}
+                                                    statusColor={statusColor ? statusColor[500] : undefined}
+                                                    wrapSubtitle
+                                                    leftComponent={
+                                                        <div style={{ display: 'block' }}>
+                                                            <Typography
+                                                                variant={'subtitle2'}
+                                                                align={'center'}
+                                                                style={{ fontWeight: 600, lineHeight: 1.5 }}
+                                                            >
+                                                                {item.quarter}
+                                                            </Typography>
+                                                            <Typography
+                                                                variant={'caption'}
+                                                                display={'block'}
+                                                                align={'center'}
+                                                                style={{ color: Colors.gray[500], lineHeight: 1 }}
+                                                            >
+                                                                {item.year}
+                                                            </Typography>
+                                                        </div>
+                                                    }
+                                                    rightComponent={getTags(item)}
+                                                />
+                                            );
+                                        })}
+                                    </List>
+                                </ExpansionPanelDetails>
+                            </ExpansionPanel>
+                        );
+                    })}
             </PageContent>
         </>
     );

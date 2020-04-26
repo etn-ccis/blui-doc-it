@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'inline-block',
             [theme.breakpoints.down('xs')]: {
                 marginRight: 0,
-            }
+            },
         },
         contentArea: {
             flexDirection: 'row',
@@ -81,8 +81,7 @@ export const MaterialDesignDescription: React.FC<MaterialDesignDescriptionProps>
                 }}
                 {...props.CardActionAreaProps}
             >
-                <div
-                    className={classes.contentArea}>
+                <div className={classes.contentArea}>
                     {avatar}
                     <div className={classes.textArea}>
                         <Typography variant={'body2'} style={{ fontWeight: 600 }}>

@@ -11,14 +11,24 @@ export type PageContentProps = HTMLAttributes<HTMLDivElement> & {
 const PAGE_WIDTH = {
     WIDE: 1024,
     REGULAR: 660,
-}
+};
 
 export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
     const { noPadding, children, style, backgroundColor, wideLayout, ...other } = props;
     useBackgroundColor(backgroundColor);
 
     return (
-        <div style={Object.assign({ padding: noPadding ? 0 : 8, maxWidth: wideLayout ? PAGE_WIDTH.WIDE : PAGE_WIDTH.REGULAR, margin: '0 auto' }, style)} {...other}>
+        <div
+            style={Object.assign(
+                {
+                    padding: noPadding ? 0 : 8,
+                    maxWidth: wideLayout ? PAGE_WIDTH.WIDE : PAGE_WIDTH.REGULAR,
+                    margin: '0 auto',
+                },
+                style
+            )}
+            {...other}
+        >
             {children}
         </div>
     );
