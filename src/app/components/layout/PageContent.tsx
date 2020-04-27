@@ -10,7 +10,7 @@ export type PageContentProps = HTMLAttributes<HTMLDivElement> & {
 
 const PAGE_WIDTH = {
     WIDE: 1024,
-    REGULAR: 660,
+    REGULAR: 676,
 };
 
 export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
@@ -21,7 +21,7 @@ export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
         <div
             style={Object.assign(
                 {
-                    padding: noPadding ? 0 : 8,
+                    padding: noPadding ? 0 : 16,
                     maxWidth: wideLayout ? PAGE_WIDTH.WIDE : PAGE_WIDTH.REGULAR,
                     margin: '0 auto',
                 },

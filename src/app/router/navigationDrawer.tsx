@@ -10,6 +10,8 @@ import { Typography, useTheme, useMediaQuery, createStyles, makeStyles, Theme } 
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../redux/reducers';
 import { TOGGLE_DRAWER } from '../redux/actions';
+// import { IconButton } from '@material-ui/core';
+// import { ExpandMore } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -42,6 +44,17 @@ export const NavigationDrawer = (): JSX.Element => {
                 title: item.title,
                 icon: depth === 0 ? item.icon : undefined,
                 itemID: fullURL,
+                // To add a on hover effect to the ExpandMore chevron for NavItems
+                // with sub pages and a landing page (e.g., Design Patterns)
+                //
+                // expandIcon:
+                //     item.pages && item.component ? (
+                //         <IconButton>
+                //             <ExpandMore />
+                //         </IconButton>
+                //     ) : (
+                //         undefined
+                //     ),
                 onClick: item.component
                     ? (): void => {
                           history.push(fullURL);

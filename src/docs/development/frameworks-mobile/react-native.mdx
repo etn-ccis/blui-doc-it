@@ -1,3 +1,5 @@
+import { Divider } from '../../../app/components';
+
 # Getting Started with React Native
 
 The following instructions will guide you through setting up your computer for React Native development and starting a new PX Blue project. Alternatively, you can start your project by downloading one of our code samples from [Github](https://github.com/pxblue) (the Login example is a good project to start from) once you configure your environment.
@@ -63,16 +65,7 @@ yarn add @pxblue/react-native-themes
 
 ## Applying the Theme
 
-You can apply the PX Blue theme by wrapping your application in a `<ThemeProvider>` and passing in the theme object.
-
-```
-import { ThemeProvider } from '@pxblue/react-native-components';
-import * as PXBThemes from '@pxblue/react-native-themes';
-...
-<ThemeProvider theme={PXBThemes.blue}>
-    <App />
-</ThemeProvider>
-```
+You can apply the PX Blue theme by wrapping your application in a `<ThemeProvider>` and passing in the theme object. For detailed information, check [our documentation](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--theme).
 
 > NOTE: This theme only applies to the components in the @pxblue/react-native-components package. It will not theme the components from other third party libraries. If you wish to use our theme to style your own components, refer to our [documentation](https://github.com/pxblue/react-native-component-library/blob/dev/docs/theme.md#using-the-theme-in-custom-components).
 
@@ -137,6 +130,10 @@ For more information, read about [ejecting from Expo](https://docs.expo.io/workf
 ## Final Build
 
 After ejecting from Expo, the process for creating a build is the same as for a standard native application. You can open the project folders in xCode (/ios/projectName.xcodeproj) or Android Studio (/android) and perform builds from the IDE. There are also npm scripts added to your package.json file during ejection that will allow you to perform builds from the command line. Depending on the version of React Native you are using, you may have to [manually bundle your JS code](https://stackoverflow.com/questions/44446523/unable-to-load-script-from-assets-index-android-bundle-on-windows) for Android.
+
+<Divider />
+
+# Resources
 
 ## Code Formatting/Style
 

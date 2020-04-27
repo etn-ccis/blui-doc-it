@@ -1,4 +1,4 @@
-import { ImageGrid, DemoCard, MaterialDesignDescription } from '../../app/components';
+import { ImageGrid, DemoCard, MaterialDesignDescription, Divider } from '../../app/components';
 import LightThemeImage from '../../app/assets/design-patterns/theme/theme-light.png';
 import DarkThemeImage from '../../app/assets/design-patterns/theme/theme-dark.png';
 
@@ -17,8 +17,9 @@ One of the key benefits of PX Blue is consistency of look & feel between differe
     description={`Material Design's dark theme guide.`}
     style={{marginRight: 0}}
 />
+<Divider />
 
-## Available Themes
+# Available Themes
 
 <ImageGrid
     images={[LightThemeImage, DarkThemeImage]}
@@ -37,6 +38,10 @@ As of version 2.0.0, the PX Blue themes packages includes two distinct themes:
 />
 
 > **NOTE:** Combining multiple themes in your application is optional. You may stick to using a single theme (Blue) for your entire application and then apply one-off styling where necessary to achieve other effects. All of the PX Blue colors are available individually ([@pxblue/colors](https://www.npmjs.com/package/@pxblue/colors)) for use in your application.
+
+<Divider />
+
+# Technical Support
 
 ## Theme Formats
 

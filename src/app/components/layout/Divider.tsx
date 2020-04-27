@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             width: `100%`,
-            margin: `${theme.spacing(12)}px 0`,
+            margin: `${theme.spacing(5)}px 0`,
         },
     })
 );
