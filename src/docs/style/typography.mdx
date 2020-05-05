@@ -3,7 +3,7 @@ import TypeScaleImg from '../../app/assets/typography/type-scale.png';
 import LargerApplicationImg from '../../app/assets/typography/larger-application.png';
 import ApplicationImg from '../../app/assets/typography/application.png';
 import HeadlineOptionsImg from '../../app/assets/typography/headline-options.png';
-import { Divider } from '@material-ui/core';
+import { Divider, Typography } from '@material-ui/core';
 
 # Typography Guidelines
 
@@ -36,14 +36,18 @@ New font styles can be created when a design calls for additional font sizes or 
 
 The examples below depict how the designs would look using standard PX Blue comparied to how the design looks with new created font styles.
 
-<ImageGrid images={[ApplicationImg]} style={{ marginTop: 48, marginBottom: 16 }} gridImageProps={{ sm: 12 }} />
+<ImageGrid images={[ApplicationImg]} style={{ marginTop: 48, marginBottom: 16 }} gridImageProps={{ sm: 12 }} caption={
+    <>
+    <Typography variant={'caption'}>1: Card layout using default PX Blue styles</Typography>
+    <br />
+    <Typography variant={'caption'}>2: Card layout using custom created styles</Typography>
+    </>
+}/>
 
-1: Card layout using default PX Blue styles
-
-2: Card layout using custom created styles
-
-<ImageGrid images={[HeadlineOptionsImg]} style={{ marginTop: 48, marginBottom: 16 }} gridImageProps={{ sm: 12 }} />
-
-1: Two line headline using default PX Blue styles
-
-2: Two line headline using custom created styles
+<ImageGrid images={[HeadlineOptionsImg]} style={{ marginTop: 48, marginBottom: 16 }} gridImageProps={{ sm: 12 }} caption={
+    <>
+    <Typography variant={'caption'}>1: Two line headline using default PX Blue styles</Typography>
+    <br />
+    <Typography variant={'caption'}>2: Two line headline using custom created styles</Typography>
+    </>
+}/>

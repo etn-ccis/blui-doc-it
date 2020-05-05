@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 type Content = string | JSX.Element;
 type ImageGridProps = HTMLAttributes<HTMLDivElement> & {
-    caption?: string;
+    caption?: string | JSX.Element;
     gridContainerProps?: GridProps;
     gridComponentProps?: GridProps;
     gridImageProps?: GridProps;
@@ -88,7 +88,7 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
                     )
                 )}
             </Grid>
-            <Typography variant={'caption'}>{caption}</Typography>
+            {typeof caption === 'string' ? <Typography variant={'caption'}>{caption}</Typography> : caption}
             {imageOpened !== -1 && smUp && (
                 <div className={classes.fullScreenZoom} onClick={(): void => setImageOpened(-1)}>
                     <img className={classes.image} style={{ cursor: 'inherit' }} src={images[imageOpened] as string} />
