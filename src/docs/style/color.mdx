@@ -3,21 +3,16 @@ import * as Colors from '@pxblue/colors';
 import * as BrandingColors from '@pxblue/colors-branding';
 import { Typography } from '@material-ui/core';
 import { Bookmark } from '@material-ui/icons';
-import { REGULAR_WIDTH_STYLE } from '../../app/shared';
 
-<div style={REGULAR_WIDTH_STYLE}>
-    <HeadlineWithToggle />
-</div>
+<HeadlineWithToggle />
 
 PX Blue offers a variety of different colors for use in your applications. Our color palettes utilize a weighted approach to give designers and developers a versatile set of colors for solving common color-related issues (e.g., accessibility).
 
-<div style={REGULAR_WIDTH_STYLE}>
-    <MaterialDesignDescription
-        title={'The Color System'}
-        url={'https://material.io/design/color/'}
-        description={`Material's color principles. You should adhere to PX Blue's color theme unless you are creating your own components.`}
-    />
-</div>
+<MaterialDesignDescription
+    title={'The Color System'}
+    url={'https://material.io/design/color/'}
+    description={`Material's color principles. You should adhere to PX Blue's color theme unless you are creating your own components.`}
+/>
 
 Our color sets are divided into sections as outlined below. User Interface and Status colors are available in a single package ([@pxblue/colors](https://www.npmjs.com/package/@pxblue/colors)). Branding (Charts and Graphs) colors are available as an additional package ([@pxblue/colors-branding](https://www.npmjs.com/package/@pxblue/colors-branding)).
 
@@ -28,8 +23,6 @@ In most cases, you should stick to using the 500 color (<Bookmark style={{ verti
 # User Interface Colors
 
 User Interface colors are designed to be the main colors used in the application. Use them in elements such as app bars, toolbars, page backgrounds, buttons, text, etc. These colors may also be used in branding or marketing of products and services.
-
-<div style={REGULAR_WIDTH_STYLE}>
 
 ### Blue
 
@@ -164,5 +157,3 @@ This expanded version of the color palette contains colors to be used for market
 ### Trophy
 
 <ColorPalette palette={BrandingColors.trophy} />
-
-</div>
