@@ -191,7 +191,6 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     </Select>
                 </Toolbar>
             </AppBar>
-
             <PageContent>
                 {loading && (
                     <div>

@@ -140,7 +140,7 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Design System Anatomy',
                 url: '/anatomy',
-                component: <MarkdownPage title={'Design System Anatomy'} markdown={Docs.Design.Anatomy} />,
+                component: <MarkdownPage title={'Design System Anatomy'} markdown={Docs.Design.Anatomy} wideLayout />,
             },
         ],
     },
@@ -223,6 +223,7 @@ export const pageDefinitions: SimpleNavItem[] = [
                         title={'Iconography'}
                         markdown={Docs.Style.Iconography}
                         background={Colors.gray[50]}
+                        wideLayout
                     />
                 ),
             },
