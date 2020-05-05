@@ -82,10 +82,11 @@ export const NavigationDrawer = (): JSX.Element => {
                     dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
                 },
             }}
-            style={{ boxShadow: theme.shadows[12] }}
             className={!isMobile && !isLandingPage ? classes.shadow : undefined}
             variant={isMobile || isLandingPage ? 'temporary' : 'permanent'}
             activeItemBackgroundColor={theme.palette.primary.light}
+            itemFontColor={theme.palette.text.primary}
+            divider={false}
         >
             <DrawerHeader
                 backgroundColor={Colors.blue[500]}

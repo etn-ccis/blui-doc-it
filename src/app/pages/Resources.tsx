@@ -77,7 +77,7 @@ export const Resources: React.FC = (): JSX.Element => {
             </AppBar>
 
             {/* First expander */}
-            <PageContent wideLayout>
+            <PageContent>
                 {resources.map(
                     (bucket, bIndex) =>
                         (!bucket.applies ||

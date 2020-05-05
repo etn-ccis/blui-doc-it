@@ -1,16 +1,12 @@
 import React, { HTMLAttributes } from 'react';
 import * as Colors from '@pxblue/colors';
 import { useBackgroundColor } from '../../hooks/useBackgroundColor';
+import { PAGE_WIDTH } from '../../shared';
 
 export type PageContentProps = HTMLAttributes<HTMLDivElement> & {
     noPadding?: boolean;
     backgroundColor?: string;
     wideLayout?: boolean;
-};
-
-const PAGE_WIDTH = {
-    WIDE: 1024,
-    REGULAR: 676,
 };
 
 export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {

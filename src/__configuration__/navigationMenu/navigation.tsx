@@ -147,7 +147,7 @@ export const pageDefinitions: SimpleNavItem[] = [
     {
         title: 'Design Patterns',
         url: '/patterns',
-        component: <MarkdownPage wideLayout title={'Design Patterns'} markdown={Docs.Patterns.Home} />,
+        component: <MarkdownPage title={'Design Patterns'} markdown={Docs.Patterns.Home} />,
         pages: [
             {
                 title: 'App Bars',
@@ -213,7 +213,7 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Color Palette',
                 url: '/color',
-                component: <MarkdownPage wideLayout title={'Color Palette'} markdown={Docs.Style.Color} />,
+                component: <MarkdownPage title={'Color Palette'} markdown={Docs.Style.Color} wideLayout />,
             },
             {
                 title: 'Iconography',

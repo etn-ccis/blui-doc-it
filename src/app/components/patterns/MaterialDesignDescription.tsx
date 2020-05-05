@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) =>
             width: theme.spacing(38),
             maxWidth: '100%',
             marginBottom: theme.spacing(2),
-            marginRight: theme.spacing(4),
+            marginRight: theme.spacing(2),
             display: 'inline-block',
             [theme.breakpoints.down('xs')]: {
                 marginRight: 0,

@@ -1,4 +1,5 @@
 import { IconBrowser, ProgressIconCard, MaterialDesignDescription, Divider } from '../../app/components';
+import { REGULAR_WIDTH_STYLE } from '../../app/shared';
 
 # Iconography guidelines
 
@@ -9,7 +10,7 @@ specific to PX Blue products.
 
 These icons are available in a variety of formats - select an icon below to view its usage instructions.
 
-<React.Fragment>
+<div style={REGULAR_WIDTH_STYLE}>
     <MaterialDesignDescription
         title={'System icons'}
         url={'https://material.io/design/iconography/system-icons.html#'}
@@ -21,8 +22,8 @@ These icons are available in a variety of formats - select an icon below to view
         description={'List of Material Design icons. They are also included in the table below.'}
         style={{ marginRight: 0 }}
     />
-    <IconBrowser />
-</React.Fragment>
+</div>
+<IconBrowser />
 
 ## Progress icons
 

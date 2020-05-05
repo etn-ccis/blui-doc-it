@@ -191,7 +191,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     </Select>
                 </Toolbar>
             </AppBar>
-            <PageContent wideLayout>
+            <PageContent>
                 {loading && (
                     <div>
                         {loadingGroups.map((group, groupNumber) =>
