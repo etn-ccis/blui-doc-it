@@ -17,17 +17,17 @@ import {
 
 import { PageContent, ExpansionHeader } from '../components';
 
-import { Status, RoadmapItem, Quarter, RoadmapBucket, backupRoadmap } from '../../__configuration__/roadmap';
+import { Status, RoadmapItem, Quarter, RoadmapBucket, FrameworkFilter } from '../../__types__';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
-import { FrameworkFilter } from '../../__types__';
-import { InfoListItem, ListItemTag } from '@pxblue/react-components';
+import { EmptyState, InfoListItem, ListItemTag } from '@pxblue/react-components';
 
 import * as Colors from '@pxblue/colors';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
 import { PXBlueColor } from '@pxblue/types';
 import { getRoadmap } from '../api';
+import { ErrorOutline } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -63,6 +63,13 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         selectIcon: {
             color: Colors.white[50],
+        },
+        emptyStateWrapper: {
+            position: 'relative',
+            top: '28vh',
+            [theme.breakpoints.down('sm')]: {
+                top: '22vh',
+            },
         },
     })
 );
@@ -102,7 +109,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
         const loadRoadmap = async (): Promise<void> => {
             const data = await getRoadmap();
             if (isMounted) {
-                setRoadmap(data || backupRoadmap);
+                setRoadmap(data || []);
             }
             setLoading(false);
         };
@@ -184,7 +191,6 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     </Select>
                 </Toolbar>
             </AppBar>
-
             <PageContent>
                 {loading && (
                     <div>
@@ -207,6 +213,16 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                 </div>
                             ))
                         )}
+                    </div>
+                )}
+
+                {!loading && filteredBuckets.length === 0 && (
+                    <div className={classes.emptyStateWrapper}>
+                        <EmptyState
+                            icon={<ErrorOutline fontSize={'inherit'} style={{ marginBottom: '0' }} />}
+                            title={'No Roadmap Data'}
+                            description={'Roadmap data could not be retrieved at this time.'}
+                        />
                     </div>
                 )}
 

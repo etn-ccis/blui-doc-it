@@ -30,11 +30,12 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         swatchWrapper: {
             border: `1px solid ${Colors.black[100]}`,
-            marginRight: theme.spacing(1),
             marginBottom: theme.spacing(1),
-            flex: '1 1 0px',
-            maxWidth: 90,
-            minWidth: 90,
+            maxWidth: theme.spacing(9),
+            minWidth: theme.spacing(9),
+            [theme.breakpoints.down('sm')]: {
+                marginRight: theme.spacing(0.5),
+            },
         },
         swatch: {
             paddingTop: '100%',
@@ -49,12 +50,16 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         label: {
             background: theme.palette.background.paper,
-            padding: theme.spacing(2),
+            padding: theme.spacing(1),
         },
         paletteWrapper: {
             width: '100%',
             display: 'flex',
             flexWrap: 'wrap',
+            [theme.breakpoints.up('md')]: {
+                justifyContent: 'space-between',
+                WebkitJustifyContent: 'space-between',
+            },
         },
     })
 );

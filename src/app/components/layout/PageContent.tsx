@@ -1,18 +1,30 @@
 import React, { HTMLAttributes } from 'react';
 import * as Colors from '@pxblue/colors';
 import { useBackgroundColor } from '../../hooks/useBackgroundColor';
+import { PAGE_WIDTH } from '../../shared';
 
 export type PageContentProps = HTMLAttributes<HTMLDivElement> & {
     noPadding?: boolean;
     backgroundColor?: string;
+    wideLayout?: boolean;
 };
 
 export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
-    const { noPadding, children, style, backgroundColor, ...other } = props;
+    const { noPadding, children, style, backgroundColor, wideLayout, ...other } = props;
     useBackgroundColor(backgroundColor);
 
     return (
-        <div style={Object.assign({ padding: noPadding ? 0 : 20, maxWidth: 1024, margin: '0 auto' }, style)} {...other}>
+        <div
+            style={Object.assign(
+                {
+                    padding: noPadding ? 0 : 16,
+                    maxWidth: wideLayout ? PAGE_WIDTH.WIDE : PAGE_WIDTH.REGULAR,
+                    margin: '0 auto',
+                },
+                style
+            )}
+            {...other}
+        >
             {children}
         </div>
     );

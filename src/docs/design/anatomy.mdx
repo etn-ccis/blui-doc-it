@@ -1,5 +1,4 @@
-import { Divider } from '../../app/components';
-import { ImageGrid } from '../../app/components';
+import { Divider, ImageGrid, RegularWidth } from '../../app/components';
 import CategoriesImg from '../../app/assets/resource-anatomy/resource-categories.png';
 import PatternStatesImg from '../../app/assets/resource-anatomy/pattern-states.png';
 
@@ -9,7 +8,7 @@ The building blocks of the PX Blue design system are broken down into four level
 
 <ImageGrid
     images={[CategoriesImg]}
-    gridImageProps={{ xs: 12, sm: 12, md: 12 }}
+    gridImageProps={{ sm: 12 }}
     caption={'The four levels of the PX Blue design system hierarchy.'}
 />
 
@@ -35,7 +34,9 @@ Workflows are a sequence of pages combined with rules surrounding how a user goe
 
 # Design Patterns
 
-<ImageGrid images={[PatternStatesImg]} gridImageProps={{ xs: 12, sm: 8, md: 8 }} />
+<RegularWidth>
+    <ImageGrid images={[PatternStatesImg]} gridImageProps={{ sm: 12 }} />
+</RegularWidth>
 
 [Design patterns](/patterns) are very common in PX Blue. A design pattern is a common interaction or behavior that can exist at any level in the design system hierarchy described above. For example, we may have a design pattern for showing actions available on a list item or how to interact with individual settings on a settings page.
 

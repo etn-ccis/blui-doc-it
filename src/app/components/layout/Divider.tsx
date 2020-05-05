@@ -6,21 +6,22 @@ import {
     createStyles,
     makeStyles,
 } from '@material-ui/core';
+import { PAGE_WIDTH } from '../../shared';
 
 type DividerProps = MuiDividerProps & {
-    fullScreen?: true;
+    wide?: true;
 };
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            width: `100%`,
-            margin: `${theme.spacing(12)}px 0`,
+            width: (props: DividerProps): number => (props.wide ? PAGE_WIDTH.WIDE : PAGE_WIDTH.REGULAR),
+            margin: `${theme.spacing(5)}px auto`,
         },
     })
 );
 
 export const Divider: React.FC<DividerProps> = (props): JSX.Element => {
-    const classes = useStyles();
+    const classes = useStyles(props);
     return <MuiDivider classes={classes} {...props} />;
 };

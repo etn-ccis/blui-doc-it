@@ -10,6 +10,7 @@ export type MarkdownPageProps = {
     markdown: React.FC;
     noPadding?: boolean;
     background?: string;
+    wideLayout?: boolean;
 };
 
 export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element => {
@@ -17,7 +18,7 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element =>
     useGoogleAnalyticsPageView();
     useBackgroundColor(props.background);
     return (
-        <PageContent noPadding={props.noPadding}>
+        <PageContent noPadding={props.noPadding} wideLayout={props.wideLayout}>
             <props.markdown />
         </PageContent>
     );
