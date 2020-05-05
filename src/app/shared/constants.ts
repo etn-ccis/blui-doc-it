@@ -1,5 +1,5 @@
 export const PAGE_WIDTH = {
-    WIDE: 1024, // medias, components
+    WIDE: 1280, // medias, components
     REGULAR: 798, // text, call-to-action buttons
 };
 
