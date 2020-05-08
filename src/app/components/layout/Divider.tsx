@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             width: (props: DividerProps): number => (props.wide ? PAGE_WIDTH.WIDE : PAGE_WIDTH.REGULAR),
+            maxWidth: '100%',
             margin: `${theme.spacing(5)}px auto`,
         },
     })
