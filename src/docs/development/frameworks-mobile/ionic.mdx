@@ -1,58 +1,79 @@
 import { Divider } from '../../../app/components';
 
-# Getting Started with Ionic/Cordova
+# Getting Started with Ionic
 
 The following instructions will guide you through setting up your computer for Ionic development and starting a new PX Blue project. Alternatively, you can start your project by downloading one of our code samples from [Github](https://github.com/pxblue) (the Login example is a good project to start from) once you configure your environment.
 
-## Setting Up Your Environment
+<Divider />
+
+# Setting Up Your Environment
 
 You'll need to start by following the general instructions for setting up your development environment for mobile, found in our [Environment Guide](/development/environment). Since Ionic takes advantage of web technologies, you won't need any specific additional tools beyond what you would use for web development.
 
 Ionic uses Cordova behind the scenes but offers some additional convenience tools on top. If you would prefer to write a pure Cordova application, you can read instructions in the [Apache Cordova Getting Started Guide](/development/frameworks-mobile/cordova).
 
-### Installing Ionic
+## Installing Ionic
 
 The most up-to-date instructions for setting up Ionic can be found on the [Ionic Website](https://ionicframework.com/docs/installation/cli).
 
 To get started, run:
 
 ```
+npm install -g ionic cordova
+or
 yarn global add ionic cordova
 ```
 
 You'll also want to install some additional dependencies:
 
 ```
-yarn global add native-run
-yarn global add gradle
-yarn global add cordova-res
+npm install -g native-run gradle cordova-res
+or
+yarn global add native-run gradle cordova-res
 ```
 
 Make sure that you have a `GRADLE_HOME` entry in your PATH variable pointing to your gradle binary directory.
 
-## Writing your application
+<Divider />
 
-The easiest way to get started with Ionic is to use the [Ionic CLI](https://ionicframework.com/docs/cli/commands/start). Ionic will allow you to choose from several templates that will give you a great starting point for your application. To see the template list, open terminal and run:
+# Creating Your Application
 
-```
-ionic start
-```
+## Using the PX Blue CLI
 
-> **NOTE**: Ionic supports a variety of different JavaScript frameworks. However, at this time, PX Blue only supports the use of Ionic for Angular applications.
-
-To create a new project, you'll need to run:
+The fastest way to start a new PX Blue project is to use the [PX Blue CLI](/development/cli). The CLI will automatically create a starter project for you (using either the [Ionic CLI](https://ionicframework.com/docs/cli)) with all of the necessary PX Blue dependencies pre-configured. To start an Ionic project:
 
 ```
-mkdir workspace
-cd workspace
-ionic start <project-name>
+npx -p @pxblue/cli pxb new ionic
 ```
 
-This command takes several minutes to complete depending on network and PC performance.
+You will be asked to provide a name for your project and whether or not you want to use the PX Blue eslint and prettier configurations files.
 
-> **NOTE**: If you are running this command on a PC behind a corporate firewall, you may need to temporarily disable TLS checks by adding an environment variable `NODE_TLS_REJECT_UNAUTHORIZED`=0. **Remove this environment variable as soon as your project is created**. Alternatively, you can connect to an alternate network to create your project.
+The PX Blue CLI will automatically include:
 
-At this point you can start coding your application. If you have an existing web application, you can drop your existing files into the Ionic project.
+-   Angular Material Component Library ([@angular/material](https://www.npmjs.com/package/@angular/material))
+-   PX Blue Component Library ([@pxblue/angular-components](https://www.npmjs.com/package/@pxblue/angular-components))
+-   PX Blue Themes ([@pxblue/angular-themes](https://www.npmjs.com/package/@pxblue/angular-themes))
+-   PX Blue Icons ([@pxblue/icons](https://www.npmjs.com/package/@pxblue/icons))
+-   PX Blue Colors ([@pxblue/colors](https://www.npmjs.com/package/@pxblue/colors))
+-   PX Blue ESLint and Prettier configurations, if selected ([@pxblue/eslint-config](https://www.npmjs.com/package/@pxblue/eslint-config) / [@pxblue/prettier-config](https://www.npmjs.com/package/@pxblue/prettier-config))
+
+For detailed usage instructions, refer to the [PX Blue CLI documentation](https://www.npmjs.com/package/@pxblue/cli).
+
+## Using an Existing Project
+
+If you have an existing project and would like to integrate PX Blue, you can follow the manual integration instructions below. If you have not already started your project, we recommend that you scaffold your project with the PX Blue CLI.
+
+<Divider />
+
+# Manual PX Blue Integration
+
+Please refer to the Manual PX Blue Integration steps for [Angular](/development/frameworks-web/angular).
+
+<Divider />
+
+# Writing an Ionic Application
+
+Developing an Ionic project with Angular is virtually identical to writing a normal web application using Angular.
 
 ## Running your application
 
@@ -85,7 +106,7 @@ ionic cordova run ios
 
 <Divider />
 
-# Resources
+# Additional Information
 
 ## Code Formatting/Style
 

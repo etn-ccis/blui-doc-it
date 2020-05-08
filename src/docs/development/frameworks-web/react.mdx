@@ -2,11 +2,41 @@ import { Divider } from '../../../app/components';
 
 # Getting Started with React
 
-The following instructions will guide you through starting a new PX Blue project using React. Alternatively, you can start your project by downloading one of our code samples from [Github](https://github.com/pxblue) (the Login or Navigation examples are good projects to start from).
+The following instructions will guide you through starting a new PX Blue project using React. Alternatively, you can also start your project by downloading one of our code samples from [Github](https://github.com/pxblue) (the Login or Navigation examples are good projects to start from).
 
-## Creating a Project
+## Using the PX Blue CLI
 
-The fastest way to create an React application is to use [Create React App](https://github.com/facebookincubator/create-react-app). Once you have created your project, you can follow the instructions below for integrating PX Blue.
+The fastest way to start a new PX Blue project is to use the [PX Blue CLI](/development/cli). The CLI will automatically create a starter project for you (using [Create React App](https://github.com/facebookincubator/create-react-app)) with all of the necessary PX Blue dependencies pre-configured. To start a React project:
+
+```
+npx -p @pxblue/cli pxb new react
+```
+
+You will be asked to provide a name for your project, choose whether you would like to use TypeScript or JavaScript, and for TypeScript projects, you'll be asked if you want to use the PX Blue eslint and prettier configurations files.
+
+The PX Blue CLI will automatically include:
+
+-   Material-UI Component Library and Icons ([@material-ui/core](https://www.npmjs.com/package/@material-ui/core) / [@material-ui/icons](https://www.npmjs.com/package/@material-ui/icons))
+-   PX Blue Component Library ([@pxblue/react-components](https://www.npmjs.com/package/@pxblue/react-components))
+-   PX Blue Themes ([@pxblue/react-themes](https://www.npmjs.com/package/@pxblue/react-themes))
+-   PX Blue Icons ([@pxblue/icons-mui](https://www.npmjs.com/package/@pxblue/icons-mui))
+-   PX Blue Colors ([@pxblue/colors](https://www.npmjs.com/package/@pxblue/colors))
+-   Open Sans web font ([typeface-open-sans](https://www.npmjs.com/package/typeface-open-sans))
+-   PX Blue ESLint and Prettier configurations, if selected ([@pxblue/eslint-config](https://www.npmjs.com/package/@pxblue/eslint-config) / [@pxblue/prettier-config](https://www.npmjs.com/package/@pxblue/prettier-config))
+-   IE 11 Polyfills ([react-app-polyfill](https://www.npmjs.com/package/react-app-polyfill))
+-   Enzyme testing library ([enzyme](https://www.npmjs.com/package/enzyme) / [enzyme-adapter-react-16](https://www.npmjs.com/package/enzyme-adapter-react-16))
+
+For detailed usage instructions, refer to the [PX Blue CLI documentation](https://www.npmjs.com/package/@pxblue/cli).
+
+## Using an Existing Project
+
+If you have an existing project and would like to integrate PX Blue, you can follow the manual integration instructions below. If you have not already started your project, we recommend that you scaffold your project with the PX Blue CLI.
+
+<Divider />
+
+# Manual PX Blue Integration
+
+Before taking the following steps, you'll want to make sure that you have an existing application. If you used the PX Blue CLI to start your project, these steps have already been done for you automatically.
 
 ## Including the Component Libraries
 
@@ -15,6 +45,8 @@ The fastest way to create an React application is to use [Create React App](http
 React projects should make use of the [Material-UI](https://material-ui.com/) component library. Our PX Blue themes are designed to work with these components. You'll also want to install the icons.
 
 ```
+npm install --save @material-ui/core @material-ui/icons
+or
 yarn add @material-ui/core @material-ui/icons
 ```
 
@@ -25,6 +57,8 @@ For detailed documentation about the various components available in Material UI
 Additionally, we have a [supplemental library](https://github.com/pxblue/react-component-library/tree/dev) of components designed specifically for PX Blue applications. If you wish to use these components, you can install them by running:
 
 ```
+npm install --save @pxblue/react-components
+or
 yarn add @pxblue/react-components
 ```
 
@@ -33,6 +67,8 @@ yarn add @pxblue/react-components
 By default, your application will be themed with the Google Material theme. To use the [PX Blue theme](https://www.npmjs.com/package/@pxblue/react-themes), first install it:
 
 ```
+npm install --save @pxblue/react-themes
+or
 yarn add @pxblue/react-themes
 ```
 
@@ -44,7 +80,7 @@ Import the theme files, Material UI theme provider, and **Open Sans** font into 
 
 ```
 import {
-    MuiThemeProvider,
+    ThemeProvider,
     createMuiTheme
 } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -52,36 +88,20 @@ import * as PXBThemes from '@pxblue/react-themes';
 require ("typeface-open-sans");
 ```
 
-If you are looking to add the theme to your whole application, you would simply add a `<MuiThemeProvider>` around your top-level component and pass it the theme you want to use, e.g.:
+To add the theme to your whole application, you would simply add a `<ThemeProvider>` around your top-level component and pass it the theme you want to use, e.g.:
 
 ```
-<MuiThemeProvider theme={createMuiTheme(PXBThemes.blue)}>
+<ThemeProvider theme={createMuiTheme(PXBThemes.blue)}>
     <CssBaseline/>
     <MyApp/>
 </MuiThemeProvider>
 ```
 
-If you want to use multiple themes in different areas of your site, you just need to wrap those components in another `<MuiThemeProvider>` - these can be nested and you can change the theme dynamically by binding to state or prop variables, e.g.:
-
-```
-<MuiThemeProvider theme={createMuiTheme(PXBThemes.blue)}>
-    <CssBaseline/>
-    <MyApp>
-        <MyNormalComponent/>
-        <MuiThemeProvider theme={createMuiTheme(PXBThemes.blueDark)}>
-            <MySidebarComponent/>
-        </MuiThemeProvider>
-    </MyApp>
-</MuiThemeProvider/>
-```
-
-> **NOTE:** Material-UI recommends keeping your use of MuiThemeProvider to a minimum for better performance. In most cases, you'll be fine to use a single theme for your entire application and use one-off styling via CSS when necessary.
-
 You can read about [React Theming](https://material-ui-next.com/customization/themes/) to learn more.
 
 <Divider />
 
-# Resources
+# Additional Information
 
 ## Code Formatting/Style
 
@@ -96,7 +116,7 @@ React and Material UI will work with any modern browser. For specific details, y
 -   [React](https://facebook.github.io/create-react-app/docs/supported-browsers-features)
 -   [Material UI](https://material-ui.com/getting-started/supported-platforms/)
 
-> The latest Create React App CLI does not include support for IE11 by default. If you need to support this browser (not recommended), you can configure your project to support it manually ([Contact us](/community/contactus) for assistance).
+> The latest Create React App CLI does not include support for IE11 by default. If you need to support this browser (not recommended), you can configure your project to support it manually ([Contact us](/community/contactus) for assistance) or use the PX Blue CLI to scaffold your project.
 
 ## License Information
 

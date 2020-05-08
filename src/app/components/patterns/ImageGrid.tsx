@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 type Content = string | JSX.Element;
 type ImageGridProps = HTMLAttributes<HTMLDivElement> & {
-    caption?: string | JSX.Element;
+    caption?: string | string[];
     gridContainerProps?: GridProps;
     gridComponentProps?: GridProps;
     gridImageProps?: GridProps;
@@ -56,8 +56,11 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
     const theme = useTheme();
     const [imageOpened, setImageOpened] = useState(-1);
     const smUp = useMediaQuery(theme.breakpoints.up('sm'));
+
+    const captionArray = Array.isArray(caption) ? caption : [caption];
+
     return (
-        <div className={classes.root} {...rootProps}>
+        <p className={classes.root} {...rootProps}>
             <Grid
                 container
                 spacing={2}
@@ -88,13 +91,17 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
                     )
                 )}
             </Grid>
-            {typeof caption === 'string' ? <Typography variant={'caption'}>{caption}</Typography> : caption}
+            {captionArray.map((line, lineInd) => (
+                <Typography key={`line_${lineInd}`} variant={'caption'} display={'block'}>
+                    {line}
+                </Typography>
+            ))}
             {imageOpened !== -1 && smUp && (
                 <div className={classes.fullScreenZoom} onClick={(): void => setImageOpened(-1)}>
                     <img className={classes.image} style={{ cursor: 'inherit' }} src={images[imageOpened] as string} />
                 </div>
             )}
-        </div>
+        </p>
     );
 };
 ImageGrid.displayName = 'ImageGrid';
