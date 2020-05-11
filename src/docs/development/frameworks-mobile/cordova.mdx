@@ -8,7 +8,9 @@ You'll need to start by following the general instructions for setting up your d
 
 The installation process for Cordova is a single command:
 
-```
+```sh
+npm install -g cordova
+// or
 yarn global add cordova
 ```
 
@@ -24,14 +26,14 @@ You can also use it for new projects - just build your web application as you no
 
 Start by creating a folder that will hold your entire project:
 
-```
+```sh
 mkdir myprojectfolder
 cd myprojectfolder
 ```
 
 Then, create a new cordova wrapper project.
 
-```
+```sh
 cordova create cordova your.app.id AppName
 ```
 
@@ -39,7 +41,7 @@ This will create a /cordova folder that will contain all of the necessary code t
 
 From here, you will need to bring in the code for your web application. If you have an existing project, you can copy the root folder into the /myprojectfolder you created above (it should be at the same level as the /cordova folder). If you are starting a project from scratch, you can run one of the following commands in the /myprojectfolder directory, depending on your selected framework:
 
-```
+```sh
 create-react-app appname
 ng new appname
 ```
@@ -58,19 +60,19 @@ Cordova works by placing your application code (bundled and minified, as it woul
 
 For Angular projects:
 
-```
+```json
 "build-cordova": "ng build --prod --base-href . --output-path ../cordova/www/"
 ```
 
 For React projects (Windows):
 
-```
+```json
  "build-cordova": "react-scripts build && (robocopy .\\build\\ ..\\cordova\\www\\ /e /purge ^& exit 0)"
 ```
 
 For React projects (Linux/Mac):
 
-```
+```json
  "build-cordova": "react-scripts build && rsync -aq ./build/ ../cordova/www/ --delete"
 ```
 
@@ -78,14 +80,16 @@ If you are building a React app and your developers are using a mix of operating
 
 Once you have added this script, you can build your app and have the files moved to the /www directory with a single command:
 
-```
+```sh
 cd appname
-yarn run build-cordova
+npm run build-cordova
+// or
+yarn build-cordova
 ```
 
 You can then add your desired platforms in your cordova project, and test them with the following commands:
 
-```
+```sh
 cd cordova
 cordova platform add <platform>
 cordova run <platform>
@@ -95,7 +99,7 @@ For more information about the various Cordova commands, check out the [Quick St
 
 When you are ready to create a final build, you'll use the build command:
 
-```
+```sh
 cordova build <platform>
 ```
 
@@ -103,14 +107,14 @@ cordova build <platform>
 
 There are many different plugins available for use in Cordova applications that will allow you to access various native/hardware features of the device that your application is running on. To add a plugin to your app, navigate to the /cordova directory and install it:
 
-```
+```sh
 cd cordova
 cordova plugin add <plugin>
 ```
 
 To use plugins in your application, you will need to add the cordova.js file as a script in your index.html file (or equivalent):
 
-```
+```html
 <script type="text/javascript" src="cordova.js"></script>
 ```
 

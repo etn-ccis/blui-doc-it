@@ -49,6 +49,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Environment Setup'} markdown={Docs.Development.Environment} />,
             },
             {
+                title: 'PX Blue CLI',
+                url: '/cli',
+                component: <MarkdownPage title={'PX Blue CLI'} markdown={Docs.Development.CLI} />,
+            },
+            {
                 title: 'Web Frameworks',
                 url: '/frameworks-web',
                 pages: [
@@ -93,6 +98,7 @@ export const pageDefinitions: SimpleNavItem[] = [
                         ),
                     },
                     {
+                        hidden: true,
                         title: 'Apache Cordova Guide',
                         url: '/cordova',
                         component: (
