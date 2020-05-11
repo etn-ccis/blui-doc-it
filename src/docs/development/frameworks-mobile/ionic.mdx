@@ -18,17 +18,17 @@ The most up-to-date instructions for setting up Ionic can be found on the [Ionic
 
 To get started, run:
 
-```
+```sh
 npm install -g ionic cordova
-or
+// or
 yarn global add ionic cordova
 ```
 
 You'll also want to install some additional dependencies:
 
-```
+```sh
 npm install -g native-run gradle cordova-res
-or
+// or
 yarn global add native-run gradle cordova-res
 ```
 
@@ -42,7 +42,7 @@ Make sure that you have a `GRADLE_HOME` entry in your PATH variable pointing to 
 
 The fastest way to start a new PX Blue project is to use the [PX Blue CLI](/development/cli). The CLI will automatically create a starter project for you (using either the [Ionic CLI](https://ionicframework.com/docs/cli)) with all of the necessary PX Blue dependencies pre-configured. To start an Ionic project:
 
-```
+```sh
 npx -p @pxblue/cli pxb new ionic
 ```
 
@@ -79,7 +79,7 @@ Developing an Ionic project with Angular is virtually identical to writing a nor
 
 `ionic serve` will run the application in a web browser on localhost:8100. In order to see the application run on a mobile device, you will need to add platforms.
 
-```
+```sh
 ionic cordova platform add android
 ionic cordova platform add ios
 ```
@@ -92,14 +92,14 @@ When the ionic cordova platform add completes, your project will have all the re
 
 The project is now ready to build and you can run:
 
-```
+```sh
 ionic cordova build android
 ionic cordova build ios
 ```
 
 Once complete, you can run your project in a device simulator (or connected device) by running:
 
-```
+```sh
 ionic cordova run android
 ionic cordova run ios
 ```
