@@ -24,6 +24,7 @@ import { IconCard } from './IconCard';
 import { IconMenu } from './IconMenu';
 import { unCamelCase } from '../../shared/utilities';
 import { Icon, MatIconList, DetailedIcon } from '../../../__types__';
+import { useQueryString } from '../../hooks/useQueryString';
 
 type LetterGroups = {
     [key: string]: boolean;
@@ -179,7 +180,12 @@ const iconMatches = (icon: Icon, search: string, filterMaterial: boolean): boole
         .toLowerCase()
         .split(/\s+/);
     for (let i = 0; i < searchArray.length; i++) {
-        if (!icon.name.toLowerCase().includes(searchArray[i])) {
+        if (
+            !icon.name
+                .toLowerCase()
+                .replace(/[ _]/g, '')
+                .includes(searchArray[i])
+        ) {
             return false;
         }
     }
@@ -188,11 +194,20 @@ const iconMatches = (icon: Icon, search: string, filterMaterial: boolean): boole
 };
 
 export const IconBrowser: React.FC = (): JSX.Element => {
-    const [search, setSearch] = useState<string>('');
-    const [hideLetterGroups, setHideLetterGroups] = useState<LetterGroups>({});
-    const [focusedIcon, setFocusedIcon] = useState<Icon>({ name: '', isMaterial: true });
-    const [filterMaterial, setFilterMaterial] = useState(false);
     const classes = useStyles();
+    const query = useQueryString();
+
+    const [search, setSearch] = useState<string>(() => query.search || query.icon || '');
+    const [hideLetterGroups, setHideLetterGroups] = useState<LetterGroups>({});
+    const [focusedIcon, setFocusedIcon] = useState<Icon>(() => {
+        const blankIcon = { name: '', isMaterial: true };
+        const icon = query.icon;
+        if (!icon) return blankIcon;
+        if (Icons[icon]) return { name: icon, isMaterial: false };
+        if (MaterialIcons[getMuiIconName(icon)]) return { name: getMuiIconName(icon), isMaterial: true };
+        return blankIcon;
+    });
+    const [filterMaterial, setFilterMaterial] = useState(false);
 
     const icons: Icon[] = createIconList();
     const iconList: Icon[] = icons;

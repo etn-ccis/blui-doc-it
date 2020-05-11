@@ -36,6 +36,8 @@ const useStyles = makeStyles((theme: Theme) =>
         iconSheet: {
             color: PXBColors.black[900],
             width: '100%',
+            maxHeight: `calc(100% - 64px)`,
+            overflowY: 'auto',
             left: 0,
             right: 0,
             bottom: 0,
@@ -44,8 +46,9 @@ const useStyles = makeStyles((theme: Theme) =>
             marginLeft: 'auto',
             marginRight: 'auto',
             outline: 'none',
+            boxShadow: theme.shadows[4],
             [theme.breakpoints.up('md')]: {
-                left: '364px',
+                left: 270,
                 width: '600px',
             },
             [theme.breakpoints.down('xs')]: {
