@@ -36,10 +36,9 @@ jobs:
                   command: |
                       yarn check:links-ci
             - run:
-                  name: Link applitools- Run Cypress & Visual UI Tests
+                  name: Set test batch - Run Cypress & Visual UI Tests
                   command: |
-                      export APPLITOOLS_BATCH_ID=${CIRCLE_SHA1}
-                      echo $APPLITOOLS_BATCH_ID
+                      export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`
                       if [ $CIRCLE_BRANCH == $MASTER_BRANCH ] || [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
                         yarn cytest
                       fi
