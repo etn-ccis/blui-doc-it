@@ -40,7 +40,6 @@ jobs:
                   command: |
                       export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`
                       yarn cytest
-                      fi
             - deploy:
                   name: Deploy
                   command: |
