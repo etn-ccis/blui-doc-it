@@ -25,6 +25,7 @@ import { IconMenu } from './IconMenu';
 import { unCamelCase } from '../../shared/utilities';
 import { Icon, MatIconList, DetailedIcon } from '../../../__types__';
 import { useQueryString } from '../../hooks/useQueryString';
+import { useHistory, useLocation } from 'react-router-dom';
 
 type LetterGroups = {
     [key: string]: boolean;
@@ -195,10 +196,17 @@ const iconMatches = (icon: Icon, search: string, filterMaterial: boolean): boole
 
 export const IconBrowser: React.FC = (): JSX.Element => {
     const classes = useStyles();
+    const history = useHistory();
+    const location = useLocation();
     const query = useQueryString();
 
-    const [search, setSearch] = useState<string>(() => query.search || query.icon || '');
-    const [hideLetterGroups, setHideLetterGroups] = useState<LetterGroups>({});
+    const [search, setSearch] = useState<string>(() => query.search || '');
+    const [hideLetterGroups, setHideLetterGroups] = useState<LetterGroups>(() => {
+        if (query.icon) {
+            return { [query.icon.charAt(0).toUpperCase()]: true };
+        }
+        return {};
+    });
     const [focusedIcon, setFocusedIcon] = useState<Icon>(() => {
         const blankIcon = { name: '', isMaterial: true };
         const icon = query.icon;
@@ -309,7 +317,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                                                     <div
                                                         key={`${icon.name} + ${icon.isMaterial.toString()}`}
                                                         onClick={(): void => {
-                                                            setFocusedIcon({ name: '', isMaterial: true });
+                                                            history.replace(`${location.pathname}?icon=${icon.name}`);
                                                             setFocusedIcon(icon);
                                                         }}
                                                     >
