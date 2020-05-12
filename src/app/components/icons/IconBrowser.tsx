@@ -317,7 +317,9 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                                                     <div
                                                         key={`${icon.name} + ${icon.isMaterial.toString()}`}
                                                         onClick={(): void => {
-                                                            history.replace(`${location.pathname}?icon=${icon.name}`);
+                                                            history.replace(
+                                                                `${location.pathname}?icon=${getMuiIconName(icon.name)}`
+                                                            );
                                                             setFocusedIcon(icon);
                                                         }}
                                                     >
@@ -330,7 +332,11 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                                                             }
                                                             name={unCamelCase(getMuiIconName(icon.name))}
                                                             className={classes.iconCard}
-                                                            selected={focusedIcon && focusedIcon.name === icon.name}
+                                                            selected={
+                                                                focusedIcon &&
+                                                                getMuiIconName(focusedIcon.name) ===
+                                                                    getMuiIconName(icon.name)
+                                                            }
                                                         />
                                                     </div>
                                                 ))}

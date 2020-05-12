@@ -21,17 +21,17 @@ import {
 } from '@material-ui/core';
 import meta from '@pxblue/icons-mui/index.json';
 import { ExternalLink } from '../../../__configuration__/markdown/markdownMapping';
-import { unCamelCase, getSnakeCase } from '../../shared/utilities';
+import { unCamelCase, getSnakeCase, getKebabCase } from '../../shared/utilities';
 import { IconCard } from './IconCard';
 import { Icon, MatIconList, DetailedIcon } from '../../../__types__';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         usageBox: {
-            padding: `10px ${theme.spacing(2)}px 0px ${theme.spacing(2)}px`,
+            padding: `10px ${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(2)}px`,
             overflowX: 'auto',
-            height: '230px',
-            overflowY: 'hidden',
+            height: '250px',
+            overflowY: 'auto',
         },
         iconSheet: {
             color: PXBColors.black[900],
@@ -65,15 +65,15 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-const instructionLinks = [
-    'https://github.com/pxblue/icons',
-    'https://www.npmjs.com/package/@pxblue/icons-svg',
-    'https://www.npmjs.com/package/@pxblue/icons-mui',
-    'https://material-ui.com/components/icons/#svg-icons',
-    'https://material-ui.com/components/icons/#font-icons',
-    'https://material.angular.io/components/icon/overview#font-icons-with-ligatures',
-    'https://material.angular.io/components/icon/overview#svg-icons',
-];
+const instructionLinks = {
+    icons: 'https://github.com/pxblue/icons',
+    iconsSvg: 'https://www.npmjs.com/package/@pxblue/icons-svg',
+    iconsMui: 'https://www.npmjs.com/package/@pxblue/icons-mui',
+    reactSvg: 'https://material-ui.com/components/icons/#svg-icons',
+    reactFont: 'https://material-ui.com/components/icons/#font-icons',
+    angularFont: 'https://material.angular.io/components/icon/overview#font-icons-with-ligatures',
+    angularSvg: 'https://material.angular.io/components/icon/overview#svg-icons',
+};
 
 const getIconFile = (iconName: string): DetailedIcon | -1 => {
     for (let i = 0; i < meta.icons.length; i++) {
@@ -112,14 +112,14 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                             {isMaterial && (
                                 <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                     View detailed usage and installation instructions for{' '}
-                                    <ExternalLink href={instructionLinks[4]}>React</ExternalLink> and{' '}
-                                    <ExternalLink href={instructionLinks[5]}>Angular</ExternalLink>.
+                                    <ExternalLink href={instructionLinks.reactFont}>React</ExternalLink> and{' '}
+                                    <ExternalLink href={instructionLinks.angularFont}>Angular</ExternalLink>.
                                 </Typography>
                             )}
                             {!isMaterial && (
                                 <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                     For detailed usage and installation instructions, visit our{' '}
-                                    <ExternalLink href={instructionLinks[0]}>GitHub</ExternalLink>.
+                                    <ExternalLink href={instructionLinks.icons}>GitHub</ExternalLink>.
                                 </Typography>
                             )}
                             <Typography color={'inherit'} variant="subtitle2">
@@ -138,6 +138,13 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                             </Typography>
                             {!isMaterial && <pre>{`<i class="pxb-${name}"></i>`}</pre>}
                             {isMaterial && <pre>{`<i class="${getSnakeCase(name)}"></i>`}</pre>}
+
+                            <Typography color={'inherit'} variant="subtitle2">
+                                React Native
+                            </Typography>
+                            <Typography color={'inherit'} variant="subtitle2">
+                                For React Native applications, the preferred approach is to use SVG icons.
+                            </Typography>
                         </>
                     );
                 case 1:
@@ -146,14 +153,14 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                             {isMaterial && (
                                 <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                     View detailed usage and installation instructions for{' '}
-                                    <ExternalLink href={instructionLinks[3]}>React</ExternalLink> and{' '}
-                                    <ExternalLink href={instructionLinks[6]}>Angular</ExternalLink>.
+                                    <ExternalLink href={instructionLinks.reactSvg}>React</ExternalLink> and{' '}
+                                    <ExternalLink href={instructionLinks.angularSvg}>Angular</ExternalLink>.
                                 </Typography>
                             )}
                             {!isMaterial && (
                                 <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                     For detailed usage and installation instructions, visit our{' '}
-                                    <ExternalLink href={instructionLinks[1]}>GitHub</ExternalLink>.
+                                    <ExternalLink href={instructionLinks.iconsSvg}>GitHub</ExternalLink>.
                                 </Typography>
                             )}
                             <Typography color={'inherit'} variant="subtitle2">
@@ -178,6 +185,24 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                             </Typography>
                             {!isMaterial && <pre>{`<mat-icon svgIcon="${name}"></mat-icon>`}</pre>}
                             {isMaterial && <pre>{`<mat-icon>${getSnakeCase(name)}</mat-icon>`}</pre>}
+
+                            <Typography color={'inherit'} variant="subtitle2">
+                                React Native
+                            </Typography>
+                            {!isMaterial && (
+                                <pre>
+                                    {`import ${getMuiIconName(name)} from '@pxblue/icons-svg/${name}.svg';`}
+                                    <br />
+                                    {`const myIcon = <${getMuiIconName(name)} />`}
+                                </pre>
+                            )}
+                            {isMaterial && (
+                                <pre>
+                                    {`import Icon from 'react-native-vector-icons/MaterialIcons';`}
+                                    <br />
+                                    {`const myIcon = <Icon name="${getKebabCase(name)}"/>;`}
+                                </pre>
+                            )}
                         </>
                     );
                 case 2:
@@ -186,7 +211,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                             {!isMaterial && (
                                 <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
                                     For detailed usage and installation instructions, visit our{' '}
-                                    <ExternalLink href={instructionLinks[2]}>GitHub</ExternalLink>.
+                                    <ExternalLink href={instructionLinks.iconsMui}>GitHub</ExternalLink>.
                                 </Typography>
                             )}
                             <Typography color={'inherit'} variant="subtitle2">
@@ -198,15 +223,10 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                                 {`<${getMuiIconName(name)}Icon></${getMuiIconName(name)}Icon>`}
                             </pre>
                             <Typography color={'inherit'} variant="subtitle2">
-                                Angular
+                                Angular / React Native
                             </Typography>
                             <Typography color={'inherit'} variant="subtitle2">
-                                Icon components are intended for use only in React applications. For a way to link svg
-                                icons for use in Angular applications, see{' '}
-                                <ExternalLink href={'https://github.com/pxblue/icons/tree/master/svg#angular-1'}>
-                                    @pxblue/icons
-                                </ExternalLink>
-                                .
+                                Icon components are intended for use only in React (web) applications.
                             </Typography>
                         </>
                     );
@@ -239,7 +259,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                     return null;
             }
         },
-        [iconData]
+        [iconData, name]
     );
 
     return (
