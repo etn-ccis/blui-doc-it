@@ -1,6 +1,13 @@
+export const PADDING = 24;
+
 export const PAGE_WIDTH = {
     WIDE: 1280, // medias, components
-    REGULAR: 798, // text, call-to-action buttons
+    REGULAR: 766 + PADDING * 2, // text
+};
+
+export const CTA_BUTTON = {
+    WIDTH: 320 - PADDING * 2,
+    HEIGHT: 154,
 };
 
 export const REGULAR_WIDTH_STYLE = {

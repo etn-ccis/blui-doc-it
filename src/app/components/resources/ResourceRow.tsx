@@ -15,10 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
 type ResourceRowProps = {
     title: React.ReactElement;
     description: string;
-    package?: string;
     repository: string;
-    assigned?: string;
-
     divider?: boolean;
     rightComponent?: JSX.Element;
 };

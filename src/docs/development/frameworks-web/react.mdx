@@ -79,13 +79,10 @@ Installing the theme package will automatically include the Open Sans web font p
 Import the theme files, Material UI theme provider, and **Open Sans** font into your application, e.g. in App.js:
 
 ```tsx
-import {
-    ThemeProvider,
-    createMuiTheme
-} from '@material-ui/core/styles';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import * as PXBThemes from '@pxblue/react-themes';
-require ("typeface-open-sans");
+require('typeface-open-sans');
 ```
 
 To add the theme to your whole application, you would simply add a `<ThemeProvider>` around your top-level component and pass it the theme you want to use, e.g.:
