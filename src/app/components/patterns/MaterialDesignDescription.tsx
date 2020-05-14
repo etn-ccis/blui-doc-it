@@ -1,5 +1,6 @@
 import React from 'react';
 import { MaterialDesign } from '../../assets/icons';
+import { CTA_BUTTON } from '../../shared';
 import { OpenInNew } from '@material-ui/icons';
 import {
     Card,
@@ -36,7 +37,7 @@ type MaterialDesignDescriptionProps = {
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            width: theme.spacing(38),
+            width: CTA_BUTTON.WIDTH,
             maxWidth: '100%',
             marginBottom: theme.spacing(2),
             marginRight: theme.spacing(2),
@@ -48,10 +49,10 @@ const useStyles = makeStyles((theme: Theme) =>
         contentArea: {
             flexDirection: 'row',
             display: 'flex',
-            minHeight: theme.spacing(19),
+            minHeight: CTA_BUTTON.HEIGHT,
             alignItems: 'flex-start',
             padding: theme.spacing(1),
-            paddingBottom: theme.spacing(2),
+            paddingBottom: theme.spacing(1.5),
         },
         textArea: {
             flex: 1,

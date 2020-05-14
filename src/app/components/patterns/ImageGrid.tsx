@@ -60,7 +60,7 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
     const captionArray = Array.isArray(caption) ? caption : [caption];
 
     return (
-        <p className={classes.root} {...rootProps}>
+        <div className={classes.root} {...rootProps}>
             <Grid
                 container
                 spacing={2}
@@ -101,7 +101,7 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
                     <img className={classes.image} style={{ cursor: 'inherit' }} src={images[imageOpened] as string} />
                 </div>
             )}
-        </p>
+        </div>
     );
 };
 ImageGrid.displayName = 'ImageGrid';

@@ -31,7 +31,7 @@ export const componentsMap = {
             variant={'h4'}
             color={'primary'}
             className={'markdownH1'}
-            style={{ marginBottom: 32, ...REGULAR_WIDTH_STYLE }}
+            style={{ marginBottom: 32, ...REGULAR_WIDTH_STYLE, hyphens: 'auto' }}
             {...props}
         />
     ),
