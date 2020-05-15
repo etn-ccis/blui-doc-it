@@ -4,43 +4,54 @@ import { Divider } from '../../../app/components';
 
 The following instructions will guide you through setting up your computer for React Native development and starting a new PX Blue project. Alternatively, you can start your project by downloading one of our code samples from [GitHub](https://github.com/pxblue) (the Login example is a good project to start from) once you configure your environment.
 
-## Setting up your environment
+<Divider />
+
+# Setting Up Your Environment
 
 You'll need to start by following the general instructions for setting up your development environment for mobile found in our [Environment Guide](/development/environment). In addition to the base requirements, you may also want the following:
 
 -   [Expo Client](https://expo.io/learn) (project creation / setup tool for React Native apps)(optional, for Expo projects)
 
-## Creating a project
+<Divider />
 
-There are two popular approaches to starting a new React Native project. The first (recommended) is to use the [React Native Community CLI](https://github.com/react-native-community/cli) and the second is to use the [Expo CLI](https://docs.expo.io/workflow/expo-cli/). The Expo CLI is nice for spinning up quick projects and demos, but to use certain libraries/plugins you will need to eject to vanilla React Native. For this reason, we recommend most production applications start with the RNC CLI instead to avoid the complications of ejecting.
+# Creating Your Application
 
-> **NOTE:** PX Blue examples are written using the Expo CLI. The primary reason for this is because it provides the ability to share live-running code examples via [Snack](https://snack.expo.io/).
+## Using the PX Blue CLI
 
-### Using RNC CLI (recommended approach)
+The fastest way to start a new PX Blue project is to use the [PX Blue CLI](/development/cli). The CLI will automatically create a starter project for you (using either the [React Native Community CLI](https://github.com/react-native-community/cli)(recommended) or [Expo CLI](https://docs.expo.io/)) with all of the necessary PX Blue dependencies pre-configured. To start a React Native project:
 
-The React Native Community recommends using the CLI via `npx` rather than installing the package globally. To start a new project, run the following:
-
-```
-// typescript (recommended)
-npx react-native init YourAppName --template react-native-template-typescript
-
-// javascript
-npx react-native init YourAppName
+```sh
+npx -p @pxblue/cli pxb new react-native
 ```
 
-### Using Expo CLI
+You will be asked to provide a name for your project, select a CLI to use, choose whether you would like to use TypeScript or JavaScript, and for TypeScript projects, you'll be asked if you want to use the PX Blue eslint and prettier configurations files.
 
-The Expo CLI can be installed globally, but we recommend running it via `npx` as well. To start a new project, run the following:
+The PX Blue CLI will automatically include:
 
-```
-// typescript (recommended)
-npx -p expo-cli expo init --name=YourAppName --template=expo-template-blank-typescript
+-   PX Blue Component Library ([@pxblue/react-native-components](https://www.npmjs.com/package/@pxblue/react-native-components))
+-   PX Blue Themes ([@pxblue/react-native-themes](https://www.npmjs.com/package/@pxblue/react-native-themes))
+-   Material Icons ([react-native-vector-icons](https://www.npmjs.com/package/react-native-vector-icons))
+-   PX Blue Icons ([@pxblue/icons-svg](https://www.npmjs.com/package/@pxblue/icons-svg))
+-   PX Blue Colors ([@pxblue/colors](https://www.npmjs.com/package/@pxblue/colors))
+-   Open Sans font
+-   PX Blue ESLint and Prettier configurations, if selected ([@pxblue/eslint-config](https://www.npmjs.com/package/@pxblue/eslint-config) / [@pxblue/prettier-config](https://www.npmjs.com/package/@pxblue/prettier-config))
+-   Testing libraries ([jest](https://www.npmjs.com/package/jest) / [react-test-renderer](https://www.npmjs.com/package/react-test-renderer))
 
-// javascript
-npx -p expo-cli expo init --name=YourAppName --template=blank
-```
+For detailed usage instructions, refer to the [PX Blue CLI documentation](https://www.npmjs.com/package/@pxblue/cli).
+
+## Using an Existing Project
+
+If you have an existing project and would like to integrate PX Blue, you can follow the manual integration instructions below. If you have not already started your project, we recommend that you scaffold your project with the PX Blue CLI.
+
+<Divider />
+
+# Manual PX Blue Integration
+
+Before taking the following steps, you'll want to make sure that you have an existing application. If you used the PX Blue CLI to start your project, these steps have already been done for you automatically.
 
 ## Including the Component Libraries
+
+### Material Components
 
 There is no standard component library for React Native that implements Material Design at this time. At the bottom of this page is a list of recommended component libraries that you can use, depending on your requirements.
 
@@ -48,7 +59,9 @@ There is no standard component library for React Native that implements Material
 
 We have a [supplemental library](https://github.com/pxblue/react-native-component-library/tree/dev) of components designed specifically for PX Blue applications. If you wish to use these components, you can install them by running:
 
-```
+```sh
+npm install --save @pxblue/react-components
+// or
 yarn add @pxblue/react-native-components
 ```
 
@@ -56,24 +69,38 @@ yarn add @pxblue/react-native-components
 
 If you are using the PX Blue component library, it includes basic support for theming your application. By default, it uses a Material-style theme. To use the PX Blue theme, first install it:
 
-```
+```sh
+npm install --save @pxblue/react-naive-themes
+// or
 yarn add @pxblue/react-native-themes
 ```
 
-> Using the PX Blue React Native theme **requires** that you add the Open Sans font to your application. You can learn how to do this by reading the instructions for [Vanilla React Native](https://medium.com/react-native-training/react-native-custom-fonts-ccc9aacf9e5e) or [Expo](https://docs.expo.io/guides/using-custom-fonts/).
+> Using the PX Blue React Native theme **requires** that you add the Open Sans font to your application. You can learn how to do this by reading the instructions for [Vanilla React Native](https://medium.com/react-native-training/react-native-custom-fonts-ccc9aacf9e5e) or [Expo](https://docs.expo.io/guides/using-custom-fonts/). You can find the fonts [here](https://github.com/pxblue/cli-helpers/tree/master/fonts).
+
 > When using Expo, you will need to specify the name for each font weight you load using the format OpenSans-`<Weight>`, e.g., OpenSans-SemiBold. Refer to one of our React Native demos for reference.
 
 ## Applying the Theme
 
-You can apply the PX Blue theme by wrapping your application in a `<ThemeProvider>` and passing in the theme object. For detailed information, check [our documentation](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--theme).
+You can apply the PX Blue theme by wrapping your application in a `<ThemeProvider>` and passing in the theme object.
+
+```tsx
+import { ThemeProvider } from '@pxblue/react-native-components';
+import * as PXBThemes from '@pxblue/react-native-themes';
+...
+<ThemeProvider theme={PXBThemes.blue}>
+    <App />
+</ThemeProvider>
+```
+
+For detailed information, check [our documentation](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--theme).
 
 > NOTE: This theme only applies to the components in the @pxblue/react-native-components package. It will not theme the components from other third party libraries. If you wish to use our theme to style your own components, refer to our [documentation](https://github.com/pxblue/react-native-component-library/blob/dev/docs/Theme.md#using-the-theme-in-custom-components).
 
-### Avoid Repeated Styles
+### Avoiding Repeated Styles
 
 To avoid adding repeatedly adding inline styles to standard components, you can define your own component that applies the styles and use that throughout your application, e.g.:
 
-```
+```tsx
 // MyText.js
 export default MyText = ({style, children, ...other}) => (
     <Text {...other} style={StyleSheet.flatten([{/* Theme styles here */}, style])}>
@@ -87,7 +114,9 @@ import Text from 'path/to/MyText.js';
 <Text>Themed Text Object</Text>
 ```
 
-## Writing your application
+<Divider />
+
+# Writing a React Native Application
 
 If you are familiar with React development, React Native will be relatively simple to understand. The application logic remains the same, while the UI requires a little adjustment. Rather than typical HTML elements, React Native UIs are built with a special library of [Components](https://facebook.github.io/react-native/docs/components-and-apis), including `<View>`, `<Text>`, `<Image>`, etc. React Native layouts are built exclusively using FlexBox.
 
@@ -95,14 +124,18 @@ If you are familiar with React development, React Native will be relatively simp
 
 After you've created your application with a CLI, it can be run from the command line:
 
-```
+```sh
 cd YourAppName
-// RNC CLI
-yarn ios
-yarn android
 
-// Expo CLI
-yarn start // follow the on-screen instructions or use the web interface to open the app on a device
+// RNC CLI
+npm run <ios|android>
+// or
+yarn <ios|android>
+
+// Expo CLI (follow the on-screen instructions or use the web interface to open the app on a device)
+npm run start
+// or
+yarn start
 ```
 
 When you make changes to the source code, the application will automatically rebuild and update on the device.
@@ -113,11 +146,13 @@ When you make changes to the source code, the application will automatically reb
 
 ## Ejecting from Expo
 
-If you use Expo to create your project, ther will come a time in your development when it becomes necessary to eject from Expo. The most common reason for this are for adding native libraries to your project.
+If you use Expo to create your project, there will come a time in your development when it becomes necessary to eject from Expo. The most common reason for this are for adding native libraries to your project.
 
 To eject your app, run the following and follow the on-screen prompts (WARNING: Ejecting from Expo cannot be undone. Make sure you know what you are doing and have your project in source control before proceeding):
 
-```
+```sh
+npm run eject
+// or
 yarn eject
 ```
 
@@ -133,7 +168,13 @@ After ejecting from Expo, the process for creating a build is the same as for a 
 
 <Divider />
 
-# Resources
+# Additional Information
+
+## RNC CLI vs. Expo CLI
+
+There are two popular approaches to starting a new React Native project. The first (recommended) is to use the [React Native Community CLI](https://github.com/react-native-community/cli) and the second is to use the [Expo CLI](https://docs.expo.io/workflow/expo-cli/). The Expo CLI is nice for spinning up quick projects and demos, but to use certain libraries/plugins you will need to eject to vanilla React Native. For this reason, we recommend most production applications start with the RNC CLI instead to avoid the complications of ejecting.
+
+> **NOTE:** PX Blue examples are written using the Expo CLI. The primary reason for this is because it provides the ability to share live-running code examples via [Snack](https://snack.expo.io/).
 
 ## Code Formatting/Style
 
@@ -151,6 +192,7 @@ There are a lot of resources and components available on the market to help spee
 -   Component Libraries
     -   [React Native Built-in Components](https://facebook.github.io/react-native/docs/components-and-apis.html)
     -   [React Native Elements](https://react-native-training.github.io/react-native-elements/)
+    -   [React Native Paper](https://callstack.github.io/react-native-paper/)
 -   Additional Components
     -   [Bottom Navigation](https://github.com/tomzaku/react-native-material-bottom-navigation-performance)
     -   [Floating Action Button](https://github.com/mastermoo/react-native-action-button)

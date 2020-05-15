@@ -18,7 +18,6 @@ const useStyles = makeStyles(() => ({
         background: PXBColors.blue[50],
     },
     label: {
-        cursor: 'default',
         width: '100%',
         textAlign: 'center',
         wordBreak: 'break-word',

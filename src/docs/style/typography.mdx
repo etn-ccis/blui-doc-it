@@ -21,8 +21,10 @@ Unlike Material Design, the primary font for Power Xpert Blue is [Open Sans](htt
 
 PX Blue provides a type scale that includes a range of styles to support the needs of your application. All styles and fonts are available in the design library. As PX Blue continues to grow, additional font patterns will be added.
 
-<ImageGrid images={[TypeScaleImg]} style={{ marginTop: 32 }} gridImageProps={{ sm: 12 }} />
-<Divider />
+<React.Fragment>
+    <ImageGrid images={[TypeScaleImg]} style={{ marginTop: 32 }} gridImageProps={{ sm: 12 }} />
+    <Divider />
+</React.Fragment>
 
 # Customization
 
@@ -34,20 +36,22 @@ Different products have different needs, and we do not expect these pre-defined 
 
 New font styles can be created when a design calls for additional font sizes or states that are currently not available in PX Blue. The most common cases for custom styles have been additional headline styles (in certain components) and the modification of Body 2 from semi-bold to regular. Ultimately, the need for custom styles depends on you and what's best for the product. PX Blue is available to provide recommendations and design reviews. If you need help defining a new style, do not hesitate to [contact us](/community/contactus)!
 
-The examples below depict how the designs would look using standard PX Blue comparied to how the design looks with new created font styles.
+The examples below depict how the designs would look using standard PX Blue compared to how the design looks with new created font styles.
 
-<ImageGrid images={[ApplicationImg]} style={{ marginTop: 48, marginBottom: 16 }} gridImageProps={{ sm: 12 }} caption={
-    <>
-    <Typography variant={'caption'}>1: Card layout using default PX Blue styles</Typography>
-    <br />
-    <Typography variant={'caption'}>2: Card layout using custom created styles</Typography>
-    </>
-}/>
-
-<ImageGrid images={[HeadlineOptionsImg]} style={{ marginTop: 48, marginBottom: 16 }} gridImageProps={{ sm: 12 }} caption={
-    <>
-    <Typography variant={'caption'}>1: Two line headline using default PX Blue styles</Typography>
-    <br />
-    <Typography variant={'caption'}>2: Two line headline using custom created styles</Typography>
-    </>
-}/>
+<React.Fragment>
+    <ImageGrid
+        images={[ApplicationImg]}
+        style={{ marginTop: 48, marginBottom: 16 }}
+        gridImageProps={{ sm: 12 }}
+        caption={['1: Card layout using default PX Blue styles', '2: Card layout using custom created styles']}
+    />
+    <ImageGrid
+        images={[HeadlineOptionsImg]}
+        style={{ marginTop: 48, marginBottom: 16 }}
+        gridImageProps={{ sm: 12 }}
+        caption={[
+            '1: Two line headline using default PX Blue styles',
+            '2: Two line headline using custom created styles',
+        ]}
+    />
+</React.Fragment>

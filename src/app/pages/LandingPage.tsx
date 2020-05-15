@@ -27,8 +27,8 @@ import { cardData } from '../../__configuration__/landingPage/cardData';
 import { Spacer } from '@pxblue/react-components';
 import { ReleaseInfo } from '../../docs/release-notes';
 
-import computer from '../assets/placeholder/develop.jpg';
-import paper from '../assets/placeholder/paper.jpg';
+import developImage from '../assets/home/develop.jpg';
+import designImage from '../assets/home/design.jpg';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
@@ -129,13 +129,13 @@ export const LandingPage: React.FC = (): JSX.Element => {
             {/* Carousel Section */}
             <CardCarousel>
                 <CarouselCard
-                    backgroundImage={paper}
+                    backgroundImage={designImage}
                     title={'Getting started as a designer'}
                     description={'We offer many resources and assets for designers getting acquainted with PX Blue.'}
                     onClick={(): void => history.push('/design/intro')}
                 />
                 <CarouselCard
-                    backgroundImage={computer}
+                    backgroundImage={developImage}
                     title={'Getting started as a developer'}
                     description={'We have numerous guides and resources to prepare you for working with PX Blue.'}
                     onClick={(): void => history.push('/development/environment')}

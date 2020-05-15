@@ -14,7 +14,7 @@ Chances are, you probably want to keep your application in source control. Git i
 
 You may already have git installed. To check, run:
 
-```
+```sh
 git --version
 ```
 
@@ -22,7 +22,7 @@ in a command prompt. If you don't have git installed, you can download it from t
 
 If you are behind a proxy, you'll also need to set up the git proxies as well:
 
-```
+```sh
 git config --global http.proxy http://url.to.your.proxy:port
 git config --global https.proxy http://url.to.your.proxy:port
 ```
@@ -35,38 +35,38 @@ The majority of JavaScript frameworks (and PX Blue resources) are available via 
 
 ## Yarn
 
-Our projects and example code are set up to be run using yarn. Instructions for installing yarn on various operating systems can be found on the [Yarn Website](https://yarnpkg.com/en/docs/install).
+Our projects and example code are set up to be run using yarn, but if you prefer, you're welcome to use NPM in your projects instead. Instructions for installing yarn on various operating systems can be found on the [Yarn Website](https://yarnpkg.com/en/docs/install).
 
 To check if you have yarn installed, run:
 
-```
+```sh
 yarn -v
 ```
 
 from a command prompt. If you are behind a proxy, you will also need to configure your proxy settings. It may be sufficient for you to set `HTTP_PROXY` and `HTTPS_PROXY` in your environment variables. However, you may need to also explicitly set proxy values for yarn:
 
-```
+```sh
 yarn config set proxy http://url.to.your.proxy:port
 yarn config set https-proxy http://url.to.your.proxy:port
 ```
 
 The proxy addresses may vary depending on your location. Consult your local IT department if you’re not sure. Once you have configured the proxy, you should be able to install packages by using:
 
-```
+```sh
 yarn add <package-name>
 ```
 
 > If you are installing packages globally using yarn, you will need to ensure that your PATH variable has an entry pointing to your global yarn install directory. This location will vary based on your operating system.
 
-<Divider style={{}} />
+<Divider />
 
 # Hybrid App Development
 
 If you are setting up for building a mobile app, there are some additional steps you will want to take to prepare. The following requirements are the basics. Depending on your selected [framework](/development/frameworks-mobile/intro), there will be other specific setup steps detailed in our Getting Started Guides.
 
-### Prerequisites
+## Prerequisites
 
-#### Hardware
+### Hardware
 
 Mobile development is resource-intensive, so you will need a development machine that is up to the task. Your machine should at least match the following minimum requirements:
 
@@ -75,7 +75,7 @@ Mobile development is resource-intensive, so you will need a development machine
 -   Solid State Hard Drive (SSD)
 -   5/6 Gen Core i7 with Virtualization Technology or better
 
-#### Software
+### Software
 
 There are a few software tools that you will need before you can get started:
 
