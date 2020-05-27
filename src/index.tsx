@@ -40,8 +40,3 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
-// If landed from the 404 page, use the new state to update current URL
-window.addEventListener('popstate', (e) => {
-    if (e.state.newURL) window.location.replace(e.state.newURL);
-});
