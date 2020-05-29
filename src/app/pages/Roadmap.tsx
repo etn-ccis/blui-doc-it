@@ -78,8 +78,10 @@ const getStatusColor = (status: Status): PXBlueColor | undefined => {
     switch (status) {
         case 'finished':
             return Colors.green;
-        case 'in-progress':
+        case 'in-progress': 
             return Colors.blue;
+        case 'pre-release':
+            return Colors.purple;
         case 'backlog':
         default:
             return undefined;
