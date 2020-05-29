@@ -20,7 +20,7 @@ export type MatIconList = {
     [key: string]: (props: SvgIconProps) => JSX.Element;
 };
 
-export type Status = 'backlog' | 'in-progress' | 'pre-release' | 'finished';
+export type Status = 'backlog' | 'in-progress' | 'pre-release' | 'deferred' | 'finished';
 export type Quarter = 'Q1' | 'Q2' | 'Q3' | 'Q4';
 
 export type RoadmapItem = {
