@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React, { useState } from 'react';
 import {
     Typography,
@@ -24,12 +22,7 @@ import { Result } from '../../__types__';
 import { search } from './SearchFunction';
 import { getSitemapDatabase, getIndexDatabase } from '../api';
 
-export type SearchbarProps = AppBarProps & {
-    // title?: string;
-    // color?: 'primary' | 'secondary' | 'default';
-    // subtitle?: string;
-    // navigationIcon?: JSX.Element;
-};
+export type SearchbarProps = AppBarProps;
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -97,31 +90,38 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     const [query, setQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [showSearchResult, setShowSearchResult] = useState(false);
+    const [inputString, setInputString] = useState('');
     const history = useHistory();
 
-    // user submit their query
-    // fetching for search results...
-    const onSearchHandler = (): void => {
-        console.log(`fetching result for ${query}`);
-        const loadSearchResults = async (): Promise<void> => {
-            const siteMapDB = await getSitemapDatabase();
-            const indexDB = await getIndexDatabase();
-            if (!siteMapDB || !indexDB) return;
-            // @ts-ignore
-            setSearchResults(search(query, siteMapDB, indexDB));
-            setShowSearchResult(true);
-        };
-        loadSearchResults();
-    };
+    React.useEffect(() => {
+        if (query) {
+            const loadSearchResults = async (): Promise<void> => {
+                const siteMapDB = await getSitemapDatabase();
+                const indexDB = await getIndexDatabase();
+                if (!siteMapDB || !indexDB) return;
+                // TODO
+                // @ts-ignore
+                setSearchResults(search(query, siteMapDB, indexDB));
+                setShowSearchResult(true);
+            };
+            loadSearchResults();
+        } else {
+            setShowSearchResult(false);
+        }
+    }, [query]);
 
     // do auto suggestion stuff
     const onChangeHandler = (q: string): void => {
-        setQuery(q);
+        setInputString(q);
+        if (!q) {
+            setShowSearchResult(false);
+        }
     };
 
-    const dismissSearchBar = () => {
+    const dismissSearchBar = (): void => {
         setShowSearchResult(false);
         setQuery('');
+        setInputString('');
         setSearchResults([]);
         dispatch({ type: TOGGLE_SEARCH, payload: false });
     };
@@ -158,7 +158,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                             <div
                                 className={classes.searchResult}
                                 key={index.toString()}
-                                onClick={() => {
+                                onClick={(): void => {
                                     dismissSearchBar();
                                     history.push(result.url);
                                 }}
@@ -176,7 +176,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
             )}
 
             <AppBar
-                className={classes.appBar + (onSearch ? ' ' + classes.showSearchBar : '')}
+                className={`${classes.appBar} ${onSearch && classes.showSearchBar}`}
                 position={'sticky'}
                 style={{ zIndex: 1001 }}
                 {...props}
@@ -187,15 +187,16 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                             className={classes.searchfield}
                             placeholder={'Search on PX Blue...'}
                             InputProps={{ disableUnderline: true }}
-                            onChange={(e) => onChangeHandler(e.target.value)}
+                            onChange={(e): void => onChangeHandler(e.target.value)}
                             autoFocus
-                            onKeyPress={(e) => {
+                            onKeyPress={(e): void => {
                                 if (e.key === 'Enter') {
-                                    if (query === '') {
+                                    if (inputString === '') {
                                         dismissSearchBar();
                                         return;
                                     }
-                                    onSearchHandler();
+                                    setQuery(inputString);
+                                    // onSearchHandler();
                                 }
                             }}
                         />

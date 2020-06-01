@@ -2,7 +2,7 @@
 
 import { Result } from '../../__types__';
 
-const MAX_RESULT = 10; // stop searching once we get more than 10 results
+const MAX_RESULT = 20; // stop searching once we get more than 10 results
 const MAX_TEXT_LENGTH = 256; // get this many text as a preview for
 
 // return
