@@ -102,7 +102,6 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const [loading, setLoading] = useState<boolean>(true);
     const onSearch = useSelector((state: AppState) => state.app.onSearch);
     const theme = useTheme();
-    // const onSearch = useSelector((state: AppState) => state.app.onSearch);
     const loadingGroups = [
         [1, 2, 3, 4],
         [1, 2, 3],
