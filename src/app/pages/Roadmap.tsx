@@ -22,8 +22,8 @@ import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
 import { EmptyState, InfoListItem, ListItemTag } from '@pxblue/react-components';
-// import { useSelector } from 'react-redux';
-// import { AppState } from '../redux/reducers';
+import { useSelector } from 'react-redux';
+import { AppState } from '../redux/reducers';
 import * as Colors from '@pxblue/colors';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
 import { PXBlueColor } from '@pxblue/types';
@@ -100,6 +100,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const [quarterFilter, setQuarterFilter] = useState<Quarter | 'Quarter'>('Quarter');
     const [roadmap, setRoadmap] = useState<RoadmapBucket[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
+    const onSearch = useSelector((state: AppState) => state.app.onSearch);
     const theme = useTheme();
     // const onSearch = useSelector((state: AppState) => state.app.onSearch);
     const loadingGroups = [
@@ -162,7 +163,12 @@ export const Roadmap: React.FC = (): JSX.Element => {
 
     return (
         <>
-            <AppBar position="sticky" color={'secondary'} className={classes.secondaryToolbar} elevation={0}>
+            <AppBar
+                position={onSearch ? 'static' : 'sticky'}
+                color={'secondary'}
+                className={classes.secondaryToolbar}
+                elevation={0}
+            >
                 <Toolbar style={{ minHeight: theme.spacing(6) }}>
                     <Select
                         value={frameworkFilter}

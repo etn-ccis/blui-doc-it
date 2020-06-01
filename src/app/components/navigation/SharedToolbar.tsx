@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -119,7 +120,6 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                     </IconButton>
                 </Toolbar>
             </AppBar>
-
             <SearchBar />
         </>
     );

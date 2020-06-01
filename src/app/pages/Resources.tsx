@@ -17,8 +17,8 @@ import * as Colors from '@pxblue/colors';
 import { resources } from '../../__configuration__/resources';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
-// import { useSelector } from 'react-redux';
-// import { AppState } from '../redux/reducers';
+import { useSelector } from 'react-redux';
+import { AppState } from '../redux/reducers';
 import { FrameworkFilter } from '../../__types__';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
 
@@ -36,14 +36,18 @@ const useStyles = makeStyles((theme: Theme) =>
 export const Resources: React.FC = (): JSX.Element => {
     const classes = useStyles();
     const [filter, setFilter] = useState<FrameworkFilter>('all');
-    // const onSearch = useSelector((state: AppState) => state.app.onSearch);
+    const onSearch = useSelector((state: AppState) => state.app.onSearch);
     usePageTitle('Resources');
     useGoogleAnalyticsPageView();
     useBackgroundColor(Colors.gray[50]);
-
     return (
         <>
-            <AppBar position="sticky" color={'secondary'} className={classes.tabs} elevation={0}>
+            <AppBar
+                position={onSearch ? 'static' : 'sticky'}
+                color={'secondary'}
+                className={classes.tabs}
+                elevation={0}
+            >
                 <Tabs variant={'scrollable'} value={filter}>
                     <Tab
                         style={{ minWidth: 'auto' }}
