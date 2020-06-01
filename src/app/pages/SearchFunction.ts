@@ -10,7 +10,7 @@ const MAX_TEXT_LENGTH = 256; // get this many text as a preview for
 // * a boolean value, indicating if this is a placeholder text because
 // keyword was not found in the raw text due to some indexing issue
 function getShortText(keyword: string, url: string, siteMapDatabase: any): [string, boolean] {
-    let fullText = siteMapDatabase[url].text;
+    let fullText: string = siteMapDatabase[url].text;
     if (!fullText) {
         return ['', true];
     }
@@ -50,7 +50,7 @@ function fetch(query: string, siteMapDatabase: any, indexDatabase: { title: any;
     queryArray.forEach((q) => {
         if (indexDatabase.title[q]) {
             indexDatabase.title[q].forEach((element: any) => {
-                let url = Object.keys(element)[0];
+                const url = Object.keys(element)[0];
                 if (!result[url]) {
                     // never seen this url before, adding to the result
                     const [text, isTextPlaceholder] = getShortText(q, url, siteMapDatabase);
@@ -81,7 +81,7 @@ function fetch(query: string, siteMapDatabase: any, indexDatabase: { title: any;
         titleKeywords.forEach((keyword) => {
             if (keyword.includes(q) && keyword !== q) {
                 indexDatabase.title[keyword].forEach((element: any) => {
-                    let url = Object.keys(element)[0];
+                    const url = Object.keys(element)[0];
                     if (!result[url]) {
                         // never seen this url before, adding to the result
                         const [text, isTextPlaceholder] = getShortText(q, url, siteMapDatabase);
@@ -111,7 +111,7 @@ function fetch(query: string, siteMapDatabase: any, indexDatabase: { title: any;
     queryArray.forEach((q) => {
         if (indexDatabase.text[q]) {
             indexDatabase.text[q].forEach((element: any) => {
-                let url = Object.keys(element)[0];
+                const url = Object.keys(element)[0];
                 if (!result[url]) {
                     // never seen this url before, adding to the result
                     const [text, isTextPlaceholder] = getShortText(q, url, siteMapDatabase);
@@ -142,7 +142,7 @@ function fetch(query: string, siteMapDatabase: any, indexDatabase: { title: any;
         titleKeywords.forEach((keyword) => {
             if (keyword.includes(q) && keyword !== q) {
                 indexDatabase.text[keyword].forEach((element: any) => {
-                    let url = Object.keys(element)[0];
+                    const url = Object.keys(element)[0];
                     if (!result[url]) {
                         // never seen this url before, adding to the result
                         const [text, isTextPlaceholder] = getShortText(q, url, siteMapDatabase);
