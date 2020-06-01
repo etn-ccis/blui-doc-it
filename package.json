@@ -16,7 +16,9 @@
         "prettier": "prettier \"src/**/**.{ts,tsx,js,jsx,json,css,scss,html,mdx}\" --write",
         "cy:run": "cypress run",
         "cypress:open": "cypress open",
-        "cytest": "start-server-and-test start http://localhost:3000 cy:run"
+        "cytest": "start-server-and-test start http://localhost:3000 cy:run",
+        "crawler": "cd scripts/crawl && node crawler.js",
+        "indexer": "cd scripts/crawl && node indexer.js"
     },
     "prettier": "@pxblue/prettier-config",
     "dependencies": {

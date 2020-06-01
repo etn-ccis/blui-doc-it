@@ -7,16 +7,21 @@ import {
     ListItemText,
     AppBarProps,
     Hidden,
-    useTheme,
     // useMediaQuery,
     IconButton,
+    makeStyles,
+    Theme,
+    createStyles,
 } from '@material-ui/core';
 import { PxblueSmall } from '@pxblue/icons-mui';
 import { Spacer } from '@pxblue/react-components';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { TOGGLE_DRAWER } from '../../redux/actions';
+import { TOGGLE_DRAWER, TOGGLE_SEARCH } from '../../redux/actions';
 import { AppState } from '../../redux/reducers';
+import Search from '@material-ui/icons/Search';
+import { SearchBar } from '../../pages';
+import { PADDING } from '../../shared';
 
 export type SharedToolbarProps = AppBarProps & {
     title?: string;
@@ -25,9 +30,25 @@ export type SharedToolbarProps = AppBarProps & {
     navigationIcon?: JSX.Element;
 };
 
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        menuIconButton: {
+            display: 'flex',
+            alignItems: 'center',
+            marginRight: theme.spacing(0.5),
+            marginLeft: theme.spacing(-1.5),
+        },
+        toolbar: {
+            [theme.breakpoints.up('sm')]: {
+                padding: `0 ${PADDING}px`,
+            },
+        },
+    })
+);
+
 export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const { title, color, subtitle, navigationIcon, ...other } = props;
-    const theme = useTheme();
+    const classes = useStyles();
     const icon = navigationIcon ? navigationIcon : <PxblueSmall />;
     // const matchesSM = useMediaQuery(theme.breakpoints.up('sm'));
     const history = useHistory();
@@ -43,12 +64,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                     onClick={(): void => {
                         dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
                     }}
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        marginRight: theme.spacing(0.5),
-                        marginLeft: theme.spacing(-1.5),
-                    }}
+                    className={classes.menuIconButton}
                 >
                     {icon}
                 </IconButton>
@@ -73,29 +89,39 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     // });
 
     return (
-        <AppBar position="sticky" color={color} elevation={0} style={{ zIndex: 1000 }} {...other}>
-            <Toolbar
-                style={{ padding: `0 ${theme.spacing(2)}px` /*boxShadow: hasShadow ? theme.shadows[12] : undefined*/ }}
-            >
-                {_navigationIcon()}
-                {props.title ? (
-                    <ListItemText
-                        id={'dropdown-toolbar-text'}
-                        primary={
-                            <Typography variant={'h6'} style={{ fontWeight: 600, lineHeight: 1 }}>
-                                {title}
-                            </Typography>
-                        }
-                        secondary={subtitle}
-                    />
-                ) : (
-                    <Typography>
-                        Power Xpert <b>Blue</b>
-                    </Typography>
-                )}
-                <Spacer />
-            </Toolbar>
-        </AppBar>
+        <>
+            <AppBar position="sticky" color={color} elevation={0} style={{ zIndex: 1000 }} {...other}>
+                <Toolbar className={classes.toolbar}>
+                    {_navigationIcon()}
+                    {props.title ? (
+                        <ListItemText
+                            id={'dropdown-toolbar-text'}
+                            primary={
+                                <Typography variant={'h6'} style={{ fontWeight: 600, lineHeight: 1 }}>
+                                    {title}
+                                </Typography>
+                            }
+                            secondary={subtitle}
+                        />
+                    ) : (
+                        <Typography>
+                            Power Xpert <b>Blue</b>
+                        </Typography>
+                    )}
+                    <Spacer />
+                    <IconButton
+                        color={'inherit'}
+                        onClick={(): void => {
+                            dispatch({ type: TOGGLE_SEARCH, payload: true });
+                        }}
+                    >
+                        <Search />
+                    </IconButton>
+                </Toolbar>
+            </AppBar>
+
+            <SearchBar />
+        </>
     );
 };
 SharedToolbar.propTypes = {
