@@ -17,9 +17,12 @@ function walkSiteMap(doc, path) {
     // do not index branch whose root is marked hidden
     if (doc.hidden) return;
 
-    existingDocs[path + doc.url] = {
-        title: doc.title,
-    };
+    if (!doc.pages || (doc.pages && doc.hasLandingPage)) {
+        existingDocs[path + doc.url] = {
+            title: doc.title,
+        };
+    }
+
     if (doc.pages) {
         for (p in doc.pages) {
             walkSiteMap(doc.pages[p], path + doc.url);
@@ -49,8 +52,6 @@ async function main() {
     for await (const doc of walk(DIR_URL)) {
         var docPath = doc.slice(DIR_URL.length);
         var docPathwithNoFileExtension = docPath.slice(0, docPath.length - 4);
-
-        console.log(docPath);
 
         // if we have mdx files in the /docs folder, read the text
         if (existingDocs[docPathwithNoFileExtension]) {

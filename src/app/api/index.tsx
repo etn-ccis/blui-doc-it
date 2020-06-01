@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import axios from 'axios';
 import { RoadmapBucket } from '../../__types__';
 
@@ -22,6 +24,12 @@ export const npm = axios.create({
 });
 export const roadmap = axios.create({
     baseURL: 'https://raw.githubusercontent.com/pxblue/pxb-database/master/deployed/doc-it',
+    timeout: 5000,
+});
+
+// TODO: move these to pxb-database
+export const searchDatabase = axios.create({
+    baseURL: 'https://raw.githubusercontent.com/pxblue/doc-it/feature/search-bar/scripts/crawl/database/',
     timeout: 5000,
 });
 
@@ -91,6 +99,34 @@ export const getNpmVersion = async (packageName: string): Promise<string | undef
 export const getRoadmap = async (): Promise<RoadmapBucket[] | undefined> => {
     try {
         const response = await roadmap.get('/R16Roadmap.json');
+        if (response && response.status === 200) return response.data;
+        return undefined;
+    } catch (thrown) {
+        if (axios.isCancel(thrown)) {
+            // request canceled
+            return undefined;
+        }
+        return undefined;
+    }
+};
+
+export const getSitemapDatabase = async (): Promise<object | undefined> => {
+    try {
+        const response = await searchDatabase.get('/sitemap-database.json');
+        if (response && response.status === 200) return response.data;
+        return undefined;
+    } catch (thrown) {
+        if (axios.isCancel(thrown)) {
+            // request canceled
+            return undefined;
+        }
+        return undefined;
+    }
+};
+
+export const getIndexDatabase = async (): Promise<object | undefined> => {
+    try {
+        const response = await searchDatabase.get('/index-database.json');
         if (response && response.status === 200) return response.data;
         return undefined;
     } catch (thrown) {

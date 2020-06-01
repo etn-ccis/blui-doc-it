@@ -22,7 +22,8 @@ import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
 import { EmptyState, InfoListItem, ListItemTag } from '@pxblue/react-components';
-
+// import { useSelector } from 'react-redux';
+// import { AppState } from '../redux/reducers';
 import * as Colors from '@pxblue/colors';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
 import { PXBlueColor } from '@pxblue/types';
@@ -100,6 +101,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const [roadmap, setRoadmap] = useState<RoadmapBucket[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const theme = useTheme();
+    // const onSearch = useSelector((state: AppState) => state.app.onSearch);
     const loadingGroups = [
         [1, 2, 3, 4],
         [1, 2, 3],
@@ -195,6 +197,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     </Select>
                 </Toolbar>
             </AppBar>
+
             <PageContent>
                 {loading && (
                     <div>

@@ -1,8 +1,8 @@
 {
-    "title": "Power Xpert Blue | Powering Teams to Make What Matters*", 
+    "title": "Power Xpert Blue | Powering Teams to Make What Matters*",
     "url": "",
-    "pages": 
-    [
+    "hasLandingPage": true,
+    "pages": [
         {
             "title": "What is PX Blue?",
             "url": "/overview"
@@ -14,17 +14,14 @@
                 {
                     "title": "Where to Begin?",
                     "url": "/new-project"
-                    
                 },
                 {
                     "title": "Web Apps",
                     "url": "/web"
-                    
                 },
                 {
                     "title": "Mobile Apps",
                     "url": "/mobile"
-                    
                 }
             ]
         },
@@ -35,12 +32,10 @@
                 {
                     "title": "Environment Setup",
                     "url": "/environment"
-                    
                 },
                 {
                     "title": "PX Blue CLI",
                     "url": "/cli"
-                    
                 },
                 {
                     "title": "Web Frameworks",
@@ -86,7 +81,6 @@
                 {
                     "title": "Testing",
                     "url": "/testing"
-                    
                 }
             ]
         },
@@ -97,74 +91,61 @@
                 {
                     "title": "Introduction",
                     "url": "/intro"
-                    
                 },
                 {
                     "title": "Design System Anatomy",
                     "url": "/anatomy"
-                    
                 }
             ]
         },
         {
             "title": "Design Patterns",
             "url": "/patterns",
-            
+            "hasLandingPage": true,
             "pages": [
                 {
                     "title": "App Bars",
                     "url": "/appbar"
-                    
                 },
                 {
                     "title": "Empty States",
                     "url": "/empty-states"
-                    
                 },
                 {
                     "title": "Form Validation",
                     "url": "/forms"
-                    
                 },
                 {
                     "title": "Internationalization",
                     "url": "/internationalization"
-                    
                 },
                 {
                     "title": "Lists",
                     "url": "/lists"
-                    
                 },
                 {
                     "title": "Login",
                     "url": "/login"
-                    
                 },
                 {
                     "title": "Navigation",
                     "url": "/navigation"
-                    
                 },
                 {
                     "title": "Overlays",
                     "url": "/overlay"
-                    
                 },
                 {
                     "title": "Page Layout",
                     "url": "/layout"
-                    
                 },
                 {
                     "title": "Steppers",
                     "url": "/steppers"
-                    
                 },
                 {
                     "title": "Visualizations",
                     "url": "/visualizations"
-                    
                 }
             ]
         },
@@ -175,7 +156,6 @@
                 {
                     "title": "Color Palette",
                     "url": "/color"
-                    
                 },
                 {
                     "title": "Iconography",
@@ -184,12 +164,10 @@
                 {
                     "title": "Typography",
                     "url": "/typography"
-                    
                 },
                 {
                     "title": "Themes",
                     "url": "/themes"
-                    
                 }
             ]
         },
@@ -200,32 +178,26 @@
                 {
                     "title": "Licensing",
                     "url": "/license"
-                    
                 },
                 {
                     "title": "Share Code",
                     "url": "/sharing"
-                    
                 },
                 {
                     "title": "Report Bugs",
                     "url": "/bugs"
-                    
                 },
                 {
                     "title": "Request Features",
                     "url": "/features"
-                    
                 },
                 {
                     "title": "FAQ",
                     "url": "/faq"
-                    
                 },
                 {
                     "title": "Contact Us",
                     "url": "/contactus"
-                    
                 }
             ]
         },
@@ -236,12 +208,10 @@
         {
             "title": "Roadmap",
             "url": "/roadmap"
-            
         },
         {
             "title": "Release Notes",
             "url": "/release-notes"
-            
         }
     ]
 }

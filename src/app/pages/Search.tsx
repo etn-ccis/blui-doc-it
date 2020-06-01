@@ -18,22 +18,17 @@ import { TOGGLE_SEARCH } from '../redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../redux/reducers';
 import { Close } from '@material-ui/icons';
-import { results } from './FakeSearchResult';
 import { PADDING } from '../shared';
 import { useHistory } from 'react-router-dom';
+import { Result } from '../../__types__';
+import { search } from './SearchFunction';
+import { getSitemapDatabase, getIndexDatabase } from '../api';
 
 export type SearchbarProps = AppBarProps & {
     // title?: string;
     // color?: 'primary' | 'secondary' | 'default';
     // subtitle?: string;
     // navigationIcon?: JSX.Element;
-};
-
-export type Result = {
-    url: string;
-    title: string;
-    weight?: number;
-    text?: string;
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -100,6 +95,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     const onSearch = useSelector((state: AppState) => state.app.onSearch);
     const dispatch = useDispatch();
     const [query, setQuery] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
     const [showSearchResult, setShowSearchResult] = useState(false);
     const history = useHistory();
 
@@ -107,7 +103,15 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     // fetching for search results...
     const onSearchHandler = (): void => {
         console.log(`fetching result for ${query}`);
-        setShowSearchResult(true);
+        const loadSearchResults = async (): Promise<void> => {
+            const siteMapDB = await getSitemapDatabase();
+            const indexDB = await getIndexDatabase();
+            if (!siteMapDB || !indexDB) return;
+            // @ts-ignore
+            setSearchResults(search(query, siteMapDB, indexDB));
+            setShowSearchResult(true);
+        };
+        loadSearchResults();
     };
 
     // do auto suggestion stuff
@@ -118,17 +122,18 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     const dismissSearchBar = () => {
         setShowSearchResult(false);
         setQuery('');
+        setSearchResults([]);
         dispatch({ type: TOGGLE_SEARCH, payload: false });
     };
 
     const getSearchResultCountText = (): string => {
-        switch (results.length) {
+        switch (searchResults.length) {
             case 0:
                 return `No result found for "${query}".`;
             case 1:
-                return `${results.length} result found.`;
+                return `${searchResults.length} result found.`;
             default:
-                return `${results.length} results found.`;
+                return `${searchResults.length} results found.`;
         }
     };
 
@@ -149,7 +154,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                         <Typography variant={'body1'} className={classes.searchResultCount}>
                             {getSearchResultCountText()}
                         </Typography>
-                        {results.map((result: Result, index: number) => (
+                        {searchResults.map((result: Result, index: number) => (
                             <div
                                 className={classes.searchResult}
                                 key={index.toString()}
