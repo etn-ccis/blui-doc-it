@@ -1,7 +1,7 @@
 import { Result } from '../../__types__';
 
-const MAX_RESULT = 20; // stop searching once we get more than 10 results
-const MAX_TEXT_LENGTH = 256; // get this many text as a preview for
+const MAX_RESULT = 20; // stop searching once we get more than 20 results
+const MAX_TEXT_LENGTH = 256; // get this many text as a preview
 
 // return
 // * a string at most <MAX_TEXT_LENGTH> chars long, centered around the keyword position
@@ -60,6 +60,7 @@ function fetch(query: string, siteMapDatabase: any, indexDatabase: { title: any;
     const queryArray = query
         .trim()
         .toLowerCase()
+        .replace(/[-.]/gm, ' ')
         .split(/\s+/);
 
     const result: any = {};

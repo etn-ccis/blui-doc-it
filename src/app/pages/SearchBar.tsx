@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const SearchBar: React.FC<SearchbarProps> = (props) => {
     const classes = useStyles();
-    const onSearch = useSelector((state: AppState) => state.app.onSearch);
+    const onSearch = useSelector((state: AppState) => state.app.searchActive);
     const dispatch = useDispatch();
     const [query, setQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
@@ -129,7 +129,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     const getSearchResultCountText = (): string => {
         switch (searchResults.length) {
             case 0:
-                return `No result found for "${query}".`;
+                return `No results found for "${query}".`;
             case 1:
                 return `${searchResults.length} result found.`;
             default:

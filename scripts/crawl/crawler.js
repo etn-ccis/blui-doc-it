@@ -59,7 +59,6 @@ async function main() {
         if (existingDocs[docPathwithNoFileExtension]) {
             // using readFileSync to avoid some buffering problem
             const data = fs.readFileSync(doc, { encoding: 'utf-8', flag: 'r' });
-            // existingDocs[docPathwithNoFileExtension].text = 'I am the text crawled from ' + docPath + "\n";
             existingDocs[docPathwithNoFileExtension].text = data;
         }
     }

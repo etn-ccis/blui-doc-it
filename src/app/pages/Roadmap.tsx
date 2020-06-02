@@ -105,7 +105,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const [quarterFilter, setQuarterFilter] = useState<Quarter | 'Quarter'>('Quarter');
     const [roadmap, setRoadmap] = useState<RoadmapBucket[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
-    const onSearch = useSelector((state: AppState) => state.app.onSearch);
+    const searchActive = useSelector((state: AppState) => state.app.searchActive);
     const theme = useTheme();
     const loadingGroups = [
         [1, 2, 3, 4],
@@ -168,7 +168,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
     return (
         <>
             <AppBar
-                position={onSearch ? 'static' : 'sticky'} // to avoid the filter bar "pops out" when searching
+                position={searchActive ? 'static' : 'sticky'} // to avoid the filter bar "pops out" when searching
                 color={'secondary'}
                 className={classes.secondaryToolbar}
                 elevation={0}

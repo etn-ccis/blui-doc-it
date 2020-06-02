@@ -11,13 +11,13 @@ type CommonState = {
     pageTitle: string;
     colorFormat: 'rgb' | 'hex';
     drawerOpen: boolean;
-    onSearch: boolean;
+    searchActive: boolean;
 };
 const initialAppState: CommonState = {
     pageTitle: '',
     colorFormat: 'hex',
     drawerOpen: false,
-    onSearch: false,
+    searchActive: false,
 };
 const appReducer = (state = initialAppState, action: any): CommonState => {
     switch (action.type) {
@@ -39,7 +39,7 @@ const appReducer = (state = initialAppState, action: any): CommonState => {
         case TOGGLE_SEARCH:
             return {
                 ...state,
-                onSearch: action.payload,
+                searchActive: action.payload,
             };
         default:
             return state;

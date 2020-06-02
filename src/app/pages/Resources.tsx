@@ -36,14 +36,14 @@ const useStyles = makeStyles((theme: Theme) =>
 export const Resources: React.FC = (): JSX.Element => {
     const classes = useStyles();
     const [filter, setFilter] = useState<FrameworkFilter>('all');
-    const onSearch = useSelector((state: AppState) => state.app.onSearch);
+    const searchActive = useSelector((state: AppState) => state.app.searchActive);
     usePageTitle('Resources');
     useGoogleAnalyticsPageView();
     useBackgroundColor(Colors.gray[50]);
     return (
         <>
             <AppBar
-                position={onSearch ? 'static' : 'sticky'} // to avoid the filter bar "pops out" when searching
+                position={searchActive ? 'static' : 'sticky'} // to avoid the filter bar "pops out" when searching
                 color={'secondary'}
                 className={classes.tabs}
                 elevation={0}

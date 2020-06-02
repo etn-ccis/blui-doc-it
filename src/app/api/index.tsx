@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import axios from 'axios';
 import { RoadmapBucket } from '../../__types__';
 
