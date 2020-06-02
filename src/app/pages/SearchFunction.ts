@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import { Result } from '../../__types__';
 
 const MAX_RESULT = 20; // stop searching once we get more than 10 results
@@ -18,7 +16,7 @@ function getShortText(keyword: string, url: string, siteMapDatabase: any): [stri
         .replace(/import .*? from .*?;/gim, '')
         .replace(/\r\n/g, '\n')
         .replace(/\n/gim, ' ')
-        .replace(/<!\-\-.*?\-\->/g, ' ')
+        .replace(/<!--.*?-->/g, ' ')
         .replace(/\[(.*?)\]\(.*?\)/g, '$1') // replace all the markdown links [text](url) into text
         .replace(/<[a-z].*?>/gim, ' ')
         .replace(/[#`]/g, '')
@@ -117,7 +115,7 @@ function fetch(query: string, siteMapDatabase: any, indexDatabase: { title: any;
                     const [text, isTextPlaceholder] = getShortText(q, url, siteMapDatabase);
                     result[url] = {
                         title: siteMapDatabase[url].title,
-                        weight: element[url] + 5, // giving more weight to an exact match
+                        weight: parseInt(element[url]) + 5, // giving more weight to an exact match
                         text: text,
                         isTextPlaceholder: isTextPlaceholder,
                     };
