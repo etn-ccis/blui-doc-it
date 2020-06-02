@@ -29,7 +29,7 @@ export const roadmap = axios.create({
 
 // TODO: move these to pxb-database
 export const searchDatabase = axios.create({
-    baseURL: 'https://raw.githubusercontent.com/pxblue/doc-it/feature/search-bar/scripts/crawl/database/',
+    baseURL: '/database',
     timeout: 5000,
 });
 

@@ -7,6 +7,8 @@ const fs = require('fs');
 const path = require('path');
 const SiteMap = require('./sitemap');
 const DIR_URL = '../../src/docs';
+const OUTPUT_DIR = '../../public/database';
+const OUTPUT_JSON = `${OUTPUT_DIR}/sitemap-database.json`;
 
 var existingDocs = new Set();
 
@@ -63,10 +65,10 @@ async function main() {
     }
 
     try {
-        fs.writeFileSync('./database/sitemap-database.json', JSON.stringify(existingDocs));
+        fs.writeFileSync(OUTPUT_JSON, JSON.stringify(existingDocs));
     } catch (error) {
-        fs.mkdirSync('./database');
-        fs.writeFileSync('./database/sitemap-database.json', JSON.stringify(existingDocs));
+        fs.mkdirSync(OUTPUT_DIR);
+        fs.writeFileSync(OUTPUT_JSON, JSON.stringify(existingDocs));
     }
 }
 

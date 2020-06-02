@@ -12,6 +12,7 @@ export type SimpleNavItem = {
     hidden?: boolean;
 };
 
+// Change scripts/crawl/sitemap.json after you make changes here.
 export const pageDefinitions: SimpleNavItem[] = [
     {
         title: 'What is PX Blue?',
