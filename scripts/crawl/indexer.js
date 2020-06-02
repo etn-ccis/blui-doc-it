@@ -21,6 +21,7 @@ function transformToArray(str) {
         .replace(/\r\n/g, '\n')
         .replace(/\n/gim, ' ') // new lines count as a space
         .replace(/<[\/]?[a-z].+?>/gim, ' ') // take out all the native tags <xxx> and </xxx>
+        .replace(/<[a-z].+?[ ]?\/>/gim, ' ') // take out all the native tags <xxx/>
         .replace(/<!\-\-.*?\-\->/g, ' ') // omit the comments
         .replace(/\[(.*?)\]\(.*?\)/g, '$1'); // replace all the markdown links [text](url) into text
     // .replace(/[!@\?#\$%\^&\*\(\)\-\\\|\[\]\+`~\.\,\?<>\{\}/":;]/gim, ' ') // replace any special characters
