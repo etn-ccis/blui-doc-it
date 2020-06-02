@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState } from 'react';
 import {
     Typography,
@@ -97,13 +96,10 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
 
     React.useEffect(() => {
         if (query) {
-            const loadSearchResults = async (): Promise<void> => {
-                // TODO
-                // @ts-ignore
-                setSearchResults(search(query, siteMapDatabase, indexDatabase));
-                setShowSearchResult(true);
-            };
-            loadSearchResults();
+            // TODO
+            // @ts-ignore
+            setSearchResults(search(query, siteMapDatabase, indexDatabase));
+            setShowSearchResult(true);
         } else {
             setShowSearchResult(false);
         }
