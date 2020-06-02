@@ -55,7 +55,7 @@ async function main() {
         var docPath = doc.slice(DIR_URL.length);
         var docPathwithNoFileExtension = docPath.slice(0, docPath.length - 4);
 
-        // if we have mdx files in the /docs folder, read the text
+        // if we have mdx files in the /docs folder, and the file is included in the sitemap.json, read the text
         if (existingDocs[docPathwithNoFileExtension]) {
             // using readFileSync to avoid some buffering problem
             const data = fs.readFileSync(doc, { encoding: 'utf-8', flag: 'r' });

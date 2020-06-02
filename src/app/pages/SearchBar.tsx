@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from 'react';
 import {
     Typography,
@@ -21,6 +22,7 @@ import { useHistory } from 'react-router-dom';
 import { Result } from '../../__types__';
 import { search } from './SearchFunction';
 import { getSitemapDatabase, getIndexDatabase } from '../api';
+// const SM = require(`${process.env.PUBLIC_URL}/database/sitemap-database.json`);
 
 export type SearchbarProps = AppBarProps;
 
@@ -97,6 +99,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
         if (query) {
             const loadSearchResults = async (): Promise<void> => {
                 const siteMapDB = await getSitemapDatabase();
+                // const siteMapDB = SM;
                 const indexDB = await getIndexDatabase();
                 if (!siteMapDB || !indexDB) return;
                 // TODO
