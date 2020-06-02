@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const SiteMap = require('./sitemap');
 const DIR_URL = '../../src/docs';
-const OUTPUT_DIR = '../../public/database';
+const OUTPUT_DIR = '../../src/database';
 const OUTPUT_JSON = `${OUTPUT_DIR}/sitemap-database.json`;
 
 var existingDocs = new Set();

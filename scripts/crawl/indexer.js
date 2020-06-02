@@ -1,5 +1,5 @@
 const fs = require('fs');
-const sitemapDatabase = require('../../public/database/sitemap-database.json');
+const sitemapDatabase = require('../../src/database/sitemap-database.json');
 const natural = require('natural');
 
 // these words will never be indexed as part of the textIndex
@@ -92,7 +92,7 @@ function main() {
     });
 
     fs.writeFileSync(
-        '../../public/database/index-database.json',
+        '../../src/database/index-database.json',
         JSON.stringify({
             title: titleIndex,
             text: textIndex,

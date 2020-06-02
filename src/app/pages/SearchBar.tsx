@@ -21,8 +21,8 @@ import { PADDING } from '../shared';
 import { useHistory } from 'react-router-dom';
 import { Result } from '../../__types__';
 import { search } from './SearchFunction';
-import { getSitemapDatabase, getIndexDatabase } from '../api';
-// const SM = require(`${process.env.PUBLIC_URL}/database/sitemap-database.json`);
+import siteMapDatabase from '../../database/sitemap-database.json';
+import indexDatabase from '../../database/index-database.json';
 
 export type SearchbarProps = AppBarProps;
 
@@ -98,13 +98,9 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     React.useEffect(() => {
         if (query) {
             const loadSearchResults = async (): Promise<void> => {
-                const siteMapDB = await getSitemapDatabase();
-                // const siteMapDB = SM;
-                const indexDB = await getIndexDatabase();
-                if (!siteMapDB || !indexDB) return;
                 // TODO
                 // @ts-ignore
-                setSearchResults(search(query, siteMapDB, indexDB));
+                setSearchResults(search(query, siteMapDatabase, indexDatabase));
                 setShowSearchResult(true);
             };
             loadSearchResults();
