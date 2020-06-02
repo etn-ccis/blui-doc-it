@@ -1,7 +1,7 @@
 import { Result } from '../../__types__';
 
-const MAX_RESULT = 20; // stop searching once we get more than 20 results
-const MAX_TEXT_LENGTH = 256; // get this many text as a preview
+const MAX_RESULT = 20; // stop searching once we get 20 results
+const MAX_TEXT_LENGTH = 30; // get this many words as a preview
 
 // return
 // * a string at most <MAX_TEXT_LENGTH> chars long, centered around the keyword position
@@ -9,11 +9,11 @@ const MAX_TEXT_LENGTH = 256; // get this many text as a preview
 //   was not found in the raw text due to some indexing issue
 // A placeholder text maybe replaced later by some other non-placeholder text
 function getShortText(keyword: string, url: string, siteMapDatabase: any): [string, boolean] {
-    let fullText: string = siteMapDatabase[url].text;
+    const fullText: string = siteMapDatabase[url].text;
     if (!fullText) {
         return ['', true];
     }
-    fullText = fullText
+    const fullTextArray: string[] = fullText
         .replace(/import .*? from .*?;/gim, '')
         .replace(/\r\n/g, '\n')
         .replace(/\n/gim, ' ')
@@ -21,16 +21,19 @@ function getShortText(keyword: string, url: string, siteMapDatabase: any): [stri
         .replace(/\[(.*?)\]\(.*?\)/g, '$1') // replace all the markdown links [text](url) into text
         .replace(/<[a-z].*?>/gim, ' ')
         .replace(/[#`]/g, '')
-        .replace(/\s\s+/g, ' '); // replace multiple spaces into only one space
-    const keywordPosition = fullText.toLowerCase().indexOf(keyword);
+        .replace(/\s\s+/g, ' ')
+        .split(' '); // replace multiple spaces into only one space
+    const keywordPosition = fullTextArray.map((str) => str.toLowerCase().replace(/[.,;()*-]/gm, ' ')).indexOf(keyword);
     if (keywordPosition === -1) {
-        return [fullText.slice(0, MAX_TEXT_LENGTH), true];
+        return [fullTextArray.slice(0, MAX_TEXT_LENGTH).join(' '), true];
     }
     const MAX_TEXT_LENGTH_HALF = MAX_TEXT_LENGTH / 2;
     return [
         keywordPosition > MAX_TEXT_LENGTH_HALF
-            ? fullText.slice(keywordPosition - MAX_TEXT_LENGTH_HALF, keywordPosition + MAX_TEXT_LENGTH_HALF)
-            : fullText.slice(0, MAX_TEXT_LENGTH),
+            ? fullTextArray
+                  .slice(keywordPosition - MAX_TEXT_LENGTH_HALF, keywordPosition + MAX_TEXT_LENGTH_HALF)
+                  .join(' ')
+            : fullTextArray.slice(0, MAX_TEXT_LENGTH).join(' '),
         false,
     ];
 }
@@ -60,8 +63,9 @@ function fetch(query: string, siteMapDatabase: any, indexDatabase: { title: any;
     const queryArray = query
         .trim()
         .toLowerCase()
-        .replace(/[-.]/gm, ' ')
-        .split(/\s+/);
+        .replace(/[-.()"']/gm, ' ')
+        .split(/\s+/)
+        .map((str) => str.replace(/e?s$/g, '')); // getting rid of the plurals
 
     const result: any = {};
 
