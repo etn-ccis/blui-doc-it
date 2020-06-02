@@ -4,9 +4,10 @@ const MAX_RESULT = 20; // stop searching once we get more than 10 results
 const MAX_TEXT_LENGTH = 256; // get this many text as a preview for
 
 // return
-// * a string at most 100 chars long, centered around the keyword position
-// * a boolean value, indicating if this is a placeholder text because
-// keyword was not found in the raw text due to some indexing issue
+// * a string at most <MAX_TEXT_LENGTH> chars long, centered around the keyword position
+// * a boolean value, indicating if this is a placeholder text because the keyword
+//   was not found in the raw text due to some indexing issue
+// A placeholder text maybe replaced later by some other non-placeholder text
 function getShortText(keyword: string, url: string, siteMapDatabase: any): [string, boolean] {
     let fullText: string = siteMapDatabase[url].text;
     if (!fullText) {
@@ -34,6 +35,25 @@ function getShortText(keyword: string, url: string, siteMapDatabase: any): [stri
     ];
 }
 
+/* 
+    The fetch function returns an object of this shape
+    {
+        [url]: {
+            title: string;
+            text?: string;
+            weight: number;
+            isTextPlaceholder: boolean;
+        },
+        [url2]: {
+            title: string;
+            text?: string;
+            weight: number;
+            isTextPlaceholder?: boolean;
+        }
+        ...
+    }
+    The urls are not sorted in any particular order. 
+ */
 function fetch(query: string, siteMapDatabase: any, indexDatabase: { title: any; text: any }): any {
     if (query === '') return {};
 
@@ -54,7 +74,7 @@ function fetch(query: string, siteMapDatabase: any, indexDatabase: { title: any;
                     const [text, isTextPlaceholder] = getShortText(q, url, siteMapDatabase);
                     result[url] = {
                         title: siteMapDatabase[url].title,
-                        weight: element[url] * 2 + 20, // giving more weight to the titles & exact match
+                        weight: element[url] * 2 + 30, // giving more weight to the titles & exact match
                         text: text,
                         isTextPlaceholder: isTextPlaceholder,
                     };

@@ -110,7 +110,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
         }
     }, [query]);
 
-    // do auto suggestion stuff
+    // do auto suggestion stuff here
     const onChangeHandler = (q: string): void => {
         setInputString(q);
         if (!q) {
@@ -196,7 +196,6 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                                         return;
                                     }
                                     setQuery(inputString);
-                                    // onSearchHandler();
                                 }
                             }}
                         />

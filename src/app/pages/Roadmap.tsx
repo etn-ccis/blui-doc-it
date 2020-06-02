@@ -40,6 +40,11 @@ const useStyles = makeStyles((theme: Theme) =>
                 top: theme.spacing(7),
             },
         },
+        select: {
+            minWidth: 100,
+            alignSelf: 'stretch',
+            color: theme.palette.primary.contrastText,
+        },
         tagWrapper: {
             display: 'flex',
             alignItems: 'center',
@@ -163,7 +168,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
     return (
         <>
             <AppBar
-                position={onSearch ? 'static' : 'sticky'}
+                position={onSearch ? 'static' : 'sticky'} // to avoid the filter bar "pops out" when searching
                 color={'secondary'}
                 className={classes.secondaryToolbar}
                 elevation={0}
@@ -172,9 +177,9 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     <Select
                         value={frameworkFilter}
                         disableUnderline
-                        style={{ minWidth: 100, alignSelf: 'stretch', color: theme.palette.primary.contrastText }}
                         onChange={(e): void => setFrameworkFilter(e.target.value as FrameworkFilter)}
                         classes={{ icon: classes.selectIcon }}
+                        className={classes.select}
                     >
                         <MenuItem value={'all'}>All Frameworks</MenuItem>
                         <MenuItem value={'angular'}>Angular</MenuItem>
@@ -185,14 +190,10 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     <Select
                         value={quarterFilter}
                         disableUnderline
-                        style={{
-                            marginLeft: theme.spacing(2),
-                            minWidth: 100,
-                            alignSelf: 'stretch',
-                            color: theme.palette.primary.contrastText,
-                        }}
                         onChange={(e): void => setQuarterFilter(e.target.value as Quarter)}
                         classes={{ icon: classes.selectIcon }}
+                        className={classes.select}
+                        style={{ marginLeft: theme.spacing(2) }}
                     >
                         <MenuItem value={'Quarter'}>All Quarters</MenuItem>
                         {/* <MenuItem value={'Q1'}>Q1</MenuItem> */}

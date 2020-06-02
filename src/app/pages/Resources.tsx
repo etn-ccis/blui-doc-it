@@ -43,7 +43,7 @@ export const Resources: React.FC = (): JSX.Element => {
     return (
         <>
             <AppBar
-                position={onSearch ? 'static' : 'sticky'}
+                position={onSearch ? 'static' : 'sticky'} // to avoid the filter bar "pops out" when searching
                 color={'secondary'}
                 className={classes.tabs}
                 elevation={0}
