@@ -36,9 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'flex',
             alignItems: 'center',
             marginRight: theme.spacing(0.5),
-            marginLeft: theme.spacing(-1.5),
         },
-        searchIconButton: { marginRight: theme.spacing(-1.5) },
         toolbar: {
             display: 'flex',
             [theme.breakpoints.up('sm')]: {
@@ -67,6 +65,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                         dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
                     }}
                     className={classes.menuIconButton}
+                    edge={'start'}
                 >
                     {icon}
                 </IconButton>
@@ -116,7 +115,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                         onClick={(): void => {
                             dispatch({ type: TOGGLE_SEARCH, payload: true });
                         }}
-                        className={classes.searchIconButton}
+                        edge={'end'}
                     >
                         <Search />
                     </IconButton>

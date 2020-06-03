@@ -81,9 +81,6 @@ const useStyles = makeStyles((theme: Theme) =>
         searchResultDivider: {
             margin: `${theme.spacing(3)}px 0`,
         },
-        closeIconButton: {
-            marginRight: theme.spacing(-1.5),
-        },
     })
 );
 
@@ -202,7 +199,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                         onClick={(): void => {
                             dismissSearchBar();
                         }}
-                        className={classes.closeIconButton}
+                        edge={'end'}
                     >
                         <Close />
                     </IconButton>
