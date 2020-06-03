@@ -22,7 +22,8 @@ import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
 import { EmptyState, InfoListItem, ListItemTag } from '@pxblue/react-components';
-
+import { useSelector } from 'react-redux';
+import { AppState } from '../redux/reducers';
 import * as Colors from '@pxblue/colors';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
 import { PXBlueColor } from '@pxblue/types';
@@ -38,6 +39,11 @@ const useStyles = makeStyles((theme: Theme) =>
             [theme.breakpoints.down('xs')]: {
                 top: theme.spacing(7),
             },
+        },
+        select: {
+            minWidth: 100,
+            alignSelf: 'stretch',
+            color: theme.palette.primary.contrastText,
         },
         tagWrapper: {
             display: 'flex',
@@ -99,6 +105,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const [quarterFilter, setQuarterFilter] = useState<Quarter | 'Quarter'>('Quarter');
     const [roadmap, setRoadmap] = useState<RoadmapBucket[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
+    const searchActive = useSelector((state: AppState) => state.app.searchActive);
     const theme = useTheme();
     const loadingGroups = [
         [1, 2, 3, 4],
@@ -160,14 +167,19 @@ export const Roadmap: React.FC = (): JSX.Element => {
 
     return (
         <>
-            <AppBar position="sticky" color={'secondary'} className={classes.secondaryToolbar} elevation={0}>
+            <AppBar
+                position={searchActive ? 'static' : 'sticky'} // to avoid the filter bar "pops out" when searching
+                color={'secondary'}
+                className={classes.secondaryToolbar}
+                elevation={0}
+            >
                 <Toolbar style={{ minHeight: theme.spacing(6) }}>
                     <Select
                         value={frameworkFilter}
                         disableUnderline
-                        style={{ minWidth: 100, alignSelf: 'stretch', color: theme.palette.primary.contrastText }}
                         onChange={(e): void => setFrameworkFilter(e.target.value as FrameworkFilter)}
                         classes={{ icon: classes.selectIcon }}
+                        className={classes.select}
                     >
                         <MenuItem value={'all'}>All Frameworks</MenuItem>
                         <MenuItem value={'angular'}>Angular</MenuItem>
@@ -178,14 +190,10 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     <Select
                         value={quarterFilter}
                         disableUnderline
-                        style={{
-                            marginLeft: theme.spacing(2),
-                            minWidth: 100,
-                            alignSelf: 'stretch',
-                            color: theme.palette.primary.contrastText,
-                        }}
                         onChange={(e): void => setQuarterFilter(e.target.value as Quarter)}
                         classes={{ icon: classes.selectIcon }}
+                        className={classes.select}
+                        style={{ marginLeft: theme.spacing(2) }}
                     >
                         <MenuItem value={'Quarter'}>All Quarters</MenuItem>
                         {/* <MenuItem value={'Q1'}>Q1</MenuItem> */}
@@ -195,6 +203,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     </Select>
                 </Toolbar>
             </AppBar>
+
             <PageContent>
                 {loading && (
                     <div>

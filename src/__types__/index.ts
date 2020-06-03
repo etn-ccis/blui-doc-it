@@ -38,3 +38,10 @@ export type RoadmapBucket = {
     applies?: FrameworkFilter[];
     items: RoadmapItem[];
 };
+
+export type Result = {
+    url: string;
+    title: string;
+    weight?: number;
+    text?: string;
+};
