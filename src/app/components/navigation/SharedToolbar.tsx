@@ -38,7 +38,9 @@ const useStyles = makeStyles((theme: Theme) =>
             marginRight: theme.spacing(0.5),
             marginLeft: theme.spacing(-1.5),
         },
+        searchIconButton: { marginRight: theme.spacing(-1.5) },
         toolbar: {
+            display: 'flex',
             [theme.breakpoints.up('sm')]: {
                 padding: `0 ${PADDING}px`,
             },
@@ -114,6 +116,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                         onClick={(): void => {
                             dispatch({ type: TOGGLE_SEARCH, payload: true });
                         }}
+                        className={classes.searchIconButton}
                     >
                         <Search />
                     </IconButton>
