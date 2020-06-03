@@ -81,12 +81,15 @@ const useStyles = makeStyles((theme: Theme) =>
         searchResultDivider: {
             margin: `${theme.spacing(3)}px 0`,
         },
+        closeIconButton: {
+            marginRight: theme.spacing(-1.5),
+        },
     })
 );
 
 export const SearchBar: React.FC<SearchbarProps> = (props) => {
     const classes = useStyles();
-    const onSearch = useSelector((state: AppState) => state.app.searchActive);
+    const searchActive = useSelector((state: AppState) => state.app.searchActive);
     const dispatch = useDispatch();
     const [query, setQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
@@ -135,7 +138,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     return (
         <>
             <Backdrop
-                open={onSearch}
+                open={searchActive}
                 transitionDuration={200}
                 className={classes.backdrop}
                 onClick={(): void => {
@@ -171,13 +174,13 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
             )}
 
             <AppBar
-                className={`${classes.appBar} ${onSearch && classes.showSearchBar}`}
+                className={`${classes.appBar} ${searchActive && classes.showSearchBar}`}
                 position={'sticky'}
                 style={{ zIndex: 1001 }}
                 {...props}
             >
                 <Toolbar style={{ display: 'flex' }}>
-                    {onSearch && ( // to allow autofocus
+                    {searchActive && ( // to allow autofocus
                         <TextField
                             className={classes.searchfield}
                             placeholder={'Search on PX Blue...'}
@@ -199,6 +202,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                         onClick={(): void => {
                             dismissSearchBar();
                         }}
+                        className={classes.closeIconButton}
                     >
                         <Close />
                     </IconButton>
