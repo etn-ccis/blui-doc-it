@@ -20,6 +20,8 @@ yarn install
 yarn start
 ```
 
+### Updating Search Index
+
 Every time you make any changes to anything in `src/docs/`, run `yarn indexer` from the root folder to regenerate the databases stored in `src/databases/`.
 
 If you make changes to `src/__configuration__/navigationMenu/navigation.tsx`, you will also need to update `scripts/crawl/sitemap.json`.
