@@ -4,11 +4,13 @@ import ComplexBottomsheet from '../../app/assets/design-patterns/bottom-sheet/co
 
 # Overlay Patterns
 
-Overlays are useful for times when you want to block interaction with the page to display data or wait for user input. These elements can come in a variety of shapes and sizes.
+Overlays are used to present an immediate interaction to a user. These can be used for presenting information (such as with a Dialog) or capturing it (such as in a form). These elements come in a variety of shapes and sizes and can be either blocking (the user must interact with the overlay before they can do anything else) or non-blocking.
 
 ## Modal Dialog
 
-The modal dialog is your typical pop-up window. These are traditionally used when you need to confirm a user action (such as deleting an item). These usually appear in the center of the screen.
+The modal dialog is your typical pop-up window. Modals are great for presenting a single task to a user. By using a modal, you can allow the user to do more work without having to clutter your main layout with unnecessary information (e.g., an Add User button could open a modal with a form to enter the new user's information). These types of modals should be non-blocking, such that the user could click anywhere on the screen to dismiss it. Modals can also be used to edit large amounts of information that would be too much to fit into a sidebar.
+
+Modal dialogs are also very commonly used to confirm a user action (such as deleting an item). These usually appear in the center of the screen.
 
 <MaterialDesignDescription
     title={'Dialogs'}
@@ -16,13 +18,23 @@ The modal dialog is your typical pop-up window. These are traditionally used whe
     description={'Read more about dialogs on Material.io.'}
 />
 
+## Sidebar
+
+The most common example of a sidebar is the application navigation menu. Typically, this opens on the side of the screen and is used to navigate to the different areas of the application.
+
+Sidebars are also used extensively for displaying information about selected items in the main interface (e.g., selecting an item in a list would open a sidebar on the right with additional details about the selected item). They can also present simple form data and inputs (such as radio buttons, checkbox, dropdown menus, etc.) for editing a selected item. This type of sidebar should be temporary such that the user can easily close it with a close button or clicking elsewhere on the screen.
+
+### Modal vs. Sidebar
+
+In general, modals and sidebars can be used together to set up and display complex data. When building your application, you may be faced with the question of "Should I use a modal or a sidebar for this?" In general, modals should be used when creating new data, and sidebars should be used for viewing and editing existing data. In some circumstances, you may need a full-page overlay (sidebar or bottomsheet) to accomplish more complex tasks.
+
 ## Bottom Sheet
 
-A bottom sheet is similar to a modal dialog, but slides in from the bottom of the screen. A dark overlay is usually used to block user interaction with the main app until the bottom sheet is closed.
+A bottom sheet is similar to a modal dialog but slides in from the bottom of the screen. A dark overlay is usually used to block user interaction with the main app until the bottom sheet is closed.
 
 <MaterialDesignDescription title={'Sheets: Bottom'} url={'https://material.io/components/sheets-bottom/'} />
 
-This is a very common pattern in mobile applications, but can also be used in responsive web apps. Typically, the bottom sheet contains global actions for the entire page and is activated by a button in the app bar.
+This is a very common pattern in mobile applications but can also be used in responsive web apps. Typically, the bottom sheet contains global actions for the entire page and is activated by a button in the app bar.
 
 ### Basic
 
