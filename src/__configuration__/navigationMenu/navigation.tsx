@@ -151,17 +151,6 @@ export const pageDefinitions: SimpleNavItem[] = [
                 url: '/anatomy',
                 component: <MarkdownPage title={'Design System Anatomy'} markdown={Docs.Design.Anatomy} wideLayout />,
             },
-            {
-                title: 'Environment Setup',
-                url: '/environment',
-                component: (
-                    <MarkdownPage
-                        title={'Environment Setup for Designers'}
-                        markdown={Docs.Design.Environment}
-                        wideLayout
-                    />
-                ),
-            },
         ],
     },
     {
