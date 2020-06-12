@@ -47,7 +47,9 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Environment Setup',
                 url: '/environment',
-                component: <MarkdownPage title={'Environment Setup'} markdown={Docs.Development.Environment} />,
+                component: (
+                    <MarkdownPage title={'Environment Setup for Developers'} markdown={Docs.Development.Environment} />
+                ),
             },
             {
                 title: 'PX Blue CLI',
