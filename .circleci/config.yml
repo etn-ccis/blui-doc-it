@@ -26,11 +26,11 @@ jobs:
                       - node_modules
                   key: v3-dependencies-{{ checksum "package.json" }}
             - run:
-                  name: Run tests
-                  command: yarn test
-            - run:
                   name: Lint
                   command: yarn lint
+            - run:
+                  name: Run tests
+                  command: yarn test
             - run:
                   name: Verify Markdown Hyperlinks
                   command: |
