@@ -7,6 +7,7 @@ import Image5 from '../../app/assets/design-patterns/form-validation/form-valida
 import Image6 from '../../app/assets/design-patterns/form-validation/form-validation-password-complete.png';
 import OnBlurImage from '../../app/assets/design-patterns/form-validation/verify-input-on-blur.png';
 import OnChangeImage from '../../app/assets/design-patterns/form-validation/verify-input-on-change.png';
+import OnPageChangeImage from '../../app/assets/design-patterns/form-validation/verify-input-on-page-change.png';
 
 # Form Validation Patterns
 
@@ -37,23 +38,44 @@ If there is an error with the data entered into a field, the field should indica
 
 Error messages should be succinct and should not provide information that could compromise security (e.g., "Invalid Credentials" instead of "Incorrect Password").
 
-In general, there are two different types of input field verification: those performing the validity check when the user defocuses/"blurs away" from the text field ("on blur"), and those doing it when user makes any changes ("on change").
+In general, there are two different types of input field verification: on blur, on change, on page change.
+
+### Verify Input on Blur
+
+In order to not "push" the user to much, most text field should remain "verify on blur". That is, in most of the time, you should only verify user input when they stop typing.
 
 <ImageGrid
     images={[OnBlurImage]}
     gridImageProps={{ sm: 12 }}
     caption={[
-        'In order to not "push" the user to much, most text field should remain "verify on blur".',
         '1: Do not check for validity or display error messages when the user is typing the desired text.',
         '2: The user is finished and defocuses / “blurs away” from the input field. Now their input should be checked.',
     ]}
 />
+
+### Verify Input on Change
+
+When it comes to a password field, the validity check feedback should be displayed each time the user makes a change to the input field.
+
 <ImageGrid
     images={[OnChangeImage]}
     gridImageProps={{ sm: 12 }}
     caption={[
-        'When it comes to a password field, the validity check feedback should be displayed each time the user makes a change to the input field.',
         '1: The criteria for the password shall be displayed interactively while the user is changing their input.',
         '2: “Confirm Password” field should behave like a regular text field and do “verify input on blur”.',
+    ]}
+/>
+
+### Verify Input on Page Change
+
+On the rare occasion when you have to communicate with a remote server to verify the user input (rather than just doing client-side checks), and the there is a relatively small (less than 3) number of text fields, you may do the verification on page change. Some typical use case of this would be the login screen where the user credentials are checked, and discover new devices on a network.
+
+<ImageGrid
+    images={[OnPageChangeImage]}
+    gridImageProps={{ sm: 12 }}
+    caption={[
+        'After the user clicks the submit button, the app waits for server response, and displays an error message.',
+        '1: The assistive text will be replaced by the error message. ',
+        '2: Use a circular progress indicator when waiting for responses from the server.',
     ]}
 />
