@@ -42,7 +42,7 @@ In general, there are two different types of input field verification: on blur, 
 
 ### Verify Input on Blur
 
-In order to not "push" the user to much, most text field should remain "verify on blur". That is, in most of the time, you should only verify user input when they stop typing.
+In order to not "push" the user too much, most text fields should remain "verify on blur". That is, most of the time, you should only verify user input when they stop typing.
 
 <ImageGrid
     images={[OnBlurImage]}
@@ -68,7 +68,7 @@ When it comes to a password field, the validity check feedback should be display
 
 ### Verify Input on Page Change
 
-On the rare occasion when you have to communicate with a remote server to verify the user input (rather than just doing client-side checks), and the there is a relatively small (less than 3) number of text fields, you may do the verification on page change. Some typical use case of this would be the login screen where the user credentials are checked, and discover new devices on a network.
+On rare occasions when you have to communicate with a remote server to verify the user input (rather than just doing client-side checks), and there is a relatively small (less than 3) number of text fields, you may do the verification on page change. Some typical use cases of this would be the login screen where the user credentials are checked and discover new devices on a network.
 
 <ImageGrid
     images={[OnPageChangeImage]}
