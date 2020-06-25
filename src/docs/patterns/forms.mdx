@@ -37,45 +37,48 @@ If your form fields have complex requirements for valid values, you can list the
 If there is an error with the data entered into a field, the field should indicate to the user that there is a problem. Label and helper text should be changed to a red color and a warning icon should appear in the text input. The error message should be displayed in the helper text location below the field (any existing helper text should be replaced with the error message).
 
 Error messages should be succinct and should not provide information that could compromise security (e.g., "Invalid Credentials" instead of "Incorrect Password").
+## When to Verify User Input
+In general, there are three acceptable times to perform form field verification: 
+-    onBlur: the field is verified when the user clicks away from it
+-    onChange: the field is verified on each keystroke or change in the value
+-    manually: fields are verified after performing a specific action (such as clicking a button)
 
-In general, there are two different types of input field verification: on blur, on change, on page change.
+### Verifying on Blur
 
-### Verify Input on Blur
-
-In order to not "push" the user too much, most text fields should remain "verify on blur". That is, most of the time, you should only verify user input when they stop typing.
+In order to avoid distracting or confusing a user, most text fields should verify input when the field loses focus.
 
 <ImageGrid
     images={[OnBlurImage]}
     gridImageProps={{ sm: 12 }}
     caption={[
-        '1: Do not check for validity or display error messages when the user is typing the desired text.',
-        '2: The user is finished and defocuses / “blurs away” from the input field. Now their input should be checked.',
+        '1: Do not check for validity or display error messages when the user is typing in the field.',
+        '2: The user is finished and the input has lost focus (i.e., "blurred"). Now the input should be verified.',
     ]}
 />
 
-### Verify Input on Change
+### Verifying on Change
 
-When it comes to a password field, the validity check feedback should be displayed each time the user makes a change to the input field.
+Some fields should verify the user input as it changes. The most common case for this type of verification is a new password field (or a confirm password field). The verification feedback should be displayed / updated each time the user makes a change to the input field.
 
 <ImageGrid
     images={[OnChangeImage]}
     gridImageProps={{ sm: 12 }}
     caption={[
-        '1: The criteria for the password shall be displayed interactively while the user is changing their input.',
-        '2: “Confirm Password” field should behave like a regular text field and do “verify input on blur”.',
+        '1: The password criteria checks shall be updated as the user changes their input.',
+        '2: “Confirm Password” field should check for a match with password to give immediate feedback for when the user can proceed.',
     ]}
 />
 
-### Verify Input on Page Change
+### Verifying Manually
 
-On rare occasions when you have to communicate with a remote server to verify the user input (rather than just doing client-side checks), and there is a relatively small (less than 3) number of text fields, you may do the verification on page change. Some typical use cases of this would be the login screen where the user credentials are checked and discover new devices on a network.
+In some specific situations, you may need to defer verification or perform it for all fields in a form at once. This type of verification is common when the checks cannot be performed on the client (such as making an API call to verify a registration code or user login credentials). In most cases, you can do some preliminary checks using one of the two methods above (e.g., you can check if the email is a valid email before making the API call to verify the credentials).
 
 <ImageGrid
     images={[OnPageChangeImage]}
     gridImageProps={{ sm: 12 }}
     caption={[
-        'After the user clicks the submit button, the app waits for server response, and displays an error message.',
-        '1: The assistive text will be replaced by the error message. ',
+        'After the user clicks the submit button, the app waits for the server response, and displays an error message.',
+        '1: The helper text will be replaced by the error message. ',
         '2: Use a circular progress indicator when waiting for responses from the server.',
     ]}
 />
