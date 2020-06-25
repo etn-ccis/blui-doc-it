@@ -1,4 +1,4 @@
-import { DemoCard, ImageGrid, MaterialDesignDescription } from '../../app/components';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
 import Image1 from '../../app/assets/design-patterns/form-validation/form-validation-interaction.png';
 import Image2 from '../../app/assets/design-patterns/form-validation/form-validation-feedback.png';
 import Image3 from '../../app/assets/design-patterns/form-validation/form-validation-variation.png';
@@ -8,12 +8,18 @@ import Image6 from '../../app/assets/design-patterns/form-validation/form-valida
 import OnBlurImage from '../../app/assets/design-patterns/form-validation/verify-input-on-blur.png';
 import OnChangeImage from '../../app/assets/design-patterns/form-validation/verify-input-on-change.png';
 import OnPageChangeImage from '../../app/assets/design-patterns/form-validation/verify-input-on-page-change.png';
+import SumbitButtonLocationImage from '../../app/assets/design-patterns/form-validation/submit-button-location.png';
+import NextButtonUsageImage from '../../app/assets/design-patterns/form-validation/next-button-usage.png';
+import SubmitButtonOnChangeImage from '../../app/assets/design-patterns/form-validation/submit-button-on-change.png';
+import SubmitButtonAutoSubmitImage from '../../app/assets/design-patterns/form-validation/submit-button-auto-submit.png';
+import SubmitButtonOnBlurImage from '../../app/assets/design-patterns/form-validation/submit-button-on-blur.png';
+import SubmitButtonOnClickImage from '../../app/assets/design-patterns/form-validation/submit-button-on-click.png';
 
 # Form Validation Patterns
 
 <ImageGrid images={[Image1, Image2, Image3]} />
 
-Forms are an integral part of many applications, particularly during the user registration phase. One of the most important parts of working with forms is properly validating the information that users enter into them. In general, PX Blue follows the form behaviors explained in detail by the Material Design.
+Forms are an integral part of many applications, particularly during the user registration phase. One of the most important parts of working with forms is properly validating the information that users enter into them. In general, PX Blue follows the form behaviors explained in detail by Material Design.
 
 <MaterialDesignDescription title={'Text Fields'} url={'https://material.io/components/text-fields/'} />
 <DemoCard repository={'form-validation'} angular react/>
@@ -25,6 +31,10 @@ When using a mixture of optional and required fields in a form, the inputs shoul
 If most of the fields are required, you should call out the fields that are optional. These fields should be labeled with an appropriate descriptor, followed by "optional" in parentheses.
 
 Conversely, if most of your fields are optional, you should only call out the required fields. These should be identified by an asterisk (\*) after the field label. There should be a descriptor nearby that indicates that a \* means the field is required.
+
+## Form Length
+
+The form should not be too lengthy. Consider breaking long forms into subsections or multiple pages using tabs and [steppers](/patterns/steppers).
 
 ## Form Field Requirements
 
@@ -38,44 +48,125 @@ If there is an error with the data entered into a field, the field should indica
 
 Error messages should be succinct and should not provide information that could compromise security (e.g., "Invalid Credentials" instead of "Incorrect Password").
 
-In general, there are three different types of input field verification: on blur, on change, and on page change.
+## When to Verify User Input
 
-### Verify Input on Blur
+In general, there are three acceptable times to perform form field verification:
 
-In order to not "push" the user too much, most text fields should remain "verify on blur". That is, most of the time, you should only verify user input when they stop typing.
+-   on blur: the field is verified when the user clicks away from it
+-   on change: the field is dynamically verified on each keystroke or change in the value
+-   manually: fields are verified after performing a specific action (such as clicking a button)
+
+### Verifying on Blur
+
+In order to avoid distracting or confusing a user, most text fields should verify input when the field loses focus; when the user loses focus with invalid data, the error will appear.
 
 <ImageGrid
     images={[OnBlurImage]}
     gridImageProps={{ sm: 12 }}
     caption={[
-        '1: Do not check for validity or display error messages when the user is typing the desired text.',
-        '2: The user is finished and defocuses / “blurs away” from the input field. Now their input should be checked.',
+        '1: Do not check for validity or display error messages when the user is typing in the field.',
+        '2: The user is finished and the input has lost focus (i.e., "blurred"). Now the input should be verified.',
     ]}
 />
 
-### Verify Input on Change
+### Verifying on Change
 
-When it comes to a password field, the validity check feedback should be displayed each time the user makes a change to the input field.
+Some fields should verify the user input as it changes. The most common case for this type of verification is a new password field (or a confirm password field). The verification feedback should be displayed / updated each time the user makes a change to the input field.
 
 <ImageGrid
     images={[OnChangeImage]}
     gridImageProps={{ sm: 12 }}
     caption={[
-        '1: The criteria for the password shall be displayed interactively while the user is changing their input.',
-        '2: “Confirm Password” field should behave like a regular text field and do “verify input on blur”.',
+        '1: The password criteria checks shall be updated as the user changes their input.',
+        '2: “Confirm Password” field should check for a match with password to give immediate feedback for when the user can proceed.',
     ]}
 />
 
-### Verify Input on Page Change
+### Verifying Manually
 
-On rare occasions when you have to communicate with a remote server to verify the user input (rather than just doing client-side checks), and there is a relatively small (less than 3) number of text fields, you may do the verification on page change. Some typical use cases of this would be the login screen where the user credentials are checked and discover new devices on a network.
+In some specific situations, you may need to defer verification or perform it for all fields in a form at once. This type of verification is common when the checks cannot be performed on the client (such as making an API call to verify a registration code, check user login credentials, or search for a device on the network). In most cases, you can do some preliminary checks using one of the two methods above (e.g., you can check if the email is a valid email before making the API call to verify the credentials).
 
 <ImageGrid
     images={[OnPageChangeImage]}
     gridImageProps={{ sm: 12 }}
     caption={[
-        'After the user clicks the submit button, the app waits for server response, and displays an error message.',
-        '1: The assistive text will be replaced by the error message. ',
+        'After the user clicks the submit button, the app waits for the server response, and displays an error message.',
+        '1: The helper text will be replaced by the error message. ',
         '2: Use a circular progress indicator when waiting for responses from the server.',
     ]}
 />
+
+## Submit the Form
+
+Usually, a form will have a submit/next/finished button at the end. This button is typically placed at the bottom right corner of the form. If you are designing for a right-to-left language, this button should be at the bottom left.
+
+<ImageGrid
+    images={[SumbitButtonLocationImage]}
+    gridImageProps={{ sm: 12 }}
+    caption={[
+        '1: On desktops, the button is placed in the bottom corner of the form.',
+        '2: On mobile devices, the button is occluded by the native keyboard.',
+    ]}
+/>
+<ImageGrid
+    images={[NextButtonUsageImage]}
+    gridImageProps={{ sm: 12 }}
+    caption={[
+        'On mobile, if there are more than one input fields on the screen, the keyboard button should say "next".',
+        '1: The user entered a valid input. Clicking "next" will autofocus the user to the next text field.',
+        '2: The user entered a invalid input. Clicking "next" will display the error message but will not autofocus to the next text field.'
+    ]}
+/>
+
+### Disable the Submit Button
+
+When there are not a lot of text fields, the submit button can be disabled to indicate that there are some errors in the user input.
+
+<ImageGrid
+    images={[SubmitButtonOnChangeImage]}
+    gridImageProps={{ sm: 12 }}
+    caption={
+        'If you have only one input field, and this field is verified on change, disable the submit button until the user entered the desired input.'
+    }
+/>
+<ImageGrid
+    images={[SubmitButtonAutoSubmitImage]}
+    gridImageProps={{ sm: 12 }}
+    caption={
+        'For the verification code screen, you can auto-submit the code once the user input reaches the desired length (2). After the verification code is recognized (3), the screen pauses for a short moment before auto-transit to the next page. The verify button is preserved for consistency.'
+    }
+/>
+
+If at least one text field uses the 'verify on blur' strategy, do not disable the submit button. Otherwise, the mobile user will have to disable their keyboard first to have their input field verified, before they can click the submit button. The only exception is if there are required input fields.
+
+<ImageGrid
+    images={[SubmitButtonOnBlurImage]}
+    gridImageProps={{ sm: 12 }}
+    caption={'The submit button is disabled until the user has entered something for all the required fields.'}
+/>
+
+When you have a long form (more than three text fields) with a lot of text fields and the user forgets a required field, do not auto disable the submit button -- it will take them some effort to check what they are missing. Instead, allow the user to click the submit button, and highlight the errors for them.
+
+<React.Fragment>
+    <ImageGrid
+        images={[SubmitButtonOnClickImage]}
+        gridImageProps={{ sm: 12 }}
+        caption={
+            'For a long form, do not disable the submit button. Instead, highlight the errors after the user clicks "submit".'
+        }
+    />
+</React.Fragment>
+<Divider />
+
+# Developers
+
+We recommend using the following components to build this pattern:
+
+**Angular** - Angular Material
+
+-   [Form Field](https://material.angular.io/components/form-field/overview)
+-   [Input](https://material.angular.io/components/input/overview)
+
+**React** - Material-UI
+
+-   [Text Field](https://material-ui.com/components/text-fields/#text-field)
