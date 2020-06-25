@@ -37,11 +37,14 @@ If your form fields have complex requirements for valid values, you can list the
 If there is an error with the data entered into a field, the field should indicate to the user that there is a problem. Label and helper text should be changed to a red color and a warning icon should appear in the text input. The error message should be displayed in the helper text location below the field (any existing helper text should be replaced with the error message).
 
 Error messages should be succinct and should not provide information that could compromise security (e.g., "Invalid Credentials" instead of "Incorrect Password").
+
 ## When to Verify User Input
-In general, there are three acceptable times to perform form field verification: 
--    onBlur: the field is verified when the user clicks away from it
--    onChange: the field is verified on each keystroke or change in the value
--    manually: fields are verified after performing a specific action (such as clicking a button)
+
+In general, there are three acceptable times to perform form field verification:
+
+-   onBlur: the field is verified when the user clicks away from it
+-   onChange: the field is verified on each keystroke or change in the value
+-   manually: fields are verified after performing a specific action (such as clicking a button)
 
 ### Verifying on Blur
 
