@@ -15,7 +15,6 @@ export const NavigationDrawer = (): JSX.Element => {
     const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
     const location = useLocation();
     const history = useHistory();
-    // const classes = useStyles();
     const [activeRoute, setActiveRoute] = useState(location.pathname);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
