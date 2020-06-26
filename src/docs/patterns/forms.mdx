@@ -58,7 +58,7 @@ In general, there are three acceptable times to perform form field verification:
 
 ### Verifying on Blur
 
-In order to avoid distracting or confusing a user, most text fields should verify input when the field loses focus; when the user loses focus with invalid data, the error will appear.
+In order to avoid distracting or confusing a user, most text fields should verify input when the field loses focus. Error messages should not appear until the user is finished entering data and the field is no longer in focus.
 
 <ImageGrid
     images={[OnBlurImage]}
@@ -96,9 +96,9 @@ In some specific situations, you may need to defer verification or perform it fo
     ]}
 />
 
-## Submit the Form
+## Submitting the Form
 
-Usually, a form will have a submit/next/finished button at the end. This button is typically placed at the bottom right corner of the form. If you are designing for a right-to-left language, this button should be at the bottom left.
+Typically, forms should have a button to submit the data or continue to the next part of the form (for long forms). Depending on what happens next, the button should be labeled "next", "finish", or similar. should be located at the bottom right corner of the form (bottom left for right-to-left languages).
 
 <ImageGrid
     images={[SumbitButtonLocationImage]}
@@ -112,28 +112,28 @@ Usually, a form will have a submit/next/finished button at the end. This button 
     images={[NextButtonUsageImage]}
     gridImageProps={{ sm: 12 }}
     caption={[
-        'On mobile, if there are more than one input fields on the screen, the keyboard button should say "next".',
+        'On mobile, if there are multiple input fields on the screen, the keyboard button should say "next".',
         '1: The user entered a valid input. Clicking "next" will autofocus the user to the next text field.',
-        '2: The user entered a invalid input. Clicking "next" will display the error message but will not autofocus to the next text field.'
+        '2: The user entered an invalid input. Clicking "next" will display the error message but will not autofocus to the next text field.'
     ]}
 />
 
-### Disable the Submit Button
+### Disabling the Submit Button
 
-When there are not a lot of text fields, the submit button can be disabled to indicate that there are some errors in the user input.
+When there are just a few text fields, the submit button can be disabled to indicate that there are some errors in the user input.
 
 <ImageGrid
     images={[SubmitButtonOnChangeImage]}
     gridImageProps={{ sm: 12 }}
     caption={
-        'If you have only one input field, and this field is verified on change, disable the submit button until the user entered the desired input.'
+        'If you have only one input field, and this field is verified on change, disable the submit button until the user enters a valid input.'
     }
 />
 <ImageGrid
     images={[SubmitButtonAutoSubmitImage]}
     gridImageProps={{ sm: 12 }}
     caption={
-        'For the verification code screen, you can auto-submit the code once the user input reaches the desired length (2). After the verification code is recognized (3), the screen pauses for a short moment before auto-transit to the next page. The verify button is preserved for consistency.'
+        'For the verification code screen, you can auto-submit the information once the user input reaches the required length (#2). After the verification code is recognized (#3), the screen pauses for a short moment before automatically moving to the next screen. The verify button is preserved for consistency.'
     }
 />
 
@@ -145,7 +145,7 @@ If at least one text field uses the 'verify on blur' strategy, do not disable th
     caption={'The submit button is disabled until the user has entered something for all the required fields.'}
 />
 
-When you have a long form (more than three text fields) with a lot of text fields and the user forgets a required field, do not auto disable the submit button -- it will take them some effort to check what they are missing. Instead, allow the user to click the submit button, and highlight the errors for them.
+When you have a long form (more than three text fields) and the user forgets a required field, do not disable the submit button and force the user to search for what they are missing. Instead, allow the user to click the submit button, and highlight the errors for them.
 
 <React.Fragment>
     <ImageGrid
