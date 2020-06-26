@@ -26,6 +26,10 @@ jobs:
                       - node_modules
                   key: v3-dependencies-{{ checksum "package.json" }}
             - run:
+                  name: Prettier Check
+                  command: |
+                      yarn prettier:check
+            - run:
                   name: Lint
                   command: yarn lint
             - run:
