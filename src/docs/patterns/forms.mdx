@@ -21,9 +21,9 @@ import Specs3Image from '../../app/assets/design-patterns/form-validation/specs-
 
 # Form Validation Patterns
 
-<ImageGrid images={[SummaryImage]} fullSize />
+<ImageGrid images={[SummaryImage]} regularWidth />
 
-Forms are an integral part of many applications, particularly during the user registration phase. One of the most important parts of working with forms is properly validating the information that users enter into them. In general, PX Blue follows the form behaviors explained in detail by Material Design.
+Forms are an integral part of many applications, particularly during the [user registration](/patterns/login) phase. One of the most important parts of working with forms is properly validating the information that users enter into them. In general, PX Blue follows the form behaviors explained in detail by Material Design.
 
 <React.Fragment>
     <MaterialDesignDescription title={'Text Fields'} url={'https://material.io/components/text-fields/'} />
@@ -71,7 +71,7 @@ In order to avoid distracting or confusing a user, most text fields should verif
 
 <ImageGrid
     images={[OnBlurImage]}
-    fullSize
+    regularWidth
     caption={[
         '1: Do not check for validity or display error messages when the user is typing in the field.',
         '2: The user is finished and the input has lost focus (i.e., "blurred"). Now the input should be verified.',
@@ -84,7 +84,7 @@ Some fields should verify the user input as it changes. The most common case for
 
 <ImageGrid
     images={[OnChangeImage]}
-    fullSize
+    regularWidth
     caption={[
         '1: The password criteria checks shall be updated as the user changes their input.',
         '2: “Confirm Password” field should check for a match with password to give immediate feedback for when the user can proceed.',
@@ -97,7 +97,7 @@ In some specific situations, you may need to defer verification or perform it fo
 
 <ImageGrid
     images={[OnPageChangeImage]}
-    fullSize
+    regularWidth
     caption={[
         'After the user clicks the submit button, the app waits for the server response, and displays an error message.',
         '1: The helper text will be replaced by the error message. ',
@@ -111,7 +111,7 @@ Typically, forms should have a button to submit the data or continue to the next
 
 <ImageGrid
     images={[SumbitButtonLocationImage]}
-    fullSize
+    regularWidth
     caption={[
         '1: On desktops, the button is placed in the bottom corner of the form.',
         '2: On mobile devices, the button is replaced by a button on native keyboard.',
@@ -122,7 +122,7 @@ On mobile, if there are multiple input fields on the screen, the keyboard button
 
 <ImageGrid
     images={[NextButtonUsageImage]}
-    fullSize
+    regularWidth
     caption={[
         ,
         '1: The user entered a valid input. Clicking "next" will autofocus the user to the next text field.',
@@ -134,7 +134,7 @@ For screens like email verifications where there is only one input field with a 
 
 <ImageGrid
     images={[SubmitButtonAutoSubmitImage]}
-    fullSize
+    regularWidth
     caption={
         'For the verification code screen, you can auto-submit the information once the user input reaches the required length (#2). After the verification code is recognized (#3), the screen pauses for a short moment before automatically moving to the next screen.'
     }
@@ -146,7 +146,7 @@ In most cases, the submit button **should not** be disabled. The users should no
 
 <ImageGrid
     images={[SubmitButtonOnClickImage]}
-    fullSize
+    regularWidth
     caption={
         'Do not disable the submit button. Instead, use error text to highlight the invalid input after the user clicks the button.'
     }
@@ -157,14 +157,14 @@ This rule has an exception: on desktop applications, when there are less than fo
 <React.Fragment>
     <ImageGrid
         images={[SubmitButtonOnChangeImage]}
-        fullSize
+        regularWidth
         caption={
             'When your input field field is verified on change, disable the submit button until the user enters a valid input.'
         }
     />
     <ImageGrid
         images={[SubmitButtonOnBlurImage]}
-        fullSize
+        regularWidth
         caption={'The submit button is disabled until the user has entered something for all the required fields.'}
     />
 </React.Fragment>
@@ -172,7 +172,7 @@ This rule has an exception: on desktop applications, when there are less than fo
 
 # Specs
 
-<ImageGrid images={[Specs1Image, Specs2Image, Specs3Image]} fullSize />
+<ImageGrid images={[Specs1Image, Specs2Image, Specs3Image]} regularWidth />
 <Divider />
 
 # Developers

@@ -49,10 +49,18 @@ type ImageGridProps = HTMLAttributes<HTMLDivElement> & {
     gridComponentProps?: GridProps;
     gridImageProps?: GridProps;
     images: Content[];
-    fullSize?: boolean;
+    regularWidth?: boolean;
 };
 export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
-    const { images, caption, fullSize, gridContainerProps, gridImageProps, gridComponentProps, ...rootProps } = props;
+    const {
+        images,
+        caption,
+        regularWidth: fullSize,
+        gridContainerProps,
+        gridImageProps,
+        gridComponentProps,
+        ...rootProps
+    } = props;
     const classes = useStyles();
     const theme = useTheme();
     const [imageOpened, setImageOpened] = useState(-1);
