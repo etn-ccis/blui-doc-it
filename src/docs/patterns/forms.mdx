@@ -15,7 +15,9 @@ import SubmitButtonOnChangeImage from '../../app/assets/design-patterns/form-val
 import SubmitButtonAutoSubmitImage from '../../app/assets/design-patterns/form-validation/submit-button-auto-submit.png';
 import SubmitButtonOnBlurImage from '../../app/assets/design-patterns/form-validation/submit-button-on-blur.png';
 import SubmitButtonOnClickImage from '../../app/assets/design-patterns/form-validation/submit-button-on-click.png';
-import SpecsImage from '../../app/assets/design-patterns/form-validation/specs.png';
+import Specs1Image from '../../app/assets/design-patterns/form-validation/specs-1.png';
+import Specs2Image from '../../app/assets/design-patterns/form-validation/specs-2.png';
+import Specs3Image from '../../app/assets/design-patterns/form-validation/specs-3.png';
 
 # Form Validation Patterns
 
@@ -128,7 +130,7 @@ On mobile, if there are multiple input fields on the screen, the keyboard button
     ]}
 />
 
-When you are doing something like email verification code, you can omit the submit button.
+For screens like email verifications where there is only one input field with a specific length, and the user will almost never need to go back and double check their input, the submit button can be omitted.
 
 <ImageGrid
     images={[SubmitButtonAutoSubmitImage]}
@@ -170,7 +172,7 @@ This rule has an exception: on desktop applications, when there are less than fo
 
 # Specs
 
-<ImageGrid images={[SpecsImage]} fullSize />
+<ImageGrid images={[Specs1Image, Specs2Image, Specs3Image]} fullSize />
 <Divider />
 
 # Developers
