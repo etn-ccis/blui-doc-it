@@ -6,6 +6,8 @@ import SummaryImage from '../../app/assets/design-patterns/form-validation/form-
 import Image4 from '../../app/assets/design-patterns/form-validation/form-validation-password-entering.png';
 import Image5 from '../../app/assets/design-patterns/form-validation/form-validation-password-error.png';
 import Image6 from '../../app/assets/design-patterns/form-validation/form-validation-password-complete.png';
+
+import LongFormImage from '../../app/assets/design-patterns/form-validation/long-form.png';
 import OnBlurImage from '../../app/assets/design-patterns/form-validation/verify-input-on-blur.png';
 import OnChangeImage from '../../app/assets/design-patterns/form-validation/verify-input-on-change.png';
 import OnPageChangeImage from '../../app/assets/design-patterns/form-validation/verify-input-on-page-change.png';
@@ -44,6 +46,14 @@ Conversely, if most of your fields are optional, you should only call out the re
 ## Form Length
 
 The form should not be too lengthy -- no more than the screen height on the mobile device, and no more than half of the desktop screen. Consider breaking long forms into subsections or multiple pages using tabs and [steppers](/patterns/steppers).
+
+<ImageGrid
+    images={[LongFormImage]}
+    regularWidth
+    caption={
+        'You can either split the forms into sections with dividers (#1) or into multiple pages with steppers (#2), or a combination of both.'
+    }
+/>
 
 ## Form Field Requirements
 
