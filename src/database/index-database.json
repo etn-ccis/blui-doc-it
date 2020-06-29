@@ -167,7 +167,8 @@
             { "/community/features": 2 },
             { "/development/environment": 1 },
             { "/patterns/appbar": 1 },
-            { "/patterns/forms": 1 }
+            { "/patterns/forms": 1 },
+            { "/patterns/login": 1 }
         ],
         "blue": [
             { "/development/frameworks-web/angular": 28 },
@@ -199,7 +200,8 @@
             { "/community/features": 2 },
             { "/development/environment": 1 },
             { "/patterns/appbar": 1 },
-            { "/patterns/forms": 1 }
+            { "/patterns/forms": 1 },
+            { "/patterns/login": 1 }
         ],
         "design": [
             { "/design/anatomy": 16 },
@@ -310,39 +312,6 @@
             { "/style/iconography": 1 },
             { "/style/typography": 1 },
             { "/style/themes": 1 }
-        ],
-        "blue": [
-            { "/development/frameworks-web/angular": 28 },
-            { "/development/frameworks-web/react": 26 },
-            { "/development/frameworks-mobile/react-native": 26 },
-            { "/development/frameworks-mobile/ionic": 19 },
-            { "/style/themes": 17 },
-            { "/overview": 14 },
-            { "/community/faq": 14 },
-            { "/design/anatomy": 13 },
-            { "/design/intro": 12 },
-            { "/style/color": 9 },
-            { "/style/typography": 9 },
-            { "/development/cli": 8 },
-            { "/patterns/visualizations": 7 },
-            { "/style/iconography": 6 },
-            { "/community/innersourcing": 6 },
-            { "/patterns/layout": 5 },
-            { "/community/license": 5 },
-            { "/community/bugs": 4 },
-            { "/development/frameworks-web/intro": 3 },
-            { "/development/frameworks-mobile/intro": 3 },
-            { "/community/contactus": 3 },
-            { "/get-started/web": 2 },
-            { "/get-started/mobile": 2 },
-            { "/development/testing": 2 },
-            { "/patterns/internationalization": 2 },
-            { "/patterns/lists": 2 },
-            { "/community/features": 2 },
-            { "/development/environment": 1 },
-            { "/patterns/appbar": 1 },
-            { "/patterns/forms": 1 },
-            { "/patterns/login": 1 }
         ],
         "is": [
             { "/patterns/overlay": 11 },
@@ -603,7 +572,8 @@
             { "/development/testing": 1 },
             { "/patterns/empty-states": 1 },
             { "/style/typography": 1 },
-            { "/community/bugs": 1 }
+            { "/community/bugs": 1 },
+            { "/community/contactus": 1 }
         ],
         "your": [
             { "/development/frameworks-mobile/react-native": 29 },
@@ -962,38 +932,6 @@
             { "/patterns/login": 3 },
             { "/patterns/steppers": 3 },
             { "/community/features": 1 }
-        ],
-        "px": [
-            { "/development/frameworks-web/angular": 28 },
-            { "/development/frameworks-web/react": 26 },
-            { "/development/frameworks-mobile/react-native": 26 },
-            { "/development/frameworks-mobile/ionic": 19 },
-            { "/community/faq": 14 },
-            { "/design/anatomy": 13 },
-            { "/design/intro": 12 },
-            { "/development/cli": 8 },
-            { "/style/typography": 8 },
-            { "/overview": 7 },
-            { "/patterns/visualizations": 7 },
-            { "/style/themes": 7 },
-            { "/patterns/layout": 5 },
-            { "/style/iconography": 5 },
-            { "/community/license": 5 },
-            { "/community/innersourcing": 4 },
-            { "/style/color": 3 },
-            { "/community/contactus": 3 },
-            { "/get-started/web": 2 },
-            { "/get-started/mobile": 2 },
-            { "/development/frameworks-web/intro": 2 },
-            { "/development/frameworks-mobile/intro": 2 },
-            { "/development/testing": 2 },
-            { "/patterns/internationalization": 2 },
-            { "/patterns/lists": 2 },
-            { "/community/features": 2 },
-            { "/development/environment": 1 },
-            { "/patterns/appbar": 1 },
-            { "/patterns/forms": 1 },
-            { "/patterns/login": 1 }
         ],
         "goal": [{ "/overview": 1 }],
         "ensure": [
@@ -4167,7 +4105,7 @@
             { "/community/innersourcing": 1 },
             { "/community/features": 1 }
         ],
-        "developer": [{ "/development/environment": 1 }, { "/patterns/lists": 1 }],
+        "developer": [{ "/development/environment": 1 }, { "/patterns/lists": 1 }, { "/patterns/login": 1 }],
         "develop": [{ "/development/environment": 2 }],
         "tutorial": [
             { "/development/environment": 1 },
@@ -5200,7 +5138,7 @@
             { "/community/faq": 1 }
         ],
         "login": [
-            { "/patterns/login": 9 },
+            { "/patterns/login": 10 },
             { "/design/anatomy": 4 },
             { "/development/frameworks-web/angular": 1 },
             { "/development/frameworks-web/react": 1 },
@@ -6553,7 +6491,7 @@
         "another": [{ "/design/anatomy": 2 }, { "/patterns/empty-states": 1 }, { "/patterns/internationalization": 1 }],
         "represent": [{ "/design/anatomy": 1 }, { "/patterns/lists": 1 }, { "/patterns/navigation": 1 }],
         "tasks": [{ "/design/anatomy": 1 }, { "/patterns/overlay": 1 }],
-        "registration": [{ "/patterns/login": 7 }, { "/patterns/forms": 2 }, { "/design/anatomy": 1 }],
+        "registration": [{ "/patterns/login": 8 }, { "/patterns/forms": 2 }, { "/design/anatomy": 1 }],
         "pattern": [
             { "/design/anatomy": 3 },
             { "/patterns/appbar": 3 },
@@ -6984,7 +6922,6 @@
         "locked": [{ "/patterns/lists": 1 }],
         "edit": [{ "/patterns/lists": 1 }, { "/patterns/overlay": 1 }],
         "cdk": [{ "/patterns/lists": 2 }],
-        "developer": [{ "/patterns/lists": 1 }, { "/patterns/login": 1 }],
         "kit": [{ "/patterns/lists": 1 }],
         "feature": [
             { "/community/features": 2 },
@@ -7596,6 +7533,7 @@
         "email": [{ "/community/contactus": 1 }],
         "feedback": [{ "/community/contactus": 1 }],
         "questions": [{ "/community/contactus": 1 }],
-        "support": [{ "/community/contactus": 1 }]
+        "support": [{ "/community/contactus": 1 }],
+        "help": [{ "/community/contactus": 1 }]
     }
 }
