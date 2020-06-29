@@ -617,7 +617,7 @@
             { "/patterns/layout": 1 }
         ],
         "code": [
-            { "/community/innersourcing": 12 },
+            { "/community/innersourcing": 11 },
             { "/development/frameworks-mobile/react-native": 6 },
             { "/get-started/mobile": 5 },
             { "/development/frameworks-web/angular": 4 },
