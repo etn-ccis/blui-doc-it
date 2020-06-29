@@ -8,6 +8,8 @@ import Image6 from '../../app/assets/design-patterns/multiselect-list/multiselec
 import Image7 from '../../app/assets/design-patterns/sortable-list/sortable-list.png';
 import Image8 from '../../app/assets/design-patterns/sortable-list/sortable-list-sorted.png';
 
+<!-- KEYWORDS: design pattern list status sort table drag drop action -->
+
 # List Patterns
 
 Lists are frequently used throughout PX Blue applications. Typically, lists are used to represent groups of similar data. They can be used to show simple name-value pairs in a sidebar all the way to complex timelines or device lists.
@@ -17,8 +19,8 @@ Lists are frequently used throughout PX Blue applications. Typically, lists are 
 ## Basic Lists
 
 <ImageGrid images={[Image1, Image2]} />
-<DemoCard repository={'data-list'} angular react ionic reactNative />
-<DemoCard repository={'status-list'} angular react ionic reactNative/>
+<DemoCard repository={'data-list'} angular react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/data-list/index.tsx&initialpath=data-list'} ionic reactNative />
+<DemoCard repository={'status-list'} angular react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/status-list/index.tsx&initialpath=status-list'} ionic reactNative/>
 
 The simplest type of list simply presents a single line (or multiple lines) of text for each element in the collection.
 
@@ -27,21 +29,21 @@ Commonly in PX Blue applications, list items also show some visual indication of
 ## Lists with Actions
 
 <ImageGrid images={[Image3, Image4, Image5]} />
-<DemoCard repository={'action-list'} angular react ionic reactNative float={'right'} />
+<DemoCard repository={'action-list'} angular react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/action-list/index.tsx&initialpath=action-list'} ionic reactNative />
 
 If there are actions that you would like to perform on individual list items, these can be included via icons or a 3-dot action menu (multiple actions) on each list item. Depending on the space available, you typically will want to use the action menu if you have more than three actions that can be taken. Global actions that affect the whole list (such as Add or Clear) should be placed in the list header.
 
 ## Actions on Selected Items
 
 <ImageGrid images={[Image6]} />
-<DemoCard repository={'multiselect-list'} angular react ionic reactNative float={'right'} />
+<DemoCard repository={'multiselect-list'} angular react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/multiselect-list/index.tsx&initialpath=multiselect-list'} ionic reactNative />
 
 You may want to take action on several list items at once, but not all. These should be presented in a persistent snackbar (similar to a [bottom sheet](/patterns/overlay)) after selecting items. Selection can be handled in several ways, the simplest of which is to include a checkbox for each list item.
 
 ## Drag and Drop
 
 <ImageGrid images={[Image7, Image8]} />
-<DemoCard repository={'sortable-list'} angular react ionic reactNative />
+<DemoCard repository={'sortable-list'} angular react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/sortable-list/index.tsx&initialpath=sortable-list'} ionic reactNative />
 
 Occasionally, you may want users to be able to re-order the items in a list manually. This should be accomplished by placing a drag handle as the leftmost element in the row. The ability to re-order the list should be locked behind an Edit Mode toggle mechanism.
 
@@ -49,7 +51,13 @@ Occasionally, you may want users to be able to re-order the items in a list manu
 
 ## Tables
 
-<DemoCard repository={'responsive-table'} angular react float={'right'} />
+<DemoCard
+    repository={'responsive-table'}
+    angular
+    react={
+        'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/responsive-table/index.tsx&initialpath=responsive-table'
+    }
+/>
 
 Tables are similar to lists but are slightly more structured by ordering data for a list item into columns. These work well on larger screens, but at a mobile size, they should collapse into a list for better formatting.
 

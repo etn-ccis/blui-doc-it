@@ -17,7 +17,7 @@ function getShortText(keyword: string, url: string, siteMapDatabase: any): [stri
         .replace(/import .*? from .*?;/gim, '')
         .replace(/\r\n/g, '\n')
         .replace(/\n/gim, ' ')
-        .replace(/<!--.*?-->/g, ' ')
+        .replace(/<!--.*?-->/g, ' ') // replaces all comments (including keywords)
         .replace(/\[(.*?)\]\(.*?\)/g, '$1') // replace all the markdown links [text](url) into text
         .replace(/<[a-z].*?>/gim, ' ')
         .replace(/[#`]/g, '')
@@ -57,7 +57,7 @@ function getShortText(keyword: string, url: string, siteMapDatabase: any): [stri
     }
     The urls are not sorted in any particular order. 
  */
-function fetch(query: string, siteMapDatabase: any, indexDatabase: { title: any; text: any }): any {
+function fetch(query: string, siteMapDatabase: any, indexDatabase: { title: any; text: any; keyword: any }): any {
     if (query === '') return {};
 
     const queryArray = query
@@ -69,6 +69,9 @@ function fetch(query: string, siteMapDatabase: any, indexDatabase: { title: any;
 
     const result: any = {};
 
+    /**
+     * SEARCH THE PAGE TITLE (HIGHEST PRIORITY RESULT)
+     */
     // if it is an exact match in the TITLE keyword
     queryArray.forEach((q) => {
         if (indexDatabase.title[q]) {
@@ -130,6 +133,73 @@ function fetch(query: string, siteMapDatabase: any, indexDatabase: { title: any;
 
     if (Object.keys(result).length > MAX_RESULT) return result;
 
+    /**
+     * SEARCH THE KEYWORDS ARRAY (SECOND HIGHEST PRIORITY RESULT)
+     */
+    // if it is an exact match in the KEYWORD keyword
+    queryArray.forEach((q) => {
+        if (indexDatabase.keyword[q]) {
+            indexDatabase.keyword[q].forEach((element: any) => {
+                const url = Object.keys(element)[0];
+                if (!result[url]) {
+                    // never seen this url before, adding to the result
+                    const [text, isTextPlaceholder] = getShortText(q, url, siteMapDatabase);
+                    result[url] = {
+                        title: siteMapDatabase[url].title,
+                        weight: element[url] * 1.5 + 10, // giving some extra weight to keywords
+                        text: text,
+                        isTextPlaceholder: isTextPlaceholder,
+                    };
+                } else {
+                    // otherwise, increase the weight so that it appears higher on the list
+                    result[url].weight += element[url] * 1.5;
+                    if (!result[url].text || !result[url].isTextPlaceholder) {
+                        const [text, isTextPlaceholder] = getShortText(q, url, siteMapDatabase);
+                        result[url].text = text;
+                        result[url].isTextPlaceholder = isTextPlaceholder;
+                    }
+                }
+            });
+        }
+    });
+
+    if (Object.keys(result).length > MAX_RESULT) return result;
+
+    //not an exact match, but the query is included as a substring of the KEYWORD keyword
+    queryArray.forEach((q) => {
+        const titleKeywords = Object.keys(indexDatabase.keyword);
+        titleKeywords.forEach((keyword) => {
+            if (keyword.includes(q) && keyword !== q) {
+                indexDatabase.keyword[keyword].forEach((element: any) => {
+                    const url = Object.keys(element)[0];
+                    if (!result[url]) {
+                        // never seen this url before, adding to the result
+                        const [text, isTextPlaceholder] = getShortText(q, url, siteMapDatabase);
+                        result[url] = {
+                            title: siteMapDatabase[url].title,
+                            weight: element[url] * 2 + 10, // giving more weight to the titles
+                            text: text,
+                            isTextPlaceholder: isTextPlaceholder,
+                        };
+                    } else {
+                        // otherwise, increase the weight so that it appears higher on the list
+                        result[url].weight += element[url] * 2;
+                        if (!result[url].text || !result[url].isTextPlaceholder) {
+                            const [text, isTextPlaceholder] = getShortText(q, url, siteMapDatabase);
+                            result[url].text = text;
+                            result[url].isTextPlaceholder = isTextPlaceholder;
+                        }
+                    }
+                });
+            }
+        });
+    });
+
+    if (Object.keys(result).length > MAX_RESULT) return result;
+
+    /**
+     * SEARCH THE PAGE CONTENT (LOWEST PRIORITY RESULT)
+     */
     // if it is an exact match in the TEXT keyword
     queryArray.forEach((q) => {
         if (indexDatabase.text[q]) {
@@ -199,6 +269,6 @@ function sortObjectBasedOnWeight(result: any): Result[] {
         .map((url) => ({ url: url, title: result[url].title, weight: result[url].weight, text: result[url].text }));
 }
 
-export function search(query: string, sitemapDB: any, indexDB: { title: any; text: any }): Result[] {
+export function search(query: string, sitemapDB: any, indexDB: { title: any; text: any; keyword: any }): Result[] {
     return sortObjectBasedOnWeight(fetch(query, sitemapDB, indexDB)).slice(0, MAX_RESULT);
 }
