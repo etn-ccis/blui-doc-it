@@ -3,11 +3,16 @@ const sitemapDatabase = require('../../src/database/sitemap-database.json');
 const natural = require('natural');
 
 // these words will never be indexed as part of the textIndex
-const BLACK_LIST = new Set(['a', 'an', 'the']);
+const ARTICLES = new Set(['a', 'an', 'the']);
+const AUXILIARY_VERBS = new Set(['is', 'am', 'are', 'was', 'were', 'be', 'being', 'been', 'has', 'have', 'had', 'do', 'does', 'did', 'may', 'might', 'must', 'can', 'could', 'shall', 'should', 'will', 'would']);
+const PREPOSITIONS = new Set(['about', 'above', 'across', 'after', 'against', 'along', 'among', 'around', 'as', 'at', 'before', 'behind', 'below', 'beneath', 'beside', 'between', 'beyond', 'by', 'despite', 'down', 'during', 'except', 'for', 'from', 'in', 'inside', 'into', 'like', 'near', 'of', 'off', 'on', 'onto', 'opposite', 'out', 'outside', 'over', 'past', 'round', 'since', 'than', 'through', 'to', 'towards', 'under', 'underneath', 'unlike', 'until', 'up', 'upon', 'via', 'with', 'within', 'without']);
+const FILLER_WORDS = new Set(['you', 'that', 'we', 'this', 'one', 'but', 'not', 'when', 'if', 'many', 'then', 'these', 'so', 'like', 'get', 'come']);
+const BLACK_LIST = new Set([...ARTICLES], [...AUXILIARY_VERBS], [...PREPOSITIONS], [...FILLER_WORDS]);
 
 // We will dump our data into the following two sets
 // Index titles and text separately, because page title has a higher priority
 const titleIndex = {};
+const keywordIndex = {};
 const textIndex = {};
 
 var tokenizer = new natural.WordTokenizer();
@@ -22,7 +27,8 @@ function transformToArray(str) {
         .replace(/\n/gim, ' ') // new lines count as a space
         .replace(/<[\/]?[a-z].+?>/gim, ' ') // take out all the native tags <xxx> and </xxx>
         .replace(/<[a-z].+?[ ]?\/>/gim, ' ') // take out all the native tags <xxx/>
-        .replace(/<!\-\-.*?\-\->/g, ' ') // omit the comments
+        .replace(/<!--[\s]*?((?!keywords:).)*?[\s]*?-->/gi, ' ') // omit the comments except for keywords
+        // .replace(/<!--[\s]*?(keywords:)(.*?)[\s]*?-->/gi, '$2') // replace keyword comments
         .replace(/\[(.*?)\]\(.*?\)/g, '$1'); // replace all the markdown links [text](url) into text
     // .replace(/[!@\?#\$%\^&\*\(\)\-\\\|\[\]\+`~\.\,\?<>\{\}/":;]/gim, ' ') // replace any special characters
     // .split(' ')
@@ -81,6 +87,23 @@ function main() {
                 }
             });
         }
+
+        // add / update the data entry to keywordIndex
+        // not all the entries have keywords
+        if (sitemapDatabase[url].text) {
+            var keywords_string = sitemapDatabase[url].text.match(/<!--[\s]*?(keywords:)(.*?)[\s]*?-->/gi);
+            if(!keywords_string || keywords_string.length === 0){ return; }
+            
+            keywords_string = keywords_string[0].replace(/<!--[\s]*?(keywords:)(.*?)[\s]*?-->/gi, '$2').trim();
+            var keywords_array = keywords_string.split(' ');
+
+            keywords_array.forEach((keyword) => {
+                if (!BLACK_LIST.has(keyword)) {
+                    // set the keyword index to 1 (only count a keyword as 1)
+                    keywordIndex[keyword] = { [url]: 1 };
+                }
+            });
+        }
     });
 
     // sort links in each database based on number of times a keyword is mentioned
@@ -90,12 +113,16 @@ function main() {
     Object.keys(textIndex).forEach((keyword) => {
         textIndex[keyword] = sortObjectKeysByValue(textIndex[keyword]);
     });
+    Object.keys(keywordIndex).forEach((keyword) => {
+        keywordIndex[keyword] = sortObjectKeysByValue(keywordIndex[keyword]);
+    });
 
     fs.writeFileSync(
         '../../src/database/index-database.json',
         JSON.stringify({
             title: titleIndex,
             text: textIndex,
+            keyword: keywordIndex,
         })
     );
 }
