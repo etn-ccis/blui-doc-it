@@ -128,7 +128,7 @@ Typically, forms should have a button to submit the data or continue to the next
     ]}
 />
 
-On mobile, if there are multiple input fields on the screen, the keyboard button should say "next", unless you are on the last item of the page, in which case the keyboard button should say "done" or "submit". In this situation, depends on if you want your user to double check their input, either dismiss the keyboard upon clicking the button (blur away from the input field), or transition the UI to the next page (submit the form directly).
+On mobile, if there are multiple input fields on the screen, the keyboard button should say "next", unless you are on the last item of the page, in which case the keyboard button should say "done" or "submit". This button can either submit the form or simply dismiss the keyboard (if you want users to have a chance to review their information first).
 
 <ImageGrid
     images={[NextButtonUsageImage]}
@@ -140,7 +140,7 @@ On mobile, if there are multiple input fields on the screen, the keyboard button
     ]}
 />
 
-For screens like email verifications where there is only one input field with a specific length, and the user will almost never need to go back and double check their input, the submit button can be omitted.
+For screens such as email verification where there is a single field with a known required length, the submit button can be omitted.
 
 <ImageGrid
     images={[SubmitButtonAutoSubmitImage]}
@@ -152,7 +152,7 @@ For screens like email verifications where there is only one input field with a 
 
 ### Disabling the Submit Button
 
-In most cases, the submit button **should not** be disabled. The users should not be forced to search for what they are missing, or what they did wrong.
+In most cases, the submit button **should not** be disabled. The users should not be forced to search for what they are missing.
 
 <ImageGrid
     images={[SubmitButtonOnClickImage]}
@@ -162,7 +162,7 @@ In most cases, the submit button **should not** be disabled. The users should no
     }
 />
 
-This rule has an exception: on desktop applications, when there are less than four text fields, and all the fields are verified on change, we recommend you disable the submit button to indicate that there are some errors in the user input (invalid value, missing a required field).
+> **Exception**: on desktop applications, when there are fewer than four text fields, and all the fields are verified on change, we recommend you disable the submit button to indicate that there are some errors in the user input (invalid value, missing a required field).
 
 <React.Fragment>
     <ImageGrid
@@ -183,7 +183,10 @@ This rule has an exception: on desktop applications, when there are less than fo
 # Specs
 
 <ImageGrid images={[Specs1Image, Specs2Image, Specs3Image]} regularWidth />
+
+<!--
 <Divider />
+
 
 # Developers
 
@@ -197,3 +200,5 @@ We recommend using the following components to build this pattern:
 **React** - Material-UI
 
 -   [Text Field](https://material-ui.com/components/text-fields/#text-field)
+
+-->
