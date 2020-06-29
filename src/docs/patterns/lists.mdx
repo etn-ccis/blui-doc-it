@@ -27,14 +27,14 @@ Commonly in PX Blue applications, list items also show some visual indication of
 ## Lists with Actions
 
 <ImageGrid images={[Image3, Image4, Image5]} />
-<DemoCard repository={'action-list'} angular react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/action-list/index.tsx&initialpath=action-list'} ionic reactNative float={'right'} />
+<DemoCard repository={'action-list'} angular react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/action-list/index.tsx&initialpath=action-list'} ionic reactNative />
 
 If there are actions that you would like to perform on individual list items, these can be included via icons or a 3-dot action menu (multiple actions) on each list item. Depending on the space available, you typically will want to use the action menu if you have more than three actions that can be taken. Global actions that affect the whole list (such as Add or Clear) should be placed in the list header.
 
 ## Actions on Selected Items
 
 <ImageGrid images={[Image6]} />
-<DemoCard repository={'multiselect-list'} angular react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/multiselect-list/index.tsx&initialpath=multiselect-list'} ionic reactNative float={'right'} />
+<DemoCard repository={'multiselect-list'} angular react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/multiselect-list/index.tsx&initialpath=multiselect-list'} ionic reactNative />
 
 You may want to take action on several list items at once, but not all. These should be presented in a persistent snackbar (similar to a [bottom sheet](/patterns/overlay)) after selecting items. Selection can be handled in several ways, the simplest of which is to include a checkbox for each list item.
 
@@ -55,7 +55,6 @@ Occasionally, you may want users to be able to re-order the items in a list manu
     react={
         'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/responsive-table/index.tsx&initialpath=responsive-table'
     }
-    float={'right'}
 />
 
 Tables are similar to lists but are slightly more structured by ordering data for a list item into columns. These work well on larger screens, but at a mobile size, they should collapse into a list for better formatting.
