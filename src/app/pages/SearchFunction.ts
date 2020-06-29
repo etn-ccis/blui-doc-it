@@ -133,7 +133,6 @@ function fetch(query: string, siteMapDatabase: any, indexDatabase: { title: any;
 
     if (Object.keys(result).length > MAX_RESULT) return result;
 
-
     /**
      * SEARCH THE KEYWORDS ARRAY (SECOND HIGHEST PRIORITY RESULT)
      */
@@ -197,7 +196,6 @@ function fetch(query: string, siteMapDatabase: any, indexDatabase: { title: any;
     });
 
     if (Object.keys(result).length > MAX_RESULT) return result;
-
 
     /**
      * SEARCH THE PAGE CONTENT (LOWEST PRIORITY RESULT)
