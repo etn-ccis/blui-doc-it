@@ -85,14 +85,6 @@ const useStyles = makeStyles((theme: Theme) =>
             marginBottom: theme.spacing(1),
             fontWeight: 600,
         },
-        // floatRight: {
-        //     float: 'right',
-        //     marginLeft: theme.spacing(4),
-        // },
-        // floatLeft: {
-        //     float: 'left',
-        //     marginRight: theme.spacing(4),
-        // },
     })
 );
 
