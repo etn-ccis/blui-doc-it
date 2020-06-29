@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
     Typography,
     AppBar,
@@ -17,11 +17,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../redux/reducers';
 import { Close } from '@material-ui/icons';
 import { PADDING } from '../shared';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { Result } from '../../__types__';
 import { search } from './SearchFunction';
 import siteMapDatabase from '../../database/sitemap-database.json';
 import indexDatabase from '../../database/index-database.json';
+import { useQueryString } from '../hooks/useQueryString';
 
 export type SearchbarProps = AppBarProps;
 
@@ -88,22 +89,44 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     const classes = useStyles();
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
     const dispatch = useDispatch();
+    const location = useLocation();
+    const deepQuery = useQueryString().search;
     const [query, setQuery] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
+    const [searchResults, setSearchResults] = useState<Result[]>([]);
     const [showSearchResult, setShowSearchResult] = useState(false);
     const [inputString, setInputString] = useState('');
     const history = useHistory();
 
-    React.useEffect(() => {
-        if (query) {
-            // TODO
-            // @ts-ignore
-            setSearchResults(search(query, siteMapDatabase, indexDatabase));
-            setShowSearchResult(true);
-        } else {
-            setShowSearchResult(false);
+    const updateSearchResults = useCallback(
+        (searchQuery: string) => {
+            if (searchQuery && !location.search.includes(`search=${searchQuery}`)) {
+                console.log('replacing history'); //eslint-disable-line
+                history.push({
+                    pathname: location.pathname,
+                    search: `${location.search
+                        .replace(/(&?search=.+?)(&.+)*$/g, '$2')
+                        .replace(/^\?&/, '?')}&search=${searchQuery}`,
+                });
+            }
+            if (searchQuery) setSearchResults(search(searchQuery, siteMapDatabase, indexDatabase));
+        },
+        [history, location, setSearchResults]
+    );
+
+    useEffect(() => {
+        if (deepQuery !== query) {
+            setQuery(deepQuery);
+            setInputString(deepQuery);
+            updateSearchResults(deepQuery);
+            setShowSearchResult(deepQuery ? true : false);
+            if (!searchActive && deepQuery) {
+                dispatch({ type: TOGGLE_SEARCH, payload: true });
+            }
+            if (searchActive && !deepQuery) {
+                dispatch({ type: TOGGLE_SEARCH, payload: false });
+            }
         }
-    }, [query]);
+    }, [deepQuery, setQuery, setInputString, setShowSearchResult, updateSearchResults, searchActive, dispatch]);
 
     // do auto suggestion stuff here
     const onChangeHandler = (q: string): void => {
@@ -114,11 +137,10 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     };
 
     const dismissSearchBar = (): void => {
-        setShowSearchResult(false);
-        setQuery('');
-        setInputString('');
-        setSearchResults([]);
-        dispatch({ type: TOGGLE_SEARCH, payload: false });
+        history.push({
+            pathname: location.pathname,
+            search: location.search.replace(/(&?search=.+?)(&.+)*$/g, '$2').replace(/^\?&/, '?'),
+        });
     };
 
     const getSearchResultCountText = (): string => {
@@ -182,6 +204,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                             className={classes.searchfield}
                             placeholder={'Search on PX Blue...'}
                             InputProps={{ disableUnderline: true }}
+                            value={inputString}
                             onChange={(e): void => onChangeHandler(e.target.value)}
                             autoFocus
                             onKeyPress={(e): void => {
