@@ -1,6 +1,14 @@
 /* eslint-disable react/display-name */
-import React, { HTMLAttributes } from 'react';
-import { Typography, TypographyProps, SvgIconProps } from '@material-ui/core';
+import React, { HTMLAttributes, useState } from 'react';
+import {
+    Typography,
+    TypographyProps,
+    SvgIconProps,
+    Snackbar,
+    makeStyles,
+    Theme,
+    createStyles,
+} from '@material-ui/core';
 import { Link as LinkIcon } from '@material-ui/icons';
 import { Link, LinkProps } from 'react-router-dom';
 import { REGULAR_WIDTH_STYLE } from '../../app/shared';
@@ -8,6 +16,16 @@ import { copyTextToClipboard } from './copy';
 import * as Colors from '@pxblue/colors';
 import clsx from 'clsx';
 import './markdown.css';
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        snackBarRoot: {
+            [theme.breakpoints.down('xs')]: {
+                bottom: theme.spacing(12),
+            },
+        },
+    })
+);
 
 export const ExternalLink = (tProps: TypographyProps<'a'>): JSX.Element => (
     <Typography
@@ -45,34 +63,49 @@ const Headline: React.FC<Headline> = ({
     TypographyProps: otherTypographyProps,
     SvgIconProps: otherSvgIconProps,
     ...otherDivProps
-}) => (
-    <div
-        className={clsx(className, 'headline')}
-        onClick={(): void => {
-            copyTextToClipboard(`${window.location.origin}${window.location.pathname}#${hash}`);
-        }}
-        {...otherDivProps}
-        style={{ ...REGULAR_WIDTH_STYLE, ...otherDivProps.style }}
-    >
-        <Typography
-            paragraph
-            color={'primary'}
-            id={hash}
-            component={'span'}
-            {...otherTypographyProps}
-            style={{ hyphens: 'auto', display: 'flex', ...otherTypographyProps.style }}
+}) => {
+    const [onCopy, setOnCopy] = useState(false);
+    const classes = useStyles();
+    return (
+        <div
+            className={clsx(className, 'headline')}
+            onClick={(): void => {
+                copyTextToClipboard(`${window.location.origin}${window.location.pathname}#${hash}`);
+                setOnCopy(true);
+            }}
+            {...otherDivProps}
+            style={{ ...REGULAR_WIDTH_STYLE, ...otherDivProps.style }}
         >
-            {otherTypographyProps.children}
-            <LinkIcon
-                color={'action'}
-                style={{ marginLeft: 16, alignSelf: 'center' }}
-                titleAccess={'copy to clipboard'}
-                fontSize={'inherit'}
-                {...otherSvgIconProps}
-            />
-        </Typography>
-    </div>
-);
+            <Typography
+                paragraph
+                color={'primary'}
+                id={hash}
+                component={'span'}
+                {...otherTypographyProps}
+                style={{ hyphens: 'auto', display: 'flex', ...otherTypographyProps.style }}
+            >
+                {otherTypographyProps.children}
+                <LinkIcon
+                    color={'action'}
+                    style={{ marginLeft: 16, alignSelf: 'center' }}
+                    titleAccess={'copy to clipboard'}
+                    fontSize={'inherit'}
+                    {...otherSvgIconProps}
+                />
+            </Typography>
+            {onCopy && (
+                <Snackbar
+                    open={onCopy}
+                    classes={{ root: classes.snackBarRoot }}
+                    autoHideDuration={3000}
+                    resumeHideDuration={1000}
+                    onClose={(): void => setOnCopy(false)}
+                    message={'Link copied to clipboard.'}
+                />
+            )}
+        </div>
+    );
+};
 
 export const componentsMap = {
     h1: (props: TypographyProps): JSX.Element => (
