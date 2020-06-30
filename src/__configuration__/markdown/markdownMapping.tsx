@@ -11,8 +11,7 @@ import {
 } from '@material-ui/core';
 import { Link as LinkIcon } from '@material-ui/icons';
 import { Link, LinkProps } from 'react-router-dom';
-import { REGULAR_WIDTH_STYLE } from '../../app/shared';
-import { copyTextToClipboard } from './copy';
+import { REGULAR_WIDTH_STYLE, copyTextToClipboard } from '../../app/shared';
 import * as Colors from '@pxblue/colors';
 import clsx from 'clsx';
 import './markdown.css';
