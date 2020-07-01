@@ -1,10 +1,30 @@
 /* eslint-disable react/display-name */
-import React from 'react';
-import { Typography, TypographyProps } from '@material-ui/core';
+import React, { HTMLAttributes, useState } from 'react';
+import {
+    Typography,
+    TypographyProps,
+    SvgIconProps,
+    Snackbar,
+    makeStyles,
+    Theme,
+    createStyles,
+} from '@material-ui/core';
+import { Link as LinkIcon } from '@material-ui/icons';
 import { Link, LinkProps } from 'react-router-dom';
-import './markdown.css';
-import { REGULAR_WIDTH_STYLE } from '../../app/shared';
+import { REGULAR_WIDTH_STYLE, copyTextToClipboard } from '../../app/shared';
 import * as Colors from '@pxblue/colors';
+import clsx from 'clsx';
+import './markdown.css';
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        snackBarRoot: {
+            [theme.breakpoints.down('xs')]: {
+                bottom: theme.spacing(12),
+            },
+        },
+    })
+);
 
 export const ExternalLink = (tProps: TypographyProps<'a'>): JSX.Element => (
     <Typography
@@ -24,60 +44,110 @@ export const InternalLink = (props: LinkProps): JSX.Element => (
     />
 );
 
+const getHash = (str: string): string =>
+    str
+        .replace(/ /g, '-')
+        .replace(/[#?/&]/g, '')
+        .toLowerCase();
+
+type Headline = HTMLAttributes<HTMLDivElement> & {
+    hash: string;
+    TypographyProps: TypographyProps;
+    SvgIconProps?: SvgIconProps;
+};
+
+const Headline: React.FC<Headline> = ({
+    hash,
+    className,
+    TypographyProps: otherTypographyProps,
+    SvgIconProps: otherSvgIconProps,
+    ...otherDivProps
+}) => {
+    const [onCopy, setOnCopy] = useState(false);
+    const classes = useStyles();
+    return (
+        <div
+            className={clsx(className, 'headline')}
+            onClick={(): void => {
+                copyTextToClipboard(`${window.location.origin}${window.location.pathname}#${hash}`);
+                setOnCopy(true);
+            }}
+            {...otherDivProps}
+            style={{ ...REGULAR_WIDTH_STYLE, ...otherDivProps.style }}
+        >
+            <Typography
+                paragraph
+                color={'primary'}
+                id={hash}
+                component={'span'}
+                {...otherTypographyProps}
+                style={{ hyphens: 'auto', display: 'flex', ...otherTypographyProps.style }}
+            >
+                {otherTypographyProps.children}
+                <LinkIcon
+                    color={'action'}
+                    style={{ marginLeft: 16, alignSelf: 'center' }}
+                    titleAccess={'copy to clipboard'}
+                    fontSize={'inherit'}
+                    {...otherSvgIconProps}
+                />
+            </Typography>
+            {onCopy && (
+                <Snackbar
+                    open={onCopy}
+                    classes={{ root: classes.snackBarRoot }}
+                    autoHideDuration={3000}
+                    resumeHideDuration={1000}
+                    onClose={(): void => setOnCopy(false)}
+                    message={'Link copied to clipboard.'}
+                />
+            )}
+        </div>
+    );
+};
+
 export const componentsMap = {
     h1: (props: TypographyProps): JSX.Element => (
-        <Typography
-            paragraph
-            variant={'h4'}
-            color={'primary'}
+        <Headline
             className={'markdownH1'}
-            style={{ marginBottom: 32, ...REGULAR_WIDTH_STYLE, hyphens: 'auto' }}
-            {...props}
+            style={{ marginBottom: 32 }}
+            hash={getHash(props.children?.toString() || 'h1')}
+            TypographyProps={{ variant: 'h4', ...props }}
         />
     ),
     h2: (props: TypographyProps): JSX.Element => (
-        <Typography
-            paragraph
-            variant={'h6'}
-            color={'primary'}
-            {...props}
-            style={{ marginTop: 64, marginBottom: 16, ...REGULAR_WIDTH_STYLE }}
+        <Headline
+            style={{ marginTop: 64, marginBottom: 16 }}
+            hash={getHash(props.children?.toString() || 'h2')}
+            TypographyProps={{ variant: 'h6', ...props }}
         />
     ),
     h3: (props: TypographyProps): JSX.Element => (
-        <Typography
-            paragraph
-            variant={'body1'}
-            color={'primary'}
-            {...props}
-            style={{ fontWeight: 600, marginTop: 32, ...REGULAR_WIDTH_STYLE }}
+        <Headline
+            style={{ marginTop: 32, marginBottom: 16 }}
+            hash={getHash(props.children?.toString() || 'h3')}
+            TypographyProps={{ variant: 'body1', style: { fontWeight: 600 }, ...props }}
         />
     ),
     h4: (props: TypographyProps): JSX.Element => (
-        <Typography
-            paragraph
-            variant={'subtitle1'}
-            color={'primary'}
-            {...props}
-            style={{ marginTop: 16, ...REGULAR_WIDTH_STYLE }}
+        <Headline
+            style={{ marginTop: 16 }}
+            hash={getHash(props.children?.toString() || 'h4')}
+            TypographyProps={{ variant: 'subtitle1', ...props }}
         />
     ),
     h5: (props: TypographyProps): JSX.Element => (
-        <Typography
-            paragraph
-            variant={'body2'}
-            color={'primary'}
-            {...props}
-            style={{ marginTop: 8, ...REGULAR_WIDTH_STYLE }}
+        <Headline
+            style={{ marginTop: 8 }}
+            hash={getHash(props.children?.toString() || 'h5')}
+            TypographyProps={{ variant: 'body2', ...props }}
         />
     ),
     h6: (props: TypographyProps): JSX.Element => (
-        <Typography
-            paragraph
-            variant={'body2'}
-            style={{ fontSize: '0.75rem', marginTop: 8, ...REGULAR_WIDTH_STYLE }}
-            color={'primary'}
-            {...props}
+        <Headline
+            style={{ marginTop: 8, fontSize: '0.75rem' }}
+            hash={getHash(props.children?.toString() || 'h6')}
+            TypographyProps={{ variant: 'body2', ...props }}
         />
     ),
     a: (props: TypographyProps<'a'> | LinkProps): JSX.Element => {
@@ -87,6 +157,7 @@ export const componentsMap = {
             return <ExternalLink {...tProps} />;
         }
         tProps = props as LinkProps;
+        // @ts-ignore
         return <InternalLink to={props.href} {...tProps} />;
     },
     p: (props: TypographyProps): JSX.Element => <Typography style={{ ...REGULAR_WIDTH_STYLE }} paragraph {...props} />,
