@@ -124,10 +124,14 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     );
 
     const dismissSearchBar = (): void => {
-        history.push({
-            pathname: location.pathname,
-            search: location.search.replace(/(&?search=.+?)(&.+)*$/g, '$2').replace(/^\?&/, '?'),
-        });
+        if (location.search.includes(`search=`)) {
+            history.push({
+                pathname: location.pathname,
+                search: location.search.replace(/(&?search=.+?)(&.+)*$/g, '$2').replace(/^\?&/, '?'),
+            });
+        }
+        setShowSearchResult(false);
+        dispatch({ type: TOGGLE_SEARCH, payload: false });
     };
 
     // Update the local variables and results if the deep link (URL) changes
