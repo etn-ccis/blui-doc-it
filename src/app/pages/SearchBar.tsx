@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
     Typography,
     AppBar,
@@ -17,11 +17,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../redux/reducers';
 import { Close } from '@material-ui/icons';
 import { PADDING } from '../shared';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { Result } from '../../__types__';
 import { search } from './SearchFunction';
 import siteMapDatabase from '../../database/sitemap-database.json';
 import indexDatabase from '../../database/index-database.json';
+import { useQueryString } from '../hooks/useQueryString';
+import { usePrevious } from '../hooks/usePrevious';
 
 export type SearchbarProps = AppBarProps;
 
@@ -88,22 +90,68 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     const classes = useStyles();
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
     const dispatch = useDispatch();
-    const [query, setQuery] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
+    const location = useLocation();
+    const deepQuery = decodeURI(useQueryString().search || '');
+    const prevQuery = usePrevious(deepQuery);
+    // const [query, setQuery] = useState('');
+    const [searchResults, setSearchResults] = useState<Result[]>([]);
     const [showSearchResult, setShowSearchResult] = useState(false);
     const [inputString, setInputString] = useState('');
     const history = useHistory();
 
-    React.useEffect(() => {
-        if (query) {
-            // TODO
-            // @ts-ignore
-            setSearchResults(search(query, siteMapDatabase, indexDatabase));
-            setShowSearchResult(true);
-        } else {
-            setShowSearchResult(false);
+    // Push a new value on the browser history stack (if needed)
+    const pushHistory = useCallback(
+        (searchQuery: string) => {
+            if (searchQuery && !location.search.includes(`search=${encodeURIComponent(searchQuery)}`)) {
+                history.push({
+                    pathname: location.pathname,
+                    search: `${location.search
+                        .replace(/(&?search=.+?)(&.+)*$/g, '$2')
+                        .replace(/^\?&/, '?')}&search=${encodeURIComponent(searchQuery)}`,
+                });
+            }
+        },
+        [history, location]
+    );
+
+    // Show updated search results after updating the browser history
+    const updateSearchResults = useCallback(
+        (searchQuery: string) => {
+            pushHistory(searchQuery);
+            if (searchQuery) setSearchResults(search(searchQuery, siteMapDatabase, indexDatabase));
+        },
+        [pushHistory, setSearchResults]
+    );
+
+    const dismissSearchBar = (): void => {
+        if (location.search.includes(`search=`)) {
+            history.push({
+                pathname: location.pathname,
+                search: location.search.replace(/(&?search=.+?)(&.+)*$/g, '$2').replace(/^\?&/, '?'),
+            });
         }
-    }, [query]);
+        setShowSearchResult(false);
+        dispatch({ type: TOGGLE_SEARCH, payload: false });
+    };
+
+    // Update the local variables and results if the deep link (URL) changes
+    useEffect(() => {
+        if (deepQuery === prevQuery) return;
+        if (deepQuery) {
+            setInputString(deepQuery);
+            updateSearchResults(deepQuery);
+            setShowSearchResult(true);
+            if (!searchActive) {
+                dispatch({ type: TOGGLE_SEARCH, payload: true });
+            }
+        } else {
+            setInputString('');
+            setShowSearchResult(false);
+            if (searchActive) {
+                dispatch({ type: TOGGLE_SEARCH, payload: false });
+            }
+        }
+    }, [deepQuery, prevQuery, setInputString, setShowSearchResult, updateSearchResults, searchActive, dispatch]);
 
     // do auto suggestion stuff here
     const onChangeHandler = (q: string): void => {
@@ -113,18 +161,10 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
         }
     };
 
-    const dismissSearchBar = (): void => {
-        setShowSearchResult(false);
-        setQuery('');
-        setInputString('');
-        setSearchResults([]);
-        dispatch({ type: TOGGLE_SEARCH, payload: false });
-    };
-
     const getSearchResultCountText = (): string => {
         switch (searchResults.length) {
             case 0:
-                return `No results found for "${query}".`;
+                return `No results found for "${deepQuery}".`;
             case 1:
                 return `${searchResults.length} result found.`;
             default:
@@ -182,6 +222,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                             className={classes.searchfield}
                             placeholder={'Search on PX Blue...'}
                             InputProps={{ disableUnderline: true }}
+                            value={inputString || ''}
                             onChange={(e): void => onChangeHandler(e.target.value)}
                             autoFocus
                             onKeyPress={(e): void => {
@@ -190,7 +231,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                                         dismissSearchBar();
                                         return;
                                     }
-                                    setQuery(inputString);
+                                    pushHistory(inputString);
                                 }
                             }}
                         />
