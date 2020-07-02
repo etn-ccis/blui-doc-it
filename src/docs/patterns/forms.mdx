@@ -153,6 +153,8 @@ On mobile, if there are multiple input fields on the screen, the keyboard button
 
 For screens such as email verification where there is a single field with a known required length, the submit button can be omitted.
 
+<!-- TODO: A gif might handle the task better here -->
+
 <ImageGrid
     images={[SubmitButtonAutoSubmitImage]}
     regularWidth
@@ -175,6 +177,10 @@ When the user attempts to submit by clicking on the submit button on their scree
 
 In most cases, the submit button **should not** be disabled. The users should not be forced to search for what they are missing.
 
+<!--
+TODO:
+This image is conveying conflicting idea with the two gifs above,
+either remvoe it, or find a better way to picture this problem (like those do's and dont's on Material Design)
 <ImageGrid
     images={[SubmitButtonOnClickImage]}
     regularWidth
@@ -182,6 +188,7 @@ In most cases, the submit button **should not** be disabled. The users should no
         'Do not disable the submit button. Instead, use error text to highlight the invalid input after the user clicks the button.'
     }
 />
+-->
 
 > **Exception**: on desktop applications, when there are fewer than four text fields, and all the fields are verified on change, we recommend you disable the submit button to indicate that there are some errors in the user input (invalid value, missing a required field).
 
