@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles, createStyles, Theme, Card, Typography, CardProps, Chip } from '@material-ui/core';
 import { Angular, ReactBlue, Ionic } from '../../assets/icons';
 import { CTA_BUTTON } from '../../shared';
-import * as Colors from '@pxblue/colors';
 import clsx from 'clsx';
 
 type Framework = 'angular' | 'react' | 'ionic' | 'react-native';
@@ -66,7 +65,6 @@ const useStyles = makeStyles((theme: Theme) =>
         button: {
             fontWeight: 600,
             margin: theme.spacing(0.5),
-            color: theme.palette.text.primary,
         },
         demoCard: {
             width: CTA_BUTTON.WIDTH,
@@ -78,21 +76,13 @@ const useStyles = makeStyles((theme: Theme) =>
             marginRight: theme.spacing(2),
             display: 'inline-block',
             minHeight: CTA_BUTTON.HEIGHT,
+            color: theme.palette.text.primary,
         },
         demoTitle: {
-            color: Colors.gray[500],
             margin: theme.spacing(0.5),
             marginBottom: theme.spacing(1),
             fontWeight: 600,
         },
-        // floatRight: {
-        //     float: 'right',
-        //     marginLeft: theme.spacing(4),
-        // },
-        // floatLeft: {
-        //     float: 'left',
-        //     marginRight: theme.spacing(4),
-        // },
     })
 );
 

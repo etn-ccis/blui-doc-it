@@ -21,6 +21,9 @@ import Specs1Image from '../../app/assets/design-patterns/form-validation/specs-
 import Specs2Image from '../../app/assets/design-patterns/form-validation/specs-2.png';
 import Specs3Image from '../../app/assets/design-patterns/form-validation/specs-3.png';
 
+import dismissKeyboardErrorAutoscrollImage from '../../app/assets/design-patterns/form-validation/dismiss-keyboard-error-autoscroll.gif';
+import dismissKeyboardErrorTextImage from '../../app/assets/design-patterns/form-validation/dismiss-keyboard-error-text.gif';
+
 # Form Validation Patterns
 
 <ImageGrid images={[SummaryImage]} regularWidth />
@@ -41,7 +44,7 @@ When using a mixture of optional and required fields in a form, the inputs shoul
 
 If most of the fields are required, you should call out the fields that are optional. These fields should be labeled with an appropriate descriptor, followed by "optional" in parentheses.
 
-Conversely, if most of your fields are optional, you should only call out the required fields. These should be identified by an asterisk (\*) after the field label. There should be a descriptor nearby that indicates that a \* means the field is required.
+Conversely, if most of your fields are optional, you should only call out the required fields. These should be identified by an asterisk (\*) after the field label. Optionally, you can add a descriptor nearby that indicates that a \* means the field is required.
 
 ## Form Length
 
@@ -148,6 +151,16 @@ For screens such as email verification where there is a single field with a know
     caption={
         'For the verification code screen, you can auto-submit the information once the user input reaches the required length (#2). After the verification code is recognized (#3), the screen pauses for a short moment before automatically moving to the next screen.'
     }
+/>
+
+When the user attempts to submit by clicking on the submit button on their screen (desktop) or on their native keyboard (mobile), all the invalid fields should be highlighted with red error text.
+
+<ImageGrid
+    images={[dismissKeyboardErrorAutoscrollImage, dismissKeyboardErrorTextImage]}
+    caption={[
+        'Left: The UI should autoscroll to and focus on the first invalid field.',
+        'Right: On a short form, you may choose to display a descriptor on the top of the form instead.',
+    ]}
 />
 
 ### Disabling the Submit Button
