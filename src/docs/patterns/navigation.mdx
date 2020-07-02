@@ -3,6 +3,8 @@ import PermanentImg from '../../app/assets/design-patterns/navigation/navigation
 import TemporaryImg from '../../app/assets/design-patterns/navigation/navigation-temporary.png';
 import PersistentImg from '../../app/assets/design-patterns/navigation/navigation-persistent.png';
 
+<!-- KEYWORDS: design pattern navigation drawer menu -->
+
 # Navigation Patterns
 
 Navigation is the way in which users access the different areas of your application. This is typically accomplished through a side drawer navigation panel with a list of links to the various pages in your application.
@@ -10,6 +12,7 @@ Navigation is the way in which users access the different areas of your applicat
 <MaterialDesignDescription
     title={'Understanding Navigation'}
     url={'https://material.io/design/navigation/understanding-navigation.html#types-of-navigation'}
+    description={`Read about Material Design's navigation fundamentals.`}
 />
 <MaterialDesignDescription
     title={'Navigation Drawer '}
@@ -34,7 +37,7 @@ The content-resize implementation does not cover any of the main application con
 ### Content-Cover
 
 <ImageGrid images={[TemporaryImg]} />
-<DemoCard repository={'side-navigation'} angular react float={'right'} />
+<DemoCard repository={'side-navigation'} angular react />
 
 In this implementation, the navigation panel slides out from the side, partially obscuring the main content of the application. It is often implemented with a dark overlay that blocks the main application and directs the user's focus to the navigation panel that was opened.
 
@@ -46,7 +49,7 @@ In this implementation, the navigation panel slides out from the side, partially
         'When the user hovers on the Navigation Rail, the side navigation will expand temporarily, revealing the text details of each navigation item; when the user moves their cursor away, the whole side navigation panel collapses.'
     }
 />
-<DemoCard repository={'icon-navigation'} angular react float={'right'} />
+<DemoCard repository={'icon-navigation'} angular react={'https://pxblue-components.github.io/react/?path=/story/components-drawer--in-drawer-layout'} />
 
 The icon navigation bar (a.k.a. "[navigation rail](https://material.io/components/navigation-rail/#anatomy)" on Material.io) is a minimalist approach to the navigation panel. It features a single icon to represent each of the main areas of the application. This navigation panel is typically used on larger screens only, and is expandable to a full side navigation panel on hover or when clicking the menu icon.
 

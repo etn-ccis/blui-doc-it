@@ -4,10 +4,12 @@ import Image2 from '../../app/assets/design-patterns/internationalization/web-in
 import Image3 from '../../app/assets/design-patterns/internationalization/web-internationalization-spanish.png';
 import Image4 from '../../app/assets/design-patterns/internationalization/web-internationalization-chinese.png';
 
+<!-- KEYWORDS: design pattern internationalization i18n language translate translation -->
+
 # Internationalization
 
 <ImageGrid images={[Image1, Image2, Image3, Image4]} />
-<DemoCard repository={'internationalization'} angular react float={'right'} />
+<DemoCard repository={'internationalization'} angular react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/i18n/index.tsx&initialpath=i18n'} />
 
 Internationalization is the practice of adapting applications to various regions, languages, and cultures. You can accomplish this in your applications by considering the differences in language, scripts, and directionality.
 
@@ -43,7 +45,8 @@ Some languages, such as Arabic and Hebrew, are read from right to left. Applicat
 There are a number of available libraries to assist with implementing internationalization in your applications.
 
 ### Angular
-For projects that need the ability to swap between languages, we recommend using [ngx-translate](https://github.com/ngx-translate/core).  As an alternative, the Angular framework has a powerful built-in [i18n tool](https://angular.io/guide/i18n) available, but it requires a separate web app be built for each supported language (e.g. an English version, a Spanish version, etc).  This is ideal for larger projects that don't require in-app language switching and don't support more than a few locales.
+
+For projects that need the ability to swap between languages, we recommend using [ngx-translate](https://github.com/ngx-translate/core). As an alternative, the Angular framework has a powerful built-in [i18n tool](https://angular.io/guide/i18n) available, but it requires a separate web app be built for each supported language (e.g. an English version, a Spanish version, etc). This is ideal for larger projects that don't require in-app language switching and don't support more than a few locales.
 
 ### React or React Native
 

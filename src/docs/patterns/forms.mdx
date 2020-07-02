@@ -5,6 +5,11 @@ import Image3 from '../../app/assets/design-patterns/form-validation/form-valida
 import Image4 from '../../app/assets/design-patterns/form-validation/form-validation-password-entering.png';
 import Image5 from '../../app/assets/design-patterns/form-validation/form-validation-password-error.png';
 import Image6 from '../../app/assets/design-patterns/form-validation/form-validation-password-complete.png';
+import OnBlurImage from '../../app/assets/design-patterns/form-validation/verify-input-on-blur.png';
+import OnChangeImage from '../../app/assets/design-patterns/form-validation/verify-input-on-change.png';
+import OnPageChangeImage from '../../app/assets/design-patterns/form-validation/verify-input-on-page-change.png';
+
+<!-- KEYWORDS: design pattern form verification validation error -->
 
 # Form Validation Patterns
 
@@ -13,7 +18,11 @@ import Image6 from '../../app/assets/design-patterns/form-validation/form-valida
 Forms are an integral part of many applications, particularly during the user registration phase. One of the most important parts of working with forms is properly validating the information that users enter into them. In general, PX Blue follows the form behaviors explained in detail by the Material Design.
 
 <MaterialDesignDescription title={'Text Fields'} url={'https://material.io/components/text-fields/'} />
-<DemoCard repository={'form-validation'} angular react/>
+<DemoCard 
+    repository={'form-validation'} 
+    angular 
+    react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/form-validation/index.tsx&initialpath=form-validation'} 
+/>
 
 ## Optional vs. Required Fields
 
@@ -21,7 +30,7 @@ When using a mixture of optional and required fields in a form, the inputs shoul
 
 If most of the fields are required, you should call out the fields that are optional. These fields should be labeled with an appropriate descriptor, followed by "optional" in parentheses.
 
-Conversely, if most of your fields are optional, you should only call out the required fields. These should be identified by an asterisk (_) after the field label. There should be a descriptor nearby that indicates that a _ means the field is required.
+Conversely, if most of your fields are optional, you should only call out the required fields. These should be identified by an asterisk (\*) after the field label. There should be a descriptor nearby that indicates that a \* means the field is required.
 
 ## Form Field Requirements
 
@@ -34,3 +43,51 @@ If your form fields have complex requirements for valid values, you can list the
 If there is an error with the data entered into a field, the field should indicate to the user that there is a problem. Label and helper text should be changed to a red color and a warning icon should appear in the text input. The error message should be displayed in the helper text location below the field (any existing helper text should be replaced with the error message).
 
 Error messages should be succinct and should not provide information that could compromise security (e.g., "Invalid Credentials" instead of "Incorrect Password").
+
+## When to Verify User Input
+
+In general, there are three acceptable times to perform form field verification:
+
+-   onBlur: the field is verified when the user clicks away from it
+-   onChange: the field is verified on each keystroke or change in the value
+-   manually: fields are verified after performing a specific action (such as clicking a button)
+
+### Verifying on Blur
+
+In order to avoid distracting or confusing a user, most text fields should verify input when the field loses focus.
+
+<ImageGrid
+    images={[OnBlurImage]}
+    gridImageProps={{ sm: 12 }}
+    caption={[
+        '1: Do not check for validity or display error messages when the user is typing in the field.',
+        '2: The user is finished and the input has lost focus (i.e., "blurred"). Now the input should be verified.',
+    ]}
+/>
+
+### Verifying on Change
+
+Some fields should verify the user input as it changes. The most common case for this type of verification is a new password field (or a confirm password field). The verification feedback should be displayed / updated each time the user makes a change to the input field.
+
+<ImageGrid
+    images={[OnChangeImage]}
+    gridImageProps={{ sm: 12 }}
+    caption={[
+        '1: The password criteria checks shall be updated as the user changes their input.',
+        '2: “Confirm Password” field should check for a match with password to give immediate feedback for when the user can proceed.',
+    ]}
+/>
+
+### Verifying Manually
+
+In some specific situations, you may need to defer verification or perform it for all fields in a form at once. This type of verification is common when the checks cannot be performed on the client (such as making an API call to verify a registration code or user login credentials). In most cases, you can do some preliminary checks using one of the two methods above (e.g., you can check if the email is a valid email before making the API call to verify the credentials).
+
+<ImageGrid
+    images={[OnPageChangeImage]}
+    gridImageProps={{ sm: 12 }}
+    caption={[
+        'After the user clicks the submit button, the app waits for the server response, and displays an error message.',
+        '1: The helper text will be replaced by the error message. ',
+        '2: Use a circular progress indicator when waiting for responses from the server.',
+    ]}
+/>

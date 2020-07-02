@@ -1,6 +1,22 @@
 .markdownH1:first-child {
     margin-top: 32px;
 }
+.markdownH1:first-child .MuiSvgIcon-root {
+    display: none;
+}
 .markdownH1:not(:first-child) {
     margin-top: 96px;
+}
+
+.headline:not(:first-child):hover {
+    cursor: pointer;
+}
+.headline:not(:first-child) .MuiSvgIcon-root {
+    opacity: 0;
+}
+.headline:not(:first-child):hover .MuiSvgIcon-root {
+    opacity: 1;
+}
+.headline:not(:first-child):active .MuiSvgIcon-root {
+    opacity: 0.5;
 }

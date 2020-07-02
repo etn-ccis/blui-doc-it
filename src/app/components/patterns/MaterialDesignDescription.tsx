@@ -58,6 +58,9 @@ const useStyles = makeStyles((theme: Theme) =>
             flex: 1,
             margin: `0 ${theme.spacing(2)}px`,
         },
+        title: {
+            fontWeight: 600,
+        },
     })
 );
 
@@ -85,7 +88,7 @@ export const MaterialDesignDescription: React.FC<MaterialDesignDescriptionProps>
                 <div className={classes.contentArea}>
                     {avatar}
                     <div className={classes.textArea}>
-                        <Typography variant={'body2'} style={{ fontWeight: 600 }}>
+                        <Typography variant={'body2'} className={classes.title}>
                             {title}
                         </Typography>
                         <Typography variant={'caption'}>{description}</Typography>

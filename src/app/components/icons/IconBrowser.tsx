@@ -200,7 +200,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     const location = useLocation();
     const query = useQueryString();
 
-    const [search, setSearch] = useState<string>(() => query.search || '');
+    const [search, setSearch] = useState<string>(() => query.iconSearch || '');
     const [hideLetterGroups, setHideLetterGroups] = useState<LetterGroups>(() => {
         if (query.icon) {
             return { [query.icon.charAt(0).toUpperCase()]: true };

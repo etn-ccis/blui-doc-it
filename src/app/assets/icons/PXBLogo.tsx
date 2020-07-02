@@ -5,10 +5,10 @@ import pxb from '../pxb.svg';
 export const PXBLogo: React.FC = (): JSX.Element => (
     <>
         <img src={pxb} className={'rotateMe'} alt={'Rotating PX Blue logo'} />
-        <Typography variant={'h3'} align={'center'} style={{ fontWeight: 300 }}>
+        <Typography variant={'h3'} align={'center'} style={{ fontWeight: 300, marginBottom: 8 }}>
             Power Xpert <b>Blue</b>
         </Typography>
-        <Typography align={'center'}>Powering Teams to Make What Matters*</Typography>
+        <Typography align={'center'}>Powering Teams to Make What Matters *</Typography>
     </>
 );
 PXBLogo.displayName = 'PXBLogo';

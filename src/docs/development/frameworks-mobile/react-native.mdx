@@ -1,5 +1,7 @@
 import { Divider } from '../../../app/components';
 
+<!-- KEYWORDS: react native mobile hybrid framework guide tutorial -->
+
 # Getting Started with React Native
 
 The following instructions will guide you through setting up your computer for React Native development and starting a new PX Blue project. Alternatively, you can start your project by downloading one of our code samples from [GitHub](https://github.com/pxblue) (the Login example is a good project to start from) once you configure your environment.
@@ -18,7 +20,7 @@ You'll need to start by following the general instructions for setting up your d
 
 ## Using the PX Blue CLI
 
-The fastest way to start a new PX Blue project is to use the [PX Blue CLI](/development/cli). The CLI will automatically create a starter project for you (using either the [React Native Community CLI](https://github.com/react-native-community/cli)(recommended) or [Expo CLI](https://docs.expo.io/)) with all of the necessary PX Blue dependencies pre-configured. To start a React Native project:
+The fastest way to start a new PX Blue project is to use the [PX Blue CLI](/development/cli). The CLI will automatically create a starter project for you (using either the [React Native Community CLI](https://github.com/react-native-community/cli) (recommended) or [Expo CLI](https://docs.expo.io/)) with all of the necessary PX Blue dependencies pre-configured. To start a React Native project:
 
 ```sh
 npx -p @pxblue/cli pxb new react-native
@@ -28,6 +30,7 @@ You will be asked to provide a name for your project, select a CLI to use, choos
 
 The PX Blue CLI will automatically include:
 
+-   React Native Paper Component Library ([react-native-paper](https://www.npmjs.com/package/react-native-paper))
 -   PX Blue Component Library ([@pxblue/react-native-components](https://www.npmjs.com/package/@pxblue/react-native-components))
 -   PX Blue Themes ([@pxblue/react-native-themes](https://www.npmjs.com/package/@pxblue/react-native-themes))
 -   Material Icons ([react-native-vector-icons](https://www.npmjs.com/package/react-native-vector-icons))
@@ -53,7 +56,13 @@ Before taking the following steps, you'll want to make sure that you have an exi
 
 ### Material Components
 
-There is no standard component library for React Native that implements Material Design at this time. At the bottom of this page is a list of recommended component libraries that you can use, depending on your requirements.
+React Native projects should make use of the [React-Native-Paper](https://callstack.github.io/react-native-paper/index.html) component library. Our PX Blue themes are designed to work with these components. You'll also want to install [react-native-vector-icons](https://www.npmjs.com/package/react-native-vector-icons) to access the Material icons.
+
+```sh
+npm install --save react-native-paper react-native-vector-icons
+// or
+yarn add react-native-paper react-native-vector-icons
+```
 
 ### PX Blue Components
 
@@ -67,10 +76,10 @@ yarn add @pxblue/react-native-components
 
 ## Adding PX Blue Themes
 
-If you are using the PX Blue component library, it includes basic support for theming your application. By default, it uses a Material-style theme. To use the PX Blue theme, first install it:
+If you are using the recommended component libraries, your application will be themed with the Google Material theme by default. To use the PX Blue theme, first install it:
 
 ```sh
-npm install --save @pxblue/react-naive-themes
+npm install --save @pxblue/react-native-themes
 // or
 yarn add @pxblue/react-native-themes
 ```
@@ -81,10 +90,10 @@ yarn add @pxblue/react-native-themes
 
 ## Applying the Theme
 
-You can apply the PX Blue theme by wrapping your application in a `<ThemeProvider>` and passing in the theme object.
+Import the theme files and React Native Paper theme provider into your application, e.g. in App.js:
 
 ```tsx
-import { ThemeProvider } from '@pxblue/react-native-components';
+import { Provider as ThemeProvider } from 'react-native-paper';
 import * as PXBThemes from '@pxblue/react-native-themes';
 ...
 <ThemeProvider theme={PXBThemes.blue}>
@@ -92,9 +101,9 @@ import * as PXBThemes from '@pxblue/react-native-themes';
 </ThemeProvider>
 ```
 
-For detailed information, check [our documentation](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--theme).
+For detailed information about theming, refer to the react-native-paper [theming guide](https://callstack.github.io/react-native-paper/theming.html).
 
-> NOTE: This theme only applies to the components in the @pxblue/react-native-components package. It will not theme the components from other third party libraries. If you wish to use our theme to style your own components, refer to our [documentation](https://github.com/pxblue/react-native-component-library/blob/master/docs/theme.md#using-the-theme-in-custom-components).
+> NOTE: This theme only applies to the components in the react-native-paper and @pxblue/react-native-components package. It will not theme the components from other third party libraries. If you wish to use our theme to style your own components, refer to the react-native-paper [theming guide](https://callstack.github.io/react-native-paper/theming.html#using-the-theme-in-your-own-components).
 
 ### Avoiding Repeated Styles
 
@@ -191,16 +200,8 @@ There are a lot of resources and components available on the market to help spee
     -   [React Native Navigation](https://wix.github.io/react-native-navigation/#/) (native implementation)
 -   Component Libraries
     -   [React Native Built-in Components](https://facebook.github.io/react-native/docs/components-and-apis.html)
-    -   [React Native Elements](https://react-native-training.github.io/react-native-elements/)
     -   [React Native Paper](https://callstack.github.io/react-native-paper/)
--   Additional Components
-    -   [Bottom Navigation](https://github.com/tomzaku/react-native-material-bottom-navigation-performance)
-    -   [Floating Action Button](https://github.com/mastermoo/react-native-action-button)
-    -   [Chips](https://github.com/prscX/react-native-chip-view#readme)
-    -   [Grid List](https://github.com/gusgard/react-native-grid-list)
-    -   [Bottom Sheet](https://github.com/cesardeazevedo/react-native-bottom-sheet-behavior)
-    -   [Snackbar](https://github.com/cooperka/react-native-snackbar)
-    -   [Text Fields](https://github.com/n4kz/react-native-material-textfield)
+    -   [React Native Elements](https://react-native-training.github.io/react-native-elements/)
 
 ## License Information
 

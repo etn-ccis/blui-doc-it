@@ -4,6 +4,8 @@ import Image2 from '../../app/assets/design-patterns/loading-states/loading-stat
 import Image3 from '../../app/assets/design-patterns/empty-states/empty-states.png';
 import Image4 from '../../app/assets/design-patterns/empty-states/empty-states-with-background-image.png';
 
+<!-- KEYWORDS: design pattern empty state loading placeholder -->
+
 # Loading / Empty State Patterns
 
 Often times, your application will need to load data from a remote location with some amount of latency. Other times, there may be areas of your application where there is no available data to display. This is where loading and empty state indicators come into play.
@@ -14,7 +16,7 @@ Often times, your application will need to load data from a remote location with
     images={[Image1, Image2]}
     caption={'When data is loading, use placeholder shapes for where the data will appear.'}
 />
-<DemoCard repository={'loading-states'} angular react ionic reactNative float={'right'} />
+<DemoCard repository={'loading-states'} angular react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/loading-states/index.tsx&initialpath=loading-states'} ionic reactNative />
 
 When loading data for the first time, you do not want to show an empty screen while you are fetching data. Instead, you should show placeholders that mimic (using simple shapes) the data that will eventually be loaded. This will give the impression that your application is faster and gives users an indication of what kind of data is being loaded.
 
@@ -38,7 +40,7 @@ If your users can manually refresh, you may wish to show the placeholder element
 
 <ImageGrid images={[Image3, Image4]} />
 <MaterialDesignDescription title={'Empty States'} url={'https://material.io/design/communication/empty-states.html'} />
-<DemoCard repository={'empty-states'} angular react ionic reactNative float={'right'} />
+<DemoCard repository={'empty-states'} angular react={'https://pxblue-components.github.io/react/?path=/story/components-empty-state--with-full-config'} ionic reactNative />
 
 Empty states can be used in a variety of ways in your application. They can alert users to empty data or search results, lack of permissions, future features, or errors.
 

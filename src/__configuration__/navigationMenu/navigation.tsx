@@ -12,6 +12,7 @@ export type SimpleNavItem = {
     hidden?: boolean;
 };
 
+// Change scripts/crawl/sitemap.json after you make changes here.
 export const pageDefinitions: SimpleNavItem[] = [
     {
         title: 'What is PX Blue?',
@@ -46,7 +47,9 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Environment Setup',
                 url: '/environment',
-                component: <MarkdownPage title={'Environment Setup'} markdown={Docs.Development.Environment} />,
+                component: (
+                    <MarkdownPage title={'Environment Setup for Developers'} markdown={Docs.Development.Environment} />
+                ),
             },
             {
                 title: 'PX Blue CLI',
@@ -255,9 +258,9 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Licensing'} markdown={Docs.Community.License} />,
             },
             {
-                title: 'Share Code',
-                url: '/sharing',
-                component: <MarkdownPage title={'Sharing Code'} markdown={Docs.Community.Sharing} />,
+                title: 'Innersourcing',
+                url: '/innersourcing',
+                component: <MarkdownPage title={'Innersourcing'} markdown={Docs.Community.Innersourcing} />,
             },
             {
                 title: 'Report Bugs',
