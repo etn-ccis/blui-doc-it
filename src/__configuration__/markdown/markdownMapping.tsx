@@ -152,7 +152,7 @@ export const componentsMap = {
     ),
     a: (props: TypographyProps<'a'> | LinkProps): JSX.Element => {
         let tProps;
-        if (props.href && props.href.match(/^http/gi)) {
+        if (props.href && (props.href.match(/^http/gi) || props.href.match(/^mailto/gi))) {
             tProps = props as TypographyProps<'a'>;
             return <ExternalLink {...tProps} />;
         }
