@@ -177,8 +177,21 @@ export const resources: ResourceBucket[] = [
         ],
     },
     {
-        name: 'Code Quality',
-        description: 'Formatting and linting packages to keep your code consistent',
+        name: 'React Native Workflows',
+        description: 'Multi-screen re-usable workflows',
+        applies: ['react-native'],
+        items: [
+            {
+                name: '@pxblue/react-native-auth-workflow',
+                description: 'Login and Registration workflow',
+                package: '@pxblue/react-native-auth-workflow',
+                repository: 'react-native-workflows',
+            },
+        ],
+    },
+    {
+        name: 'Code Quality & Consistency',
+        description: 'Linting/Prettier packages and the PX Blue CLI',
         applies: ['all'],
         items: [
             {
@@ -194,6 +207,12 @@ export const resources: ResourceBucket[] = [
                 package: '@pxblue/prettier-config',
                 repository: 'code-standards',
                 bugLabels: ['eslint'],
+            },
+            {
+                name: '@pxblue/cli',
+                description: 'Command Line Interface for starting projects',
+                package: '@pxblue/cli',
+                repository: 'pxblue-cli',
             },
         ],
     },
