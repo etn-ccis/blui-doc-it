@@ -537,7 +537,7 @@
             { "/style/themes": 1 }
         ],
         "will": [
-            { "/development/frameworks-mobile/react-native": 12 },
+            { "/development/frameworks-mobile/react-native": 13 },
             { "/development/frameworks-web/angular": 10 },
             { "/development/environment": 8 },
             { "/development/frameworks-mobile/ionic": 8 },
@@ -1500,12 +1500,12 @@
             { "/development/environment": 2 },
             { "/development/frameworks-mobile/intro": 2 },
             { "/development/frameworks-mobile/ionic": 2 },
+            { "/development/frameworks-mobile/react-native": 2 },
             { "/development/testing": 2 },
             { "/patterns/internationalization": 2 },
             { "/patterns/navigation": 2 },
             { "/overview": 1 },
             { "/development/frameworks-web/intro": 1 },
-            { "/development/frameworks-mobile/react-native": 1 },
             { "/patterns/empty-states": 1 },
             { "/patterns/forms": 1 },
             { "/patterns/lists": 1 },
@@ -1712,7 +1712,7 @@
             { "/get-started/mobile": 1 }
         ],
         "libraries": [
-            { "/development/frameworks-mobile/react-native": 6 },
+            { "/development/frameworks-mobile/react-native": 7 },
             { "/development/frameworks-web/intro": 2 },
             { "/patterns/internationalization": 2 },
             { "/patterns/visualizations": 2 },
@@ -1748,7 +1748,7 @@
         ],
         "usable": [{ "/overview": 1 }, { "/patterns/appbar": 1 }, { "/patterns/layout": 1 }],
         "components": [
-            { "/development/frameworks-mobile/react-native": 15 },
+            { "/development/frameworks-mobile/react-native": 16 },
             { "/design/anatomy": 10 },
             { "/development/frameworks-web/angular": 9 },
             { "/development/frameworks-web/react": 8 },
@@ -2280,11 +2280,11 @@
             { "/community/bugs": 1 }
         ],
         "packages": [
-            { "/development/frameworks-mobile/react-native": 4 },
             { "/development/environment": 3 },
             { "/development/frameworks-web/angular": 3 },
             { "/development/frameworks-web/react": 3 },
             { "/development/frameworks-mobile/ionic": 3 },
+            { "/development/frameworks-mobile/react-native": 3 },
             { "/community/innersourcing": 2 },
             { "/overview": 1 },
             { "/style/themes": 1 },
@@ -2373,8 +2373,8 @@
             { "/development/frameworks-mobile/intro": 1 }
         ],
         "guide": [
+            { "/development/frameworks-mobile/react-native": 5 },
             { "/development/frameworks-mobile/ionic": 4 },
-            { "/development/frameworks-mobile/react-native": 4 },
             { "/get-started/new-project": 3 },
             { "/development/frameworks-web/intro": 2 },
             { "/development/frameworks-web/angular": 2 },
@@ -2412,9 +2412,9 @@
             { "/development/environment": 7 },
             { "/design/intro": 6 },
             { "/patterns/overlay": 6 },
+            { "/development/frameworks-mobile/react-native": 5 },
             { "/design/anatomy": 5 },
             { "/development/frameworks-mobile/intro": 4 },
-            { "/development/frameworks-mobile/react-native": 4 },
             { "/style/color": 4 },
             { "/style/themes": 4 },
             { "/community/innersourcing": 4 },
@@ -2551,7 +2551,7 @@
         ],
         "accessed": [{ "/get-started/new-project": 1 }, { "/get-started/web": 1 }, { "/get-started/mobile": 1 }],
         "from": [
-            { "/development/frameworks-mobile/react-native": 10 },
+            { "/development/frameworks-mobile/react-native": 11 },
             { "/get-started/new-project": 6 },
             { "/community/innersourcing": 4 },
             { "/community/faq": 3 },
@@ -4346,9 +4346,9 @@
             { "/development/frameworks-web/react": 4 },
             { "/patterns/visualizations": 4 },
             { "/development/frameworks-web/angular": 3 },
+            { "/development/frameworks-mobile/react-native": 3 },
             { "/community/faq": 3 },
             { "/development/environment": 2 },
-            { "/development/frameworks-mobile/react-native": 2 },
             { "/style/color": 2 },
             { "/development/cli": 1 },
             { "/patterns/login": 1 },
@@ -4365,18 +4365,22 @@
             { "/community/faq": 1 }
         ],
         "third": [
+            { "/development/frameworks-mobile/react-native": 2 },
+            { "/development/environment": 1 },
+            { "/patterns/internationalization": 1 }
+        ],
+        "party": [
             { "/development/environment": 1 },
             { "/development/frameworks-mobile/react-native": 1 },
             { "/patterns/internationalization": 1 }
         ],
-        "party": [{ "/development/environment": 1 }, { "/patterns/internationalization": 1 }],
         "other": [
             { "/style/color": 3 },
             { "/community/faq": 3 },
             { "/development/environment": 2 },
+            { "/development/frameworks-mobile/react-native": 2 },
             { "/design/anatomy": 2 },
             { "/community/license": 2 },
-            { "/development/frameworks-mobile/react-native": 1 },
             { "/design/intro": 1 },
             { "/patterns/empty-states": 1 },
             { "/patterns/internationalization": 1 },
@@ -5393,9 +5397,9 @@
         ],
         "theme": [
             { "/development/frameworks-web/angular": 12 },
+            { "/development/frameworks-mobile/react-native": 9 },
             { "/style/themes": 9 },
             { "/development/frameworks-web/react": 8 },
-            { "/development/frameworks-mobile/react-native": 8 },
             { "/patterns/visualizations": 1 },
             { "/community/features": 1 },
             { "/community/faq": 1 }
@@ -5527,8 +5531,8 @@
             { "/community/innersourcing": 1 }
         ],
         "theming": [
+            { "/development/frameworks-mobile/react-native": 3 },
             { "/style/themes": 3 },
-            { "/development/frameworks-mobile/react-native": 2 },
             { "/development/frameworks-web/angular": 1 },
             { "/development/frameworks-web/react": 1 }
         ],

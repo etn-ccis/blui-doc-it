@@ -20,6 +20,7 @@ export type MatIconList = {
     [key: string]: (props: SvgIconProps) => JSX.Element;
 };
 
+export type ItemTypeFilter = 'all' | 'design' | 'development';
 export type Status = 'backlog' | 'in-progress' | 'pre-release' | 'deferred' | 'finished';
 export type Quarter = 'Q1' | 'Q2' | 'Q3' | 'Q4';
 
@@ -30,12 +31,14 @@ export type RoadmapItem = {
     quarter: Quarter;
     status: Status;
     author?: string;
-    applies?: FrameworkFilter[];
+    type?: ItemTypeFilter;
+    framework?: FrameworkFilter[];
 };
 export type RoadmapBucket = {
     name: string;
     description: string;
-    applies?: FrameworkFilter[];
+    type?: ItemTypeFilter;
+    framework?: FrameworkFilter[];
     items: RoadmapItem[];
 };
 
