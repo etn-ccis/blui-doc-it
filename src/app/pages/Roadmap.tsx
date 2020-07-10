@@ -157,6 +157,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
             // Filter buckets by framework
             .filter(
                 (bucket) =>
+                    typeFilter === 'design' || // if filtering by design, ignore the framework filter
                     !bucket.framework ||
                     bucket.framework.includes(frameworkFilter) ||
                     bucket.framework.includes('all') ||
@@ -174,7 +175,8 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     }))
                     .filter((item) => {
                         const show =
-                            (item.framework === undefined ||
+                            (typeFilter === 'design' || // if filtering by design, ignore the framework filter
+                                item.framework === undefined ||
                                 item.framework.includes(frameworkFilter) ||
                                 item.framework.includes('all') ||
                                 frameworkFilter === 'all') &&
