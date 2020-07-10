@@ -39,10 +39,11 @@ const useStyles = makeStyles((theme: Theme) =>
             height: theme.spacing(6),
             [theme.breakpoints.down('xs')]: {
                 top: theme.spacing(7),
+                overflowX: 'auto',
             },
         },
         select: {
-            minWidth: 100,
+            // minWidth: 100,
             alignSelf: 'stretch',
             color: theme.palette.primary.contrastText,
         },
