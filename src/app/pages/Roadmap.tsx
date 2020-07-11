@@ -12,7 +12,6 @@ import {
     Select,
     MenuItem,
     Toolbar,
-    useTheme,
     Button,
 } from '@material-ui/core';
 
@@ -22,7 +21,7 @@ import { Status, RoadmapItem, Quarter, RoadmapBucket, FrameworkFilter, ItemTypeF
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
-import { EmptyState, InfoListItem, ListItemTag } from '@pxblue/react-components';
+import { EmptyState, InfoListItem, ListItemTag, Spacer } from '@pxblue/react-components';
 import { useSelector } from 'react-redux';
 import { AppState } from '../redux/reducers';
 import * as Colors from '@pxblue/colors';
@@ -33,7 +32,7 @@ import { ErrorOutline } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        secondaryToolbar: {
+        secondaryAppbar: {
             color: theme.palette.primary.contrastText,
             top: theme.spacing(8),
             height: theme.spacing(6),
@@ -41,10 +40,19 @@ const useStyles = makeStyles((theme: Theme) =>
                 top: theme.spacing(7),
             },
         },
+        secondaryToolbar: {
+            minHeight: theme.spacing(6),
+            [theme.breakpoints.down('xs')]: {
+                overflowX: 'auto',
+            },
+        },
         select: {
-            minWidth: 100,
+            // minWidth: 100,
             alignSelf: 'stretch',
             color: theme.palette.primary.contrastText,
+            '&:not(:first-child)': {
+                marginLeft: theme.spacing(2),
+            },
         },
         tagWrapper: {
             display: 'flex',
@@ -109,7 +117,6 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const [roadmap, setRoadmap] = useState<RoadmapBucket[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
-    const theme = useTheme();
     const loadingGroups = [
         [1, 2, 3, 4],
         [1, 2, 3],
@@ -157,6 +164,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
             // Filter buckets by framework
             .filter(
                 (bucket) =>
+                    typeFilter === 'design' || // if filtering by design, ignore the framework filter
                     !bucket.framework ||
                     bucket.framework.includes(frameworkFilter) ||
                     bucket.framework.includes('all') ||
@@ -174,7 +182,8 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     }))
                     .filter((item) => {
                         const show =
-                            (item.framework === undefined ||
+                            (typeFilter === 'design' || // if filtering by design, ignore the framework filter
+                                item.framework === undefined ||
                                 item.framework.includes(frameworkFilter) ||
                                 item.framework.includes('all') ||
                                 frameworkFilter === 'all') &&
@@ -217,10 +226,10 @@ export const Roadmap: React.FC = (): JSX.Element => {
             <AppBar
                 position={searchActive ? 'static' : 'sticky'} // to avoid the filter bar "pops out" when searching
                 color={'secondary'}
-                className={classes.secondaryToolbar}
+                className={classes.secondaryAppbar}
                 elevation={0}
             >
-                <Toolbar style={{ minHeight: theme.spacing(6) }}>
+                <Toolbar className={classes.secondaryToolbar}>
                     <Select
                         value={typeFilter}
                         disableUnderline
@@ -239,7 +248,6 @@ export const Roadmap: React.FC = (): JSX.Element => {
                             onChange={(e): void => setFrameworkFilter(e.target.value as FrameworkFilter)}
                             classes={{ icon: classes.selectIcon }}
                             className={classes.select}
-                            style={{ marginLeft: theme.spacing(2) }}
                         >
                             <MenuItem value={'all'}>Any Framework</MenuItem>
                             <MenuItem value={'angular'}>Angular</MenuItem>
@@ -254,7 +262,6 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         onChange={(e): void => setQuarterFilter(e.target.value as Quarter)}
                         classes={{ icon: classes.selectIcon }}
                         className={classes.select}
-                        style={{ marginLeft: theme.spacing(2) }}
                     >
                         <MenuItem value={'all'}>Any Quarter</MenuItem>
                         {/* <MenuItem value={'Q1'}>Q1</MenuItem> */}
@@ -268,7 +275,6 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         onChange={(e): void => setStatusFilter(e.target.value as Status | 'all')}
                         classes={{ icon: classes.selectIcon }}
                         className={classes.select}
-                        style={{ marginLeft: theme.spacing(2) }}
                     >
                         <MenuItem value={'all'}>Any Status</MenuItem>
                         <MenuItem value={'backlog'}>Todo</MenuItem>
@@ -277,6 +283,8 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         <MenuItem value={'deferred'}>Deferred</MenuItem>
                         <MenuItem value={'finished'}>Finished</MenuItem>
                     </Select>
+                    <Spacer width={16} height={16} flex={0} />{' '}
+                    {/* https://stackoverflow.com/questions/26888428/display-flex-loses-right-padding-when-overflowing */}
                 </Toolbar>
             </AppBar>
 
