@@ -355,7 +355,11 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                                             <Typography
                                                                 variant={'subtitle2'}
                                                                 align={'center'}
-                                                                style={{ fontWeight: 600, lineHeight: 1.5 }}
+                                                                style={{
+                                                                    fontWeight: 600,
+                                                                    lineHeight: 1,
+                                                                    marginBottom: 4,
+                                                                }}
                                                             >
                                                                 {item.quarter}
                                                             </Typography>
