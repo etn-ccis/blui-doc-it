@@ -19,7 +19,7 @@
         "cy:run": "cypress run",
         "cypress:open": "cypress open",
         "cytest": "start-server-and-test start http://localhost:3000 cy:run",
-        "indexer": "cd scripts/crawl && node crawler.js && node indexer.js && cd ../.. && yarn prettier"
+        "indexer": "cd scripts/crawl && node crawler.js && node indexer.js && cd ../.. && prettier \"src/database/*.json\" --write"
     },
     "prettier": "@pxblue/prettier-config",
     "dependencies": {

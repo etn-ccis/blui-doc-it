@@ -162,6 +162,11 @@
                     "url": "/iconography"
                 },
                 {
+                    "title": "Illustrations",
+                    "url": "/illustrations",
+                    "hidden": true
+                },
+                {
                     "title": "Typography",
                     "url": "/typography"
                 },
