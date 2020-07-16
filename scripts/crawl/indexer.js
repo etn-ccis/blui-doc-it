@@ -199,11 +199,7 @@ function main() {
                 if (!BLACK_LIST.has(keyword)) {
                     if (keywordIndex[keyword]) {
                         // this keyword has been indexed at least once before
-                        if (keywordIndex[keyword][url]) {
-                            keywordIndex[keyword][url] += 1;
-                        } else {
-                            keywordIndex[keyword][url] = 1;
-                        }
+                        keywordIndex[keyword][url] = 1;
                     } else {
                         // we never see this keyword before
                         keywordIndex[keyword] = { [url]: 1 };

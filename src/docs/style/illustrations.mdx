@@ -10,7 +10,7 @@ import BackgroundShapeImage from '../../app/assets/design-patterns/illustrations
 
 Illustrations are design elements that should be used mostly for onboarding screens and [empty states](/patterns/empty-states). Do not use illustrations where you are supposed to use icons.
 
-When creating your own illustrations, you should follow our guidelines as explained below. Alternatively, you may also choose to acquire existing artworks from repositories like [Icons8](https://icons8.com/illustrations), [Adobe Stock](https://stock.adobe.com/vectors), or [Humaaans Figma plugin](https://www.figma.com/community/plugin/739503328703046360). We recommend you finalizing the illustration with [Adobe Illustrator](https://www.adobe.com/products/illustrator.html), as it provides more export options.
+You should adhere to these guidelines when creating your own illustrations. Alternatively, you may also use existing illustrations/artwork from repositories such as [Icons8](https://icons8.com/illustrations), [Adobe Stock](https://stock.adobe.com/vectors), or [Humaaans Figma plugin](https://www.figma.com/community/plugin/739503328703046360). We recommend finalizing your illustrations with [Adobe Illustrator](https://www.adobe.com/products/illustrator.html), as it provides more export options than other tools.
 
 <React.Fragment>
     <MaterialDesignDescription
@@ -23,7 +23,7 @@ When creating your own illustrations, you should follow our guidelines as explai
         url={
             'https://designguidelines.withgoogle.com/ads-branding/assets/1hquKP2EcBlDaWyaLkoezqd8r9KPjRgnp/visual-guidelines-google-marketing-platform.pdf#'
         }
-        description={`You are encouraged to follow their illustration guidelines.`}
+        description={`You are encouraged to follow their illustration guidelines (page 42 - 48).`}
         avatar={<PDFIcon style={{ width: 40, height: 40 }} />}
     />
 </React.Fragment>
@@ -36,38 +36,46 @@ Your illustration should be either in a horizontal perspective (neither looking 
 
 ### Ratio
 
-The width-height ratio should be between 1:1 to 2:3, which gives a margin on a mobile phone for UI interactions. If designing specifically for desktop applications (that is, the illustration will never show up on mobile), you can go wider than that, but no more than 16:9.
+The aspect ratio of your illustrations should be between 1:1 and 2:3. If you are designing exclusively for desktop applications (i.e., the illustration will never show up on mobile), you can go wider, but no more than 16:9.
 
 ### Drawing Style
 
-Keep your style consistent within one application, including your illustrations for the webpage for the product. Do not be too abstract or artistic, as your main goal is to inform your users of certain features in your product, instead of decorating it.
+Keep your style consistent within the application. This style should also extend to any marketing sites for the product for consistency. Do not be too abstract or artistic — your main goal is to inform your users of the features in your product, not to decorate it.
 
 ### Text
 
-Avoid the use of text, as they might require translations, and can be hard to see on mobile. If you have to, use Open Sans, just like other PX Blue applications, and ensure that they are legit on the smallest targeted device.
+Avoid the use of text wherever possible. It can be hard to see on mobile and will be ineffective if your application needs to support multiple languages. If you have to use text, use Open Sans as the font and ensure that words are legible on your smallest targeted device.
 
 ### Color
 
-Use [PX Blue palette](/style/color) as the base color. If there is a gradient, make sure the two ends of the gradient are using PX Blue colors. Use some blue hue (this can be colors from primary blue, Eaton blue, or light blue) somewhere in the foreground for your drawing.
+Use the [PX Blue color palette](/style/color) for your primary colors. You should use some shade of blue in the foreground of your images (these can be colors from the Blue, Light Blue, or Branding Blue palettes).
 
 Avoid using colors that may blend into the app theme background (suggest adding a background color to pad around it). Avoid using the 500 colors from the primary color palette, as they may blend with other UI elements (buttons, progressors).
 
-Avoid too many dark strokes for light themes, or light strokes for dark themes. The illustrations might be reused as infographics, and line strokes might intervene with labels.
+Avoid using colors that may blend into the application background (add a background color to to your images to help them stand out). Avoid using the 500 colors from the color palette, as they may blend in among other UI elements (buttons, etc.).
 
-Test your illustration in both light theme (white 50) and dark theme (black 900). It is recommended that you modify your design for light backgrounds and dark backgrounds.
+Avoid using too many strokes, especially light strokes on dark backgrounds or vice-versa. Your illustrations may be reused as infographics, and line strokes could interfere with labels.
+
+Test your illustrations on both light (white 50) and dark (black 900) application backgrounds. If your application will support multiple themes, we recommended having a version of your icons for each.
 
 Simulate your illustrations under different colorblind conditions. Ensure your color schemes are still intact.
 
+To maximize accessibility, use online tools (such as [Coblis](https://www.color-blindness.com/coblis-color-blindness-simulator/)) to simulate viewing your illustrations under different colorblind conditions. Ensure that your illustrations are still visible and effective.
+
 <ImageGrid
     images={[LightThemeImage, DarkThemeImage]}
-    caption={'Two versions of the same design, under light theme (left) and dark theme (right) respectively.'}
+    caption={'Two versions of the same design for light theme (left) and dark theme (right).'}
 />
-<ImageGrid images={[BackgroundShapeImage]} caption={'The illustration background can either be a confined shape (left) or span through the entire container (right).'} gridImageProps={{ sm: 12 }} />
+<ImageGrid
+    images={[BackgroundShapeImage]}
+    caption={'Illustration backgrounds can be either a fixed shape (left) or full-bleed (right).'}
+    gridImageProps={{ sm: 12 }}
+/>
 
 ## Export
 
-When finished with your artwork, remember to outline stroke. However, if there are texts in your illustration, do not outline stroke any of that -- leave them in as text so that other people can conveniently translate it later, if necessary.
+When finished with your artwork, remember to outline stroke. If you are using text in your illustrations (see above), do not convert to outline or stroke any of those elements — leave them as text for future translation, if necessary.
 
 Name and group your root SVG layers semantically for animating. Do not minify the SVG code, as this will eliminate the naming.
 
-Export your illustration in SVG with at least 2 decimal precision & presentation attributes.
+Export your illustrations as SVG with at least 2 decimal precision and presentation attributes enabled. After exporting, check that your graphics look correct (for higher detail graphics, you may need a higher decimal precision to keep paths smooth).
