@@ -1,8 +1,5 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
 import SummaryImage from '../../app/assets/design-patterns/form-validation/form-validation.svg';
-// import Image1 from '../../app/assets/design-patterns/form-validation/form-validation-interaction.png';
-// import Image2 from '../../app/assets/design-patterns/form-validation/form-validation-feedback.png';
-// import Image3 from '../../app/assets/design-patterns/form-validation/form-validation-variation.png';
 import Image4 from '../../app/assets/design-patterns/form-validation/form-validation-password-entering.png';
 import Image5 from '../../app/assets/design-patterns/form-validation/form-validation-password-error.png';
 import Image6 from '../../app/assets/design-patterns/form-validation/form-validation-password-complete.png';
@@ -20,6 +17,8 @@ import SubmitButtonOnClickImage from '../../app/assets/design-patterns/form-vali
 import Specs1Image from '../../app/assets/design-patterns/form-validation/specs-1.png';
 import Specs2Image from '../../app/assets/design-patterns/form-validation/specs-2.png';
 import Specs3Image from '../../app/assets/design-patterns/form-validation/specs-3.png';
+import Specs4Image from '../../app/assets/design-patterns/form-validation/specs-4.png';
+import Specs5Image from '../../app/assets/design-patterns/form-validation/specs-5.png';
 
 import dismissKeyboardErrorAutoscrollImage from '../../app/assets/design-patterns/form-validation/dismiss-keyboard-error-autoscroll.gif';
 import dismissKeyboardErrorTextImage from '../../app/assets/design-patterns/form-validation/dismiss-keyboard-error-text.gif';
@@ -46,17 +45,13 @@ Forms are an integral part of many applications, particularly during the [user r
 
 # Behaviors
 
-## Optional vs. Required Fields
-
-When using a mixture of optional and required fields in a form, the inputs should be labeled appropriately.
-
-If most of the fields are required, you should call out the fields that are optional. These fields should be labeled with an appropriate descriptor, followed by "optional" in parentheses.
-
-Conversely, if most of your fields are optional, you should only call out the required fields. These should be identified by an asterisk (\*) after the field label. Optionally, you can add a descriptor nearby that indicates that a \* means the field is required.
-
 ## Form Length
 
-The form should not be too lengthy -- no more than the screen height on the mobile device, and no more than half of the desktop screen. Consider breaking long forms into subsections or multiple pages using tabs and [steppers](/patterns/steppers).
+Keep your forms short where possible. If your forms are larger than the height of your target device, consider breaking them into sections or multiple pages to improve the user experience.
+
+<!-- TODO: dense text field v. non dense?
+    Material says use dense when there are large amounts of information
+-->
 
 <ImageGrid
     images={[LongFormImage]}
@@ -68,7 +63,7 @@ The form should not be too lengthy -- no more than the screen height on the mobi
 
 ## Form Field Requirements
 
-<ImageGrid images={[Image4, Image5, Image6]} caption={'A common application of form validation -- reset password.'} />
+<ImageGrid images={[Image4, Image5, Image6]} caption={'A common application of form validation — reset password.'} />
 
 If your form fields have complex requirements for valid values, you can list these criteria below the input. A common use case for this is when displaying password complexity requirements.
 
@@ -135,7 +130,7 @@ Typically, forms should have a button to submit the data or continue to the next
     regularWidth
     caption={[
         '1: On desktops, the button is placed in the bottom corner of the form.',
-        '2: On mobile devices, the button is replaced by a button on native keyboard.',
+        '2: On mobile, the software keyboard also contains a submit button for quick access',
     ]}
 />
 
@@ -163,7 +158,7 @@ For screens such as email verification where there is a single field with a know
     }
 />
 
-When the user attempts to submit by clicking on the submit button on their screen (desktop) or on their native keyboard (mobile), all the invalid fields should be highlighted with red error text.
+When the user attempts to submit the form by clicking on the submit button on their screen (desktop) or on their software keyboard (mobile), all the invalid fields should be highlighted with red error text.
 
 <ImageGrid
     images={[dismissKeyboardErrorAutoscrollImage, dismissKeyboardErrorTextImage]}
@@ -175,7 +170,7 @@ When the user attempts to submit by clicking on the submit button on their scree
 
 ### Disabling the Submit Button
 
-In most cases, the submit button **should not** be disabled. The users should not be forced to search for what they are missing.
+In most cases, the submit button **should not** be disabled - users should not be forced to search for their mistake.
 
 <!--
 TODO:
@@ -208,9 +203,17 @@ either remvoe it, or find a better way to picture this problem (like those do's 
 </React.Fragment>
 <Divider />
 
-# Specs
+# Design Specifications
+
+## Mobile
 
 <ImageGrid images={[Specs1Image, Specs2Image, Specs3Image]} regularWidth />
+
+## Desktop and Tablet
+
+If certain dimensions are not specified, refer to the dimensions suggested in the mobile section above.
+
+<ImageGrid images={[Specs4Image, Specs5Image]} regularWidth />
 
 <!--
 <Divider />

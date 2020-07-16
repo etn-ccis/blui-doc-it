@@ -76,7 +76,6 @@ const useStyles = makeStyles((theme: Theme) =>
             marginRight: theme.spacing(2),
             display: 'inline-block',
             minHeight: CTA_BUTTON.HEIGHT,
-            color: theme.palette.text.primary,
         },
         demoTitle: {
             margin: theme.spacing(0.5),
