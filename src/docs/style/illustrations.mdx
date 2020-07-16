@@ -1,0 +1,79 @@
+import { MaterialDesignDescription, ImageGrid } from '../../app/components';
+import { PictureAsPdf as PDFIcon } from '@material-ui/icons';
+import LightThemeImage from '../../app/assets/design-patterns/illustrations/illustration-light-theme.svg';
+import DarkThemeImage from '../../app/assets/design-patterns/illustrations/illustration-dark-theme.svg';
+import BackgroundShapeImage from '../../app/assets/design-patterns/illustrations/illustration-background.png';
+
+<!-- KEYWORDS: design illustration graph onboarding -->
+
+# Illustrations
+
+Illustrations are design elements that should be used mostly for onboarding screens and [empty states](/patterns/empty-states). Do not use illustrations where you are supposed to use icons.
+
+You should adhere to these guidelines when creating your own illustrations. Alternatively, you may also use existing illustrations/artwork from repositories such as [Icons8](https://icons8.com/illustrations), [Adobe Stock](https://stock.adobe.com/vectors), or [Humaaans Figma plugin](https://www.figma.com/community/plugin/739503328703046360). We recommend finalizing your illustrations with [Adobe Illustrator](https://www.adobe.com/products/illustrator.html), as it provides more export options than other tools.
+
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'Onboarding'}
+        url={'https://material.io/design/communication/onboarding.html'}
+        description={`Material Design's guidelines on onboarding screens.`}
+    />
+    <MaterialDesignDescription
+        title={'Google Marketing Platform Visual Guidelines'}
+        url={
+            'https://designguidelines.withgoogle.com/ads-branding/assets/1hquKP2EcBlDaWyaLkoezqd8r9KPjRgnp/visual-guidelines-google-marketing-platform.pdf#'
+        }
+        description={`You are encouraged to follow their illustration guidelines (page 42 - 48).`}
+        avatar={<PDFIcon style={{ width: 40, height: 40 }} />}
+    />
+</React.Fragment>
+
+## Designing the Illustration
+
+### Perspective
+
+Your illustration should be either facing the subject matter parallel to the ground (not viewing it from above or below) or in parallel projection.
+
+### Ratio
+
+The aspect ratio of your illustrations should be between 1:1 and 2:3 to avoid filling the full screen on mobile devices (leave room for buttons, steppers, etc.). If you are designing exclusively for desktop applications (i.e., the illustration will never show up on mobile), you can go wider, but no more than 16:9.
+
+### Drawing Style
+
+Keep your style consistent within the application. This style should also extend to any marketing sites for the product for consistency. Do not be too abstract or artistic — your main goal is to inform your users of the features in your product, not to decorate it.
+
+### Text
+
+Avoid the use of text wherever possible. It can be hard to see on mobile and will be ineffective if your application needs to support multiple languages. If you have to use text, use Open Sans as the font and ensure that words are legible on your smallest targeted device.
+
+### Color
+
+Use the [PX Blue color palette](/style/color) for your [local colors](<https://en.wikipedia.org/wiki/Local_color_(visual_art)>). You should use some shade of blue in the foreground of your images (these can be colors from the Blue, Light Blue, or Branding Blue palettes).
+
+Avoid using colors that may blend into the application background (add a background color to to your images to help them stand out). Avoid using the 500 colors from the color palette, as they may blend in among other UI elements (buttons, etc.).
+
+Avoid using too many strokes, especially light strokes on dark backgrounds or vice-versa. Your illustrations may be reused as infographics, and line strokes could interfere with labels.
+
+Test your illustrations on both light (white 50) and dark (black 900) application backgrounds. If your application will support multiple themes, we recommended having a version of your illustrations for each.
+
+Simulate your illustrations under different colorblind conditions. Ensure your color schemes are still intact.
+
+To maximize accessibility, use online tools (such as [Coblis](https://www.color-blindness.com/coblis-color-blindness-simulator/)) to simulate viewing your illustrations under different colorblind conditions. Ensure that your illustrations are still visible and effective.
+
+<ImageGrid
+    images={[LightThemeImage, DarkThemeImage]}
+    caption={'Two versions of the same design for light theme (left) and dark theme (right).'}
+/>
+<ImageGrid
+    images={[BackgroundShapeImage]}
+    caption={'Illustration backgrounds can be either a fixed shape (left) or full-bleed (right).'}
+    regularWidth
+/>
+
+## Export
+
+When finished with your artwork, remember to outline stroke. If you are using text in your illustrations (see above), do not convert to outline or stroke any of those elements — leave them as text for future translation, if necessary.
+
+Name and group your root SVG layers semantically for animating. Do not minify the SVG code, as this will eliminate the naming.
+
+Export your illustrations as SVG with at least 2 decimal precision and presentation attributes enabled. After exporting, check that your graphics look correct (for higher detail graphics, you may need a higher decimal precision to keep paths smooth).

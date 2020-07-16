@@ -237,6 +237,12 @@ export const pageDefinitions: SimpleNavItem[] = [
                 ),
             },
             {
+                title: 'Illustrations',
+                url: '/illustrations',
+                component: <MarkdownPage title={'Illustrations'} markdown={Docs.Style.Illustrations} />,
+                hidden: true,
+            },
+            {
                 title: 'Typography',
                 url: '/typography',
                 component: <MarkdownPage title={'Typography'} markdown={Docs.Style.Typography} />,
