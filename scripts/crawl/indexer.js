@@ -4,9 +4,105 @@ const natural = require('natural');
 
 // these words will never be indexed as part of the textIndex
 const ARTICLES = new Set(['a', 'an', 'the']);
-const AUXILIARY_VERBS = new Set(['is', 'am', 'are', 'was', 'were', 'be', 'being', 'been', 'has', 'have', 'had', 'do', 'does', 'did', 'may', 'might', 'must', 'can', 'could', 'shall', 'should', 'will', 'would']);
-const PREPOSITIONS = new Set(['about', 'above', 'across', 'after', 'against', 'along', 'among', 'around', 'as', 'at', 'before', 'behind', 'below', 'beneath', 'beside', 'between', 'beyond', 'by', 'despite', 'down', 'during', 'except', 'for', 'from', 'in', 'inside', 'into', 'like', 'near', 'of', 'off', 'on', 'onto', 'opposite', 'out', 'outside', 'over', 'past', 'round', 'since', 'than', 'through', 'to', 'towards', 'under', 'underneath', 'unlike', 'until', 'up', 'upon', 'via', 'with', 'within', 'without']);
-const FILLER_WORDS = new Set(['you', 'that', 'we', 'this', 'one', 'but', 'not', 'when', 'if', 'many', 'then', 'these', 'so', 'like', 'get', 'come']);
+const AUXILIARY_VERBS = new Set([
+    'is',
+    'am',
+    'are',
+    'was',
+    'were',
+    'be',
+    'being',
+    'been',
+    'has',
+    'have',
+    'had',
+    'do',
+    'does',
+    'did',
+    'may',
+    'might',
+    'must',
+    'can',
+    'could',
+    'shall',
+    'should',
+    'will',
+    'would',
+]);
+const PREPOSITIONS = new Set([
+    'about',
+    'above',
+    'across',
+    'after',
+    'against',
+    'along',
+    'among',
+    'around',
+    'as',
+    'at',
+    'before',
+    'behind',
+    'below',
+    'beneath',
+    'beside',
+    'between',
+    'beyond',
+    'by',
+    'despite',
+    'down',
+    'during',
+    'except',
+    'for',
+    'from',
+    'in',
+    'inside',
+    'into',
+    'like',
+    'near',
+    'of',
+    'off',
+    'on',
+    'onto',
+    'opposite',
+    'out',
+    'outside',
+    'over',
+    'past',
+    'round',
+    'since',
+    'than',
+    'through',
+    'to',
+    'towards',
+    'under',
+    'underneath',
+    'unlike',
+    'until',
+    'up',
+    'upon',
+    'via',
+    'with',
+    'within',
+    'without',
+]);
+const FILLER_WORDS = new Set([
+    'you',
+    'that',
+    'we',
+    'this',
+    'one',
+    'but',
+    'not',
+    'when',
+    'if',
+    'many',
+    'then',
+    'these',
+    'so',
+    'like',
+    'get',
+    'come',
+]);
 const BLACK_LIST = new Set([...ARTICLES], [...AUXILIARY_VERBS], [...PREPOSITIONS], [...FILLER_WORDS]);
 
 // We will dump our data into the following two sets
@@ -92,15 +188,22 @@ function main() {
         // not all the entries have keywords
         if (sitemapDatabase[url].text) {
             var keywords_string = sitemapDatabase[url].text.match(/<!--[\s]*?(keywords:)(.*?)[\s]*?-->/gi);
-            if(!keywords_string || keywords_string.length === 0){ return; }
-            
+            if (!keywords_string || keywords_string.length === 0) {
+                return;
+            }
+
             keywords_string = keywords_string[0].replace(/<!--[\s]*?(keywords:)(.*?)[\s]*?-->/gi, '$2').trim();
             var keywords_array = keywords_string.split(' ');
 
             keywords_array.forEach((keyword) => {
                 if (!BLACK_LIST.has(keyword)) {
-                    // set the keyword index to 1 (only count a keyword as 1)
-                    keywordIndex[keyword] = { [url]: 1 };
+                    if (keywordIndex[keyword]) {
+                        // this keyword has been indexed at least once before
+                        keywordIndex[keyword][url] = 1;
+                    } else {
+                        // we never see this keyword before
+                        keywordIndex[keyword] = { [url]: 1 };
+                    }
                 }
             });
         }

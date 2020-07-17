@@ -49,9 +49,18 @@ type ImageGridProps = HTMLAttributes<HTMLDivElement> & {
     gridComponentProps?: GridProps;
     gridImageProps?: GridProps;
     images: Content[];
+    regularWidth?: boolean;
 };
 export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
-    const { images, caption, gridContainerProps, gridImageProps, gridComponentProps, ...rootProps } = props;
+    const {
+        images,
+        caption,
+        regularWidth: fullSize,
+        gridContainerProps,
+        gridImageProps,
+        gridComponentProps,
+        ...rootProps
+    } = props;
     const classes = useStyles();
     const theme = useTheme();
     const [imageOpened, setImageOpened] = useState(-1);
@@ -72,7 +81,7 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
             >
                 {images.map((item, index) =>
                     typeof item === 'string' ? (
-                        <Grid key={`content_${index}`} item xs={12} sm={6} {...gridImageProps}>
+                        <Grid key={`content_${index}`} item xs={12} sm={fullSize ? 12 : 6} {...gridImageProps}>
                             <img
                                 className={classes.image}
                                 src={item}
