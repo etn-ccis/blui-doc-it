@@ -19,8 +19,8 @@ Lists are frequently used throughout PX Blue applications. Typically, lists are 
 ## Basic Lists
 
 <ImageGrid images={[Image1, Image2]} />
-<DemoCard repository={'data-list'} angular react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/data-list/index.tsx&initialpath=data-list'} ionic reactNative />
-<DemoCard repository={'status-list'} angular react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/status-list/index.tsx&initialpath=status-list'} ionic reactNative/>
+<DemoCard repository={'data-list'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fdata-list%2Fdata-list.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/data-list/index.tsx&initialpath=data-list'} ionic reactNative />
+<DemoCard repository={'status-list'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fstatus-list%2Fstatus-list.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/status-list/index.tsx&initialpath=status-list'} ionic reactNative/>
 
 The simplest type of list simply presents a single line (or multiple lines) of text for each element in the collection.
 
@@ -29,21 +29,21 @@ Commonly in PX Blue applications, list items also show some visual indication of
 ## Lists with Actions
 
 <ImageGrid images={[Image3, Image4, Image5]} />
-<DemoCard repository={'action-list'} angular react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/action-list/index.tsx&initialpath=action-list'} ionic reactNative />
+<DemoCard repository={'action-list'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Faction-list%2Faction-list.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/action-list/index.tsx&initialpath=action-list'} ionic reactNative />
 
 If there are actions that you would like to perform on individual list items, these can be included via icons or a 3-dot action menu (multiple actions) on each list item. Depending on the space available, you typically will want to use the action menu if you have more than three actions that can be taken. Global actions that affect the whole list (such as Add or Clear) should be placed in the list header.
 
 ## Actions on Selected Items
 
 <ImageGrid images={[Image6]} />
-<DemoCard repository={'multiselect-list'} angular react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/multiselect-list/index.tsx&initialpath=multiselect-list'} ionic reactNative />
+<DemoCard repository={'multiselect-list'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fmultiselect-list%2Fmultiselect-list.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/multiselect-list/index.tsx&initialpath=multiselect-list'} ionic reactNative />
 
 You may want to take action on several list items at once, but not all. These should be presented in a persistent snackbar (similar to a [bottom sheet](/patterns/overlay)) after selecting items. Selection can be handled in several ways, the simplest of which is to include a checkbox for each list item.
 
 ## Drag and Drop
 
 <ImageGrid images={[Image7, Image8]} />
-<DemoCard repository={'sortable-list'} angular react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/sortable-list/index.tsx&initialpath=sortable-list'} ionic reactNative />
+<DemoCard repository={'sortable-list'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fsortable-list%2Fsortable-list.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/sortable-list/index.tsx&initialpath=sortable-list'} ionic reactNative />
 
 Occasionally, you may want users to be able to re-order the items in a list manually. This should be accomplished by placing a drag handle as the leftmost element in the row. The ability to re-order the list should be locked behind an Edit Mode toggle mechanism.
 
@@ -53,7 +53,7 @@ Occasionally, you may want users to be able to re-order the items in a list manu
 
 <DemoCard
     repository={'responsive-table'}
-    angular
+    angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fresponsive-table%2Fresponsive-table.component.ts'}
     react={
         'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/responsive-table/index.tsx&initialpath=responsive-table'
     }
