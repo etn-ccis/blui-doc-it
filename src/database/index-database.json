@@ -5497,23 +5497,7 @@
         "apply": [{ "/style/themes": 2 }, { "/development/frameworks-web/angular": 1 }, { "/patterns/layout": 1 }],
         "proper": [{ "/development/frameworks-web/angular": 1 }],
         "class": [{ "/development/frameworks-web/angular": 3 }, { "/design/intro": 1 }],
-        "top": [
-            { "/patterns/navigation": 2 },
-            { "/development/frameworks-web/angular": 1 },
-            { "/development/frameworks-web/react": 1 },
-            { "/development/frameworks-mobile/ionic": 1 },
-            { "/design/intro": 1 },
-            { "/patterns/appbar": 1 },
-            { "/style/iconography": 1 }
-        ],
-        "level": [
-            { "/design/anatomy": 2 },
-            { "/development/frameworks-web/angular": 1 },
-            { "/development/frameworks-web/react": 1 },
-            { "/development/testing": 1 },
-            { "/style/color": 1 },
-            { "/style/themes": 1 }
-        ],
+        "body": [{ "/development/frameworks-web/angular": 2 }, { "/style/typography": 1 }],
         "element": [{ "/patterns/lists": 2 }, { "/development/frameworks-web/angular": 1 }],
         "dark": [
             { "/style/color": 3 },
@@ -5559,7 +5543,6 @@
         ],
         "h2": [{ "/development/frameworks-web/angular": 1 }],
         "bold": [{ "/development/frameworks-web/angular": 1 }, { "/style/typography": 1 }],
-        "body": [{ "/development/frameworks-web/angular": 1 }, { "/style/typography": 1 }],
         "copy": [{ "/development/frameworks-web/angular": 1 }],
         "my": [{ "/development/frameworks-web/angular": 1 }],
         "details": [
@@ -5699,6 +5682,21 @@
             { "/community/bugs": 1 }
         ],
         "around": [{ "/development/frameworks-web/react": 1 }, { "/design/intro": 1 }, { "/design/anatomy": 1 }],
+        "top": [
+            { "/patterns/navigation": 2 },
+            { "/development/frameworks-web/react": 1 },
+            { "/development/frameworks-mobile/ionic": 1 },
+            { "/design/intro": 1 },
+            { "/patterns/appbar": 1 },
+            { "/style/iconography": 1 }
+        ],
+        "level": [
+            { "/design/anatomy": 2 },
+            { "/development/frameworks-web/react": 1 },
+            { "/development/testing": 1 },
+            { "/style/color": 1 },
+            { "/style/themes": 1 }
+        ],
         "pass": [{ "/development/frameworks-web/react": 1 }, { "/development/testing": 1 }],
         "read": [
             { "/patterns/internationalization": 2 },
