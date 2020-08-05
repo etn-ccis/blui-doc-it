@@ -4219,7 +4219,6 @@
             { "/development/frameworks-mobile/intro": 1 },
             { "/development/frameworks-mobile/ionic": 1 },
             { "/development/frameworks-mobile/react-native": 1 },
-            { "/patterns/overlay": 1 },
             { "/patterns/layout": 1 },
             { "/patterns/steppers": 1 },
             { "/style/color": 1 },
@@ -6598,7 +6597,8 @@
             { "/patterns/forms": 2 },
             { "/community/license": 2 },
             { "/design/anatomy": 1 },
-            { "/patterns/appbar": 1 }
+            { "/patterns/appbar": 1 },
+            { "/patterns/overlay": 1 }
         ],
         "showing": [{ "/patterns/internationalization": 2 }, { "/design/anatomy": 1 }, { "/patterns/empty-states": 1 }],
         "list": [
