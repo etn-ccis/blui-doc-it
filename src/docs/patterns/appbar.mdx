@@ -4,7 +4,8 @@ import Image2 from '../../app/assets/design-patterns/app-bar/collapsible-appbar/
 import Image3 from '../../app/assets/design-patterns/app-bar/search-bar/search-bar.png';
 import Image4 from '../../app/assets/design-patterns/app-bar/search-bar/search-bar-search.png';
 import Specs1Image from '../../app/assets/design-patterns/app-bar/specs-1.png';
-import Specs2Image from '../../app/assets/design-patterns/app-bar/specs-2.png';
+import Specs3Image from '../../app/assets/design-patterns/app-bar/specs-3.png';
+import Specs4Image from '../../app/assets/design-patterns/app-bar/specs-4.png';
 
 <!-- KEYWORDS: design pattern appbar search collapse -->
 
@@ -42,24 +43,23 @@ A very common pattern seen in many types of applications is the ability to searc
 
 # Design Specifications
 
-For additional instructions, refer to [Material Design's design specs on "App bars: top"](https://material.io/components/app-bars-top#specs).
-
 ## Mobile
 
-<ImageGrid images={[Specs1Image]} regularWidth />
+<ImageGrid images={[Specs1Image, Specs3Image]} regularWidth />
 
 ## Desktop and Tablet
 
 If certain dimensions are not specified, refer to the dimensions suggested in the mobile section above.
 
-<ImageGrid images={[Specs2Image]} regularWidth />
+<ImageGrid images={[Specs4Image]} regularWidth />
+<MaterialDesignDescription title={'App Bars: Top'} description={`For additional instructions, refer to Material Design's design specs`} url={'https://material.io/components/app-bars-top#specs'} />
 <Divider />
 
 # Developers
 
-We recommend using the following components to build this pattern:
+Use the following components to implement this pattern:
 
-**Angular**:
+**Angular** and **Ionic**:
 
 -   [@angular/material/toolbar](https://material.angular.io/components/toolbar)
 
