@@ -1,8 +1,11 @@
-import { DemoCard, ImageGrid, MaterialDesignDescription } from '../../app/components';
-import Image1 from '../../app/assets/design-patterns/collapsible-appbar/collapsible-appbar-expanded.png';
-import Image2 from '../../app/assets/design-patterns/collapsible-appbar/collapsible-appbar-collapsed.png';
-import Image3 from '../../app/assets/design-patterns/search-bar/search-bar.png';
-import Image4 from '../../app/assets/design-patterns/search-bar/search-bar-search.png';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
+import Image1 from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsible-appbar-expanded.png';
+import Image2 from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsible-appbar-collapsed.png';
+import Image3 from '../../app/assets/design-patterns/app-bar/search-bar/search-bar.png';
+import Image4 from '../../app/assets/design-patterns/app-bar/search-bar/search-bar-search.png';
+import Specs1Image from '../../app/assets/design-patterns/app-bar/specs-1.png';
+import Specs3Image from '../../app/assets/design-patterns/app-bar/specs-3.png';
+import Specs4Image from '../../app/assets/design-patterns/app-bar/specs-4.png';
 
 <!-- KEYWORDS: design pattern appbar search collapse -->
 
@@ -35,3 +38,36 @@ In some situations, you may want to present more information in an app bar, such
 <DemoCard repository={'search-bar'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fsearch-bar%2Fsearch-bar.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/app-bar/search-bar/index.tsx&initialpath=search'} ionic reactNative />
 
 A very common pattern seen in many types of applications is the ability to search for data on a page. This is achieved by placing a search icon/button in the app bar. When this button is clicked, a white Search Bar slides in from the right to cover the default toolbar. As the user enters text into the search field, the data is filtered in real-time.
+
+<Divider />
+
+# Design Specifications
+
+## Mobile
+
+<ImageGrid images={[Specs1Image, Specs3Image]} regularWidth />
+
+## Desktop and Tablet
+
+If certain dimensions are not specified, refer to the dimensions suggested in the mobile section above.
+
+<ImageGrid images={[Specs4Image]} regularWidth />
+<MaterialDesignDescription title={'App Bars: Top'} description={`For additional instructions, refer to Material Design's design specs`} url={'https://material.io/components/app-bars-top#specs'} />
+<Divider />
+
+# Developers
+
+Use the following components to implement this pattern:
+
+**Angular** and **Ionic**:
+
+-   [@angular/material/toolbar](https://material.angular.io/components/toolbar)
+
+**React**:
+
+-   [@material-ui/core/AppBar](https://material-ui.com/api/app-bar/)
+-   [@material-ui/core/Toolbar](https://material-ui.com/api/toolbar/)
+
+**React Native**:
+
+-   [@pxblue/react-native-components/Header](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--header)
