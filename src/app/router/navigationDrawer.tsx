@@ -94,6 +94,7 @@ export const NavigationDrawer = (): JSX.Element => {
                             display: 'flex',
                             alignItems: 'center',
                             cursor: 'pointer',
+                            color: theme.palette.primary.contrastText,
                         }}
                         onClick={(): void => {
                             history.push('/');
