@@ -1,28 +1,26 @@
 import React, { ElementType } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-
-import * as PXBColors from '@pxblue/colors';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 
 // Material-UI Components
 import Typography from '@material-ui/core/Typography';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme: Theme) => ({
     wrapper: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        color: PXBColors.black[900],
+        color: theme.palette.text.primary,
     },
     selected: {
-        background: PXBColors.blue[50],
+        background: theme.palette.primary.light,
     },
     label: {
         width: '100%',
         textAlign: 'center',
         wordBreak: 'break-word',
         marginTop: '5px',
-        color: PXBColors.black[900],
+        color: theme.palette.text.primary,
     },
 }));
 
@@ -37,7 +35,7 @@ type IconCardProps = {
 };
 
 export const IconCard: React.FC<IconCardProps> = (props): JSX.Element => {
-    const classes = useStyles(props);
+    const classes = useStyles();
 
     const { component: Component, name, showLabel, style, selected, iconSize, className } = props;
     return (

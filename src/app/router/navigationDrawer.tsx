@@ -77,8 +77,6 @@ export const NavigationDrawer = (): JSX.Element => {
             divider={false}
         >
             <DrawerHeader
-                backgroundColor={Colors.blue[500]}
-                fontColor={Colors.white[50]}
                 icon={<PxblueSmall />}
                 onIconClick={(): void => {
                     if (isMobile) {
