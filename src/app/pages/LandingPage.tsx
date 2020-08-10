@@ -43,8 +43,8 @@ const useStyles = makeStyles((theme: Theme) =>
             alignItems: 'center',
             padding: `${theme.spacing(8)}px ${theme.spacing(4)}px`,
             width: '100%',
-            color: '#ffffff',
-            backgroundColor: Colors.blue[500],
+            color: theme.palette.primary.contrastText,
+            backgroundColor: theme.palette.primary.main,
             backgroundImage: `url(${circles})`,
             backgroundSize: 1200,
             backgroundPosition: '-240px center',
@@ -52,6 +52,7 @@ const useStyles = makeStyles((theme: Theme) =>
         footer: {
             zIndex: 0,
             backgroundColor: Colors.black[900],
+            color: Colors.white[50],
             textAlign: 'center',
         },
     })

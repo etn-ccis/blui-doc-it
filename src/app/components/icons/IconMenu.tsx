@@ -3,7 +3,6 @@ import * as AllMaterialIcons from '@material-ui/icons';
 
 // PX Blue Icons and Symbols
 import * as MuiIcons from '@pxblue/icons-mui';
-import * as PXBColors from '@pxblue/colors';
 
 // Material-UI Components
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
@@ -34,7 +33,6 @@ const useStyles = makeStyles((theme: Theme) =>
             overflowY: 'auto',
         },
         iconSheet: {
-            color: PXBColors.black[900],
             width: '100%',
             maxHeight: `calc(100% - 64px)`,
             overflowY: 'auto',

@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme: Theme) =>
             fontSize: '0.875rem',
         },
         selectIcon: {
-            color: Colors.white[50],
+            color: theme.palette.primary.contrastText,
         },
         emptyStateWrapper: {
             position: 'relative',
@@ -213,7 +213,15 @@ export const Roadmap: React.FC = (): JSX.Element => {
                 );
             }
             if (author !== undefined && author !== 'PX Blue') {
-                statusTags.push(<ListItemTag key={`${item.name}_author`} className={classes.tag} label={author} />);
+                statusTags.push(
+                    <ListItemTag
+                        key={`${item.name}_author`}
+                        className={classes.tag}
+                        label={author}
+                        backgroundColor={Colors.blue[500]}
+                        fontColor={Colors.white[50]}
+                    />
+                );
             }
             const result = authorTags.concat(statusTags);
             return result.length ? <div className={classes.tagWrapper}>{result}</div> : undefined;
