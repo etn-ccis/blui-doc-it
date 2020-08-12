@@ -113,9 +113,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         },
     },
     hideIconsLabel: {
-        display: 'inline-block',
-        float: 'right',
-        paddingRight: theme.spacing(3),
+        justifyContent: 'flex-end',
     },
     iconCard: {
         margin: '0 15px 25px 15px',
@@ -258,13 +256,13 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                         </div>
                     </Toolbar>
                 </AppBar>
-                <div className={classes.hideIconsLabel}>
+                <Toolbar className={classes.hideIconsLabel}>
                     <FormControlLabel
                         control={<Checkbox color="primary" onClick={(): void => setFilterMaterial(!filterMaterial)} />}
                         label="Hide Material Icons"
                         labelPlacement="start"
                     />
-                </div>
+                </Toolbar>
                 <div style={{ padding: '24px' }}>
                     {Object.keys(groupIconList(iconList))
                         .sort()
