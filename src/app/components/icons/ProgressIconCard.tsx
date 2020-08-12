@@ -5,7 +5,7 @@ import * as Progress from '@pxblue/react-progress-icons';
 import * as PXBColors from '@pxblue/colors';
 
 // Material-UI Components
-import { Typography, AppBar, Paper, Toolbar, makeStyles, Switch } from '@material-ui/core';
+import { Typography, AppBar, Paper, Toolbar, makeStyles, FormControlLabel, Checkbox } from '@material-ui/core';
 import { PXBlueColor } from '@pxblue/types';
 
 const size = 48;
@@ -27,10 +27,6 @@ export const ProgressIconCard: React.FC = (): JSX.Element => {
 
     const [isOutlined, setIsOutlined] = React.useState(false);
 
-    const onChangeSwitch = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        setIsOutlined(event.target.checked);
-    };
-
     return (
         <Paper elevation={4}>
             <AppBar position="static" color="primary" classes={{ root: classes.header }}>
@@ -40,16 +36,13 @@ export const ProgressIconCard: React.FC = (): JSX.Element => {
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <Toolbar>
-                <Switch
+            <Toolbar style={{ justifyContent: 'flex-end' }}>
+                <FormControlLabel
+                    control={<Checkbox color="primary" onClick={(): void => setIsOutlined(!isOutlined)} />}
                     checked={isOutlined}
-                    inputProps={{ 'aria-label': 'View Outlined Icons' }}
-                    onChange={onChangeSwitch}
+                    label={'View Outlined Icon'}
+                    labelPlacement={'start'}
                 />
-
-                <Typography variant="body1" color="inherit" noWrap style={{ marginLeft: 8 }}>
-                    View Outlined Icon
-                </Typography>
             </Toolbar>
             <div style={{ textAlign: 'center', padding: '24px' }}>
                 <Typography variant={'h6'}>{'Battery'}</Typography>
