@@ -36,15 +36,15 @@ export const ProgressIconCard: React.FC = (): JSX.Element => {
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <Toolbar style={{ justifyContent: 'flex-end' }}>
+            <Toolbar style={{ justifyContent: 'flex-end' }} variant={'dense'}>
                 <FormControlLabel
                     control={<Checkbox color="primary" onClick={(): void => setIsOutlined(!isOutlined)} />}
                     checked={isOutlined}
-                    label={'View Outlined Icon'}
+                    label={'View Outlined Icons'}
                     labelPlacement={'start'}
                 />
             </Toolbar>
-            <div style={{ textAlign: 'center', padding: '24px' }}>
+            <div style={{ textAlign: 'center', padding: '0 24px 24px' }}>
                 <Typography variant={'h6'}>{'Battery'}</Typography>
                 {colors.map((key, index) => (
                     <Progress.Battery

@@ -256,14 +256,14 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                         </div>
                     </Toolbar>
                 </AppBar>
-                <Toolbar className={classes.hideIconsLabel}>
+                <Toolbar className={classes.hideIconsLabel} variant={'dense'}>
                     <FormControlLabel
                         control={<Checkbox color="primary" onClick={(): void => setFilterMaterial(!filterMaterial)} />}
                         label="Hide Material Icons"
                         labelPlacement="start"
                     />
                 </Toolbar>
-                <div style={{ padding: '24px' }}>
+                <div style={{ padding: '0 24px 24px' }}>
                     {Object.keys(groupIconList(iconList))
                         .sort()
                         .map((letterGroup: string) => {
