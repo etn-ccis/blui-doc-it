@@ -31,6 +31,10 @@ q:after {
     content: none;
 }
 
+#search-bar input {
+    padding: 0;
+}
+
 blockquote > p:last-child {
     margin-bottom: 0;
 }

@@ -1,6 +1,5 @@
 import React, { MouseEvent } from 'react';
 import { Typography, useTheme, makeStyles, Theme, createStyles } from '@material-ui/core';
-import * as Colors from '@pxblue/colors';
 
 const getTopPaddingForAspectRatio = (ratio: AspectRatio | undefined): string => {
     switch (ratio) {
@@ -33,11 +32,11 @@ const useStyles = makeStyles((theme: Theme) =>
             width: '100%',
             backgroundSize: 'cover',
             marginBottom: theme.spacing(2),
-            border: `1px solid ${Colors.black[50]}`,
+            border: `1px solid ${theme.palette.grey[100]}`,
         },
         card: {
             '&:hover': {
-                backgroundColor: Colors.black[50],
+                backgroundColor: theme.palette.action.hover,
             },
         },
     })
@@ -64,7 +63,7 @@ export const InfoCard: React.FC<InfoCardProps> = (props): JSX.Element => {
                 className={classes.image}
             />
             <Typography variant={'h6'}>{props.title}</Typography>
-            <Typography variant={'body2'} style={{ color: Colors.gray[500], marginTop: theme.spacing(1) }}>
+            <Typography variant={'body2'} style={{ color: theme.palette.text.secondary, marginTop: theme.spacing(1) }}>
                 {props.description}
             </Typography>
         </div>

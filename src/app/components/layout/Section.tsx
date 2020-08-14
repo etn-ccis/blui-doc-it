@@ -43,7 +43,7 @@ export const Section: React.FC<SectionProps> = (props) => {
                     style={{
                         width: theme.spacing(8),
                         height: 2,
-                        backgroundColor: Colors.blue[500],
+                        backgroundColor: theme.palette.primary.main,
                         margin: props.align === 'center' ? '-1px auto 0' : '-1px 0 0 0',
                     }}
                 />

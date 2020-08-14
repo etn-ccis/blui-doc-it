@@ -216,7 +216,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                 style={{ zIndex: 1001 }}
                 {...props}
             >
-                <Toolbar style={{ display: 'flex' }}>
+                <Toolbar style={{ display: 'flex' }} id="search-bar">
                     {searchActive && ( // to allow autofocus
                         <TextField
                             className={classes.searchfield}
