@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const instructionLinks = {
-    iconFont: 'https://github.com/pxblue/icons#using-the-icon-font-in-your-application',
+    iconFont: 'https://www.npmjs.com/package/@pxblue/icons#using-the-icon-font-in-your-application',
     iconsSvg: 'https://www.npmjs.com/package/@pxblue/icons-svg',
     iconsMui: 'https://www.npmjs.com/package/@pxblue/icons-mui',
     reactSvg: 'https://material-ui.com/components/icons/#svg-icons',
@@ -116,8 +116,8 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                             )}
                             {!isMaterial && (
                                 <Typography color={'inherit'} style={{ marginBottom: '10px' }} variant="subtitle2">
-                                    For detailed usage and installation instructions, visit our{' '}
-                                    <ExternalLink href={instructionLinks.iconFont}>GitHub</ExternalLink>.
+                                    For detailed usage and installation instructions, refer to the{' '}
+                                    <ExternalLink href={instructionLinks.iconFont}>NPM page</ExternalLink>.
                                 </Typography>
                             )}
                             <Typography color={'inherit'} variant="subtitle2">
