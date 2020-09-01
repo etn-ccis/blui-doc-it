@@ -46,7 +46,6 @@
         "redux": "^4.0.5"
     },
     "devDependencies": {
-        "@applitools/eyes-cypress": "^3.10.3",
         "@babel/core": "7.7.4",
         "@mdx-js/loader": "^1.5.5",
         "@mdx-js/react": "^1.5.5",
