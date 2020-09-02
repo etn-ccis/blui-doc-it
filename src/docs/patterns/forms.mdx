@@ -8,7 +8,7 @@ import LongFormImage from '../../app/assets/design-patterns/form-validation/long
 import OnBlurImage from '../../app/assets/design-patterns/form-validation/verify-input-on-blur.png';
 import OnChangeImage from '../../app/assets/design-patterns/form-validation/verify-input-on-change.png';
 import OnPageChangeImage from '../../app/assets/design-patterns/form-validation/verify-input-on-page-change.png';
-import SumbitButtonLocationImage from '../../app/assets/design-patterns/form-validation/submit-button-location.png';
+import SubmitButtonLocationImage from '../../app/assets/design-patterns/form-validation/submit-button-location.png';
 import NextButtonUsageImage from '../../app/assets/design-patterns/form-validation/next-button-usage.png';
 import SubmitButtonOnChangeImage from '../../app/assets/design-patterns/form-validation/submit-button-on-change.png';
 import SubmitButtonAutoSubmitImage from '../../app/assets/design-patterns/form-validation/submit-button-auto-submit.png';
@@ -71,6 +71,10 @@ If there is an error with the data entered into a field, the field should indica
 
 Error messages should be succinct and should not provide information that could compromise security (e.g., use "Invalid Credentials" instead of "Incorrect Password").
 
+## Mobile Keyboard
+
+TODO
+
 <Divider />
 
 # Behaviors
@@ -128,23 +132,23 @@ In some specific situations, you may need to defer verification or perform it fo
 Typically, forms should have a button to submit the data or continue to the next part of the form (for long forms). Depending on what happens next, the button should be labeled "next", "finish", or similar. The button should be located at the bottom right corner of the form (bottom left for right-to-left languages).
 
 <ImageGrid
-    images={[SumbitButtonLocationImage]}
+    images={[SubmitButtonLocationImage]}
     regularWidth
     caption={[
         '1: On desktops, the button is placed in the bottom corner of the form.',
-        '2: On mobile, the software keyboard also contains a submit button for quick access',
+        '2: On mobile, the software keyboard has different options for the action button',
     ]}
 />
 
-On mobile, if there are multiple input fields on the screen, the keyboard button should say "next", unless you are on the last item of the page, in which case the keyboard button should say "done" or "submit". This button can either submit the form or simply dismiss the keyboard (if you want users to have a chance to review their information first).
+On mobile, if there are multiple input fields on the screen, the keyboard action button should say "next", unless you are on the last item of the page, in which case the keyboard button should say "done" or "submit". This button can either submit the form or simply dismiss the keyboard (if you want users to have a chance to review their information first).
 
 <ImageGrid
     images={[NextButtonUsageImage]}
     regularWidth
     caption={[
         ,
-        '1: The user entered a valid input. Clicking "next" will autofocus the user to the next text field.',
-        '2: The user entered an invalid input. Clicking "next" will display the error message but will not autofocus to the next text field.',
+        '1: The user entered a valid input. Clicking "next" will auto-focus the user to the next text field.',
+        '2: The user entered an invalid input. Clicking "next" will display the error message but will not auto-focus to the next text field.',
     ]}
 />
 
@@ -160,48 +164,30 @@ For screens such as email verification where there is a single field with a know
     }
 />
 
-When the user attempts to submit the form by clicking on the submit button on their screen (desktop) or on their software keyboard (mobile), all the invalid fields should be highlighted with red error text.
-
-<ImageGrid
-    images={[dismissKeyboardErrorAutoscrollImage, dismissKeyboardErrorTextImage]}
-    caption={[
-        'Left: The UI should autoscroll to and focus on the first invalid field.',
-        'Right: On a short form, you may choose to display a descriptor on the top of the form instead.',
-    ]}
-/>
-
 ### Disabling the Submit Button
 
-In most cases, the submit button **should not** be disabled - users should not be forced to search for their mistake.
-
-<!--
-TODO:
-This image is conveying conflicting idea with the two gifs above,
-either remvoe it, or find a better way to picture this problem (like those do's and dont's on Material Design)
-<ImageGrid
-    images={[SubmitButtonOnClickImage]}
-    regularWidth
-    caption={
-        'Do not disable the submit button. Instead, use error text to highlight the invalid input after the user clicks the button.'
-    }
-/>
--->
-
-> **Exception**: on desktop applications, when there are fewer than four text fields, and all the fields are verified on change, we recommend you disable the submit button to indicate that there are some errors in the user input (invalid value, missing a required field).
+If there are errors indicated on any of the form fields, the submit button should be disabled. If you are performing verification when clicking the submit button (onAction), all the invalid fields should be indicated (if they aren't already).
 
 <React.Fragment>
-    <ImageGrid
+    {/* <ImageGrid
         images={[SubmitButtonOnChangeImage]}
         regularWidth
         caption={
             'When your input field field is verified on change, disable the submit button until the user enters a valid input.'
         }
-    />
+    /> */}
     <ImageGrid
         images={[SubmitButtonOnBlurImage]}
         regularWidth
         caption={'The submit button is disabled until the user has entered something for all the required fields.'}
     />
+    <ImageGrid
+    images={[dismissKeyboardErrorAutoscrollImage, dismissKeyboardErrorTextImage]}
+    caption={[
+        'Left: The UI should auto-scroll to and focus on the first invalid field.',
+        'Right: On a short form, you may choose to display a descriptor on the top of the form instead.',
+    ]}
+/>
 </React.Fragment>
 <Divider />
 
