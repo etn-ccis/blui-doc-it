@@ -25,7 +25,7 @@ import dismissKeyboardErrorTextImage from '../../app/assets/design-patterns/form
 
 <!-- KEYWORDS: design pattern form verification validation error -->
 
-# Form Validation Patterns
+# Forms and Validation
 
 <ImageGrid images={[SummaryImage]} regularWidth />
 
@@ -45,15 +45,11 @@ Forms are an integral part of many applications, particularly during the [user r
     <Divider />
 </React.Fragment>
 
-# Behaviors
+# Anatomy
 
 ## Form Length
 
 Keep your forms short where possible. If your forms are larger than the height of your target device, consider breaking them into sections or multiple pages to improve the user experience.
-
-<!-- TODO: dense text field v. non dense?
-    Material says use dense when there are large amounts of information
--->
 
 <ImageGrid
     images={[LongFormImage]}
@@ -63,25 +59,29 @@ Keep your forms short where possible. If your forms are larger than the height o
     }
 />
 
-## Form Field Requirements
+## Field Requirements
+
+Required / optional fields should be identified according to the Material guidelines. If your form fields have complex requirements for valid values, you can list these criteria below the input. A common use case for this is when displaying password complexity requirements.
 
 <ImageGrid images={[Image4, Image5, Image6]} caption={'A common application of form validation — reset password.'} />
 
-If your form fields have complex requirements for valid values, you can list these criteria below the input. A common use case for this is when displaying password complexity requirements.
+## Error Messages
 
-## Handling Errors
+If there is an error with the data entered into a field, the field should indicate to the user that there is a problem. Label and helper text should be changed to a red color and the error message should be displayed in the helper text location below the field (any existing helper text should be replaced with the error message). You may optionally show an additional error icon in the text input.
 
-If there is an error with the data entered into a field, the field should indicate to the user that there is a problem. Label and helper text should be changed to a red color and a warning icon should appear in the text input. The error message should be displayed in the helper text location below the field (any existing helper text should be replaced with the error message).
+Error messages should be succinct and should not provide information that could compromise security (e.g., use "Invalid Credentials" instead of "Incorrect Password").
 
-Error messages should be succinct and should not provide information that could compromise security (e.g., "Invalid Credentials" instead of "Incorrect Password").
+<Divider />
 
-## When to Verify User Input
+# Behaviors
+
+## Verifying User Input
 
 In general, there are three acceptable times to perform form field verification:
 
 -   on blur: the field is verified when the user clicks away from it
 -   on change: the field is dynamically verified on each keystroke or change in the value
--   manually: fields are verified after performing a specific action (such as clicking a button)
+-   on action: fields are verified after performing a specific action (such as clicking a button)
 
 ### Verifying on Blur
 
@@ -109,9 +109,9 @@ Some fields should verify the user input as it changes. The most common case for
     ]}
 />
 
-### Verifying Manually
+### Verifying on Action
 
-In some specific situations, you may need to defer verification or perform it for all fields in a form at once. This type of verification is common when the checks cannot be performed on the client (such as making an API call to verify a registration code, check user login credentials, or search for a device on the network). In most cases, you can do some preliminary checks using one of the two methods above (e.g., you can check if the email is a valid email before making the API call to verify the credentials).
+In some specific situations, you may need to defer verification or perform it for all fields in a form at once. In this case, you need to link verification to a specific action (such as clicking a button). This type of verification is common when the checks cannot be performed on the client (such as making an API call to verify a registration code, check user login credentials, or search for a device on the network). In most cases, you can do some preliminary checks using one of the two methods above (e.g., you can check if the email is a valid email before making the API call to verify the credentials).
 
 <ImageGrid
     images={[OnPageChangeImage]}
@@ -207,7 +207,7 @@ either remvoe it, or find a better way to picture this problem (like those do's 
 
 # Design Specifications
 
-For additional instructions, refer to [Material Design's design specs on "Text fields"](https://material.io/components/text-fields#specs).
+For additional instructions, refer to Material Design's [specifications](https://material.io/components/text-fields#specs) for "Text fields".
 
 ## Mobile
 
@@ -218,14 +218,11 @@ For additional instructions, refer to [Material Design's design specs on "Text f
 If certain dimensions are not specified, refer to the dimensions suggested in the mobile section above.
 
 <ImageGrid images={[Specs4Image, Specs5Image]} regularWidth />
-
-<!--
 <Divider />
 
+# For Developers
 
-# Developers
-
-We recommend using the following components to build this pattern:
+Use the following components to implement this pattern:
 
 **Angular** - Angular Material
 
@@ -236,4 +233,6 @@ We recommend using the following components to build this pattern:
 
 -   [Text Field](https://material-ui.com/components/text-fields/#text-field)
 
--->
+**React Native** - React-Native-Paper
+
+-   [TextInput](https://callstack.github.io/react-native-paper/text-input.html)
