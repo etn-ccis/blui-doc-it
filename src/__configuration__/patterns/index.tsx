@@ -3,6 +3,7 @@ import EmptyStatesImg from '../../app/assets/design-patterns/empty-states/empty-
 import FormValidationImg from '../../app/assets/design-patterns/form-validation/form-validation-feedback-thumb.png';
 import InternationalizationImg from '../../app/assets/design-patterns/internationalization/internationalization.png';
 import ListImg from '../../app/assets/design-patterns/action-list/action-list.png';
+import LoadingImage from '../../app/assets/design-patterns/loading-states/loading-state-load.png';
 import LoginImage from '../../app/assets/design-patterns/login/login-view-password.png';
 import NavigationtImg from '../../app/assets/design-patterns/navigation/navigation-permanent.png';
 import OverlayImg from '../../app/assets/design-patterns/action-list/action-list-overlay.png';
@@ -40,6 +41,12 @@ export const patterns = [
         url: '/patterns/lists',
         description: 'Different lists for different kinds of data.',
         image: ListImg,
+    },
+    {
+        title: 'Loading & Waiting',
+        url: '/patterns/loading',
+        description: 'How to handle asynchronous data loading.',
+        image: LoadingImage,
     },
     {
         title: 'Login',

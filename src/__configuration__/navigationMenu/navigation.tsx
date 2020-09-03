@@ -184,6 +184,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Lists'} markdown={Docs.Patterns.Lists} />,
             },
             {
+                title: 'Loading & Waiting',
+                url: '/loading',
+                component: <MarkdownPage title={'Loading & Waiting'} markdown={Docs.Patterns.Loading} />,
+            },
+            {
                 title: 'Login',
                 url: '/login',
                 component: <MarkdownPage title={'Login'} markdown={Docs.Patterns.Login} />,
