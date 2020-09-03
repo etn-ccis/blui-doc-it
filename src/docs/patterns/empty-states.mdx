@@ -10,19 +10,22 @@ import Specs2Image from '../../app/assets/design-patterns/empty-states/specs-2.p
 
 At times, there may be areas of your application that do not have data available to display. This can happen when there is an error loading data, there are no results for a particular search or filter criteria, etc. This is where empty state indicators come into play.
 
-<MaterialDesignDescription title={'Empty States'} url={'https://material.io/design/communication/empty-states.html'} />
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'Empty States'}
+        url={'https://material.io/design/communication/empty-states.html'}
+    />
+    <DemoCard
+        repository={'empty-states'}
+        angular={'https://pxblue-components.github.io/angular/?path=/story/components-empty-state--with-full-config'}
+        react={'https://pxblue-components.github.io/react/?path=/story/components-empty-state--with-full-config'}
+        ionic
+        reactNative
+    />
+    <Divider />
+</React.Fragment>
 
-<!-- @TODO switch empty-state links over to the "Component Recommendations style" instead of a "Interactive Code example" once we have one designed. -->
-
-<DemoCard
-    repository={'empty-states'}
-    angular={'https://pxblue-components.github.io/angular/?path=/story/components-empty-state--with-full-config'}
-    react={'https://pxblue-components.github.io/react/?path=/story/components-empty-state--with-full-config'}
-    ionic
-    reactNative
-/>
-
-## When to Use / When Not to Use
+# When to Use / When Not to Use
 
 You can refer to the Material Design Empty States guidelines for general usage instructions.
 
@@ -40,7 +43,9 @@ Empty states should **NOT** be used for:
 -   [Loading indicators](/patterns/loading)
 -   Welcome Screens
 
-## Anatomy
+<Divider />
+
+# Anatomy
 
 Empty states should include a large icon or graphic followed a brief headline/message. If necessary, additional explanatory text may follow.
 
@@ -50,13 +55,13 @@ If the data is empty but could be populated by a user action (such as adding a d
 
 <ImageGrid images={[Image1, Image2]} />
 
-### Variations
+## Variations
 
-#### Full-screen
+### Full-screen
 
 In the most common cases, Empty States should be used full-screen as the only content on a page. In this situation, the indicator should be centered on the page. In some cases, you may wish to use a large graphic as the background of the entire page as well (such as for features that will be coming soon).
 
-#### Element-level
+### Element-level
 
 While less common, empty states can also be used as an indicator for individual sections of a page rather than the entire page (such as a single card having no data on a dashboard / overview screen). In these cases, it may be appropriate to use a smaller icon and text depending on the available space.
 
@@ -71,14 +76,14 @@ While less common, empty states can also be used as an indicator for individual 
 
 Use the following components to implement this pattern:
 
-**Angular** and **Ionic**:
+**Angular** and **Ionic** - @pxblue/angular-components:
 
--   [@pxblue/angular-components/empty-state](https://pxblue-components.github.io/angular/?path=/info/components-empty-state--readme)
+-   [Empty State](https://pxblue-components.github.io/angular/?path=/info/components-empty-state--readme)
 
-**React**:
+**React** - @pxblue/react-components:
 
--   [@pxblue/react-components/empty-state](https://pxblue-components.github.io/react/?path=/info/components-empty-state--get-read-me-story)
+-   [Empty State](https://pxblue-components.github.io/react/?path=/info/components-empty-state--get-read-me-story)
 
-**React Native**:
+**React Native** - @pxblue/react-native-components:
 
--   [@pxblue/react-native-components/empty-state](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--empty-state)
+-   [Empty State](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--empty-state)

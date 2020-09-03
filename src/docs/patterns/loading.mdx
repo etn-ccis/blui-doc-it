@@ -1,24 +1,31 @@
-import { DemoCard, ImageGrid, MaterialDesignDescription } from '../../app/components';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
 import Image1 from '../../app/assets/design-patterns/loading-states/loading-state-load.png';
 import Image2 from '../../app/assets/design-patterns/loading-states/loading-state.png';
 import Image3 from '../../app/assets/design-patterns/empty-states/empty-states.png';
 import Image4 from '../../app/assets/design-patterns/empty-states/empty-states-with-background-image.png';
+import InlineSpinner from '../../app/assets/design-patterns/form-validation/verify-input-on-page-change.png';
 
 <!-- KEYWORDS: design pattern loading asynchronous api refresh -->
 
 # Loading & Waiting
 
-Often times, your application will need to load data from a remote location with some amount of latency. Other times, there may be areas of your application where there is no available data to display. This is where loading and empty state indicators come into play.
+Often times, your application will need to load data from (or send data to) a remote location with some amount of latency. When this happens, you will need to provide some indication to the user that something is happening. Different situations may call for different styles of indicator, explained below.
 
-## Loading Data
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'Progress Indicators'}
+        url={'https://material.io/components/progress-indicators'}
+    />
+    <Divider />
+</React.Fragment>
 
-<ImageGrid
-    images={[Image1, Image2]}
-    caption={'When data is loading, use placeholder shapes for where the data will appear.'}
-/>
-<DemoCard repository={'loading-states'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Floading-states%2Floading-states.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/loading-states/index.tsx&initialpath=loading-states'} ionic reactNative />
+# Anatomy
 
-When loading data for the first time, you do not want to show an empty screen while you are fetching data. Instead, you should show placeholders that mimic (using simple shapes) the data that will eventually be loaded. This will give the impression that your application is faster and gives users an indication of what kind of data is being loaded.
+## Variations
+
+### Initial Page Loading
+
+When loading data for the first time, you do not want to show an empty screen while you are fetching the data. Instead, you should show placeholders that mimic (using simple shapes) the data that will eventually be loaded. This will give the impression that your application is faster and gives users an indication of what kind of data is being loaded.
 
 The placeholder should match as closely as possible the real structure of the data. For example, if you are loading a list where each item has an icon, two lines of text, and an action button, then your placeholder should have a circle, two rectangles for the text, and another rectangle for the button. You should show as many placeholder elements as necessary to fill the area in the application that is loading data.
 
@@ -30,8 +37,87 @@ There are a number of libraries available to help you create this placeholder co
 -   [react-content-loader](https://www.npmjs.com/package/react-content-loader) (React)
 -   [rn-placeholder](https://www.npmjs.com/package/rn-placeholder) (React Native)
 
-### Refreshing Data
+<React.Fragment>
+    <ImageGrid
+        images={[Image1, Image2]}
+        caption={'When data is loading, use placeholder shapes for where the data will appear.'}
+    />
+    <DemoCard
+        repository={'loading-states'}
+        angular={
+            'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Floading-states%2Floading-states.component.ts'
+        }
+        react={
+            'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/loading-states/index.tsx&initialpath=loading-states'
+        }
+        ionic
+        reactNative
+    />
+</React.Fragment>
 
-When refreshing data, there are several approaches you can take. If you are showing real-time data (either via polling or a push mechanism from the server), there is no need to show large loading indicators. You may wish to show a small indicator or at least mention when the data was last refreshed so users can identify if the data is stale.
+### Full Screen
 
-If your users can manually refresh, you may wish to show the placeholder elements (as with initial load), or simply refresh the data behind the scenes (as with real-time). Ultimately, this should depend on how long it takes to refresh the data.
+Full screen progress indicators can be used when transitioning between multiple screens in a workflow (such as user registration) or refreshing / reloading a particular element on a page. These make use of a semi-transparent overlay with a large, centered spinner. This variation of indicator is useful when you want to block user interaction with the screen (or a section of the screen) while processing occurs.
+
+TODO: Image?
+
+### Inline Spinners
+
+Inline spinners can be used as an alternative to full-screen loading indicators. The most common application of inline spinners is during [Form](/patterns/forms) submission / verification. If you need to wait for a server response to validate inputs in a form (after clicking the submit button), you should disable the submit button and replace its label with a spinner. If the verification succeeds, the application should proceed to the next screen. If verification fails, the appropriate error messages should be displayed and the submit button label restored.
+
+<ImageGrid
+    images={[InlineSpinner]}
+    regularWidth
+    caption={[
+        'After the user clicks the submit button, the app waits for the server response, and displays an error message.',
+        '1: The helper text will be replaced by the error message. ',
+        '2: Use a circular progress indicator when waiting for responses from the server.',
+    ]}
+/>
+
+### Progress Bars
+
+Progress bars should be used sparingly in your application. They should only be used in situations where progress is discrete / measurable. For example, it could be used to indicate progress through a multi-step workflow or when uploading a file to a server.
+
+TODO: Image?
+
+<Divider />
+
+# Behavior
+
+## Refreshing Data
+
+### Real-time Data (Polling / Pub-Sub)
+
+If you are showing real-time data (either via polling or a push mechanism from the server), there is no need to show loading indicators. If you wish, you can display a small indicator when data is being refreshed or mention somewhere on the screen when the data was last refreshed so users can identify if the data is stale. You should avoid showing a loading indicator if your data is refreshed more than once per minute.
+
+### Manual Refresh
+
+If your users can manually refresh data on the screen, you may wish to show the placeholder elements (as with initial load), or simply refresh the data behind the scenes without indication (as with real-time). Ultimately, this should depend on how long it takes to refresh the data - if it takes more than one second to load the data, you should use an indicator.
+
+<Divider />
+
+# Design Specifications
+
+TODO: Spec Images
+
+<Divider />
+
+# Developers
+
+Use the following components to implement this pattern:
+
+**Angular** and **Ionic** - Angular Material:
+
+-   [Progress Spinner](https://material.angular.io/components/progress-spinner/overview)
+-   [Progress Bar](https://material.angular.io/components/progress-bar/overview)
+
+**React** - Material UI:
+
+-   [Circular Progress](https://material-ui.com/components/progress/#circular)
+-   [Linear Progress](https://material-ui.com/components/progress/#linear)
+
+**React Native** - React Native Paper:
+
+-   [Activity Indicator](https://callstack.github.io/react-native-paper/activity-indicator.html)
+-   [Progress Bar](https://callstack.github.io/react-native-paper/progress-bar.html)
