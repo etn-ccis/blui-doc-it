@@ -1,6 +1,7 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
-import Image1 from '../../app/assets/design-patterns/empty-states/empty-states.png';
-import Image2 from '../../app/assets/design-patterns/empty-states/empty-states-with-background-image.png';
+import Image1 from '../../app/assets/design-patterns/empty-states/empty-state-variations.png';
+import DesktopImage from '../../app/assets/design-patterns/empty-states/empty-state-desktop.png';
+import ElementImage from '../../app/assets/design-patterns/empty-states/empty-state-element.png';
 import Specs1Image from '../../app/assets/design-patterns/empty-states/specs-1.png';
 import Specs2Image from '../../app/assets/design-patterns/empty-states/specs-2.png';
 
@@ -21,6 +22,14 @@ At times, there may be areas of your application that do not have data available
         react={'https://pxblue-components.github.io/react/?path=/story/components-empty-state--with-full-config'}
         ionic
         reactNative
+    />
+    <ImageGrid
+        regularWidth
+        images={[Image1]}
+        caption={[
+            '1: Mobile screen showing empty state as a functionality placeholder.',
+            '2: Desktop screen with empty state and call to action button.',
+        ]}
     />
     <Divider />
 </React.Fragment>
@@ -53,9 +62,12 @@ The text on the screen should clearly indicate why there is no data to display, 
 
 If the data is empty but could be populated by a user action (such as adding a device to an empty device list), there should be a call-to-action button that will allow the user to add data.
 
-<ImageGrid images={[Image1, Image2]} />
-
 ## Variations
+
+<ImageGrid
+    images={[DesktopImage, ElementImage]}
+    caption={['Left: a full-screen empty state.', 'Right: empty state shown on an element (card).']}
+/>
 
 ### Full-screen
 
