@@ -24,7 +24,7 @@ export const patterns = [
         image: EmptyStatesImg,
     },
     {
-        title: 'Form Validation',
+        title: 'Forms and Validation',
         url: '/patterns/forms',
         description: 'Different states for common input fields.',
         image: FormValidationImg,
