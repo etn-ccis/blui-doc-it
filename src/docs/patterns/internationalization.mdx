@@ -1,5 +1,4 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
-import { Apple } from '../../app/assets/icons';
 import { Web } from '@material-ui/icons';
 import InternationalizationImage from '../../app/assets/design-patterns/internationalization/internationalization.svg';
 import IconsFlippedImage from '../../app/assets/design-patterns/internationalization/icons-flipped.png';
@@ -32,18 +31,10 @@ Internationalization, sometimes abreviated as "I18N", refers to the process of d
 
 # Changing Locales
 
-<React.Fragment>
-    <MaterialDesignDescription
-        title={'Language Support'}
-        url={'https://material.io/design/typography/language-support.html#language-considerations'}
-    />
-    <MaterialDesignDescription
-        title={'Localization'}
-        url={'https://developer.apple.com/localization#'}
-        description={`Apple's suggestions on designing for an international market.`}
-        avatar={<Apple style={{ width: 48, height: 48 }} />}
-    />
-</React.Fragment>
+<MaterialDesignDescription
+    title={'Language Support'}
+    url={'https://material.io/design/typography/language-support.html#language-considerations'}
+/>
 
 ## Translating the Text
 
@@ -57,7 +48,7 @@ Language options are typically offered in the user preference settings. In case 
 
 When showing a list of languages, you can decide whether you want to translate the language names or not (e.g., "English" vs. "Inglés"). There are pros and cons to each approach, so consider what makes the most sense for your application. Providing other cues (such as an icon) to help users find the language selection can help.
 
-## Converting Units, Currencies, and Number Formats
+## Converting Units, Currencies, and Formats
 
 While this usually goes with the locale settings, certain users might have different preferences, and there can be variations even within the same locale. You should provide the user with default settings when they first load a locale, but allow the users change their preferences, and remember it the next time they log in with that locale.
 
@@ -120,6 +111,18 @@ When you are designing for webpages (instead of applications), your primary goal
         title={'Design Localization and the New Web'}
         description={'An examination of localization in web design by Bitmatica Lab.'}
         url={'https://medium.com/bitmatica-lab/design-localization-and-the-new-web-f54f43c5f040#'}
+        avatar={<Web style={{ width: 48, height: 48 }} />}
+    />
+    <MaterialDesignDescription
+        title={'Localization'}
+        url={'https://developer.apple.com/localization#'}
+        description={`Apple's suggestions on designing for an international market.`}
+        avatar={<Web style={{ width: 48, height: 48 }} />}
+    />
+    <MaterialDesignDescription
+        title={'Localization - Market Finder'}
+        description={'Introduction to localization by Google Market Finder.'}
+        url={'https://marketfinder.thinkwithgoogle.com/intl/en_us/topic/localisation#'}
         avatar={<Web style={{ width: 48, height: 48 }} />}
     />
     <Divider />
