@@ -1,5 +1,5 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
-import { Web } from '@material-ui/icons';
+import { Link as LinkIcon } from '@material-ui/icons';
 import InternationalizationImage from '../../app/assets/design-patterns/internationalization/internationalization.svg';
 import IconsFlippedImage from '../../app/assets/design-patterns/internationalization/icons-flipped.png';
 import UIFlippedImage from '../../app/assets/design-patterns/internationalization/ui-flipped.png';
@@ -23,7 +23,7 @@ react={
 }
 />
 
-Internationalization and localization referes to a sequence of practices in adapting applications to various regions, languages, and cultures. You can accomplish this in your applications by considering the differences in language, scripts, and directionality.
+Internationalization and localization refer to a set of practices for adapting applications to different regions, languages, and cultures. You can accomplish this in your applications by considering the differences in language, scripts, and directionality.
 
 Internationalization, sometimes abreviated as "I18N", refers to the process of designing and developing a generic base product, free of systematic biases in language and culture. Localization, sometimes written as "L10N", talks about adapting or customizing a product to some specific areas. Internationalization and localization are both crucial in making your application prosper in a global market.
 
@@ -44,13 +44,13 @@ To localize your application content, you should create a string resource file o
 
 <ImageGrid images={[LanguageOptionsImage]} regularWidth />
 
-Language options are typically offered in the user preference settings. In case when a user authorization is absent (such as an application available to everyone on-site, or a public-facing website), the language option is expected in the app bar or in the footer.
+Language options are typically presented in the user preferences / settings section of an application. In the case where users do not require an account (such as a public-facing website), the language option is expected in the app bar or in the footer.
 
 When showing a list of languages, you can decide whether you want to translate the language names or not (e.g., "English" vs. "Inglés"). There are pros and cons to each approach, so consider what makes the most sense for your application. Providing other cues (such as an icon) to help users find the language selection can help.
 
 ## Converting Units, Currencies, and Formats
 
-While this usually goes with the locale settings, certain users might have different preferences, and there can be variations even within the same locale. You should provide the user with default settings when they first load a locale, but allow the users change their preferences, and remember it the next time they log in with that locale.
+Units, currency, and date / time formats are usually linked with a particular locale. However, there can be differences in usage even within a single locale. You should provide users with the option to change these values (if appropriate for your application) in their locale settings.
 
 ## Checking for Spacing
 
@@ -75,7 +75,7 @@ Different languages/writing systems may require different vertical and horizonta
     url={'https://material.io/design/usability/bidirectionality.html'}
 />
 
-Some languages, such as Arabic and Hebrew, are read from right to left. Applications supporting these languages will need to mirror the UI so the natural flow is from right to left. For example, navigation drawers should be displayed on the right side of the screen, icons should be to the right of the text in buttons, and any icons with directionality should be mirrored.
+Some languages, such as Arabic and Hebrew, are read from right to left. Applications supporting these languages will need to mirror the UI so the natural flow is from right to left. For example, navigation drawers should be displayed on the right side of the screen, icons should be to the right of the text in buttons, and [any icons with directionality](https://material.io/design/usability/bidirectionality.html#mirroring-elements) should be mirrored.
 
 <ImageGrid
     images={[UIFlippedImage]}
@@ -96,13 +96,9 @@ Some languages, such as Arabic and Hebrew, are read from right to left. Applicat
 
 ## Cultural Differences
 
-<ImageGrid
-    images={[CulturalDifferencesImage]}
-    regularWidth
-    caption={'People from different cultures are appealed to different things.'}
-/>
+<ImageGrid images={[CulturalDifferencesImage]} regularWidth />
 
-Addressing the cultural differences is the key concern of the localization. Sometimes certain UI elements convey different meaning in different cultures. For example, in America, the red color in the stock market indicates a decline, while in China the same color indicates a rise. A thumb-up gesture usually expresses an approval in English-speaking country, yet the gesture can have a negative meaning in Iraq. When designing for a new market, you are encouraged to have a local consultant run an audit for your application.
+Addressing cultural differences is the key concern of localization. Sometimes certain UI elements convey different meaning in different cultures. For example, in America, the red color in the stock market indicates a decline, while in China the same color indicates a rise. A thumbs-up gesture usually expresses an approval in English-speaking country, yet the gesture can have a negative meaning in Iraq. When designing for a new market, you are encouraged to have a local consultant run an audit for your application.
 
 When you are designing for webpages (instead of applications), your primary goal is to advertise your products and services, and appeal to the local market. The language tone, page style, and choice of image assets are expected to be tailored for different targeted culture. Likewise, your user study and market research conclusions derived under a certain cultural background might not apply to another culture.
 
@@ -111,19 +107,19 @@ When you are designing for webpages (instead of applications), your primary goal
         title={'Design Localization and the New Web'}
         description={'An examination of localization in web design by Bitmatica Lab.'}
         url={'https://medium.com/bitmatica-lab/design-localization-and-the-new-web-f54f43c5f040#'}
-        avatar={<Web style={{ width: 48, height: 48 }} />}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
     />
     <MaterialDesignDescription
         title={'Localization'}
         url={'https://developer.apple.com/localization#'}
         description={`Apple's suggestions on designing for an international market.`}
-        avatar={<Web style={{ width: 48, height: 48 }} />}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
     />
     <MaterialDesignDescription
         title={'Localization - Market Finder'}
         description={'Introduction to localization by Google Market Finder.'}
         url={'https://marketfinder.thinkwithgoogle.com/intl/en_us/topic/localisation#'}
-        avatar={<Web style={{ width: 48, height: 48 }} />}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
     />
     <Divider />
 </React.Fragment>
@@ -138,8 +134,8 @@ For projects that need the ability to swap between languages, we recommend using
 
 ## React
 
-There are many JS libraries available to help internationalize your applications. We recommend using a third-party solution [react-i18next](https://github.com/i18next/react-i18next).
+There are many JS libraries available to help internationalize your applications. We recommend using [react-i18next](https://github.com/i18next/react-i18next) to manage your translations. If you are supporting right-to-left languages, you should also carefully follow the guide from [Material-UI](https://material-ui.com/guides/right-to-left).
 
 ## React Native
 
-For mirroring the user interface, we recommend using [I18nManager](https://reactnative.dev/blog/2016/08/19/right-to-left-support-for-react-native-apps). To manage your translation string, we recommend [react-i18next](https://react.i18next.com/).
+As with React for web, we recommend using [react-i18next](https://github.com/i18next/react-i18next) to manage your translations. If you are supporting right-to-left languages, you can make use of the [I18nManager](https://reactnative.dev/blog/2016/08/19/right-to-left-support-for-react-native-apps) from React Native.
