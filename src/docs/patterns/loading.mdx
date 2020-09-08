@@ -1,7 +1,11 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
 import LoadingMobile from '../../app/assets/design-patterns/loading-states/mobile-loading-state.png';
 import LoadedModal from '../../app/assets/design-patterns/loading-states/mobile-loaded-state.png';
+import DesktopLoading from '../../app/assets/design-patterns/loading-states/desktop-loading.gif';
+import OverlaySpinner from '../../app/assets/design-patterns/loading-states/overlay-spinner.png';
 import InlineSpinner from '../../app/assets/design-patterns/form-validation/verify-input-on-page-change.png';
+import MiniSpinner from '../../app/assets/design-patterns/loading-states/mini-spinner.png';
+import Specs from '../../app/assets/design-patterns/loading-states/specs-1.png';
 
 <!-- KEYWORDS: design pattern loading asynchronous api refresh -->
 
@@ -31,6 +35,11 @@ The placeholder should match as closely as possible the real structure of the da
         images={[LoadingMobile, LoadedModal]}
         caption={'When data is loading, use placeholder shapes for where the data will appear.'}
     />
+    <ImageGrid
+        regularWidth
+        images={[DesktopLoading]}
+        caption={'Show a transition on the placeholder shapes to indicate progress.'}
+    />
     <DemoCard
         repository={'loading-states'}
         angular={
@@ -48,7 +57,11 @@ The placeholder should match as closely as possible the real structure of the da
 
 Spinner overlays make use of a semi-transparent overlay with a large, centered spinner. This variation of indicator is useful when you want to block user interaction with the screen (or a section of the screen) while processing occurs.
 
-TODO: Image?
+<ImageGrid
+    regularWidth
+    images={[OverlaySpinner]}
+    caption={['1: Use of overlay spinner when loading EULA.', '2. Remove the overlay once the data is loaded.']}
+/>
 
 ## Contextual Spinners
 
@@ -68,8 +81,6 @@ Contextual spinners can be used as an alternative to spinner overlays in certain
 
 Progress bars should be used sparingly in your application. They should only be used in situations where progress is discrete / measurable. For example, it could be used to indicate progress when uploading a file to a server.
 
-TODO: Image?
-
 <Divider />
 
 # Behavior
@@ -78,7 +89,11 @@ TODO: Image?
 
 If you are showing real-time data (either via polling or a push mechanism from the server), there is no need to show loading indicators. If you wish, you can display a small indicator when data is being refreshed or mention somewhere on the screen when the data was last refreshed so users can identify if the data is stale. You should avoid showing a loading indicator if your data is refreshed more than once per minute.
 
-TODO: Image
+<ImageGrid
+    regularWidth
+    images={[MiniSpinner]}
+    caption={'You can place a small loading icon in the header when data is updating.'}
+/>
 
 ## Manual Refresh
 
@@ -88,9 +103,16 @@ If your users can manually refresh data on the screen, you may wish to show the 
 
 # Design Specifications
 
-TODO: Spec Images
+Context plays an important role in sizing your indicators. If you are using them in a small container, you may need to scale down from the recommended size.
 
-<Divider />
+<React.Fragment>
+    <ImageGrid
+        regularWidth
+        images={[Specs]}
+        caption={['1. Overlay spinners should default to size 96.', '2. Contextual button spinners should use size 12.']}
+    />
+    <Divider />
+</React.Fragment>
 
 # Developers
 
