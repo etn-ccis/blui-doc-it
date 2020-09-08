@@ -1,6 +1,6 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
-import Image1 from '../../app/assets/design-patterns/loading-states/loading-state-load.png';
-import Image2 from '../../app/assets/design-patterns/loading-states/loading-state.png';
+import LoadingMobile from '../../app/assets/design-patterns/loading-states/mobile-loading-state.png';
+import LoadedModal from '../../app/assets/design-patterns/loading-states/mobile-loaded-state.png';
 import InlineSpinner from '../../app/assets/design-patterns/form-validation/verify-input-on-page-change.png';
 
 <!-- KEYWORDS: design pattern loading asynchronous api refresh -->
@@ -17,27 +17,18 @@ Often times, your application will need to load data from (or send data to) a re
     <Divider />
 </React.Fragment>
 
-# Anatomy
+# Variations
+There are a number of different ways to indicate to a user that something is happening / loading behind the scenes. Different variations are appropriate in different situations.
 
-## Variations
-
-### Initial Page Loading
+## Placeholder Shapes
 
 When loading data for the first time, you do not want to show an empty screen while you are fetching the data. Instead, you should show placeholders that mimic (using simple shapes) the data that will eventually be loaded. This will give the impression that your application is faster and gives users an indication of what kind of data is being loaded.
 
-The placeholder should match as closely as possible the real structure of the data. For example, if you are loading a list where each item has an icon, two lines of text, and an action button, then your placeholder should have a circle, two rectangles for the text, and another rectangle for the button. You should show as many placeholder elements as necessary to fill the area in the application that is loading data.
-
-There are a number of libraries available to help you create this placeholder content, such as:
-
--   [@netbasal/ngx-content-loader](https://www.npmjs.com/package/@netbasal/ngx-content-loader) (Angular, Ionic)
--   [ion-skeleton-text](https://ionicframework.com/docs/api/skeleton-text) (Ionic)
--   [placeholder-loading](https://www.npmjs.com/package/placeholder-loading) (React, Angular, Ionic)
--   [react-content-loader](https://www.npmjs.com/package/react-content-loader) (React)
--   [rn-placeholder](https://www.npmjs.com/package/rn-placeholder) (React Native)
+The placeholder should match as closely as possible the real structure of the data. For example, if you are loading a list where each item has an icon, two lines of text, and an action button, then your placeholder should have a circle, two rectangles for the text, and another rectangle for the button. You should show as many placeholder elements as necessary to fill the area in the application that is loading data. You will want to apply an animation on the placeholder shapes to give a sense of progress.
 
 <React.Fragment>
     <ImageGrid
-        images={[Image1, Image2]}
+        images={[LoadingMobile, LoadedModal]}
         caption={'When data is loading, use placeholder shapes for where the data will appear.'}
     />
     <DemoCard
@@ -53,15 +44,15 @@ There are a number of libraries available to help you create this placeholder co
     />
 </React.Fragment>
 
-### Full Screen
+## Spinner Overlays
 
-Full screen progress indicators can be used when transitioning between multiple screens in a workflow (such as user registration) or refreshing / reloading a particular element on a page. These make use of a semi-transparent overlay with a large, centered spinner. This variation of indicator is useful when you want to block user interaction with the screen (or a section of the screen) while processing occurs.
+Spinner overlays make use of a semi-transparent overlay with a large, centered spinner. This variation of indicator is useful when you want to block user interaction with the screen (or a section of the screen) while processing occurs.
 
 TODO: Image?
 
-### Inline Spinners
+## Contextual Spinners
 
-Inline spinners can be used as an alternative to full-screen loading indicators. The most common application of inline spinners is during [Form](/patterns/forms) submission / verification. If you need to wait for a server response to validate inputs in a form (after clicking the submit button), you should disable the submit button and replace its label with a spinner. If the verification succeeds, the application should proceed to the next screen. If verification fails, the appropriate error messages should be displayed and the submit button label restored.
+Contextual spinners can be used as an alternative to spinner overlays in certain situations. The most common application of contextual spinners is during [Form](/patterns/forms) submission / verification. If you need to wait for a server response to validate inputs in a form (after clicking the submit button), you should disable the submit button and replace its label with a spinner. If the verification succeeds, the application should proceed to the next screen. If verification fails, the appropriate error messages should be displayed and the submit button label restored.
 
 <ImageGrid
     images={[InlineSpinner]}
@@ -73,9 +64,9 @@ Inline spinners can be used as an alternative to full-screen loading indicators.
     ]}
 />
 
-### Progress Bars
+## Progress Bars
 
-Progress bars should be used sparingly in your application. They should only be used in situations where progress is discrete / measurable. For example, it could be used to indicate progress through a multi-step workflow or when uploading a file to a server.
+Progress bars should be used sparingly in your application. They should only be used in situations where progress is discrete / measurable. For example, it could be used to indicate progress when uploading a file to a server.
 
 TODO: Image?
 
@@ -83,13 +74,13 @@ TODO: Image?
 
 # Behavior
 
-## Refreshing Data
-
-### Real-time Data (Polling / Pub-Sub)
+## Real-time Data (Polling / Pub-Sub)
 
 If you are showing real-time data (either via polling or a push mechanism from the server), there is no need to show loading indicators. If you wish, you can display a small indicator when data is being refreshed or mention somewhere on the screen when the data was last refreshed so users can identify if the data is stale. You should avoid showing a loading indicator if your data is refreshed more than once per minute.
 
-### Manual Refresh
+TODO: Image
+
+## Manual Refresh
 
 If your users can manually refresh data on the screen, you may wish to show the placeholder elements (as with initial load), or simply refresh the data behind the scenes without indication (as with real-time). Ultimately, this should depend on how long it takes to refresh the data - if it takes more than one second to load the data, you should use an indicator.
 
@@ -103,7 +94,19 @@ TODO: Spec Images
 
 # Developers
 
-Use the following components to implement this pattern:
+## Placeholder Shapes
+
+There are a number of libraries available to help you create placeholder shapes, such as:
+
+-   [@netbasal/ngx-content-loader](https://www.npmjs.com/package/@netbasal/ngx-content-loader) (Angular, Ionic)
+-   [ion-skeleton-text](https://ionicframework.com/docs/api/skeleton-text) (Ionic)
+-   [placeholder-loading](https://www.npmjs.com/package/placeholder-loading) (React, Angular, Ionic)
+-   [react-content-loader](https://www.npmjs.com/package/react-content-loader) (React)
+-   [rn-placeholder](https://www.npmjs.com/package/rn-placeholder) (React Native)
+
+## Progress Indicators
+
+Additionally, you should use the following progress / spinner components:
 
 **Angular** and **Ionic** - Angular Material:
 
