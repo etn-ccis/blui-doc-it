@@ -159,7 +159,10 @@ TODO
 
 Coming soon...
 
-TODO: The following section feels very specific and detailed. Is this something that exists elsewhere that we could link out to instead of including it all here?
+<Divider />
+<Divider />
+
+# TODO: The following section feels very specific and detailed. Is this something that exists elsewhere that we could link out to instead of including it all here?
 
 ### Breakable Selectors
 
@@ -187,17 +190,13 @@ Working with web-driver types of testing frameworks will require additional tool
 For example, identifying a delete button:
 
 1. Selenium page object generator via css:
-     
-    @FindBy(css = "app footer.mat-simple-snackbar div button:nth-of-type(1)") @CacheLookup private WebElement delete;
+   @FindBy(css = "app footer.mat-simple-snackbar div button:nth-of-type(1)") @CacheLookup private WebElement delete;
 2. Browser developer tools via element:
-     
-    <mat-icon _ngcontent-c6="" class="mat-icon material-icons" role="img" aria-hidden="true">delete</mat-icon>
+   <mat-icon _ngcontent-c6="" class="mat-icon material-icons" role="img" aria-hidden="true">delete</mat-icon>
 3. Browser developer tools via selector:
-     
-    body > app > footer > div > button:nth-child(1) > span > mat-icon
+   body > app > footer > div > button:nth-child(1) > span > mat-icon
 4. Browser developer tools via xPath:
-     
-    /html/body/app/footer/div/button[1]
+   /html/body/app/footer/div/button[1]
 
 The common example above will require additional work to use in a web-driver type framework automation test. It will require changes to the TypeScript or Javascript code to provide unique IDs (and some Javascript platforms will actually override these with their automatically generated IDs anyway). If you have an existing application, going back and making (potentially) breaking changes (i.e., changing element IDs) to the code is not desirable. With web-driver testing type frameworks, you can simply add a "dev-id" to the element's html and use that ID as the unique identifying characteristic for the selector.
 Example:
