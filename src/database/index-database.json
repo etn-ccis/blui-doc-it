@@ -7207,7 +7207,7 @@
         "considering": [{ "/patterns/internationalization": 1 }],
         "directionality": [{ "/patterns/internationalization": 3 }],
         "sometimes": [{ "/patterns/internationalization": 3 }, { "/patterns/steppers": 2 }, { "/patterns/lists": 1 }],
-        "abreviated": [{ "/patterns/internationalization": 1 }],
+        "abbreviated": [{ "/patterns/internationalization": 1 }],
         "refers": [{ "/patterns/internationalization": 1 }],
         "generic": [{ "/patterns/internationalization": 1 }],
         "systematic": [{ "/patterns/internationalization": 1 }],
