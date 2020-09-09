@@ -110,48 +110,54 @@ Functional tests alone will not give you enough test coverage to avoid regressio
 End-to-end tests rely on the ability to find elements on the screen and interact with them in an automated way. This means that you need a reliable mechanism for selecting elements. Depending on your testing framework, there are different ways to select elements, including:
 
 -   **CSS Selectors**: find elements by using CSS classes or rules (e.g., `.your-class-name`)
--   **Element Selectors**: TODO
--   **xPath Selectors**: TODO
--   **ID Selectors**: TODO
+-   **Element Selectors**: find elements inside the elements (e.g., `#\@\@pxb-drawerlayout-content > div > header > div > button`)
+-   **xPath Selectors**: find selector within xPath (e.g., `//*[@id="@@pxb-drawerlayout-content"]/div/header/div/button`)
+-   **ID Selectors**: find attribute id within elements (e.g., `#login-button`)
+
+See selector strategies on [browserstack](https://www.browserstack.com/guide/css-selectors-in-selenium) and [software testing help](https://www.softwaretestinghelp.com/css-selector-selenium-locator-selenium-tutorial-6/)
 
 Each of these methods has their own advantages and disadvantages. A common pain point in E2E test automation is that modern Javascript platforms are constantly changing, particularly in the open source community. Many of these frameworks automatically (and dynamically) generate IDs and classes for components resulting in a constantly moving target for automation tooling. Identifying elements by these values (i.e., using IDs, CSS, or xPath locators _without_ property attributes) makes your tests brittle because they are subject to change any time a new version comes out (or even any time the page is reloaded).
 
 One way to combat this in your own applications is to use dedicated attributes for testing (e.g., `test-id` or `dev-id`). By adding this test-specific attribute to the element, identifying the correct underlying component should be safer. Because this attribute is test-specific and the application logic does not use it, it will be less likely to change throughout the product lifecycle. Combining this approach with other selectors is a common and reliable approach for element identification.
 
-TODO: maybe a very simple example here of an element and how you could select it
-
 ```html
 <button test-id="login-button" class="default-button">Login</button>
+```
+Selector to use in a test
+
+```
+WebElement click = driver.findElement(By.id("login-button"));
 ```
 
 ## Testing Frameworks
 
-TODO: Consider which of these we want to call out (if any) and give a brief blurb about pros/cons of each.
-
 There are many tools available for configuring automated E2E tests. Some of the more popular tools include:
 
 -   Selenium
--   Protractor
 -   Cypress
 -   WebDriverIO
 
 ### Selenium
 
-TODO
+Selenium is a popular automation testing suite which can be used to automate the desktop and mobile web browser interactions. You can perform automation testing by writing code in any of your preferred language supported by Selenium.
 
-### Protractor
+Selenium test suite has several test frameworks available and each one can be custmized to your project needs. 
 
-TODO
+For more information see [browserstack](https://www.browserstack.com/guide/selenium-framework) selenium guide or [selenium on github](https://github.com/SeleniumHQ/selenium) documentation.
+
+For selenium tutorial series see [software testing help](https://www.softwaretestinghelp.com/selenium-tutorial-1/)
 
 ### Cypress
 
-Cypress is an open source testing framework that boasts support for any modern JavaScript framework. It works well for E2E tests in both Angular and React applications and is easier to use than some of the more traditional tools, such as Selenium.
+Cypress is a popular open source testing framework that boasts support for any modern JavaScript framework. It works well for E2E tests in both Angular and React applications and is easier to use than some of the more traditional tools, such as Selenium.
 
 For a more detailed write-up on Cypress, check out the official [Cypress Documentation](https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements).
 
 ### WebDriverIO
 
-TODO
+WebdriverIO is a popular Javascript based test automation framework built over nodeJs. It is an open-source project developed for the automation testing community. WebdriverIO is extendible, compatible and feature-rich.
+
+For more information see [webdriver.io](https://webdriver.io/) and [webdriver.io](https://webdriver.io/docs/gettingstarted.html) getting started.
 
 <Divider />
 
@@ -160,83 +166,3 @@ TODO
 Coming soon...
 
 <Divider />
-<Divider />
-
-# TODO: The following section feels very specific and detailed. Is this something that exists elsewhere that we could link out to instead of including it all here?
-
-### Breakable Selectors
-
-In the web application context, there are several ways to find an element and they aren’t all equal and brittle to changes in the UI.
-
-The CSS selector e.g. `.sign-in-btn`
-Classes are liable to change, so these are liable to break.
-
-The `:nth-child()` selector. Orderings of elements at the same hierarchical level seems to be subject to error messages from your test runner harder to understand.
-
-The element selector `<mat-icon _ngcontent-c6="" class="mat-icon material-icons" role="img" aria-hidden="true">delete</mat-icon>` is subject to change and becomes an issue if there are several delete buttons on a single page or when the page refreshes.
-
-The xPath selector `/html/body/app/footer/div/button[1]` is also subject change and can become an issue over time as the application UI changes.
-
-The ID selector `#thumbnail` It seems like IDs almost never change, but they can. There may also be other reasons to avoid adding them to elements, such as if the UI framework you are using inserts and relies on them internally.
-
-The `data-test=”some-unique-id”` attribute. This is an attribute added to the target element and gives the test a handle. It can be as descriptive as you want, and the test will be able to find it. It is totally impervious to changes in layout, ID, styles, and even element type.
-
-A common pain point in UI test automation and end-to-end testing is that modern Javascript platforms are constantly changing, particularly in the open source community. The majority of front-end development frameworks auto-generate IDs and classes for components that are used internally, but this can make it difficult to locate elements via test automation tooling. Identifying elements by these values (e.g., using IDs, CSS or xPath locators "without" property attributes) makes your tests brittle because they are subject to change any time a new version comes out (or even any time the page is refreshed).
-
-Working with web-driver types of testing frameworks will require additional tools to help identify elements on a page, such as Selenium's page object generator or browser developer tools that assists in writing tests.
-
-### Examples of common elements and finding selectors
-
-For example, identifying a delete button:
-
-1. Selenium page object generator via css:
-   @FindBy(css = "app footer.mat-simple-snackbar div button:nth-of-type(1)") @CacheLookup private WebElement delete;
-2. Browser developer tools via element:
-   <mat-icon _ngcontent-c6="" class="mat-icon material-icons" role="img" aria-hidden="true">delete</mat-icon>
-3. Browser developer tools via selector:
-   body > app > footer > div > button:nth-child(1) > span > mat-icon
-4. Browser developer tools via xPath:
-   /html/body/app/footer/div/button[1]
-
-The common example above will require additional work to use in a web-driver type framework automation test. It will require changes to the TypeScript or Javascript code to provide unique IDs (and some Javascript platforms will actually override these with their automatically generated IDs anyway). If you have an existing application, going back and making (potentially) breaking changes (i.e., changing element IDs) to the code is not desirable. With web-driver testing type frameworks, you can simply add a "dev-id" to the element's html and use that ID as the unique identifying characteristic for the selector.
-Example:
-
-```html
-<div>
-    <button mat-icon-button (click)="deleteItems()" dev-id="snackbar-delete-btn">
-        <mat-icon>delete</mat-icon>
-    </button>
-</div>
-```
-
-After adding the "dev-id" to the element, the identification of the delete button will never have to change, making it safe even if the underlying component code changes. When you inspect the web element via developer tools you will now see the "dev-id" in the attribute’s property of the element, containing nodeValue="snackbar-delete-btn". This approach is common and now the delete button can be called by its locator and selector via ID, CSS or xPath making it more reliable because it contains a structure-based location with a custom attribute of "dev-id".
-Example of the element with dev-id:
-
-```html
-<button _ngcontent-c6="" dev-id="snackbar-delete-btn" mat-icon-button="" class="mat-icon-button">
-    <span class="mat-button-wrapper">
-        <mat-icon _ngcontent-c6="" class="mat-icon material-icons" role="img" aria-hidden="true">delete</mat-icon>
-    </span>
-    <div
-        class="mat-button-ripple mat-ripple mat-button-ripple-round"
-        matripple=""
-        ng-reflect-centered="true"
-        ng-reflect-disabled="false"
-        ng-reflect-trigger="[object HTMLButtonElement]"
-    ></div>
-    <div class="mat-button-focus-overlay"></div>
-</button>
-```
-
-Example of use in a test
-
-```tsx
-getDeleteButton() {return element(by.css('button.mat-icon-button:nth-of-type(1)')).getId(dev-id);})
-
-WebElement click = driver.findelement(by.css('button.mat-icon-button:nth-of-type(1)')).click();
-
-WebElement click = driver.findElement(By.id("snackbar-delete-btn")).click();
-
-WebElement click = driver.findElement(By.xpath("//button[contains(@dev-id='snackbar-delete-btn')]")).click();
-
-```
