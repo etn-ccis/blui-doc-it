@@ -24,6 +24,10 @@ type InfoCardProps = {
     title: string;
     description: string;
     spacing: number;
+    background?: {
+        size?: string;
+        position?: string;
+    };
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -43,6 +47,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const InfoCard: React.FC<InfoCardProps> = (props): JSX.Element => {
+    const { background = {} } = props;
     const theme = useTheme();
     const classes = useStyles();
     return (
@@ -59,6 +64,8 @@ export const InfoCard: React.FC<InfoCardProps> = (props): JSX.Element => {
                 style={{
                     backgroundImage: `url(${props.source})`,
                     paddingTop: getTopPaddingForAspectRatio(props.aspectRatio),
+                    backgroundPosition: background.position,
+                    backgroundSize: background.size,
                 }}
                 className={classes.image}
             />

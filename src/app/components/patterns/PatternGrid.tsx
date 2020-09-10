@@ -8,6 +8,10 @@ type Pattern = {
     url: string;
     description: string;
     image: string;
+    background?: {
+        size?: string;
+        position?: string;
+    };
 };
 type PatternGridProps = GridProps & {
     patterns: Pattern[];
@@ -24,6 +28,7 @@ export const PatternGrid: React.FC<PatternGridProps> = (props): JSX.Element => {
                         spacing={6}
                         source={pattern.image}
                         onClick={(): void => history.push(pattern.url)}
+                        background={pattern.background}
                         aspectRatio={'1x1'} // using 1x1 for now until we find better thumbnail pics
                         title={pattern.title}
                         description={pattern.description}
