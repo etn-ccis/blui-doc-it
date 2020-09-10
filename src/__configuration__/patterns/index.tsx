@@ -41,6 +41,9 @@ export const patterns = [
         url: '/patterns/internationalization',
         description: 'Make your application available in multiple languages.',
         image: InternationalizationImg,
+        background: {
+            position: 'center',
+        },
     },
     {
         title: 'Lists',
