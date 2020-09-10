@@ -75,10 +75,10 @@ const Headline: React.FC<Headline> = ({
             {...otherDivProps}
             style={{ ...REGULAR_WIDTH_STYLE, ...otherDivProps.style }}
         >
+            <span id={hash} style={{ position: 'relative', top: -90 }} />
             <Typography
                 paragraph
                 color={'primary'}
-                id={hash}
                 component={'span'}
                 {...otherTypographyProps}
                 style={{ hyphens: 'auto', display: 'flex', ...otherTypographyProps.style }}
