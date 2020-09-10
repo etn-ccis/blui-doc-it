@@ -26,7 +26,7 @@ Unit tests target the smallest pieces of your application (such as verifying inp
 
 > Code Coverage measures the percentage of your code that is verified by your tests.
 
-A unit test shouldn't have any external dependencies, such as other methods or APIs. By keeping unit tests isolated in this manner, it's easy to identify the cause of a failing test an implement a fix quickly. When you start combining features and methods together, you move into the realm of _integration testing_.
+A unit test shouldn't have any external dependencies, such as other methods or APIs. By keeping unit tests isolated in this manner, it's easy to identify the cause of a failing test and implement a fix quickly. When you start combining features and methods together, you move into the realm of _integration testing_.
 
 ## When to Write
 
@@ -44,8 +44,6 @@ When unit testing components, the most effective tests are based on what is actu
 
 For example, consider testing an Open Button that should open a modal dialog when clicked. Your test should check that a button with the _Open_ label is rendered on the screen, and when it is clicked, the dialog is rendered on the screen with the correct content. You may be tempted to identify the button by a class or id, or test that a particular function is called when the button is pressed - these tests are not as effective because they are more likely to break if the implementation of the component changes, even though the end behavior is the same.
 
-In general:
-
 -   Test what the user sees (i.e., rendered output) and what the user can do (i.e., interactions).
 -   If there is visual change after an interaction, test for it.
 -   If there is a value returned after an action, test for it.
@@ -53,8 +51,6 @@ In general:
 ## Testing Frameworks
 
 Angular, React, and React Native all come with built-in unit testing frameworks. Ionic can be unit tested using the same tools you would use for a standard Angular application.
-
-For consistency, you should stick to using these standard tools unless you have a compelling reason to use an alternative.
 
 ### Angular
 
@@ -114,29 +110,27 @@ End-to-end tests rely on the ability to find elements on the screen and interact
 -   **xPath Selectors**: find selector within xPath (e.g., `//*[@id="@@pxb-drawerlayout-content"]/div/header/div/button`)
 -   **ID Selectors**: find attribute id within elements (e.g., `#login-button`)
 
-See selector strategies on [browserstack](https://www.browserstack.com/guide/css-selectors-in-selenium) and [software testing help](https://www.softwaretestinghelp.com/css-selector-selenium-locator-selenium-tutorial-6/)
+> You can read more about different selector strategies on [browserstack](https://www.browserstack.com/guide/css-selectors-in-selenium) and [software testing help](https://www.softwaretestinghelp.com/css-selector-selenium-locator-selenium-tutorial-6/).
 
 Each of these methods has their own advantages and disadvantages. A common pain point in E2E test automation is that modern Javascript platforms are constantly changing, particularly in the open source community. Many of these frameworks automatically (and dynamically) generate IDs and classes for components resulting in a constantly moving target for automation tooling. Identifying elements by these values (i.e., using IDs, CSS, or xPath locators _without_ property attributes) makes your tests brittle because they are subject to change any time a new version comes out (or even any time the page is reloaded).
 
 One way to combat this in your own applications is to use dedicated attributes for testing (e.g., `test-id` or `dev-id`). By adding this test-specific attribute to the element, identifying the correct underlying component should be safer. Because this attribute is test-specific and the application logic does not use it, it will be less likely to change throughout the product lifecycle. Combining this approach with other selectors is a common and reliable approach for element identification.
 
 ```html
-<button test-id="login-button" class="default-button">Login</button>
-```
+// Component code
 
-Selector to use in a test
+<button id="login-button" class="default-button">Login</button>
 
-```
-WebElement click = driver.findElement(By.id("login-button"));
+// Selector to use in a test WebElement click = driver.findElement(By.id("login-button"));
 ```
 
 ## Testing Frameworks
 
 There are many tools available for configuring automated E2E tests. Some of the more popular tools include:
 
--   Selenium
--   Cypress
--   WebDriverIO
+-   [Selenium](https://www.selenium.dev/documentation/en/)
+-   [Cypress](https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell)
+-   [WebDriverIO](https://webdriver.io/docs/gettingstarted.html)
 
 ### Selenium
 
@@ -144,9 +138,9 @@ Selenium is a popular automation testing suite which can be used to automate the
 
 Selenium test suite has several test frameworks available and each one can be custmized to your project needs.
 
-For more information see [browserstack](https://www.browserstack.com/guide/selenium-framework) selenium guide or [selenium on github](https://github.com/SeleniumHQ/selenium) documentation.
+For more information, check out the browserstack [selenium guide](https://www.browserstack.com/guide/selenium-framework) or the official [selenium documentation](https://github.com/SeleniumHQ/selenium).
 
-For selenium tutorial series see [software testing help](https://www.softwaretestinghelp.com/selenium-tutorial-1/)
+There are also a number of [Selenium tutorials](https://www.softwaretestinghelp.com/selenium-tutorial-1/) available online to help you get started.
 
 ### Cypress
 
@@ -156,14 +150,8 @@ For a more detailed write-up on Cypress, check out the official [Cypress Documen
 
 ### WebDriverIO
 
-WebdriverIO is a popular Javascript based test automation framework built over nodeJs. It is an open-source project developed for the automation testing community. WebdriverIO is extendible, compatible and feature-rich.
+WebdriverIO is a popular Javascript based test automation framework built on top of node.js. It is an open-source project developed for the automation testing community. WebdriverIO is extendible, compatible and feature-rich.
 
-For more information see [webdriver.io](https://webdriver.io/) and [webdriver.io](https://webdriver.io/docs/gettingstarted.html) getting started.
-
-<Divider />
-
-# Mobile Device Testing
-
-Coming soon...
+For more information, check out the official [Webdriver.io documentation](https://webdriver.io/) and their [getting started guide](https://webdriver.io/docs/gettingstarted.html).
 
 <Divider />
