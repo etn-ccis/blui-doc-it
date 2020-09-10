@@ -110,7 +110,7 @@ export const componentsMap = {
     h1: (props: TypographyProps): JSX.Element => (
         <Headline
             className={'markdownH1'}
-            style={{ marginBottom: 32 }}
+            style={{ marginBottom: 32, hyphens: 'auto' }}
             hash={getHash(props.children?.toString() || 'h1')}
             TypographyProps={{ variant: 'h4', ...props }}
         />

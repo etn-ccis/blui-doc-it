@@ -23,9 +23,11 @@ react={
 }
 />
 
-Internationalization and localization refer to a set of practices for adapting applications to different regions, languages, and cultures. You can accomplish this in your applications by considering the differences in language, scripts, and directionality.
+Internationalization and localization refer to a set of practices for adapting applications to different regions, languages, and cultures. You can accomplish this in your applications or websites by considering the differences in language, scripts, and directionality.
 
-Internationalization, sometimes abbreviated as "I18N", refers to the process of designing and developing a generic base product, free of systematic biases in language and culture. Localization, sometimes written as "L10N", talks about adapting or customizing a product to some specific areas. Internationalization and localization are both crucial in making your application prosper in a global market.
+Internationalization, sometimes abbreviated as "I18N," refers to the process of designing products that are functionally independent of interfaces or interactions that rely on a specific language or cultural context. This process enables products or services to be equally experienced by people using any language or from any cultural background. Localization, sometimes written as "L10N," concerns adapting or customizing a product to some specific areas. Internationalization and localization are both crucial in making your application prosper in a global market.
+
+You should always consider Internationalization during the design process, especially if there is a vision for reaching our Global market. Understanding and capturing possible needs for localization should begin at the outset of any new product development, even if the short-term goal is focused on only one market.
 
 <Divider />
 
@@ -36,15 +38,15 @@ Internationalization, sometimes abbreviated as "I18N", refers to the process of 
     url={'https://material.io/design/typography/language-support.html#language-considerations'}
 />
 
-## Translating the Text
+## Translation
 
-To localize your application content, you should create a string resource file or object that contains the translations for any display text used in your application. You will not want to have any text hard-coded in your application's UI. To switch your application to another language, you simply toggle the file/object used to populate the UI to the appropriate translation.
+To localize your application content, you should create a string resource file or object that contains the translations for any display text used in your application. Do not have any text hard-coded in your application's UI. To switch your application to another language, you simply toggle the file/object used to populate the UI to the appropriate translation.
 
 ## Showing Language Options
 
 <ImageGrid images={[LanguageOptionsImage]} regularWidth />
 
-Language options are typically presented in the user preferences / settings section of an application. In the case where users do not require an account (such as a public-facing website), the language option is expected in the app bar or in the footer. You should provide cues (such as an icon) to help users locate the language selection.
+Language options are typically presented in the user preferences or settings section of an application. In the case where users do not require an account, such as on a public-facing website, the language option is expected in the app bar or in the footer. You should provide cues, such as an icon, to help users locate the language selection.
 
 When showing a list of languages, the language names should be presented in their own language (i.e., use "Español", not "Spanish").
 
@@ -52,7 +54,7 @@ When showing a list of languages, the language names should be presented in thei
 
 Units, currency, and date / time formats are usually linked with a particular locale. However, there can be differences in usage even within a single locale. You should provide users with the option to change these values (if appropriate for your application) in their locale settings.
 
-## Checking for Spacing
+## Checking for Layout
 
 <ImageGrid
     images={[ButtonWidthImage, TextFieldWidthImage]}
@@ -63,11 +65,11 @@ Units, currency, and date / time formats are usually linked with a particular lo
     ]}
 />
 
-Different languages/writing systems may require different vertical and horizontal space. To ensure flexibility, avoid using fixed dimensions for UI components such as buttons, labels, and badges. Also, consider setting different default display font sizes for languages that may have smaller glyphs.
+Different languages or writing systems may require different vertical and horizontal space. To ensure flexibility, avoid using fixed dimensions for UI components such as buttons, labels, and badges. Also, consider setting different default display font sizes for languages that may have smaller glyphs.
 
 > **NOTE:** PX Blue recommends using [Noto Sans](https://www.google.com/get/noto/#sans-lgc) for all non-western languages. You can read more on our [Typography](/style/typography) page.
 
-## Bi-directionality/Right-to-Left (RTL) Support
+## Bidirectionality / Right-to-Left (RTL) Support
 
 <MaterialDesignDescription
     title={'Bidirectionality'}
@@ -100,7 +102,7 @@ Some languages, such as Arabic and Hebrew, are read from right to left. Applicat
 
 Addressing cultural differences is the key concern of localization. Sometimes certain UI elements convey different meaning in different cultures. For example, in America, the red color in the stock market indicates a decline, while in China the same color indicates a rise. A thumbs-up gesture usually expresses an approval in English-speaking country, yet the gesture can have a negative meaning in Iraq. When designing for a new market, you are encouraged to have a local consultant run an audit for your application.
 
-When you are designing for webpages (instead of applications), your primary goal is to advertise your products and services, and appeal to the local market. The language tone, page style, and choice of image assets are expected to be tailored for different targeted culture. Likewise, your user study and market research conclusions derived under a certain cultural background might not apply to another culture.
+When you are designing for webpages, instead of applications, your primary goal is to advertise your products and services, and appeal to the local market. The language tone, page style, and choice of image assets are expected to be tailored for different targeted culture. Likewise, your user study and market research conclusions derived under a certain cultural background might not apply to another culture.
 
 <React.Fragment>
     <MaterialDesignDescription
