@@ -2,6 +2,9 @@ import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../a
 import Banner from '../../app/assets/design-patterns/app-bar/appbar-banner.png';
 import Image1 from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsible-appbar-expanded.png';
 import Image2 from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsible-appbar-collapsed.png';
+import Collapsible from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsible.gif';
+import Collapsed from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsed.png';
+import AutoVariants from '../../app/assets/design-patterns/app-bar/search-bar/auto-complete-variants.png';
 import Image3 from '../../app/assets/design-patterns/app-bar/search-bar/search-bar.png';
 import Image4 from '../../app/assets/design-patterns/app-bar/search-bar/search-bar-search.png';
 import BasicBars from '../../app/assets/design-patterns/app-bar/basic-app-bars.png';
@@ -57,16 +60,19 @@ A special case of the basic app bar is the dropdown toolbar. This version transf
 # Collapsible App Bar
 
 <ImageGrid
-    images={[Image1, Image2]}
-    caption={'A collapsible app bar shrinks and gets pinned to the top when the page is scrolled.'}
+    images={[Collapsible, Collapsed]}
+    gridImageProps={{style: {maxHeight: 265, overflow: 'hidden'}}}
+    caption={['The middle row of text shrinks in size and opacity until it disappears.']}
 />
-<DemoCard repository={'collapsible-appbar'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fcollapsible-app-bar%2Fcollapsible-app-bar.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/app-bar/collapsible-app-bar/index.tsx&initialpath=collapsible'} ionic reactNative />
 
-In some situations, you may want to present more than just a title and subtitle in an app bar, such as a large graphic, buttons, or multiple lines of text. In these cases, you can use a taller app bar that will shrink as the user scrolls down the page until it becomes a basic app bar. This allows you the flexibility to present an eye-catching banner without permanently reducing the amount of usable space on the page. This is a pattern most commonly used for mobile applications, but could also be used for web.
+In some situations, you may want to present more than just a title and subtitle in an app bar, such as a large graphic, buttons, or multiple lines of text. In these cases, you can use a collapsible app bar that starts out tall but will shrink as the user scrolls down the page until it becomes a basic app bar. This allows you the flexibility to present an eye-catching banner without permanently reducing the amount of usable space on the page. This is a pattern most commonly used for mobile applications, but could also be used for web.
 
-The collapsible appbar should transition smoothly between the expanded and collapsed states — this means you will need to account for how the app bar will look throughout the transition. Because elements will disappear as the app bar shrinks, you'll need to use dynamic text scaling, opacity transitions, and / or other techniques to do this smoothly, depending on your content.
+The collapsible appbar should transition smoothly between the expanded and collapsed states — this means you will need to account for how the app bar will look throughout the transition. Because elements will disappear as the app bar shrinks, you'll need to use various transition techniques to do this smoothly, depending on your content.
 
-<Divider />
+<React.Fragment>
+    <DemoCard repository={'collapsible-appbar'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fcollapsible-app-bar%2Fcollapsible-app-bar.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/app-bar/collapsible-app-bar/index.tsx&initialpath=collapsible'} ionic reactNative />
+    <Divider />
+</React.Fragment>
 
 # Search Bar
 
@@ -82,7 +88,14 @@ A very common pattern seen in many types of applications is the ability to searc
 
 For more advanced searching, you may wish to include an auto-complete feature. You can implement autocomplete by including a contextual menu below the search bar with suggested search items. Alternatively, you can use type-ahead to automatically update the recommended search query in the search field as the user types (Google search does this).
 
-<Divider />
+<React.Fragment>
+    <ImageGrid
+        regularWidth
+        images={[AutoVariants]}
+        caption={['1. Search suggestions are provided in a dropdown menu.', '2. The most likely search is shown in the search field as the user types.']}
+    />
+    <Divider />
+</React.Fragment>
 
 # Design Specifications
 
