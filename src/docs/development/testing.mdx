@@ -117,11 +117,11 @@ Each of these methods has their own advantages and disadvantages. A common pain 
 One way to combat this in your own applications is to use dedicated attributes for testing (e.g., `test-id` or `dev-id`). By adding this test-specific attribute to the element, identifying the correct underlying component should be safer. Because this attribute is test-specific and the application logic does not use it, it will be less likely to change throughout the product lifecycle. Combining this approach with other selectors is a common and reliable approach for element identification.
 
 ```html
-Component code
-
+<!-- Component code -->
 <button id="login-button" class="default-button">Login</button>
 
-Selector to use in a test WebElement click = driver.findElement(By.id("login-button"));
+<!-- Selector to use in a test -->
+WebElement click = driver.findElement(By.id("login-button"));
 ```
 
 ## Testing Frameworks
