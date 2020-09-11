@@ -1,12 +1,10 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
 import Banner from '../../app/assets/design-patterns/app-bar/appbar-banner.png';
-import Image1 from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsible-appbar-expanded.png';
-import Image2 from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsible-appbar-collapsed.png';
 import Collapsible from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsible.gif';
+import Search from '../../app/assets/design-patterns/app-bar/search-bar/search.gif';
+import MiniSearch from '../../app/assets/design-patterns/app-bar/search-bar/mini-search.png';
 import Collapsed from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsed.png';
 import AutoVariants from '../../app/assets/design-patterns/app-bar/search-bar/auto-complete-variants.png';
-import Image3 from '../../app/assets/design-patterns/app-bar/search-bar/search-bar.png';
-import Image4 from '../../app/assets/design-patterns/app-bar/search-bar/search-bar-search.png';
 import BasicBars from '../../app/assets/design-patterns/app-bar/basic-app-bars.png';
 import DropdownVariations from '../../app/assets/design-patterns/app-bar/dropdown-toolbar-variations.png';
 import Specs1Image from '../../app/assets/design-patterns/app-bar/specs-1.png';
@@ -61,7 +59,7 @@ A special case of the basic app bar is the dropdown toolbar. This version transf
 
 <ImageGrid
     images={[Collapsible, Collapsed]}
-    gridImageProps={{style: {maxHeight: 265, overflow: 'hidden'}}}
+    gridImageProps={{ style: { maxHeight: 265, overflow: 'hidden' } }}
     caption={['The middle row of text shrinks in size and opacity until it disappears.']}
 />
 
@@ -70,19 +68,50 @@ In some situations, you may want to present more than just a title and subtitle 
 The collapsible appbar should transition smoothly between the expanded and collapsed states — this means you will need to account for how the app bar will look throughout the transition. Because elements will disappear as the app bar shrinks, you'll need to use various transition techniques to do this smoothly, depending on your content.
 
 <React.Fragment>
-    <DemoCard repository={'collapsible-appbar'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fcollapsible-app-bar%2Fcollapsible-app-bar.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/app-bar/collapsible-app-bar/index.tsx&initialpath=collapsible'} ionic reactNative />
+    <DemoCard
+        repository={'collapsible-appbar'}
+        angular={
+            'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fcollapsible-app-bar%2Fcollapsible-app-bar.component.ts'
+        }
+        react={
+            'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/app-bar/collapsible-app-bar/index.tsx&initialpath=collapsible'
+        }
+        ionic
+        reactNative
+    />
     <Divider />
 </React.Fragment>
 
 # Search Bar
 
 <ImageGrid
-    images={[Image3, Image4]}
+    regularWidth
+    images={[Search]}
     caption={'When the search icon is clicked, a white search bar will slide in and cover the default tool bar. '}
 />
-<DemoCard repository={'search-bar'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fsearch-bar%2Fsearch-bar.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/app-bar/search-bar/index.tsx&initialpath=search'} ionic reactNative />
 
 A very common pattern seen in many types of applications is the ability to search for data on a page. This is achieved by placing a search icon/button in the app bar. When this button is clicked, a white search bar slides in from the right to cover the default app bar. As the user enters text into the search field, the data is filtered in real-time. A back icon will close the Search Bar and clear the search results.
+
+If your search is not a global-level search, you can place a smaller search input near the content being searched (e.g., a card header).
+
+<React.Fragment>
+    <ImageGrid
+        regularWidth
+        images={[MiniSearch]}
+        caption={'Use a contextual search input if your search functionality is not at the page level.'}
+    />
+    <DemoCard
+        repository={'search-bar'}
+        angular={
+            'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fsearch-bar%2Fsearch-bar.component.ts'
+        }
+        react={
+            'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/app-bar/search-bar/index.tsx&initialpath=search'
+        }
+        ionic
+        reactNative
+    />
+</React.Fragment>
 
 ## Auto-complete
 
@@ -92,7 +121,10 @@ For more advanced searching, you may wish to include an auto-complete feature. Y
     <ImageGrid
         regularWidth
         images={[AutoVariants]}
-        caption={['1. Search suggestions are provided in a dropdown menu.', '2. The most likely search is shown in the search field as the user types.']}
+        caption={[
+            '1. Search suggestions are provided in a dropdown menu.',
+            '2. The most likely search is shown in the search field as the user types.',
+        ]}
     />
     <Divider />
 </React.Fragment>
@@ -117,13 +149,20 @@ Use the following components to implement this pattern:
 
 **Angular** and **Ionic**:
 
--   [@angular/material/toolbar](https://material.angular.io/components/toolbar)
+-   Angular Material
+    -   [@angular/material/toolbar](https://material.angular.io/components/toolbar)
+-   @pxblue/angular-components
+    -   [Dropdown Toolbar](https://pxblue-components.github.io/angular/?path=/info/components-dropdown-toolbar--readme)
 
 **React**:
 
--   [@material-ui/core/AppBar](https://material-ui.com/api/app-bar/)
--   [@material-ui/core/Toolbar](https://material-ui.com/api/toolbar/)
+-   Material UI
+    -   [AppBar](https://material-ui.com/api/app-bar/)
+    -   [Toolbar](https://material-ui.com/api/toolbar/)
+-   @pxblue/react-components
+    -   [Dropdown Toolbar](https://pxblue-components.github.io/react/?path=/info/components-dropdown-toolbar--get-read-me-story)
 
 **React Native**:
 
--   [@pxblue/react-native-components/Header](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--header)
+-   @pxblue/react-native-components
+    -   [Header](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--header)
