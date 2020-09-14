@@ -177,7 +177,7 @@ export const resources: ResourceBucket[] = [
         ],
     },
     {
-        name: 'React Native Workflows',
+        name: 'Reusable Workflows',
         description: 'Multi-screen re-usable workflows',
         applies: ['react', 'react-native'],
         items: [
