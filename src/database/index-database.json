@@ -270,7 +270,7 @@
         ],
         "to": [
             { "/development/frameworks-mobile/react-native": 53 },
-            { "/development/testing": 43 },
+            { "/development/testing": 42 },
             { "/design/intro": 33 },
             { "/patterns/internationalization": 30 },
             { "/patterns/forms": 28 },
@@ -757,7 +757,7 @@
             { "/patterns/layout": 1 }
         ],
         "code": [
-            { "/development/testing": 14 },
+            { "/development/testing": 13 },
             { "/community/innersourcing": 11 },
             { "/development/frameworks-mobile/react-native": 6 },
             { "/get-started/mobile": 5 },
@@ -892,7 +892,7 @@
             { "/community/contactus": 1 }
         ],
         "in": [
-            { "/development/testing": 27 },
+            { "/development/testing": 26 },
             { "/patterns/internationalization": 23 },
             { "/patterns/forms": 17 },
             { "/patterns/overlay": 13 },
@@ -2248,9 +2248,9 @@
             { "/development/frameworks-mobile/react-native": 14 },
             { "/development/frameworks-web/angular": 8 },
             { "/development/frameworks-web/react": 8 },
-            { "/development/testing": 6 },
             { "/community/faq": 6 },
             { "/development/frameworks-mobile/intro": 5 },
+            { "/development/testing": 5 },
             { "/design/intro": 5 },
             { "/patterns/empty-states": 5 },
             { "/patterns/forms": 5 },
@@ -5093,7 +5093,7 @@
             { "/development/frameworks-mobile/react-native": 9 },
             { "/development/frameworks-web/react": 5 },
             { "/development/frameworks-web/angular": 4 },
-            { "/development/testing": 4 },
+            { "/development/testing": 3 },
             { "/development/frameworks-mobile/ionic": 2 },
             { "/style/themes": 2 },
             { "/development/cli": 1 },
@@ -5833,7 +5833,7 @@
             { "/community/license": 1 }
         ],
         "test": [
-            { "/development/testing": 38 },
+            { "/development/testing": 37 },
             { "/development/frameworks-web/angular": 1 },
             { "/development/frameworks-mobile/intro": 1 },
             { "/development/frameworks-mobile/react-native": 1 }
@@ -6910,7 +6910,7 @@
         "div": [{ "/development/testing": 4 }],
         "header": [{ "/development/testing": 2 }, { "/patterns/appbar": 2 }, { "/patterns/lists": 1 }],
         "xpath": [{ "/development/testing": 3 }],
-        "selector": [{ "/development/testing": 3 }],
+        "selector": [{ "/development/testing": 2 }],
         "within": [
             { "/development/testing": 2 },
             { "/patterns/internationalization": 1 },
