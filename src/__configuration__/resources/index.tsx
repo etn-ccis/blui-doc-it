@@ -1,4 +1,4 @@
-import {FrameworkFilter} from '../../__types__';
+import { FrameworkFilter } from '../../__types__';
 
 type Resource = {
     name: string;
@@ -179,21 +179,21 @@ export const resources: ResourceBucket[] = [
     {
         name: 'React Native Workflows',
         description: 'Multi-screen re-usable workflows',
-        applies: ['react','react-native'],
+        applies: ['react', 'react-native'],
         items: [
             {
                 name: '@pxblue/react-native-auth-workflow',
                 description: 'Login and Registration workflow',
                 package: '@pxblue/react-native-auth-workflow',
                 repository: 'react-native-workflows',
-                applies: ['react-native']
+                applies: ['react-native'],
             },
             {
                 name: '@pxblue/react-auth-workflow',
                 description: 'Login and Registration workflow',
                 package: '@pxblue/react-auth-workflow',
                 repository: 'react-workflows',
-                applies: ['react']
+                applies: ['react'],
             },
         ],
     },

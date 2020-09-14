@@ -29,15 +29,7 @@ export const ExampleRow: React.FC<ExampleRowProps> = (props): JSX.Element => {
     const small = useMediaQuery('(max-width:799px)');
     const classes = useStyles();
 
-    const buttons = useCallback(
-        () => (
-            <ButtonRow
-                small={small}
-                repository={repository}
-            />
-        ),
-        [repository, small]
-    );
+    const buttons = useCallback(() => <ButtonRow small={small} repository={repository} />, [repository, small]);
 
     return (
         <ResourceRow
