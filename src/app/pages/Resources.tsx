@@ -114,8 +114,6 @@ export const Resources: React.FC = (): JSX.Element => {
                                                         name={item.name}
                                                         repository={item.repository || ''}
                                                         description={item.description}
-                                                        branches={filter !== 'all' ? [filter] : item.applies}
-                                                        bugLabels={filter !== 'all' ? [filter] : []}
                                                         divider={index < bucket.items.length - 1}
                                                     />
                                                 )

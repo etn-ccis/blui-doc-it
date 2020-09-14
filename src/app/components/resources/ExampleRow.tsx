@@ -23,11 +23,9 @@ type ExampleRowProps = {
     description: string;
     divider?: boolean;
     repository: string;
-    bugLabels?: string[];
-    branches?: string[];
 };
 export const ExampleRow: React.FC<ExampleRowProps> = (props): JSX.Element => {
-    const { branches, repository, bugLabels, description, divider } = props;
+    const { repository, description, divider } = props;
     const small = useMediaQuery('(max-width:799px)');
     const classes = useStyles();
 
@@ -36,13 +34,9 @@ export const ExampleRow: React.FC<ExampleRowProps> = (props): JSX.Element => {
             <ButtonRow
                 small={small}
                 repository={repository}
-                branches={
-                    !branches || branches.includes('all') ? ['angular', 'react', 'ionic', 'reactnative'] : branches
-                }
-                bugLabels={bugLabels}
             />
         ),
-        [repository, bugLabels, small]
+        [repository, small]
     );
 
     return (
