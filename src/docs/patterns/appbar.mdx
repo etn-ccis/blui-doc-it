@@ -1,45 +1,135 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
-import Image1 from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsible-appbar-expanded.png';
-import Image2 from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsible-appbar-collapsed.png';
-import Image3 from '../../app/assets/design-patterns/app-bar/search-bar/search-bar.png';
-import Image4 from '../../app/assets/design-patterns/app-bar/search-bar/search-bar-search.png';
+import Banner from '../../app/assets/design-patterns/app-bar/appbar-banner.png';
+import Collapsible from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsible.gif';
+import Search from '../../app/assets/design-patterns/app-bar/search-bar/search.gif';
+import MiniSearch from '../../app/assets/design-patterns/app-bar/search-bar/mini-search.png';
+import Collapsed from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsed.png';
+import AutoVariants from '../../app/assets/design-patterns/app-bar/search-bar/auto-complete-variants.png';
+import BasicBars from '../../app/assets/design-patterns/app-bar/basic-app-bars.png';
+import DropdownVariations from '../../app/assets/design-patterns/app-bar/dropdown-toolbar-variations.png';
 import Specs1Image from '../../app/assets/design-patterns/app-bar/specs-1.png';
 import Specs3Image from '../../app/assets/design-patterns/app-bar/specs-3.png';
 import Specs4Image from '../../app/assets/design-patterns/app-bar/specs-4.png';
 
-<!-- KEYWORDS: design pattern appbar search collapse -->
+<!-- KEYWORDS: design pattern appbar search collapse toolbar banner -->
 
-# App Bar Patterns
+# App Bars
 
-App bars are useful in a variety of locations throughout PX Blue applications. They are typically used to provide a title or description for a collection of data that follows. They may also contain a menu and/or various actions that can be performed.
+<ImageGrid images={[Banner]} regularWidth />
 
-<MaterialDesignDescription title={'App Bars: Top'} url={'https://material.io/components/app-bars-top/'} />
+App bars, sometimes called toolbars, are often one of the first elements you see in an application. They are primarily used to provide context for where a user is in the hierarchy of the application.
 
-## A Basic App Bar
+<React.Fragment>
+    <MaterialDesignDescription title={'App Bars: Top'} url={'https://material.io/components/app-bars-top/'} />
+    <Divider />
+</React.Fragment>
 
-The most basic app bar is used at the top of a page as a title bar. It will have a menu button to the left (used to toggle a navigation menu / drawer) followed by one or two lines of text (title / subtitle) and, optionally, a dropdown with global page actions. Basic app bars can also be used to provide more detailed headers for Cards.
+# Basic App Bar
 
-## Collapsible App Bar
+<ImageGrid regularWidth images={[BasicBars]} caption={'Basic app bars in order of increasing complexity.'} />
 
-<ImageGrid
-    images={[Image1, Image2]}
-    caption={'A collapsible app bar shrinks and gets pinned to the top when the page is scrolled.'}
-/>
-<DemoCard repository={'collapsible-appbar'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fcollapsible-app-bar%2Fcollapsible-app-bar.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/app-bar/collapsible-app-bar/index.tsx&initialpath=collapsible'} ionic reactNative />
+The basic app bar provides information about the current screen. Typically, this is a short title that indicates which screen the user is on (e.g., "Settings"). However, the app bar can also contain a navigation icon, subtitle, and/or various global action buttons for the screen. When placing actions in the app bar, limit yourself to no more than three. If you have more actions than this, consider grouping them into a menu.
 
-In some situations, you may want to present more information in an app bar, such as a large graphic, buttons, or multiple lines of text. In these cases, you can use a taller app bar that will shrink as the user scrolls down the page and be replaced by a basic app bar. This allows you the flexibility to present an eye-catching banner without permanently reducing the amount of usable space on the page. This is a pattern most commonly used for mobile applications, but could also be used at a larger scale.
+## Dropdown Toolbar
 
-## Search Bar
+<React.Fragment>
+    <ImageGrid
+        regularWidth
+        images={[DropdownVariations]}
+        caption={
+            ('1. On mobile, the dropdown toolbar opens the options panel in a bottom sheet.',
+            '2. On desktop, the dropdown opens as a menu below the toolbar.')
+        }
+    />
+    <DemoCard
+        repository={'Dropdown Toolbar'}
+        angular={
+            'https://pxblue-components.github.io/angular/?path=/story/components-dropdown-toolbar--with-full-config'
+        }
+        react={'https://pxblue-components.github.io/react/?path=/story/components-dropdown-toolbar--with-full-config'}
+        ionic
+        reactNative
+    />
+</React.Fragment>
 
-<ImageGrid
-    images={[Image3, Image4]}
-    caption={'When the search icon is clicked, a white search bar will slide in and cover the default tool bar. '}
-/>
-<DemoCard repository={'search-bar'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fsearch-bar%2Fsearch-bar.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/app-bar/search-bar/index.tsx&initialpath=search'} ionic reactNative />
-
-A very common pattern seen in many types of applications is the ability to search for data on a page. This is achieved by placing a search icon/button in the app bar. When this button is clicked, a white Search Bar slides in from the right to cover the default toolbar. As the user enters text into the search field, the data is filtered in real-time.
+A special case of the basic app bar is the dropdown toolbar. This version transforms the simple text subtitle of the app bar into a dropdown menu that can be used to configure the page. For example, you may have a dropdown that allows users to switch between different physical locations on an overview screen.
 
 <Divider />
+
+# Collapsible App Bar
+
+<React.Fragment>
+    <ImageGrid
+        images={[Collapsible, Collapsed]}
+        gridImageProps={{ style: { maxHeight: 265, overflow: 'hidden' } }}
+        caption={['The middle row of text shrinks in size and opacity until it disappears.']}
+    />
+    <DemoCard
+        repository={'collapsible-appbar'}
+        angular={
+            'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fcollapsible-app-bar%2Fcollapsible-app-bar.component.ts'
+        }
+        react={
+            'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/app-bar/collapsible-app-bar/index.tsx&initialpath=collapsible'
+        }
+        ionic
+        reactNative
+    />
+</React.Fragment>
+
+In some situations, you may want to present more than just a title and subtitle in an app bar, such as a large graphic, buttons, or multiple lines of text. In these cases, you can use a collapsible app bar that starts out tall but will shrink as the user scrolls down the page until it becomes a basic app bar. This allows you the flexibility to present an eye-catching banner without permanently reducing the amount of usable space on the page. This is a pattern most commonly used for mobile applications, but could also be used for web.
+
+The collapsible appbar should transition smoothly between the expanded and collapsed states — this means you will need to account for how the app bar will look throughout the transition. Because elements will disappear as the app bar shrinks, you'll need to use various transition techniques to do this smoothly, depending on your content.
+
+<Divider />
+
+# Search Bar
+
+<React.Fragment>
+    <ImageGrid
+        images={[Search]}
+        caption={'When the search icon is clicked, a white search bar will slide in and cover the default tool bar. '}
+    />
+    <DemoCard
+        repository={'search-bar'}
+        angular={
+            'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fsearch-bar%2Fsearch-bar.component.ts'
+        }
+        react={
+            'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/app-bar/search-bar/index.tsx&initialpath=search'
+        }
+        ionic
+        reactNative
+    />
+</React.Fragment>
+
+A very common pattern seen in many types of applications is the ability to search for data on a page. This is achieved by placing a search icon/button in the app bar. When this button is clicked, a white search bar slides in from the right to cover the default app bar. As the user enters text into the search field, the data is filtered in real-time. A back icon will close the Search Bar and clear the search results.
+
+If your search is not a global-level search, you can place a smaller search input near the content being searched (e.g., a card header).
+
+<React.Fragment>
+    <ImageGrid
+        regularWidth
+        images={[MiniSearch]}
+        caption={'Use a contextual search input if your search functionality is not at the page level.'}
+    />
+</React.Fragment>
+
+## Auto-complete
+
+For more advanced searching, you may wish to include an auto-complete feature. You can implement autocomplete by including a contextual menu below the search bar with suggested search items. Alternatively, you can use type-ahead to automatically update the recommended search query in the search field as the user types (Google search does this).
+
+<React.Fragment>
+    <ImageGrid
+        regularWidth
+        images={[AutoVariants]}
+        caption={[
+            '1. Search suggestions are provided in a dropdown menu.',
+            '2. The most likely search is shown in the search field as the user types.',
+        ]}
+    />
+    <Divider />
+</React.Fragment>
 
 # Design Specifications
 
@@ -61,13 +151,20 @@ Use the following components to implement this pattern:
 
 **Angular** and **Ionic**:
 
--   [@angular/material/toolbar](https://material.angular.io/components/toolbar)
+-   Angular Material
+    -   [@angular/material/toolbar](https://material.angular.io/components/toolbar)
+-   @pxblue/angular-components
+    -   [Dropdown Toolbar](https://pxblue-components.github.io/angular/?path=/info/components-dropdown-toolbar--readme)
 
 **React**:
 
--   [@material-ui/core/AppBar](https://material-ui.com/api/app-bar/)
--   [@material-ui/core/Toolbar](https://material-ui.com/api/toolbar/)
+-   Material UI
+    -   [AppBar](https://material-ui.com/api/app-bar/)
+    -   [Toolbar](https://material-ui.com/api/toolbar/)
+-   @pxblue/react-components
+    -   [Dropdown Toolbar](https://pxblue-components.github.io/react/?path=/info/components-dropdown-toolbar--get-read-me-story)
 
 **React Native**:
 
--   [@pxblue/react-native-components/Header](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--header)
+-   @pxblue/react-native-components
+    -   [Header](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--header)

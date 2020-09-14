@@ -1,7 +1,7 @@
-import AppBarsImg from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsible-appbar-expanded.png';
-import EmptyStatesImg from '../../app/assets/design-patterns/empty-states/empty-state-square.png';
-import FormValidationImg from '../../app/assets/design-patterns/form-validation/form-validation-feedback-thumb.png';
-import InternationalizationImg from '../../app/assets/design-patterns/internationalization/internationalization.png';
+import AppBarsImg from '../../app/assets/design-patterns/app-bar/appbar-banner.png';
+import EmptyStatesImg from '../../app/assets/design-patterns/empty-states/empty-state-banner.svg';
+import FormValidationImg from '../../app/assets/design-patterns/form-validation/form-validation.svg';
+import InternationalizationImg from '../../app/assets/design-patterns/internationalization/internationalization.svg';
 import ListImg from '../../app/assets/design-patterns/action-list/action-list.png';
 import LoadingImage from '../../app/assets/design-patterns/loading-states/loading-banner.svg';
 import LoginImage from '../../app/assets/design-patterns/login/login-view-password.png';
@@ -23,18 +23,27 @@ export const patterns = [
         url: '/patterns/empty-states',
         description: `What to show when there's nothing to show.`,
         image: EmptyStatesImg,
+        background: {
+            position: 'center',
+        },
     },
     {
         title: 'Forms and Validation',
         url: '/patterns/forms',
         description: 'Different states for common input fields.',
         image: FormValidationImg,
+        background: {
+            position: 'top left',
+        },
     },
     {
         title: 'Internationalization',
         url: '/patterns/internationalization',
         description: 'Make your application available in multiple languages.',
         image: InternationalizationImg,
+        background: {
+            position: 'center',
+        },
     },
     {
         title: 'Lists',

@@ -1,4 +1,5 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
+import Banner from '../../app/assets/design-patterns/empty-states/empty-state-banner.svg';
 import Image1 from '../../app/assets/design-patterns/empty-states/empty-state-variations.png';
 import DesktopImage from '../../app/assets/design-patterns/empty-states/empty-state-desktop.png';
 import ElementImage from '../../app/assets/design-patterns/empty-states/empty-state-element.png';
@@ -8,6 +9,8 @@ import Specs2Image from '../../app/assets/design-patterns/empty-states/specs-2.p
 <!-- KEYWORDS: design pattern empty state placeholder -->
 
 # Empty States
+
+<ImageGrid images={[Banner]} regularWidth />
 
 At times, there may be areas of your application that do not have data available to display. This can happen when there is an error loading data, there are no results for a particular search or filter criteria, etc. This is where empty state indicators come into play.
 
