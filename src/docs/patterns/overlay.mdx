@@ -1,6 +1,7 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
 import Banner from '../../app/assets/design-patterns/overlays/overlay-banner.svg';
-
+import DesktopDialog from '../../app/assets/design-patterns/overlays/desktop-dialog.png';
+import DesktopDialogTask from '../../app/assets/design-patterns/overlays/desktop-dialog-task.png';
 
 <!-- KEYWORDS: design pattern overlay modal sidebar popup dialog side sheet -->
 
@@ -18,6 +19,12 @@ Overlay elements come in a variety of shapes and sizes depending on their purpos
 
 ## Modal Dialog
 
+<ImageGrid
+    images={[DesktopDialog, DesktopDialogTask]}
+    caption={
+        'A modal dialog appears centered in the screen over a dark overlay. These can present information to the user, or prompt them to enter information.'
+    }
+/>
 <MaterialDesignDescription title={'Dialogs'} url={'https://material.io/components/dialogs/'} />
 
 The modal dialog is your typical pop-up window that appears in the center of the screen in front of primary content. The primary use of dialogs is to present critical information to users or to ask for a decision. For example, you may wish to ask a user if they are sure they want to delete a file.
