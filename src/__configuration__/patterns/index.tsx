@@ -6,7 +6,7 @@ import ListImg from '../../app/assets/design-patterns/action-list/action-list.pn
 import LoadingImage from '../../app/assets/design-patterns/loading-states/loading-banner.svg';
 import LoginImage from '../../app/assets/design-patterns/login/login-view-password.png';
 import NavigationtImg from '../../app/assets/design-patterns/navigation/navigation-permanent.png';
-import OverlayImg from '../../app/assets/design-patterns/action-list/action-list-overlay.png';
+import OverlayBanner from '../../app/assets/design-patterns/overlays/overlay-banner.svg';
 import PageLayoutImg from '../../app/assets/design-patterns/page-layout/page-layout.png';
 import StepperImg from '../../app/assets/design-patterns/dynamic-stepper/dynamic-stepper-adding.png';
 import DataVisualizationImg from '../../app/assets/design-patterns/data-visualization/data-visualization.png';
@@ -73,7 +73,10 @@ export const patterns = [
         title: 'Overlays',
         url: '/patterns/overlay',
         description: 'Showing popups, dialogs, modals, etc.',
-        image: OverlayImg,
+        image: OverlayBanner,
+        background: {
+            position: '20% center',
+        },
     },
     {
         title: 'Page Layout',
