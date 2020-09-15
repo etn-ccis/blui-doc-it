@@ -176,7 +176,8 @@
             { "/development/environment": 1 },
             { "/patterns/forms": 1 },
             { "/patterns/internationalization": 1 },
-            { "/patterns/login": 1 }
+            { "/patterns/login": 1 },
+            { "/patterns/overlay": 1 }
         ],
         "blue": [
             { "/development/frameworks-web/angular": 28 },
@@ -208,7 +209,8 @@
             { "/development/environment": 1 },
             { "/patterns/forms": 1 },
             { "/patterns/internationalization": 1 },
-            { "/patterns/login": 1 }
+            { "/patterns/login": 1 },
+            { "/patterns/overlay": 1 }
         ],
         "design": [
             { "/design/anatomy": 16 },
@@ -224,6 +226,7 @@
             { "/patterns/appbar": 2 },
             { "/patterns/internationalization": 2 },
             { "/patterns/loading": 2 },
+            { "/patterns/overlay": 2 },
             { "/patterns/layout": 2 },
             { "/patterns/visualizations": 2 },
             { "/community/bugs": 2 },
@@ -234,7 +237,6 @@
             { "/patterns/lists": 1 },
             { "/patterns/login": 1 },
             { "/patterns/navigation": 1 },
-            { "/patterns/overlay": 1 },
             { "/patterns/steppers": 1 },
             { "/style/color": 1 },
             { "/style/themes": 1 },
@@ -333,7 +335,6 @@
             { "/development/testing": 33 },
             { "/patterns/forms": 17 },
             { "/patterns/loading": 12 },
-            { "/patterns/overlay": 11 },
             { "/patterns/appbar": 10 },
             { "/development/frameworks-mobile/react-native": 9 },
             { "/patterns/navigation": 9 },
@@ -352,6 +353,7 @@
             { "/get-started/mobile": 4 },
             { "/design/anatomy": 4 },
             { "/patterns/empty-states": 4 },
+            { "/patterns/overlay": 4 },
             { "/patterns/layout": 4 },
             { "/style/iconography": 4 },
             { "/community/faq": 4 },
@@ -402,8 +404,8 @@
             { "/design/intro": 11 },
             { "/development/environment": 10 },
             { "/patterns/login": 10 },
-            { "/patterns/overlay": 10 },
             { "/get-started/mobile": 9 },
+            { "/patterns/overlay": 9 },
             { "/community/innersourcing": 9 },
             { "/development/frameworks-mobile/intro": 8 },
             { "/patterns/appbar": 8 },
@@ -441,7 +443,6 @@
             { "/patterns/internationalization": 2 },
             { "/development/frameworks-mobile/react-native": 1 },
             { "/patterns/appbar": 1 },
-            { "/patterns/overlay": 1 },
             { "/patterns/visualizations": 1 },
             { "/style/typography": 1 }
         ],
@@ -455,6 +456,7 @@
             { "/community/innersourcing": 13 },
             { "/development/frameworks-web/angular": 12 },
             { "/development/frameworks-web/react": 12 },
+            { "/patterns/overlay": 11 },
             { "/style/color": 11 },
             { "/get-started/mobile": 10 },
             { "/patterns/forms": 10 },
@@ -462,7 +464,6 @@
             { "/style/typography": 10 },
             { "/overview": 9 },
             { "/development/environment": 9 },
-            { "/patterns/overlay": 9 },
             { "/development/cli": 8 },
             { "/development/frameworks-mobile/intro": 8 },
             { "/development/frameworks-mobile/ionic": 8 },
@@ -518,6 +519,7 @@
             { "/design/anatomy": 2 },
             { "/patterns/appbar": 2 },
             { "/patterns/lists": 2 },
+            { "/patterns/overlay": 2 },
             { "/style/color": 2 },
             { "/community/license": 2 },
             { "/development/environment": 1 },
@@ -526,7 +528,6 @@
             { "/development/frameworks-web/react": 1 },
             { "/patterns/forms": 1 },
             { "/patterns/login": 1 },
-            { "/patterns/overlay": 1 },
             { "/community/innersourcing": 1 }
         ],
         "this": [
@@ -541,13 +542,13 @@
             { "/patterns/empty-states": 4 },
             { "/patterns/loading": 4 },
             { "/patterns/navigation": 4 },
-            { "/patterns/overlay": 4 },
             { "/community/innersourcing": 4 },
             { "/get-started/mobile": 3 },
             { "/development/environment": 3 },
             { "/patterns/internationalization": 3 },
             { "/patterns/lists": 3 },
             { "/patterns/login": 3 },
+            { "/patterns/overlay": 3 },
             { "/patterns/layout": 3 },
             { "/style/color": 3 },
             { "/community/faq": 3 },
@@ -623,10 +624,10 @@
             { "/overview": 4 },
             { "/get-started/web": 4 },
             { "/get-started/mobile": 4 },
-            { "/patterns/overlay": 4 },
             { "/patterns/layout": 4 },
             { "/community/innersourcing": 4 },
             { "/development/frameworks-web/intro": 3 },
+            { "/patterns/overlay": 3 },
             { "/community/bugs": 3 },
             { "/development/cli": 2 },
             { "/patterns/appbar": 2 },
@@ -677,11 +678,11 @@
             { "/patterns/forms": 6 },
             { "/patterns/internationalization": 6 },
             { "/patterns/loading": 6 },
+            { "/patterns/overlay": 6 },
             { "/development/environment": 5 },
             { "/overview": 4 },
             { "/get-started/mobile": 4 },
             { "/patterns/appbar": 4 },
-            { "/patterns/overlay": 4 },
             { "/style/color": 4 },
             { "/style/iconography": 4 },
             { "/community/innersourcing": 4 },
@@ -746,6 +747,7 @@
             { "/patterns/empty-states": 1 },
             { "/patterns/forms": 1 },
             { "/patterns/internationalization": 1 },
+            { "/patterns/overlay": 1 },
             { "/community/faq": 1 }
         ],
         "ensuring": [{ "/overview": 1 }],
@@ -895,7 +897,7 @@
             { "/development/testing": 26 },
             { "/patterns/internationalization": 23 },
             { "/patterns/forms": 17 },
-            { "/patterns/overlay": 13 },
+            { "/patterns/overlay": 16 },
             { "/design/intro": 12 },
             { "/patterns/appbar": 12 },
             { "/style/color": 12 },
@@ -947,12 +949,12 @@
             { "/development/testing": 37 },
             { "/community/license": 20 },
             { "/patterns/forms": 17 },
+            { "/patterns/overlay": 17 },
             { "/patterns/internationalization": 13 },
             { "/patterns/loading": 13 },
             { "/patterns/layout": 12 },
             { "/style/themes": 12 },
             { "/patterns/navigation": 11 },
-            { "/patterns/overlay": 11 },
             { "/get-started/web": 10 },
             { "/design/intro": 10 },
             { "/design/anatomy": 10 },
@@ -1032,11 +1034,11 @@
             { "/overview": 3 },
             { "/development/frameworks-web/intro": 3 },
             { "/patterns/lists": 3 },
+            { "/patterns/overlay": 3 },
             { "/patterns/appbar": 2 },
             { "/patterns/forms": 2 },
             { "/patterns/internationalization": 2 },
             { "/patterns/login": 2 },
-            { "/patterns/overlay": 2 },
             { "/patterns/layout": 2 },
             { "/community/innersourcing": 2 },
             { "/community/faq": 2 },
@@ -1068,7 +1070,6 @@
             { "/development/environment": 1 },
             { "/design/anatomy": 1 },
             { "/patterns/appbar": 1 },
-            { "/patterns/overlay": 1 },
             { "/style/color": 1 },
             { "/style/themes": 1 }
         ],
@@ -1085,7 +1086,7 @@
             { "/development/frameworks-web/intro": 12 },
             { "/development/frameworks-mobile/react-native": 10 },
             { "/design/intro": 9 },
-            { "/patterns/overlay": 9 },
+            { "/patterns/overlay": 8 },
             { "/community/faq": 8 },
             { "/overview": 6 },
             { "/get-started/web": 6 },
@@ -1121,13 +1122,13 @@
             { "/design/anatomy": 4 },
             { "/patterns/forms": 3 },
             { "/patterns/empty-states": 2 },
-            { "/patterns/overlay": 2 },
             { "/patterns/visualizations": 2 },
             { "/development/frameworks-mobile/react-native": 1 },
             { "/design/intro": 1 },
             { "/patterns/appbar": 1 },
             { "/patterns/loading": 1 },
             { "/patterns/navigation": 1 },
+            { "/patterns/overlay": 1 },
             { "/style/color": 1 },
             { "/style/iconography": 1 },
             { "/style/typography": 1 },
@@ -1157,9 +1158,9 @@
         ],
         "can": [
             { "/development/testing": 13 },
+            { "/patterns/overlay": 12 },
             { "/development/frameworks-web/angular": 11 },
             { "/development/frameworks-mobile/react-native": 11 },
-            { "/patterns/overlay": 11 },
             { "/style/iconography": 9 },
             { "/development/frameworks-web/react": 8 },
             { "/development/frameworks-mobile/ionic": 8 },
@@ -1237,7 +1238,8 @@
             { "/development/frameworks-mobile/ionic": 1 },
             { "/development/testing": 1 },
             { "/design/intro": 1 },
-            { "/patterns/forms": 1 }
+            { "/patterns/forms": 1 },
+            { "/patterns/overlay": 1 }
         ],
         "all": [
             { "/development/testing": 3 },
@@ -1285,6 +1287,7 @@
         ],
         "they": [
             { "/development/testing": 8 },
+            { "/patterns/overlay": 8 },
             { "/community/innersourcing": 3 },
             { "/get-started/new-project": 2 },
             { "/get-started/web": 2 },
@@ -1294,7 +1297,6 @@
             { "/patterns/forms": 2 },
             { "/patterns/lists": 2 },
             { "/patterns/login": 2 },
-            { "/patterns/overlay": 2 },
             { "/overview": 1 },
             { "/get-started/mobile": 1 },
             { "/development/frameworks-web/intro": 1 },
@@ -1341,6 +1343,7 @@
             { "/development/environment": 8 },
             { "/development/frameworks-mobile/ionic": 8 },
             { "/design/intro": 7 },
+            { "/patterns/overlay": 7 },
             { "/patterns/lists": 6 },
             { "/patterns/navigation": 6 },
             { "/design/anatomy": 5 },
@@ -1348,7 +1351,6 @@
             { "/patterns/empty-states": 5 },
             { "/patterns/internationalization": 5 },
             { "/patterns/loading": 4 },
-            { "/patterns/overlay": 4 },
             { "/patterns/visualizations": 4 },
             { "/style/iconography": 4 },
             { "/community/innersourcing": 4 },
@@ -1383,6 +1385,7 @@
             { "/community/bugs": 4 },
             { "/development/frameworks-web/intro": 3 },
             { "/patterns/appbar": 3 },
+            { "/patterns/overlay": 3 },
             { "/style/iconography": 3 },
             { "/community/features": 3 },
             { "/overview": 2 },
@@ -1436,6 +1439,7 @@
             { "/style/typography": 2 },
             { "/community/license": 2 },
             { "/design/anatomy": 1 },
+            { "/patterns/overlay": 1 },
             { "/style/themes": 1 },
             { "/community/contactus": 1 }
         ],
@@ -1467,10 +1471,10 @@
             { "/patterns/lists": 5 },
             { "/community/features": 5 },
             { "/community/contactus": 5 },
+            { "/patterns/overlay": 4 },
             { "/style/themes": 4 },
             { "/design/anatomy": 3 },
             { "/patterns/login": 3 },
-            { "/patterns/overlay": 3 },
             { "/patterns/steppers": 3 },
             { "/patterns/empty-states": 2 },
             { "/style/color": 2 },
@@ -1484,6 +1488,7 @@
             { "/development/environment": 12 },
             { "/patterns/forms": 12 },
             { "/patterns/internationalization": 12 },
+            { "/patterns/overlay": 9 },
             { "/patterns/loading": 7 },
             { "/style/themes": 7 },
             { "/style/color": 6 },
@@ -1496,7 +1501,6 @@
             { "/development/frameworks-web/angular": 4 },
             { "/development/frameworks-web/react": 4 },
             { "/design/intro": 4 },
-            { "/patterns/overlay": 4 },
             { "/patterns/layout": 4 },
             { "/patterns/visualizations": 4 },
             { "/overview": 3 },
@@ -1539,6 +1543,7 @@
             { "/development/frameworks-mobile/intro": 1 },
             { "/design/intro": 1 },
             { "/design/anatomy": 1 },
+            { "/patterns/overlay": 1 },
             { "/patterns/steppers": 1 },
             { "/patterns/visualizations": 1 },
             { "/style/iconography": 1 },
@@ -1566,6 +1571,7 @@
             { "/patterns/internationalization": 1 }
         ],
         "standard": [
+            { "/patterns/overlay": 3 },
             { "/development/frameworks-mobile/react-native": 2 },
             { "/style/typography": 2 },
             { "/overview": 1 },
@@ -1620,6 +1626,7 @@
             { "/patterns/forms": 1 },
             { "/patterns/lists": 1 },
             { "/patterns/loading": 1 },
+            { "/patterns/overlay": 1 },
             { "/patterns/visualizations": 1 },
             { "/style/iconography": 1 },
             { "/community/bugs": 1 }
@@ -1627,6 +1634,7 @@
         "as": [
             { "/development/testing": 15 },
             { "/design/intro": 9 },
+            { "/patterns/overlay": 9 },
             { "/patterns/empty-states": 8 },
             { "/patterns/internationalization": 8 },
             { "/patterns/loading": 8 },
@@ -1637,7 +1645,6 @@
             { "/design/anatomy": 5 },
             { "/patterns/appbar": 5 },
             { "/development/frameworks-web/react": 4 },
-            { "/patterns/overlay": 4 },
             { "/development/environment": 3 },
             { "/patterns/lists": 3 },
             { "/patterns/login": 3 },
@@ -1683,14 +1690,14 @@
             { "/design/intro": 1 },
             { "/design/anatomy": 1 },
             { "/patterns/login": 1 },
-            { "/patterns/navigation": 1 },
-            { "/patterns/overlay": 1 }
+            { "/patterns/navigation": 1 }
         ],
         "additional": [
             { "/development/frameworks-mobile/ionic": 5 },
             { "/style/typography": 3 },
             { "/development/testing": 2 },
             { "/patterns/forms": 2 },
+            { "/patterns/overlay": 2 },
             { "/style/color": 2 },
             { "/overview": 1 },
             { "/development/environment": 1 },
@@ -1701,7 +1708,6 @@
             { "/development/frameworks-mobile/react-native": 1 },
             { "/patterns/empty-states": 1 },
             { "/patterns/login": 1 },
-            { "/patterns/overlay": 1 },
             { "/patterns/steppers": 1 },
             { "/style/themes": 1 }
         ],
@@ -1714,7 +1720,6 @@
             { "/patterns/lists": 1 },
             { "/patterns/login": 1 },
             { "/patterns/navigation": 1 },
-            { "/patterns/overlay": 1 },
             { "/patterns/layout": 1 },
             { "/patterns/steppers": 1 },
             { "/style/typography": 1 },
@@ -1724,11 +1729,11 @@
         "also": [
             { "/development/frameworks-mobile/react-native": 5 },
             { "/development/testing": 5 },
-            { "/patterns/overlay": 5 },
             { "/development/environment": 4 },
             { "/design/intro": 4 },
             { "/patterns/login": 4 },
             { "/development/frameworks-web/react": 3 },
+            { "/patterns/overlay": 3 },
             { "/community/innersourcing": 3 },
             { "/development/frameworks-web/angular": 2 },
             { "/development/frameworks-mobile/ionic": 2 },
@@ -1857,6 +1862,7 @@
             { "/patterns/forms": 1 },
             { "/patterns/internationalization": 1 },
             { "/patterns/loading": 1 },
+            { "/patterns/overlay": 1 },
             { "/style/iconography": 1 },
             { "/style/typography": 1 },
             { "/style/themes": 1 },
@@ -1885,10 +1891,10 @@
         "variety": [
             { "/style/color": 3 },
             { "/development/environment": 2 },
+            { "/patterns/overlay": 2 },
             { "/overview": 1 },
             { "/get-started/web": 1 },
             { "/patterns/empty-states": 1 },
-            { "/patterns/overlay": 1 },
             { "/patterns/layout": 1 },
             { "/style/iconography": 1 },
             { "/style/themes": 1 },
@@ -1923,11 +1929,11 @@
         "about": [
             { "/get-started/new-project": 4 },
             { "/overview": 3 },
+            { "/patterns/overlay": 3 },
             { "/development/frameworks-web/angular": 2 },
             { "/development/frameworks-web/react": 2 },
             { "/development/frameworks-mobile/react-native": 2 },
             { "/development/testing": 2 },
-            { "/patterns/overlay": 2 },
             { "/community/innersourcing": 2 },
             { "/community/bugs": 2 },
             { "/community/faq": 2 },
@@ -1946,13 +1952,13 @@
             { "/patterns/forms": 12 },
             { "/community/license": 11 },
             { "/patterns/internationalization": 10 },
+            { "/patterns/overlay": 10 },
             { "/design/anatomy": 7 },
             { "/development/frameworks-web/angular": 6 },
             { "/development/frameworks-web/react": 6 },
             { "/community/innersourcing": 6 },
             { "/patterns/lists": 5 },
             { "/patterns/loading": 5 },
-            { "/patterns/overlay": 5 },
             { "/style/color": 5 },
             { "/get-started/new-project": 4 },
             { "/development/frameworks-mobile/ionic": 4 },
@@ -2015,12 +2021,12 @@
             { "/design/intro": 2 },
             { "/patterns/internationalization": 2 },
             { "/patterns/login": 2 },
-            { "/patterns/overlay": 2 },
             { "/patterns/layout": 2 },
             { "/community/faq": 2 },
             { "/get-started/mobile": 1 },
             { "/development/testing": 1 },
             { "/patterns/forms": 1 },
+            { "/patterns/overlay": 1 },
             { "/patterns/steppers": 1 },
             { "/patterns/visualizations": 1 },
             { "/style/color": 1 },
@@ -2043,6 +2049,7 @@
             { "/patterns/forms": 1 },
             { "/patterns/loading": 1 },
             { "/patterns/login": 1 },
+            { "/patterns/overlay": 1 },
             { "/style/iconography": 1 },
             { "/style/typography": 1 },
             { "/style/themes": 1 }
@@ -2096,8 +2103,8 @@
             { "/community/innersourcing": 1 }
         ],
         "information": [
+            { "/patterns/overlay": 8 },
             { "/design/intro": 5 },
-            { "/patterns/overlay": 5 },
             { "/development/frameworks-mobile/react-native": 4 },
             { "/patterns/forms": 4 },
             { "/overview": 3 },
@@ -2193,7 +2200,6 @@
             { "/development/environment": 7 },
             { "/overview": 2 },
             { "/patterns/internationalization": 1 },
-            { "/patterns/overlay": 1 },
             { "/patterns/visualizations": 1 },
             { "/style/color": 1 },
             { "/style/typography": 1 }
@@ -2265,6 +2271,7 @@
             { "/development/frameworks-web/intro": 3 },
             { "/development/frameworks-mobile/ionic": 3 },
             { "/patterns/loading": 3 },
+            { "/patterns/overlay": 3 },
             { "/style/themes": 3 },
             { "/patterns/internationalization": 2 },
             { "/patterns/lists": 2 },
@@ -2274,7 +2281,6 @@
             { "/get-started/new-project": 1 },
             { "/get-started/mobile": 1 },
             { "/design/anatomy": 1 },
-            { "/patterns/overlay": 1 },
             { "/community/contactus": 1 }
         ],
         "testing": [
@@ -2333,7 +2339,6 @@
             { "/development/frameworks-web/intro": 4 },
             { "/development/frameworks-web/react": 4 },
             { "/patterns/login": 4 },
-            { "/patterns/overlay": 4 },
             { "/patterns/layout": 4 },
             { "/patterns/visualizations": 4 },
             { "/get-started/mobile": 3 },
@@ -2341,6 +2346,7 @@
             { "/patterns/appbar": 2 },
             { "/patterns/empty-states": 2 },
             { "/patterns/forms": 2 },
+            { "/patterns/overlay": 2 },
             { "/style/color": 2 },
             { "/style/iconography": 2 },
             { "/overview": 1 },
@@ -2473,10 +2479,10 @@
             { "/get-started/mobile": 4 },
             { "/patterns/appbar": 4 },
             { "/get-started/new-project": 3 },
+            { "/patterns/overlay": 3 },
             { "/patterns/internationalization": 2 },
             { "/patterns/lists": 2 },
             { "/patterns/loading": 2 },
-            { "/patterns/overlay": 2 },
             { "/patterns/steppers": 2 },
             { "/patterns/visualizations": 2 },
             { "/community/license": 2 },
@@ -2553,7 +2559,6 @@
             { "/get-started/new-project": 8 },
             { "/development/environment": 7 },
             { "/design/intro": 6 },
-            { "/patterns/overlay": 6 },
             { "/development/frameworks-mobile/react-native": 5 },
             { "/design/anatomy": 5 },
             { "/patterns/forms": 5 },
@@ -2564,6 +2569,7 @@
             { "/get-started/web": 3 },
             { "/development/frameworks-web/react": 3 },
             { "/patterns/loading": 3 },
+            { "/patterns/overlay": 3 },
             { "/patterns/layout": 3 },
             { "/get-started/mobile": 2 },
             { "/development/frameworks-web/angular": 2 },
@@ -2610,6 +2616,7 @@
             { "/patterns/appbar": 1 },
             { "/patterns/forms": 1 },
             { "/patterns/loading": 1 },
+            { "/patterns/overlay": 1 },
             { "/community/innersourcing": 1 },
             { "/community/faq": 1 }
         ],
@@ -2680,7 +2687,6 @@
             { "/style/color": 5 },
             { "/design/intro": 4 },
             { "/design/anatomy": 4 },
-            { "/patterns/overlay": 4 },
             { "/get-started/new-project": 3 },
             { "/patterns/lists": 3 },
             { "/patterns/visualizations": 3 },
@@ -2689,6 +2695,7 @@
             { "/development/frameworks-mobile/ionic": 2 },
             { "/patterns/forms": 2 },
             { "/patterns/internationalization": 2 },
+            { "/patterns/overlay": 2 },
             { "/style/typography": 2 },
             { "/community/license": 2 },
             { "/get-started/web": 1 },
@@ -2721,6 +2728,7 @@
             { "/development/frameworks-mobile/ionic": 2 },
             { "/development/testing": 2 },
             { "/design/anatomy": 2 },
+            { "/patterns/overlay": 2 },
             { "/style/typography": 2 },
             { "/get-started/mobile": 1 },
             { "/development/frameworks-mobile/intro": 1 },
@@ -2728,7 +2736,6 @@
             { "/patterns/appbar": 1 },
             { "/patterns/forms": 1 },
             { "/patterns/navigation": 1 },
-            { "/patterns/overlay": 1 },
             { "/patterns/steppers": 1 },
             { "/patterns/visualizations": 1 },
             { "/community/license": 1 },
@@ -2782,14 +2789,14 @@
             { "/patterns/internationalization": 3 },
             { "/development/environment": 2 },
             { "/development/frameworks-web/angular": 2 },
-            { "/patterns/overlay": 2 },
             { "/style/color": 2 },
             { "/get-started/web": 1 },
+            { "/patterns/overlay": 1 },
             { "/style/themes": 1 }
         ],
         "used": [
             { "/style/color": 14 },
-            { "/patterns/overlay": 13 },
+            { "/patterns/overlay": 7 },
             { "/patterns/empty-states": 5 },
             { "/get-started/new-project": 4 },
             { "/design/intro": 4 },
@@ -2829,6 +2836,7 @@
             { "/patterns/login": 7 },
             { "/patterns/forms": 5 },
             { "/development/frameworks-mobile/react-native": 3 },
+            { "/patterns/overlay": 3 },
             { "/get-started/new-project": 2 },
             { "/get-started/mobile": 2 },
             { "/development/frameworks-web/intro": 2 },
@@ -2836,7 +2844,6 @@
             { "/development/frameworks-web/react": 2 },
             { "/patterns/appbar": 2 },
             { "/patterns/internationalization": 2 },
-            { "/patterns/overlay": 2 },
             { "/patterns/layout": 2 },
             { "/design/anatomy": 1 },
             { "/patterns/steppers": 1 },
@@ -2869,7 +2876,6 @@
             { "/style/color": 4 },
             { "/design/anatomy": 3 },
             { "/patterns/login": 2 },
-            { "/patterns/overlay": 2 },
             { "/patterns/layout": 2 },
             { "/get-started/new-project": 1 },
             { "/development/frameworks-mobile/react-native": 1 },
@@ -2878,6 +2884,7 @@
             { "/patterns/empty-states": 1 },
             { "/patterns/forms": 1 },
             { "/patterns/internationalization": 1 },
+            { "/patterns/overlay": 1 },
             { "/style/themes": 1 },
             { "/community/features": 1 }
         ],
@@ -2973,6 +2980,7 @@
             { "/development/testing": 4 },
             { "/development/frameworks-mobile/ionic": 3 },
             { "/patterns/loading": 3 },
+            { "/patterns/overlay": 3 },
             { "/development/cli": 2 },
             { "/patterns/appbar": 2 },
             { "/patterns/empty-states": 2 },
@@ -2998,8 +3006,7 @@
         "apps": [
             { "/get-started/mobile": 7 },
             { "/get-started/new-project": 1 },
-            { "/development/frameworks-mobile/react-native": 1 },
-            { "/patterns/overlay": 1 }
+            { "/development/frameworks-mobile/react-native": 1 }
         ],
         "deciding": [{ "/get-started/new-project": 1 }],
         "kind": [{ "/get-started/new-project": 1 }, { "/patterns/loading": 1 }],
@@ -3036,10 +3043,10 @@
             { "/patterns/forms": 3 },
             { "/get-started/new-project": 2 },
             { "/patterns/lists": 2 },
+            { "/patterns/overlay": 2 },
             { "/style/typography": 2 },
             { "/design/intro": 1 },
-            { "/patterns/appbar": 1 },
-            { "/patterns/overlay": 1 }
+            { "/patterns/appbar": 1 }
         ],
         "replacing": [{ "/get-started/new-project": 1 }],
         "existing": [
@@ -3082,6 +3089,7 @@
             { "/get-started/new-project": 3 },
             { "/patterns/internationalization": 3 },
             { "/patterns/loading": 3 },
+            { "/patterns/overlay": 2 },
             { "/patterns/steppers": 2 },
             { "/get-started/mobile": 1 },
             { "/development/frameworks-mobile/intro": 1 },
@@ -3096,7 +3104,6 @@
             { "/get-started/new-project": 1 },
             { "/patterns/empty-states": 1 },
             { "/patterns/internationalization": 1 },
-            { "/patterns/overlay": 1 },
             { "/style/typography": 1 },
             { "/style/themes": 1 }
         ],
@@ -3105,7 +3112,6 @@
             { "/get-started/new-project": 2 },
             { "/design/intro": 2 },
             { "/patterns/forms": 2 },
-            { "/patterns/overlay": 2 },
             { "/get-started/mobile": 1 },
             { "/development/environment": 1 },
             { "/development/frameworks-web/intro": 1 },
@@ -3114,6 +3120,7 @@
             { "/development/frameworks-mobile/react-native": 1 },
             { "/development/testing": 1 },
             { "/patterns/empty-states": 1 },
+            { "/patterns/overlay": 1 },
             { "/style/typography": 1 }
         ],
         "want": [
@@ -3130,6 +3137,7 @@
             { "/development/frameworks-mobile/intro": 1 },
             { "/patterns/appbar": 1 },
             { "/patterns/forms": 1 },
+            { "/patterns/overlay": 1 },
             { "/patterns/visualizations": 1 },
             { "/community/features": 1 },
             { "/community/faq": 1 }
@@ -3156,17 +3164,17 @@
             { "/get-started/new-project": 3 },
             { "/community/innersourcing": 3 },
             { "/development/frameworks-mobile/react-native": 2 },
+            { "/patterns/overlay": 2 },
             { "/development/environment": 1 },
             { "/development/frameworks-web/angular": 1 },
             { "/development/frameworks-web/react": 1 },
             { "/development/frameworks-mobile/intro": 1 },
-            { "/patterns/forms": 1 },
-            { "/patterns/overlay": 1 }
+            { "/patterns/forms": 1 }
         ],
         "unless": [{ "/get-started/new-project": 1 }, { "/patterns/forms": 1 }],
         "user": [
             { "/patterns/forms": 12 },
-            { "/patterns/overlay": 10 },
+            { "/patterns/overlay": 9 },
             { "/development/testing": 8 },
             { "/patterns/login": 7 },
             { "/design/anatomy": 5 },
@@ -3214,8 +3222,7 @@
             { "/patterns/layout": 4 },
             { "/get-started/web": 3 },
             { "/get-started/new-project": 2 },
-            { "/patterns/navigation": 1 },
-            { "/patterns/overlay": 1 }
+            { "/patterns/navigation": 1 }
         ],
         "time": [
             { "/development/testing": 4 },
@@ -3247,7 +3254,7 @@
         "offering": [{ "/get-started/new-project": 1 }, { "/patterns/visualizations": 1 }],
         "brand": [{ "/get-started/new-project": 1 }, { "/design/anatomy": 1 }],
         "never": [{ "/get-started/new-project": 1 }],
-        "seen": [{ "/get-started/new-project": 1 }, { "/patterns/appbar": 1 }, { "/patterns/overlay": 1 }],
+        "seen": [{ "/get-started/new-project": 1 }, { "/patterns/appbar": 1 }],
         "does": [
             { "/get-started/new-project": 1 },
             { "/development/frameworks-web/react": 1 },
@@ -3330,6 +3337,7 @@
         ],
         "suspect": [{ "/get-started/new-project": 1 }],
         "primary": [
+            { "/patterns/overlay": 3 },
             { "/get-started/new-project": 1 },
             { "/get-started/mobile": 1 },
             { "/development/frameworks-mobile/react-native": 1 },
@@ -3374,7 +3382,6 @@
             { "/development/frameworks-mobile/intro": 1 },
             { "/development/frameworks-mobile/ionic": 1 },
             { "/development/testing": 1 },
-            { "/patterns/overlay": 1 },
             { "/patterns/visualizations": 1 }
         ],
         "dedicated": [
@@ -3434,7 +3441,6 @@
             { "/development/frameworks-mobile/react-native": 2 },
             { "/design/anatomy": 2 },
             { "/patterns/appbar": 2 },
-            { "/patterns/overlay": 2 },
             { "/community/license": 2 },
             { "/community/bugs": 2 },
             { "/get-started/web": 1 },
@@ -3445,6 +3451,7 @@
             { "/design/intro": 1 },
             { "/patterns/forms": 1 },
             { "/patterns/internationalization": 1 },
+            { "/patterns/overlay": 1 },
             { "/patterns/steppers": 1 },
             { "/community/faq": 1 }
         ],
@@ -3473,7 +3480,7 @@
             { "/patterns/steppers": 1 },
             { "/style/color": 1 }
         ],
-        "critical": [{ "/get-started/web": 1 }, { "/development/testing": 1 }],
+        "critical": [{ "/patterns/overlay": 2 }, { "/get-started/web": 1 }, { "/development/testing": 1 }],
         "today": [{ "/get-started/web": 1 }],
         "nearly": [{ "/get-started/web": 1 }, { "/design/anatomy": 1 }],
         "infinite": [{ "/get-started/web": 1 }],
@@ -3535,12 +3542,7 @@
             { "/patterns/overlay": 1 },
             { "/community/innersourcing": 1 }
         ],
-        "much": [
-            { "/get-started/web": 2 },
-            { "/design/intro": 2 },
-            { "/patterns/overlay": 1 },
-            { "/community/innersourcing": 1 }
-        ],
+        "much": [{ "/get-started/web": 2 }, { "/design/intro": 2 }, { "/community/innersourcing": 1 }],
         "easier": [
             { "/get-started/web": 2 },
             { "/get-started/mobile": 2 },
@@ -3574,10 +3576,10 @@
         "display": [
             { "/patterns/empty-states": 2 },
             { "/patterns/internationalization": 2 },
+            { "/patterns/overlay": 2 },
             { "/get-started/web": 1 },
             { "/patterns/loading": 1 },
             { "/patterns/login": 1 },
-            { "/patterns/overlay": 1 },
             { "/style/color": 1 }
         ],
         "scale": [
@@ -3613,6 +3615,7 @@
             { "/patterns/forms": 1 },
             { "/patterns/internationalization": 1 },
             { "/patterns/login": 1 },
+            { "/patterns/overlay": 1 },
             { "/patterns/layout": 1 },
             { "/patterns/steppers": 1 }
         ],
@@ -3635,6 +3638,7 @@
             { "/design/anatomy": 1 },
             { "/patterns/lists": 1 },
             { "/patterns/login": 1 },
+            { "/patterns/overlay": 1 },
             { "/patterns/visualizations": 1 },
             { "/style/iconography": 1 }
         ],
@@ -3645,12 +3649,14 @@
             { "/get-started/web": 1 },
             { "/get-started/mobile": 1 },
             { "/development/frameworks-mobile/intro": 1 },
+            { "/patterns/overlay": 1 },
             { "/style/iconography": 1 }
         ],
         "proceed": [{ "/get-started/web": 1 }, { "/patterns/loading": 1 }],
         "most": [
             { "/development/testing": 5 },
             { "/patterns/forms": 4 },
+            { "/patterns/overlay": 3 },
             { "/development/frameworks-mobile/react-native": 2 },
             { "/design/intro": 2 },
             { "/design/anatomy": 2 },
@@ -3668,7 +3674,6 @@
             { "/patterns/empty-states": 1 },
             { "/patterns/loading": 1 },
             { "/patterns/navigation": 1 },
-            { "/patterns/overlay": 1 },
             { "/patterns/visualizations": 1 },
             { "/community/license": 1 },
             { "/community/innersourcing": 1 }
@@ -3725,7 +3730,6 @@
         ],
         "very": [
             { "/design/anatomy": 2 },
-            { "/patterns/overlay": 2 },
             { "/get-started/web": 1 },
             { "/get-started/mobile": 1 },
             { "/development/frameworks-web/intro": 1 },
@@ -3745,12 +3749,7 @@
         "infrastructure": [{ "/get-started/web": 1 }],
         "certainly": [{ "/get-started/web": 1 }],
         "static": [{ "/patterns/layout": 2 }, { "/get-started/web": 1 }],
-        "just": [
-            { "/get-started/web": 1 },
-            { "/development/testing": 1 },
-            { "/patterns/appbar": 1 },
-            { "/patterns/overlay": 1 }
-        ],
+        "just": [{ "/get-started/web": 1 }, { "/development/testing": 1 }, { "/patterns/appbar": 1 }],
         "vanilla": [{ "/development/frameworks-mobile/react-native": 2 }, { "/get-started/web": 1 }],
         "without": [
             { "/community/license": 2 },
@@ -3767,7 +3766,6 @@
             { "/get-started/web": 1 },
             { "/development/frameworks-web/intro": 1 },
             { "/development/testing": 1 },
-            { "/patterns/overlay": 1 },
             { "/style/themes": 1 }
         ],
         "angular": [
@@ -3786,6 +3784,7 @@
             { "/patterns/forms": 2 },
             { "/patterns/internationalization": 2 },
             { "/patterns/lists": 2 },
+            { "/patterns/overlay": 2 },
             { "/patterns/visualizations": 2 },
             { "/community/features": 2 },
             { "/get-started/web": 1 },
@@ -3804,6 +3803,7 @@
             { "/development/frameworks-web/intro": 4 },
             { "/patterns/appbar": 4 },
             { "/patterns/empty-states": 4 },
+            { "/patterns/overlay": 4 },
             { "/community/bugs": 4 },
             { "/patterns/forms": 3 },
             { "/style/themes": 3 },
@@ -3898,6 +3898,7 @@
             { "/design/intro": 1 },
             { "/design/anatomy": 1 },
             { "/patterns/lists": 1 },
+            { "/patterns/overlay": 1 },
             { "/community/bugs": 1 }
         ],
         "online": [
@@ -3942,12 +3943,12 @@
         ],
         "varieties": [{ "/get-started/mobile": 1 }, { "/development/testing": 1 }],
         "must": [
+            { "/patterns/overlay": 2 },
             { "/community/license": 2 },
             { "/get-started/mobile": 1 },
             { "/development/frameworks-mobile/react-native": 1 },
             { "/patterns/forms": 1 },
             { "/patterns/login": 1 },
-            { "/patterns/overlay": 1 },
             { "/style/typography": 1 }
         ],
         "using": [
@@ -4007,7 +4008,7 @@
             { "/patterns/empty-states": 7 },
             { "/patterns/login": 6 },
             { "/patterns/lists": 5 },
-            { "/patterns/overlay": 5 },
+            { "/patterns/overlay": 4 },
             { "/style/color": 4 },
             { "/get-started/mobile": 3 },
             { "/development/environment": 3 },
@@ -4108,6 +4109,7 @@
             { "/patterns/forms": 1 },
             { "/patterns/internationalization": 1 },
             { "/patterns/loading": 1 },
+            { "/patterns/overlay": 1 },
             { "/style/color": 1 },
             { "/community/innersourcing": 1 },
             { "/community/features": 1 }
@@ -4125,6 +4127,7 @@
             { "/patterns/appbar": 1 },
             { "/patterns/empty-states": 1 },
             { "/patterns/lists": 1 },
+            { "/patterns/overlay": 1 },
             { "/patterns/visualizations": 1 }
         ],
         "some": [
@@ -4134,7 +4137,6 @@
             { "/design/anatomy": 2 },
             { "/patterns/internationalization": 2 },
             { "/patterns/loading": 2 },
-            { "/patterns/overlay": 2 },
             { "/patterns/layout": 2 },
             { "/get-started/mobile": 1 },
             { "/development/environment": 1 },
@@ -4155,6 +4157,7 @@
         "render": [{ "/get-started/mobile": 1 }],
         "content": [
             { "/patterns/navigation": 8 },
+            { "/patterns/overlay": 7 },
             { "/development/testing": 3 },
             { "/patterns/appbar": 2 },
             { "/patterns/loading": 2 },
@@ -4162,8 +4165,7 @@
             { "/get-started/mobile": 1 },
             { "/design/intro": 1 },
             { "/patterns/empty-states": 1 },
-            { "/patterns/internationalization": 1 },
-            { "/patterns/overlay": 1 }
+            { "/patterns/internationalization": 1 }
         ],
         "view": [
             { "/get-started/mobile": 1 },
@@ -4171,7 +4173,7 @@
             { "/development/frameworks-web/react": 1 },
             { "/style/iconography": 1 }
         ],
-        "essentially": [{ "/get-started/mobile": 1 }, { "/patterns/overlay": 1 }],
+        "essentially": [{ "/get-started/mobile": 1 }],
         "running": [
             { "/development/frameworks-mobile/react-native": 5 },
             { "/development/environment": 2 },
@@ -4628,8 +4630,7 @@
             { "/development/frameworks-mobile/ionic": 2 },
             { "/patterns/appbar": 2 },
             { "/patterns/internationalization": 2 },
-            { "/patterns/lists": 1 },
-            { "/patterns/overlay": 1 }
+            { "/patterns/lists": 1 }
         ],
         "http": [{ "/development/environment": 5 }],
         "url": [{ "/development/environment": 4 }],
@@ -4654,7 +4655,8 @@
             { "/development/frameworks-mobile/react-native": 1 },
             { "/patterns/lists": 1 },
             { "/patterns/loading": 1 },
-            { "/patterns/navigation": 1 }
+            { "/patterns/navigation": 1 },
+            { "/patterns/overlay": 1 }
         ],
         "package": [
             { "/development/frameworks-web/react": 4 },
@@ -4690,6 +4692,7 @@
             { "/community/license": 2 },
             { "/design/intro": 1 },
             { "/patterns/navigation": 1 },
+            { "/patterns/overlay": 1 },
             { "/style/iconography": 1 },
             { "/style/themes": 1 },
             { "/community/innersourcing": 1 },
@@ -4729,9 +4732,9 @@
             { "/community/faq": 1 }
         ],
         "example": [
-            { "/patterns/overlay": 3 },
             { "/patterns/internationalization": 2 },
             { "/patterns/loading": 2 },
+            { "/patterns/overlay": 2 },
             { "/development/environment": 1 },
             { "/development/frameworks-mobile/ionic": 1 },
             { "/development/frameworks-mobile/react-native": 1 },
@@ -4788,6 +4791,7 @@
         "found": [
             { "/development/frameworks-mobile/ionic": 2 },
             { "/development/frameworks-mobile/react-native": 2 },
+            { "/patterns/overlay": 2 },
             { "/development/environment": 1 },
             { "/development/frameworks-web/angular": 1 },
             { "/community/license": 1 },
@@ -4913,7 +4917,7 @@
             { "/development/frameworks-mobile/react-native": 1 }
         ],
         "selected": [
-            { "/patterns/overlay": 3 },
+            { "/patterns/overlay": 4 },
             { "/development/environment": 1 },
             { "/development/frameworks-web/angular": 1 },
             { "/development/frameworks-web/react": 1 },
@@ -4956,7 +4960,7 @@
         ],
         "intensive": [{ "/development/environment": 1 }],
         "machine": [{ "/development/environment": 2 }, { "/community/bugs": 1 }],
-        "task": [{ "/development/environment": 1 }, { "/patterns/overlay": 1 }],
+        "task": [{ "/development/environment": 1 }],
         "match": [{ "/development/environment": 1 }, { "/patterns/loading": 1 }],
         "minimum": [{ "/development/environment": 1 }, { "/patterns/login": 1 }],
         "mac": [
@@ -5007,7 +5011,6 @@
             { "/development/environment": 2 },
             { "/development/frameworks-mobile/ionic": 1 },
             { "/patterns/lists": 1 },
-            { "/patterns/overlay": 1 },
             { "/patterns/steppers": 1 }
         ],
         "xcode": [
@@ -5132,7 +5135,6 @@
             { "/patterns/empty-states": 1 },
             { "/patterns/forms": 1 },
             { "/patterns/lists": 1 },
-            { "/patterns/overlay": 1 },
             { "/style/iconography": 1 },
             { "/style/themes": 1 },
             { "/community/license": 1 }
@@ -5232,6 +5234,7 @@
             { "/patterns/appbar": 1 },
             { "/patterns/empty-states": 1 },
             { "/patterns/internationalization": 1 },
+            { "/patterns/overlay": 1 },
             { "/style/themes": 1 },
             { "/community/innersourcing": 1 },
             { "/community/features": 1 }
@@ -5259,9 +5262,9 @@
             { "/development/testing": 5 },
             { "/community/license": 5 },
             { "/development/frameworks-mobile/react-native": 4 },
+            { "/patterns/overlay": 3 },
             { "/style/typography": 3 },
             { "/development/frameworks-web/intro": 2 },
-            { "/patterns/overlay": 2 },
             { "/community/faq": 2 },
             { "/patterns/forms": 1 },
             { "/patterns/visualizations": 1 },
@@ -5330,8 +5333,7 @@
         "functionality": [
             { "/development/frameworks-mobile/intro": 2 },
             { "/development/frameworks-web/intro": 1 },
-            { "/development/testing": 1 },
-            { "/patterns/overlay": 1 }
+            { "/development/testing": 1 }
         ],
         "written": [
             { "/development/testing": 4 },
@@ -5390,6 +5392,7 @@
             { "/patterns/appbar": 1 },
             { "/patterns/forms": 1 },
             { "/patterns/loading": 1 },
+            { "/patterns/overlay": 1 },
             { "/patterns/steppers": 1 },
             { "/community/bugs": 1 },
             { "/community/features": 1 }
@@ -5398,7 +5401,6 @@
             { "/style/typography": 3 },
             { "/development/frameworks-web/intro": 1 },
             { "/development/frameworks-mobile/intro": 1 },
-            { "/patterns/overlay": 1 },
             { "/patterns/layout": 1 }
         ],
         "combined": [{ "/design/anatomy": 2 }, { "/development/frameworks-web/intro": 1 }, { "/style/themes": 1 }],
@@ -5418,7 +5420,7 @@
             { "/community/license": 1 },
             { "/community/features": 1 }
         ],
-        "front": [{ "/development/frameworks-web/intro": 1 }],
+        "front": [{ "/development/frameworks-web/intro": 1 }, { "/patterns/overlay": 1 }],
         "facebook": [{ "/development/frameworks-web/intro": 1 }],
         "entirely": [
             { "/development/frameworks-web/intro": 1 },
@@ -5660,6 +5662,7 @@
             { "/patterns/visualizations": 2 },
             { "/development/frameworks-mobile/ionic": 1 },
             { "/development/frameworks-mobile/react-native": 1 },
+            { "/patterns/overlay": 1 },
             { "/community/license": 1 },
             { "/community/innersourcing": 1 },
             { "/community/bugs": 1 },
@@ -5742,6 +5745,7 @@
             { "/development/frameworks-web/angular": 1 },
             { "/development/frameworks-web/react": 1 },
             { "/development/frameworks-mobile/react-native": 1 },
+            { "/patterns/overlay": 1 },
             { "/style/iconography": 1 }
         ],
         "specifically": [
@@ -5755,7 +5759,8 @@
             { "/development/frameworks-web/angular": 1 },
             { "/development/frameworks-web/react": 1 },
             { "/patterns/appbar": 1 },
-            { "/patterns/empty-states": 1 }
+            { "/patterns/empty-states": 1 },
+            { "/patterns/overlay": 1 }
         ],
         "adding": [
             { "/development/frameworks-mobile/react-native": 5 },
@@ -5811,6 +5816,7 @@
             { "/development/frameworks-mobile/react-native": 1 },
             { "/design/intro": 1 },
             { "/patterns/loading": 1 },
+            { "/patterns/overlay": 1 },
             { "/community/faq": 1 }
         ],
         "styles": [
@@ -5866,8 +5872,7 @@
             { "/style/color": 3 },
             { "/style/themes": 3 },
             { "/development/frameworks-web/angular": 1 },
-            { "/patterns/navigation": 1 },
-            { "/patterns/overlay": 1 }
+            { "/patterns/navigation": 1 }
         ],
         "specify": [
             { "/development/frameworks-web/angular": 1 },
@@ -5901,8 +5906,8 @@
         "my": [{ "/development/frameworks-web/angular": 1 }],
         "details": [
             { "/development/frameworks-web/angular": 2 },
+            { "/patterns/overlay": 2 },
             { "/development/frameworks-web/react": 1 },
-            { "/patterns/overlay": 1 },
             { "/style/color": 1 },
             { "/community/innersourcing": 1 }
         ],
@@ -6035,7 +6040,6 @@
             { "/patterns/internationalization": 1 },
             { "/patterns/lists": 1 },
             { "/patterns/loading": 1 },
-            { "/patterns/overlay": 1 },
             { "/community/bugs": 1 }
         ],
         "around": [{ "/development/frameworks-web/react": 1 }, { "/design/intro": 1 }, { "/design/anatomy": 1 }],
@@ -6135,11 +6139,7 @@
             { "/patterns/overlay": 1 },
             { "/community/innersourcing": 1 }
         ],
-        "final": [
-            { "/development/frameworks-mobile/intro": 4 },
-            { "/development/frameworks-mobile/react-native": 1 },
-            { "/patterns/overlay": 1 }
-        ],
+        "final": [{ "/development/frameworks-mobile/intro": 4 }, { "/development/frameworks-mobile/react-native": 1 }],
         "binary": [
             { "/development/frameworks-mobile/intro": 2 },
             { "/community/license": 2 },
@@ -6255,7 +6255,8 @@
         "paper": [
             { "/development/frameworks-mobile/react-native": 10 },
             { "/patterns/forms": 1 },
-            { "/patterns/loading": 1 }
+            { "/patterns/loading": 1 },
+            { "/patterns/overlay": 1 }
         ],
         "vector": [{ "/development/frameworks-mobile/react-native": 4 }],
         "svg": [{ "/development/frameworks-mobile/react-native": 1 }],
@@ -6354,9 +6355,9 @@
         "yourappname": [{ "/development/frameworks-mobile/react-native": 1 }],
         "rnc": [{ "/development/frameworks-mobile/react-native": 3 }],
         "screen": [
+            { "/patterns/overlay": 8 },
             { "/patterns/loading": 6 },
             { "/patterns/forms": 5 },
-            { "/patterns/overlay": 5 },
             { "/development/testing": 4 },
             { "/patterns/appbar": 4 },
             { "/patterns/empty-states": 4 },
@@ -6402,7 +6403,7 @@
         "becomes": [{ "/development/frameworks-mobile/react-native": 1 }, { "/patterns/appbar": 1 }],
         "eject": [{ "/development/frameworks-mobile/react-native": 5 }],
         "reason": [{ "/development/frameworks-mobile/react-native": 3 }],
-        "prompts": [{ "/development/frameworks-mobile/react-native": 1 }, { "/patterns/overlay": 1 }],
+        "prompts": [{ "/development/frameworks-mobile/react-native": 1 }],
         "warning": [{ "/development/frameworks-mobile/react-native": 1 }],
         "cannot": [{ "/development/frameworks-mobile/react-native": 1 }, { "/patterns/forms": 1 }],
         "undone": [{ "/development/frameworks-mobile/react-native": 1 }],
@@ -6478,7 +6479,7 @@
         ],
         "ejection": [{ "/development/frameworks-mobile/react-native": 1 }],
         "bundle": [{ "/development/frameworks-mobile/react-native": 1 }],
-        "vs": [{ "/development/frameworks-mobile/react-native": 1 }, { "/patterns/overlay": 1 }],
+        "vs": [{ "/development/frameworks-mobile/react-native": 1 }],
         "nice": [{ "/development/frameworks-mobile/react-native": 1 }],
         "spinning": [{ "/development/frameworks-mobile/react-native": 1 }],
         "quick": [{ "/development/testing": 2 }, { "/development/frameworks-mobile/react-native": 1 }],
@@ -6536,7 +6537,12 @@
         "verifies": [{ "/development/testing": 1 }],
         "correct": [{ "/development/testing": 3 }],
         "tests": [{ "/development/testing": 46 }],
-        "purpose": [{ "/style/color": 2 }, { "/development/testing": 1 }, { "/community/license": 1 }],
+        "purpose": [
+            { "/style/color": 2 },
+            { "/development/testing": 1 },
+            { "/patterns/overlay": 1 },
+            { "/community/license": 1 }
+        ],
         "verify": [{ "/development/testing": 8 }, { "/patterns/forms": 4 }, { "/patterns/login": 1 }],
         "individual": [
             { "/development/testing": 1 },
@@ -6553,7 +6559,7 @@
             { "/style/color": 1 },
             { "/community/license": 1 }
         ],
-        "together": [{ "/development/testing": 2 }, { "/patterns/overlay": 1 }],
+        "together": [{ "/development/testing": 2 }],
         "functional": [{ "/development/testing": 3 }, { "/design/anatomy": 1 }],
         "output": [{ "/development/testing": 3 }],
         "actions": [
@@ -6570,8 +6576,8 @@
             { "/community/faq": 1 },
             { "/community/contactus": 1 }
         ],
-        "behaviors": [{ "/patterns/forms": 2 }, { "/development/testing": 1 }, { "/patterns/overlay": 1 }],
-        "workflows": [{ "/design/anatomy": 8 }, { "/development/testing": 1 }],
+        "behaviors": [{ "/patterns/forms": 2 }, { "/development/testing": 1 }],
+        "workflows": [{ "/design/anatomy": 8 }, { "/development/testing": 1 }, { "/patterns/overlay": 1 }],
         "function": [{ "/development/testing": 3 }, { "/design/intro": 1 }],
         "expected": [
             { "/development/testing": 2 },
@@ -6589,7 +6595,6 @@
             { "/patterns/appbar": 4 },
             { "/design/anatomy": 2 },
             { "/patterns/login": 2 },
-            { "/patterns/overlay": 2 },
             { "/patterns/steppers": 2 },
             { "/development/testing": 1 },
             { "/patterns/lists": 1 },
@@ -6606,7 +6611,7 @@
         "smallest": [{ "/development/testing": 1 }],
         "pieces": [{ "/development/testing": 2 }],
         "such": [
-            { "/patterns/overlay": 6 },
+            { "/patterns/overlay": 5 },
             { "/development/testing": 4 },
             { "/design/anatomy": 4 },
             { "/patterns/forms": 4 },
@@ -6650,7 +6655,8 @@
             { "/development/testing": 1 },
             { "/design/anatomy": 1 },
             { "/patterns/empty-states": 1 },
-            { "/patterns/forms": 1 }
+            { "/patterns/forms": 1 },
+            { "/patterns/overlay": 1 }
         ],
         "fix": [{ "/development/testing": 1 }],
         "combining": [{ "/development/testing": 2 }, { "/style/themes": 1 }],
@@ -6701,13 +6707,18 @@
             { "/design/intro": 1 },
             { "/patterns/navigation": 1 }
         ],
-        "less": [{ "/development/testing": 2 }, { "/design/intro": 1 }, { "/patterns/empty-states": 1 }],
+        "less": [
+            { "/development/testing": 2 },
+            { "/design/intro": 1 },
+            { "/patterns/empty-states": 1 },
+            { "/patterns/overlay": 1 }
+        ],
         "actual": [{ "/development/testing": 1 }],
         "usually": [
             { "/development/testing": 2 },
             { "/design/anatomy": 2 },
             { "/patterns/internationalization": 2 },
-            { "/patterns/overlay": 2 },
+            { "/patterns/overlay": 1 },
             { "/patterns/steppers": 1 }
         ],
         "plain": [{ "/development/testing": 1 }, { "/patterns/forms": 1 }],
@@ -6733,15 +6744,15 @@
             { "/patterns/forms": 16 },
             { "/development/testing": 8 },
             { "/patterns/loading": 5 },
-            { "/patterns/overlay": 3 },
+            { "/patterns/overlay": 4 },
             { "/patterns/appbar": 2 },
             { "/design/anatomy": 1 },
             { "/patterns/empty-states": 1 },
             { "/patterns/login": 1 },
             { "/community/innersourcing": 1 }
         ],
-        "modal": [{ "/patterns/overlay": 9 }, { "/development/testing": 1 }],
-        "dialog": [{ "/patterns/overlay": 5 }, { "/development/testing": 2 }],
+        "modal": [{ "/patterns/overlay": 12 }, { "/development/testing": 1 }],
+        "dialog": [{ "/patterns/overlay": 8 }, { "/development/testing": 2 }],
         "clicked": [{ "/development/testing": 2 }, { "/patterns/appbar": 1 }],
         "_open_": [{ "/development/testing": 1 }],
         "label": [{ "/patterns/forms": 3 }, { "/patterns/loading": 2 }, { "/development/testing": 1 }],
@@ -6751,7 +6762,7 @@
         "pressed": [{ "/development/testing": 1 }, { "/design/anatomy": 1 }],
         "break": [{ "/development/testing": 1 }, { "/patterns/steppers": 1 }],
         "even": [{ "/development/testing": 2 }, { "/patterns/internationalization": 2 }, { "/community/license": 1 }],
-        "though": [{ "/development/testing": 1 }, { "/patterns/overlay": 1 }],
+        "though": [{ "/development/testing": 1 }],
         "sees": [{ "/development/testing": 1 }],
         "interactions": [
             { "/development/testing": 2 },
@@ -6767,19 +6778,19 @@
         ],
         "interaction": [
             { "/design/anatomy": 2 },
-            { "/patterns/overlay": 2 },
             { "/development/testing": 1 },
-            { "/patterns/loading": 1 }
+            { "/patterns/loading": 1 },
+            { "/patterns/overlay": 1 }
         ],
         "returned": [{ "/development/testing": 1 }],
         "action": [
             { "/patterns/forms": 5 },
             { "/patterns/lists": 4 },
             { "/patterns/empty-states": 2 },
-            { "/patterns/overlay": 2 },
             { "/development/testing": 1 },
             { "/patterns/appbar": 1 },
-            { "/patterns/loading": 1 }
+            { "/patterns/loading": 1 },
+            { "/patterns/overlay": 1 }
         ],
         "tested": [{ "/development/testing": 1 }],
         "jasmine": [{ "/development/testing": 1 }],
@@ -6820,12 +6831,16 @@
             { "/community/license": 2 },
             { "/development/testing": 1 },
             { "/design/anatomy": 1 },
-            { "/patterns/appbar": 1 },
-            { "/patterns/overlay": 1 }
+            { "/patterns/appbar": 1 }
         ],
         "terms": [{ "/development/testing": 1 }, { "/patterns/visualizations": 1 }],
         "complexity": [{ "/development/testing": 1 }, { "/design/anatomy": 1 }, { "/patterns/forms": 1 }],
-        "primarily": [{ "/style/themes": 2 }, { "/development/testing": 1 }, { "/patterns/appbar": 1 }],
+        "primarily": [
+            { "/style/themes": 2 },
+            { "/development/testing": 1 },
+            { "/patterns/appbar": 1 },
+            { "/patterns/overlay": 1 }
+        ],
         "flow": [{ "/development/testing": 1 }, { "/patterns/internationalization": 1 }, { "/patterns/steppers": 1 }],
         "making": [
             { "/patterns/forms": 2 },
@@ -6887,7 +6902,7 @@
         "breadth": [{ "/development/testing": 1 }],
         "scenarios": [{ "/development/testing": 1 }],
         "rely": [{ "/development/testing": 1 }, { "/patterns/internationalization": 1 }],
-        "interact": [{ "/development/testing": 1 }, { "/design/anatomy": 1 }, { "/patterns/overlay": 1 }],
+        "interact": [{ "/patterns/overlay": 2 }, { "/development/testing": 1 }, { "/design/anatomy": 1 }],
         "reliable": [{ "/development/testing": 2 }],
         "mechanism": [
             { "/development/testing": 1 },
@@ -6959,7 +6974,6 @@
         "click": [
             { "/development/testing": 1 },
             { "/patterns/forms": 1 },
-            { "/patterns/overlay": 1 },
             { "/community/innersourcing": 1 },
             { "/community/features": 1 }
         ],
@@ -6974,7 +6988,7 @@
             { "/development/testing": 1 },
             { "/patterns/forms": 1 }
         ],
-        "customized": [{ "/development/testing": 1 }, { "/patterns/overlay": 1 }, { "/patterns/steppers": 1 }],
+        "customized": [{ "/development/testing": 1 }, { "/patterns/steppers": 1 }],
         "number": [
             { "/patterns/forms": 2 },
             { "/patterns/loading": 2 },
@@ -7073,11 +7087,11 @@
         "defining": [{ "/design/intro": 1 }, { "/design/anatomy": 1 }, { "/style/typography": 1 }],
         "layout": [
             { "/patterns/layout": 11 },
+            { "/patterns/overlay": 2 },
             { "/community/faq": 2 },
             { "/design/intro": 1 },
             { "/patterns/forms": 1 },
-            { "/patterns/internationalization": 1 },
-            { "/patterns/overlay": 1 }
+            { "/patterns/internationalization": 1 }
         ],
         "purposeful": [{ "/design/intro": 1 }],
         "laying": [{ "/design/intro": 1 }],
@@ -7085,8 +7099,8 @@
         "items": [
             { "/patterns/lists": 6 },
             { "/design/intro": 2 },
-            { "/patterns/appbar": 1 },
-            { "/patterns/overlay": 1 }
+            { "/patterns/overlay": 2 },
+            { "/patterns/appbar": 1 }
         ],
         "structure": [{ "/design/intro": 1 }, { "/patterns/loading": 1 }],
         "hierarchy": [{ "/design/intro": 2 }, { "/design/anatomy": 1 }, { "/patterns/appbar": 1 }],
@@ -7189,6 +7203,7 @@
             { "/design/intro": 1 },
             { "/patterns/forms": 1 },
             { "/patterns/loading": 1 },
+            { "/patterns/overlay": 1 },
             { "/community/contactus": 1 }
         ],
         "contribute": [
@@ -7216,13 +7231,13 @@
         "foundations": [{ "/design/anatomy": 4 }],
         "typically": [
             { "/design/anatomy": 3 },
-            { "/patterns/overlay": 3 },
             { "/patterns/forms": 2 },
             { "/patterns/lists": 2 },
             { "/patterns/login": 2 },
             { "/patterns/navigation": 2 },
             { "/patterns/appbar": 1 },
             { "/patterns/internationalization": 1 },
+            { "/patterns/overlay": 1 },
             { "/community/license": 1 },
             { "/community/contactus": 1 }
         ],
@@ -7231,13 +7246,13 @@
         "units": [{ "/patterns/internationalization": 2 }, { "/design/anatomy": 1 }],
         "clicking": [
             { "/patterns/forms": 4 },
+            { "/patterns/overlay": 3 },
             { "/design/anatomy": 1 },
             { "/patterns/loading": 1 },
             { "/patterns/login": 1 },
-            { "/patterns/navigation": 1 },
-            { "/patterns/overlay": 1 }
+            { "/patterns/navigation": 1 }
         ],
-        "expanding": [{ "/design/anatomy": 1 }],
+        "expanding": [{ "/patterns/overlay": 2 }, { "/design/anatomy": 1 }],
         "buttons": [
             { "/patterns/appbar": 2 },
             { "/patterns/internationalization": 2 },
@@ -7250,15 +7265,15 @@
         "sliders": [{ "/design/anatomy": 1 }],
         "complex": [
             { "/design/anatomy": 2 },
-            { "/patterns/overlay": 2 },
             { "/patterns/forms": 1 },
-            { "/patterns/lists": 1 }
+            { "/patterns/lists": 1 },
+            { "/patterns/overlay": 1 }
         ],
         "drawers": [{ "/design/anatomy": 1 }, { "/patterns/internationalization": 1 }],
         "simpler": [{ "/design/anatomy": 1 }],
         "form": [
             { "/patterns/forms": 15 },
-            { "/patterns/overlay": 3 },
+            { "/patterns/overlay": 4 },
             { "/patterns/loading": 2 },
             { "/patterns/login": 2 },
             { "/community/innersourcing": 2 },
@@ -7269,7 +7284,7 @@
             { "/community/features": 1 }
         ],
         "ones": [{ "/design/anatomy": 1 }],
-        "advanced": [{ "/design/anatomy": 1 }, { "/patterns/appbar": 1 }, { "/patterns/overlay": 1 }],
+        "advanced": [{ "/design/anatomy": 1 }, { "/patterns/appbar": 1 }],
         "largest": [{ "/design/anatomy": 1 }],
         "foundation": [{ "/design/anatomy": 1 }],
         "stay": [{ "/design/anatomy": 1 }],
@@ -7339,6 +7354,7 @@
             { "/patterns/forms": 1 },
             { "/patterns/internationalization": 1 },
             { "/patterns/loading": 1 },
+            { "/patterns/overlay": 1 },
             { "/style/color": 1 },
             { "/style/iconography": 1 }
         ],
@@ -7347,7 +7363,8 @@
             { "/design/anatomy": 1 },
             { "/patterns/appbar": 1 },
             { "/patterns/empty-states": 1 },
-            { "/patterns/loading": 1 }
+            { "/patterns/loading": 1 },
+            { "/patterns/overlay": 1 }
         ],
         "looks": [{ "/design/anatomy": 1 }, { "/style/typography": 1 }],
         "recognize": [{ "/design/anatomy": 1 }],
@@ -7383,7 +7400,7 @@
         "short": [{ "/patterns/appbar": 1 }, { "/patterns/forms": 1 }, { "/patterns/internationalization": 1 }],
         "title": [{ "/patterns/appbar": 2 }],
         "indicates": [{ "/patterns/internationalization": 2 }, { "/patterns/appbar": 1 }],
-        "contain": [{ "/patterns/appbar": 1 }, { "/style/themes": 1 }],
+        "contain": [{ "/patterns/appbar": 1 }, { "/patterns/overlay": 1 }, { "/style/themes": 1 }],
         "icon": [
             { "/style/iconography": 11 },
             { "/patterns/navigation": 5 },
@@ -7401,26 +7418,27 @@
             { "/patterns/appbar": 1 },
             { "/patterns/forms": 1 },
             { "/patterns/lists": 1 },
-            { "/patterns/login": 1 }
-        ],
-        "grouping": [{ "/patterns/appbar": 1 }],
-        "menu": [
-            { "/patterns/appbar": 3 },
-            { "/patterns/navigation": 3 },
-            { "/patterns/lists": 2 },
+            { "/patterns/login": 1 },
             { "/patterns/overlay": 1 }
         ],
+        "grouping": [{ "/patterns/appbar": 1 }],
+        "menu": [{ "/patterns/appbar": 3 }, { "/patterns/navigation": 3 }, { "/patterns/lists": 2 }],
         "dropdown": [{ "/patterns/appbar": 6 }, { "/patterns/overlay": 1 }],
         "transforms": [{ "/patterns/appbar": 1 }],
         "switch": [{ "/patterns/appbar": 1 }, { "/patterns/internationalization": 1 }],
         "physical": [{ "/patterns/appbar": 1 }],
         "locations": [{ "/patterns/appbar": 1 }],
         "collapsible": [{ "/patterns/appbar": 3 }, { "/patterns/navigation": 2 }],
-        "situations": [{ "/patterns/loading": 4 }, { "/patterns/appbar": 1 }, { "/patterns/forms": 1 }],
+        "situations": [
+            { "/patterns/loading": 4 },
+            { "/patterns/appbar": 1 },
+            { "/patterns/forms": 1 },
+            { "/patterns/overlay": 1 }
+        ],
         "present": [
             { "/patterns/login": 4 },
+            { "/patterns/overlay": 4 },
             { "/patterns/appbar": 2 },
-            { "/patterns/overlay": 2 },
             { "/patterns/forms": 1 },
             { "/community/license": 1 }
         ],
@@ -7430,12 +7448,7 @@
         "tall": [{ "/patterns/appbar": 1 }],
         "shrink": [{ "/patterns/appbar": 1 }],
         "scrolls": [{ "/patterns/appbar": 1 }],
-        "until": [
-            { "/patterns/appbar": 1 },
-            { "/patterns/forms": 1 },
-            { "/patterns/overlay": 1 },
-            { "/patterns/steppers": 1 }
-        ],
+        "until": [{ "/patterns/appbar": 1 }, { "/patterns/forms": 1 }, { "/patterns/steppers": 1 }],
         "eye": [{ "/patterns/appbar": 1 }],
         "catching": [{ "/patterns/appbar": 1 }],
         "permanently": [{ "/patterns/appbar": 1 }],
@@ -7446,17 +7459,17 @@
             { "/style/iconography": 1 },
             { "/community/innersourcing": 1 }
         ],
-        "commonly": [{ "/patterns/appbar": 1 }, { "/patterns/lists": 1 }, { "/patterns/overlay": 1 }],
+        "commonly": [{ "/patterns/overlay": 2 }, { "/patterns/appbar": 1 }, { "/patterns/lists": 1 }],
         "could": [
-            { "/patterns/overlay": 2 },
             { "/patterns/appbar": 1 },
             { "/patterns/empty-states": 1 },
             { "/patterns/forms": 1 },
-            { "/patterns/loading": 1 }
+            { "/patterns/loading": 1 },
+            { "/patterns/overlay": 1 }
         ],
         "transition": [{ "/patterns/appbar": 3 }],
         "smoothly": [{ "/patterns/appbar": 2 }],
-        "expanded": [{ "/patterns/appbar": 1 }, { "/style/color": 1 }],
+        "expanded": [{ "/patterns/appbar": 1 }, { "/patterns/overlay": 1 }, { "/style/color": 1 }],
         "collapsed": [{ "/patterns/appbar": 1 }],
         "disappear": [{ "/patterns/appbar": 1 }],
         "shrinks": [{ "/patterns/appbar": 1 }],
@@ -7464,16 +7477,16 @@
         "data": [
             { "/patterns/loading": 18 },
             { "/patterns/empty-states": 9 },
-            { "/patterns/overlay": 4 },
             { "/patterns/visualizations": 4 },
             { "/patterns/forms": 3 },
+            { "/patterns/overlay": 3 },
             { "/patterns/appbar": 2 },
             { "/patterns/lists": 2 },
             { "/community/license": 1 }
         ],
         "achieved": [{ "/patterns/appbar": 1 }, { "/patterns/lists": 1 }, { "/style/themes": 1 }],
         "white": [{ "/patterns/appbar": 1 }, { "/style/color": 1 }],
-        "slides": [{ "/patterns/navigation": 2 }, { "/patterns/appbar": 1 }, { "/patterns/overlay": 1 }],
+        "slides": [{ "/patterns/navigation": 2 }, { "/patterns/appbar": 1 }],
         "right": [
             { "/patterns/internationalization": 7 },
             { "/patterns/forms": 2 },
@@ -7482,13 +7495,14 @@
         ],
         "enters": [{ "/patterns/appbar": 1 }],
         "filtered": [{ "/patterns/appbar": 1 }],
-        "close": [{ "/patterns/overlay": 2 }, { "/patterns/appbar": 1 }],
+        "close": [{ "/patterns/overlay": 3 }, { "/patterns/appbar": 1 }],
         "place": [{ "/patterns/appbar": 1 }, { "/patterns/navigation": 1 }, { "/patterns/layout": 1 }],
         "smaller": [
             { "/patterns/appbar": 1 },
             { "/patterns/empty-states": 1 },
             { "/patterns/internationalization": 1 },
             { "/patterns/navigation": 1 },
+            { "/patterns/overlay": 1 },
             { "/patterns/steppers": 1 }
         ],
         "input": [{ "/patterns/forms": 10 }, { "/patterns/appbar": 1 }],
@@ -7518,7 +7532,7 @@
         ],
         "happen": [{ "/patterns/empty-states": 1 }],
         "loading": [{ "/patterns/loading": 9 }, { "/patterns/empty-states": 2 }, { "/patterns/forms": 1 }],
-        "filter": [{ "/patterns/empty-states": 2 }, { "/patterns/overlay": 1 }],
+        "filter": [{ "/patterns/empty-states": 2 }],
         "criteria": [{ "/patterns/empty-states": 1 }, { "/patterns/forms": 1 }],
         "indicators": [{ "/patterns/loading": 3 }, { "/patterns/empty-states": 2 }],
         "alert": [{ "/patterns/empty-states": 1 }],
@@ -7548,7 +7562,8 @@
             { "/patterns/loading": 2 },
             { "/patterns/empty-states": 1 },
             { "/patterns/forms": 1 },
-            { "/patterns/navigation": 1 }
+            { "/patterns/navigation": 1 },
+            { "/patterns/overlay": 1 }
         ],
         "indicator": [{ "/patterns/loading": 6 }, { "/patterns/empty-states": 2 }],
         "centered": [{ "/patterns/empty-states": 1 }, { "/patterns/forms": 1 }, { "/patterns/loading": 1 }],
@@ -7557,10 +7572,10 @@
             { "/patterns/empty-states": 1 },
             { "/style/themes": 1 }
         ],
-        "coming": [{ "/patterns/empty-states": 1 }],
-        "soon": [{ "/patterns/empty-states": 1 }, { "/patterns/forms": 1 }],
+        "coming": [{ "/patterns/empty-states": 1 }, { "/patterns/overlay": 1 }],
+        "soon": [{ "/patterns/empty-states": 1 }, { "/patterns/forms": 1 }, { "/patterns/overlay": 1 }],
         "sections": [{ "/patterns/empty-states": 1 }, { "/patterns/forms": 1 }, { "/style/color": 1 }],
-        "having": [{ "/patterns/empty-states": 1 }, { "/patterns/overlay": 1 }, { "/style/typography": 1 }],
+        "having": [{ "/patterns/empty-states": 1 }, { "/style/typography": 1 }],
         "dashboard": [{ "/patterns/empty-states": 1 }],
         "verification": [{ "/patterns/forms": 12 }, { "/patterns/loading": 3 }, { "/patterns/login": 1 }],
         "validation": [{ "/patterns/forms": 2 }],
@@ -7641,10 +7656,10 @@
         "distracting": [{ "/patterns/forms": 1 }],
         "confusing": [{ "/patterns/forms": 1 }],
         "loses": [{ "/patterns/forms": 1 }],
-        "appear": [{ "/patterns/forms": 1 }, { "/patterns/overlay": 1 }, { "/patterns/steppers": 1 }],
+        "appear": [{ "/patterns/overlay": 2 }, { "/patterns/forms": 1 }, { "/patterns/steppers": 1 }],
         "finished": [{ "/patterns/forms": 1 }],
         "entering": [{ "/patterns/forms": 1 }, { "/patterns/login": 1 }],
-        "confirm": [{ "/patterns/forms": 1 }, { "/patterns/overlay": 1 }],
+        "confirm": [{ "/patterns/forms": 1 }],
         "updated": [
             { "/patterns/forms": 1 },
             { "/patterns/login": 1 },
@@ -7665,7 +7680,7 @@
             { "/patterns/steppers": 1 }
         ],
         "successful": [{ "/patterns/forms": 1 }, { "/patterns/login": 1 }],
-        "taken": [{ "/patterns/forms": 1 }, { "/patterns/lists": 1 }],
+        "taken": [{ "/patterns/forms": 1 }, { "/patterns/lists": 1 }, { "/patterns/overlay": 1 }],
         "submit": [
             { "/patterns/forms": 7 },
             { "/patterns/loading": 3 },
@@ -7681,7 +7696,7 @@
         "_finish_": [{ "/patterns/forms": 1 }],
         "located": [{ "/patterns/forms": 1 }],
         "bottom": [
-            { "/patterns/overlay": 8 },
+            { "/patterns/overlay": 10 },
             { "/patterns/forms": 2 },
             { "/patterns/navigation": 2 },
             { "/patterns/lists": 1 }
@@ -7695,7 +7710,7 @@
         ],
         "say": [{ "/patterns/forms": 2 }],
         "last": [{ "/patterns/forms": 1 }, { "/patterns/loading": 1 }],
-        "dismiss": [{ "/patterns/overlay": 2 }, { "/patterns/forms": 1 }],
+        "dismiss": [{ "/patterns/forms": 1 }],
         "chance": [{ "/patterns/forms": 1 }],
         "known": [{ "/patterns/forms": 1 }],
         "length": [{ "/patterns/forms": 2 }],
@@ -7722,7 +7737,7 @@
         "adapting": [{ "/patterns/internationalization": 2 }],
         "regions": [{ "/patterns/internationalization": 1 }],
         "cultures": [{ "/patterns/internationalization": 2 }],
-        "accomplish": [{ "/patterns/internationalization": 1 }, { "/patterns/overlay": 1 }],
+        "accomplish": [{ "/patterns/internationalization": 1 }],
         "websites": [{ "/patterns/internationalization": 1 }],
         "considering": [{ "/patterns/internationalization": 1 }],
         "directionality": [{ "/patterns/internationalization": 2 }],
@@ -7738,7 +7753,7 @@
         "customizing": [{ "/patterns/internationalization": 1 }],
         "crucial": [{ "/patterns/internationalization": 1 }],
         "prosper": [{ "/patterns/internationalization": 1 }],
-        "always": [{ "/patterns/internationalization": 1 }, { "/patterns/navigation": 1 }],
+        "always": [{ "/patterns/overlay": 3 }, { "/patterns/internationalization": 1 }, { "/patterns/navigation": 1 }],
         "especially": [{ "/patterns/internationalization": 1 }],
         "vision": [{ "/patterns/internationalization": 1 }],
         "reaching": [{ "/patterns/internationalization": 1 }],
@@ -7749,12 +7764,7 @@
         "locales": [{ "/patterns/internationalization": 2 }],
         "localize": [{ "/patterns/internationalization": 1 }],
         "string": [{ "/patterns/internationalization": 1 }],
-        "contains": [
-            { "/patterns/overlay": 3 },
-            { "/patterns/internationalization": 1 },
-            { "/style/color": 1 },
-            { "/style/typography": 1 }
-        ],
+        "contains": [{ "/patterns/internationalization": 1 }, { "/style/color": 1 }, { "/style/typography": 1 }],
         "translations": [{ "/patterns/internationalization": 3 }],
         "coded": [{ "/patterns/internationalization": 1 }],
         "populate": [{ "/patterns/internationalization": 1 }],
@@ -7795,7 +7805,7 @@
         "supporting": [{ "/patterns/internationalization": 3 }],
         "mirror": [{ "/patterns/internationalization": 1 }],
         "natural": [{ "/patterns/internationalization": 1 }],
-        "side": [{ "/patterns/navigation": 7 }, { "/patterns/internationalization": 1 }, { "/patterns/overlay": 1 }],
+        "side": [{ "/patterns/navigation": 7 }, { "/patterns/overlay": 3 }, { "/patterns/internationalization": 1 }],
         "mirrored": [{ "/patterns/internationalization": 1 }],
         "addressing": [{ "/patterns/internationalization": 1 }],
         "meaning": [{ "/patterns/internationalization": 2 }, { "/style/color": 1 }],
@@ -7845,14 +7855,14 @@
         "carefully": [{ "/patterns/internationalization": 1 }],
         "i18nmanager": [{ "/patterns/internationalization": 1 }],
         "status": [{ "/style/color": 8 }, { "/patterns/lists": 3 }],
-        "sort": [{ "/patterns/lists": 1 }, { "/patterns/overlay": 1 }],
+        "sort": [{ "/patterns/lists": 1 }],
         "table": [{ "/patterns/lists": 1 }],
         "drag": [{ "/patterns/lists": 3 }],
         "drop": [{ "/patterns/lists": 2 }],
         "frequently": [{ "/patterns/lists": 1 }, { "/community/faq": 1 }],
         "groups": [{ "/patterns/lists": 1 }],
         "pairs": [{ "/patterns/lists": 1 }],
-        "sidebar": [{ "/patterns/overlay": 9 }, { "/patterns/lists": 1 }],
+        "sidebar": [{ "/patterns/overlay": 5 }, { "/patterns/lists": 1 }],
         "timelines": [{ "/patterns/lists": 1 }],
         "simplest": [{ "/patterns/lists": 2 }],
         "presents": [{ "/patterns/lists": 1 }, { "/patterns/login": 1 }],
@@ -7869,7 +7879,7 @@
         "placed": [{ "/patterns/lists": 1 }],
         "persistent": [{ "/patterns/lists": 1 }],
         "snackbar": [{ "/patterns/lists": 1 }],
-        "sheet": [{ "/patterns/overlay": 7 }, { "/patterns/lists": 1 }],
+        "sheet": [{ "/patterns/overlay": 6 }, { "/patterns/lists": 1 }],
         "handled": [{ "/patterns/lists": 1 }],
         "checkbox": [{ "/patterns/lists": 1 }, { "/patterns/overlay": 1 }],
         "occasionally": [{ "/patterns/lists": 1 }, { "/community/innersourcing": 1 }],
@@ -7912,10 +7922,10 @@
         "area": [{ "/patterns/loading": 1 }],
         "animation": [{ "/patterns/loading": 1 }],
         "sense": [{ "/patterns/loading": 1 }, { "/patterns/steppers": 1 }],
-        "overlays": [{ "/patterns/loading": 3 }, { "/patterns/overlay": 1 }],
+        "overlays": [{ "/patterns/loading": 3 }, { "/patterns/overlay": 2 }],
         "semi": [{ "/patterns/loading": 1 }, { "/style/typography": 1 }],
         "transparent": [{ "/patterns/loading": 1 }],
-        "overlay": [{ "/patterns/overlay": 5 }, { "/patterns/loading": 1 }, { "/patterns/navigation": 1 }],
+        "overlay": [{ "/patterns/overlay": 3 }, { "/patterns/loading": 1 }, { "/patterns/navigation": 1 }],
         "variation": [{ "/patterns/loading": 1 }],
         "block": [{ "/patterns/loading": 1 }, { "/patterns/overlay": 1 }, { "/community/license": 1 }],
         "processing": [{ "/patterns/loading": 1 }],
@@ -7954,7 +7964,7 @@
         "plays": [{ "/patterns/loading": 1 }],
         "role": [{ "/patterns/loading": 1 }],
         "sizing": [{ "/patterns/loading": 1 }],
-        "container": [{ "/patterns/loading": 1 }, { "/patterns/navigation": 1 }, { "/patterns/overlay": 1 }],
+        "container": [{ "/patterns/loading": 1 }, { "/patterns/navigation": 1 }],
         "netbasal": [{ "/patterns/loading": 1 }],
         "loader": [{ "/patterns/loading": 2 }],
         "ion": [{ "/patterns/loading": 1 }],
@@ -7965,7 +7975,7 @@
         "register": [{ "/patterns/login": 2 }],
         "authorized": [{ "/patterns/login": 1 }],
         "submits": [{ "/patterns/login": 1 }],
-        "authentication": [{ "/patterns/login": 2 }, { "/patterns/overlay": 1 }],
+        "authentication": [{ "/patterns/login": 2 }],
         "directed": [{ "/patterns/login": 1 }],
         "landing": [{ "/patterns/login": 1 }],
         "attempting": [{ "/patterns/login": 1 }],
@@ -7981,7 +7991,7 @@
         "mail": [{ "/patterns/login": 3 }],
         "receive": [{ "/patterns/login": 1 }],
         "supply": [{ "/patterns/login": 1 }],
-        "confirmation": [{ "/patterns/login": 2 }],
+        "confirmation": [{ "/patterns/login": 2 }, { "/patterns/overlay": 1 }],
         "sent": [{ "/patterns/login": 1 }],
         "collect": [{ "/patterns/login": 1 }],
         "parameters": [{ "/patterns/login": 1 }, { "/patterns/visualizations": 1 }],
@@ -7989,13 +7999,13 @@
         "implementations": [{ "/patterns/login": 1 }],
         "self": [{ "/patterns/login": 1 }],
         "invitation": [{ "/patterns/login": 1 }],
-        "drawer": [{ "/patterns/navigation": 2 }],
+        "drawer": [{ "/patterns/navigation": 2 }, { "/patterns/overlay": 1 }],
         "panel": [{ "/patterns/navigation": 13 }],
-        "visible": [{ "/patterns/navigation": 1 }],
+        "visible": [{ "/patterns/navigation": 1 }, { "/patterns/overlay": 1 }],
         "suitable": [{ "/patterns/navigation": 1 }, { "/style/iconography": 1 }],
         "resolutions": [{ "/patterns/navigation": 1 }],
         "opened": [{ "/patterns/navigation": 2 }],
-        "closed": [{ "/patterns/navigation": 1 }, { "/patterns/overlay": 1 }],
+        "closed": [{ "/patterns/navigation": 1 }],
         "resize": [{ "/patterns/navigation": 3 }],
         "main": [
             { "/patterns/navigation": 6 },
@@ -8011,42 +8021,50 @@
         "k": [{ "/patterns/navigation": 1 }],
         "rail": [{ "/patterns/navigation": 1 }],
         "minimalist": [{ "/patterns/navigation": 1 }],
-        "expandable": [{ "/patterns/navigation": 1 }],
+        "expandable": [{ "/patterns/navigation": 1 }, { "/patterns/overlay": 1 }],
         "hover": [{ "/patterns/navigation": 1 }],
         "conjunction": [{ "/patterns/navigation": 1 }],
         "tab": [{ "/patterns/navigation": 1 }],
         "resolution": [{ "/patterns/navigation": 1 }],
         "become": [{ "/patterns/navigation": 1 }],
         "popup": [{ "/patterns/overlay": 1 }],
-        "immediate": [{ "/patterns/overlay": 1 }],
-        "blocking": [{ "/patterns/overlay": 3 }],
+        "blocking": [{ "/patterns/overlay": 4 }],
         "else": [{ "/patterns/overlay": 1 }],
         "pop": [{ "/patterns/overlay": 1 }],
         "window": [{ "/patterns/overlay": 1 }],
-        "modals": [{ "/patterns/overlay": 5 }],
-        "clutter": [{ "/patterns/overlay": 1 }],
+        "appears": [{ "/patterns/overlay": 1 }],
+        "dialogs": [{ "/patterns/overlay": 4 }],
+        "ask": [{ "/patterns/overlay": 2 }, { "/community/innersourcing": 1 }],
+        "decision": [{ "/patterns/overlay": 1 }],
+        "delete": [{ "/patterns/overlay": 1 }, { "/community/faq": 1 }],
+        "modals": [{ "/patterns/overlay": 3 }],
+        "cluttering": [{ "/patterns/overlay": 1 }],
         "amounts": [{ "/patterns/overlay": 1 }],
         "too": [{ "/patterns/overlay": 1 }, { "/patterns/steppers": 1 }],
-        "dialogs": [{ "/patterns/overlay": 1 }],
-        "deleting": [{ "/patterns/overlay": 1 }],
-        "opens": [{ "/patterns/overlay": 1 }],
-        "navigate": [{ "/patterns/overlay": 1 }, { "/patterns/steppers": 1 }],
+        "difficult": [{ "/patterns/overlay": 1 }],
+        "dismissed": [{ "/patterns/overlay": 2 }],
+        "rest": [{ "/patterns/overlay": 2 }],
+        "outside": [{ "/patterns/overlay": 1 }],
         "sidebars": [{ "/patterns/overlay": 3 }, { "/style/themes": 1 }],
-        "extensively": [{ "/patterns/overlay": 1 }],
+        "sheets": [{ "/patterns/overlay": 4 }],
         "radio": [{ "/patterns/overlay": 1 }],
         "menus": [{ "/patterns/overlay": 1 }],
         "editing": [{ "/patterns/overlay": 2 }],
         "temporary": [{ "/patterns/overlay": 1 }],
         "elsewhere": [{ "/patterns/overlay": 1 }],
-        "faced": [{ "/patterns/overlay": 1 }],
-        "question": [{ "/patterns/overlay": 1 }, { "/community/faq": 1 }],
+        "opposite": [{ "/patterns/overlay": 1 }],
         "viewing": [{ "/patterns/overlay": 1 }],
-        "circumstances": [{ "/patterns/overlay": 1 }],
-        "bottomsheet": [{ "/patterns/overlay": 1 }],
+        "surfaces": [{ "/patterns/overlay": 1 }],
+        "slide": [{ "/patterns/overlay": 1 }],
+        "shown": [{ "/patterns/overlay": 1 }],
+        "multitasking": [{ "/patterns/overlay": 1 }],
+        "media": [{ "/patterns/overlay": 1 }],
+        "player": [{ "/patterns/overlay": 1 }],
+        "controls": [{ "/patterns/overlay": 1 }],
+        "browsing": [{ "/patterns/overlay": 1 }],
         "activated": [{ "/patterns/overlay": 1 }],
-        "cancel": [{ "/patterns/overlay": 1 }],
-        "attached": [{ "/patterns/overlay": 1 }, { "/community/bugs": 1 }],
-        "biometric": [{ "/patterns/overlay": 1 }],
+        "factor": [{ "/patterns/overlay": 1 }],
+        "sidenav": [{ "/patterns/overlay": 1 }],
         "aspects": [{ "/patterns/layout": 2 }],
         "position": [{ "/patterns/layout": 1 }],
         "twitter": [{ "/patterns/layout": 1 }, { "/community/faq": 1 }],
@@ -8074,6 +8092,7 @@
         "earlier": [{ "/patterns/steppers": 1 }],
         "organize": [{ "/patterns/steppers": 1 }],
         "shows": [{ "/patterns/steppers": 1 }],
+        "navigate": [{ "/patterns/steppers": 1 }],
         "suit": [{ "/patterns/steppers": 1 }],
         "horizontally": [{ "/patterns/steppers": 1 }],
         "vertically": [{ "/patterns/steppers": 1 }],
@@ -8326,7 +8345,6 @@
         "aligns": [{ "/community/innersourcing": 1 }],
         "overall": [{ "/community/innersourcing": 1 }],
         "usability": [{ "/community/innersourcing": 1 }],
-        "ask": [{ "/community/innersourcing": 1 }],
         "questions": [{ "/community/contactus": 2 }, { "/community/innersourcing": 1 }, { "/community/faq": 1 }],
         "discuss": [{ "/community/innersourcing": 1 }],
         "iteration": [{ "/community/innersourcing": 1 }],
@@ -8340,6 +8358,7 @@
         "alpha": [{ "/community/innersourcing": 1 }],
         "encountering": [{ "/community/bugs": 1 }],
         "reasons": [{ "/community/bugs": 1 }],
+        "attached": [{ "/community/bugs": 1 }],
         "improves": [{ "/community/bugs": 1 }],
         "cuts": [{ "/community/bugs": 1 }],
         "nobody": [{ "/community/bugs": 1 }],
@@ -8354,9 +8373,9 @@
         "fork": [{ "/community/bugs": 1 }, { "/community/features": 1 }],
         "repository": [{ "/community/bugs": 1 }, { "/community/features": 1 }],
         "faq": [{ "/community/faq": 1 }],
+        "question": [{ "/community/faq": 1 }],
         "answers": [{ "/community/faq": 1 }],
         "m": [{ "/community/faq": 1 }],
-        "delete": [{ "/community/faq": 1 }],
         "tree": [{ "/community/faq": 1 }],
         "statements": [{ "/community/faq": 1 }],
         "varies": [{ "/community/faq": 1 }],
@@ -8549,6 +8568,8 @@
         "sidebar": [{ "/patterns/overlay": 1 }],
         "popup": [{ "/patterns/overlay": 1 }],
         "dialog": [{ "/patterns/overlay": 1 }],
+        "side": [{ "/patterns/overlay": 1 }],
+        "sheet": [{ "/patterns/overlay": 1 }],
         "layout": [{ "/patterns/layout": 1 }],
         "stepper": [{ "/patterns/steppers": 1 }],
         "procedure": [{ "/patterns/steppers": 1 }],
