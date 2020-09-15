@@ -1,4 +1,5 @@
-import { DemoCard, ImageGrid, MaterialDesignDescription } from '../../app/components';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
+import ListBannerImage from '../../app/assets/design-patterns/lists/lists.svg';
 import Image1 from '../../app/assets/design-patterns/data-list/simple-list.png';
 import Image2 from '../../app/assets/design-patterns/status-list/status-list.png';
 import Image3 from '../../app/assets/design-patterns/action-list/action-list.png';
@@ -7,10 +8,13 @@ import Image5 from '../../app/assets/design-patterns/action-list/action-list-ite
 import Image6 from '../../app/assets/design-patterns/multiselect-list/multiselect-list.png';
 import Image7 from '../../app/assets/design-patterns/sortable-list/sortable-list.png';
 import Image8 from '../../app/assets/design-patterns/sortable-list/sortable-list-sorted.png';
+import Spec1Image from '../../app/assets/design-patterns/lists/spec-1.png';
 
 <!-- KEYWORDS: design pattern list status sort table drag drop action -->
 
-# List Patterns
+# Lists
+
+<ImageGrid images={[ListBannerImage]} regularWidth />
 
 Lists are frequently used throughout PX Blue applications. Typically, lists are used to represent groups of similar data. They can be used to show simple name-value pairs in a sidebar all the way to complex timelines or device lists.
 
@@ -63,4 +67,44 @@ Occasionally, you may want users to be able to re-order the items in a list manu
 
 Tables are similar to lists but are slightly more structured by ordering data for a list item into columns. These work well on larger screens, but at a mobile size, they should collapse into a list for better formatting.
 
-<MaterialDesignDescription title={'Data Tables'} url={'https://material.io/components/data-tables/'} />
+<React.Fragment>
+    <MaterialDesignDescription title={'Data Tables'} url={'https://material.io/components/data-tables/'} />
+    <Divider />
+</React.Fragment>
+
+# Design Specifications
+
+<ImageGrid images={[Spec1Image]} regularWidth />
+<MaterialDesignDescription title={'Lists'} description={`For additional instructions, refer to Material Design's design specs`} url={'https://material.io/components/lists#specs'} />
+<Divider />
+
+# Developers
+
+Use the following components to implement this pattern:
+
+**Angular** and **Ionic**:
+
+-   Angular Material
+    -   [List](https://material.angular.io/components/list/overview)
+    -   [Table](https://material.angular.io/components/table/overview)
+-   @pxblue/angular-components
+    -   [Info List Item](https://pxblue-components.github.io/angular/?path=/info/components-info-list-item--readme)
+
+**React**:
+
+-   Material UI
+    -   [List](https://material-ui.com/api/list/)
+    -   [List Item](https://material-ui.com/api/list-item/)
+-   @pxblue/angular-components
+    -   [Info List Item](https://pxblue-components.github.io/react/?path=/info/components-info-list-item--get-read-me-story)
+
+**React Native**:
+
+-   React-Native
+    -   [Flat List](https://reactnative.dev/docs/using-a-listview)
+-   React Native Elements
+    -   [List Item](https://react-native-elements.github.io/react-native-elements/docs/listitem/)
+-   React Native Paper
+    -   [List Item](https://callstack.github.io/react-native-paper/list-item.html)
+-   @pxblue/react-native-components
+    -   [Info List Item](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--info-list-item)
