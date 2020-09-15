@@ -2,6 +2,7 @@ import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../a
 import Banner from '../../app/assets/design-patterns/overlays/overlay-banner.svg';
 import DesktopDialog from '../../app/assets/design-patterns/overlays/desktop-dialog.png';
 import DesktopDialogTask from '../../app/assets/design-patterns/overlays/desktop-dialog-task.png';
+import SimpleBottomsheet from '../../app/assets/design-patterns/overlays/simple-bottomsheet.png';
 
 <!-- KEYWORDS: design pattern overlay modal sidebar popup dialog side sheet -->
 
@@ -57,30 +58,40 @@ A standard bottom sheet is always visible and non-blocking, used most commonly f
 
 ### Modal
 
-Modal bottom sheets are similar to modal dialogs that open from the bottom of the screen and block interaction with the rest of the application. These typically contain a list of options or actions and are usually activated via a action button in the [app bar](/patterns/appbar). This is the most common type of bottom sheet found in PX Blue applications.
+<React.Fragment>
+    <ImageGrid
+        regularWidth
+        images={[SimpleBottomsheet]}
+        caption={[
+            '1. On mobile, the bottom sheet takes up the full width of the screen.',
+            '2. On desktop, the bottom sheet be no more than 600px wide.',
+        ]}
+    />
+    <DemoCard
+        repository={'bottomsheet'}
+        angular={
+            'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Foverlays%2Fbasic-bottom-sheet%2Fbasic-bottom-sheet.component.ts'
+        }
+        react={
+            'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/overlays/basic-bottom-sheet/index.tsx&initialpath=basic-bottom-sheet'
+        }
+        ionic
+        reactNative
+    />
+    <DemoCard
+        repository={'complex-bottomsheet'}
+        angular={
+            'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Foverlays%2Fcomplex-bottom-sheet%2Fcomplex-bottom-sheet.component.ts'
+        }
+        react={
+            'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/overlays/complex-bottom-sheet/index.tsx&initialpath=complex-bottom-sheet'
+        }
+        ionic
+        reactNative
+    />
+</React.Fragment>
 
-<DemoCard
-    repository={'bottomsheet'}
-    angular={
-        'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Foverlays%2Fbasic-bottom-sheet%2Fbasic-bottom-sheet.component.ts'
-    }
-    react={
-        'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/overlays/basic-bottom-sheet/index.tsx&initialpath=basic-bottom-sheet'
-    }
-    ionic
-    reactNative
-/>
-<DemoCard
-    repository={'complex-bottomsheet'}
-    angular={
-        'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Foverlays%2Fcomplex-bottom-sheet%2Fcomplex-bottom-sheet.component.ts'
-    }
-    react={
-        'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/overlays/complex-bottom-sheet/index.tsx&initialpath=complex-bottom-sheet'
-    }
-    ionic
-    reactNative
-/>
+Modal bottom sheets are similar to modal dialogs that open from the bottom of the screen and block interaction with the rest of the application. These typically contain a list of options or actions and are usually activated via a action button in the [app bar](/patterns/appbar). This is the most common type of bottom sheet found in PX Blue applications.
 
 ### Expanding
 
