@@ -6,21 +6,6 @@ import * as Colors from '@pxblue/colors';
 import { DemoButton, BugsButton, BuildButton } from './buttons';
 import clsx from 'clsx';
 
-const getDemoLink = (repository: string, branch: string): string => {
-    switch (branch) {
-        case 'angular':
-            return `https://stackblitz.com/github/pxblue/${repository}/tree/angular`;
-        case 'react':
-            return `https://codesandbox.io/embed/github/pxblue/${repository}/tree/react`;
-        case 'ionic':
-            return `https://stackblitz.com/github/pxblue/${repository}/tree/ionic`;
-        case 'reactnative':
-            return `https://snack.expo.io/@git/github.com/pxblue/${repository}@reactnative?preview=true&platform=ios`;
-        default:
-            return `https://github.com/pxblue/${repository}`;
-    }
-};
-
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         iconButton: {
@@ -45,9 +30,10 @@ type ButtonRowProps = {
     bugLabels?: string[];
     small?: boolean;
     branches?: string[];
+    demoUrl?: string;
 };
 export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
-    const { repository, branches, bugLabels, isPackage = false, small } = props;
+    const { repository, branches, bugLabels, isPackage, small, demoUrl } = props;
     const classes = useStyles();
 
     const branch = isPackage
@@ -60,15 +46,14 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
     const bugLink = `https://github.com/pxblue/${repository}/issues?q=is%3Aissue+is%3Aopen${bugString}`;
     const buildLink = `https://circleci.com/gh/pxblue/${repository}${branch ? `/tree/${branch}` : ''}`;
     const repoLink = `https://github.com/pxblue/${repository}${branch ? `/tree/${branch}` : ''}`;
-    const demoLink = getDemoLink(repository, branch || '');
 
     return (
         <>
             {small && <Spacer style={{ marginRight: 16 }} />}
-            {!isPackage && (
+            {demoUrl && (
                 <DemoButton
                     small={small || false}
-                    link={demoLink}
+                    link={demoUrl}
                     className={classes.miniIcon}
                     count={branches ? (branches.length > 1 ? branches.length : 0) : 0}
                 />

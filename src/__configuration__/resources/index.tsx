@@ -7,6 +7,7 @@ type Resource = {
     repository: string;
     applies?: FrameworkFilter[];
     bugLabels?: string[];
+    demoUrl?: string;
 };
 type ResourceBucket = Omit<Resource, 'repository'> & {
     items: Resource[];
@@ -234,12 +235,14 @@ export const resources: ResourceBucket[] = [
                 description: 'Web design patterns made using the Angular framework',
                 repository: 'angular-design-patterns',
                 applies: ['angular'],
+                demoUrl: 'https://stackblitz.com/github/pxblue/angular-design-patterns',
             },
             {
                 name: 'react-design-patterns',
                 description: 'Web design patterns made using the React framework',
                 repository: 'react-design-patterns',
                 applies: ['react'],
+                demoUrl: 'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master',
             },
             {
                 name: 'ionic-design-patterns',
