@@ -179,7 +179,7 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Internationalization'} markdown={Docs.Patterns.I18N} />,
             },
             {
-                title: 'Lists',
+                title: 'Lists & Tables',
                 url: '/lists',
                 component: <MarkdownPage title={'Lists'} markdown={Docs.Patterns.Lists} />,
             },

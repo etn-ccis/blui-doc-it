@@ -46,7 +46,7 @@ export const patterns = [
         },
     },
     {
-        title: 'Lists',
+        title: 'Lists & Tables',
         url: '/patterns/lists',
         description: 'Different lists for different kinds of data.',
         image: ListImg,
