@@ -88,7 +88,6 @@ Lists should **NOT** be used for:
 
 -   Where there are no comparable data presents
 -   Where [data visualization](/patterns/visualizations) can be more effective (where dashboard heros can be better to highlight information)
--   \[Questionable\] Pages with more than 2 lists that user have to constantly go back and forth (rather than browse through it)
 
 Lists usually reside in some larger structures, such as a panel (mobile) or in a card (desktop). Or if the list is the only element, by itself.
 
@@ -255,6 +254,8 @@ Drag and drop is a special case for sorting the list. It re-orders the items in 
 
 If there are actions that you would like to perform on individual list items, these can be included via icons or a 3-dot action menu (multiple actions) on each list item. Depending on the space available, you typically will want to use the action menu if you have more than three actions that can be taken.
 
+> If your list item is clickable for the entire item, then you should not arrange any extra local list actions, as the two interactions can intervene with each other.
+
 ### Navigating Down a Tree Structure
 
 <ImageGrid
@@ -274,8 +275,11 @@ You may want to take action on several list items at once, but not all. The easi
 
 ## Responsive
 
--   Avoid using table unless you have to
--   mobile lists may display less things but should have same kind of list actions as desktop lists
+When it comes to responsive design and progressive disclosure, it can be tricky to fit all the information from a list onto a smaller screen. Here are some best practices on designing for mobile phone:
+
+-   If a list item has too many elements in it and doesn't fit, try converting the item into a summary card, with a "view more" option to view the full data.
+-   Avoid using tables.
+-   Try adding gestures (long-press, swipe-left) that fits with the phone's OS ecosystem.
 
 <Divider />
 
