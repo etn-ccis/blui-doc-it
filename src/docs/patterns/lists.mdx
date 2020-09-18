@@ -44,7 +44,7 @@ import SpecTypographyImage from '../../app/assets/design-patterns/lists/spec-typ
 
 <ImageGrid images={[ListBannerImage]} regularWidth />
 
-Lists and tables are frequently used throughout PX Blue applications. Typically, lists are used to represent groups of similar data. They can display simple name-value pairs in a sidebar all the way to complex timelines or device lists.
+Lists and tables are frequently used throughout PX Blue applications. Typically, lists are used to represent groups of similar data. They can display from simple name-value pairs in a sidebar all the way to complex timelines or device lists.
 
 <MaterialDesignDescription title={'Lists'} url={'https://material.io/components/lists/'} />
 
@@ -75,7 +75,7 @@ A TOC like this would be nice, but apparently these links are not working
     ]}
 />
 
-The scenarios in which a lists may occur include:
+The scenarios in which lists may occur include:
 
 -   Dashboard / current status
 -   Notifications
@@ -87,7 +87,7 @@ The scenarios in which a lists may occur include:
 
 Lists should **NOT** be used where:
 
--   There are no comparable data presents, such as a data set with totally different structure;
+-   There are no comparable data presents, such as data sets with different structures;
 -   The users demand a summary rather than detailed data value, such as on the home screen. Use [Data visualization](/patterns/visualizations) to display trends, or [heroes](https://pxblue-components.github.io/react/?path=/info/components-hero--get-read-me-story) to display a summary.
 
 Lists usually reside in some larger structures, such as a panel (mobile) or in a card (desktop).
@@ -147,11 +147,11 @@ Commonly in PX Blue applications, list items also show some visual indication of
     images={[IconAlignImage]}
     regularWidth
     caption={
-        'Whenever you have a list with potentially avatars, make sure all the icons, with or without avatars, are center-aligned. Otherwise, all icons should be left-aligned.'
+        'Whenever you have a list that may include both avatars and icons, make sure all the icons, with or without avatars, are center-aligned. Otherwise, all icons should be left-aligned.'
     }
 />
 
-In the rare case where you need to display a status but cannot fit in neither an avatar nor a status stripe, such as the mini-list inside a [scorecard component](https://pxblue-components.github.io/react/?path=/info/components-score-card--get-read-me-story), you may color code your list item icons and labels. However, for accessibility concerns, you should never rely _solely_ on the color to convey the message.
+In the rare case where you need to display status but cannot fit in neither an avatar nor a status stripe, such as the mini-list inside a [scorecard component](https://pxblue-components.github.io/react/?path=/info/components-score-card--get-read-me-story), you may color-code your list item icons and labels. However, for accessibility concerns, you should never rely _solely_ on the color to convey the message.
 
 <ImageGrid
     images={[ScorecardImage]}
@@ -190,7 +190,7 @@ Many UI elements can be added to the list items, and one of the most common such
 />
 <MaterialDesignDescription title={'Data Tables'} url={'https://material.io/components/data-tables/'} />
 
-Lists emphasize on each individual items, while tables highlights the comparison between each individual data points. However, tables generally perform poorly on a mobile device. Do not structure the list as a table if your users don't examine the data "vertically".
+Lists emphasize individual items, while tables highlight a comparison between each data point. However, tables generally perform poorly on a mobile device. Do not structure the list as a table if your users don't examine the data "vertically".
 
 <React.Fragment>
     <Divider />
