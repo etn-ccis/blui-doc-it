@@ -46,10 +46,18 @@ import SpecTypographyImage from '../../app/assets/design-patterns/lists/spec-typ
 
 Lists are frequently used throughout PX Blue applications. Typically, lists are used to represent groups of similar data. They can be used to show simple name-value pairs in a sidebar all the way to complex timelines or device lists.
 
-<React.Fragment>
-    <MaterialDesignDescription title={'Lists'} url={'https://material.io/components/lists/'} />
-    <Divider />
-</React.Fragment>
+<MaterialDesignDescription title={'Lists'} url={'https://material.io/components/lists/'} />
+
+<!--
+A TOC like this would be nice, but apparently these links are not working
+-   [Common Use Cases](#common-use-cases)
+-   [Variations](#variations)
+-   [Behaviors](#behaviors)
+-   [Design Specifications](#design-specifications)
+-   [Developers](#developers)
+-->
+
+<Divider />
 
 # Common Use Cases
 
@@ -100,14 +108,6 @@ Lists usually reside in some larger structures, such as a panel (mobile) or in a
 </React.Fragment>
 
 # Variations
-
-There are several list item variations
-
--   Basic list
--   Display status
--   Display time stamps
--   Inset / Full dividers
--   Make it a table
 
 ## Basic Lists
 
@@ -197,23 +197,6 @@ Tables are more "data visualisable". Do not structure the list as a table if you
 
 # Behaviors
 
--   On hover / on click
-    -   Display hover state, and ripple if there is a list-wide interaction
--   Global List Actions
-    -   Toggle between different lists
-    -   Filter
-    -   Drag & Drop
--   Local List Actions
-    -   Avoid makign list itself clickable & some other list action clickable at the same time
-    -   Navigation (see also drawers) / View more details
-    -   Inline value change in data table
-    -   View more details
-    -   Checkbox
-        -   Highlight background?
--   Responsiveness
-    -   Avoid using table unless you have to
-    -   mobile lists may display less things but should have same kind of list actions as desktop lists
-
 Lists can be interactive. In general, there are two types of interactions: global list actions and local list actions.
 
 <DemoCard
@@ -280,7 +263,7 @@ If there are actions that you would like to perform on individual list items, th
     regularWidth
 />
 
-Lists can be used to navigate a tree-like structure in an application. See also [the navigation pattern](/patterns/navigation).
+Lists can be used to navigate a tree-like structure in an application. See [the navigation pattern](/patterns/navigation).
 
 ### Actions on Selected Items
 
@@ -288,6 +271,11 @@ Lists can be used to navigate a tree-like structure in an application. See also 
 <DemoCard repository={'multiselect-list'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fmultiselect-list%2Fmultiselect-list.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/multiselect-list/index.tsx&initialpath=multiselect-list'} ionic reactNative />
 
 You may want to take action on several list items at once, but not all. The easiest way to do this is through a multi-select list. You may optionally add a highlight color for the selected items.
+
+## Responsive
+
+-   Avoid using table unless you have to
+-   mobile lists may display less things but should have same kind of list actions as desktop lists
 
 <Divider />
 

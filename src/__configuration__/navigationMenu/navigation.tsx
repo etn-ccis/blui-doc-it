@@ -181,7 +181,7 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Lists & Tables',
                 url: '/lists',
-                component: <MarkdownPage title={'Lists'} markdown={Docs.Patterns.Lists} />,
+                component: <MarkdownPage title={'Lists & Tables'} markdown={Docs.Patterns.Lists} />,
             },
             {
                 title: 'Loading & Waiting',
