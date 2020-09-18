@@ -92,7 +92,7 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
                     <div className={classes.flex} style={{ width: small ? '100%' : 'auto' }}>
                         <Typography className={classes.title} noWrap>
                             {packageName && xs ? packageName.replace('@pxblue/', '') : packageName}
-                            {name}
+                            {!packageName && name}
                         </Typography>
                         {version && (
                             <Typography
