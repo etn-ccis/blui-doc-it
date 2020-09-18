@@ -147,7 +147,7 @@ Commonly in PX Blue applications, list items also show some visual indication of
     images={[IconAlignImage]}
     regularWidth
     caption={
-        'Whenever you have a list that may include both avatars and icons, make sure all the icons, with or without avatars, are center-aligned. Otherwise, all icons should be left-aligned.'
+        'Whenever you have a list that may include both avatars and icons, make sure all the icons, with or without avatars, are center-aligned. If you are using interactive elements like checkboxes and radio buttons, they should also be center-aligned to accomodate ripples. Otherwise, all icons should be left-aligned.'
     }
 />
 
@@ -190,7 +190,7 @@ Many UI elements can be added to the list items, and one of the most common such
 />
 <MaterialDesignDescription title={'Data Tables'} url={'https://material.io/components/data-tables/'} />
 
-Lists emphasize individual items, while tables highlight a comparison between each data point. However, tables generally perform poorly on a mobile device. Do not structure the list as a table if your users don't examine the data "vertically".
+Lists emphasize individual items, while tables highlight a comparison between each data point. However, tables generally perform poorly on a mobile device. Do not structure the list as a table if you don't expect your users examining the data "vertically".
 
 <React.Fragment>
     <Divider />
