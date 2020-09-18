@@ -7,8 +7,9 @@ import ButtonWidthImage from '../../app/assets/design-patterns/internationalizat
 import TextFieldWidthImage from '../../app/assets/design-patterns/internationalization/text-field-width.png';
 import LanguageOptionsImage from '../../app/assets/design-patterns/internationalization/language-options.png';
 import CulturalDifferencesImage from '../../app/assets/design-patterns/internationalization/cultural-differences.svg';
+import FormsImage from '../../app/assets/design-patterns/internationalization/forms.png';
 
-<!-- KEYWORDS: design pattern internationalization i18n internationalisation language translate translation localization l10n rtl localisation globalization globalize -->
+<!-- KEYWORDS: design pattern internationalization i18n internationalisation language translate translation localization l10n rtl localisation globalization globalize globalisation globalise -->
 
 # Internationalization & Localization
 
@@ -52,7 +53,22 @@ When showing a list of languages, the language names should be presented in thei
 
 ## Converting Units, Currencies, and Formats
 
-Units, currency, and date / time formats are usually linked with a particular locale. However, there can be differences in usage even within a single locale. You should provide users with the option to change these values (if appropriate for your application) in their locale settings.
+Units, currency, and formats are usually linked with a particular locale. However, there can be differences in usage even within a single locale. You should provide users with the option to change these values (if appropriate for your application) in their locale settings.
+
+Some commonly influenced formats include:
+
+-   Phone number
+-   Names (given name first or last)
+-   Address (street name first or country name first)
+-   Date and time
+-   Numbers (comma vs. period)
+-   Punctuations
+
+## International Contacts
+
+<ImageGrid images={[FormsImage]} caption={'Allow the users to put in an international phone number.'} regularWidth />
+
+Your users may register a new account or create a new contact for anyone around the globe. You should provide options for them to register with a local phone number.
 
 ## Checking for Layout
 
@@ -121,6 +137,12 @@ When you are designing for webpages, instead of applications, your primary goal 
         title={'Localization - Market Finder'}
         description={'Introduction to localization by Google Market Finder.'}
         url={`https://marketfinder.thinkwithgoogle.com/intl/en_us/topic/localisation/`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+    <MaterialDesignDescription
+        title={'Internationalization and Localization'}
+        description={'A checklist from Wikipedia.'}
+        url={`https://en.wikipedia.org/wiki/Internationalization_and_localization#Scope`}
         avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
     />
     <Divider />
