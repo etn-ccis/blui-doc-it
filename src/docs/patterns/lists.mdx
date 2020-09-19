@@ -15,6 +15,7 @@ import AnatomyImage from '../../app/assets/design-patterns/lists/anatomy.png';
 import SimpleListImage from '../../app/assets/design-patterns/lists/simple-list.png';
 import StatusListImage from '../../app/assets/design-patterns/lists/status-list.png';
 import ScorecardImage from '../../app/assets/design-patterns/lists/scorecard.png';
+import ContactsImage from '../../app/assets/design-patterns/lists/contacts.png';
 import IconAlignImage from '../../app/assets/design-patterns/lists/icon-align.png';
 import NotificationBucketsImage1 from '../../app/assets/design-patterns/lists/notification-buckets-1.png';
 import NotificationBucketsImage2 from '../../app/assets/design-patterns/lists/notification-buckets-2.png';
@@ -162,6 +163,14 @@ In the rare case where you need to display status but cannot fit in neither an a
     ]}
 />
 
+Using tags is another way to display list status. They typically appear at the very end of a list item.
+
+<ImageGrid
+    images={[ContactsImage]}
+    regularWidth
+    caption={'This user list uses three status indicators: a status stripe, dot badges, and tags.'}
+/>
+
 ## Timestamps
 
 Many UI elements can be added to the list items, and one of the most common such elements is a timestamp, which usually occurs in device logs and list of notifications. You are encouraged to group your list items by dates for readability.
@@ -303,8 +312,8 @@ Use the following components to implement this pattern:
     -   [Table](https://material.angular.io/components/table/overview)
 -   @pxblue/angular-components
     -   [Info List Item](https://pxblue-components.github.io/angular/?path=/info/components-info-list-item--readme)
-
-In Angular, the CDK (Component Developer's Kit) greater than 7.0 is required for the drag-and-drop feature.
+    -   [List Item Tag](https://pxblue-components.github.io/angular/?path=/info/components-list-item-tag--readme)
+        In Angular, the CDK (Component Developer's Kit) greater than 7.0 is required for the drag-and-drop feature.
 
 **React**:
 
@@ -313,6 +322,7 @@ In Angular, the CDK (Component Developer's Kit) greater than 7.0 is required for
     -   [List Item](https://material-ui.com/api/list-item/)
 -   @pxblue/angular-components
     -   [Info List Item](https://pxblue-components.github.io/react/?path=/info/components-info-list-item--get-read-me-story)
+    -   [List Item Tag](https://pxblue-components.github.io/react/?path=/info/components-list-item-tag--get-read-me-story)
 
 **React Native**:
 
@@ -324,3 +334,4 @@ In Angular, the CDK (Component Developer's Kit) greater than 7.0 is required for
     -   [List Item](https://callstack.github.io/react-native-paper/list-item.html)
 -   @pxblue/react-native-components
     -   [Info List Item](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--info-list-item)
+    -   [List Item Tag](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--list-item-tag)
