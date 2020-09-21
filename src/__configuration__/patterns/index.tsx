@@ -86,6 +86,9 @@ export const patterns = [
         url: '/patterns/user-auth',
         description: 'A unified approach to giving users access to applications.',
         image: LoginBanner,
+        background: {
+            position: 'center',
+        },
     },
     {
         title: 'Visualizations',

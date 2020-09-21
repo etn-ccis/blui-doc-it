@@ -1,74 +1,296 @@
-import { DemoCard, ImageGrid } from '../../app/components';
+import { DemoCard, ImageGrid, Divider, MaterialDesignDescription } from '../../app/components';
+import PxblueSmallAltIcon from '@pxblue/icons-mui/PxblueSmallAlt';
 
-<!-- old -->
-
-import LoginInactiveImage from '../../app/assets/design-patterns/login/login-inactive.png';
-import LoginViewPasswordImage from '../../app/assets/design-patterns/login/login-view-password.png';
-import LoginErrorImage from '../../app/assets/design-patterns/login/login-error.png';
-
-import ForgetPasswordEnterEmailImage from '../../app/assets/design-patterns/login/forget-password-enter-email.png';
-import ForgetPasswordEmailSentImage from '../../app/assets/design-patterns/login/forget-password-email-sent.png';
-
-import RegistrationVerifyEmail from '../../app/assets/design-patterns/login/registration-verify-email.png';
-import RegistrationAccountDetails from '../../app/assets/design-patterns/login/registration-account-details.png';
-
-<!-- New -->
+<!-- Intro -->
 
 import LoginBanner from '../../app/assets/design-patterns/user-authentication/login.svg';
+import ViewPortLoginImage from '../../app/assets/design-patterns/user-authentication/card-on-different-viewports.png';
+import ViewPortOverlayImage from '../../app/assets/design-patterns/user-authentication/overlay-on-different-viewports.png';
 
-<!-- KEYWORDS: design pattern login registration register -->
+<!-- Variations -->
+
+import EnterEmailAdress from '../../app/assets/design-patterns/user-authentication/enter-email-address.png';
+import AcceptEULA from '../../app/assets/design-patterns/user-authentication/accept-eula.png';
+import VerifyEmail from '../../app/assets/design-patterns/user-authentication/verify-email.png';
+import CreatePassword from '../../app/assets/design-patterns/user-authentication/create-password.png';
+import AccountDetails from '../../app/assets/design-patterns/user-authentication/account-details.png';
+import WelcomeOnboard from '../../app/assets/design-patterns/user-authentication/welcome-onboard.png';
+import EnterOrganizationCode from '../../app/assets/design-patterns/user-authentication/enter-organization-code.png';
+import EnterOrganizationPasscode from '../../app/assets/design-patterns/user-authentication/enter-organization-passcode.png';
+import EnterOrganizationConfirm from '../../app/assets/design-patterns/user-authentication/enter-organization-confirm.png';
+import EnterOrganizationWelcome from '../../app/assets/design-patterns/user-authentication/enter-organization-welcome.png';
+import Login from '../../app/assets/design-patterns/user-authentication/login.png';
+import ForgotPasswordEnterEmail from '../../app/assets/design-patterns/user-authentication/forgot-password-email.png';
+import ForgotPasswordConfirmSent from '../../app/assets/design-patterns/user-authentication/forgot-password-confirm.png';
+import ForgotPasswordNewPassword from '../../app/assets/design-patterns/user-authentication/forgot-password-password.png';
+import ForgotPasswordWelcome from '../../app/assets/design-patterns/user-authentication/forgot-password-welcome.png';
+import ChangePassword from '../../app/assets/design-patterns/user-authentication/change-password.png';
+import ChangePasswordWelcome from '../../app/assets/design-patterns/user-authentication/change-password-confirm.png';
+
+<!-- Behaviors -->
+
+import EmailCommunicationInvitation from '../../app/assets/design-patterns/user-authentication/email-communication-invitation.png';
+import EmailCommunicationVerification from '../../app/assets/design-patterns/user-authentication/email-communication-verification.png';
+import ErrorStates from '../../app/assets/design-patterns/user-authentication/error-states.png';
+
+<!-- KEYWORDS: design pattern login registration register password forget forgot account authentication auth join -->
 
 # User Authentication
 
 <ImageGrid images={[LoginBanner]} regularWidth />
 
-Most applications will require some form of login to ensure that only authorized users have access. The most basic login is with a simple username and password.
+Most applications will require some form of user authentication to ensure that only authorized users have access.
 
-<!-- @TODO switch login links over to the "Component Recommendations style" instead of a "Interactive Code example" once we have one designed. -->
+<!-- @TODO switch login links over to the "Component Recommendations style" instead of an "Interactive Code example" once we have one designed. -->
 
-<DemoCard repository={'login'} angular react ionic reactNative />
+<React.Fragment>
+    <DemoCard repository={'login'} angular react ionic reactNative />
+    <Divider />
+</React.Fragment>
 
-## Basic Form
+# Variations
 
 <ImageGrid
-    images={[LoginInactiveImage, LoginViewPasswordImage, LoginErrorImage]}
-    caption={
-        'During the login process, the input field can be inactive, displaying a visible password, or showing error messages.'
-    }
+    images={[ViewPortLoginImage, ViewPortOverlayImage]}
+    regularWidth
+    caption={[
+        `User authentication workflows demand users' attention. Note that the workflows are usually "boxed" in a card.`,
+        `1&2: An example of a login workflow, on mobile and on desktop.`,
+        `3&4: An example of a password changing workflow, on mobile and on desktop`,
+        `Note that #2 represents a typical desktop auth layout when the user is NOT logged in, while #4's layout is typical for the workflow when the user has already logged in.`,
+    ]}
 />
+
+Your user authentication workflow should work on different screen sizes. On mobile, it should take up an entire screen. On a desktop, it is usually "boxed" in a card. The content should follow the rules specified by our [forms and validation pattern](/patterns/forms), and each page should be connected using our [steppers pattern](/patterns/steppers).
+
+<MaterialDesignDescription 
+    title={'Forms and Validation'}
+    url={'/patterns/forms'}
+    description={`Follow PX Blue's guideline for form controls.`}
+     avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+/>
+<MaterialDesignDescription 
+    title={'Steppers'}
+    url={'/patterns/steppers'}
+    description={`Follow PX Blue's guideline for navigating between pages.`}
+     avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+/>
+
+Currently, PX Blue supports the following authentication workflows:
+
+-   Registration
+-   Join organization
+-   Login
+-   Reset password
+
+We will now discuss them one by one.
+
+## Registration
+
+Registration is the process of user account creation. Depends on your project setup, the user might need to request to join various organizations, which we will discuss later. Registration includes the following variations:
+
+**Self-Registration**
+
+Self-registration involves registering an account without an email invitation. The workflow involves the following screens:
+
+-   Enter email address
+-   Accept EULA
+-   Verify email
+-   Create password
+-   Add account details
+-   Success & welcome
+
+**Registration via Invitation**
+
+Sometimes the organization admin might email the user an invitation. The workflow involves the following screens:
+
+-   Click through an email invitation
+-   Accept EULA
+-   Create password
+-   Add account details
+-   Success & welcome
+
+### Screens
+
+Most steps involved in self-registration and registration via invitation are very similar. Use the following screens for the registration workflow where appropriate.
+
+<ImageGrid
+    images={[EnterEmailAdress, AcceptEULA, VerifyEmail, CreatePassword, AccountDetails, WelcomeOnboard]}
+    caption={[
+        'Screens shared by the registration workflows.',
+        '1: Enter email address',
+        '2: Accept EULA',
+        '3: Verify email',
+        '4: Create password',
+        '5: Add account details',
+        '6: Success & welcome',
+    ]}
+/>
+
+## Joining an Organization
+
+In addition to account creation, some applications may require the user to join groups and organizations. Joining an organization workflow includes the following variations:
+
+**Request Access**
+
+This occurs when a user has an account but need to access an invitation-only organization. The workflow involves the following screens:
+
+-   Enter organization code
+-   Success & welcome (awaiting approval)
+-   Receive an email invitation
+-   Success & welcome
+
+**Enter Passcode**
+
+This occurs when anyone with an organization passcode can be added to the organization. The workflow involves the following screens:
+
+-   Enter organization code
+-   Enter organization passcode
+-   Success & welcome
+
+**Join with Invitation**
+
+An organization admin can add an existing user from their end too. In case the user doesn't have an account, they will first do the registration -> registration via invitation, then proceed to this step. The workflow involves the following screens:
+
+-   Receive an email invitation
+-   Success & welcome
+
+### Screens
+
+Most steps involved in the joining-an-organization workflow are very similar. Use the following screens for the joining-an-organization workflow where appropriate.
+
+<ImageGrid
+    images={[EnterOrganizationCode, EnterOrganizationPasscode, EnterOrganizationConfirm, EnterOrganizationWelcome]}
+    caption={[
+        'Screens shared by the joining-an-organization workflows.',
+        '1: Enter organization code',
+        '2: Enter organization passcode',
+        '3: Success & welcome (awaiting approval)',
+        '4: Success & welcome',
+    ]}
+/>
+
+## Login
+
+Login includes the following variations:
+
+**Basic Login**
 
 A simple login presents fields for the users to enter their credentials and a button to submit them for verification.
 
-## Login Feedback
+<ImageGrid
+    images={[Login]}
+    caption={[
+        'A standard login screen.',
+        '1: Project identifications, such as project name or project logo.',
+        '2: Optionaly, you may add in a simple geometrical background image with a white gradient background.',
+        '3: "Remember me" and "password visibility" are two features that facilitate the user, but expose some security concerns.',
+        '4: Login screens often include extra options, such as "forgot password", "sign up", and "contact your organization admin".',
+    ]}
+/>
 
-After a user submits their credentials, there are three possible results:
+**Login through Third Party**
 
--   If authentication is successful, the user is directed to the application landing page.
--   If authentication fails, the user remains on the login page and the screen should be updated to show an appropriate error message (e.g., Invalid Credentials).
--   If an error occurs when attempting to validate the credentials (e.g., Server Unavailable), the user should be notified with an appropriate error message.
+Some applications, especially the consumer-faced ones, are authorized via third-party credentials. Different platforms may have different requirements for this. Here are some commonly used platforms and their instructions:
 
-> **NOTE:** be very careful when presenting error messages to users. For security, you should not present more information than is necessary (e.g., do **NOT** provide messages like "User does not exist," "Incorrect Password," etc.).
+-   [Login with Amazon](https://developer.amazon.com/docs/login-with-amazon/brand.html)
+-   [Google Sign-in](https://developers.google.com/identity/sign-in/web/sign-in)
+-   [Sign in with Apple](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple/overview/introduction/)
+-   [Facebook Login](http://developers.facebook.com/docs/facebook-login/)
+-   [Sign in with Microsoft](https://developer.microsoft.com/en-us/identity/add-sign-in-with-microsoft)
 
-## Forgot Password
+## Reset Password
 
-<ImageGrid images={[ForgetPasswordEnterEmailImage, ForgetPasswordEmailSentImage]} />
+**Forget password**
 
-The login screen for an application should also present users with a way to recover or reset their password if they have lost or forgotten it. This is typically presented as a hyperlink below the credential fields. Clicking the link will present users with a field to enter their e-mail address. They will receive an email with a hyperlink to reset their password.
+The login screen for an application should also present users with a way to recover or reset their password if they have lost or forgotten it. This is typically presented as a hyperlink below the credential fields. Clicking the link will present users with a field to enter their e-mail address. They will receive an email with a hyperlink to reset their password. The workflow involves the following screens:
 
-## User Registration
+-   Enter email
+-   Success (email has been sent)
+-   Receive an email for resetting the password
+-   Create password
+-   Success & welcome
 
-<ImageGrid images={[RegistrationVerifyEmail, RegistrationAccountDetails]} />
+<ImageGrid
+    images={[ForgotPasswordEnterEmail, ForgotPasswordConfirmSent, ForgotPasswordNewPassword, ForgotPasswordWelcome]}
+    caption={['1: Enter email', '2: Success (Email has been sent)', '3: Create Password', '4: Success & Welcome']}
+/>
 
-The login screen should also present new users of the application with a way to sign up for an account. This is also typically presented as a hyperlink below the credential fields that would link to a registration workflow (see below).
+**Change password**
 
-#### Registration Workflow
+When the users are logged in, they have the option to reset their password by going through the changing password workflow. This workflow can usually be triggered from user preference settings. The workflow involves the following screens:
 
-To register for an account, a new user must supply their e-mail address. After entering their e-mail address, a confirmation code is sent to verify the address.
+-   Change password
+-   Success & welcome
 
-After the email address is verified, users can continue the registration process by choosing a password. You should display password requirements (if any) near this field.
+<React.Fragment>
+    <ImageGrid
+        images={[ChangePassword, ChangePasswordWelcome]}
+        caption={['1: Change password', '2: Success & welcome']}
+    />
+    <Divider />
+</React.Fragment>
 
-> **NOTE:** The minimum requirements for registration are an email address, confirmation code, and password. You can also collect additional parameters as necessary for your application (e.g., Name, Phone Number, etc.).
+# Behavior
+
+## Email Communications
+
+<!-- This might deserve its own pattern. We already have something in the backlog to design for an email template. -->
+
+Email communications are frequently used throughout the user authentication workflow since they typically involve some security changes. You should never give the users option to unsubscribe from account-related email communications.
+
+<ImageGrid
+    images={[EmailCommunicationInvitation, EmailCommunicationVerification]}
+    caption={['Two examples of email communications', '1: Invitation to join', '2: Verifying email address']}
+/>
+
+## Success & Welcome Screen
+
+<!-- Welcome screen might deserve to be its own pattern (or at least merge into something like "onboarding"). -->
+<!-- TODO: add more images here, if studio blue can release more. -->
+
+The purpose of a welcome screen is to assure the user that something has been indeed achieved, and thus can be more delightful. You are encouraged to use animations and [graphics](/style/illustrations).
+
+## Terminated Workflows & Expired Sessions
+
+During the registration, if a user exits the application before they ever create a password for their account, the whole session is treated as expired, and the users should start over again.
+
+If an invitation link or verification code has expired, the users should be able to request for another invitation link or verification code.
+
+## Security Concerns
+
+### Error Messages
+
+When a user encounters an error, whether it is a password mismatch or the server is temporarily down, they should be notified with an appropriate error message. However, be very careful when presenting error messages to the users. You should only show what is necessary to recover from the problem, such as "incorrect email or password" and "server unavailable".
+
+<ImageGrid
+    images={[ErrorStates]}
+    caption={
+        'For security, you should not present more information than is necessary. For invalid credentials, you should highlight both fields and say "incorrect email or password."'
+    }
+    regularWidth
+/>
+
+### Credential Leaks
+
+Unlike a phone application, a shared HMI application has more threats in credential leaks. These projects should grant their user neither the ability to toggle their password's visibility nor should the application remember users' credentials (i.e., "Remember Me").
+
+### Two-Factor Authentication
+
+The examples on this page used email as the login credentials. However, if your project seeks for additional securities, consider using two-factor authentication.
+
+<Divider />
 
 # Developer
+
+**Angular:**
+
+_Planned_
+
+**React:**
+
+-   [@pxblue/react-auth-workflow](https://www.npmjs.com/package/@pxblue/react-auth-workflow)
+
+**React Native:**
 
 PX Blue has an npm package ([@pxblue/react-native-auth-workflow](https://www.npmjs.com/package/@pxblue/react-native-auth-workflow)) for React Native. It includes pre-built implementations of the screens for Login, Forgot Password, Contact Information, Self-Registration, Registration By Invitation, and Change Password.
