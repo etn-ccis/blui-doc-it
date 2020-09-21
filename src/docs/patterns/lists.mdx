@@ -4,10 +4,8 @@ import ListBannerImage from '../../app/assets/design-patterns/lists/lists.svg';
 
 <!-- Common Use Cases -->
 
+import DashboardListImage from '../../app/assets/design-patterns/lists/dashboard-list.png';
 import NotificationListDesktopImage from '../../app/assets/design-patterns/lists/notification-list-desktop.png';
-import NotificationListMobileImage from '../../app/assets/design-patterns/lists/notification-list-mobile.png';
-import DashboardListDesktopImage from '../../app/assets/design-patterns/lists/dashboard-list-desktop.png';
-import DashboardListMobileImage from '../../app/assets/design-patterns/lists/dashboard-list-mobile.png';
 import AnatomyImage from '../../app/assets/design-patterns/lists/anatomy.png';
 
 <!-- Variations -->
@@ -22,6 +20,9 @@ import NotificationBucketsImage2 from '../../app/assets/design-patterns/lists/no
 
 <!-- Behaviors -->
 
+import NotificationListMobileImage from '../../app/assets/design-patterns/lists/notification-list-mobile.png';
+import DashboardListDesktopImage from '../../app/assets/design-patterns/lists/dashboard-list-desktop.png';
+import DashboardListMobileImage from '../../app/assets/design-patterns/lists/dashboard-list-mobile.png';
 import GlobalActionAppBarImage from '../../app/assets/design-patterns/lists/action-button-in-appbar.png';
 import GlobalActionPanelHeaderImage from '../../app/assets/design-patterns/lists/action-button-in-panel-header.png';
 import GlobalActionAsButtonImage from '../../app/assets/design-patterns/lists/action-button-as-button.png';
@@ -45,7 +46,7 @@ import SpecTypographyImage from '../../app/assets/design-patterns/lists/spec-typ
 
 <ImageGrid images={[ListBannerImage]} regularWidth />
 
-Lists and tables are frequently used throughout PX Blue applications. Typically, lists are used to represent groups of similar data. They can display from simple name-value pairs in a sidebar all the way to complex timelines or device lists.
+Lists and tables are frequently used throughout PX Blue applications. They are intended to represent groups of similar logical items, such as a device, an alarm, or a setting. They can display data from simple name-value pairs up to complex timelines or device lists.
 
 <MaterialDesignDescription title={'Lists'} url={'https://material.io/components/lists/'} />
 
@@ -63,37 +64,32 @@ A TOC like this would be nice, but apparently these links are not working
 # Common Use Cases
 
 <ImageGrid
-    images={[
-        NotificationListDesktopImage,
-        NotificationListMobileImage,
-        DashboardListDesktopImage,
-        DashboardListMobileImage,
-    ]}
+    images={[NotificationListDesktopImage, DashboardListImage]}
     caption={[
-        'Notifications and status list are the two most common use case for the list pattern.',
-        '1&2: Notifications, for mobile and desktop respectively.',
-        '3&4: A status list embedded inside a dashboard, for mobile and desktop respectively.',
+        'Timelines and details panels are the two most common use cases for lists.',
+        '1 & 2: A timeline of notifications / alarms.',
+        '3 & 4: A details panel on a dashboard.',
     ]}
 />
 
-The scenarios in which lists may occur include:
+You can use lists in many ways, including for:
 
--   Dashboard / current status
--   Notifications
--   Inventories, list of assets
+-   Details panels
+-   Timelines (Alarms / Notifications)
+-   Inventories / List of Devices
 -   Contacts
--   File tree
 -   Logs
 -   Settings
+-   File tree
 
 Lists should **NOT** be used where:
 
 -   There are no comparable data presents, such as data sets with different structures;
 -   The users demand a summary rather than detailed data value, such as on the home screen. Use [Data visualization](/patterns/visualizations) to display trends, or [heroes](https://pxblue-components.github.io/react/?path=/info/components-hero--get-read-me-story) to display a summary.
 
-Lists usually reside in some larger structures, such as a panel (mobile) or in a card (desktop).
+## Lists and Other UI Layouts
 
-Or if the list is the only element, by itself.
+Lists typically appear inside of a panel (mobile) or a card (desktop). Occasionally, an entire screen may use a single list as its main body content.
 
 <React.Fragment>
     <ImageGrid
@@ -102,8 +98,8 @@ Or if the list is the only element, by itself.
         caption={[
             'An example of a list embedded inside a panel.',
             '1: Panel header and footer.',
-            '2: A global list action, in this case it sits inside the panel header.',
-            '3: Some panel modules, providing supporting information or additional interactions to the list.',
+            '2: A global list action sits inside the panel header.',
+            '3: Additional panel content supporting the list.',
             '4: A list item.',
             '5: A local list action.',
         ]}
@@ -119,8 +115,8 @@ Or if the list is the only element, by itself.
     images={[SimpleListImage]}
     regularWidth
     caption={[
-        '1: Lists can be as simple as data-value pairs.',
-        '2: You may add avatars to distinguish each list elements.',
+        '1: A simple key-value list.',
+        '2: A key-value list with icons and subtitle.',
     ]}
 />
 <DemoCard
@@ -142,24 +138,24 @@ The simplest type of list simply presents a single line (or multiple lines) of t
 <ImageGrid images={[StatusListImage]} regularWidth caption={`Use an icon avatar and / or a status stripe to catch people's attention.`}/>
 <DemoCard repository={'status-list'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fstatus-list%2Fstatus-list.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/status-list/index.tsx&initialpath=status-list'} ionic reactNative/>
 
-Commonly in PX Blue applications, list items also show some visual indication of the item's current status, such as online, offline, or an error condition. This is achieved by using avatars and status stripes.
+Commonly in PX Blue applications, list items also show a visual indication of an item's current status, such as online, offline, or an error condition. You can indicate this status by using avatars and status stripes with [PX Blue's status color palette](/style/color#status-colors).
 
 <ImageGrid
     images={[IconAlignImage]}
     regularWidth
     caption={
-        'Whenever you have a list that may include both avatars and icons, make sure all the icons, with or without avatars, are center-aligned. If you are using interactive elements like checkboxes and radio buttons, they should also be center-aligned to accomodate ripples. Otherwise, all icons should be left-aligned.'
+        'When using a list that may contain both avatars and simple icons, all icons should be center-aligned. If you are using interactive elements like checkboxes and radio buttons, they should also be center-aligned to accommodate ripples. When using only simple icons, they should be left-aligned.'
     }
 />
 
-In the rare case where you need to display status but cannot fit in neither an avatar nor a status stripe, such as the mini-list inside a [scorecard component](https://pxblue-components.github.io/react/?path=/info/components-score-card--get-read-me-story), you may color-code your list item icons and labels. However, for accessibility concerns, you should never rely _solely_ on the color to convey the message.
+If avatars and status stripes do not work well based on the context, such as in the body of a [scorecard component](https://pxblue-components.github.io/react/?path=/info/components-score-card--get-read-me-story), you can color-code your list item icons and labels to indicate status. However, for accessibility concerns, you should never rely _solely_ on the color to convey the message.
 
 <ImageGrid
     images={[ScorecardImage]}
     regularWidth
     caption={[
-        'A scorecard with a mini-list in the card body.',
-        `1: In addition to the change of color for the icon, you can also change icons, make label text descriptive, and bolden the font.`,
+        'A scorecard with a list in the card body.',
+        '1: In addition to changing the icon color, you can also change the icon, make label text more descriptive, and use a bolder font.',
     ]}
 />
 
@@ -173,14 +169,14 @@ Using tags is another way to display list status. They typically appear at the v
 
 ## Timestamps
 
-Many UI elements can be added to the list items, and one of the most common such elements is a timestamp, which usually occurs in device logs and list of notifications. You are encouraged to group your list items by dates for readability.
+Depending on the data being displayed, you can add additional UI elements to the list items to show more information. One of the most common such elements is a timestamp, which usually occurs in timelines or device logs. When using a timestamp, you are encouraged to group your list items by date for readability.
 
 <ImageGrid
     images={[NotificationBucketsImage1, NotificationBucketsImage2]}
     caption={[
-        'You may organically group your lists into buckets.',
+        'When using a timestamp, list items may be grouped into logical buckets.',
         '1: "Today - Yesterday - Earlier This Week" buckets',
-        '2: Plain date buckets. Note the dates have been taken out of the individual list items to avoid redundancy.',
+        '2: Raw date buckets. Note the dates have been taken out of the individual list items to avoid redundancy.',
     ]}
 />
 
@@ -207,7 +203,7 @@ Lists emphasize individual items, while tables highlight a comparison between ea
 
 # Behaviors
 
-Lists can be interactive. In general, there are two types of interactions: global list actions and local list actions.
+Lists can be interactive. In general, there are two types of actions: global list actions and local list item actions.
 
 <DemoCard
     repository={'action-list'}
@@ -223,14 +219,14 @@ Lists can be interactive. In general, there are two types of interactions: globa
 
 ## Global List Actions
 
-Global list actions are the actions that manipulate the entire list, rather than treating each list item individually. The buttons typically sit in the [Appbar](/patterns/appbar), the panel header, or a button row (desktop-only).
+Global list actions are the actions that manipulate the entire list. The buttons typically sit in an [Appbar](/patterns/appbar), a panel header, or a button panel (desktop-only).
 
 <ImageGrid
     images={[GlobalActionAppBarImage, GlobalActionPanelHeaderImage, GlobalActionAsButtonImage]}
     caption={[
         `1: Global actions in the Appbar.`,
         '2: Global actions in the panel header.',
-        '3: Global actions in its own button row.',
+        '3: Global actions in its own button panel.',
     ]}
 />
 
@@ -246,26 +242,24 @@ Common global list actions include:
 <ImageGrid images={[SortableListImage]} regularWidth />
 <DemoCard repository={'sortable-list'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fsortable-list%2Fsortable-list.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/sortable-list/index.tsx&initialpath=sortable-list'} ionic reactNative />
 
-Drag and drop is a special case for list sorting. It re-orders the items in a list manually. This should be accomplished by placing a drag handle as the leftmost element in the row. The ability to re-order the list should be locked behind an Edit Mode toggle mechanism.
+Drag and drop is a special case for list sorting. It re-orders the items in a list manually. This should be accomplished by placing a drag handle as the leftmost element in the row, and pushing all the list item content to its right. In most cases, the ability to re-order the list should be locked behind an Edit Mode toggle mechanism.
 
-## Local List Actions
+## Local List Item Actions
 
 <ImageGrid
     images={[LocalListActionsImage]}
     caption={[
-        '1: A more_vert icon, used to open a menu for more list actions.',
-        '2: A chevron, usually opens up a new page with list item details.',
+        '1: A 3-dot icon, used to open a menu for more list actions.',
+        '2: A chevron, usually indicates the entire list item is clickable and opens up a new page with list item details.',
         '3: A few icons that serve as list action buttons.',
-        '4: List actions can be used together.',
-        '5: An inline checkbox to toggle a status.',
-        '6: An inline text field for data entry.',
+        '4: An inline checkbox to toggle a status.',
+        '5: An inline text field for data entry.',
     ]}
-    gridImageProps={{ sm: 8 }}
 />
 
-If there are actions that you would like to perform on individual list items, you may add interactive elements such as icons or a 3-dot action menu. Depending on the space available, you typically will want to use the action menu if you have more than three actions that can be taken.
+If there are actions that you need to perform on individual list items, you may add icon buttons or an action menu. If you have three or fewer actions, they can be represented by individual icon buttons. If there are more than three, you should move them into an action menu.
 
-> If your list item is clickable for the entire item, then you should not arrange any extra local list actions, as the two interactions can intervene with each other.
+> If your entire list item is clickable, you should not include local list actions, as the two interactions can interfere with one another.
 
 ### Navigating Down a Tree Structure
 
@@ -286,11 +280,22 @@ You may want to take action on several list items at once, but not all. The easi
 
 ## Responsive Design
 
-When it comes to responsive design and progressive disclosure, it can be tricky to fit all the information from a list onto a smaller screen. Here are some best practices on designing for mobile phone:
+<ImageGrid
+    images={[
+        NotificationListDesktopImage,
+        NotificationListMobileImage,
+        DashboardListDesktopImage,
+        DashboardListMobileImage,
+    ]}
+    caption={'List items should be designed to work on both desktop (1 & 3) and mobile (2 & 4).'}
+/>
 
--   If a list item has too many elements in it and doesn't fit, try converting the item into a summary card, with a "view more" option to view the full data.
--   Avoid using tables.
--   Try adding gestures (long-press, swipe-left) that fits with the phone's OS ecosystem.
+When it comes to responsive design and progressive disclosure, it can be tricky to fit all the information from a list onto a smaller screen. Here are some best practices on designing for mobile:
+
+-   Avoid using tables if possible, or reduce the number of columns visible on mobile.
+-   Remove less critical information from lists on mobile.
+-   Use summary cards with a "view more" option to view the full data.
+-   Use gestures (e.g., long-press, swipe-left) that align with the target device's native behavior.
 
 <Divider />
 
@@ -314,7 +319,7 @@ Use the following components to implement this pattern:
     -   [Info List Item](https://pxblue-components.github.io/angular/?path=/info/components-info-list-item--readme)
     -   [List Item Tag](https://pxblue-components.github.io/angular/?path=/info/components-list-item-tag--readme)
 
-In Angular, the CDK (Component Developer's Kit) greater than 7.0 is required for the drag-and-drop feature.
+> In Angular, the CDK (Component Developer's Kit) version 7+ is required to use the drag-and-drop feature.
 
 **React**:
 
@@ -329,8 +334,6 @@ In Angular, the CDK (Component Developer's Kit) greater than 7.0 is required for
 
 -   React-Native
     -   [Flat List](https://reactnative.dev/docs/using-a-listview)
--   React Native Elements
-    -   [List Item](https://react-native-elements.github.io/react-native-elements/docs/listitem/)
 -   React Native Paper
     -   [List Item](https://callstack.github.io/react-native-paper/list-item.html)
 -   @pxblue/react-native-components
