@@ -4,8 +4,6 @@ import PxblueSmallAltIcon from '@pxblue/icons-mui/PxblueSmallAlt';
 <!-- Intro -->
 
 import LoginBanner from '../../app/assets/design-patterns/user-authentication/login.svg';
-import ViewPortLoginImage from '../../app/assets/design-patterns/user-authentication/card-on-different-viewports.png';
-import ViewPortOverlayImage from '../../app/assets/design-patterns/user-authentication/overlay-on-different-viewports.png';
 
 <!-- Variations -->
 
@@ -15,17 +13,25 @@ import VerifyEmail from '../../app/assets/design-patterns/user-authentication/ve
 import CreatePassword from '../../app/assets/design-patterns/user-authentication/create-password.png';
 import AccountDetails from '../../app/assets/design-patterns/user-authentication/account-details.png';
 import WelcomeOnboard from '../../app/assets/design-patterns/user-authentication/welcome-onboard.png';
+import RegistrationDesktop from '../../app/assets/design-patterns/user-authentication/registration-desktop.png';
+
 import EnterOrganizationCode from '../../app/assets/design-patterns/user-authentication/enter-organization-code.png';
 import EnterOrganizationPasscode from '../../app/assets/design-patterns/user-authentication/enter-organization-passcode.png';
 import EnterOrganizationConfirm from '../../app/assets/design-patterns/user-authentication/enter-organization-confirm.png';
 import EnterOrganizationWelcome from '../../app/assets/design-patterns/user-authentication/enter-organization-welcome.png';
+import JoinAnOrganizationDesktop from '../../app/assets/design-patterns/user-authentication/join-an-organization-desktop.png';
+
 import Login from '../../app/assets/design-patterns/user-authentication/login.png';
+import LoginDesktop from '../../app/assets/design-patterns/user-authentication/login-desktop.png';
+
 import ForgotPasswordEnterEmail from '../../app/assets/design-patterns/user-authentication/forgot-password-email.png';
 import ForgotPasswordConfirmSent from '../../app/assets/design-patterns/user-authentication/forgot-password-confirm.png';
 import ForgotPasswordNewPassword from '../../app/assets/design-patterns/user-authentication/forgot-password-password.png';
 import ForgotPasswordWelcome from '../../app/assets/design-patterns/user-authentication/forgot-password-welcome.png';
 import ChangePassword from '../../app/assets/design-patterns/user-authentication/change-password.png';
 import ChangePasswordWelcome from '../../app/assets/design-patterns/user-authentication/change-password-confirm.png';
+import ResetPasswordDesktop from '../../app/assets/design-patterns/user-authentication/reset-password-desktop.png';
+import ChangePasswordDesktop from '../../app/assets/design-patterns/user-authentication/change-password-desktop.png';
 
 <!-- Behaviors -->
 
@@ -56,16 +62,6 @@ Most applications will require some form of user authentication to ensure that o
 
 # Variations
 
-<ImageGrid
-    images={[ViewPortLoginImage, ViewPortOverlayImage]}
-    regularWidth
-    caption={[
-        `User authentication workflow examples on mobile (1 & 3) and on desktop (2 & 4). On desktop, authentication workflows are typically presented in a Card.`,
-    ]}
-/>
-
-Your authentication and registration workflows should work equally well on different screen sizes. On mobile, these should be presented as full-screen layouts, whereas on desktop, they should be presented in a card centered on the screen as an [overlay](/patterns/overlay).
-
 The workflows should follow the rules specified by our [forms and validation](/patterns/forms) pattern, and multi-step workflows should be connected using our [steppers](/patterns/steppers) pattern.
 
 <MaterialDesignDescription 
@@ -80,6 +76,8 @@ The workflows should follow the rules specified by our [forms and validation](/p
     description={`Follow PX Blue's guideline for navigating between pages.`}
      avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
 />
+
+Your authentication and registration workflows should work equally well on different screen sizes. On mobile, these should be presented as full-screen layouts, whereas on desktop, they should be presented in a card centered on the screen as an [overlay](/patterns/overlay).
 
 The user authentication contains four primary workflows:
 
@@ -130,6 +128,7 @@ The majority of the registration screens are the same between invitation-based a
         '6: Success / Welcome',
     ]}
 />
+<ImageGrid images={[RegistrationDesktop]} caption={'A registration screen example on desktop.'} regularWidth/>
 
 ## Joining an Organization
 
@@ -173,6 +172,7 @@ The majority of the joining-an-organization screens are the same regardless of t
         '4: Success / Welcome',
     ]}
 />
+<ImageGrid images={[JoinAnOrganizationDesktop]} caption={'A join-an-organization screen example on desktop.'} regularWidth />
 
 ## Login
 
@@ -198,6 +198,7 @@ A simple login presents fields for the users to enter their credentials and a bu
     ]}
     gridImageProps={{ sm: 8 }}
 />
+<ImageGrid images={[LoginDesktop]} caption={'A login screen example on desktop.'} regularWidth />
 
 **Login via Third Party**
 
@@ -225,6 +226,7 @@ The login screen for an application should also present users with a way to reco
     images={[ForgotPasswordEnterEmail, ForgotPasswordConfirmSent, ForgotPasswordNewPassword, ForgotPasswordWelcome]}
     caption={['1: Enter email address', '2: Reset instructions sent', '3: Create a new assword', '4: Success']}
 />
+<ImageGrid images={[ResetPasswordDesktop]} caption={'A reset-password screen example on desktop.'} regularWidth />
 
 **Change password**
 
@@ -235,6 +237,7 @@ When the users are logged in, they have the option to update or change their pas
 
 <React.Fragment>
     <ImageGrid images={[ChangePassword, ChangePasswordWelcome]} caption={['1: Change password', '2: Success']} />
+    <ImageGrid images={[ChangePasswordDesktop]} caption={'A change-password screen example on desktop.'} regularWidth />
     <Divider />
 </React.Fragment>
 
@@ -292,7 +295,7 @@ The examples on this page used email as the login credentials. However, if your 
 
 # Developer
 
-We recommend using the following packages to construct these workflows:
+We recommend using the following packages to construct these workflows. Additionally, you should familiarize yourself with the components used for the [Forms](/patterns/forms#developers) and [Overlays](/patterns/overlay#developers) pattern.
 
 **Angular** and **Ionic:**
 
