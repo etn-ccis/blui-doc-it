@@ -12,7 +12,7 @@ import {
     Divider,
 } from '@material-ui/core';
 
-import { PackageRow, ExampleRow, PageContent, ExpansionHeader } from '../components';
+import { ResourceRow, PageContent, ExpansionHeader } from '../components';
 import * as Colors from '@pxblue/colors';
 import { resources } from '../../__configuration__/resources';
 import { usePageTitle } from '../hooks/usePageTitle';
@@ -100,25 +100,15 @@ export const Resources: React.FC = (): JSX.Element => {
                                             item.applies.includes(filter) ||
                                             item.applies.includes('all') ||
                                             filter === 'all' ? (
-                                                item.package ? (
-                                                    <PackageRow
-                                                        key={`${item.name}_${index}`}
-                                                        package={item.package}
-                                                        repository={item.repository || ''}
-                                                        description={item.description}
-                                                        divider={index < bucket.items.length - 1}
-                                                    />
-                                                ) : (
-                                                    <ExampleRow
-                                                        key={`${item.name}_${index}`}
-                                                        name={item.name}
-                                                        repository={item.repository || ''}
-                                                        description={item.description}
-                                                        branches={filter !== 'all' ? [filter] : item.applies}
-                                                        bugLabels={filter !== 'all' ? [filter] : []}
-                                                        divider={index < bucket.items.length - 1}
-                                                    />
-                                                )
+                                                <ResourceRow
+                                                    key={`${item.name}_${index}`}
+                                                    name={item.name}
+                                                    package={item.package}
+                                                    repository={item.repository || ''}
+                                                    description={item.description}
+                                                    divider={index < bucket.items.length - 1}
+                                                    demoUrl={item.demoUrl}
+                                                />
                                             ) : null
                                         )}
                                     </List>
