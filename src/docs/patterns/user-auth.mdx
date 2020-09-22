@@ -100,7 +100,7 @@ If you do not need to restrict who can register for your application, you can al
 -   Verify email
 -   Create password
 -   Add account details
--   Success / Welcome
+-   Success: account created
 
 **Registration via Invitation**
 
@@ -110,7 +110,7 @@ If you need to restrict who is able to use your application, you may choose to g
 -   Accept EULA
 -   Create password
 -   Add account details
--   Success / Welcome
+-   Success: account created
 
 ### Screens
 
@@ -125,7 +125,7 @@ The majority of the registration screens are the same between invitation-based a
         '3: Verify email',
         '4: Create password',
         '5: Add account details',
-        '6: Success / Welcome',
+        '6: Success: account created',
     ]}
 />
 <ImageGrid images={[RegistrationDesktop]} caption={'A registration screen example on desktop.'} regularWidth/>
@@ -139,9 +139,9 @@ Some applications may require users to join specific groups or organizations aft
 This occurs when a user has an account but need to access an invitation-only organization. The workflow involves the following steps:
 
 -   Enter organization identifier
--   Success / Welcome (awaiting approval)
+-   Success: request sent
 -   Receive an email invitation
--   Success / Welcome
+-   Success: organization joined
 
 **Enter Passcode**
 
@@ -149,14 +149,14 @@ Joining by passcode occurs when anyone with an organization identifier and passc
 
 -   Enter organization identifier
 -   Enter organization passcode
--   Success / Welcome
+-   Success: organization joined
 
 **Join with Invitation**
 
 Joining via invitation occurs when a system admin extends an invitation for a user to join a group. If the user does not yet have an account, they will first proceed through the invitation-based registration workflow followed by the screens for joining the organization. This workflow includes the following screens:
 
 -   Receive an email invitation
--   Success / Welcome
+-   Success: organization joined
 
 ### Screens
 
@@ -168,8 +168,8 @@ The majority of the joining-an-organization screens are the same regardless of t
         'Screens in the joining-an-organization workflow.',
         '1: Enter organization identifier',
         '2: Enter organization passcode',
-        '3: Success / Welcome (awaiting approval)',
-        '4: Success / Welcome',
+        '3: Success: request sent',
+        '4: Success: organization joined',
     ]}
 />
 <ImageGrid images={[JoinAnOrganizationDesktop]} caption={'A join-an-organization screen example on desktop.'} regularWidth />
@@ -217,14 +217,14 @@ Some applications, especially consumer-facing ones, can be authorized via third-
 The login screen for an application should also present users with a way to recover or reset their password if they have lost or forgotten it. This is typically presented as a hyperlink below the credential fields. Clicking the link will present users with a field to enter their e-mail address. They will receive an email with a hyperlink to reset their password. The workflow involves the following screens:
 
 -   Enter email address
--   Reset instructions sent
+-   Success: reset instructions sent
 -   Receive an email for resetting the password
 -   Create a new password
--   Success
+-   Success: password reset
 
 <ImageGrid
     images={[ForgotPasswordEnterEmail, ForgotPasswordConfirmSent, ForgotPasswordNewPassword, ForgotPasswordWelcome]}
-    caption={['1: Enter email address', '2: Reset instructions sent', '3: Create a new assword', '4: Success']}
+    caption={['1: Enter email address', '2: Success: reset instructions sent', '3: Create a new assword', '4: Success: password reset']}
 />
 <ImageGrid images={[ResetPasswordDesktop]} caption={'A reset-password screen example on desktop.'} regularWidth />
 
@@ -233,10 +233,13 @@ The login screen for an application should also present users with a way to reco
 When the users are logged in, they have the option to update or change their password by going through the change password workflow, typically triggered within the user settings. This workflow includes the following screens:
 
 -   Change password
--   Success
+-   Success: password changed
 
 <React.Fragment>
-    <ImageGrid images={[ChangePassword, ChangePasswordWelcome]} caption={['1: Change password', '2: Success']} />
+    <ImageGrid
+        images={[ChangePassword, ChangePasswordWelcome]}
+        caption={['1: Change password', '2: Success: password changed']}
+    />
     <ImageGrid images={[ChangePasswordDesktop]} caption={'A change-password screen example on desktop.'} regularWidth />
     <Divider />
 </React.Fragment>
@@ -254,7 +257,7 @@ Email communications are frequently used throughout the user authentication work
     caption={['Two examples of email communications', '1: Invitation to join', '2: Verifying email address']}
 />
 
-## Success & Welcome Screen
+## Success Screen
 
 <!-- Welcome screen might deserve to be its own pattern (or at least merge into something like "onboarding"). -->
 <!-- TODO: add more images here, if studio blue can release more. -->
@@ -278,7 +281,7 @@ When a user encounters an error, whether it is a password mismatch or the server
 <ImageGrid
     images={[ErrorStates]}
     caption={
-        'For security, you should not present more information than is necessary. For invalid credentials, you should highlight both fields and say "incorrect email or password."'
+        'For security, you should not present more information than is necessary. For invalid credentials, you should highlight both fields and say "Invalid Credentials."'
     }
     regularWidth
 />
