@@ -41,12 +41,18 @@ import ErrorStates from '../../app/assets/design-patterns/user-authentication/er
 
 Most applications will require some form of user authentication to ensure that only authorized users have access as well as a mechanism for users to be added to the application.
 
-<!-- @TODO switch login links over to the "Component Recommendations style" instead of an "Interactive Code example" once we have one designed. -->
+<!--
+
+@TODO switch login links over to the "Component Recommendations style" instead of an "Interactive Code example" once we have one designed.
 
 <React.Fragment>
-    <DemoCard repository={'login'} angular react ionic reactNative />
+    <DemoCard repository={'login'} angular react={'https://codesandbox.io/s/github/pxblue/react-workflows/tree/master/login-workflow/example'} ionic reactNative />
     <Divider />
 </React.Fragment>
+
+-->
+
+<Divider />
 
 # Variations
 
@@ -54,11 +60,11 @@ Most applications will require some form of user authentication to ensure that o
     images={[ViewPortLoginImage, ViewPortOverlayImage]}
     regularWidth
     caption={[
-        `An example login screen on mobile (1 & 3) and on desktop (2 & 4). On desktop, authentication workflows are typically presented in a Card.`,
+        `User authentication workflow examples on mobile (1 & 3) and on desktop (2 & 4). On desktop, authentication workflows are typically presented in a Card.`,
     ]}
 />
 
-Your authentication and registration workflow should work equally well on different screen sizes. On mobile, these should be presented as full-screen layouts, whereas on desktop, they should be presented in a card centered on the screen as an [overlay](/patterns/overlay).
+Your authentication and registration workflows should work equally well on different screen sizes. On mobile, these should be presented as full-screen layouts, whereas on desktop, they should be presented in a card centered on the screen as an [overlay](/patterns/overlay).
 
 The workflows should follow the rules specified by our [forms and validation](/patterns/forms) pattern, and multi-step workflows should be connected using our [steppers](/patterns/steppers) pattern.
 
@@ -75,7 +81,7 @@ The workflows should follow the rules specified by our [forms and validation](/p
      avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
 />
 
-Currently, PX Blue supports the following authentication workflows:
+The user authentication contains four primary workflows:
 
 -   Registration
 -   Joining an organization
@@ -88,10 +94,11 @@ Registration is the process of user account creation. Typically, users can eithe
 
 **Self-Registration**
 
-If you do not need to restrict who can register for your application, you can allow users to self-register. The self-registration workflow includes the following screens:
+If you do not need to restrict who can register for your application, you can allow users to self-register. The self-registration workflow includes the following steps:
 
 -   Enter email address
 -   Accept EULA
+-   Receive an email for verification
 -   Verify email
 -   Create password
 -   Add account details
@@ -99,13 +106,13 @@ If you do not need to restrict who can register for your application, you can al
 
 **Registration via Invitation**
 
-If you need to restrict who is able to use your application, you may choose to go with a invitation-based registration. In this situation, a system admin sends an email to authorized users inviting them to register. The invitation-based registration workflow includes the following screens:
+If you need to restrict who is able to use your application, you may choose to go with a invitation-based registration. In this situation, a system admin sends an email to authorized users inviting them to register. The invitation-based registration workflow includes the following steps:
 
--   Click through an email invitation
+-   Receive an email for invitation
 -   Accept EULA
 -   Create password
 -   Add account details
--   Success / welcome
+-   Success / Welcome
 
 ### Screens
 
@@ -130,7 +137,7 @@ Some applications may require users to join specific groups or organizations aft
 
 **Request Access**
 
-This occurs when a user has an account but need to access an invitation-only organization. The workflow involves the following screens:
+This occurs when a user has an account but need to access an invitation-only organization. The workflow involves the following steps:
 
 -   Enter organization identifier
 -   Success / Welcome (awaiting approval)
@@ -139,7 +146,7 @@ This occurs when a user has an account but need to access an invitation-only org
 
 **Enter Passcode**
 
-Joining by passcode occurs when anyone with an organization identifier and passcode can join an organization. This workflow includes the following screens:
+Joining by passcode occurs when anyone with an organization identifier and passcode can join an organization. This workflow includes the following steps:
 
 -   Enter organization identifier
 -   Enter organization passcode
@@ -262,6 +269,8 @@ If an invitation link or verification code has expired, the users should be able
 ### Error Messages
 
 When a user encounters an error, whether it is a password mismatch or the server is temporarily down, they should be notified with an appropriate error message. However, be very careful when presenting error messages to the users. You should only show what is necessary to recover from the problem, such as "incorrect email or password" and "server unavailable".
+
+> Do **NOT** provide messages like "User does not exist," "Incorrect Password," etc.
 
 <ImageGrid
     images={[ErrorStates]}
