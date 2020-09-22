@@ -37,6 +37,7 @@ import ChangePasswordDesktop from '../../app/assets/design-patterns/user-authent
 
 import EmailCommunicationInvitation from '../../app/assets/design-patterns/user-authentication/email-communication-invitation.png';
 import EmailCommunicationVerification from '../../app/assets/design-patterns/user-authentication/email-communication-verification.png';
+import ExpiredCode from '../../app/assets/design-patterns/user-authentication/expired.png';
 import ErrorStates from '../../app/assets/design-patterns/user-authentication/error-states.png';
 
 <!-- KEYWORDS: design pattern login registration register password forget forgot account authentication auth join -->
@@ -252,7 +253,9 @@ When the users are logged in, they have the option to change their password by g
 
 <!-- This might deserve its own pattern. We already have something in the backlog to design for an email template. -->
 
-Email communications are frequently used throughout the user authentication workflow since they typically involve some security changes. You should never give the users option to unsubscribe from account-related email communications.
+Email communications are frequently used throughout the user authentication workflow, as they are the primary way a user will get notified without an account access. Users receive emails for invitations, verification, confirmation codes, etc.
+
+Emails are also sent to confirm security-related changes to a user's account (such as changing a password, updating a profile, etc.) You should never allow users to unsubscribe from security-related email notifications.
 
 <ImageGrid
     images={[EmailCommunicationInvitation, EmailCommunicationVerification]}
@@ -271,6 +274,12 @@ The purpose of a welcome screen is to assure the user that something has been ac
 During the registration, if a user exits the application before they ever create a password for their account, the whole session is treated as expired, and the users should start over again.
 
 If an invitation link or verification code has expired, the users should be able to request for another invitation link or verification code.
+
+<ImageGrid
+    images={[ExpiredCode]}
+    caption={'Users should have a way to re-initiate an expired email verification.'}
+    regularWidth
+/>
 
 ## Security Concerns
 
