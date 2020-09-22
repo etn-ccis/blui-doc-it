@@ -136,7 +136,7 @@ Some applications may require users to join specific groups or organizations aft
 
 **Request Access**
 
-This occurs when a user has an account but need to access an invitation-only organization. The workflow involves the following steps:
+This occurs when a user has an account but need to access an invitation-only organization. This workflow involves the following steps:
 
 -   Enter organization identifier
 -   Success: request sent
@@ -153,7 +153,7 @@ Joining by passcode occurs when anyone with an organization identifier and passc
 
 **Join with Invitation**
 
-Joining via invitation occurs when a system admin extends an invitation for a user to join a group. If the user does not yet have an account, they will first proceed through the invitation-based registration workflow followed by the screens for joining the organization. This workflow includes the following screens:
+Joining via invitation occurs when a system admin extends an invitation for a user to join a group. If the user does not yet have an account, they will first proceed through the invitation-based registration workflow followed by the screens for joining the organization. This workflow includes the following steps:
 
 -   Receive an email invitation
 -   Success: organization joined
@@ -186,6 +186,8 @@ Logging in can usually be accomplished in one of two ways: basic login or login 
 
 A simple login presents fields for the users to enter their credentials and a button to submit them for verification.
 
+The login screen should always offer some workaround if a user has some trouble getting authorized, either because they don't have an account, or that they forget their credentials. In your login screen, there should be buttons that can initiate those extra functions, such as Registration and Forgot Password (see below).
+
 <ImageGrid
     images={[Login]}
     caption={[
@@ -214,7 +216,7 @@ Some applications, especially consumer-facing ones, can be authorized via third-
 
 **Forget password**
 
-The login screen for an application should also present users with a way to recover or reset their password if they have lost or forgotten it. This is typically presented as a hyperlink below the credential fields. Clicking the link will present users with a field to enter their e-mail address. They will receive an email with a hyperlink to reset their password. The workflow involves the following screens:
+The login screen for an application should also present users with a way to recover or reset their password if they have lost or forgotten it. This is typically presented as a hyperlink below the credential fields. Clicking the link will present users with a field to enter their e-mail address. They will receive an email with a hyperlink to reset their password. This workflow involves the following steps:
 
 -   Enter email address
 -   Success: reset instructions sent
@@ -230,7 +232,7 @@ The login screen for an application should also present users with a way to reco
 
 **Change password**
 
-When the users are logged in, they have the option to update or change their password by going through the change password workflow, typically triggered within the user settings. This workflow includes the following screens:
+When the users are logged in, they have the option to change their password by going through the change password workflow, typically triggered within the user settings. This workflow includes the following steps:
 
 -   Change password
 -   Success: password changed
@@ -298,7 +300,7 @@ The examples on this page used email as the login credentials. However, if your 
 
 # Developer
 
-We recommend using the following packages to construct these workflows. Additionally, you should familiarize yourself with the components used for the [Forms](/patterns/forms#developers) and [Overlays](/patterns/overlay#developers) pattern.
+We recommend using the following packages to construct these workflows. Additionally, you should familiarize yourself with the components used for the [Forms](/patterns/forms#developers) and [Overlays](/patterns/overlay#developers) patterns.
 
 **Angular** and **Ionic:**
 
