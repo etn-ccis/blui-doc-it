@@ -47,6 +47,8 @@ The modal dialog appears in the center of the screen in front of the primary con
 
 Modals are also great for presenting single-screen tasks to user, such as changing a password.
 
+> In mobile applications, modal dialogs should be used primarily for notifications and confirmations. Single-screen tasks or workflows are better presented as separate screens or full-screen bottom sheets.
+
 <ImageGrid
     regularWidth
     images={[DesktopDialogTask]}
@@ -64,9 +66,9 @@ Modal dialogs are always blocking — they must be dismissed before the user can
     <MaterialDesignDescription title={'Sheets: Side'} url={'https://material.io/components/sheets-side'} />
 </React.Fragment>
 
-Sidebars (Side Sheets in the Material documentation) are used to present supplemental information to users. Most commonly, they display information about selected items in the main interface (e.g., selecting an item in a list would open a sidebar on the right with additional details about the selected item).
+Sidebars (Side Sheets in the Material documentation) are used to present supplemental information to users. Most commonly, they display information about a selected item in the main interface (e.g., selecting an item in a list would open a sidebar on the right with additional details about the selected item). However, they can also be used standalone, such as the legend for a chart or map.
 
-They can also present simple form data and inputs (such as radio buttons, checkbox, dropdown menus, etc.) for editing a selected item. This type of sidebar should be temporary such that the user can easily close it with a close button or clicking elsewhere on the screen.
+They can also present simple form data and inputs (such as radio buttons, checkbox, dropdown menus, etc.) for editing a selected item. This type of sidebar should be dismissable, such that the user can easily close it with a close button or clicking elsewhere on the screen.
 
 Sidebars should always appear on the opposite side of the screen as the main [navigation](/patterns/navigation).
 
@@ -84,7 +86,7 @@ Bottom sheets are content surfaces that slide in from the bottom of the screen, 
         images={[SimpleBottomsheet]}
         caption={[
             '1. On mobile, the modal bottom sheet takes up the full width of the screen.',
-            '2. On desktop, the modal bottom sheet should be no more than 600px wide.',
+            '2. On desktop, bottom sheets can usually be replaced by a contextual menu instead.',
         ]}
     />
     <DemoCard
