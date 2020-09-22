@@ -3,6 +3,7 @@ import Banner from '../../app/assets/design-patterns/overlays/overlay-banner.svg
 import DesktopDialog from '../../app/assets/design-patterns/overlays/desktop-dialog.png';
 import DesktopDialogTask from '../../app/assets/design-patterns/overlays/desktop-dialog-task.png';
 import SimpleBottomsheet from '../../app/assets/design-patterns/overlays/simple-bottomsheet.png';
+import Placeholder from '../../app/assets/design-patterns/overlays/placeholder.png';
 
 <!-- KEYWORDS: design pattern overlay modal sidebar popup dialog side sheet -->
 
@@ -10,7 +11,20 @@ import SimpleBottomsheet from '../../app/assets/design-patterns/overlays/simple-
 
 <ImageGrid images={[Banner]} regularWidth />
 
-Overlays are useful in a variety of situations when you need to provide more context or information to a user than can be found in your primary content. For example, they can be used to present a confirmation dialog, details about a selected item, or actions that can be taken on a page. These can be used for presenting information (such as with a dialog) or capturing it (such as in a form).
+Overlays are content that appears on top of other content. They can be used to display information, or capture it.
+
+<Divider />
+
+# Common Use Cases
+
+Overlays are useful in a variety of situations. They can be used to supplement the information found in your primary content or to capture input from a user. For example, they can be used to present a confirmation dialog, details about a selected item, or actions that can be taken on a page.
+
+The most common overlays in PX Blue applications are:
+
+-   Confirmation dialogs
+-   Information sidebars
+-   Navigation menus
+-   Add / Edit dialogs
 
 <Divider />
 
@@ -21,22 +35,34 @@ Overlay elements come in a variety of shapes and sizes depending on their purpos
 ## Modal Dialog
 
 <ImageGrid
-    images={[DesktopDialog, DesktopDialogTask]}
+    regularWidth
+    images={[DesktopDialog]}
     caption={
-        'A modal dialog appears centered in the screen over a dark overlay. These can present information to the user, or prompt them to enter information.'
+        'A typical use case for a modal dialog — session expiration warning.'
     }
 />
 <MaterialDesignDescription title={'Dialogs'} url={'https://material.io/components/dialogs/'} />
 
-The modal dialog is your typical pop-up window that appears in the center of the screen in front of primary content. The primary use of dialogs is to present critical information to users or to ask for a decision. For example, you may wish to ask a user if they are sure they want to delete a file.
+The modal dialog appears in the center of the screen in front of the primary content. They present critical information to users or ask them to make a decision, such as confirming the deletion of an item.
 
-Modals are also great for presenting single tasks or workflows to a user. By using a modal, you allow the user to do more work without cluttering your main layout with unnecessary information (e.g., an Add User button could open a modal with a form to enter the new user's information). You can also use modals to edit large amounts of information that would be too difficult to fit into a sidebar.
+Modals are also great for presenting single-screen tasks to user, such as changing a password.
 
-Modal dialogs are always blocking — they must be dismissed before the user can interact with the rest of the application content. They may be dismissed by clicking on a close button or, for less critical dialogs, by clicking anywhere on the screen outside of it.
+<ImageGrid
+    regularWidth
+    images={[DesktopDialogTask]}
+    caption={'A modal dialog can present a single-screen workflow, such as changing a password.'}
+/>
+
+Modal dialogs are always blocking — they must be dismissed before the user can interact with the rest of the application content, typically by clicking a dismiss / close button or by clicking elsewhere on the screen.
+
+> If you are collecting a lot of information, it may be better to move this form to a separate page in your application rather than trying to place too much content into a modal.
 
 ## Sidebar
 
-<MaterialDesignDescription title={'Sheets: Side'} url={'https://material.io/components/sheets-side'} />
+<React.Fragment>
+    <ImageGrid regularWidth images={[Placeholder]} caption={'TODO: This is just a placeholder image for side sheet.'} />
+    <MaterialDesignDescription title={'Sheets: Side'} url={'https://material.io/components/sheets-side'} />
+</React.Fragment>
 
 Sidebars (Side Sheets in the Material documentation) are used to present supplemental information to users. Most commonly, they display information about selected items in the main interface (e.g., selecting an item in a list would open a sidebar on the right with additional details about the selected item).
 
@@ -50,21 +76,15 @@ Sidebars should always appear on the opposite side of the screen as the main [na
 
 <MaterialDesignDescription title={'Sheets: Bottom'} url={'https://material.io/components/sheets-bottom/'} />
 
-Bottom sheets are content surfaces that slide in from the bottom of the screen, primarily used in mobile applications. There are three types: standard, modal, and expandable. The content shown in a bottom sheet can be as simple as a list of items or as complex as a full screen layout.
-
-### Standard
-
-A standard bottom sheet is always visible and non-blocking, used most commonly for multitasking, such as displaying media player controls while browsing other content.
-
-### Modal
+Bottom sheets are content surfaces that slide in from the bottom of the screen, primarily used in mobile applications. There are three types (standard, modal, and expandable), but the one used most often in PX Blue applications is the modal bottom sheet.
 
 <React.Fragment>
     <ImageGrid
         regularWidth
         images={[SimpleBottomsheet]}
         caption={[
-            '1. On mobile, the bottom sheet takes up the full width of the screen.',
-            '2. On desktop, the bottom sheet be no more than 600px wide.',
+            '1. On mobile, the modal bottom sheet takes up the full width of the screen.',
+            '2. On desktop, the modal bottom sheet should be no more than 600px wide.',
         ]}
     />
     <DemoCard
@@ -91,11 +111,7 @@ A standard bottom sheet is always visible and non-blocking, used most commonly f
     />
 </React.Fragment>
 
-Modal bottom sheets are similar to modal dialogs that open from the bottom of the screen and block interaction with the rest of the application. These typically contain a list of options or actions and are usually activated via a action button in the [app bar](/patterns/appbar). This is the most common type of bottom sheet found in PX Blue applications.
-
-### Expanding
-
-Expanding bottom sheets first appear in a smaller form factor, but can be expanded to take up more of the screen and display additional content.
+Modal bottom sheets block interaction with the rest of the application. These typically contain a list of options or actions and are usually activated via an action button in the [app bar](/patterns/appbar).
 
 <Divider />
 
