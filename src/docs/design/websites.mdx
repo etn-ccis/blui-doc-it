@@ -1,4 +1,5 @@
-import { Divider } from '../../app/components';
+import { Divider, ImageGrid, RegularWidth } from '../../app/components';
+import ResponsiveDesignImg from '../../app/assets/design/responsive-design.png';
 
 <!-- KEYWORDS: web website application app design marketing -->
 
@@ -65,7 +66,9 @@ Where and how content is presented is a critical aspect of website design. You s
 
 Your website should be designed on a [grid system](https://www.smashingmagazine.com/2017/12/building-better-ui-designs-layout-grids/) to help tie elements together and promote responsiveness for different sized screens.
 
-> TODO: Image
+<RegularWidth>
+    <ImageGrid images={[ResponsiveDesignImg]} regularWidth />
+</RegularWidth>
 
 ## Colors
 
@@ -128,6 +131,4 @@ There are a number of conventions that users have come to expect from websites. 
 
 <Divider />
 
-# Key Differences vs. Web Application
-
-> TODO
+<!--# Key Differences vs. Web Application-->
