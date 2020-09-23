@@ -1,98 +1,110 @@
 import { Divider, ImageGrid } from '../../app/components';
-import AccessibilityDesignImg from '../../app/assets/design/accessibility-design.png';
-import PerceivableDesignImg from '../../app/assets/design/perceivable-design.png';
-import UnderstandableDesignImg from '../../app/assets/design/understandable-design.png';
+import AccessibilityDesignImg from '../../app/assets/design/design-color.png';
+import PerceivableDesignImg from '../../app/assets/design/design-perceivable.png';
+import UnderstandableDesignImg from '../../app/assets/design/design-understandable.png';
 
 <!-- KEYWORDS: accessibility design styles compliance w3c  -->
 
 # Accessibility
 
-As EATON’s digital presence continues to grow worldwide it is important to ensure that your projects meet baseline accessibility standards. With this in mind PX Blue has made the conscious decision to ensure that all components were checked and meet Level AA compliance standards.
+Accessibility for the web refers to designing your websites and applications so that individuals with disabilities are able to use them effectively. Disabilities can come in many forms including visual, physical, auditory, etc. It is important to design your applications to be accessible, both to reach as wide an audience as possible and for potential legal reasons. Making your application accessible improves the user experience for individuals without disabilities as well.
 
-For international products it is important to research what level of compliance is required by law. They can vary from country to country.
+> For international products it is important to research what level of compliance is required by law — accessibility requirements vary from one country to another.
 
-Accessibility guidelines assist in ensuring that people with disabilities can access and view your products without issues. The best practice guidelines used internationally on making websites accessible to people with disabilities are the [Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG20/) (WCAG) 2.0, released by the World Wide Web Consortium (W3C) in 2008.
+The best practice guidelines used internationally for making websites accessible are the [Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG20/) (WCAG) 2.0, released by the World Wide Web Consortium (W3C) in 2008.
 
-## Accessibility Design
+<Divider />
 
-<ImageGrid
-    images={[AccessibilityDesignImg]}
-    regularWidth
-    caption={[
-        '1: Figure 1 demonstrates the acceptable criteria for Black 500. The breakdown shows that, on a white background, a ratio of 8.57:1 has been achieved. Which is more than the required for AA and AAA compliance.',
-        '2: Figure 2 portrays the proper application of color within an application. Keep in mind that icons should also be checked for at least AA compliance.',
-    ]}
-/>
+# Four Principles of Accessibility
 
-## Four Principles Of Accessibility (w3.org)
+There are four principles that lay the foundation necessary for anyone to access and use web content — Perceivable, Operable, Understandable, and Robust.
 
-Success criteria is organized around the following four principles, which lay the foundation necessary for anyone to access and use Web content.
+## Perceivable
 
-1. Perceivable - Information and user interface components must be presentable to users in ways they can perceive. Meaning that users must be able to perceive the information being presented and that information is not hidden. For example, a button should look like a button and not hidden behind an image or other hard to distinguish elements.
+Information and user interface components must be presented to users in ways that they can perceive. For example, a button should look like a button and not be hidden behind an image or other hard-to-distinguish elements.
 
 <ImageGrid
     images={[PerceivableDesignImg]}
     regularWidth
     caption={[
-        '1: Figure 1 shows how color should be selected on mobile devices. It is important to display the information this way since users do not have the roll over feature.',
-        '2: Figure 2 shows the incorrect way to choose color on a mobile device. There are no indications of what the colors are and the selectable area is too small which will lead to increase in missclicks.',
+        '1: The proper way to display a color picker on mobile.',
+        '2: An incorrect way to display a color picker on mobile. The color swatches do not look like buttons and clickable areas are too small.',
     ]}
 />
 
-2. Operable - User interface components and navigation must be operable. Meaning that the interface cannot require interactions that a user cannot perform.
+## Operable
 
-3. Understandable - Information and the operation of user interface must be understandable. This means that users must be able to consume the information easily as well as operate the user interface with ease. The content or operation cannot be beyond their understanding. It is this reason why PX Blue defaults to labels accompanying buttons in the main navigation menu.
+Operable means that users must be able to perform the actions required to interact with interface elements. This means that all functionality should be available via the keyboard (including navigation), temporary content should be displayed long enough to be read by individuals with visual impairments, etc.
+
+## Understandable
+
+Users must be able to consume information and interact with the application easily. This includes using appropriate language (avoiding abbreviations, writing at an appropriate reading level, etc.), making sure that interface elements behave in consistent and predictable ways, providing helpful error messages and instructions, etc.
+
+For example, accompanying a button with a text label makes it more understandable if the meaning of the icon on its own is unclear.
 
 <ImageGrid
     images={[UnderstandableDesignImg]}
     regularWidth
     caption={[
-        '1: Figure 1 shows how  to properly display an action for a card. By having a visible "Read More" button it communicates to the user that an article is available to view.',
-        '2: Figure 2 shows the incorrect way to dipsplay an action for a card. While the card is clickable it is not immediately clear that there is additional content available.',
+        '1: The correct way to display an action for a card. The visible "Read More" button communicates to the user that there is additional content available to view.',
+        '2: The incorrect way to display an action for a card. It is not immediately clear that the card is clickable or that there is any way to see more content',
     ]}
 />
 
-4. Robust - Content must be robust enough that it can be interpreted reliably by a wide variety of users including assistive technologies. This means that users must be able to access the content as technologies advance.
+## Robust
 
-## Color
+Web content must be robust enough that it can be interpreted reliably by a wide variety of users, including those who rely on assistive technologies (e.g., screen readers, text-to-speech software, alternative pointing devices, etc.). As assistive technologies advance, your applications will need to account for these advances.
 
-Sticking with PX Blue default styles will help ease any concerns about your project colors passing accessibility. If your project requires the use of secondary colors the following guidelines apply. It is recommended to stick around the 500+ range of each color to meet the accessibility standards (for white background designs). The 500 colors have been tested to meet the baseline. However, it is also recommended to avoid using yellow, red and orange hues for text colors. The exception is simple one line caption lines (error message).
+<Divider />
 
-Ensure that there is high contrast between the color of the text presented and the background. Ensure that the color is not the only prompt used to convey information (for example: do not say select the red circle to continue
+# Color
 
-How to check. Check your contrast by ensuring that your backgrounds are White 50 or Gray 50 with the text being Black 500. You can also use a free contrast tool (tool link here) to test your contrast.
+<ImageGrid
+    images={[AccessibilityDesignImg]}
+    regularWidth
+    caption={[
+        '1: An acceptable level of color contrast. On a white background, a ratio of 8.57:1 has been achieved, which is higher than required for AA and AAA compliance.',
+        '2: Acceptable use of contrasting colors within an application. Remember that icons should also be checked for at least AA compliance.',
+    ]}
+/>
 
-Reason? Low contrast (grey 500 on white 50) makes it difficult for all users to view your product and more so for people with sight impairment. Using color to convey information is inappropriate for people with color-related visuals.
+PX Blue colors and components have been tested to meet minimum accessibility requirements. By using these default styles, you should be able to reduce the effort required for your product to pass accessibility tests.
 
-## Text
+If your project requires the use of additional styles or colors, you should adhere to the following guidelines:
 
-When applying accessible colors to text also ensure that it can be made larger without affecting the content or function of the page or site. PX Blue default spacing helps alleviate these concerns by providing enough space to allow text to increase in size. It is still recommended to double check all your components to ensure that there are no issues.
+-   Use PX Blue colors in the 500+ range for white backgrounds.
+-   Avoid using yellow, red, and orange for text (except for single-line error messages on forms)
+-   Do not rely on colors for instructions (e.g., do not say "Click the red button to close")
 
-In general, PX Blue uses Black 500 for text color. Designs can use alternative colors such as Blue 500 for headlines as well as other secondary colors in the 500 range. Buttons should use the default of White 50 unless the button is in the Yellow/Orange spectrum. In this case the text will need to be in the 800-900 range of that color. For example, a button with a yellow 500 background should use yellow 800-900 as its font color.
+Most PX Blue text elements use the Black 500 color, with some headlines using Blue 500. Button labels should use White 50 for dark background and Black 500 on light backgrounds. You can check the contrast ratio to determine which option provides greater contrast.
 
-How to check. Check that your text can be made larger and smaller and that the page continues to make sense in your browser. You can do this by selecting “view” followed by “text size” set to “largest” in the browser window.
+## Checking Contrast
 
-Reason? People with low visibility need to increase the text size of pages to view the information.
+Low contrast makes it difficult for all users to view your product, especially for individuals with visual impairments. You can test your contrast ratios using free [online tools](https://webaim.org/resources/contrastchecker/).
 
-## Images
+<Divider />
 
-Ensure that any images have descriptive text unless they are purely for decoration. It is recommended for decorative images to have a brief description to be displayed on hover. Follow the text writing guidelines found HERE on the doc it website.
+# Text
 
-Best Practices For Accessible Content
+In addition to making sure that the colors used for text are accessible, you should also ensure that text can be made larger without affecting the content or function of the page. Users with visual impairments may need to increase the font size of applications in order to read more clearly.
 
-1. Do not rely on color as a navigational tool or as the sole way to differentiate items
+Most browsers offer a feature for you to change the default font size (larger or smaller). You should test your application across multiple sizes to make sure that everything still looks right and functions correctly.
 
-2. Images should include descriptive text/Alt text in the markup/code. Complex images should have more extensive descriptions near the image. (PX Blue uses captions and descriptive summaries built into the neighboring paragraph)
+Most PX Blue components are designed to accommodate bigger font sizes when required.
 
-3. Functionality should be accessible through mouse, keyboard and touch. Also consider functionality to be tagged to work with voice-control systems
+<Divider />
 
-4. Content should have a “Skip Navigation” feature (when it applies)
+# Images
 
-5. Videos must provide visual access to the audio information through in-sync captioning
+Any images in your application should be accompanied by a caption or other descriptive text, unless they are purely for decoration. Decorative images should show a brief description on hover. Images should always include an "alt" property so that they are accessible to users utilizing a screen-reader or other assistive technologies.
 
-6. Consider 508 section testing
+-   Images should include descriptive text/alt text in the markup/code.
+-   Complex images should have more detailed descriptions near the image
+-   Videos must provide visual access to the audio information through in-sync captioning
 
-## Testing Tools For Web
+<Divider />
+
+# Testing Tools For Web
 
 The tools used in the Trusted Tester Test Process (and ICT Testing Baseline) have been chosen based on several factors including ease of use, ease of teaching, and accuracy of results. They are also free to install and use.
 
