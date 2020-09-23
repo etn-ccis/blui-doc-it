@@ -151,6 +151,16 @@ export const pageDefinitions: SimpleNavItem[] = [
                 url: '/anatomy',
                 component: <MarkdownPage title={'Design System Anatomy'} markdown={Docs.Design.Anatomy} wideLayout />,
             },
+            {
+                title: 'Accessibility',
+                url: '/accessibility',
+                component: <MarkdownPage title={'Accessibility'} markdown={Docs.Design.Accessibility} wideLayout />,
+            },
+            {
+                title: 'For Websites',
+                url: '/websites',
+                component: <MarkdownPage title={'Designing for Websites'} markdown={Docs.Design.Websites} wideLayout />,
+            },
         ],
     },
     {

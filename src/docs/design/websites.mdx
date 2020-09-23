@@ -1,0 +1,134 @@
+import { Divider, ImageGrid, RegularWidth } from '../../app/components';
+import ResponsiveDesignImg from '../../app/assets/design/responsive-design.png';
+
+<!-- KEYWORDS: web website application app design marketing -->
+
+# Designing for Websites
+
+PX Blue is a design system for digital _applications_. However, it can also be adapted for use in traditional web sites as well.
+
+> TODO: Image
+
+## Websites vs. Applications
+
+The line between websites and web applications is often blurry. In general, websites primarily provide information in a read-only format for the purposes of education, promotion, marketing, etc.
+
+A web application is typically more interactive and provides users the ability to affect the data in the application (e.g., adding items, deleting items, etc.). These applications are typically built to serve a particular use case or function that users need to perform frequently.
+
+Websites:
+
+-   Static content
+-   Usually publicly accessible
+-   Read-only visual & text content
+-   Less interactive / functional compared to web applications
+
+Applications:
+
+-   Dynamic content
+-   Often incorporates user accounts / authentication
+-   Users can manipulate data
+-   More interactive / functional compared to a website
+
+> TODO: Image
+
+<Divider />
+
+# Principles of Website Design
+
+There are several key principles for effective website design. Many of these principles can also be considered when designing a web application, with some notable differences called out below.
+
+## Beauty & Simplicity
+
+How your website looks is important, but it's not the reason users are coming to your site — typically they are looking for some particular piece of information. However, users _will_ notice a bad design, so making sure your website is visually appealing is still crucial.
+
+Keeping your designs simple is a way to strike balance. You should avoid unnecessary design elements (i.e., don't design for the sake of design) — this will only serve to overwhelm users and make it more difficult for them to find what they are looking for. A clean and simple design helps the audience focus on the value of the brand and on your content. Often, users will associate a website design with the quality of a particular company or product.
+
+> Using whitespace liberally can help maintain a simplistic design and also improve readability.
+
+## Effective Navigation
+
+Users are typically coming to your website to find information, so you should make your website as easy to navigate as possible to maximize their chance of finding what they need. User should be able to land on your site and immediately identify where they need to go.
+
+-   Primary navigation should be simple and located at the top of every page
+-   Include additional navigation or a site map in the footer of your website
+-   Consider adding breadcrumbs so users can quickly see where they are.
+    -   If you use breadcrumbs, they should be used on every page.
+-   Include a search functionality so users can quickly find what they are looking for
+-   Limit the number of navigation options (e.g., tabs, breadcrumbs, menus, etc.) per page
+-   Limit the nesting of information where possible.
+    -   Try to keep your website to no more than three levels deep (use a pyramid structure to organize your content).
+
+> TODO: Image
+
+## Layout & Hierarchy
+
+Where and how content is presented is a critical aspect of website design. You should arrange the elements on each page so that the user will naturally gravitate to the most important elements first. Your goal should be to facilitate users' actions in a way that feels intuitive, natural, and enjoyable. You can draw your users to certain elements on the page by utilizing a combination of position, size, and color.
+
+Your website should be designed on a [grid system](https://www.smashingmagazine.com/2017/12/building-better-ui-designs-layout-grids/) to help tie elements together and promote responsiveness for different sized screens.
+
+<RegularWidth>
+    <ImageGrid images={[ResponsiveDesignImg]} regularWidth />
+</RegularWidth>
+
+## Colors
+
+Color can be very powerful when it is used effectively. You should keep colors to a minimum to maximize the effect in the areas where they are used. We recommend using no more than five different colors in your website designs (ideally shades of blue, black, gray, and white from the PX Blue [palette](/style/color)). For product catalogs or commerce sites, you should absolutely use the product's branding color(s) on your site.
+
+You should focus your use of color on image backgrounds, highlight colors, etc.
+
+> TODO: Image
+
+## Typography
+
+In general, websites following the PX Blue design language should use the Open Sans font. If you require an alternative, you should ensure that any font you use is highly legible at all sizes.
+
+-   Avoid using script fonts
+-   Minimize the use of colored text and make sure it contrasts with the background color.
+-   Use no more than three different typefaces.
+-   Use no more than three different font sizes.
+-   Keep body copy and label font sizes at 12px or larger
+    -   Do not use any text smaller than 8px
+
+You can read more about typography in the [Typography](/style/typography) guide.
+
+## Graphics
+
+Graphics are most powerful when used sparingly. Only use graphics if they help the user complete a specific task or if they showcase a specific product / situation. You can read more about graphics in our [Illustrations](/style/illustrations) guide.
+
+## Consistency
+
+The overall look and feel of your site should be consistent across pages. Backgrounds, colors, typefaces and the tone of writing are all areas where consistency has a positive impact on usability.
+
+Consistency does not mean every page should look identical. Try to define different layouts for specific types of pages (e.g., landing page, information page, product page, etc.). Use these layouts consistently throughout your website.
+
+PX Blue has several templates (TODO: link to FIGMA) that you can use as a starting point.
+
+In addition to visual consistency, it is also important to maintain a consistent tone throughout the website. Your content should be written using the same voice throughout the website. Content should be descriptive and straight to the point — keep technical jargon to a minimum.
+
+## Responsiveness
+
+Your website should be functional across a wide range of different devices, including desktop computers, mobile phones, and tablets. Nearly 50% of all web traffic comes from mobile and tablet devices, so you should strive to follow a [mobile-first](https://medium.com/@Vincentxia77/what-is-mobile-first-design-why-its-important-how-to-make-it-7d3cf2e29d00) design strategy. PX Blue is working to develop website grid templates for traditional website design in Figma. You can refer to [Material designs Responsive layout](https://material.io/design/layout/understanding-layout.html) grid for more detailed information.
+
+> TODO: Image
+
+## Accessibility
+
+The audience for a website can be even more diverse than for a web application. Your website should be accessible to all potential users. As with any Eaton digital product it is important to refer to the [Accessibility](/design/accessibility) guide for more detailed information. The main principles still apply to website design.
+
+## Conventions
+
+There are a number of conventions that users have come to expect from websites. You should strive to follow these conventions when possible:
+
+-   Placing the main navigation at the top left or on the side of the site
+-   Placing a product logo at the top left of the site
+    -   The logo should be clickable and take the user back to the home page
+-   Links and buttons should change color / appearance when hovered over
+-   Ensuring image galleries / slideshows have buttons for users to manually rotate slides
+-   Use shopping cart icons on a commerce site.
+    -   Include a badge that indicates the number of items in the cart.
+
+> TODO: Image
+
+<Divider />
+
+<!--# Key Differences vs. Web Application-->
