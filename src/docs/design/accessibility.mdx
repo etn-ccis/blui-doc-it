@@ -1,5 +1,7 @@
 import { Divider, ImageGrid } from '../../app/components';
 import AccessibilityDesignImg from '../../app/assets/design/accessibility-design.png';
+import PerceivableDesignImg from '../../app/assets/design/perceivable-design.png';
+import UnderstandableDesignImg from '../../app/assets/design/understandable-design.png';
 
 <!-- KEYWORDS: accessibility design styles compliance w3c  -->
 
@@ -15,6 +17,7 @@ Accessibility guidelines assist in ensuring that people with disabilities can ac
 
 <ImageGrid
     images={[AccessibilityDesignImg]}
+    regularWidth
     caption={[
         '1: Figure 1 demonstrates the acceptable criteria for Black 500. The breakdown shows that, on a white background, a ratio of 8.57:1 has been achieved. Which is more than the required for AA and AAA compliance.',
         '2: Figure 2 portrays the proper application of color within an application. Keep in mind that icons should also be checked for at least AA compliance.',
@@ -27,9 +30,27 @@ Success criteria is organized around the following four principles, which lay th
 
 1. Perceivable - Information and user interface components must be presentable to users in ways they can perceive. Meaning that users must be able to perceive the information being presented and that information is not hidden. For example, a button should look like a button and not hidden behind an image or other hard to distinguish elements.
 
+<ImageGrid
+    images={[PerceivableDesignImg]}
+    regularWidth
+    caption={[
+        '1: Figure 1 shows how color should be selected on mobile devices. It is important to display the information this way since users do not have the roll over feature.',
+        '2: Figure 2 shows the incorrect way to choose color on a mobile device. There are no indications of what the colors are and the selectable area is too small which will lead to increase in missclicks.',
+    ]}
+/>
+
 2. Operable - User interface components and navigation must be operable. Meaning that the interface cannot require interactions that a user cannot perform.
 
 3. Understandable - Information and the operation of user interface must be understandable. This means that users must be able to consume the information easily as well as operate the user interface with ease. The content or operation cannot be beyond their understanding. It is this reason why PX Blue defaults to labels accompanying buttons in the main navigation menu.
+
+<ImageGrid
+    images={[UnderstandableDesignImg]}
+    regularWidth
+    caption={[
+        '1: Figure 1 shows how  to properly display an action for a card. By having a visible "Read More" button it communicates to the user that an article is available to view.',
+        '2: Figure 2 shows the incorrect way to dipsplay an action for a card. While the card is clickable it is not immediately clear that there is additional content available.',
+    ]}
+/>
 
 4. Robust - Content must be robust enough that it can be interpreted reliably by a wide variety of users including assistive technologies. This means that users must be able to access the content as technologies advance.
 
