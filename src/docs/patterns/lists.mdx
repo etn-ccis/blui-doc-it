@@ -69,8 +69,8 @@ A TOC like this would be nice, but apparently these links are not working
     images={[NotificationListDesktopImage, DashboardListImage]}
     caption={[
         'Timelines and details panels are the two most common use cases for lists.',
-        '1 & 2: A timeline of notifications / alarms.',
-        '3 & 4: A details panel on a dashboard.',
+        '1: A timeline of notifications / alarms.',
+        '3: A details panel on a dashboard.',
     ]}
 />
 
@@ -86,9 +86,9 @@ You can use lists in many ways, including for:
 
 Lists should **NOT** be used where:
 
--   Different logical items (i.e., don't mix different logical items in a single list)
+-   Data represents different logical items (e.g., don't mix alarms and devices in a single list)
 
-## Lists and Other UI Layouts
+## Supporting UI Elements
 
 Lists typically appear inside of a panel (mobile) or a card (desktop). Occasionally, an entire screen may use a single list as its main body content.
 
@@ -159,7 +159,7 @@ If avatars and status stripes do not work well based on the context, such as in 
     ]}
 />
 
-Using tags is another way to display list status. They typically appear at the very end of a list item.
+Using tags is another way to display list item status. They typically appear at the very end of a list item.
 
 <ImageGrid
     images={[ContactsImage]}
