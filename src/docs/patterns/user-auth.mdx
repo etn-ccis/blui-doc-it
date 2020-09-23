@@ -46,7 +46,7 @@ import ErrorStates from '../../app/assets/design-patterns/user-authentication/er
 
 <ImageGrid images={[LoginBanner]} regularWidth />
 
-Most applications will require some form of user authentication to ensure that only authorized users have access as well as a mechanism for users to be added to the application.
+Most applications require some form of user authentication to keep unauthorized users out, and a way to add authorized users to the application.
 
 <!--
 
@@ -63,7 +63,14 @@ Most applications will require some form of user authentication to ensure that o
 
 # Variations
 
-The workflows should follow the rules specified by our [forms and validation](/patterns/forms) pattern, and multi-step workflows should be connected using our [steppers](/patterns/steppers) pattern.
+User authentication contains four primary workflows:
+
+-   Registration
+-   Joining an organization
+-   Login
+-   Forgot / Reset password
+
+All of these workflows should follow the rules specified by our [forms and validation](/patterns/forms) pattern, and multi-step workflows should be connected using our [steppers](/patterns/steppers) pattern.
 
 <MaterialDesignDescription 
     title={'Forms and Validation'}
@@ -79,13 +86,6 @@ The workflows should follow the rules specified by our [forms and validation](/p
 />
 
 Your authentication and registration workflows should work equally well on different screen sizes. On mobile, these should be presented as full-screen layouts, whereas on desktop, they should be presented in a card centered on the screen as an [overlay](/patterns/overlay).
-
-The user authentication contains four primary workflows:
-
--   Registration
--   Joining an organization
--   Login
--   Forgot / Reset password
 
 ## Registration
 
@@ -187,7 +187,7 @@ Logging in can usually be accomplished in one of two ways: basic login or login 
 
 A simple login presents fields for the users to enter their credentials and a button to submit them for verification.
 
-The login screen should always offer some workaround if a user has some trouble getting authorized, either because they don't have an account, or that they forget their credentials. In your login screen, there should be buttons that can initiate those extra functions, such as Registration and Forgot Password (see below).
+The login screen should always present information on how to create an account and what to do if a user has forgotten their password — these buttons should trigger the Registration and Forgot Password (see below) workflows .
 
 <ImageGrid
     images={[Login]}
@@ -195,7 +195,7 @@ The login screen should always offer some workaround if a user has some trouble 
         'A standard login screen.',
         '1: Product identifications, such as product name or logo.',
         '2: Optionally, you may add in a simple geometrical background image with a white gradient background.',
-        '3: "Remember me" and "password visibility" are two features that facilitate the user, but expose some security concerns.',
+        '3: "Remember me" and "password visibility" are two features that improve user experience, but introduce potential security concerns.',
         '4: Login screens often include extra functions, such as "forgot password", "sign up", and "contact your organization admin".',
         '5: You may add certification badges and logos from partnerships here.',
     ]}
@@ -213,17 +213,17 @@ Some applications, especially consumer-facing ones, can be authorized via third-
 -   [Facebook Login](http://developers.facebook.com/docs/facebook-login/)
 -   [Sign in with Microsoft](https://developer.microsoft.com/en-us/identity/add-sign-in-with-microsoft)
 
-## Forgot / Reset Password
+## Forgot / Change Password
 
-**Forget password**
+**Forgot password**
 
-The login screen for an application should also present users with a way to recover or reset their password if they have lost or forgotten it. This is typically presented as a hyperlink below the credential fields. Clicking the link will present users with a field to enter their e-mail address. They will receive an email with a hyperlink to reset their password. This workflow involves the following steps:
+The login screen for an application should also present users with a way to reset their password if they have forgotten it. This is typically displayed as a hyperlink below the credential fields. Clicking the link will present users with a field to enter their e-mail address. They will then receive an email with a hyperlink to reset their password. This workflow involves the following steps:
 
 -   Enter email address
 -   Success: reset instructions sent
 -   Receive an email for resetting the password
 -   Create a new password
--   Success: password reset
+-   Success: password updated
 
 <ImageGrid
     images={[ForgotPasswordEnterEmail, ForgotPasswordConfirmSent, ForgotPasswordNewPassword, ForgotPasswordWelcome]}
@@ -231,12 +231,14 @@ The login screen for an application should also present users with a way to reco
 />
 <ImageGrid images={[ResetPasswordDesktop]} caption={'A reset-password screen example on desktop.'} regularWidth />
 
-**Change password**
+**Change Password**
 
-When the users are logged in, they have the option to change their password by going through the change password workflow, typically triggered within the user settings. This workflow includes the following steps:
+When the users are logged in, they have the option to change their password by going through the change password workflow, typically triggered from within the user settings. This workflow includes the following steps:
 
 -   Change password
--   Success: password changed
+-   Success: password updated
+
+> After a successful password change, users should be logged out and forced to log in with the new credentials.
 
 <React.Fragment>
     <ImageGrid
@@ -253,9 +255,9 @@ When the users are logged in, they have the option to change their password by g
 
 <!-- This might deserve its own pattern. We already have something in the backlog to design for an email template. -->
 
-Email communications are frequently used throughout the user authentication workflow, as they are the primary way a user will get notified without an account access. Users receive emails for invitations, verification, confirmation codes, etc.
+Email communications are frequently used throughout the user authentication workflow to verify the user's identity. Users receive emails for invitations, address verification, confirmation codes, etc.
 
-Emails are also sent to confirm security-related changes to a user's account (such as changing a password, updating a profile, etc.) You should never allow users to unsubscribe from security-related email notifications.
+Emails are also sent to confirm security-related changes to a user's account, such as changing a password, updating a profile, etc. You should never allow users to unsubscribe from security-related email notifications.
 
 <ImageGrid
     images={[EmailCommunicationInvitation, EmailCommunicationVerification]}
@@ -271,7 +273,7 @@ The purpose of a welcome screen is to assure the user that something has been ac
 
 ## Terminated Workflows & Expired Sessions
 
-During the registration, if a user exits the application before they ever create a password for their account, the whole session is treated as expired, and the users should start over again.
+During the registration, if a user leaves the application before creating a password for their account, the whole session is treated as expired, and upon returning, they must start the registration process over again.
 
 If an invitation link or verification code has expired, the users should be able to request for another invitation link or verification code.
 
@@ -285,7 +287,7 @@ If an invitation link or verification code has expired, the users should be able
 
 ### Error Messages
 
-When a user encounters an error, whether it is a password mismatch or the server is temporarily down, they should be notified with an appropriate error message. However, be very careful when presenting error messages to the users. You should only show what is necessary to recover from the problem, such as "incorrect email or password" and "server unavailable".
+When a user encounters an error — such as a password mismatch or the server is temporarily down — they should be notified with an appropriate error message. However, be very careful when presenting error messages to the users. You should only show what is necessary to recover from the problem, such as "incorrect email or password" or "server unavailable" — do not expose information that could compromise the security of your application.
 
 > Do **NOT** provide messages like "User does not exist," "Incorrect Password," etc.
 
@@ -303,7 +305,7 @@ Unlike a phone application, a shared HMI application is more vulnerable to outsi
 
 ### Two-Factor Authentication
 
-The examples on this page used email as the login credentials. However, if your project seeks for additional securities, consider using two-factor authentication.
+The examples on this page used email as the login credentials. However, if your project requires additional security, consider using two-factor authentication. Two-factor authentication involves sending an additional confirmation code (typically via email or SMS) to verify a user's identity after they enter their password.
 
 <Divider />
 
