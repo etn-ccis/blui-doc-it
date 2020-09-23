@@ -10,7 +10,8 @@ import AnatomyImage from '../../app/assets/design-patterns/lists/anatomy.png';
 
 <!-- Variations -->
 
-import SimpleListImage from '../../app/assets/design-patterns/lists/simple-list.png';
+import SimpleListImage1 from '../../app/assets/design-patterns/lists/simple-list-1.png';
+import SimpleListImage2 from '../../app/assets/design-patterns/lists/simple-list-2.png';
 import StatusListImage from '../../app/assets/design-patterns/lists/status-list.png';
 import ScorecardImage from '../../app/assets/design-patterns/lists/scorecard.png';
 import ContactsImage from '../../app/assets/design-patterns/lists/contacts.png';
@@ -29,7 +30,8 @@ import GlobalActionAsButtonImage from '../../app/assets/design-patterns/lists/ac
 import SortableListImage from '../../app/assets/design-patterns/lists/sortable-list.gif';
 import LocalListActionsImage from '../../app/assets/design-patterns/lists/local-list-actions.png';
 import MultiSelectImage from '../../app/assets/design-patterns/lists/multi-select-list.png';
-import NavigateListImage from '../../app/assets/design-patterns/lists/navigate-list.png';
+import NavigateListImage1 from '../../app/assets/design-patterns/lists/navigate-list-1.png';
+import NavigateListImage2 from '../../app/assets/design-patterns/lists/navigate-list-2.png';
 
 <!-- Specs -->
 
@@ -111,8 +113,7 @@ Lists typically appear inside of a panel (mobile) or a card (desktop). Occasiona
 ## Basic Lists
 
 <ImageGrid
-    images={[SimpleListImage]}
-    regularWidth
+    images={[SimpleListImage1, SimpleListImage2]}
     caption={[
         '1: A simple key-value list.',
         '2: A key-value list with icons and subtitle.',
@@ -263,9 +264,8 @@ If there are actions that you need to perform on individual list items, you may 
 ### Navigating Down a Tree Structure
 
 <ImageGrid
-    images={[NavigateListImage]}
+    images={[NavigateListImage1, NavigateListImage2]}
     caption={['1: A list used for separated pages.', '2: A list displaying a folder structure.']}
-    regularWidth
 />
 
 Lists can be used to navigate a tree-like structure in an application. See [the navigation pattern](/patterns/navigation).
