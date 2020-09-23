@@ -80,12 +80,11 @@ You can use lists in many ways, including for:
 -   Contacts
 -   Logs
 -   Settings
--   File tree
+-   File trees
 
 Lists should **NOT** be used where:
 
--   There are no comparable data presents, such as data sets with different structures;
--   The users demand a summary rather than detailed data value, such as on the home screen. Use [Data visualization](/patterns/visualizations) to display trends, or [heroes](https://pxblue-components.github.io/react/?path=/info/components-hero--get-read-me-story) to display a summary.
+-   Different logical items (i.e., don't mix different logical items in a single list)
 
 ## Lists and Other UI Layouts
 
@@ -164,12 +163,12 @@ Using tags is another way to display list status. They typically appear at the v
 <ImageGrid
     images={[ContactsImage]}
     regularWidth
-    caption={'This user list uses three status indicators: a status stripe, dot badges, and tags.'}
+    caption={`This user list uses two status indicators: tags and avatars' dot badges.`}
 />
 
 ## Timestamps
 
-Depending on the data being displayed, you can add additional UI elements to the list items to show more information. One of the most common such elements is a timestamp, which usually occurs in timelines or device logs. When using a timestamp, you are encouraged to group your list items by date for readability.
+Depending on the data being displayed, you can add additional UI elements to the list items to show more information. One of the most common such elements is a timestamp, which usually occurs in timelines or device logs. If you have a large number of items in a list with timestamps, you should group them by date to make them easier to scan.
 
 <ImageGrid
     images={[NotificationBucketsImage1, NotificationBucketsImage2]}
