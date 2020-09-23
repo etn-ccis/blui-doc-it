@@ -40,32 +40,36 @@ Overlay elements come in a variety of shapes and sizes depending on their purpos
 
 ## Modal Dialog
 
-<ImageGrid
-    regularWidth
-    images={[SimpleDialog]}
-    caption={'A typical use case for a modal dialog — session expiration warning.'}
-/>
-<MaterialDesignDescription title={'Dialogs'} url={'https://material.io/components/dialogs/'} />
+<React.Fragment>
+    <ImageGrid
+        regularWidth
+        images={[SimpleDialog]}
+        caption={'A typical use case for a modal dialog — session expiration warning.'}
+    />
+    <MaterialDesignDescription title={'Dialogs'} url={'https://material.io/components/dialogs/'} />
+</React.Fragment>
 
 The modal dialog appears in the center of the screen in front of the primary content. They present critical information to users or ask them to make a decision, such as confirming the deletion of an item.
 
 Modals are also great for presenting single-screen tasks to user, such as changing a password.
 
-<ImageGrid
-    regularWidth
-    images={[DialogTask]}
-    caption={[
-        'A modal dialog can present a single-screen workflow, such as changing a password.',
-        '1. On desktop, this can be presented as a modal.',
-        '2. In mobile applications, modal dialogs should be used primarily for notifications and confirmations. Single-screen tasks or workflows are better presented as separate screens or full-screen bottom sheets.',
-    ]}
-/>
-<MaterialDesignDescription 
-    title={'Forms'}
-    url={'/patterns/forms'}
-    description={`When using form content in an overlay, be sure to follow PX Blue's guidelines for forms.`}
-     avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
-/>
+<React.Fragment>
+    <ImageGrid
+        regularWidth
+        images={[DialogTask]}
+        caption={[
+            'A modal dialog can present a single-screen workflow, such as changing a password.',
+            '1. On desktop, this can be presented as a modal.',
+            '2. In mobile applications, modal dialogs should be used primarily for notifications and confirmations. Single-screen tasks or workflows are better presented as separate screens or full-screen bottom sheets.',
+        ]}
+    />
+    <MaterialDesignDescription
+        title={'Forms'}
+        url={'/patterns/forms'}
+        description={`When using form content in an overlay, be sure to follow PX Blue's guidelines for forms.`}
+        avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+    />
+</React.Fragment>
 
 Modal dialogs are always blocking — they must be dismissed before the user can interact with the rest of the application content, typically by clicking a dismiss / close button or by clicking elsewhere on the screen.
 
@@ -131,13 +135,17 @@ Bottom sheets are content surfaces that slide in from the bottom of the screen, 
     />
 </React.Fragment>
 
-Modal bottom sheets block interaction with the rest of the application. These typically contain a list of options or actions and are usually activated via an action button in the [app bar](/patterns/appbar).<MaterialDesignDescription
-title={'Lists'}
-url={'/patterns/lists'}
-description={`When using lists in an overlay / bottom sheet, be sure to follow PX Blue's guidelines for lists.`}
-avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
-/>
-<Divider />
+Modal bottom sheets block interaction with the rest of the application. These typically contain a list of options or actions and are usually activated via an action button in the [app bar](/patterns/appbar).
+
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'Lists'}
+        url={'/patterns/lists'}
+        description={`When using lists in an overlay / bottom sheet, be sure to follow PX Blue's guidelines for lists.`}
+        avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+    />
+    <Divider />
+</React.Fragment>
 
 # Design Specifications
 
