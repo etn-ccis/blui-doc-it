@@ -154,12 +154,12 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Accessibility',
                 url: '/accessibility',
-                component: <MarkdownPage title={'Accessibility'} markdown={Docs.Design.Accessibility} wideLayout />,
+                component: <MarkdownPage title={'Accessibility'} markdown={Docs.Design.Accessibility} />,
             },
             {
                 title: 'For Websites',
                 url: '/websites',
-                component: <MarkdownPage title={'Designing for Websites'} markdown={Docs.Design.Websites} wideLayout />,
+                component: <MarkdownPage title={'Designing for Websites'} markdown={Docs.Design.Websites} />,
             },
         ],
     },
