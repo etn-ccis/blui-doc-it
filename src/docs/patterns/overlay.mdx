@@ -1,7 +1,7 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
 import Banner from '../../app/assets/design-patterns/overlays/overlay-banner.svg';
-import DesktopDialog from '../../app/assets/design-patterns/overlays/desktop-dialog.png';
-import DesktopDialogTask from '../../app/assets/design-patterns/overlays/desktop-dialog-task.png';
+import SimpleDialog from '../../app/assets/design-patterns/overlays/simple-dialog.png';
+import DialogTask from '../../app/assets/design-patterns/overlays/dialog-task.png';
 import SimpleBottomsheet from '../../app/assets/design-patterns/overlays/simple-bottomsheet.png';
 import Placeholder from '../../app/assets/design-patterns/overlays/placeholder.png';
 
@@ -36,10 +36,8 @@ Overlay elements come in a variety of shapes and sizes depending on their purpos
 
 <ImageGrid
     regularWidth
-    images={[DesktopDialog]}
-    caption={
-        'A typical use case for a modal dialog — session expiration warning.'
-    }
+    images={[SimpleDialog]}
+    caption={'A typical use case for a modal dialog — session expiration warning.'}
 />
 <MaterialDesignDescription title={'Dialogs'} url={'https://material.io/components/dialogs/'} />
 
@@ -47,12 +45,14 @@ The modal dialog appears in the center of the screen in front of the primary con
 
 Modals are also great for presenting single-screen tasks to user, such as changing a password.
 
-> In mobile applications, modal dialogs should be used primarily for notifications and confirmations. Single-screen tasks or workflows are better presented as separate screens or full-screen bottom sheets.
-
 <ImageGrid
     regularWidth
-    images={[DesktopDialogTask]}
-    caption={'A modal dialog can present a single-screen workflow, such as changing a password.'}
+    images={[DialogTask]}
+    caption={[
+        'A modal dialog can present a single-screen workflow, such as changing a password.',
+        '1. On desktop, this can be presented as a modal.',
+        '2. In mobile applications, modal dialogs should be used primarily for notifications and confirmations. Single-screen tasks or workflows are better presented as separate screens or full-screen bottom sheets.',
+    ]}
 />
 
 Modal dialogs are always blocking — they must be dismissed before the user can interact with the rest of the application content, typically by clicking a dismiss / close button or by clicking elsewhere on the screen.
