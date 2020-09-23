@@ -5,10 +5,10 @@ import I18N from './internationalization.mdx';
 import Layout from './layout.mdx';
 import Lists from './lists.mdx';
 import Loading from './loading.mdx';
-import Login from './login.mdx';
 import Navigation from './navigation.mdx';
 import Overlays from './overlay.mdx';
 import Steppers from './steppers.mdx';
+import UserAuth from './user-auth.mdx';
 import Visualizations from './visualizations.mdx';
 import Home from './home.mdx';
 
@@ -21,7 +21,7 @@ export {
     Layout,
     Lists,
     Loading,
-    Login,
+    UserAuth,
     Navigation,
     Overlays,
     Steppers,
