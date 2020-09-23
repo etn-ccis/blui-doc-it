@@ -4,7 +4,7 @@ import FormValidationImg from '../../app/assets/design-patterns/form-validation/
 import InternationalizationImg from '../../app/assets/design-patterns/internationalization/internationalization.svg';
 import ListImg from '../../app/assets/design-patterns/lists/lists.svg';
 import LoadingImage from '../../app/assets/design-patterns/loading-states/loading-banner.svg';
-import LoginImage from '../../app/assets/design-patterns/login/login-view-password.png';
+import LoginBanner from '../../app/assets/design-patterns/user-authentication/login.svg';
 import NavigationtImg from '../../app/assets/design-patterns/navigation/navigation-permanent.png';
 import OverlayImg from '../../app/assets/design-patterns/action-list/action-list-overlay.png';
 import PageLayoutImg from '../../app/assets/design-patterns/page-layout/page-layout.png';
@@ -58,12 +58,6 @@ export const patterns = [
         image: LoadingImage,
     },
     {
-        title: 'Login',
-        url: '/patterns/login',
-        description: 'A unified approach to giving users access to applications.',
-        image: LoginImage,
-    },
-    {
         title: 'Navigation',
         url: '/patterns/navigation',
         description: 'Navigation menus for showing users what is available in the applications.',
@@ -86,6 +80,15 @@ export const patterns = [
         url: '/patterns/steppers',
         description: 'Build a dynamic procedure using steppers.',
         image: StepperImg,
+    },
+    {
+        title: 'User Authentication',
+        url: '/patterns/user-auth',
+        description: 'A unified approach to giving users access to applications.',
+        image: LoginBanner,
+        background: {
+            position: 'center',
+        },
     },
     {
         title: 'Visualizations',

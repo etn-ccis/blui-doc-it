@@ -199,11 +199,6 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Loading & Waiting'} markdown={Docs.Patterns.Loading} />,
             },
             {
-                title: 'Login',
-                url: '/login',
-                component: <MarkdownPage title={'Login'} markdown={Docs.Patterns.Login} />,
-            },
-            {
                 title: 'Navigation',
                 url: '/navigation',
                 component: <MarkdownPage title={'Navigation'} markdown={Docs.Patterns.Navigation} />,
@@ -222,6 +217,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 title: 'Steppers',
                 url: '/steppers',
                 component: <MarkdownPage title={'Steppers'} markdown={Docs.Patterns.Steppers} />,
+            },
+            {
+                title: 'User Authentication',
+                url: '/user-auth',
+                component: <MarkdownPage title={'User Authentication'} markdown={Docs.Patterns.UserAuth} />,
             },
             {
                 title: 'Visualizations',
