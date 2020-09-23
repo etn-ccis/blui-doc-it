@@ -1,10 +1,37 @@
-import React from 'react';
-import { Button, Divider, useMediaQuery, makeStyles, createStyles, Theme, useTheme } from '@material-ui/core';
+import React, { useState, useEffect, useCallback } from 'react';
+import {
+    useMediaQuery,
+    Typography,
+    makeStyles,
+    createStyles,
+    Theme,
+    Button,
+    Divider,
+    useTheme,
+} from '@material-ui/core';
+
+import * as Colors from '@pxblue/colors';
+import { getNpmVersion } from '../../api';
+import { ButtonRow } from './ButtonRow';
 import { InfoListItem } from '@pxblue/react-components';
 import { GitHub } from '../../assets/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
+        flex: {
+            display: 'flex',
+            alignItems: 'center',
+        },
+        title: {
+            fontWeight: 600,
+            lineHeight: 1.2,
+            fontSize: '0.875rem',
+        },
+        version: {
+            color: Colors.gray[500],
+            cursor: 'pointer',
+            marginLeft: theme.spacing(0.5),
+        },
         buttonWrapper: {
             width: '100%',
             padding: `0 ${theme.spacing(2)}px ${theme.spacing(2)}px`,
@@ -13,29 +40,75 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type ResourceRowProps = {
-    title: React.ReactElement;
+    demoUrl?: string;
+    name?: string;
+    package?: string;
     description: string;
-    repository: string;
     divider?: boolean;
-    rightComponent?: JSX.Element;
+    repository: string;
+    bugLabels?: string[];
 };
-export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element | null => {
-    const small = useMediaQuery('(max-width:799px)');
-    const classes = useStyles();
+export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
+    const { name, demoUrl, repository, description, divider, bugLabels, package: packageName } = props;
     const theme = useTheme();
 
-    const repositoryLink = `https://github.com/pxblue/${props.repository}`;
+    const [version, setVersion] = useState<string>();
+    const repositoryLink = `https://github.com/pxblue/${repository}`;
+    const small = useMediaQuery('(max-width:799px)');
+    const xs = useMediaQuery('(max-width:499px)');
+    const classes = useStyles();
+
+    // Make the API calls for the live information
+    useEffect(() => {
+        let isMounted = true;
+        if (packageName) {
+            const loadVersion = async (): Promise<void> => {
+                const npmVersion = await getNpmVersion(packageName);
+                if (isMounted) {
+                    setVersion(npmVersion);
+                }
+            };
+            loadVersion();
+            return (): void => {
+                isMounted = false;
+            };
+        }
+    }, [repository, bugLabels, packageName]);
+
+    const buttons = useCallback(
+        (): JSX.Element => (
+            <ButtonRow isPackage={Boolean(packageName)} small={small} repository={repository} demoUrl={demoUrl} />
+        ),
+        [small, repository, demoUrl]
+    );
 
     return (
         <div>
             <InfoListItem
                 hidePadding
                 style={{ paddingRight: theme.spacing(1) }}
-                divider={!small && props.divider ? 'full' : undefined}
-                title={props.title}
-                subtitle={props.description}
+                divider={!small && divider ? 'full' : undefined}
+                title={
+                    <div className={classes.flex} style={{ width: small ? '100%' : 'auto' }}>
+                        <Typography className={classes.title} noWrap>
+                            {packageName && xs ? packageName.replace('@pxblue/', '') : packageName}
+                            {!packageName && name}
+                        </Typography>
+                        {version && (
+                            <Typography
+                                variant={'subtitle2'}
+                                className={classes.version}
+                                onClick={(): void => {
+                                    window.open(`https://www.npmjs.com/package/${packageName}`, '_blank');
+                                }}
+                            >{`@${version}`}</Typography>
+                        )}
+                        {small && buttons()}
+                    </div>
+                }
+                subtitle={description}
                 wrapSubtitle
-                rightComponent={small ? undefined : props.rightComponent}
+                rightComponent={small ? undefined : buttons()}
             />
             {small && (
                 <>
@@ -52,7 +125,7 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element | nu
                             View GitHub Repository
                         </Button>
                     </div>
-                    {props.divider && <Divider />}
+                    {divider && <Divider />}
                 </>
             )}
         </div>
