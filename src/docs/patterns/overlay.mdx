@@ -3,7 +3,8 @@ import Banner from '../../app/assets/design-patterns/overlays/overlay-banner.svg
 import SimpleDialog from '../../app/assets/design-patterns/overlays/simple-dialog.png';
 import DialogTask from '../../app/assets/design-patterns/overlays/dialog-task.png';
 import SimpleBottomsheet from '../../app/assets/design-patterns/overlays/simple-bottomsheet.png';
-import Placeholder from '../../app/assets/design-patterns/overlays/placeholder.png';
+import SidePanel from '../../app/assets/design-patterns/overlays/desktop-user-details.png';
+import TrendLegend from '../../app/assets/design-patterns/overlays/desktop-trend-legend.png';
 
 <!-- KEYWORDS: design pattern overlay modal sidebar popup dialog side sheet -->
 
@@ -62,11 +63,17 @@ Modal dialogs are always blocking — they must be dismissed before the user can
 ## Sidebar
 
 <React.Fragment>
-    <ImageGrid regularWidth images={[Placeholder]} caption={'TODO: This is just a placeholder image for side sheet.'} />
+    <ImageGrid
+        regularWidth
+        images={[SidePanel]}
+        caption={'Sidebars can be used to show additional information about a selected item.'}
+    />
     <MaterialDesignDescription title={'Sheets: Side'} url={'https://material.io/components/sheets-side'} />
 </React.Fragment>
 
 Sidebars (Side Sheets in the Material documentation) are used to present supplemental information to users. Most commonly, they display information about a selected item in the main interface (e.g., selecting an item in a list would open a sidebar on the right with additional details about the selected item). However, they can also be used standalone, such as the legend for a chart or map.
+
+<ImageGrid regularWidth images={[TrendLegend]} caption={'A permanent sidebar can be used for chart / map legends.'} />
 
 They can also present simple form data and inputs (such as radio buttons, checkbox, dropdown menus, etc.) for editing a selected item. This type of sidebar should be dismissable, such that the user can easily close it with a close button or clicking elsewhere on the screen.
 
