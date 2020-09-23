@@ -113,8 +113,6 @@ If you need to restrict who is able to use your application, you may choose to g
 -   Add account details
 -   Success: account created
 
-> The purpose of a success screen is to assure the user that something has been achieved. These screens can be an opportunity to perform more product branding — you are encouraged to use animations and [graphics](/style/illustrations) on these screens.
-
 ### Screens
 
 The majority of the registration screens are the same between invitation-based and self-registration. The primary difference is in how the registration workflow is initiated, and whether the email needs to be verified. Use the following screens for the registration workflow where appropriate.
@@ -131,7 +129,15 @@ The majority of the registration screens are the same between invitation-based a
         '6: Success: account created',
     ]}
 />
-<ImageGrid images={[RegistrationDesktop]} caption={'A registration screen example on desktop.'} regularWidth/>
+
+> The purpose of a success screen is to assure the user that something has been achieved. These screens can be an opportunity to perform more product branding — you are encouraged to use animations and [graphics](/style/illustrations) on these screens.
+
+<ImageGrid
+    images={[RegistrationDesktop]}
+    caption={'A registration screen example on desktop.'}
+    regularWidth
+    style={{ marginTop: '2em' }}
+/>
 
 ## Joining an Organization
 
