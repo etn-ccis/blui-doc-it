@@ -113,6 +113,8 @@ If you need to restrict who is able to use your application, you may choose to g
 -   Add account details
 -   Success: account created
 
+> The purpose of a success screen is to assure the user that something has been achieved. These screens can be an opportunity to perform more product branding — you are encouraged to use animations and [graphics](/style/illustrations) on these screens.
+
 ### Screens
 
 The majority of the registration screens are the same between invitation-based and self-registration. The primary difference is in how the registration workflow is initiated, and whether the email needs to be verified. Use the following screens for the registration workflow where appropriate.
@@ -187,7 +189,7 @@ Logging in can usually be accomplished in one of two ways: basic login or login 
 
 A simple login presents fields for the users to enter their credentials and a button to submit them for verification.
 
-The login screen should always present information on how to create an account and what to do if a user has forgotten their password — these buttons should trigger the Registration and Forgot Password (see below) workflows .
+The login screen should always present information on how to create an account and what to do if a user has forgotten their credentials — these buttons should trigger the Registration and Forgot Password (see below) workflows .
 
 <ImageGrid
     images={[Login]}
@@ -263,13 +265,6 @@ Emails are also sent to confirm security-related changes to a user's account, su
     images={[EmailCommunicationInvitation, EmailCommunicationVerification]}
     caption={['Two examples of email communications', '1: Invitation to join', '2: Verifying email address']}
 />
-
-## Success Screen
-
-<!-- Welcome screen might deserve to be its own pattern (or at least merge into something like "onboarding"). -->
-<!-- TODO: add more images here, if studio blue can release more. -->
-
-The purpose of a welcome screen is to assure the user that something has been achieved. These screens can be an opportunity to perform more product branding — you are encouraged to use animations and [graphics](/style/illustrations) on these screens.
 
 ## Terminated Workflows & Expired Sessions
 
