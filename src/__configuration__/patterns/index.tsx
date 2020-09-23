@@ -2,7 +2,7 @@ import AppBarsImg from '../../app/assets/design-patterns/app-bar/appbar-banner.p
 import EmptyStatesImg from '../../app/assets/design-patterns/empty-states/empty-state-banner.svg';
 import FormValidationImg from '../../app/assets/design-patterns/form-validation/form-validation.svg';
 import InternationalizationImg from '../../app/assets/design-patterns/internationalization/internationalization.svg';
-import ListImg from '../../app/assets/design-patterns/action-list/action-list.png';
+import ListImg from '../../app/assets/design-patterns/lists/lists.svg';
 import LoadingImage from '../../app/assets/design-patterns/loading-states/loading-banner.svg';
 import LoginBanner from '../../app/assets/design-patterns/user-authentication/login.svg';
 import NavigationtImg from '../../app/assets/design-patterns/navigation/navigation-permanent.png';
@@ -46,7 +46,7 @@ export const patterns = [
         },
     },
     {
-        title: 'Lists',
+        title: 'Lists & Tables',
         url: '/patterns/lists',
         description: 'Different lists for different kinds of data.',
         image: ListImg,

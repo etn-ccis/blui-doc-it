@@ -151,6 +151,16 @@ export const pageDefinitions: SimpleNavItem[] = [
                 url: '/anatomy',
                 component: <MarkdownPage title={'Design System Anatomy'} markdown={Docs.Design.Anatomy} wideLayout />,
             },
+            {
+                title: 'Accessibility',
+                url: '/accessibility',
+                component: <MarkdownPage title={'Accessibility'} markdown={Docs.Design.Accessibility} wideLayout />,
+            },
+            {
+                title: 'For Websites',
+                url: '/websites',
+                component: <MarkdownPage title={'Designing for Websites'} markdown={Docs.Design.Websites} wideLayout />,
+            },
         ],
     },
     {
@@ -179,9 +189,9 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Internationalization'} markdown={Docs.Patterns.I18N} />,
             },
             {
-                title: 'Lists',
+                title: 'Lists & Tables',
                 url: '/lists',
-                component: <MarkdownPage title={'Lists'} markdown={Docs.Patterns.Lists} />,
+                component: <MarkdownPage title={'Lists & Tables'} markdown={Docs.Patterns.Lists} />,
             },
             {
                 title: 'Loading & Waiting',
@@ -245,7 +255,6 @@ export const pageDefinitions: SimpleNavItem[] = [
                 title: 'Illustrations',
                 url: '/illustrations',
                 component: <MarkdownPage title={'Illustrations'} markdown={Docs.Style.Illustrations} />,
-                hidden: true,
             },
             {
                 title: 'Typography',

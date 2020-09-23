@@ -120,7 +120,7 @@
                     "url": "/internationalization"
                 },
                 {
-                    "title": "Lists",
+                    "title": "Lists & Tables",
                     "url": "/lists"
                 },
                 {
@@ -167,8 +167,7 @@
                 },
                 {
                     "title": "Illustrations",
-                    "url": "/illustrations",
-                    "hidden": true
+                    "url": "/illustrations"
                 },
                 {
                     "title": "Typography",
