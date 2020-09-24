@@ -136,10 +136,6 @@
                     "url": "/loading"
                 },
                 {
-                    "title": "Login",
-                    "url": "/login"
-                },
-                {
                     "title": "Navigation",
                     "url": "/navigation"
                 },
@@ -154,6 +150,10 @@
                 {
                     "title": "Steppers",
                     "url": "/steppers"
+                },
+                {
+                    "title": "User Authentication",
+                    "url": "/user-auth"
                 },
                 {
                     "title": "Visualizations",
