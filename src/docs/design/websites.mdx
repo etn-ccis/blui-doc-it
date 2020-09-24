@@ -1,5 +1,9 @@
 import { Divider, ImageGrid, RegularWidth } from '../../app/components';
 import ResponsiveDesignImg from '../../app/assets/design/responsive-design.png';
+import WebsiteDesign from '../../app/assets/design/website-design.jpg';
+import WebApp from '../../app/assets/design/webapp.jpg';
+import Website from '../../app/assets/design/website.jpg';
+import Grid from '../../app/assets/design/grids.png';
 
 <!-- KEYWORDS: web website application app design marketing -->
 
@@ -7,7 +11,7 @@ import ResponsiveDesignImg from '../../app/assets/design/responsive-design.png';
 
 PX Blue is a design system for digital _applications_. However, it can also be adapted for use in traditional web sites as well.
 
-> TODO: Image
+<ImageGrid regularWidth images={[WebsiteDesign]} caption={[`Photo by William Iven on Unsplash`]} />
 
 ## Websites vs. Applications
 
@@ -29,8 +33,13 @@ Applications:
 -   Users can manipulate data
 -   More interactive / functional compared to a website
 
-> TODO: Image
-
+<ImageGrid
+    images={[Website, WebApp]}
+    caption={[
+        `Websites typically present read-only information to users, whereas web applications are more interactive and allow users to change the underlying data.`,
+        `Photos by Domenico Loia and Carlos Muza on Unsplash`,
+    ]}
+/>
 <Divider />
 
 # Principles of Website Design
@@ -58,25 +67,19 @@ Users are typically coming to your website to find information, so you should ma
 -   Limit the nesting of information where possible.
     -   Try to keep your website to no more than three levels deep (use a pyramid structure to organize your content).
 
-> TODO: Image
-
 ## Layout & Hierarchy
 
 Where and how content is presented is a critical aspect of website design. You should arrange the elements on each page so that the user will naturally gravitate to the most important elements first. Your goal should be to facilitate users' actions in a way that feels intuitive, natural, and enjoyable. You can draw your users to certain elements on the page by utilizing a combination of position, size, and color.
 
 Your website should be designed on a [grid system](https://www.smashingmagazine.com/2017/12/building-better-ui-designs-layout-grids/) to help tie elements together and promote responsiveness for different sized screens.
 
-<RegularWidth>
-    <ImageGrid images={[ResponsiveDesignImg]} regularWidth />
-</RegularWidth>
+<ImageGrid images={[Grid]} regularWidth caption={`Photo by Thomas Bredin-Grey`} />
 
 ## Colors
 
 Color can be very powerful when it is used effectively. You should keep colors to a minimum to maximize the effect in the areas where they are used. We recommend using no more than five different colors in your website designs (ideally shades of blue, black, gray, and white from the PX Blue [palette](/style/color)). For product catalogs or commerce sites, you should absolutely use the product's branding color(s) on your site.
 
 You should focus your use of color on image backgrounds, highlight colors, etc.
-
-> TODO: Image
 
 ## Typography
 
@@ -109,7 +112,7 @@ In addition to visual consistency, it is also important to maintain a consistent
 
 Your website should be functional across a wide range of different devices, including desktop computers, mobile phones, and tablets. Nearly 50% of all web traffic comes from mobile and tablet devices, so you should strive to follow a [mobile-first](https://medium.com/@Vincentxia77/what-is-mobile-first-design-why-its-important-how-to-make-it-7d3cf2e29d00) design strategy. PX Blue is working to develop website grid templates for traditional website design in Figma. You can refer to [Material designs Responsive layout](https://material.io/design/layout/understanding-layout.html) grid for more detailed information.
 
-> TODO: Image
+<ImageGrid regularWidth images={[ResponsiveDesignImg]} caption={[`Photo by Vincent Xia`]} />
 
 ## Accessibility
 
@@ -126,9 +129,5 @@ There are a number of conventions that users have come to expect from websites. 
 -   Ensuring image galleries / slideshows have buttons for users to manually rotate slides
 -   Use shopping cart icons on a commerce site.
     -   Include a badge that indicates the number of items in the cart.
-
-> TODO: Image
-
-<Divider />
 
 <!--# Key Differences vs. Web Application-->
