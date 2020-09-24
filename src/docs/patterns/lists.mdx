@@ -127,7 +127,9 @@ Lists typically appear inside of a panel (mobile) or a card (desktop). Occasiona
     react={
         'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/data-list/index.tsx&initialpath=data-list'
     }
-    ionic
+    ionic={
+        'https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fsearch-bar%2Fsearch-bar.component.ts'
+    }
     reactNative
 />
 
@@ -136,7 +138,12 @@ The simplest type of list simply presents a single line (or multiple lines) of t
 ## Lists with Status
 
 <ImageGrid images={[StatusListImage]} regularWidth caption={`Use an icon avatar and / or a status stripe to catch people's attention.`}/>
-<DemoCard repository={'status-list'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fstatus-list%2Fstatus-list.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/status-list/index.tsx&initialpath=status-list'} ionic reactNative/>
+<DemoCard repository={'status-list'}
+    angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fstatus-list%2Fstatus-list.component.ts'}
+    react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/status-list/index.tsx&initialpath=status-list'}
+    ionic={'https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fstatus-list%2Fstatus-list.component.ts'}
+    reactNative
+/>
 
 Commonly in PX Blue applications, list items also show a visual indication of an item's current status, such as online, offline, or an error condition. You can indicate this status by using avatars and status stripes with [PX Blue's status color palette](/style/color#status-colors).
 
@@ -213,7 +220,9 @@ Lists can be interactive. In general, there are two types of actions: global lis
     react={
         'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/action-list/index.tsx&initialpath=action-list'
     }
-    ionic
+    ionic={
+        'https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Faction-list%2Faction-list.component.ts'
+    }
     reactNative
 />
 
@@ -240,7 +249,12 @@ Common global list actions include:
 ### Drag and Drop
 
 <ImageGrid images={[SortableListImage]} regularWidth />
-<DemoCard repository={'sortable-list'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fsortable-list%2Fsortable-list.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/sortable-list/index.tsx&initialpath=sortable-list'} ionic reactNative />
+<DemoCard repository={'sortable-list'}
+angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fsortable-list%2Fsortable-list.component.ts'}
+react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/sortable-list/index.tsx&initialpath=sortable-list'}
+ionic={'https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fsortable-list%2Fsortable-list.component.ts'}
+reactNative
+/>
 
 Drag and drop is a special case for list sorting. It re-orders the items in a list manually. This should be accomplished by placing a drag handle as the leftmost element in the row, and pushing all the list item content to its right. In most cases, the ability to re-order the list should be locked behind an Edit Mode toggle mechanism.
 
@@ -273,7 +287,12 @@ Lists can be used to navigate a tree-like structure in an application. See [the 
 ### Actions on Selected Items
 
 <ImageGrid images={[MultiSelectImage]} regularWidth />
-<DemoCard repository={'multiselect-list'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fmultiselect-list%2Fmultiselect-list.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/multiselect-list/index.tsx&initialpath=multiselect-list'} ionic reactNative />
+<DemoCard repository={'multiselect-list'}
+angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fmultiselect-list%2Fmultiselect-list.component.ts'}
+react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/multiselect-list/index.tsx&initialpath=multiselect-list'}
+ionic={'https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fmultiselect-list%2Fmultiselect-list.component.ts'}
+reactNative
+/>
 
 You may want to take action on several list items at once, but not all. The easiest way to do this is through a multi-select list. You may optionally add a highlight color for the selected items.
 
