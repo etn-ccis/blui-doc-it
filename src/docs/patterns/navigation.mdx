@@ -7,7 +7,12 @@ import PersistentImg from '../../app/assets/design-patterns/navigation/navigatio
 
 # Navigation Patterns
 
-Navigation is the way in which users access the different areas of your application. This is typically accomplished through a side drawer navigation panel with a list of links to the various pages in your application.
+INSERT PRODUCT EXAMPLE 1
+
+Navigation is the way in which users access the different areas of your application. Main navigation is typically accomplished through a side drawer navigation panel with a list of links to the various pages in your application. PX Blue applications can have individual page or feature navigation as well. This can be accomplished by the use of tabs that can run across the top of your application.
+
+Keep in mind that these navigation patterns are tailored for PX Blue application use. PX Blue will be introducing traditional website navigation patterns in the near future.
+
 
 <MaterialDesignDescription
     title={'Understanding Navigation'}
@@ -22,19 +27,23 @@ Navigation is the way in which users access the different areas of your applicat
 
 ## Fixed Navigation
 
-The most basic navigation panel is fixed in place and always visible on the left side of the application. Note: a fixed navigation panel is not suitable when going to smaller resolutions or mobile devices.
+The most basic navigation panel is fixed in place and always visible on the left side of the application The navigation can be a fixed list of icons with labels or a fixed panel that is open and revealing multiple navigation options Due to internationalization and accessibility standards PX Blue recommends the use of an open panel displaying the navigation options Another benefit of using a fixed navigation is the ability to use expandable tree navigation as well as more area for product branding. Note: A fixed navigation panel is not suitable when the application is viewed on smaller resolutions or mobile devices 
 
 ## Collapsible Navigation
 
 A more common implementation of the navigation panel is a collapsible panel that can be opened and closed via the menu icon in the top left corner of the application. This implementation can have two different variations: content-resize or content-cover.
 
+INSERT IMAGE
+
 ### Content-Resize / Content-Push
 
 <ImageGrid images={[PermanentImg]} />
 
-The content-resize implementation does not cover any of the main application content. Rather, the navigation panel slides in and the main application container resizes to accommodate (the navigation panel and main panel are side by side instead of one on top of the other).
+The content-resize implementation does not cover any of the main application content. Rather, the navigation panel slides in and the main application container resizes to accommodate (the navigation panel and main panel are side by side instead of one on top of the other). This pattern should be considered for products with large amounts of data displays and application features. 
 
 ### Content-Cover
+
+INSERT CONTENT COVER 1 and CONTENT COVER 2
 
 <ImageGrid images={[TemporaryImg]} />
 
@@ -46,7 +55,7 @@ The content-resize implementation does not cover any of the main application con
     react
 />
 
-In this implementation, the navigation panel slides out from the side, partially obscuring the main content of the application. It is often implemented with a dark overlay that blocks the main application and directs the user's focus to the navigation panel that was opened.
+In this implementation, the navigation panel slides out from the side, partially obscuring the main content of the application. It is often implemented with a dark overlay that blocks the main application and directs the user's focus to the navigation panel that was opened. This pattern is more common on smaller devices such as tablets and mobile applications. 
 
 ## Icon Navigation Bar / Responsive Navigation
 
@@ -68,3 +77,44 @@ In this implementation, the navigation panel slides out from the side, partially
 The icon navigation bar (a.k.a. "[navigation rail](https://material.io/components/navigation-rail/#anatomy)" on Material.io) is a minimalist approach to the navigation panel. It features a single icon to represent each of the main areas of the application. This navigation panel is typically used on larger screens only, and is expandable to a full side navigation panel on hover or when clicking the menu icon.
 
 These may be used in conjunction with Bottom Tab navigation - on larger resolution displays, bottom tabs would become elements in the side navigation.
+
+## PX Blue Variations
+
+INSERT Generic Example 1
+
+PX Blue provides the foundation for a wide range of navigation patterns. Ultimately the product will determine which pattern is best to use. The following sections provide PX Blue recommendations for common variation styles and standards on which variation to use in your product.
+
+### Nested Navigation Items
+
+PX Blue provides patterns to allow products to nest multiple layers of navigation options in the Navigation Menu. It is recommended not to exceed 2 levels of nested navigation. The graphic below illustrates the preferred style for nested navigation items.
+
+INSERT NESTED ITEM EXAMPLE
+
+INSERT NESTED ITEM STANDARDS
+
+### Expandable Account Information
+
+PX Blue provides patterns for expandable account and settings within the navigation drawer. This feature can be found via a dropdown in expanded header area. It is recommended to use this pattern sparingly.
+
+INSERT EXPANDABLE ACCOUNT INFORMATION 
+
+### Dividers
+
+Dividers find the most usage in the Collapsible Navigation pattern. The reason for this is to help distinguish the clickable areas for the icons (collapsed state). In General avoid adding divider lines in random areas. However, there are some exceptions to the rules. For example, Footer, section header and nested nav items can use dividers to help break the content out from the rest of the list.
+
+INSERT DIVIDER IMAGE
+
+### Footer Behavior
+
+PX Blue recommends the use of a pinned footer in the navigation panel on all panel variations. An exception to this rule is if there is an extremely large menu structure. Exceptions can also be made if the product is using an expended header that is displaying a logo. 
+
+### Navigation Drawer Standards
+
+While PX Blue provides a wide range of options for products to adjust to their needs it is important to maintain the foundational standards of the navigation panels. Placement, labels and safe areas should be consistent across PX Blue. The following graphics provide insight into these standards.
+
+INSERT DRAWER PLACEMENT STANDARDS
+
+INSERT DRAWER LABEL STANDARDS
+
+INSERT SAFE AREA STANDARDS
+
