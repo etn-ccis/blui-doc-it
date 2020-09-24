@@ -16,7 +16,6 @@ import WelcomeOnboard from '../../app/assets/design-patterns/user-authentication
 import RegistrationDesktop from '../../app/assets/design-patterns/user-authentication/registration-desktop.png';
 
 import EnterOrganizationCode from '../../app/assets/design-patterns/user-authentication/enter-organization-code.png';
-import EnterOrganizationPasscode from '../../app/assets/design-patterns/user-authentication/enter-organization-passcode.png';
 import EnterOrganizationConfirm from '../../app/assets/design-patterns/user-authentication/enter-organization-confirm.png';
 import EnterOrganizationWelcome from '../../app/assets/design-patterns/user-authentication/enter-organization-welcome.png';
 import JoinAnOrganizationDesktop from '../../app/assets/design-patterns/user-authentication/join-an-organization-desktop.png';
@@ -152,14 +151,6 @@ This occurs when a user has an account but need to access an invitation-only org
 -   Receive an email invitation
 -   Success: organization joined
 
-**Enter Passcode**
-
-Joining by passcode occurs when anyone with an organization identifier and passcode can join an organization. This workflow includes the following steps:
-
--   Enter organization identifier
--   Enter organization passcode
--   Success: organization joined
-
 **Join with Invitation**
 
 Joining via invitation occurs when a system admin extends an invitation for a user to join a group. If the user does not yet have an account, they will first proceed through the invitation-based registration workflow followed by the screens for joining the organization. This workflow includes the following steps:
@@ -172,13 +163,12 @@ Joining via invitation occurs when a system admin extends an invitation for a us
 The majority of the joining-an-organization screens are the same regardless of the underlying mechanism. Use the following screens for the joining-an-organization workflow where appropriate.
 
 <ImageGrid
-    images={[EnterOrganizationCode, EnterOrganizationPasscode, EnterOrganizationConfirm, EnterOrganizationWelcome]}
+    images={[EnterOrganizationCode, EnterOrganizationConfirm, EnterOrganizationWelcome]}
     caption={[
         'Screens in the joining-an-organization workflow.',
         '1: Enter organization identifier',
-        '2: Enter organization passcode',
-        '3: Success: request sent',
-        '4: Success: organization joined',
+        '2: Success: request sent',
+        '3: Success: organization joined',
     ]}
 />
 <ImageGrid images={[JoinAnOrganizationDesktop]} caption={'A join-an-organization screen example on desktop.'} regularWidth />
@@ -202,7 +192,7 @@ The login screen should always present information on how to create an account a
     caption={[
         'A standard login screen.',
         '1: Product identifications, such as product name or logo.',
-        '2: Optionally, you may add in a simple geometrical background image with a white gradient background.',
+        '2: You may also add a subtle background image with gradient to enhance the visual design and express the product brand.',
         '3: "Remember me" and "password visibility" are two features that improve user experience, but introduce potential security concerns.',
         '4: Login screens often include extra functions, such as "forgot password", "sign up", and "contact your organization admin".',
         '5: You may add certification badges and logos from partnerships here.',
