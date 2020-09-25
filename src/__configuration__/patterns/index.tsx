@@ -7,9 +7,9 @@ import LoadingImage from '../../app/assets/design-patterns/loading-states/loadin
 import LoginBanner from '../../app/assets/design-patterns/user-authentication/login.svg';
 import NavigationtImg from '../../app/assets/design-patterns/navigation/navigation-permanent.png';
 import OverlayImg from '../../app/assets/design-patterns/action-list/action-list-overlay.png';
-import PageLayoutImg from '../../app/assets/design-patterns/page-layout/page-layout.png';
-import StepperImg from '../../app/assets/design-patterns/dynamic-stepper/dynamic-stepper-adding.png';
-import DataVisualizationImg from '../../app/assets/design-patterns/data-visualization/data-visualization.png';
+import PageLayoutImg from '../../app/assets/design-patterns/page-layout/layout-banner.svg';
+import StepperImg from '../../app/assets/design-patterns/steppers/steppers-banner.svg';
+import VisualizationImage from '../../app/assets/design-patterns/visualizations/visualizations-banner.svg';
 
 export const patterns = [
     {
@@ -94,6 +94,6 @@ export const patterns = [
         title: 'Visualizations',
         url: '/patterns/visualizations',
         description: 'Adding charts and maps to your applications.',
-        image: DataVisualizationImg,
+        image: VisualizationImage,
     },
 ];
