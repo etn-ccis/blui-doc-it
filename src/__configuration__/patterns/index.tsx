@@ -69,7 +69,7 @@ export const patterns = [
         description: 'Showing popups, dialogs, modals, etc.',
         image: OverlayBanner,
         background: {
-            position: '20% center',
+            position: 'center',
         },
     },
     {
@@ -83,6 +83,9 @@ export const patterns = [
         url: '/patterns/steppers',
         description: 'Build a dynamic procedure using steppers.',
         image: StepperImg,
+        background: {
+            position: 'center',
+        },
     },
     {
         title: 'User Authentication',

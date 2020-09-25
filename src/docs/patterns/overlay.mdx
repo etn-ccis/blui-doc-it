@@ -7,9 +7,8 @@ import SidePanel from '../../app/assets/design-patterns/overlays/desktop-user-de
 import TrendLegend from '../../app/assets/design-patterns/overlays/desktop-trend-legend.png';
 import PxblueSmallAltIcon from '@pxblue/icons-mui/PxblueSmallAlt';
 
-import SpecsMobileDialog1 from '../../app/assets/design-patterns/overlays/spec-dialog-mobile-1.png';
-import SpecsMobileDialog2 from '../../app/assets/design-patterns/overlays/spec-dialog-mobile-2.png';
-import SpecsDesktopDialog from '../../app/assets/design-patterns/overlays/spec-dialog-desktop-1.png';
+import Specs1 from '../../app/assets/design-patterns/overlays/specs-dialog-1.png';
+import Specs2 from '../../app/assets/design-patterns/overlays/specs-dialog-2.png';
 
 <!-- KEYWORDS: design pattern overlay modal sidebar popup dialog side sheet -->
 
@@ -88,7 +87,7 @@ Modal dialogs are always blocking — they must be dismissed before the user can
     <MaterialDesignDescription title={'Sheets: Side'} url={'https://material.io/components/sheets-side'} />
 </React.Fragment>
 
-Sidebars (Side Sheets in the Material documentation) are used to present supplemental information to users. Most commonly, they display information about a selected item in the main interface (e.g., selecting an item in a list would open a sidebar on the right with additional details about the selected item). However, they can also be used standalone, such as the legend for a chart or map.
+Sidebars (Side Sheets in the Material documentation) are used to present supplemental information to users. Most commonly, they display information about a selected item in the main interface (e.g., selecting an item in a list would open a sidebar on the right with additional details about the selected item). However, they can also be used as permanent UI elements, such as the legend for a chart or map.
 
 <ImageGrid regularWidth images={[TrendLegend]} caption={'A permanent sidebar can be used for chart / map legends.'} />
 
@@ -102,7 +101,7 @@ Sidebars should always appear on the opposite side of the screen as the main [na
 
 <MaterialDesignDescription title={'Sheets: Bottom'} url={'https://material.io/components/sheets-bottom/'} />
 
-Bottom sheets are content surfaces that slide in from the bottom of the screen, primarily used in mobile applications. There are three types (standard, modal, and expandable), but the one used most often in PX Blue applications is the modal bottom sheet.
+Bottom sheets are content surfaces that slide in from the bottom of the screen, primarily used in mobile applications. There are three types: standard, modal, and expandable, but the one used most often in PX Blue applications is the modal bottom sheet.
 
 <React.Fragment>
     <ImageGrid
@@ -151,16 +150,9 @@ Modal bottom sheets block interaction with the rest of the application. These ty
 
 # Design Specifications
 
-## Dialog (Mobile)
+## Dialog
 
-<ImageGrid regularWidth images={[SpecsMobileDialog1]} />
-<ImageGrid regularWidth images={[SpecsMobileDialog2]} />
-
-## Dialog (Desktop)
-
-If certain dimensions are not specified, refer to the dimensions suggested in the mobile section above.
-
-<ImageGrid regularWidth images={[SpecsDesktopDialog]} />
+<ImageGrid regularWidth images={[Specs1, Specs2]} />
 <Divider />
 
 # Developers
