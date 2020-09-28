@@ -103,7 +103,7 @@ const DemoButton: React.FC<DemoButtonProps> = (props): JSX.Element => {
 };
 
 export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
-    const { repository, angular, react, ionic, ...cardProps } = props;
+    const { repository, angular, react, ionic, reactNative, ...cardProps } = props;
     const classes = useStyles();
     return (
         <Card className={clsx(classes.demoCard)} {...cardProps}>
@@ -127,13 +127,14 @@ export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
                 {ionic && (
                     <DemoButton repository={repository} framework={'ionic'} url={ionic === true ? undefined : ionic} />
                 )}
-                {/*reactNative && (
-                    <DemoButton
-                        repository={repository}
-                        framework={'react-native'}
-                        url={reactNative === true ? undefined : reactNative}
-                    />
-                )*/}
+                {reactNative && (
+                    <></>
+                    // <DemoButton
+                    //     repository={repository}
+                    //     framework={'react-native'}
+                    //     url={reactNative === true ? undefined : reactNative}
+                    // />
+                )}
             </div>
         </Card>
     );

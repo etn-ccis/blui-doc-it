@@ -6,7 +6,7 @@ import ListImg from '../../app/assets/design-patterns/lists/lists.svg';
 import LoadingImage from '../../app/assets/design-patterns/loading-states/loading-banner.svg';
 import LoginBanner from '../../app/assets/design-patterns/user-authentication/login.svg';
 import NavigationtImg from '../../app/assets/design-patterns/navigation/navigation-permanent.png';
-import OverlayImg from '../../app/assets/design-patterns/action-list/action-list-overlay.png';
+import OverlayBanner from '../../app/assets/design-patterns/overlays/overlay-banner.svg';
 import PageLayoutImg from '../../app/assets/design-patterns/page-layout/layout-banner.svg';
 import StepperImg from '../../app/assets/design-patterns/steppers/steppers-banner.svg';
 import VisualizationImage from '../../app/assets/design-patterns/visualizations/visualizations-banner.svg';
@@ -67,7 +67,10 @@ export const patterns = [
         title: 'Overlays',
         url: '/patterns/overlay',
         description: 'Showing popups, dialogs, modals, etc.',
-        image: OverlayImg,
+        image: OverlayBanner,
+        background: {
+            position: 'center',
+        },
     },
     {
         title: 'Page Layout',
@@ -80,6 +83,9 @@ export const patterns = [
         url: '/patterns/steppers',
         description: 'Build a dynamic procedure using steppers.',
         image: StepperImg,
+        background: {
+            position: 'center',
+        },
     },
     {
         title: 'User Authentication',

@@ -1,77 +1,186 @@
-import { DemoCard, ImageGrid, MaterialDesignDescription } from '../../app/components';
-import BasicBottomsheet from '../../app/assets/design-patterns/action-list/action-list-overlay.png';
-import ComplexBottomsheet from '../../app/assets/design-patterns/bottom-sheet/complex-bottomsheet.png';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
+import Banner from '../../app/assets/design-patterns/overlays/overlay-banner.svg';
+import SimpleDialog from '../../app/assets/design-patterns/overlays/simple-dialog.png';
+import DialogTask from '../../app/assets/design-patterns/overlays/dialog-task.png';
+import SimpleBottomsheet from '../../app/assets/design-patterns/overlays/simple-bottomsheet.png';
+import SidePanel from '../../app/assets/design-patterns/overlays/desktop-user-details.png';
+import TrendLegend from '../../app/assets/design-patterns/overlays/desktop-trend-legend.png';
+import PxblueSmallAltIcon from '@pxblue/icons-mui/PxblueSmallAlt';
 
-<!-- KEYWORDS: design pattern overlay modal sidebar popup dialog -->
+import Specs1 from '../../app/assets/design-patterns/overlays/specs-dialog-1.png';
+import Specs2 from '../../app/assets/design-patterns/overlays/specs-dialog-2.png';
 
-# Overlay Patterns
+<!-- KEYWORDS: design pattern overlay modal sidebar popup dialog side sheet -->
 
-Overlays are used to present an immediate interaction to a user. These can be used for presenting information (such as with a Dialog) or capturing it (such as in a form). These elements come in a variety of shapes and sizes and can be either blocking (the user must interact with the overlay before they can do anything else) or non-blocking.
+# Overlays
+
+<ImageGrid images={[Banner]} regularWidth />
+
+Overlays are content that appears on top of other content. They can be used to display information, or capture it.
+
+<Divider />
+
+# Common Use Cases
+
+Overlays are useful in a variety of situations. They can be used to supplement the information found in your primary content or to capture input from a user. For example, they can be used to present a confirmation dialog, details about a selected item, or actions that can be taken on a page.
+
+The most common overlays in PX Blue applications are:
+
+-   Confirmation dialogs
+-   Information sidebars
+-   Navigation menus
+-   Add / Edit dialogs
+
+<Divider />
+
+# Variations
+
+Overlay elements come in a variety of shapes and sizes depending on their purpose and can be either blocking (i.e., the user must interact with the overlay before they can do anything else) or non-blocking.
 
 ## Modal Dialog
 
-The modal dialog is your typical pop-up window. Modals are great for presenting a single task to a user. By using a modal, you can allow the user to do more work without having to clutter your main layout with unnecessary information (e.g., an Add User button could open a modal with a form to enter the new user's information). These types of modals should be non-blocking, such that the user could click anywhere on the screen to dismiss it. Modals can also be used to edit large amounts of information that would be too much to fit into a sidebar.
+<React.Fragment>
+    <ImageGrid
+        regularWidth
+        images={[SimpleDialog]}
+        caption={'A typical use case for a modal dialog — session expiration warning.'}
+    />
+    <MaterialDesignDescription title={'Dialogs'} url={'https://material.io/components/dialogs/'} />
+</React.Fragment>
 
-Modal dialogs are also very commonly used to confirm a user action (such as deleting an item). These usually appear in the center of the screen.
+The modal dialog appears in the center of the screen in front of the primary content. They present critical information to users or ask them to make a decision, such as confirming the deletion of an item.
 
-<MaterialDesignDescription
-    title={'Dialogs'}
-    url={'https://material.io/components/dialogs/'}
-    description={'Read more about dialogs on Material.io.'}
-/>
+Simple modals should have a title, a descriptive message, and action buttons for users to respond to the prompt or dismiss the dialog. These modals should be no larger than is necessary to contain their contents.
+
+Modals are also great for presenting single-screen tasks to user, such as changing a password.
+
+<React.Fragment>
+    <ImageGrid
+        regularWidth
+        images={[DialogTask]}
+        caption={[
+            'A modal dialog can present a single-screen workflow, such as changing a password.',
+            '1. On desktop, this can be presented as a modal.',
+            '2. In mobile applications, modal dialogs should be used primarily for notifications and confirmations. Single-screen tasks or workflows are better presented as separate screens or full-screen bottom sheets.',
+        ]}
+    />
+    <MaterialDesignDescription
+        title={'Forms'}
+        url={'/patterns/forms'}
+        description={`When using form content in an overlay, be sure to follow PX Blue's guidelines for forms.`}
+        avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+    />
+</React.Fragment>
+
+Modal dialogs are always blocking — they must be dismissed before the user can interact with the rest of the application content, typically by clicking a dismiss / close button or by clicking elsewhere on the screen.
+
+> If you are collecting a lot of information, it may be better to move this form to a separate page in your application rather than trying to place too much content into a modal.
 
 ## Sidebar
 
-The most common example of a sidebar is the application navigation menu. Typically, this opens on the side of the screen and is used to navigate to the different areas of the application.
+<React.Fragment>
+    <ImageGrid
+        regularWidth
+        images={[SidePanel]}
+        caption={'Sidebars can be used to show additional information about a selected item.'}
+    />
+    <MaterialDesignDescription title={'Sheets: Side'} url={'https://material.io/components/sheets-side'} />
+</React.Fragment>
 
-Sidebars are also used extensively for displaying information about selected items in the main interface (e.g., selecting an item in a list would open a sidebar on the right with additional details about the selected item). They can also present simple form data and inputs (such as radio buttons, checkbox, dropdown menus, etc.) for editing a selected item. This type of sidebar should be temporary such that the user can easily close it with a close button or clicking elsewhere on the screen.
+Sidebars (Side Sheets in the Material documentation) are used to present supplemental information to users. Most commonly, they display information about a selected item in the main interface (e.g., selecting an item in a list would open a sidebar on the right with additional details about the selected item). However, they can also be used as permanent UI elements, such as the legend for a chart or map.
 
-### Modal vs. Sidebar
+<ImageGrid regularWidth images={[TrendLegend]} caption={'A permanent sidebar can be used for chart / map legends.'} />
 
-In general, modals and sidebars can be used together to set up and display complex data. When building your application, you may be faced with the question of "Should I use a modal or a sidebar for this?" In general, modals should be used when creating new data, and sidebars should be used for viewing and editing existing data. In some circumstances, you may need a full-page overlay (sidebar or bottomsheet) to accomplish more complex tasks.
+They can also present simple form data and inputs, such as radio buttons, checkbox, dropdown menus, etc. for editing a selected item. This type of sidebar should be dismissible, such that the user can easily close it with a close button or clicking elsewhere on the screen.
+
+Sidebars should always appear on the opposite side of the screen as the main [navigation](/patterns/navigation).
+
+> In general, modals should be used when creating new data, and sidebars should be used for viewing and editing existing data.
 
 ## Bottom Sheet
 
-A bottom sheet is similar to a modal dialog but slides in from the bottom of the screen. A dark overlay is usually used to block user interaction with the main app until the bottom sheet is closed.
-
 <MaterialDesignDescription title={'Sheets: Bottom'} url={'https://material.io/components/sheets-bottom/'} />
 
-This is a very common pattern in mobile applications but can also be used in responsive web apps. Typically, the bottom sheet contains global actions for the entire page and is activated by a button in the app bar.
+Bottom sheets are content surfaces that slide in from the bottom of the screen, primarily used in mobile applications. There are three types: standard, modal, and expandable, but the one used most often in PX Blue applications is the modal bottom sheet.
 
-<ImageGrid images={[BasicBottomsheet, ComplexBottomsheet]} caption={'A Bottom Sheet can be simple or complex.'} />
+<React.Fragment>
+    <ImageGrid
+        regularWidth
+        images={[SimpleBottomsheet]}
+        caption={[
+            '1. On mobile, the modal bottom sheet takes up the full width of the screen.',
+            '2. On desktop, bottom sheets can usually be replaced by a contextual menu instead.',
+        ]}
+    />
+    <DemoCard
+        repository={'bottomsheet'}
+        angular={
+            'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Foverlays%2Fbasic-bottom-sheet%2Fbasic-bottom-sheet.component.ts'
+        }
+        react={
+            'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/overlays/basic-bottom-sheet/index.tsx&initialpath=basic-bottom-sheet'
+        }
+        ionic={
+            'https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Foverlays%2Fbasic-bottom-sheet%2Fbasic-bottom-sheet.component.ts'
+        }
+        reactNative
+    />
+    <DemoCard
+        repository={'complex-bottomsheet'}
+        angular={
+            'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Foverlays%2Fcomplex-bottom-sheet%2Fcomplex-bottom-sheet.component.ts'
+        }
+        react={
+            'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/overlays/complex-bottom-sheet/index.tsx&initialpath=complex-bottom-sheet'
+        }
+        ionic={
+            'https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Foverlays%2Fcomplex-bottom-sheet%2Fcomplex-bottom-sheet.component.ts'
+        }
+        reactNative
+    />
+</React.Fragment>
 
-### Basic
+Modal bottom sheets block interaction with the rest of the application. These typically contain a list of options or actions and are usually activated via an action button in the [app bar](/patterns/appbar).
 
-<DemoCard
-    repository={'bottomsheet'}
-    angular={
-        'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Foverlays%2Fbasic-bottom-sheet%2Fbasic-bottom-sheet.component.ts'
-    }
-    react={
-        'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/overlays/basic-bottom-sheet/index.tsx&initialpath=basic-bottom-sheet'
-    }
-    ionic={
-        'https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Foverlays%2Fbasic-bottom-sheet%2Fbasic-bottom-sheet.component.ts'
-    }
-    reactNative
-/>
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'Lists'}
+        url={'/patterns/lists'}
+        description={`When using lists in an overlay / bottom sheet, be sure to follow PX Blue's guidelines for lists.`}
+        avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+    />
+    <Divider />
+</React.Fragment>
 
-The basic bottom sheet simply contains a list of actions. The final "Cancel" action is used to dismiss the bottom sheet.
+# Design Specifications
 
-### Advanced
+## Dialog
 
-<DemoCard
-    repository={'complex-bottomsheet'}
-    angular={
-        'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Foverlays%2Fcomplex-bottom-sheet%2Fcomplex-bottom-sheet.component.ts'
-    }
-    react={
-        'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/overlays/complex-bottom-sheet/index.tsx&initialpath=complex-bottom-sheet'
-    }
-    ionic={
-        'https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Foverlays%2Fcomplex-bottom-sheet%2Fcomplex-bottom-sheet.component.ts'
-    }
-    reactNative
-/>
+<ImageGrid regularWidth images={[Specs1, Specs2]} />
+<Divider />
 
-A bottom sheet is essentially just a container with some attached behaviors. Though it typically contains a simple list, it can be customized to include any content that is required for your application. For example, it can be used for custom sort/filter functionality (seen in the example above), biometric authentication prompts, etc.
+# Developers
+
+Use the following components to implement this pattern:
+
+**Angular** and **Ionic**:
+
+-   Angular Material
+    -   [Dialog](https://material.angular.io/components/dialog/overview)
+    -   [Bottom Sheet](https://material.angular.io/components/bottom-sheet/overview)
+    -   [Sidenav](https://material.angular.io/components/sidenav/overview)
+
+**React**:
+
+-   Material UI
+    -   [Drawer](https://material-ui.com/components/drawers/)
+    -   [Dialog](https://material-ui.com/components/dialogs/)
+
+**React Native**:
+
+-   React Native Paper
+
+    -   [Dialog](https://callstack.github.io/react-native-paper/dialog.html)
+    -   [Modal](https://callstack.github.io/react-native-paper/modal.html)
+
+-   [React Native Modal](https://github.com/react-native-community/react-native-modal)
