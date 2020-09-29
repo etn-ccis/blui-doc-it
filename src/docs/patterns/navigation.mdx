@@ -6,6 +6,13 @@ import PersistentImg from '../../app/assets/design-patterns/navigation/navigatio
 <!-- New Images -->
 
 import ProductExample1 from '../../app/assets/design-patterns/navigation/Product Example 1.png';
+import ContentCover1 from '../../app/assets/design-patterns/navigation/Content Cover 1.png';
+import ContentCover2 from '../../app/assets/design-patterns/navigation/Content Cover 2.png';
+import GenericExample1 from '../../app/assets/design-patterns/navigation/Generic Example 1.png';
+import NestedItemExample from '../../app/assets/design-patterns/navigation/Nested Item Example.png';
+import NestedItemStandards from '../../app/assets/design-patterns/navigation/Nested Item Standards.png';
+import ExpandableAccountInfo from '../../app/assets/design-patterns/navigation/Expandable Account Information.png';
+import DividerImage from '../../app/assets/design-patterns/navigation/Divider Image.png';
 
 <!-- KEYWORDS: design pattern navigation drawer menu -->
 
@@ -46,8 +53,7 @@ The content-resize implementation does not cover any of the main application con
 
 ### Content-Cover
 
-INSERT CONTENT COVER 1 and CONTENT COVER 2
-
+<ImageGrid images={[ContentCover1, ContentCover2]} regularWidth />
 <ImageGrid images={[TemporaryImg]} />
 
 <!-- @TODO switch side-navigation links over to the "Component Recommendations style" instead of a "Interactive Code example" once we have one designed. -->
@@ -83,7 +89,7 @@ These may be used in conjunction with Bottom Tab navigation - on larger resoluti
 
 ## PX Blue Variations
 
-INSERT Generic Example 1
+<ImageGrid images={[GenericExample1]} regularWidth />
 
 PX Blue provides the foundation for a wide range of navigation patterns. Ultimately the product will determine which pattern is best to use. The following sections provide PX Blue recommendations for common variation styles and standards on which variation to use in your product.
 
@@ -91,21 +97,19 @@ PX Blue provides the foundation for a wide range of navigation patterns. Ultimat
 
 PX Blue provides patterns to allow products to nest multiple layers of navigation options in the Navigation Menu. It is recommended not to exceed 2 levels of nested navigation. The graphic below illustrates the preferred style for nested navigation items.
 
-INSERT NESTED ITEM EXAMPLE
-
-INSERT NESTED ITEM STANDARDS
+<ImageGrid images={[NestedItemExample, NestedItemStandards]} regularWidth />
 
 ### Expandable Account Information
 
 PX Blue provides patterns for expandable account and settings within the navigation drawer. This feature can be found via a dropdown in expanded header area. It is recommended to use this pattern sparingly.
 
-INSERT EXPANDABLE ACCOUNT INFORMATION
+<ImageGrid images={[ExpandableAccountInfo]} regularWidth />
 
 ### Dividers
 
 Dividers find the most usage in the Collapsible Navigation pattern. The reason for this is to help distinguish the clickable areas for the icons (collapsed state). In General avoid adding divider lines in random areas. However, there are some exceptions to the rules. For example, Footer, section header and nested nav items can use dividers to help break the content out from the rest of the list.
 
-INSERT DIVIDER IMAGE
+<ImageGrid images={[DividerImage]} regularWidth />
 
 ### Footer Behavior
 
