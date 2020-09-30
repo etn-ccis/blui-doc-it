@@ -1917,10 +1917,10 @@
   optionalDependencies:
     eslint-plugin-react "^7.16.0"
 
-"@pxblue/icons-mui@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/icons-mui/-/icons-mui-2.2.0.tgz#cec031ac83c25178dc6ee65183334497b1c5f1d6"
-  integrity sha512-mN72hiPf52cWLYesv/Q9leOon/t9FFf9PSpYXPM1LYDhADIhxoJHhubgU43g9DS884IxAlbZEdV+vcd8NfAPFA==
+"@pxblue/icons-mui@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@pxblue/icons-mui/-/icons-mui-2.2.1.tgz#64f3e4b3ce0192b9d813f3e765e22d33c0d9f41b"
+  integrity sha512-KF3lvYClgiEwvxMEjmS0WWWFUrODuPy7bY4aRkA6JkhSAcLLRbggiW41TEG6QZ8coAEwdIuy6opBwGDsJeyuxw==
 
 "@pxblue/prettier-config@^1.0.2":
   version "1.0.2"
