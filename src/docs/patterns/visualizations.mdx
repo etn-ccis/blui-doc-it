@@ -1,4 +1,5 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
+import PxblueSmallAltIcon from '@pxblue/icons-mui/PxblueSmallAlt';
 
 import VisualizationBanner from '../../app/assets/design-patterns/visualizations/visualizations-banner.svg';
 import LineChart from '../../app/assets/design-patterns/visualizations/line-chart.png';
@@ -7,13 +8,13 @@ import ClockwisePie from '../../app/assets/design-patterns/visualizations/cw-ccw
 import MapsImg from '../../app/assets/design-patterns/visualizations/map.png';
 import DontUsePrimaryColor from '../../app/assets/design-patterns/visualizations/use-primary-color.png';
 
-<!-- KEYWORDS: design pattern visualization map chart highcharts chartjs mapbox -->
+<!-- KEYWORDS: design pattern visualization map chart graph highcharts chartjs mapbox -->
 
 # Visualizations
 
 <ImageGrid regularWidth images={[VisualizationBanner]} />
 
-There are many opportunities to visualize data in different applications. The most common visualizations used in PX Blue applications come in the form of charts / graphs and maps.
+Data is the foundation of most PX Blue applications, but many users are not interested in looking at the raw data. Visualizations allow you to present this data in a (visual) way that is easier to understand and allows users to draw conclusions and take actions based on the data. The most common visualizations in PX Blue applications are charts / graphs and maps.
 
 <Divider />
 
@@ -21,15 +22,22 @@ There are many opportunities to visualize data in different applications. The mo
 
 <ImageGrid
     images={[LineChart, PieChart]}
-    caption={'Line charts (#1) and pie / ring charts (#2) are the most frequently used data visualizations in PX Blue.'}
+    caption={[
+        '1: Line charts represent time-series data changing over a period of time.',
+        '2: Pie / ring charts show a single value as a proportion of an expected or ideal total.',
+    ]}
 />
 
-There are [many variations](https://material.io/design/communication/data-visualization.html#types) of data visualizations. They can be a big line chart with 8 series, occupying the entire screen; or they can be as tiny as a simple pie chart embedded in [lists](/patterns/lists).
+Charts and graphs come in [many different forms](https://material.io/design/communication/data-visualization.html#types). Depending on the expected interaction, these can be large elements on the UI — such as full-screen line chart with numerous series — or small supporting elements like a pie chart embedded in a card.
 
 <MaterialDesignDescription
     title={'Data Visualization'}
     url={'https://material.io/design/communication/data-visualization.html'}
 />
+
+<!--
+
+@TODO: update those examples with recommendations from the designers (PXBLUE-1613)
 
 > The following examples merely serve to show how to bring the charting libraries into your application and adjust some of the common chart parameters. You will want to adjust these values to meet the design requirements of your application.
 
@@ -44,14 +52,27 @@ There are [many variations](https://material.io/design/communication/data-visual
     react={`https://codesandbox.io/s/github/pxblue/chartjs/tree/master/react-demo`}
 />
 
-## Common Pitfalls
+-->
 
-<ImageGrid images={[ClockwisePie]} regularWidth caption={'A pie chart should always be clockwise.'} />
-
-To avoid interfering with other UI elements, the charts should be built using primarily the [branding colors](/style/color#branding-colors).
+To avoid interfering with other UI elements, charts should be built using the PX Blue [branding](/style/color#branding-colors) color palette.
 
 <React.Fragment>
-    <ImageGrid images={[DontUsePrimaryColor]} regularWidth caption={'Never use primary color palette in the charts.'} />
+    <ImageGrid
+        images={[DontUsePrimaryColor]}
+        regularWidth
+        caption={'Never use the UI color palette for chart elements.'}
+    />
+    <ImageGrid
+        images={[ClockwisePie]}
+        regularWidth
+        caption={'A pie chart should always be clockwise, as it reflects the clock rotating direction.'}
+    />
+    <MaterialDesignDescription
+        title={'Internationalization'}
+        url={'/patterns/internationalization'}
+        description={`Follow PX Blue's guideline for mirroring UI contents.`}
+        avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+    />
     <Divider />
 </React.Fragment>
 
@@ -61,7 +82,7 @@ To avoid interfering with other UI elements, the charts should be built using pr
     regularWidth
     images={[MapsImg]}
     caption={[
-        'An example of a map, built with PX Blue dark theme.',
+        'A simple geographic map using the dark theme.',
         'The embedded map is a screenshot from OpenStreetMap, licensed under CC-BY-SA 2.0.',
     ]}
 />
@@ -71,13 +92,15 @@ To avoid interfering with other UI elements, the charts should be built using pr
     react={`https://codesandbox.io/s/github/pxblue/mapbox/tree/master/react-demo`}
 />
 
-Maps can be used to indicate geographical locations. They typically span across an entire screen.
+Maps are used to represent spatial or geographical data. Typically they are used to plot sets of locations or facilities that a user is responsible for.
+
+Maps are usually full-screen elements and are interactive via scrolling, panning, zooming, etc.
 
 <Divider />
 
 # Developers
 
-There are many libraries and services for data visualizations. PX Blue currently provides themes for the following libraries:
+There are many libraries and services for data visualizations. PX Blue currently provides themes / utilities for the following libraries:
 
 **Angular**, **React** and **Ionic**:
 
