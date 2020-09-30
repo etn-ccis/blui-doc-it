@@ -145,7 +145,8 @@
                 },
                 {
                     "title": "Page Layout",
-                    "url": "/layout"
+                    "url": "/layout",
+                    "hidden": true
                 },
                 {
                     "title": "Steppers",
