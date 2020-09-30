@@ -7,6 +7,7 @@ type Resource = {
     repository: string;
     applies?: FrameworkFilter[];
     bugLabels?: string[];
+    demoUrl?: string;
 };
 type ResourceBucket = Omit<Resource, 'repository'> & {
     items: Resource[];
@@ -177,15 +178,23 @@ export const resources: ResourceBucket[] = [
         ],
     },
     {
-        name: 'React Native Workflows',
+        name: 'Reusable Workflows',
         description: 'Multi-screen re-usable workflows',
-        applies: ['react-native'],
+        applies: ['react', 'react-native'],
         items: [
             {
                 name: '@pxblue/react-native-auth-workflow',
                 description: 'Login and Registration workflow',
                 package: '@pxblue/react-native-auth-workflow',
                 repository: 'react-native-workflows',
+                applies: ['react-native'],
+            },
+            {
+                name: '@pxblue/react-auth-workflow',
+                description: 'Login and Registration workflow',
+                package: '@pxblue/react-auth-workflow',
+                repository: 'react-workflows',
+                applies: ['react'],
             },
         ],
     },
@@ -222,100 +231,30 @@ export const resources: ResourceBucket[] = [
         applies: ['all'],
         items: [
             {
-                name: 'action-list',
-                description: 'A list with actions available for individual items',
-                repository: 'action-list',
+                name: 'angular-design-patterns',
+                description: 'Web design patterns made using the Angular framework',
+                repository: 'angular-design-patterns',
+                applies: ['angular'],
+                demoUrl: 'https://stackblitz.com/github/pxblue/angular-design-patterns',
             },
             {
-                name: 'bottomsheet',
-                description: 'Global page actions that appear in a bottomsheet',
-                repository: 'bottomsheet',
+                name: 'react-design-patterns',
+                description: 'Web design patterns made using the React framework',
+                repository: 'react-design-patterns',
+                applies: ['react'],
+                demoUrl: 'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master',
             },
             {
-                name: 'collapsible-appbar',
-                description: 'An App bar that shrinks as you scroll the page',
-                repository: 'collapsible-appbar',
+                name: 'ionic-design-patterns',
+                description: 'Mobile design patterns made using the Ionic framework',
+                repository: 'ionic-design-patterns',
+                applies: ['ionic'],
             },
             {
-                name: 'complex-bottomsheet',
-                description: 'A bottomsheet with custom content for filtering',
-                repository: 'complex-bottomsheet',
-            },
-            {
-                name: 'data-list',
-                description: 'A simple list of key-value pairs',
-                repository: 'data-list',
-            },
-            {
-                name: 'dynamic-stepper',
-                description: 'A stepper with configurable steps',
-                repository: 'dynamic-stepper',
-                applies: ['angular', 'react'],
-            },
-            {
-                name: 'empty-states',
-                description: `Shows what to show when there's nothing to show`,
-                repository: 'empty-states',
-            },
-            {
-                name: 'form-validation',
-                description: 'Basic form validation for common inputs',
-                repository: 'form-validation',
-                applies: ['angular', 'react'],
-            },
-            {
-                name: 'icon-navigation',
-                description: 'PX Blue navigation with a side menu',
-                repository: 'icon-navigation',
-                applies: ['angular', 'react'],
-            },
-            {
-                name: 'internationalization',
-                description: 'Shows how to translate string values in your application',
-                repository: 'internationalization',
-                applies: ['angular', 'react'],
-            },
-            {
-                name: 'login',
-                description: 'A common login screen',
-                repository: 'login',
-            },
-            {
-                name: 'loading-states',
-                description: 'What to show when data is being loaded',
-                repository: 'loading-states',
-            },
-            {
-                name: 'multiselect-list',
-                description: 'A list that allows for multi-selection',
-                repository: 'multiselect-list',
-            },
-            {
-                name: 'responsive-table',
-                description: 'A table that becomes a list at smaller resolutions',
-                repository: 'responsive-table',
-                applies: ['angular', 'react'],
-            },
-            {
-                name: 'search-bar',
-                description: 'A simple search bar that filters a list',
-                repository: 'search-bar',
-            },
-            {
-                name: 'side-navigation',
-                description: 'Navigation menu that only appears when the button is clicked',
-                repository: 'side-navigation',
-                applies: ['angular', 'react'],
-            },
-            {
-                name: 'sortable-list',
-                description: 'A list that can be sorted via drag and drop',
-                repository: 'sortable-list',
-            },
-            {
-                name: 'status-list',
-                description: 'A list showing items in various states',
-                repository: 'status-list',
+                name: 'react-native-design-patterns',
+                description: 'Mobile design patterns made using the React Native framework',
+                repository: 'react-native-design-patterns',
+                applies: ['react-native'],
             },
         ],
     },

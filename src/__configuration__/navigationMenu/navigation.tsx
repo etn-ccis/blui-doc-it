@@ -151,6 +151,16 @@ export const pageDefinitions: SimpleNavItem[] = [
                 url: '/anatomy',
                 component: <MarkdownPage title={'Design System Anatomy'} markdown={Docs.Design.Anatomy} wideLayout />,
             },
+            {
+                title: 'Accessibility',
+                url: '/accessibility',
+                component: <MarkdownPage title={'Accessibility'} markdown={Docs.Design.Accessibility} />,
+            },
+            {
+                title: 'For Websites',
+                url: '/websites',
+                component: <MarkdownPage title={'Designing for Websites'} markdown={Docs.Design.Websites} />,
+            },
         ],
     },
     {
@@ -169,9 +179,9 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Empty States'} markdown={Docs.Patterns.EmptyStates} />,
             },
             {
-                title: 'Form Validation',
+                title: 'Forms and Validation',
                 url: '/forms',
-                component: <MarkdownPage title={'Form Validation'} markdown={Docs.Patterns.Forms} />,
+                component: <MarkdownPage title={'Forms and Validation'} markdown={Docs.Patterns.Forms} />,
             },
             {
                 title: 'Internationalization',
@@ -179,14 +189,14 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Internationalization'} markdown={Docs.Patterns.I18N} />,
             },
             {
-                title: 'Lists',
+                title: 'Lists & Tables',
                 url: '/lists',
-                component: <MarkdownPage title={'Lists'} markdown={Docs.Patterns.Lists} />,
+                component: <MarkdownPage title={'Lists & Tables'} markdown={Docs.Patterns.Lists} />,
             },
             {
-                title: 'Login',
-                url: '/login',
-                component: <MarkdownPage title={'Login'} markdown={Docs.Patterns.Login} />,
+                title: 'Loading & Waiting',
+                url: '/loading',
+                component: <MarkdownPage title={'Loading & Waiting'} markdown={Docs.Patterns.Loading} />,
             },
             {
                 title: 'Navigation',
@@ -202,11 +212,17 @@ export const pageDefinitions: SimpleNavItem[] = [
                 title: 'Page Layout',
                 url: '/layout',
                 component: <MarkdownPage title={'Page Layout'} markdown={Docs.Patterns.Layout} />,
+                hidden: true,
             },
             {
                 title: 'Steppers',
                 url: '/steppers',
                 component: <MarkdownPage title={'Steppers'} markdown={Docs.Patterns.Steppers} />,
+            },
+            {
+                title: 'User Authentication',
+                url: '/user-auth',
+                component: <MarkdownPage title={'User Authentication'} markdown={Docs.Patterns.UserAuth} />,
             },
             {
                 title: 'Visualizations',
@@ -240,7 +256,6 @@ export const pageDefinitions: SimpleNavItem[] = [
                 title: 'Illustrations',
                 url: '/illustrations',
                 component: <MarkdownPage title={'Illustrations'} markdown={Docs.Style.Illustrations} />,
-                hidden: true,
             },
             {
                 title: 'Typography',

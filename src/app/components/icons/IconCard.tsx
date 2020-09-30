@@ -40,7 +40,7 @@ export const IconCard: React.FC<IconCardProps> = (props): JSX.Element => {
     const { component: Component, name, showLabel, style, selected, iconSize, className } = props;
     return (
         <div className={`${classes.wrapper} ${selected ? classes.selected : ''} + ${className}`} style={style}>
-            <Component style={{ fontSize: iconSize }} />
+            <Component style={{ fontSize: iconSize, maxWidth: 84 }} />
             {showLabel && (
                 <Typography title={name} variant="subtitle2" className={classes.label}>
                     {name}

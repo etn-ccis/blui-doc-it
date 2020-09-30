@@ -75,10 +75,10 @@ const Headline: React.FC<Headline> = ({
             {...otherDivProps}
             style={{ ...REGULAR_WIDTH_STYLE, ...otherDivProps.style }}
         >
+            <span id={hash} style={{ position: 'relative', top: -90 }} />
             <Typography
                 paragraph
                 color={'primary'}
-                id={hash}
                 component={'span'}
                 {...otherTypographyProps}
                 style={{ hyphens: 'auto', display: 'flex', ...otherTypographyProps.style }}
@@ -110,7 +110,7 @@ export const componentsMap = {
     h1: (props: TypographyProps): JSX.Element => (
         <Headline
             className={'markdownH1'}
-            style={{ marginBottom: 32 }}
+            style={{ marginBottom: 32, hyphens: 'auto' }}
             hash={getHash(props.children?.toString() || 'h1')}
             TypographyProps={{ variant: 'h4', ...props }}
         />

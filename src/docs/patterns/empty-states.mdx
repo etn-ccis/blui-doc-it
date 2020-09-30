@@ -1,64 +1,102 @@
-import { DemoCard, ImageGrid, MaterialDesignDescription } from '../../app/components';
-import Image1 from '../../app/assets/design-patterns/loading-states/loading-state-load.png';
-import Image2 from '../../app/assets/design-patterns/loading-states/loading-state.png';
-import Image3 from '../../app/assets/design-patterns/empty-states/empty-states.png';
-import Image4 from '../../app/assets/design-patterns/empty-states/empty-states-with-background-image.png';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
+import Banner from '../../app/assets/design-patterns/empty-states/empty-state-banner.svg';
+import Image1 from '../../app/assets/design-patterns/empty-states/empty-state-variations.png';
+import DesktopImage from '../../app/assets/design-patterns/empty-states/empty-state-desktop.png';
+import ElementImage from '../../app/assets/design-patterns/empty-states/empty-state-element.png';
+import Specs1Image from '../../app/assets/design-patterns/empty-states/specs-1.png';
+import Specs2Image from '../../app/assets/design-patterns/empty-states/specs-2.png';
 
-<!-- KEYWORDS: design pattern empty state loading placeholder -->
+<!-- KEYWORDS: design pattern empty state placeholder -->
 
-# Loading / Empty State Patterns
+# Empty States
 
-Often times, your application will need to load data from a remote location with some amount of latency. Other times, there may be areas of your application where there is no available data to display. This is where loading and empty state indicators come into play.
+<ImageGrid images={[Banner]} regularWidth />
 
-## Loading Data
+At times, there may be areas of your application that do not have data available to display. This can happen when there is an error loading data, there are no results for a particular search or filter criteria, etc. This is where empty state indicators come into play.
 
-<ImageGrid
-    images={[Image1, Image2]}
-    caption={'When data is loading, use placeholder shapes for where the data will appear.'}
-/>
-<DemoCard repository={'loading-states'} angular={'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Floading-states%2Floading-states.component.ts'} react={'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/loading-states/index.tsx&initialpath=loading-states'} ionic reactNative />
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'Empty States'}
+        url={'https://material.io/design/communication/empty-states.html'}
+    />
+    <DemoCard
+        repository={'empty-states'}
+        angular={'https://pxblue-components.github.io/angular/?path=/story/components-empty-state--with-full-config'}
+        react={'https://pxblue-components.github.io/react/?path=/story/components-empty-state--with-full-config'}
+    />
+    <ImageGrid
+        regularWidth
+        images={[Image1]}
+        caption={[
+            '1: Mobile screen showing empty state as a functionality placeholder.',
+            '2: Desktop screen with empty state and call to action button.',
+        ]}
+    />
+    <Divider />
+</React.Fragment>
 
-When loading data for the first time, you do not want to show an empty screen while you are fetching data. Instead, you should show placeholders that mimic (using simple shapes) the data that will eventually be loaded. This will give the impression that your application is faster and gives users an indication of what kind of data is being loaded.
-
-The placeholder should match as closely as possible the real structure of the data. For example, if you are loading a list where each item has an icon, two lines of text, and an action button, then your placeholder should have a circle, two rectangles for the text, and another rectangle for the button. You should show as many placeholder elements as necessary to fill the area in the application that is loading data.
-
-There are a number of libraries available to help you create this placeholder content, such as:
-
--   [@netbasal/ngx-content-loader](https://www.npmjs.com/package/@netbasal/ngx-content-loader) (Angular, Ionic)
--   [ion-skeleton-text](https://ionicframework.com/docs/api/skeleton-text) (Ionic)
--   [placeholder-loading](https://www.npmjs.com/package/placeholder-loading) (React, Angular, Ionic)
--   [react-content-loader](https://www.npmjs.com/package/react-content-loader) (React)
--   [rn-placeholder](https://www.npmjs.com/package/rn-placeholder) (React Native)
-
-### Refreshing Data
-
-When refreshing data, there are several approaches you can take. If you are showing real-time data (either via polling or a push mechanism from the server), there is no need to show large loading indicators. You may wish to show a small indicator or at least mention when the data was last refreshed so users can identify if the data is stale.
-
-If your users can manually refresh, you may wish to show the placeholder elements (as with initial load), or simply refresh the data behind the scenes (as with real-time). Ultimately, this should depend on how long it takes to refresh the data.
-
-## Empty States
-
-<ImageGrid images={[Image3, Image4]} />
-<MaterialDesignDescription title={'Empty States'} url={'https://material.io/design/communication/empty-states.html'} />
-
-<!-- @TODO switch empty-state links over to the "Component Recommendations style" instead of a "Interactive Code example" once we have one designed. -->
-
-<DemoCard
-    repository={'empty-states'}
-    angular={'https://pxblue-components.github.io/angular/?path=/story/components-empty-state--with-full-config'}
-    react={'https://pxblue-components.github.io/react/?path=/story/components-empty-state--with-full-config'}
-    ionic
-    reactNative
-/>
-
-Empty states can be used in a variety of ways in your application. They can alert users to empty data or search results, lack of permissions, future features, or errors.
+# Common Use Cases
 
 You can refer to the Material Design Empty States guidelines for general usage instructions.
 
-Empty states should include a large icon or graphic, centered on the screen, followed a brief message. In some cases, you may wish to use a large graphic as the background of the entire page as well (such as for features that will be coming soon).
+Empty states can be used in a variety of ways in your application. As the name suggests, they can alert users to empty data, but they can also be used to indicate:
 
-If necessary, additional explanatory text may follow. The text on the screen should clearly indicate why there is no data to display, and what (if anything) can be done to make data available. The text should be minimal, but enough to convey the necessary message.
+-   No Data Available
+-   Empty Search/Filter Results
+-   Networking Errors
+-   Lack of Permissions
+-   Future Features / Placeholders
+-   Success Screens
+
+Empty states should **NOT** be used for:
+
+-   [Loading indicators](/patterns/loading)
+-   Welcome Screens
+
+<Divider />
+
+# Anatomy
+
+Empty states should include a large icon or graphic followed a brief headline/message. If necessary, additional explanatory text may follow.
+
+The text on the screen should clearly indicate why there is no data to display, and what (if anything) can be done to make data available. The text should be minimal, but enough to convey the necessary message.
 
 If the data is empty but could be populated by a user action (such as adding a device to an empty device list), there should be a call-to-action button that will allow the user to add data.
 
-> **NOTE:** While less common, empty states can be used in sections of a page (rather than the entire page), such as a single card having no data. In these cases, the same guidelines should be followed, but may require slightly different formatting depending on the layout of the page.
+## Variations
+
+<ImageGrid
+    images={[DesktopImage, ElementImage]}
+    caption={['1: A full-screen empty state.', '2: Empty state shown on an element (card).']}
+/>
+
+### Full-screen
+
+In the most common cases, Empty States should be used full-screen as the only content on a page. In this situation, the indicator should be centered on the page. In some cases, you may wish to use a large graphic as the background of the entire page as well (such as for features that will be coming soon).
+
+### Element-level
+
+While less common, empty states can also be used as an indicator for individual sections of a page rather than the entire page (such as a single card having no data on a dashboard / overview screen). In these cases, it may be appropriate to use a smaller icon and text depending on the available space.
+
+<Divider />
+
+# Design Specifications
+
+<ImageGrid images={[Specs1Image, Specs2Image]} regularWidth />
+<Divider />
+
+# Developers
+
+Use the following components to implement this pattern:
+
+**Angular** and **Ionic** - @pxblue/angular-components:
+
+-   [Empty State](https://pxblue-components.github.io/angular/?path=/info/components-empty-state--readme)
+
+**React** - @pxblue/react-components:
+
+-   [Empty State](https://pxblue-components.github.io/react/?path=/info/components-empty-state--get-read-me-story)
+
+**React Native** - @pxblue/react-native-components:
+
+-   [Empty State](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--empty-state)

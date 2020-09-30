@@ -95,6 +95,14 @@
                 {
                     "title": "Design System Anatomy",
                     "url": "/anatomy"
+                },
+                {
+                    "title": "Accessibility",
+                    "url": "/accessibility"
+                },
+                {
+                    "title": "Websites",
+                    "url": "/websites"
                 }
             ]
         },
@@ -112,7 +120,7 @@
                     "url": "/empty-states"
                 },
                 {
-                    "title": "Form Validation",
+                    "title": "Forms and Validation",
                     "url": "/forms"
                 },
                 {
@@ -120,12 +128,12 @@
                     "url": "/internationalization"
                 },
                 {
-                    "title": "Lists",
+                    "title": "Lists & Tables",
                     "url": "/lists"
                 },
                 {
-                    "title": "Login",
-                    "url": "/login"
+                    "title": "Loading & Waiting",
+                    "url": "/loading"
                 },
                 {
                     "title": "Navigation",
@@ -137,11 +145,16 @@
                 },
                 {
                     "title": "Page Layout",
-                    "url": "/layout"
+                    "url": "/layout",
+                    "hidden": true
                 },
                 {
                     "title": "Steppers",
                     "url": "/steppers"
+                },
+                {
+                    "title": "User Authentication",
+                    "url": "/user-auth"
                 },
                 {
                     "title": "Visualizations",
@@ -163,8 +176,7 @@
                 },
                 {
                     "title": "Illustrations",
-                    "url": "/illustrations",
-                    "hidden": true
+                    "url": "/illustrations"
                 },
                 {
                     "title": "Typography",

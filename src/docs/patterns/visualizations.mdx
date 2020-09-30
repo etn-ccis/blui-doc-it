@@ -1,62 +1,116 @@
-import { DemoCard, ImageGrid, MaterialDesignDescription } from '../../app/components';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
+import PxblueSmallAltIcon from '@pxblue/icons-mui/PxblueSmallAlt';
 
-import DataVizImage from '../../app/assets/design-patterns/data-visualization/data-visualization.png';
+import VisualizationBanner from '../../app/assets/design-patterns/visualizations/visualizations-banner.svg';
+import LineChart from '../../app/assets/design-patterns/visualizations/line-chart.png';
+import PieChart from '../../app/assets/design-patterns/visualizations/pie-chart.png';
+import ClockwisePie from '../../app/assets/design-patterns/visualizations/cw-ccw.png';
+import MapsImg from '../../app/assets/design-patterns/visualizations/map.png';
+import DontUsePrimaryColor from '../../app/assets/design-patterns/visualizations/use-primary-color.png';
 
-<!-- KEYWORDS: design pattern visualization map chart highcharts chartjs mapbox -->
+<!-- KEYWORDS: design pattern visualization map chart graph highcharts chartjs mapbox -->
 
 # Visualizations
 
-<ImageGrid images={[DataVizImage]} />
+<ImageGrid regularWidth images={[VisualizationBanner]} />
 
-There are many opportunities to visualize data in different applications. The most common visualizations used in PX Blue applications come in the form of charts/graphs and maps.
+Data is the foundation of most PX Blue applications, but many users are not interested in looking at the raw data. Visualizations allow you to present this data in a (visual) way that is easier to understand and allows users to draw conclusions and take actions based on the data. The most common visualizations in PX Blue applications are charts / graphs and maps.
+
+<Divider />
+
+# Charts / Graphs
+
+<ImageGrid
+    images={[LineChart, PieChart]}
+    caption={[
+        '1: Line charts represent time-series data changing over a period of time.',
+        '2: Pie / ring charts show a single value as a proportion of an expected or ideal total.',
+    ]}
+/>
+
+Charts and graphs come in [many different forms](https://material.io/design/communication/data-visualization.html#types). Depending on the expected interaction, these can be large elements on the UI — such as full-screen line chart with numerous series — or small supporting elements like a pie chart embedded in a card.
 
 <MaterialDesignDescription
     title={'Data Visualization'}
     url={'https://material.io/design/communication/data-visualization.html'}
 />
 
-## Charts & Graphs (Highcharts & ChartJS)
+<!--
 
-Currently, PX Blue supports building charts and graphs using [Highcharts](http://www.highcharts.com) and [ChartJS](https://www.chartjs.org/), which are comprehensive libraries compatible with both Angular and React.
+@TODO: update those examples with recommendations from the designers (PXBLUE-1613)
 
-> **NOTE:** the following examples merely serve to show how to bring the charting libraries into your application and adjust some of the common chart parameters. You will want to adjust these values to meet the design requirements of your application.
-
-### Highcharts
+> The following examples merely serve to show how to bring the charting libraries into your application and adjust some of the common chart parameters. You will want to adjust these values to meet the design requirements of your application.
 
 <DemoCard
     repository={'highcharts'}
     angular={`https://stackblitz.com/github/pxblue/highcharts/tree/master/angular-demo`}
     react={`https://codesandbox.io/s/github/pxblue/highcharts/tree/master/react-demo`}
 />
-
-PX Blue utilities for Highcharts graphs (line, column, pie, donut) are available as an NPM package ([@pxblue/highcharts](https://www.npmjs.com/package/@pxblue/highcharts)).
-This package includes helper functions to generate chart configurations using recommended PX Blue styles.
-These utilities also enable you to quickly create placeholder charts using simulated data. For more information about using Highcharts, check out their documentation.
-
-> Highcharts has different [licensing](https://shop.highsoft.com/developer-license) requirements depending on the nature of your application - you will need to contact Highsoft directly to ensure that your product is properly licensed. You can also see the [Highcharts Pricing](https://shop.highsoft.com/)) page for pricing information.
-
-### ChartJS
-
 <DemoCard
     repository={'chartjs'}
     angular={`https://stackblitz.com/github/pxblue/chartjs/tree/master/angular-demo`}
     react={`https://codesandbox.io/s/github/pxblue/chartjs/tree/master/react-demo`}
 />
 
-ChartJS is an open source alternative to HighCharts offering a scaled-down feature set that supports basic charting needs.
+-->
 
-PX Blue utilities for ChartJS graphs (line, column, pie, donut) are available as an NPM package ([@pxblue/chartjs](https://www.npmjs.com/package/@pxblue/chartjs)). For more information, check out the [ChartJS Documentation](https://www.chartjs.org/).
+To avoid interfering with other UI elements, charts should be built using the PX Blue [branding](/style/color#branding-colors) color palette.
 
-## Mapping (Mapbox)
+<React.Fragment>
+    <ImageGrid
+        images={[DontUsePrimaryColor]}
+        regularWidth
+        caption={'Never use the UI color palette for chart elements.'}
+    />
+    <ImageGrid
+        images={[ClockwisePie]}
+        regularWidth
+        caption={'A pie chart should always be clockwise, as it reflects the clock rotating direction.'}
+    />
+    <MaterialDesignDescription
+        title={'Internationalization'}
+        url={'/patterns/internationalization'}
+        description={`Follow PX Blue's guideline for mirroring UI contents.`}
+        avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+    />
+    <Divider />
+</React.Fragment>
 
+# Maps
+
+<ImageGrid
+    regularWidth
+    images={[MapsImg]}
+    caption={[
+        'A simple geographic map using the dark theme.',
+        'The embedded map is a screenshot from OpenStreetMap, licensed under CC-BY-SA 2.0.',
+    ]}
+/>
 <DemoCard
     repository={'mapbox'}
     angular={`https://stackblitz.com/github/pxblue/mapbox/tree/master/angular-demo`}
     react={`https://codesandbox.io/s/github/pxblue/mapbox/tree/master/react-demo`}
 />
 
-If your application needs to show data on a geographical map, PX Blue supports the use of [Mapbox](https://www.mapbox.com/), a visually pleasing mapping solution that uses data from OpenStreetMap.
+Maps are used to represent spatial or geographical data. Typically they are used to plot sets of locations or facilities that a user is responsible for.
 
-Mapbox can be used on Android and iOS or on the web with Angular and React. A PX Blue theme for styling these maps is available as an NPM package ([@pxblue/mapbox](https://www.npmjs.com/package/@pxblue/mapbox)).
+Maps are usually full-screen elements and are interactive via scrolling, panning, zooming, etc.
 
-> Using Mapbox is subject to certain [terms](https://www.mapbox.com/pricing/). If you would like to use Mapbox in your applications, you will need to work with Mapbox to ensure your product is properly licensed.
+<Divider />
+
+# Developers
+
+There are many libraries and services for data visualizations. PX Blue currently provides themes / utilities for the following libraries:
+
+**Angular**, **React** and **Ionic**:
+
+-   Charts & Graphs
+
+    -   [Highcharts](http://www.highcharts.com) ([Pricing](https://shop.highsoft.com/))
+    -   [@pxblue/highcharts](https://www.npmjs.com/package/@pxblue/highcharts)
+    -   [ChartJS](https://www.chartjs.org/) (Open Source)
+    -   [@pxblue/chartjs](https://www.npmjs.com/package/@pxblue/chartjs)
+
+-   Maps
+    -   [Mapbox](https://www.mapbox.com/) ([Pricing](https://www.mapbox.com/pricing/))
+    -   [@pxblue/mapbox](https://www.npmjs.com/package/@pxblue/mapbox)
