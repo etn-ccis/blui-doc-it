@@ -2,14 +2,34 @@ import { DemoCard, ImageGrid, MaterialDesignDescription } from '../../app/compon
 import PermanentImg from '../../app/assets/design-patterns/navigation/navigation-permanent.png';
 import TemporaryImg from '../../app/assets/design-patterns/navigation/navigation-temporary.png';
 import PersistentImg from '../../app/assets/design-patterns/navigation/navigation-persistent.png';
+import AnatomyImg from '../../app/assets/design-patterns/navigation/anatomy.png';
+import CollapsibleImg from '../../app/assets/design-patterns/navigation/collapsible.png';
+import ContentCoverDesktopImg from '../../app/assets/design-patterns/navigation/content-cover-desktop.png';
+import ContentCoverTabletImg from '../../app/assets/design-patterns/navigation/content-cover-tablet.png';
+import DividerImg from '../../app/assets/design-patterns/navigation/divider.png';
+import DrawerLabelImg from '../../app/assets/design-patterns/navigation/draweer-label.png';
+import NavigationPermanentImg from '../../app/assets/design-patterns/navigation/navigation-permanent.png';
+import NavigationPersistentImg from '../../app/assets/design-patterns/navigation/navigation-persistent.png';
+import NavigationRailLabeledImg from '../../app/assets/design-patterns/navigation/navigation-rail-labeled.png';
+import NavigationRailSpecsImg from '../../app/assets/design-patterns/navigation/navigaiton-rail-specs.png';
+import NavigationRailImg from '../../app/assets/design-patterns/navigation/navigation-rail.png';
+import NavigationTemporaryImg from '../../app/assets/design-patterns/navigation/navigation-temporary.png';
+import NestedItemStandardsImg from '../../app/assets/design-patterns/navigation/nested-item-standards.png';
+import NestedItemImg from '../../app/assets/design-patterns/navigation/nested-item.png';
+import PanelSpecsImg from '../../app/assets/design-patterns/navigation/panel-specs.png';
+
+
+
 
 <!-- KEYWORDS: design pattern navigation drawer menu -->
 
-# Navigation Patterns
+# Navigation
 
-INSERT PRODUCT EXAMPLE 1
+<ImageGrid images={navigation-banner]} regularWidth />
 
-Navigation is the way in which users access the different areas of your application. Main navigation is typically accomplished through a side drawer navigation panel with a list of links to the various pages in your application. PX Blue applications can have individual page or feature navigation as well. This can be accomplished by the use of tabs that can run across the top of your application.
+Navigation is the way in which users are able to access the different parts of your application.
+
+Main navigation is typically accomplished through a side drawer navigation panel with a list of links to the various pages in your application. PX Blue applications can have individual page or feature navigation as well. This can be accomplished by the use of tabs that can run across the top of your application.
 
 Keep in mind that these navigation patterns are tailored for PX Blue application use. PX Blue will be introducing traditional website navigation patterns in the near future.
 
@@ -25,37 +45,45 @@ Keep in mind that these navigation patterns are tailored for PX Blue application
     style={{marginRight: 0}}
 />
 
-## Fixed Navigation
+# Drawer Navigation
 
-The most basic navigation panel is fixed in place and always visible on the left side of the application The navigation can be a fixed list of icons with labels or a fixed panel that is open and revealing multiple navigation options Due to internationalization and accessibility standards PX Blue recommends the use of an open panel displaying the navigation options Another benefit of using a fixed navigation is the ability to use expandable tree navigation as well as more area for product branding. Note: A fixed navigation panel is not suitable when the application is viewed on smaller resolutions or mobile devices 
+The most basic navigation panel is fixed in place and always visible on the left side of the application The navigation can be a Rail or a Permanent Drawer that is open and revealing multiple navigation options. Other forms include Persistent, Temporary and Collapsible Navigation.
 
-## Collapsible Navigation
+## Permanent
+
+Permanent Navigation refers to a navigation drawer that is set to open with no option too close. The drawer can adopt the same elevation as the header or the elevation can be replaced with a 1px stroke.
+
+<ImageGrid images={[navigation-permanent]} regularWidth />
+
+## Persistant
+
+Persistant Navigation refers to a navigation rail that is always visible while navigating throughout the application. The rail can use any of the patterns defined by PX Blue.
+
+<ImageGrid images={[navigation-persistant]} regularWidth />
+
+## Temporary
+
+Temporary Navigation refers to an open navigation drawer. The drawer only appears when the user takes a direct action to open it. The drawer reverts to it's closed state when the user takes a direct action to close it.
+
+<ImageGrid images={[navigation-temporary]} regularWidth />
+
+## Rail
+
+Rails should be used for top-level destinations that need to be accessible anywhere in an app. It is recommended to keep no more than seven main destinations in a product. Rails are best used in tablet and desktop applications that need to show large amounts of data or additional space to complete complex tasks.
+
+<ImageGrid images={[navigation-rail]} regularWidth />
+
+## Collapsible
 
 A more common implementation of the navigation panel is a collapsible panel that can be opened and closed via the menu icon in the top left corner of the application. This implementation can have two different variations: content-resize or content-cover.
 
-INSERT IMAGE
-
-### Content-Resize / Content-Push
-
-<ImageGrid images={[PermanentImg]} />
-
-The content-resize implementation does not cover any of the main application content. Rather, the navigation panel slides in and the main application container resizes to accommodate (the navigation panel and main panel are side by side instead of one on top of the other). This pattern should be considered for products with large amounts of data displays and application features. 
-
-### Content-Cover
-
-INSERT CONTENT COVER 1 and CONTENT COVER 2
-
-<ImageGrid images={[TemporaryImg]} />
-
-<!-- @TODO switch side-navigation links over to the "Component Recommendations style" instead of a "Interactive Code example" once we have one designed. -->
-
-<DemoCard
-    repository={'side-navigation'}
-    angular={'https://pxblue-components.github.io/angular/?path=/story/components-drawer--with-full-config'}
-    react
-/>
-
-In this implementation, the navigation panel slides out from the side, partially obscuring the main content of the application. It is often implemented with a dark overlay that blocks the main application and directs the user's focus to the navigation panel that was opened. This pattern is more common on smaller devices such as tablets and mobile applications. 
+<ImageGrid 
+    images={[collapsible]} 
+    caption={
+        'Figure 1 displays the normal collapsed state of the menu.
+         Figure 2 displays the open state of the menu..'
+    }
+regularWidth />
 
 ## Icon Navigation Bar / Responsive Navigation
 
@@ -66,47 +94,103 @@ In this implementation, the navigation panel slides out from the side, partially
     }
 />
 
-<!-- @TODO switch icon-navigation links over to the "Component Recommendations style" instead of a "Interactive Code example" once we have one designed. -->
-
 <DemoCard
     repository={'icon-navigation'}
     angular={'https://pxblue-components.github.io/angular/?path=/story/components-drawer--within-a-drawer-layout'}
     react={'https://pxblue-components.github.io/react/?path=/story/components-drawer--in-drawer-layout'}
 />
 
+### Behavior
+
 The icon navigation bar (a.k.a. "[navigation rail](https://material.io/components/navigation-rail/#anatomy)" on Material.io) is a minimalist approach to the navigation panel. It features a single icon to represent each of the main areas of the application. This navigation panel is typically used on larger screens only, and is expandable to a full side navigation panel on hover or when clicking the menu icon.
 
 These may be used in conjunction with Bottom Tab navigation - on larger resolution displays, bottom tabs would become elements in the side navigation.
 
-## PX Blue Variations
+# Tab Navigation
 
-INSERT Generic Example 1
+Tabs help apps organize and allow navigation between groups of content that are related. A common use case for this pattern are Settings pages.
 
-PX Blue provides the foundation for a wide range of navigation patterns. Ultimately the product will determine which pattern is best to use. The following sections provide PX Blue recommendations for common variation styles and standards on which variation to use in your product.
+<ImageGrid images={[navigation-tabs]} regularWidth />
 
-### Nested Navigation Items
+# Common Use Cases
 
-PX Blue provides patterns to allow products to nest multiple layers of navigation options in the Navigation Menu. It is recommended not to exceed 2 levels of nested navigation. The graphic below illustrates the preferred style for nested navigation items.
+You can refer to the Material Design Navigation guidelines for general usage instructions.
 
-INSERT NESTED ITEM EXAMPLE
+Navigation drawers are recommended for:
 
-INSERT NESTED ITEM STANDARDS
+- Apps with five or more top-level destinations
+- Apps with two or more levels of navigation hierarchy
+- Quick navigation between unrelated destinations
 
-### Expandable Account Information
+Rails are recommended for:
 
-PX Blue provides patterns for expandable account and settings within the navigation drawer. This feature can be found via a dropdown in expanded header area. It is recommended to use this pattern sparingly.
+- Top-level destinations that need to be accessible anywhere in an app
+- Applications that have no more than seven destinations
+- Tablet or desktop layouts
+- Apps that require more space to preform tasks or display information
 
-INSERT EXPANDABLE ACCOUNT INFORMATION 
+# Variations
 
-### Dividers
+<ImageGrid images={[anatomy]} regularWidth />
+
+## Nested Navigation Items
+
+You can nest multiple layers of navigation options in the Navigation Menu. It is recommended not to exceed two levels of nested navigation. 
+
+<ImageGrid images={[nested-item, nested-item-standards]} regularWidth />
+
+## Content-Cover
+
+In this implementation, the navigation panel slides out from the side, partially obscuring the main content of the application. It is often implemented with a dark overlay that blocks the main application and directs the user's focus to the navigation panel that was opened. This pattern is more common on smaller devices such as tablets and mobile applications. 
+
+<ImageGrid 
+    images={[content-cover-desktop
+    caption={
+        'Figure 1 displays the normal collapsed state of the menu for desktop.
+         Figure 2 displays the open state of the menu with a gray overlay.'
+    ,content-cover-tablet]} 
+    caption={
+        'Figure 1 displays the normal collapsed state of the menu for tablet.
+         Figure 2 displays the open state of the menu with a gray overlay.'
+    }
+regularWidth />
+
+<!-- @TODO switch side-navigation links over to the "Component Recommendations style" instead of a "Interactive Code example" once we have one designed. -->
+
+<DemoCard
+    repository={'side-navigation'}
+    angular={'https://pxblue-components.github.io/angular/?path=/story/components-drawer--with-full-config'}
+    react
+/>
+
+## Dividers
 
 Dividers find the most usage in the Collapsible Navigation pattern. The reason for this is to help distinguish the clickable areas for the icons (collapsed state). In General avoid adding divider lines in random areas. However, there are some exceptions to the rules. For example, Footer, section header and nested nav items can use dividers to help break the content out from the rest of the list.
 
-INSERT DIVIDER IMAGE
+<ImageGrid images={[divider]} regularWidth />
 
-### Footer Behavior
+## Footer Behavior
 
 PX Blue recommends the use of a pinned footer in the navigation panel on all panel variations. An exception to this rule is if there is an extremely large menu structure. Exceptions can also be made if the product is using an expended header that is displaying a logo. 
 
+# Design Specifications
 
+<ImageGrid images={[navigation-rail-specs, navigation-rail-labeled, panel-specs, panel-label]} regularWidth />
 
+<Divider />
+
+# Developers
+
+Use the following components to implement this pattern:
+
+**Angular** and **Ionic** - @pxblue/angular-components:
+
+- [Drawer](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+
+**React** - @pxblue/react-components:
+
+- [Drawer](https://pxblue-components.github.io/react/?path=/info/components-drawer--get-read-me-story)
+
+**React Native** - @pxblue/react-native-components:
+
+- [Drawer](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--drawer)
