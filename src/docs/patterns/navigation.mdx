@@ -150,10 +150,16 @@ With content-resize, the main application content resizes its area to accommodat
 With content-cover, the navigation panel appears on top of the main application content, partially obscuring it. This typically uses a dark overlay behind the drawer to direct the user's focus to the navigation panel and block interaction with the main content. This pattern is most common when using the temporary drawer variant on mobile and tablet applications.
 
 <ImageGrid
-    images={[ContentCoverDesktopImg, ContentCoverTabletImg]}
+    images={[ContentCoverDesktopImg]}
     caption={[
         'Figure 1 displays the normal collapsed state of the menu for desktop.',
         'Figure 2 displays the open state of the menu with a gray overlay.',
+    ]}
+    regularWidth
+/>
+<ImageGrid
+    images={[ContentCoverTabletImg]}
+    caption={[
         'Figure 1 displays the normal collapsed state of the menu for tablet.',
         'Figure 2 displays the open state of the menu with a gray overlay.',
     ]}
