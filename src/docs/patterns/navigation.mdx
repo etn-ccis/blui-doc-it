@@ -1,192 +1,189 @@
-import { DemoCard, ImageGrid, MaterialDesignDescription } from '../../app/components';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
 import PermanentImg from '../../app/assets/design-patterns/navigation/navigation-permanent.png';
-import TemporaryImg from '../../app/assets/design-patterns/navigation/navigation-temporary.png';
+// import TemporaryImg from '../../app/assets/design-patterns/navigation/navigation-temporary.png';
 import PersistentImg from '../../app/assets/design-patterns/navigation/navigation-persistent.png';
 import AnatomyImg from '../../app/assets/design-patterns/navigation/anatomy.png';
+import Banner from '../../app/assets/design-patterns/navigation/banner.svg';
 import CollapsibleImg from '../../app/assets/design-patterns/navigation/collapsible.png';
 import ContentCoverDesktopImg from '../../app/assets/design-patterns/navigation/content-cover-desktop.png';
 import ContentCoverTabletImg from '../../app/assets/design-patterns/navigation/content-cover-tablet.png';
-import DividerImg from '../../app/assets/design-patterns/navigation/divider.png';
-import DrawerLabelImg from '../../app/assets/design-patterns/navigation/draweer-label.png';
+// import DividerImg from '../../app/assets/design-patterns/navigation/divider.png';
 import NavigationPermanentImg from '../../app/assets/design-patterns/navigation/navigation-permanent.png';
 import NavigationPersistentImg from '../../app/assets/design-patterns/navigation/navigation-persistent.png';
 import NavigationRailLabeledImg from '../../app/assets/design-patterns/navigation/navigation-rail-labeled.png';
-import NavigationRailSpecsImg from '../../app/assets/design-patterns/navigation/navigaiton-rail-specs.png';
+import NavigationRailSpecsImg from '../../app/assets/design-patterns/navigation/navigation-rail-specs.png';
 import NavigationRailImg from '../../app/assets/design-patterns/navigation/navigation-rail.png';
 import NavigationTemporaryImg from '../../app/assets/design-patterns/navigation/navigation-temporary.png';
 import NestedItemStandardsImg from '../../app/assets/design-patterns/navigation/nested-item-standards.png';
 import NestedItemImg from '../../app/assets/design-patterns/navigation/nested-item.png';
 import PanelSpecsImg from '../../app/assets/design-patterns/navigation/panel-specs.png';
-
-
-
-
-<!-- New Images -->
-
-import ProductExample1 from '../../app/assets/design-patterns/navigation/Product Example 1.png';
-import ContentCover1 from '../../app/assets/design-patterns/navigation/Content Cover 1.png';
-import ContentCover2 from '../../app/assets/design-patterns/navigation/Content Cover 2.png';
-import GenericExample1 from '../../app/assets/design-patterns/navigation/Generic Example 1.png';
-import NestedItemExample from '../../app/assets/design-patterns/navigation/Nested Item Example.png';
-import NestedItemStandards from '../../app/assets/design-patterns/navigation/Nested Item Standards.png';
-import ExpandableAccountInfo from '../../app/assets/design-patterns/navigation/Expandable Account Information.png';
+// import ProductExample1 from '../../app/assets/design-patterns/navigation/Product Example 1.png';
+// import ContentCover1 from '../../app/assets/design-patterns/navigation/Content Cover 1.png';
+// import ContentCover2 from '../../app/assets/design-patterns/navigation/Content Cover 2.png';
+// import GenericExample1 from '../../app/assets/design-patterns/navigation/Generic Example 1.png';
+// import NestedItemExample from '../../app/assets/design-patterns/navigation/Nested Item Example.png';
+// import NestedItemStandards from '../../app/assets/design-patterns/navigation/Nested Item Standards.png';
+// import ExpandableAccountInfo from '../../app/assets/design-patterns/navigation/Expandable Account Information.png';
 import DividerImage from '../../app/assets/design-patterns/navigation/Divider Image.png';
 
 <!-- KEYWORDS: design pattern navigation drawer menu -->
 
 # Navigation
 
-<ImageGrid images={navigation-banner]} regularWidth />
+<ImageGrid images={[Banner]} regularWidth />
 
-Navigation is the way in which users are able to access the different parts of your application.
+Navigation refers to the way in which users access the different areas of your application and move from screen to screen. The most common forms of primary navigation are drawers and tabs.
 
-Main navigation is typically accomplished through a side drawer navigation panel with a list of links to the various pages in your application. PX Blue applications can have individual page or feature navigation as well. This can be accomplished by the use of tabs that can run across the top of your application.
-
-Keep in mind that these navigation patterns are tailored for PX Blue application use. PX Blue will be introducing traditional website navigation patterns in the near future.
-
-
-<MaterialDesignDescription
-    title={'Understanding Navigation'}
-    url={'https://material.io/design/navigation/understanding-navigation.html#types-of-navigation'}
-    description={`Read about Material Design's navigation fundamentals.`}
-/>
-<MaterialDesignDescription
-    title={'Navigation Drawer '}
-    url={'https://material.io/components/navigation-drawer/'}
-    style={{marginRight: 0}}
-/>
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'Understanding Navigation'}
+        url={'https://material.io/design/navigation/understanding-navigation.html#types-of-navigation'}
+        description={`Read about Material Design's navigation fundamentals.`}
+    />
+    <MaterialDesignDescription
+        title={'Navigation Drawer '}
+        url={'https://material.io/components/navigation-drawer/'}
+        style={{ marginRight: 0 }}
+    />
+    <Divider />
+</React.Fragment>
 
 # Drawer Navigation
 
-The most basic navigation panel is fixed in place and always visible on the left side of the application The navigation can be a Rail or a Permanent Drawer that is open and revealing multiple navigation options. Other forms include Persistent, Temporary and Collapsible Navigation.
+A navigation drawer is a panel that is attached on the side of your application. These typically contain a [List](/patterns/lists) of primary pages in your application for the user to access quickly.
 
-## Permanent
+Most drawers have four main sections:
 
-Permanent Navigation refers to a navigation drawer that is set to open with no option too close. The drawer can adopt the same elevation as the header or the elevation can be replaced with a 1px stroke.
+-   **Header**: contains...TODO
+-   **Subheader**: contains...TODO
+-   **Body**: contains...TODO
+-   **Footer**: contains...TODO
 
-<ImageGrid images={[navigation-permanent]} regularWidth />
-
-## Persistant
-
-Persistant Navigation refers to a navigation rail that is always visible while navigating throughout the application. The rail can use any of the patterns defined by PX Blue.
-
-<ImageGrid images={[navigation-persistant]} regularWidth />
-
-## Temporary
-
-Temporary Navigation refers to an open navigation drawer. The drawer only appears when the user takes a direct action to open it. The drawer reverts to it's closed state when the user takes a direct action to close it.
-
-<ImageGrid images={[navigation-temporary]} regularWidth />
-
-## Rail
-
-Rails should be used for top-level destinations that need to be accessible anywhere in an app. It is recommended to keep no more than seven main destinations in a product. Rails are best used in tablet and desktop applications that need to show large amounts of data or additional space to complete complex tasks.
-
-<ImageGrid images={[navigation-rail]} regularWidth />
-
-## Collapsible
-
-A more common implementation of the navigation panel is a collapsible panel that can be opened and closed via the menu icon in the top left corner of the application. This implementation can have two different variations: content-resize or content-cover.
-
-<ImageGrid 
-    images={[collapsible]} 
-    caption={
-        'Figure 1 displays the normal collapsed state of the menu.
-         Figure 2 displays the open state of the menu..'
-    }
-regularWidth />
-
-## Icon Navigation Bar / Responsive Navigation
-
-<ImageGrid
-    images={[PersistentImg, PermanentImg]}
-    caption={
-        'When the user hovers on the Navigation Rail, the side navigation will expand temporarily, revealing the text details of each navigation item; when the user moves their cursor away, the whole side navigation panel collapses.'
-    }
-/>
+There are several different styles of drawer navigation, each with slightly different behavior.
 
 <DemoCard
-    repository={'icon-navigation'}
+    repository={'Drawer'}
     angular={'https://pxblue-components.github.io/angular/?path=/story/components-drawer--within-a-drawer-layout'}
     react={'https://pxblue-components.github.io/react/?path=/story/components-drawer--in-drawer-layout'}
 />
 
-### Behavior
+## Permanent
 
-The icon navigation bar (a.k.a. "[navigation rail](https://material.io/components/navigation-rail/#anatomy)" on Material.io) is a minimalist approach to the navigation panel. It features a single icon to represent each of the main areas of the application. This navigation panel is typically used on larger screens only, and is expandable to a full side navigation panel on hover or when clicking the menu icon.
+A permanent drawer is always visible and always open. The permanent drawer is typically full-width, as opposed to the rail variant (see below). Use this variation if you have:
 
-These may be used in conjunction with Bottom Tab navigation - on larger resolution displays, bottom tabs would become elements in the side navigation.
+-   five or more top-level pages
+-   a nested navigation hierarchy
+-   enough space to justify it (typically desktop-only applications)
+
+<ImageGrid images={[NavigationPermanentImg]} regularWidth />
+
+## Rail
+
+A navigation rail is a permanently collapsed drawer. The rail is able to show less information than a standard drawer, but has the advantage of a more compact, space-saving package. Use this variation if you have:
+
+-   fewer than seven top-level pages
+-   a flat navigation hierarchy
+-   limited space
+
+<ImageGrid images={[NavigationRailImg]} regularWidth />
+
+## Persistent
+
+A persistent drawer is an always-visible drawer that can be opened and closed (expanded or collapsed). In its opened state, it looks and behaves like a permanent drawer. It the closed state, it looks and behaves like a navigation rail. The drawer is typically opened and closed by clicking an icon in the header. It can also be opened momentarily on desktop applications by hovering with the mouse. Use this variation if you have:
+
+-   TODO
+
+<React.Fragment>
+    <ImageGrid
+        images={[CollapsibleImg]}
+        caption={[
+            'Figure 1 displays the normal collapsed state of the menu.',
+            'Figure 2 displays the open state of the menu.',
+        ]}
+        regularWidth
+    />
+    <ImageGrid
+        images={[PersistentImg, PermanentImg]}
+        caption={
+            'When the user hovers on the Navigation Rail, the side navigation will expand temporarily, revealing the text details of each navigation item; when the user moves their cursor away, the whole side navigation panel collapses.'
+        }
+    />
+</React.Fragment>
+
+## Temporary
+
+A temporary drawer is invisible until it is opened — typically by pressing a button in the [App Bar](/patterns/appbar). This variation of the drawer appears on top of the main navigation, typically using a dark overlay to block interaction with the main content. Use this variation if you have:
+
+-   a mobile application
+-   extreme space limitations
+
+<React.Fragment>
+    <ImageGrid images={[NavigationTemporaryImg]} regularWidth />
+    <Divider />
+</React.Fragment>
 
 # Tab Navigation
 
-Tabs help apps organize and allow navigation between groups of content that are related. A common use case for this pattern are Settings pages.
+> TODO: Image Missing
 
-<ImageGrid images={[navigation-tabs]} regularWidth />
+Tab navigation uses a horizontal bar with buttons for each navigation location. These can appear at the top or bottom of your application. Tabs can be used in conjunction with drawer navigation as a way to navigate between sub-pages (e.g., you may have several sub-pages on your main settings page).
 
-# Common Use Cases
+<React.Fragment>
+    <MaterialDesignDescription title={'Tabs'} url={'https://material.io/components/tabs'} />
+    <MaterialDesignDescription title={'Bottom Navigation'} url={'https://material.io/components/bottom-navigation'} />
+</React.Fragment>
 
-You can refer to the Material Design Navigation guidelines for general usage instructions.
+# Behaviors
 
-Navigation drawers are recommended for:
+## Nested Navigation
 
-- Apps with five or more top-level destinations
-- Apps with two or more levels of navigation hierarchy
-- Quick navigation between unrelated destinations
+When using drawer navigation, you can have multiple levels of navigation hierarchy. These appear as expandable panels in the drawer. When using a hierarchical navigation in the drawer, you should try to limit yourself to now more than two levels.
 
-Rails are recommended for:
+<ImageGrid images={[NestedItemImg, NestedItemStandardsImg]} regularWidth />
 
-- Top-level destinations that need to be accessible anywhere in an app
-- Applications that have no more than seven destinations
-- Tablet or desktop layouts
-- Apps that require more space to preform tasks or display information
+## Content-Cover vs. Content-Resize
 
-# Variations
+When a drawer is opened, there are two ways to deal with the main application content.
 
-<ImageGrid images={[anatomy]} regularWidth />
+With content-resize, the main application content resizes its area to accommodate the expanded drawer. This is the default behavior for most drawer variations.
 
-## Nested Navigation Items
+With content-cover, the navigation panel appears on top of the main application content, partially obscuring it. This typically uses a dark overlay behind the drawer to direct the user's focus to the navigation panel and block interaction with the main content. This pattern is most common when using the temporary drawer variant on mobile and tablet applications.
 
-You can nest multiple layers of navigation options in the Navigation Menu. It is recommended not to exceed two levels of nested navigation. 
-
-<ImageGrid images={[nested-item, nested-item-standards]} regularWidth />
-
-## Content-Cover
-
-In this implementation, the navigation panel slides out from the side, partially obscuring the main content of the application. It is often implemented with a dark overlay that blocks the main application and directs the user's focus to the navigation panel that was opened. This pattern is more common on smaller devices such as tablets and mobile applications. 
-
-<ImageGrid 
-    images={[content-cover-desktop
-    caption={
-        'Figure 1 displays the normal collapsed state of the menu for desktop.
-         Figure 2 displays the open state of the menu with a gray overlay.'
-    ,content-cover-tablet]} 
-    caption={
-        'Figure 1 displays the normal collapsed state of the menu for tablet.
-         Figure 2 displays the open state of the menu with a gray overlay.'
-    }
-regularWidth />
-
-<!-- @TODO switch side-navigation links over to the "Component Recommendations style" instead of a "Interactive Code example" once we have one designed. -->
-
-<DemoCard
-    repository={'side-navigation'}
-    angular={'https://pxblue-components.github.io/angular/?path=/story/components-drawer--with-full-config'}
-    react
+<ImageGrid
+    images={[ContentCoverDesktopImg]}
+    caption={[
+        'Figure 1 displays the normal collapsed state of the menu for desktop.',
+        'Figure 2 displays the open state of the menu with a gray overlay.',
+    ]}
+    regularWidth
+/>
+<ImageGrid
+    images={[ContentCoverTabletImg]}
+    caption={[
+        'Figure 1 displays the normal collapsed state of the menu for tablet.',
+        'Figure 2 displays the open state of the menu with a gray overlay.',
+    ]}
+    regularWidth
 />
 
 ## Dividers
 
-Dividers find the most usage in the Collapsible Navigation pattern. The reason for this is to help distinguish the clickable areas for the icons (collapsed state). In General avoid adding divider lines in random areas. However, there are some exceptions to the rules. For example, Footer, section header and nested nav items can use dividers to help break the content out from the rest of the list.
+Divider lines can be used between navigation items in the drawer. They are most effective when used for:
 
-<ImageGrid images={[divider]} regularWidth />
+-   separating nested drawer items
+-   separating sections of the drawer contents
 
-## Footer Behavior
-
-PX Blue recommends the use of a pinned footer in the navigation panel on all panel variations. An exception to this rule is if there is an extremely large menu structure. Exceptions can also be made if the product is using an expended header that is displaying a logo. 
+<ImageGrid
+    images={[DividerImage]}
+    regularWidth
+    caption={['Avoid using divider lines between every navigation item. These can make the drawer appear busy.']}
+/>
 
 # Design Specifications
 
-<ImageGrid images={[navigation-rail-specs, navigation-rail-labeled, panel-specs, panel-label]} regularWidth />
+<ImageGrid images={[NavigationRailSpecsImg, NavigationRailLabeledImg, PanelSpecsImg]} regularWidth />
+
+TODO: Tab specs if there are any differences from Material?
 
 <Divider />
 
@@ -194,14 +191,23 @@ PX Blue recommends the use of a pinned footer in the navigation panel on all pan
 
 Use the following components to implement this pattern:
 
-**Angular** and **Ionic** - @pxblue/angular-components:
+**Angular** and **Ionic**:
 
-- [Drawer](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+-   Angular Material
+    -   [Side Nav](https://material.angular.io/components/sidenav/overview)
+    -   [Tabs](https://material.angular.io/components/tabs/overview)
+-   @pxblue/angular-components
+    -   [Drawer](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
 
-**React** - @pxblue/react-components:
+**React**:
 
-- [Drawer](https://pxblue-components.github.io/react/?path=/info/components-drawer--get-read-me-story)
+-   Material UI
+    -   [Drawer](https://material-ui.com/components/drawers/)
+    -   [Tabs](https://material-ui.com/components/tabs/)
+-   @pxblue/react-components
+    -   [Drawer](https://pxblue-components.github.io/react/?path=/info/components-drawer--get-read-me-story)
 
-**React Native** - @pxblue/react-native-components:
+**React Native**:
 
-- [Drawer](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--drawer)
+-   @pxblue/react-native-components
+    -   [Drawer](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--drawer)

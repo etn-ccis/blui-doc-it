@@ -17,7 +17,7 @@ import {
 
 import { PageContent, ExpansionHeader } from '../components';
 
-import { Status, RoadmapItem, Quarter, RoadmapBucket, FrameworkFilter, ItemTypeFilter } from '../../__types__';
+import { Status, RoadmapItem, RoadmapBucket, FrameworkFilter, ItemTypeFilter, Release } from '../../__types__';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
@@ -113,7 +113,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const [typeFilter, setTypeFilter] = useState<ItemTypeFilter>('all');
     const [statusFilter, setStatusFilter] = useState<Status | 'all'>('all');
     const [frameworkFilter, setFrameworkFilter] = useState<FrameworkFilter>('all');
-    const [quarterFilter, setQuarterFilter] = useState<Quarter | 'all'>('all');
+    const [releaseFilter, setReleaseFilter] = useState<Release | 'all'>('R18');
     const [roadmap, setRoadmap] = useState<RoadmapBucket[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
@@ -140,12 +140,18 @@ export const Roadmap: React.FC = (): JSX.Element => {
         };
     }, []);
 
+    const filterByRelease = (release: Release, item: any): boolean =>
+        (release === 'R16' && item.quarter === 'Q2' && item.year === 2020) ||
+        (release === 'R17' && item.quarter === 'Q3' && item.year === 2020) ||
+        (release === 'R18' && item.quarter === 'Q4' && item.year === 2020) ||
+        (release === 'R19' && item.quarter === 'Q1' && item.year === 2021);
+
     const clearFilters = useCallback(() => {
         setTypeFilter('all');
         setFrameworkFilter('all');
-        setQuarterFilter('all');
+        setReleaseFilter('all');
         setStatusFilter('all');
-    }, [setTypeFilter, setFrameworkFilter, setQuarterFilter, setStatusFilter]);
+    }, [setTypeFilter, setFrameworkFilter, setReleaseFilter, setStatusFilter]);
 
     let results = 0;
     const roadmapBuckets =
@@ -187,7 +193,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                 item.framework.includes(frameworkFilter) ||
                                 item.framework.includes('all') ||
                                 frameworkFilter === 'all') &&
-                            (item.quarter === quarterFilter || quarterFilter === 'all') &&
+                            (filterByRelease(releaseFilter, item) || releaseFilter === 'all') &&
                             (item.status === statusFilter || statusFilter === 'all');
                         if (show) results++;
                         return show;
@@ -265,17 +271,17 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         </Select>
                     )}
                     <Select
-                        value={quarterFilter}
+                        value={releaseFilter}
                         disableUnderline
-                        onChange={(e): void => setQuarterFilter(e.target.value as Quarter)}
+                        onChange={(e): void => setReleaseFilter(e.target.value as Release)}
                         classes={{ icon: classes.selectIcon }}
                         className={classes.select}
                     >
-                        <MenuItem value={'all'}>Any Quarter</MenuItem>
-                        {/* <MenuItem value={'Q1'}>Q1</MenuItem> */}
-                        {/*<MenuItem value={'Q2'}>Q2</MenuItem> */}
-                        <MenuItem value={'Q3'}>Q3</MenuItem>
-                        <MenuItem value={'Q4'}>Q4</MenuItem>
+                        <MenuItem value={'all'}>Any Release</MenuItem>
+                        <MenuItem value={'R16'}>R16 (2Q20)</MenuItem>
+                        <MenuItem value={'R17'}>R17 (3Q20)</MenuItem>
+                        <MenuItem value={'R18'}>R18 (4Q20)</MenuItem>
+                        <MenuItem value={'R19'}>R19 (1Q21)</MenuItem>
                     </Select>
                     <Select
                         value={statusFilter}

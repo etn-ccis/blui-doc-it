@@ -212,6 +212,7 @@ export const pageDefinitions: SimpleNavItem[] = [
                 title: 'Page Layout',
                 url: '/layout',
                 component: <MarkdownPage title={'Page Layout'} markdown={Docs.Patterns.Layout} />,
+                hidden: true,
             },
             {
                 title: 'Steppers',
