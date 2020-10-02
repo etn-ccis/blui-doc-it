@@ -15,6 +15,9 @@ import NavigationRailSpecsImg from '../../app/assets/design-patterns/navigation/
 import NavigationRailImg from '../../app/assets/design-patterns/navigation/navigation-rail.png';
 import NavigationTemporaryImg from '../../app/assets/design-patterns/navigation/navigation-temporary.png';
 import NestedItemStandardsImg from '../../app/assets/design-patterns/navigation/nested-item-standards.png';
+import NavigationTabsImg from '../../app/assets/design-patterns/navigation/navigation-tabs.png';
+import NavigationTabsSpecsImg from '../../app/assets/design-patterns/navigation/navigation-tabs-specs.png';
+import NavigationBreakdownImg from '../../app/assets/design-patterns/navigation/navigation-breakdown.png';
 import NestedItemImg from '../../app/assets/design-patterns/navigation/nested-item.png';
 import PanelSpecsImg from '../../app/assets/design-patterns/navigation/panel-specs.png';
 // import ProductExample1 from '../../app/assets/design-patterns/navigation/Product Example 1.png';
@@ -52,12 +55,14 @@ Navigation refers to the way in which users access the different areas of your a
 
 A navigation drawer is a panel that is attached on the side of your application. These typically contain a [List](/patterns/lists) of primary pages in your application for the user to access quickly.
 
+<ImageGrid images={[NavigationBreakdownImg]} regularWidth />
+
 Most drawers have four main sections:
 
--   **Header**: contains...TODO
--   **Subheader**: contains...TODO
--   **Body**: contains...TODO
--   **Footer**: contains...TODO
+-   **Header**: contains the name of the company
+-   **Subheader**: contains the product 
+-   **Body**: contains a list of primary pages that users can navigate too
+-   **Footer**: contains company logo, version number and trademark information
 
 There are several different styles of drawer navigation, each with slightly different behavior.
 
@@ -91,7 +96,9 @@ A navigation rail is a permanently collapsed drawer. The rail is able to show le
 
 A persistent drawer is an always-visible drawer that can be opened and closed (expanded or collapsed). In its opened state, it looks and behaves like a permanent drawer. It the closed state, it looks and behaves like a navigation rail. The drawer is typically opened and closed by clicking an icon in the header. It can also be opened momentarily on desktop applications by hovering with the mouse. Use this variation if you have:
 
--   TODO
+-   fewer than seven top-level pages
+-   primary pages with labels that require complex icons or may be too long to wrap effectivly
+-   limited space but require a nested navigation hierarchy
 
 <React.Fragment>
     <ImageGrid
@@ -124,9 +131,9 @@ A temporary drawer is invisible until it is opened — typically by pressing a b
 
 # Tab Navigation
 
-> TODO: Image Missing
-
 Tab navigation uses a horizontal bar with buttons for each navigation location. These can appear at the top or bottom of your application. Tabs can be used in conjunction with drawer navigation as a way to navigate between sub-pages (e.g., you may have several sub-pages on your main settings page).
+
+<ImageGrid images={[NavigationTabsImg]} regularWidth />
 
 <React.Fragment>
     <MaterialDesignDescription title={'Tabs'} url={'https://material.io/components/tabs'} />
@@ -181,9 +188,7 @@ Divider lines can be used between navigation items in the drawer. They are most 
 
 # Design Specifications
 
-<ImageGrid images={[NavigationRailSpecsImg, NavigationRailLabeledImg, PanelSpecsImg]} regularWidth />
-
-TODO: Tab specs if there are any differences from Material?
+<ImageGrid images={[NavigationRailSpecsImg, NavigationRailLabeledImg, PanelSpecsImg, NavigationTabsSpecsImg]} regularWidth />
 
 <Divider />
 
