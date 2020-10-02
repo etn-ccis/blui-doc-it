@@ -59,8 +59,8 @@ A navigation drawer is a panel that is attached on the side of your application.
 
 Most drawers have four main sections:
 
--   **Header**: contains the name of the company
--   **Subheader**: contains the product 
+-   **Header**: contains the name of the company, name of the product or a logo
+-   **Subheader**: optional section that can be used to support custom content, such as filtering or search
 -   **Body**: contains a list of primary pages that users can navigate too
 -   **Footer**: contains company logo, version number and trademark information
 
@@ -88,7 +88,7 @@ A navigation rail is a permanently collapsed drawer. The rail is able to show le
 
 -   fewer than seven top-level pages
 -   a flat navigation hierarchy
--   limited space
+-   limited space - recommended for HMI devices
 
 <ImageGrid images={[NavigationRailImg]} regularWidth />
 
@@ -131,7 +131,7 @@ A temporary drawer is invisible until it is opened — typically by pressing a b
 
 # Tab Navigation
 
-Tab navigation uses a horizontal bar with buttons for each navigation location. These can appear at the top or bottom of your application. Tabs can be used in conjunction with drawer navigation as a way to navigate between sub-pages (e.g., you may have several sub-pages on your main settings page).
+Tab navigation uses a horizontal bar with buttons for each navigation location. These can appear at the top or bottom of your application. On desktop and tablet, tabs at the top can be used in conjunction with drawer navigation as a way to navigate between sub-pages (e.g., you may have several sub-pages on your main settings page). Bottom tabs can be used in conjuction but is recommended that this pattern replaces the drawer navigation. On mobile it is also possible to combine top and bottom tabs on a single page.
 
 <ImageGrid images={[NavigationTabsImg]} regularWidth />
 
@@ -139,6 +139,8 @@ Tab navigation uses a horizontal bar with buttons for each navigation location. 
     <MaterialDesignDescription title={'Tabs'} url={'https://material.io/components/tabs'} />
     <MaterialDesignDescription title={'Bottom Navigation'} url={'https://material.io/components/bottom-navigation'} />
 </React.Fragment>
+
+<Divider />
 
 # Behaviors
 
