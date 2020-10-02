@@ -34,17 +34,19 @@ import DividerImage from '../../app/assets/design-patterns/navigation/Divider Im
 
 Navigation refers to the way in which users access the different areas of your application and move from screen to screen. The most common forms of primary navigation are drawers and tabs.
 
-<MaterialDesignDescription
-    title={'Understanding Navigation'}
-    url={'https://material.io/design/navigation/understanding-navigation.html#types-of-navigation'}
-    description={`Read about Material Design's navigation fundamentals.`}
-/>
-<MaterialDesignDescription
-    title={'Navigation Drawer '}
-    url={'https://material.io/components/navigation-drawer/'}
-    style={{marginRight: 0}}
-/>
-<Divider />
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'Understanding Navigation'}
+        url={'https://material.io/design/navigation/understanding-navigation.html#types-of-navigation'}
+        description={`Read about Material Design's navigation fundamentals.`}
+    />
+    <MaterialDesignDescription
+        title={'Navigation Drawer '}
+        url={'https://material.io/components/navigation-drawer/'}
+        style={{ marginRight: 0 }}
+    />
+    <Divider />
+</React.Fragment>
 
 # Drawer Navigation
 
@@ -91,19 +93,22 @@ A persistent drawer is an always-visible drawer that can be opened and closed (e
 
 -   TODO
 
-<ImageGrid 
-    images={[CollapsibleImg]} 
-    caption={[
-        'Figure 1 displays the normal collapsed state of the menu.',
-        'Figure 2 displays the open state of the menu.'
-    ]}
-regularWidth />
-<ImageGrid
-    images={[PersistentImg, PermanentImg]}
-    caption={
-        'When the user hovers on the Navigation Rail, the side navigation will expand temporarily, revealing the text details of each navigation item; when the user moves their cursor away, the whole side navigation panel collapses.'
-    }
-/>
+<React.Fragment>
+    <ImageGrid
+        images={[CollapsibleImg]}
+        caption={[
+            'Figure 1 displays the normal collapsed state of the menu.',
+            'Figure 2 displays the open state of the menu.',
+        ]}
+        regularWidth
+    />
+    <ImageGrid
+        images={[PersistentImg, PermanentImg]}
+        caption={
+            'When the user hovers on the Navigation Rail, the side navigation will expand temporarily, revealing the text details of each navigation item; when the user moves their cursor away, the whole side navigation panel collapses.'
+        }
+    />
+</React.Fragment>
 
 ## Temporary
 
@@ -112,8 +117,10 @@ A temporary drawer is invisible until it is opened — typically by pressing a b
 -   a mobile application
 -   extreme space limitations
 
-<ImageGrid images={[NavigationTemporaryImg]} regularWidth />
-<Divider />
+<React.Fragment>
+    <ImageGrid images={[NavigationTemporaryImg]} regularWidth />
+    <Divider />
+</React.Fragment>
 
 # Tab Navigation
 
@@ -121,14 +128,10 @@ A temporary drawer is invisible until it is opened — typically by pressing a b
 
 Tab navigation uses a horizontal bar with buttons for each navigation location. These can appear at the top or bottom of your application. Tabs can be used in conjunction with drawer navigation as a way to navigate between sub-pages (e.g., you may have several sub-pages on your main settings page).
 
-<MaterialDesignDescription
-    title={'Tabs'}
-    url={'https://material.io/components/tabs'}
-/>
-<MaterialDesignDescription
-    title={'Bottom Navigation'}
-    url={'https://material.io/components/bottom-navigation'}
-/>
+<React.Fragment>
+    <MaterialDesignDescription title={'Tabs'} url={'https://material.io/components/tabs'} />
+    <MaterialDesignDescription title={'Bottom Navigation'} url={'https://material.io/components/bottom-navigation'} />
+</React.Fragment>
 
 # Behaviors
 
