@@ -5,9 +5,9 @@ import InternationalizationImg from '../../app/assets/design-patterns/internatio
 import ListImg from '../../app/assets/design-patterns/lists/lists.svg';
 import LoadingImage from '../../app/assets/design-patterns/loading-states/loading-banner.svg';
 import LoginBanner from '../../app/assets/design-patterns/user-authentication/login.svg';
-import NavigationtImg from '../../app/assets/design-patterns/navigation/navigation-permanent.png';
+import NavigationtImg from '../../app/assets/design-patterns/navigation/banner.svg';
 import OverlayBanner from '../../app/assets/design-patterns/overlays/overlay-banner.svg';
-import PageLayoutImg from '../../app/assets/design-patterns/page-layout/layout-banner.svg';
+// import PageLayoutImg from '../../app/assets/design-patterns/page-layout/layout-banner.svg';
 import StepperImg from '../../app/assets/design-patterns/steppers/steppers-banner.svg';
 import VisualizationImage from '../../app/assets/design-patterns/visualizations/visualizations-banner.svg';
 
@@ -72,12 +72,12 @@ export const patterns = [
             position: 'center',
         },
     },
-    {
-        title: 'Page Layout',
-        url: '/patterns/layout',
-        description: 'Laying out elements on the screen.',
-        image: PageLayoutImg,
-    },
+    // {
+    //     title: 'Page Layout',
+    //     url: '/patterns/layout',
+    //     description: 'Laying out elements on the screen.',
+    //     image: PageLayoutImg,
+    // },
     {
         title: 'Steppers',
         url: '/patterns/steppers',
@@ -101,5 +101,8 @@ export const patterns = [
         url: '/patterns/visualizations',
         description: 'Adding charts and maps to your applications.',
         image: VisualizationImage,
+        background: {
+            position: '65%',
+        },
     },
 ];
