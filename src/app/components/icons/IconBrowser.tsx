@@ -333,7 +333,8 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                                                             selected={
                                                                 focusedIcon &&
                                                                 getMuiIconName(focusedIcon.name) ===
-                                                                    getMuiIconName(icon.name)
+                                                                    getMuiIconName(icon.name) &&
+                                                                focusedIcon.isMaterial === icon.isMaterial
                                                             }
                                                         />
                                                     </div>
