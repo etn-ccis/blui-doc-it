@@ -10,9 +10,9 @@ import {
     Tabs,
     Tab,
     Typography,
-    ExpansionPanelSummary,
-    ExpansionPanel,
-    ExpansionPanelActions,
+    AccordionSummary,
+    Accordion,
+    AccordionActions,
     Button,
     makeStyles,
     Theme,
@@ -262,12 +262,8 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
 
     return (
         <div className={classes.iconSheet} hidden={!open}>
-            <ExpansionPanel square defaultExpanded={true} elevation={16}>
-                <ExpansionPanelSummary
-                    expandIcon={<ExpandLessIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                >
+            <Accordion square defaultExpanded={true} elevation={16}>
+                <AccordionSummary expandIcon={<ExpandLessIcon />} aria-controls="panel1a-content" id="panel1a-header">
                     <div style={{ flexDirection: 'row', display: 'flex' }}>
                         <div style={{ flex: '0 1 auto', width: 'auto' }}>
                             <IconCard
@@ -296,7 +292,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                             </Typography>
                         </div>
                     </div>
-                </ExpansionPanelSummary>
+                </AccordionSummary>
                 <div style={{ width: 'auto' }}>
                     <Tabs
                         style={{ marginTop: '0px', marginLeft: '0px' }}
@@ -321,7 +317,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                     {activeTab === 2 && getTabContent(2)}
                     {activeTab === 3 && getTabContent(3)}
                 </div>
-                <ExpansionPanelActions>
+                <AccordionActions>
                     <Button variant="contained" color="inherit" onClick={(): void => props.onClose()}>
                         Close
                     </Button>
@@ -335,8 +331,8 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                             Open in Material.io
                         </Button>
                     )}
-                </ExpansionPanelActions>
-            </ExpansionPanel>
+                </AccordionActions>
+            </Accordion>
         </div>
     );
 };
