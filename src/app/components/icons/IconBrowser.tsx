@@ -283,7 +283,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                                             ? null
                                             : [
                                                   <MaterialIcons.ExpandMore
-                                                      key={`${letterGroup} + ${letterGroup.length}`}
+                                                      key={`${letterGroup}-${letterGroup.length}`}
                                                       className={classes.toggleIcon}
                                                       style={{
                                                           transform: hideLetterGroups[letterGroup]
@@ -313,7 +313,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                                                 })
                                                 .map((icon: Icon) => (
                                                     <div
-                                                        key={`${icon.name} + ${icon.isMaterial.toString()}`}
+                                                        key={`${icon.name}-${icon.isMaterial.toString()}`}
                                                         onClick={(): void => {
                                                             history.replace(
                                                                 `${location.pathname}?icon=${getMuiIconName(icon.name)}`
