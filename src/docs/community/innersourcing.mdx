@@ -1,4 +1,7 @@
-import { Divider, ImageGrid, NewFeatureFormButton } from '../../app/components';
+import { Divider, ImageGrid, NewFeatureFormButton, ContributorsList } from '../../app/components';
+import { currentMaintainers } from '../../__configuration__/contributors';
+import { contributors } from '../../__configuration__/contributors';
+import { TurnedIn } from '@material-ui/icons';
 import FourStepsImg from '../../app/assets/pxblue-conformity.svg';
 
 <!-- KEYWORDS: sharing innersourcing contribute -->
@@ -26,8 +29,8 @@ If you have not used these tools before, they're a great way to play with code a
 
 <ImageGrid
     images={[FourStepsImg]}
-    gridImageProps={{ sm: 8 }}
     caption={'We take four steps to go through a newly proposed idea: evaluate, iterate, implement, and release.'}
+    regularWidth
 />
 
 After we hear from you about an innersourcing opportunity, our first step is to evaluate the proposed idea. How common is this practice? How many Eaton applications use it? How many will use it in the future? Is this a low-hanging fruit or does it require significant effort? Once we reach a conclusion, we will get in touch with you about next steps.
@@ -41,3 +44,17 @@ In most cases, submissions will require some amount of iteration or updates befo
 # Our Code
 
 All of the code samples and documentation from this site can be found on [GitHub](https://github.com/pxblue). You can also check out the [Resources](/resources) page for links to the live demos for our examples.
+
+<Divider />
+
+# Contributors
+
+## Current Maintainers
+
+<ContributorsList contributors={currentMaintainers} />
+
+## Contributors
+
+People who has contributed their code, ideas, designs, blah blah blah, to the ol' glory.
+
+<ContributorsList contributors={contributors} />
