@@ -36,7 +36,7 @@ type LetterGrouping = {
 };
 
 const hideResultsThreshold = 20;
-const Icons: MatIconList = MuiIcons;
+const PXBlueIcons: MatIconList = MuiIcons;
 const MaterialIcons: MatIconList = AllMaterialIcons;
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -133,7 +133,7 @@ const createIconList = (): Icon[] => {
     const iconList: Icon[] = [];
     getFilteredIcons().forEach((icon: DetailedIcon) => {
         const mui = getMuiIconName(icon.filename);
-        if (Icons[mui]) {
+        if (PXBlueIcons[mui]) {
             iconList.push({ name: icon.filename.replace(/\.svg/, ''), isMaterial: false });
         }
     });
@@ -208,9 +208,19 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     const [focusedIcon, setFocusedIcon] = useState<Icon>(() => {
         const blankIcon = { name: '', isMaterial: true };
         const icon = query.icon;
+        const isMaterial = query.isMaterial === 'true' ? true : query.isMaterial === 'false' ? false : undefined;
+
         if (!icon) return blankIcon;
-        if (Icons[icon]) return { name: icon, isMaterial: false };
-        if (MaterialIcons[getMuiIconName(icon)]) return { name: getMuiIconName(icon), isMaterial: true };
+
+        if (isMaterial !== undefined) {
+            if (!isMaterial && PXBlueIcons[icon]) return { name: icon, isMaterial: false };
+            if (isMaterial && MaterialIcons[getMuiIconName(icon)])
+                return { name: getMuiIconName(icon), isMaterial: true };
+        } else {
+            if (PXBlueIcons[icon]) return { name: icon, isMaterial: false };
+            if (MaterialIcons[getMuiIconName(icon)]) return { name: getMuiIconName(icon), isMaterial: true };
+        }
+
         return blankIcon;
     });
     const [filterMaterial, setFilterMaterial] = useState(false);
@@ -316,7 +326,9 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                                                         key={`${icon.name}-${icon.isMaterial.toString()}`}
                                                         onClick={(): void => {
                                                             history.replace(
-                                                                `${location.pathname}?icon=${getMuiIconName(icon.name)}`
+                                                                `${location.pathname}?icon=${getMuiIconName(
+                                                                    icon.name
+                                                                )}&isMaterial=${icon.isMaterial.toString()}`
                                                             );
                                                             setFocusedIcon(icon);
                                                         }}
@@ -326,7 +338,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                                                             component={
                                                                 icon.isMaterial
                                                                     ? MaterialIcons[icon.name]
-                                                                    : Icons[getMuiIconName(icon.name)]
+                                                                    : PXBlueIcons[getMuiIconName(icon.name)]
                                                             }
                                                             name={unCamelCase(getMuiIconName(icon.name))}
                                                             className={classes.iconCard}
