@@ -6,8 +6,8 @@ import {
     createStyles,
     makeStyles,
     List,
-    ExpansionPanel,
-    ExpansionPanelDetails,
+    Accordion,
+    AccordionDetails,
     Divider,
     Select,
     MenuItem,
@@ -346,9 +346,9 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     roadmapBuckets.map((bucket, bIndex) => {
                         if (roadmapBuckets[bIndex].items.length < 1) return null;
                         return (
-                            <ExpansionPanel key={`${bucket.name}_${bIndex}`} defaultExpanded>
+                            <Accordion key={`${bucket.name}_${bIndex}`} defaultExpanded>
                                 <ExpansionHeader name={bucket.name} description={bucket.description} />
-                                <ExpansionPanelDetails style={{ display: 'block', padding: 0 }}>
+                                <AccordionDetails style={{ display: 'block', padding: 0 }}>
                                     <Divider />
                                     <List style={{ padding: 0 }}>
                                         {bucket.items.map((item, index): JSX.Element | null => {
@@ -392,8 +392,8 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                             );
                                         })}
                                     </List>
-                                </ExpansionPanelDetails>
-                            </ExpansionPanel>
+                                </AccordionDetails>
+                            </Accordion>
                         );
                     })}
             </PageContent>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Theme, createStyles, makeStyles, ExpansionPanelSummary } from '@material-ui/core';
+import { Typography, Theme, createStyles, makeStyles, AccordionSummary } from '@material-ui/core';
 
 import { ExpandMore } from '@material-ui/icons';
 
@@ -44,7 +44,7 @@ export const ExpansionHeader: React.FC<ExpansionHeaderProps> = (props): JSX.Elem
     const classes = useStyles();
 
     return (
-        <ExpansionPanelSummary
+        <AccordionSummary
             expandIcon={<ExpandMore color={'primary'} />}
             style={{ padding: '0 16px', margin: 0 }}
             classes={{
@@ -62,6 +62,6 @@ export const ExpansionHeader: React.FC<ExpansionHeaderProps> = (props): JSX.Elem
                 >{`${props.name}: `}</Typography>
                 <Typography color={'primary'} className={classes.expanderSubtitle}>{`${props.description}`}</Typography>
             </div>
-        </ExpansionPanelSummary>
+        </AccordionSummary>
     );
 };
