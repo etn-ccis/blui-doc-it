@@ -2,7 +2,6 @@ import React from 'react';
 import { Card, Typography, makeStyles, Theme, createStyles, useTheme, Avatar, IconButton } from '@material-ui/core';
 import { GitHub, LinkedIn } from '@material-ui/icons';
 import * as BrandingColors from '@pxblue/colors-branding';
-import * as PXBColors from '@pxblue/colors';
 
 import { currentMaintainers } from '../../../__configuration__/contributors';
 import backgroundImage from '../../assets/circles.svg';
@@ -25,18 +24,21 @@ const useStyles = makeStyles((theme: Theme) =>
                 width: theme.spacing(9),
             },
         },
+        leftStripeBackground: {
+            height: '100%',
+            width: '100%',
+            backgroundSize: '400%',
+            backgroundPosition: 'bottom',
+        },
         right: {
             display: 'flex',
             flexDirection: 'column',
             margin: `${theme.spacing(3)}px ${theme.spacing(2)}px ${theme.spacing(1)}px ${theme.spacing(3)}px`,
             '& > *': {
-                marginBottom: theme.spacing(2),
+                marginBottom: theme.spacing(),
             },
             [theme.breakpoints.up('sm')]: {
-                marginLeft: theme.spacing(4),
-            },
-            [theme.breakpoints.up('md')]: {
-                marginLeft: theme.spacing(6),
+                marginLeft: theme.spacing(5),
             },
         },
         avatar: {
@@ -83,12 +85,9 @@ export const MaintainersCards: React.FC = () => {
                     <Card className={classes.card} key={index}>
                         <div className={classes.leftStripe} style={{ backgroundColor: getCardBackgroundColor(index) }}>
                             <div
+                                className={classes.leftStripeBackground}
                                 style={{
                                     backgroundImage: `url('${backgroundImage}')`,
-                                    height: '100%',
-                                    width: '100%',
-                                    backgroundSize: '400%',
-                                    backgroundPosition: 'bottom',
                                 }}
                             />
                         </div>
@@ -108,7 +107,7 @@ export const MaintainersCards: React.FC = () => {
                                             className={classes.contactsIcon}
                                             target={'_blank'}
                                         >
-                                            <GitHub htmlColor={PXBColors.gray[500]} />
+                                            <GitHub htmlColor={theme.palette.text.secondary} />
                                         </IconButton>
                                     )}
                                     {contributor.contacts.linkedIn && (
@@ -118,7 +117,7 @@ export const MaintainersCards: React.FC = () => {
                                             className={classes.contactsIcon}
                                             target={'_blank'}
                                         >
-                                            <LinkedIn htmlColor={PXBColors.gray[500]} />
+                                            <LinkedIn htmlColor={theme.palette.text.secondary} />
                                         </IconButton>
                                     )}
                                 </div>
