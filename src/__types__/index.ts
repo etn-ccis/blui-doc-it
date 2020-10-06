@@ -74,4 +74,13 @@ export type Contributor = {
      * current maintainers only
      */
     info?: string;
+
+    /**
+     * Contact info, social medias
+     * current maintainers only
+     */
+    contacts?: {
+        github?: string;
+        linkedIn?: string;
+    };
 };

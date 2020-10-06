@@ -22,6 +22,11 @@ export const currentMaintainers: Contributor[] = [
         name: 'Joseph Boyle',
         description: `Software development lead`,
         image: JosephBoyle,
+        info: `Whether it's a design or code review, Joe's cross-bred CS and design background makes him uniquely qualified to not-so-sensitively tear your most recent work apart. Befriend at your own risk.`,
+        contacts: {
+            github: 'https://github.com/joebochill',
+            linkedIn: 'https://www.linkedin.com/in/joebochill/',
+        },
     },
     {
         name: 'Jeffery Greiner',
