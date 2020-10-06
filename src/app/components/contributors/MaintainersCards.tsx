@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme: Theme) =>
             flexDirection: 'row',
             margin: `0 -${theme.spacing(2)}px ${theme.spacing()}px`,
             position: 'relative',
-            width: '100%',
             [theme.breakpoints.up('sm')]: {
                 margin: `0 0 ${theme.spacing(2)}px`,
             },
