@@ -301,7 +301,9 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Our Team',
                 url: '/our-team',
-                component: <MarkdownPage title={'Our Team'} markdown={Docs.Community.OurTeam} />,
+                component: (
+                    <MarkdownPage title={'Our Team'} markdown={Docs.Community.OurTeam} background={Colors.white[200]} />
+                ),
             },
             {
                 title: 'Contact Us',

@@ -12,11 +12,20 @@ export const currentMaintainers: Contributor[] = [
         name: 'Huayun Huang',
         description: 'Designer and developer',
         image: HuayunHuang,
+        info: `Huayun is an interesting hybrid between a UX-driven designer and a detailed-oriented developer.`,
+        contacts: {
+            github: `https://github.com/huayunh`,
+            linkedIn: `https://www.linkedin.com/in/huayun-huang/`,
+        },
     },
     {
         name: 'Evan McLaughlin',
         description: `Front-end developer`,
         image: EvanMcLaughlin,
+        info: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`,
+        contacts: {
+            github: 'https://github.com/emclaug2',
+        },
     },
     {
         name: 'Joseph Boyle',
@@ -32,15 +41,27 @@ export const currentMaintainers: Contributor[] = [
         name: 'Jeffery Greiner',
         description: 'Software testing',
         image: JeffeyGreiner,
+        info: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`,
+        contacts: {
+            github: 'https://github.com/jeffvg',
+        },
     },
     {
         name: 'Thomas Dailey',
         description: 'Front-end developer',
         image: ThomasDailey,
+        info: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`,
+        contacts: {
+            github: 'https://github.com/daileytj',
+        },
     },
     {
         name: 'Kyle Horchen',
         description: 'Designer',
         image: KyleHorchen,
+        info: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`,
+        contacts: {
+            github: 'https://github.com/Horchen154',
+        },
     },
 ];

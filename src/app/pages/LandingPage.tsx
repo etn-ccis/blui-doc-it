@@ -145,7 +145,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                 />
             </CardCarousel>
 
-            <LandingSection title={'Contributors'}>
+            <LandingSection title={'Contributors'} background={'light'}>
                 <ContributorsList
                     contributors={currentMaintainers}
                     title={'Current Maintainers'}
