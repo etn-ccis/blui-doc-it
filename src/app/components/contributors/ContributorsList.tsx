@@ -1,14 +1,15 @@
-import React from 'react';
-import { ContributorsCard, Contributor } from './';
+import React, { HTMLAttributes } from 'react';
+import { ContributorsCard } from './';
+import { Contributor } from '../../../__types__';
 import { Grid, Typography } from '@material-ui/core';
 
-type ContributorListProps = {
+type ContributorListProps = HTMLAttributes<HTMLDivElement> & {
     contributors: Contributor[];
     title?: string;
 };
 
 export const ContributorsList: React.FC<ContributorListProps> = (props) => (
-    <>
+    <div style={props.style}>
         {props.title && (
             <div style={{ marginBottom: 16 }}>
                 <Typography variant={'overline'}>{props.title}</Typography>
@@ -16,13 +17,13 @@ export const ContributorsList: React.FC<ContributorListProps> = (props) => (
         )}
         <Grid container spacing={2}>
             {props.contributors
-                .sort((a, b) => (a.name > b.name ? 1 : -1))
+                .sort((a, b) => (a.name.split(' ')[1] > b.name.split(' ')[1] ? 1 : -1)) // sort by lastname
                 .map((contributor, index) => (
                     <Grid item xs={12} sm={6} md={4} key={index}>
                         <ContributorsCard {...contributor} />
                     </Grid>
                 ))}
         </Grid>
-    </>
+    </div>
 );
 ContributorsList.displayName = 'ContributorsList';

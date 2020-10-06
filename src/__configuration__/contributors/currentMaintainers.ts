@@ -5,25 +5,27 @@ import JeffeyGreiner from '../../app/assets/credits/jeffery-greiner.jpeg';
 import ThomasDailey from '../../app/assets/credits/thomas-dailey.jpeg';
 import KyleHorchen from '../../app/assets/credits/kyle-horchen.jpg';
 
-export const currentMaintainers = [
+import { Contributor } from '../../__types__';
+
+export const currentMaintainers: Contributor[] = [
     {
         name: 'Huayun Huang',
-        description: 'Maintain design patterns; worst nightmare of your PRs',
+        description: 'Designer and developer',
         image: HuayunHuang,
     },
     {
         name: 'Evan McLaughlin',
-        description: `I am a developer working on Eaton's design system, PX Blue.`,
+        description: `Front-end developer`,
         image: EvanMcLaughlin,
     },
     {
         name: 'Joseph Boyle',
-        description: `Software development lead for the PX Blue design system.`,
+        description: `Software development lead`,
         image: JosephBoyle,
     },
     {
         name: 'Jeffery Greiner',
-        description: ``,
+        description: 'Software testing',
         image: JeffeyGreiner,
     },
     {
@@ -33,7 +35,7 @@ export const currentMaintainers = [
     },
     {
         name: 'Kyle Horchen',
-        description: '',
+        description: 'Designer',
         image: KyleHorchen,
     },
 ];

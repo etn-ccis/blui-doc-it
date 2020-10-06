@@ -1,6 +1,6 @@
 import React from 'react';
 import { Avatar, Typography, makeStyles, Theme, createStyles, useTheme } from '@material-ui/core';
-import { Contributor } from './types';
+import { Contributor } from '../../../__types__';
 import { Person } from '@material-ui/icons';
 import clsx from 'clsx';
 

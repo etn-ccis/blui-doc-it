@@ -17,6 +17,7 @@ import {
     CarouselCard,
     FooterLinks,
     SharedToolbar,
+    ContributorsList,
 } from '../components';
 import { LatestReleases } from '../../docs';
 import * as Colors from '@pxblue/colors';
@@ -26,6 +27,7 @@ import { useHistory } from 'react-router-dom';
 import { cardData } from '../../__configuration__/landingPage/cardData';
 import { Spacer } from '@pxblue/react-components';
 import { ReleaseInfo } from '../../docs/release-notes';
+import { currentMaintainers, contributors } from '../../__configuration__/contributors';
 
 import developImage from '../assets/home/develop.jpg';
 import designImage from '../assets/home/design.jpg';
@@ -142,6 +144,29 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     onClick={(): void => history.push('/development/environment')}
                 />
             </CardCarousel>
+
+            <LandingSection title={'Contributors'}>
+                <ContributorsList
+                    contributors={currentMaintainers}
+                    title={'Current Maintainers'}
+                    style={{ margin: `${theme.spacing(4)}px 0` }}
+                />
+                <ContributorsList
+                    contributors={contributors}
+                    title={'Contributors'}
+                    style={{ margin: `${theme.spacing(4)}px 0` }}
+                />
+                <div style={{ textAlign: 'center' }}>
+                    <Button
+                        variant={'outlined'}
+                        color={'primary'}
+                        style={{ marginTop: theme.spacing(1) }}
+                        onClick={(): void => history.push('/community/innersourcing')}
+                    >
+                        Want to contribute?
+                    </Button>
+                </div>
+            </LandingSection>
 
             {/* Footer Section */}
             <FooterLinks />
