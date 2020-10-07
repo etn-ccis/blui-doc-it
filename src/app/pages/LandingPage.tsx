@@ -153,7 +153,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                 />
                 <ContributorsList
                     contributors={contributors}
-                    title={'Contributors'}
+                    title={'Other Contributors'}
                     style={{ margin: `${theme.spacing(4)}px 0` }}
                 />
                 <div style={{ textAlign: 'center' }}>
@@ -163,7 +163,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                         style={{ marginTop: theme.spacing(1) }}
                         onClick={(): void => history.push('/community/innersourcing')}
                     >
-                        Want to contribute?
+                        Become a Contributor!
                     </Button>
                 </div>
             </LandingSection>

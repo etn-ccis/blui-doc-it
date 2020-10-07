@@ -9,30 +9,30 @@ import { Contributor } from '../../__types__';
 export const contributors: Contributor[] = [
     {
         name: 'Eric Atha',
-        description: 'Designer',
+        description: 'UX Designer',
         image: EricAtha,
     },
     {
         name: 'Kraig Keller',
-        description: 'Developer',
+        description: 'Front-End Developer',
         image: KraigKeller,
     },
     {
         name: 'Ian Todhunter',
-        description: 'Designer, contributed ideas and critiques for design patterns',
+        description: 'UX Designer',
         image: IanTodhunter,
     },
     {
         name: 'Nikhil Behari',
-        description: 'Developer',
+        description: 'Front-End Developer',
     },
     {
         name: 'Chinna Gurrala',
-        description: 'Developer',
+        description: 'Front-End Developer',
     },
     {
         name: 'Shivani Pitta',
-        description: 'Developer',
+        description: 'Front-End Developer',
         image: ShivaniPitta,
     },
     {
@@ -41,40 +41,39 @@ export const contributors: Contributor[] = [
     },
     {
         name: 'Brian Shyu',
-        description: 'PX Blue conception and promotions',
+        description: 'PX Blue Manager',
         image: BrianShyu,
     },
     {
         name: 'Bertrand Karerangabo',
-        description: 'Set up design system, help built CLI',
+        description: 'PX Blue website and CLI',
     },
     {
         name: 'Tyler Hoffman',
-        description: 'Innersourced components to the React Native component library',
+        description: 'React Native Components',
     },
     {
         name: 'Patrick Bacon',
-        description: 'Explored the reusable workflows idea',
+        description: 'React Workflows & Components',
     },
     {
         name: 'Brett Park',
-        description: 'React Native login workflow',
+        description: 'React Native Workflows',
     },
     {
         name: 'Jonathan Dasilva',
-        description: 'Conception on the navigation rail and UPS progress icon',
+        description: 'Angular Components',
     },
     {
         name: 'Anjali Patodia',
-        description:
-            'Innersourced components to the React component library; base screens for the react login workflow',
+        description: 'React Components & Workflows',
     },
     {
         name: 'Bryan Elkus',
-        description: 'Audited PX Blue as a design system',
+        description: 'PX Blue Independent Audit',
     },
     {
         name: 'Kyle Harris',
-        description: 'Added more components to Figma Stickersheet',
+        description: 'Figma Stickersheet Components',
     },
 ];
