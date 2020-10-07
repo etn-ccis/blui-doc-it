@@ -13,6 +13,7 @@ import NavigationPersistentImg from '../../app/assets/design-patterns/navigation
 import NavigationRailLabeledImg from '../../app/assets/design-patterns/navigation/navigation-rail-labeled.png';
 import NavigationRailSpecsImg from '../../app/assets/design-patterns/navigation/navigation-rail-specs.png';
 import NavigationRailImg from '../../app/assets/design-patterns/navigation/navigation-rail.png';
+import NavigationRailLabelsImg from '../../app/assets/design-patterns/navigation/navigation-rail-labels.png';
 import NavigationTemporaryImg from '../../app/assets/design-patterns/navigation/navigation-temporary.png';
 import NestedItemStandardsImg from '../../app/assets/design-patterns/navigation/nested-item-standards.png';
 import NavigationTabsImg from '../../app/assets/design-patterns/navigation/navigation-tabs.png';
@@ -20,6 +21,7 @@ import NavigationTabsSpecsImg from '../../app/assets/design-patterns/navigation/
 import NavigationBreakdownImg from '../../app/assets/design-patterns/navigation/navigation-breakdown.png';
 import NestedItemImg from '../../app/assets/design-patterns/navigation/nested-item.png';
 import PanelSpecsImg from '../../app/assets/design-patterns/navigation/panel-specs.png';
+import NavigationBottomImg from '../../app/assets/design-patterns/navigation/navigation-bottom.png';
 // import ProductExample1 from '../../app/assets/design-patterns/navigation/Product Example 1.png';
 // import ContentCover1 from '../../app/assets/design-patterns/navigation/Content Cover 1.png';
 // import ContentCover2 from '../../app/assets/design-patterns/navigation/Content Cover 2.png';
@@ -35,7 +37,7 @@ import DividerImage from '../../app/assets/design-patterns/navigation/Divider Im
 
 <ImageGrid images={[Banner]} regularWidth />
 
-Navigation refers to the way in which users access the different areas of your application and move from screen to screen. The most common forms of primary navigation are drawers and tabs.
+Navigation refers to how users access the different areas of your application and move from screen to screen. The most common forms of primary navigation are drawers and tabs.
 
 <React.Fragment>
     <MaterialDesignDescription
@@ -53,16 +55,22 @@ Navigation refers to the way in which users access the different areas of your a
 
 # Drawer Navigation
 
-A navigation drawer is a panel that is attached on the side of your application. These typically contain a [List](/patterns/lists) of primary pages in your application for the user to access quickly.
+A navigation drawer is a panel that is attached to the side of your application. These typically contain a [List](/patterns/lists) of primary pages in your application for the user to access quickly.
 
-<ImageGrid images={[NavigationBreakdownImg]} regularWidth />
+<ImageGrid images={[NavigationBreakdownImg]} 
+caption={[
+            '1. Header',
+            '2. Subheader',
+            '3. Body',
+            '4. Footer'
+        ]}regularWidth />
 
 Most drawers have four main sections:
 
--   **Header**: contains the name of the company, name of the product or a logo
--   **Subheader**: optional section that can be used to support custom content, such as filtering or search
--   **Body**: contains a list of primary pages that users can navigate too
--   **Footer**: contains company logo, version number and trademark information
+-   **Header**: contains the name of the company, name of the product, or a logo
+-   **Subheader**: an optional section that can be used to support custom content, such as filtering or search
+-   **Body**: contains a list of primary pages that users can navigate to
+-   **Footer**: contains the company logo, version number, and trademark information
 
 There are several different styles of drawer navigation, each with slightly different behavior.
 
@@ -84,20 +92,20 @@ A permanent drawer is always visible and always open. The permanent drawer is ty
 
 ## Rail
 
-A navigation rail is a permanently collapsed drawer. The rail is able to show less information than a standard drawer, but has the advantage of a more compact, space-saving package. Use this variation if you have:
+A navigation rail is a permanently collapsed drawer. The rail can show less information than a standard drawer but has the advantage of a more compact, space-saving package. Use this variation if you have:
 
 -   fewer than seven top-level pages
 -   a flat navigation hierarchy
 -   limited space - recommended for HMI devices
 
-<ImageGrid images={[NavigationRailImg]} regularWidth />
+<ImageGrid images={[NavigationRailImg,NavigationRailLabelsImg]} regularWidth />
 
 ## Persistent
 
-A persistent drawer is an always-visible drawer that can be opened and closed (expanded or collapsed). In its opened state, it looks and behaves like a permanent drawer. It the closed state, it looks and behaves like a navigation rail. The drawer is typically opened and closed by clicking an icon in the header. It can also be opened momentarily on desktop applications by hovering with the mouse. Use this variation if you have:
+A persistent drawer is an always-visible drawer that can be opened and closed (expanded or collapsed). In it's open state, it looks and behaves like a permanent drawer. In it's closed state, it looks and behaves like a navigation rail. The drawer is typically opened and closed by clicking an icon in the header. It can also be opened momentarily on desktop applications by hovering with the mouse. Use this variation if you have:
 
 -   fewer than seven top-level pages
--   primary pages with labels that require complex icons or may be too long to wrap effectivly
+-   primary pages with labels that require complex icons or too long to wrap effectively
 -   limited space but require a nested navigation hierarchy
 
 <React.Fragment>
@@ -131,9 +139,9 @@ A temporary drawer is invisible until it is opened — typically by pressing a b
 
 # Tab Navigation
 
-Tab navigation uses a horizontal bar with buttons for each navigation location. These can appear at the top or bottom of your application. On desktop and tablet, tabs at the top can be used in conjunction with drawer navigation as a way to navigate between sub-pages (e.g., you may have several sub-pages on your main settings page). Bottom tabs can be used in conjuction but is recommended that this pattern replaces the drawer navigation. On mobile it is also possible to combine top and bottom tabs on a single page.
+Tab navigation uses a horizontal bar with buttons for each navigation location. These can appear at the top or bottom of your application. On desktop and tablet, tabs at the top can be used in conjunction with drawer navigation as a way to navigate between sub-pages (e.g., you may have several sub-pages on your main settings page). Bottom tabs can be used in conjunction but it's recommended that this pattern replaces the drawer navigation. On mobile, it is also possible to combine the top and bottom tabs on a single page.
 
-<ImageGrid images={[NavigationTabsImg]} regularWidth />
+<ImageGrid images={[NavigationTabsImg,NavigationBottomImg]} regularWidth />
 
 <React.Fragment>
     <MaterialDesignDescription title={'Tabs'} url={'https://material.io/components/tabs'} />
@@ -146,7 +154,7 @@ Tab navigation uses a horizontal bar with buttons for each navigation location. 
 
 ## Nested Navigation
 
-When using drawer navigation, you can have multiple levels of navigation hierarchy. These appear as expandable panels in the drawer. When using a hierarchical navigation in the drawer, you should try to limit yourself to now more than two levels.
+When using drawer navigation, you can have multiple levels of the navigation hierarchy. These appear as expandable panels in the drawer. When using hierarchical navigation in the drawer, you should try to limit yourself to no more than two levels.
 
 <ImageGrid images={[NestedItemImg, NestedItemStandardsImg]} regularWidth />
 
