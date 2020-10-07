@@ -63,6 +63,7 @@ export const currentMaintainers: Contributor[] = [
         `,
         contacts: {
             github: 'https://github.com/Horchen154',
+            linkedIn: 'https://www.linkedin.com/in/kyle-horchen-3294b142/',
         },
     },
 ];
