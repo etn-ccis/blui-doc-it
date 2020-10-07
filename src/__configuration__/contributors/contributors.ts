@@ -38,7 +38,7 @@ export const contributors: Contributor[] = [
     },
     {
         name: 'Andrew Puhalla',
-        description: 'Developer',
+        description: 'Front-End Developer',
     },
     {
         name: 'Brian Shyu',
@@ -77,5 +77,9 @@ export const contributors: Contributor[] = [
         name: 'Kyle Harris',
         description: 'Figma Stickersheet Components',
         image: KyleHarris,
+    },
+    {
+        name: 'Jean Perriault',
+        description: 'Design Engineer',
     },
 ];
