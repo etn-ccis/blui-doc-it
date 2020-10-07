@@ -24,6 +24,7 @@ export const currentMaintainers: Contributor[] = [
         info: `Evan is a local to the Pittsburgh area and has been doing front-end web development since graduating from the University of Rochester. He is an Angular specialist and insists that it's better than whatever else you're using. Evan's favorite coworker is his dog, Juniper, who helps debug his code daily.`,
         contacts: {
             github: 'https://github.com/emclaug2',
+            linkedIn: 'https://www.linkedin.com/in/evan-mclaughlin-3a4b4089/',
         },
     },
     {
@@ -53,6 +54,7 @@ export const currentMaintainers: Contributor[] = [
         info: `Basement dwelling Pittsburgh native and sworn enemy of Internet Explorer, Tom is a self taught font-end web developer who will stop at nothing to prove himself. When he’s not busy programming you can find him playing guitar or enjoying the great outdoors with his wife and daughter.`,
         contacts: {
             github: 'https://github.com/daileytj',
+            linkedIn: 'https://www.linkedin.com/in/thomas-dailey/',
         },
     },
     {

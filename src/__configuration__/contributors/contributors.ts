@@ -3,6 +3,7 @@ import IanTodhunter from '../../app/assets/credits/ian-todhunter.jpg';
 import ShivaniPitta from '../../app/assets/credits/shivani-pitta.jpeg';
 import BrianShyu from '../../app/assets/credits/brian-shyu.jpg';
 import KraigKeller from '../../app/assets/credits/kraig-keller.jpeg';
+import KyleHarris from '../../app/assets/credits/kyle-harris.jpg';
 
 import { Contributor } from '../../__types__';
 
@@ -75,5 +76,6 @@ export const contributors: Contributor[] = [
     {
         name: 'Kyle Harris',
         description: 'Figma Stickersheet Components',
+        image: KyleHarris,
     },
 ];
