@@ -31,11 +31,12 @@ import { currentMaintainers, contributors } from '../../__configuration__/contri
 
 import developImage from '../assets/home/develop.jpg';
 import designImage from '../assets/home/design.jpg';
+import { Design as DesignIcon } from '../assets/icons';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
 import { PXBLogo } from '../assets/icons/PXBLogo';
-import { Menu } from '@material-ui/icons';
+import { Menu, DeveloperMode } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -135,12 +136,14 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     backgroundImage={designImage}
                     title={'Getting started as a designer'}
                     description={'We offer many resources and assets for designers getting acquainted with PX Blue.'}
+                    icon={<DesignIcon fontSize={'large'} />}
                     onClick={(): void => history.push('/design/intro')}
                 />
                 <CarouselCard
                     backgroundImage={developImage}
                     title={'Getting started as a developer'}
                     description={'We have numerous guides and resources to prepare you for working with PX Blue.'}
+                    icon={<DeveloperMode fontSize={'large'} />}
                     onClick={(): void => history.push('/development/environment')}
                 />
             </CardCarousel>
