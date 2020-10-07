@@ -3,6 +3,9 @@ import Banner from '../../app/assets/design-patterns/app-bar/appbar-banner.png';
 import Collapsible from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsible.gif';
 import Search from '../../app/assets/design-patterns/app-bar/search-bar/search.gif';
 import MiniSearch from '../../app/assets/design-patterns/app-bar/search-bar/mini-search.png';
+import SiteSearch from '../../app/assets/design-patterns/app-bar/search-bar/site-search.png';
+import PageSearch from '../../app/assets/design-patterns/app-bar/search-bar/page-search.png';
+import ComponentSearch from '../../app/assets/design-patterns/app-bar/search-bar/component-search.png';
 import Collapsed from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsed.png';
 import AutoVariants from '../../app/assets/design-patterns/app-bar/search-bar/auto-complete-variants.png';
 import BasicBars from '../../app/assets/design-patterns/app-bar/basic-app-bars.png';
@@ -107,27 +110,30 @@ The collapsible appbar should transition smoothly between the expanded and colla
 
 A very common pattern seen in many types of applications is the ability to search for data on a page. This is achieved by placing a search icon/button in the app bar. When this button is clicked, a white search bar slides in from the right to cover the default app bar. As the user enters text into the search field, the data is filtered in real-time. A back icon will close the Search Bar and clear the search results.
 
-If your search is not a global-level search, you can place a smaller search input near the content being searched (e.g., a card header).
-
-<React.Fragment>
-    <ImageGrid
-        regularWidth
-        images={[MiniSearch]}
-        caption={'Use a contextual search input if your search functionality is not at the page level.'}
-    />
-</React.Fragment>
-
 ## Auto-complete
 
 For more advanced searching, you may wish to include an auto-complete feature. You can implement autocomplete by including a contextual menu below the search bar with suggested search items. Alternatively, you can use type-ahead to automatically update the recommended search query in the search field as the user types (Google search does this).
 
+<ImageGrid
+    regularWidth
+    images={[AutoVariants]}
+    caption={[
+        '1. Search suggestions are provided in a dropdown menu.',
+        '2. The most likely search is shown in the search field as the user types.',
+    ]}
+/>
+
+## Contextual search
+
+If your search is not a global-level search, you can place your search input in different UI hierarchies to indicate the search context.
+
 <React.Fragment>
     <ImageGrid
-        regularWidth
-        images={[AutoVariants]}
+        images={[SiteSearch, PageSearch, ComponentSearch]}
         caption={[
-            '1. Search suggestions are provided in a dropdown menu.',
-            '2. The most likely search is shown in the search field as the user types.',
+            '1: Site-wide search, a.k.a. global search, is always placed in the primary app bar.',
+            '2: Page-wide search, usually placed in a secondary toolbar.',
+            '3: Component-wide search allows the user to search for contents within a certain component (e.g., cards, lists).',
         ]}
     />
     <Divider />
