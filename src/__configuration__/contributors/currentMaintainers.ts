@@ -11,7 +11,7 @@ export const currentMaintainers: Contributor[] = [
         name: 'Huayun Huang',
         description: 'UX Designer & Developer',
         image: HuayunHuang,
-        info: `Huayun is an interesting half blood between a UX-driven designer and a detailed-oriented developer. She likes spending her spare time on 2D visual arts. Be prepared! She has no mercy in your review requests.`,
+        info: `Huayun is a half-blood between a UX-driven designer and a detailed-oriented developer. A bit of a night owl, Huayun does her best work between the hours of 12 and 4 am, and likes spending her spare time indulging in 2D visual arts. Be prepared! She has no mercy in your review requests.`,
         contacts: {
             github: `https://github.com/huayunh`,
             linkedIn: `https://www.linkedin.com/in/huayun-huang/`,
@@ -41,8 +41,8 @@ export const currentMaintainers: Contributor[] = [
         name: 'Jeff Greiner',
         description: 'Quality Assurance',
         image: JeffeyGreiner,
-        info: `Jeff is a perfectionist.  As a kid racing motocross, Jeff learned to make quick decisions on the best line to take in order jump ahead.  As a Software Engineer in Test, Jeff continues to be passionate about quality and the journey that it takes to produce the best results.  Jeff is just as comfortable designing a new application as he is designing a new walk-in closet for his wife, because he loves a challenge.
-        `,
+        info: `Jeff is a perfectionist. With over ${new Date().getFullYear() -
+            2006} years of experience in software testing and as a Software Engineer in Test, Jeff continues to be passionate about quality and the journey that it takes to produce the best results. When Jeff is not testing, he can be found doing home remodeling with his wife or turning wrenches.`,
         contacts: {
             github: 'https://github.com/jeffvg',
         },
@@ -51,7 +51,7 @@ export const currentMaintainers: Contributor[] = [
         name: 'Thomas Dailey',
         description: 'Front-End Developer',
         image: ThomasDailey,
-        info: `Basement dwelling Pittsburgh native and sworn enemy of Internet Explorer, Tom is a self taught font-end web developer who will stop at nothing to prove himself. When he’s not busy programming you can find him playing guitar or enjoying the great outdoors with his wife and daughter.`,
+        info: `Basement dwelling Pittsburgh native and sworn enemy of Internet Explorer, Tom is a self-taught front-end web developer who will stop at nothing to prove himself. When he’s not busy programming you can find him playing guitar or enjoying the great outdoors with his wife and daughter.`,
         contacts: {
             github: 'https://github.com/daileytj',
             linkedIn: 'https://www.linkedin.com/in/thomas-dailey/',
@@ -61,7 +61,7 @@ export const currentMaintainers: Contributor[] = [
         name: 'Kyle Horchen',
         description: 'UX Designer',
         image: KyleHorchen,
-        info: `Kyle is a UI/UX designer at EATON. Before EATON, Kyle had the privilege of working with companies such as the NFL, NBA, NHL, PA Lottery, WESCO, COCA Cola, Rite Aid and many more. A die-hard Star Wars fan, Kyle watches The Empire Strikes back at least once a week.
+        info: `Kyle is a UI/UX designer at EATON. Before EATON, Kyle had the privilege of working with companies such as the NFL, NBA, NHL, PA Lottery, WESCO, COCA Cola, Rite Aid, and many more. A die-hard Star Wars fan, Kyle watches The Empire Strikes back at least once a week.
         `,
         contacts: {
             github: 'https://github.com/Horchen154',
