@@ -21,7 +21,7 @@ export const currentMaintainers: Contributor[] = [
         name: 'Evan McLaughlin',
         description: `Front-End Developer`,
         image: EvanMcLaughlin,
-        info: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`,
+        info: `Evan is a local to the Pittsburgh area and has been doing front-end web development since graduating from the University of Rochester. He is an Angular specialist and insists that it's better than whatever else you're using. Evan's favorite coworker is his dog, Juniper, who helps debug his code daily.`,
         contacts: {
             github: 'https://github.com/emclaug2',
         },
@@ -50,7 +50,7 @@ export const currentMaintainers: Contributor[] = [
         name: 'Thomas Dailey',
         description: 'Front-End Developer',
         image: ThomasDailey,
-        info: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`,
+        info: `Basement dwelling Pittsburgh native and sworn enemy of Internet Explorer, Tom is a self taught font-end web developer who will stop at nothing to prove himself. When he’s not busy programming you can find him playing guitar or enjoying the great outdoors with his wife and daughter.`,
         contacts: {
             github: 'https://github.com/daileytj',
         },
