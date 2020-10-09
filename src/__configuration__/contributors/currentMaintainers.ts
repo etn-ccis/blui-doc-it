@@ -61,8 +61,7 @@ export const currentMaintainers: Contributor[] = [
         name: 'Kyle Horchen',
         description: 'UX Designer',
         image: KyleHorchen,
-        info: `Kyle is a UI/UX designer at EATON. Before EATON, Kyle had the privilege of working with companies such as the NFL, NBA, NHL, PA Lottery, WESCO, COCA Cola, Rite Aid, and many more. A die-hard Star Wars fan, Kyle watches The Empire Strikes back at least once a week.
-        `,
+        info: `Kyle is a UI/UX designer at Eaton. As a resident of Pittsburgh, Kyle has previously worked in the start-up and advertising industry with the privilege of contributing to some of the largest brands in the world. Most notably his work with the NBA and National Rugby League in Australia. A die-hard Star Wars fan, Kyle can recite every line of The Empire Strikes back and still watches it at least once a week.`,
         contacts: {
             github: 'https://github.com/Horchen154',
             linkedIn: 'https://www.linkedin.com/in/kyle-horchen-3294b142/',
