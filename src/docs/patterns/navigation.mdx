@@ -5,8 +5,8 @@ import PersistentImg from '../../app/assets/design-patterns/navigation/navigatio
 import AnatomyImg from '../../app/assets/design-patterns/navigation/anatomy.png';
 import Banner from '../../app/assets/design-patterns/navigation/banner.svg';
 import CollapsibleImg from '../../app/assets/design-patterns/navigation/collapsible.png';
-import ContentCoverDesktopImg from '../../app/assets/design-patterns/navigation/content-cover-desktop.png';
-import ContentCoverTabletImg from '../../app/assets/design-patterns/navigation/content-cover-tablet.png';
+import ContentCoverImg from '../../app/assets/design-patterns/navigation/content-cover.png';
+import ContentResizeImg from '../../app/assets/design-patterns/navigation/content-resize.png';
 // import DividerImg from '../../app/assets/design-patterns/navigation/divider.png';
 import NavigationPermanentImg from '../../app/assets/design-patterns/navigation/navigation-permanent.png';
 import NavigationPersistentImg from '../../app/assets/design-patterns/navigation/navigation-persistent.png';
@@ -21,6 +21,7 @@ import NavigationTabsSpecsImg from '../../app/assets/design-patterns/navigation/
 import NavigationBreakdownImg from '../../app/assets/design-patterns/navigation/navigation-breakdown.png';
 import NestedItemImg from '../../app/assets/design-patterns/navigation/nested-item.png';
 import PanelSpecsImg from '../../app/assets/design-patterns/navigation/panel-specs.png';
+import HoverImg from '../../app/assets/design-patterns/navigation/hover.gif';
 import NavigationBottomImg from '../../app/assets/design-patterns/navigation/navigation-bottom.png';
 // import ProductExample1 from '../../app/assets/design-patterns/navigation/Product Example 1.png';
 // import ContentCover1 from '../../app/assets/design-patterns/navigation/Content Cover 1.png';
@@ -29,7 +30,7 @@ import NavigationBottomImg from '../../app/assets/design-patterns/navigation/nav
 // import NestedItemExample from '../../app/assets/design-patterns/navigation/Nested Item Example.png';
 // import NestedItemStandards from '../../app/assets/design-patterns/navigation/Nested Item Standards.png';
 // import ExpandableAccountInfo from '../../app/assets/design-patterns/navigation/Expandable Account Information.png';
-import DividerImage from '../../app/assets/design-patterns/navigation/Divider Image.png';
+import DividerImage from '../../app/assets/design-patterns/navigation/divider.png';
 
 <!-- KEYWORDS: design pattern navigation drawer menu -->
 
@@ -44,11 +45,6 @@ Navigation refers to how users access the different areas of your application an
         title={'Understanding Navigation'}
         url={'https://material.io/design/navigation/understanding-navigation.html#types-of-navigation'}
         description={`Read about Material Design's navigation fundamentals.`}
-    />
-    <MaterialDesignDescription
-        title={'Navigation Drawer '}
-        url={'https://material.io/components/navigation-drawer/'}
-        style={{ marginRight: 0 }}
     />
     <Divider />
 </React.Fragment>
@@ -79,6 +75,14 @@ There are several different styles of drawer navigation, each with slightly diff
     angular={'https://pxblue-components.github.io/angular/?path=/story/components-drawer--within-a-drawer-layout'}
     react={'https://pxblue-components.github.io/react/?path=/story/components-drawer--in-drawer-layout'}
 />
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'Navigation Drawer '}
+        url={'https://material.io/components/navigation-drawer/'}
+        style={{ marginRight: 0 }}
+    />
+<Divider />
+</React.Fragment>
 
 ## Permanent
 
@@ -88,7 +92,11 @@ A permanent drawer is always visible and always open. The permanent drawer is ty
 -   a nested navigation hierarchy
 -   enough space to justify it (typically desktop-only applications)
 
-<ImageGrid images={[NavigationPermanentImg]} regularWidth />
+<ImageGrid images={[NavigationPermanentImg]} 
+ caption={[
+            'Permananent drawer on desktop.',
+        ]}
+        regularWidth />
 
 ## Rail
 
@@ -98,7 +106,18 @@ A navigation rail is a permanently collapsed drawer. The rail can show less info
 -   a flat navigation hierarchy
 -   limited space - recommended for HMI devices
 
-<ImageGrid images={[NavigationRailImg,NavigationRailLabelsImg]} regularWidth />
+<ImageGrid images={[NavigationRailImg]} 
+caption={[
+        'Condensed Rail on desktop.',
+    ]}
+    regularWidth 
+/>
+<ImageGrid images={[NavigationRailLabelsImg]} 
+caption={[
+        'Standard rail with labels on desktop.',
+    ]}
+    regularWidth 
+/>
 
 ## Persistent
 
@@ -112,16 +131,17 @@ A persistent drawer is an always-visible drawer that can be opened and closed (e
     <ImageGrid
         images={[CollapsibleImg]}
         caption={[
-            'Figure 1 displays the normal collapsed state of the menu.',
-            'Figure 2 displays the open state of the menu.',
+            '1. Displays the normal collapsed state of the menu.',
+            '2. Displays the open state of the menu.',
         ]}
         regularWidth
     />
     <ImageGrid
-        images={[PersistentImg, PermanentImg]}
+        images={[HoverImg]}
         caption={
             'When the user hovers on the Navigation Rail, the side navigation will expand temporarily, revealing the text details of each navigation item; when the user moves their cursor away, the whole side navigation panel collapses.'
         }
+        regularWidth
     />
 </React.Fragment>
 
@@ -133,15 +153,29 @@ A temporary drawer is invisible until it is opened — typically by pressing a b
 -   extreme space limitations
 
 <React.Fragment>
-    <ImageGrid images={[NavigationTemporaryImg]} regularWidth />
+    <ImageGrid images={[NavigationTemporaryImg]}
+    caption={
+            'Opened temporary drawer with overlay.'
+        } regularWidth />
     <Divider />
 </React.Fragment>
 
 # Tab Navigation
 
-Tab navigation uses a horizontal bar with buttons for each navigation location. These can appear at the top or bottom of your application. On desktop and tablet, tabs at the top can be used in conjunction with drawer navigation as a way to navigate between sub-pages (e.g., you may have several sub-pages on your main settings page). Bottom tabs can be used in conjunction but it's recommended that this pattern replaces the drawer navigation. On mobile, it is also possible to combine the top and bottom tabs on a single page.
+Tab navigation uses a horizontal bar with buttons for each navigation location. These can appear at the top or bottom of your application. On desktop and tablet, you can combine tabs and a drawer as a way to navigate between sub-pages (e.g., you may have several sub-pages on your main settings page). On mobile you can also combine tabs and a drawer. However,it is recommended that tabs replace the drawer navigation on mobile.
 
-<ImageGrid images={[NavigationTabsImg,NavigationBottomImg]} regularWidth />
+<ImageGrid images={[NavigationTabsImg]}
+caption={[
+        'Tab navigation combined with a rail menu to show sub-pages within the Settings page.',
+    ]}
+     regularWidth 
+/>
+<ImageGrid images={[NavigationBottomImg]}
+caption={[
+        'Bottom tab navigation combined with Temporary Content Overlay menu on mobile.',
+    ]}
+     regularWidth 
+/>
 
 <React.Fragment>
     <MaterialDesignDescription title={'Tabs'} url={'https://material.io/components/tabs'} />
@@ -156,7 +190,10 @@ Tab navigation uses a horizontal bar with buttons for each navigation location. 
 
 When using drawer navigation, you can have multiple levels of the navigation hierarchy. These appear as expandable panels in the drawer. When using hierarchical navigation in the drawer, you should try to limit yourself to no more than two levels.
 
-<ImageGrid images={[NestedItemImg, NestedItemStandardsImg]} regularWidth />
+<ImageGrid images={[NestedItemImg]}
+caption={
+            'Open and closed nested navigation.'
+        } regularWidth />
 
 ## Content-Cover vs. Content-Resize
 
@@ -167,18 +204,18 @@ With content-resize, the main application content resizes its area to accommodat
 With content-cover, the navigation panel appears on top of the main application content, partially obscuring it. This typically uses a dark overlay behind the drawer to direct the user's focus to the navigation panel and block interaction with the main content. This pattern is most common when using the temporary drawer variant on mobile and tablet applications.
 
 <ImageGrid
-    images={[ContentCoverDesktopImg]}
+    images={[ContentCoverImg]}
     caption={[
-        'Figure 1 displays the normal collapsed state of the menu for desktop.',
-        'Figure 2 displays the open state of the menu with a gray overlay.',
+        '1. Displays the normal collapsed state of the menu.',
+        '2. Displays the open state of the menu with a gray overlay.',
     ]}
     regularWidth
 />
 <ImageGrid
-    images={[ContentCoverTabletImg]}
+    images={[ContentResizeImg]}
     caption={[
-        'Figure 1 displays the normal collapsed state of the menu for tablet.',
-        'Figure 2 displays the open state of the menu with a gray overlay.',
+        '1. Displays the normal collapsed state of the menu.',
+        '2. Displays the open state of the menu with content pushed to the right.',
     ]}
     regularWidth
 />
@@ -193,12 +230,15 @@ Divider lines can be used between navigation items in the drawer. They are most 
 <ImageGrid
     images={[DividerImage]}
     regularWidth
-    caption={['Avoid using divider lines between every navigation item. These can make the drawer appear busy.']}
+    caption={[
+        '1. Standard drawer navigation does not include dividers.',
+        '2. Avoid using divider lines between every navigation item .These can make the drawer appear busy.',
+        ]}
 />
 
 # Design Specifications
 
-<ImageGrid images={[NavigationRailSpecsImg, NavigationRailLabeledImg, PanelSpecsImg, NavigationTabsSpecsImg]} regularWidth />
+<ImageGrid images={[NavigationRailSpecsImg, NavigationRailLabeledImg, PanelSpecsImg, NestedItemStandardsImg, NavigationTabsSpecsImg]} regularWidth />
 
 <Divider />
 
