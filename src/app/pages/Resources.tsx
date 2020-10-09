@@ -7,8 +7,8 @@ import {
     createStyles,
     makeStyles,
     List,
-    ExpansionPanel,
-    ExpansionPanelDetails,
+    Accordion,
+    AccordionDetails,
     Divider,
 } from '@material-ui/core';
 
@@ -90,9 +90,9 @@ export const Resources: React.FC = (): JSX.Element => {
                             bucket.applies.includes(filter) ||
                             bucket.applies.includes('all') ||
                             filter === 'all') && (
-                            <ExpansionPanel key={`${bucket.name}_${bIndex}`} defaultExpanded>
+                            <Accordion key={`${bucket.name}_${bIndex}`} defaultExpanded>
                                 <ExpansionHeader name={bucket.name} description={bucket.description} />
-                                <ExpansionPanelDetails style={{ display: 'block', padding: 0 }}>
+                                <AccordionDetails style={{ display: 'block', padding: 0 }}>
                                     <Divider />
                                     <List style={{ padding: 0 }}>
                                         {bucket.items.map((item, index): JSX.Element | null =>
@@ -112,8 +112,8 @@ export const Resources: React.FC = (): JSX.Element => {
                                             ) : null
                                         )}
                                     </List>
-                                </ExpansionPanelDetails>
-                            </ExpansionPanel>
+                                </AccordionDetails>
+                            </Accordion>
                         )
                 )}
             </PageContent>
