@@ -4,6 +4,7 @@ import ShivaniPitta from '../../app/assets/credits/shivani-pitta.jpeg';
 import BrianShyu from '../../app/assets/credits/brian-shyu.jpg';
 import KraigKeller from '../../app/assets/credits/kraig-keller.jpeg';
 import KyleHarris from '../../app/assets/credits/kyle-harris.jpg';
+import AndrewPuhalla from '../../app/assets/credits/andrew-puhalla.jpeg';
 
 import { Contributor } from '../../__types__';
 
@@ -39,6 +40,7 @@ export const contributors: Contributor[] = [
     {
         name: 'Andrew Puhalla',
         description: 'Front-End Developer',
+        image: AndrewPuhalla,
     },
     {
         name: 'Brian Shyu',
