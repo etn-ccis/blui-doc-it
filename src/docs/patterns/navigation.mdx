@@ -16,12 +16,14 @@ import NavigationTemporaryImg from '../../app/assets/design-patterns/navigation/
 import NestedItemStandardsImg from '../../app/assets/design-patterns/navigation/nested-item-standard.png';
 import NavigationTabsImg from '../../app/assets/design-patterns/navigation/navigation-tabs.png';
 import NavigationTabsSpecsImg from '../../app/assets/design-patterns/navigation/navigation-tabs-specs.png';
+import BottomTabsSpecsImg from '../../app/assets/design-patterns/navigation/bottom-tabs-specs.png';
 import NavigationBreakdownImg from '../../app/assets/design-patterns/navigation/navigation-breakdown.png';
 import NestedItemImg from '../../app/assets/design-patterns/navigation/nested-item.png';
 import PanelSpecsMobileImg from '../../app/assets/design-patterns/navigation/panel-specs-mobile.png';
 import PanelSpecsDesktopImg from '../../app/assets/design-patterns/navigation/panel-specs-desktop.png';
 import HoverImg from '../../app/assets/design-patterns/navigation/persistent-drawer-hover.gif';
 import NavigationBottomImg from '../../app/assets/design-patterns/navigation/navigation-bottom.png';
+import NavigationBottomWithDrawerImg from '../../app/assets/design-patterns/navigation/navigation-bottom-with-drawer.png';
 import DividerGroupImage from '../../app/assets/design-patterns/navigation/drawer-divider.png';
 import DividerImage from '../../app/assets/design-patterns/navigation/divider.png';
 
@@ -142,21 +144,40 @@ A temporary drawer is invisible until it is opened — typically by pressing a b
 
 # Tab Navigation
 
-Tab navigation uses a horizontal bar with buttons for each navigation location. These can appear at the top or bottom of your application. On desktop and tablet, you can combine tabs and a drawer as a way to navigate between sub-pages (e.g., you may have several sub-pages on your main settings page). On mobile, you can also combine tabs and a drawer. However, it is recommended that tabs replace the drawer navigation on mobile.
+Tab navigation uses a horizontal bar with buttons for each navigation location. These can appear at the top or bottom of your application.
+
+## Tabs on the Top
+
+<ImageGrid
+    images={[NavigationTabsImg]}
+    caption={['A rail menu (#1) combined with a tab navigation (#2) to show sub-pages within the settings page.']}
+    regularWidth
+/>
+<MaterialDesignDescription title={'Tabs'} url={'https://material.io/components/tabs'} />
+
+You can combine tabs and a drawer as a way to navigate between sub-pages (e.g., you may have several sub-pages on your main settings page). In this case, the tabs usually sit on a secondary [app bar](/patterns/appbar).
+
+## Tabs on the Bottom
+
+<ImageGrid
+    images={[NavigationBottomImg]}
+    caption={[
+        'Bottom tabs can be a good substitute for drawers when you have less than six primary navigation routes.',
+    ]}
+    regularWidth
+/>
+<MaterialDesignDescription title={'Bottom Navigation'} url={'https://material.io/components/bottom-navigation'} />
+
+For mobiles and tablets, you may use bottom tabs to replace the classical drawer navigations. Bottom tabs are a quick and easy way to navigate to the most frequently used primary navigation routes.
+
+Bottom tabs can also be used with a drawer. The tab is more prominent and can be used to highlight some main routes and features, while the drawer handles less important routes like settings, legal documents, FAQ pages.
 
 <React.Fragment>
     <ImageGrid
-        images={[NavigationTabsImg]}
-        caption={['A rail menu (#1) combined with a tab navigation (#2) to show sub-pages within the settings page.']}
+        images={[NavigationBottomWithDrawerImg]}
+        caption={['A temporary content-cover menu (#1) combined with a bottom tab navigation (#2) on mobile.']}
         regularWidth
     />
-    <ImageGrid
-        images={[NavigationBottomImg]}
-        caption={['A temporary content-overlay menu (#1) combined with a bottom tab navigation (#2) on mobile.']}
-        regularWidth
-    />
-    <MaterialDesignDescription title={'Tabs'} url={'https://material.io/components/tabs'} />
-    <MaterialDesignDescription title={'Bottom Navigation'} url={'https://material.io/components/bottom-navigation'} />
     <Divider />
 </React.Fragment>
 
@@ -230,6 +251,7 @@ Divider lines can be used between navigation items in the drawer. They are most 
         NavigationRailSpecsImg,
         NavigationRailLabeledImg,
         NavigationTabsSpecsImg,
+        BottomTabsSpecsImg,
     ]}
     regularWidth
 />
