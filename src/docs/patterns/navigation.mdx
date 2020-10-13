@@ -82,7 +82,7 @@ A permanent drawer is always visible and always open. The permanent drawer is ty
 -   a nested navigation hierarchy
 -   enough space to justify it (typically desktop-only applications)
 
-<ImageGrid images={[NavigationPermanentImg]} caption={['Permananent drawer on desktop.']} regularWidth />
+<ImageGrid images={[NavigationPermanentImg]} caption={['A permanent drawer on desktop.']} regularWidth />
 
 ## Rail
 
@@ -107,7 +107,7 @@ caption={[
 
 ## Persistent
 
-A persistent drawer is an always-visible drawer that can be opened and closed (expanded or collapsed). In it's open state, it looks and behaves like a permanent drawer. In it's closed state, it looks and behaves like a navigation rail. The drawer is typically opened and closed by clicking an icon in the header. It can also be opened momentarily on desktop applications by hovering with the mouse. Use this variation if you have:
+A persistent drawer is an always-visible drawer that can be opened and closed (expanded or collapsed). In its open state, it looks and behaves like a permanent drawer. In its closed state, it looks and behaves like a navigation rail. The drawer is typically opened and closed by clicking an icon in the header. It can also be opened momentarily on desktop applications by hovering with the mouse. Use this variation if you have:
 
 -   fewer than seven top-level pages
 -   primary pages with labels that require complex icons or too long to wrap effectively
@@ -142,7 +142,7 @@ A temporary drawer is invisible until it is opened — typically by pressing a b
 
 # Tab Navigation
 
-Tab navigation uses a horizontal bar with buttons for each navigation location. These can appear at the top or bottom of your application. On desktop and tablet, you can combine tabs and a drawer as a way to navigate between sub-pages (e.g., you may have several sub-pages on your main settings page). On mobile you can also combine tabs and a drawer. However,it is recommended that tabs replace the drawer navigation on mobile.
+Tab navigation uses a horizontal bar with buttons for each navigation location. These can appear at the top or bottom of your application. On desktop and tablet, you can combine tabs and a drawer as a way to navigate between sub-pages (e.g., you may have several sub-pages on your main settings page). On mobile, you can also combine tabs and a drawer. However, it is recommended that tabs replace the drawer navigation on mobile.
 
 <React.Fragment>
     <ImageGrid
@@ -254,6 +254,11 @@ If certain dimensions are not specified, refer to the dimensions suggested in th
         title={'Tabs'}
         description={`For additional instructions, refer to Material Design's design specs`}
         url={'https://material.io/components/tabs#specs'}
+    />
+    <MaterialDesignDescription
+        title={'Bottom Navigation'}
+        description={`For additional instructions, refer to Material Design's design specs`}
+        url={'https://material.io/components/bottom-navigation#specs'}
     />
 </React.Fragment>
 <Divider />
