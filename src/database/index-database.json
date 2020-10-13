@@ -72,6 +72,8 @@
         "request": [{ "/community/features": 1 }],
         "features": [{ "/community/features": 1 }],
         "faq": [{ "/community/faq": 1 }],
+        "our": [{ "/community/our-team": 1 }],
+        "team": [{ "/community/our-team": 1 }],
         "contact": [{ "/community/contactus": 1 }],
         "us": [{ "/community/contactus": 1 }],
         "resources": [{ "/resources": 1 }],
@@ -86,7 +88,8 @@
             { "/design/accessibility": 1 },
             { "/style/iconography": 1 },
             { "/style/typography": 1 },
-            { "/community/faq": 1 }
+            { "/community/faq": 1 },
+            { "/community/our-team": 1 }
         ],
         "1": [
             { "/community/faq": 4 },
@@ -99,7 +102,8 @@
             { "/style/illustrations": 2 },
             { "/style/typography": 2 },
             { "/design/accessibility": 1 },
-            { "/style/themes": 1 }
+            { "/style/themes": 1 },
+            { "/community/our-team": 1 }
         ],
         "3": [{ "/community/faq": 3 }, { "/community/license": 2 }, { "/style/illustrations": 1 }],
         "4": [{ "/community/faq": 3 }],
@@ -117,7 +121,13 @@
         "897": [{ "/style/typography": 1 }],
         "900": [{ "/style/illustrations": 1 }],
         "2008": [{ "/design/accessibility": 1 }],
-        "2020": [{ "/community/license": 1 }],
+        "2011": [{ "/community/our-team": 1 }],
+        "2013": [{ "/community/our-team": 1 }],
+        "2015": [{ "/community/our-team": 1 }],
+        "2017": [{ "/community/our-team": 2 }],
+        "2018": [{ "/community/our-team": 2 }],
+        "2019": [{ "/community/our-team": 1 }],
+        "2020": [{ "/community/license": 1 }, { "/community/our-team": 1 }],
         "8100": [{ "/development/frameworks-mobile/ionic": 1 }],
         "keywords": [
             { "/overview": 1 },
@@ -174,6 +184,7 @@
             { "/community/faq": 14 },
             { "/design/anatomy": 13 },
             { "/design/intro": 12 },
+            { "/community/our-team": 10 },
             { "/overview": 8 },
             { "/development/cli": 8 },
             { "/style/typography": 8 },
@@ -209,6 +220,7 @@
             { "/community/faq": 14 },
             { "/design/anatomy": 13 },
             { "/design/intro": 12 },
+            { "/community/our-team": 10 },
             { "/style/color": 9 },
             { "/style/typography": 9 },
             { "/development/cli": 8 },
@@ -239,6 +251,7 @@
             { "/design/intro": 12 },
             { "/overview": 10 },
             { "/style/typography": 8 },
+            { "/community/our-team": 7 },
             { "/get-started/web": 6 },
             { "/patterns/forms": 5 },
             { "/patterns/lists": 4 },
@@ -279,7 +292,8 @@
             { "/patterns/internationalization": 1 },
             { "/style/themes": 1 },
             { "/community/license": 1 },
-            { "/community/bugs": 1 }
+            { "/community/bugs": 1 },
+            { "/community/our-team": 1 }
         ],
         "introduction": [
             { "/get-started/web": 2 },
@@ -327,6 +341,7 @@
             { "/community/license": 9 },
             { "/patterns/steppers": 8 },
             { "/patterns/navigation": 7 },
+            { "/community/our-team": 7 },
             { "/patterns/visualizations": 6 },
             { "/community/features": 5 },
             { "/community/contactus": 5 },
@@ -338,6 +353,7 @@
             { "/overview": 5 },
             { "/community/bugs": 4 },
             { "/community/innersourcing": 2 },
+            { "/community/our-team": 2 },
             { "/development/frameworks-web/intro": 1 },
             { "/development/frameworks-mobile/intro": 1 },
             { "/style/color": 1 },
@@ -349,6 +365,7 @@
             { "/overview": 5 },
             { "/community/bugs": 4 },
             { "/community/innersourcing": 2 },
+            { "/community/our-team": 2 },
             { "/development/frameworks-web/intro": 1 },
             { "/development/frameworks-mobile/intro": 1 },
             { "/style/color": 1 },
@@ -414,6 +431,7 @@
             { "/design/websites": 2 },
             { "/patterns/user-auth": 2 },
             { "/community/bugs": 2 },
+            { "/community/our-team": 2 },
             { "/community/contactus": 2 },
             { "/get-started/web": 1 },
             { "/style/iconography": 1 },
@@ -451,6 +469,7 @@
             { "/design/anatomy": 5 },
             { "/patterns/empty-states": 5 },
             { "/patterns/steppers": 4 },
+            { "/community/our-team": 4 },
             { "/development/cli": 3 },
             { "/patterns/visualizations": 3 },
             { "/community/bugs": 3 },
@@ -476,7 +495,8 @@
             { "/patterns/internationalization": 2 },
             { "/development/frameworks-mobile/react-native": 1 },
             { "/patterns/appbar": 1 },
-            { "/style/typography": 1 }
+            { "/style/typography": 1 },
+            { "/community/our-team": 1 }
         ],
         "and": [
             { "/development/testing": 42 },
@@ -505,6 +525,7 @@
             { "/development/frameworks-mobile/ionic": 8 },
             { "/community/faq": 8 },
             { "/patterns/visualizations": 7 },
+            { "/community/our-team": 7 },
             { "/get-started/new-project": 6 },
             { "/get-started/web": 6 },
             { "/development/frameworks-web/intro": 6 },
@@ -539,7 +560,8 @@
             { "/patterns/navigation": 1 },
             { "/patterns/overlay": 1 },
             { "/patterns/user-auth": 1 },
-            { "/style/typography": 1 }
+            { "/style/typography": 1 },
+            { "/community/our-team": 1 }
         ],
         "applications": [
             { "/get-started/web": 6 },
@@ -568,7 +590,8 @@
             { "/development/frameworks-web/react": 1 },
             { "/patterns/forms": 1 },
             { "/style/illustrations": 1 },
-            { "/community/innersourcing": 1 }
+            { "/community/innersourcing": 1 },
+            { "/community/our-team": 1 }
         ],
         "this": [
             { "/patterns/appbar": 11 },
@@ -691,6 +714,7 @@
             { "/community/features": 1 }
         ],
         "team": [
+            { "/community/our-team": 6 },
             { "/overview": 3 },
             { "/community/contactus": 3 },
             { "/development/frameworks-mobile/intro": 2 },
@@ -878,7 +902,8 @@
             { "/patterns/navigation": 1 },
             { "/style/illustrations": 1 },
             { "/community/features": 1 },
-            { "/community/faq": 1 }
+            { "/community/faq": 1 },
+            { "/community/our-team": 1 }
         ],
         "release": [{ "/overview": 1 }, { "/community/innersourcing": 1 }],
         "notes": [{ "/overview": 1 }],
@@ -918,7 +943,8 @@
             { "/patterns/forms": 1 },
             { "/patterns/loading": 1 },
             { "/style/typography": 1 },
-            { "/community/innersourcing": 1 }
+            { "/community/innersourcing": 1 },
+            { "/community/our-team": 1 }
         ],
         "s": [
             { "/development/testing": 4 },
@@ -951,6 +977,7 @@
             { "/development/frameworks-web/react": 3 },
             { "/development/frameworks-mobile/ionic": 3 },
             { "/community/innersourcing": 3 },
+            { "/community/our-team": 3 },
             { "/development/frameworks-mobile/intro": 2 },
             { "/patterns/internationalization": 2 },
             { "/patterns/user-auth": 2 },
@@ -978,6 +1005,7 @@
             { "/design/accessibility": 11 },
             { "/development/frameworks-mobile/react-native": 10 },
             { "/patterns/user-auth": 10 },
+            { "/community/our-team": 10 },
             { "/design/anatomy": 9 },
             { "/development/environment": 8 },
             { "/patterns/loading": 8 },
@@ -1039,6 +1067,7 @@
             { "/design/accessibility": 10 },
             { "/style/color": 10 },
             { "/community/innersourcing": 10 },
+            { "/community/our-team": 10 },
             { "/development/environment": 9 },
             { "/development/frameworks-mobile/react-native": 9 },
             { "/patterns/user-auth": 9 },
@@ -1101,7 +1130,8 @@
             { "/patterns/steppers": 1 },
             { "/patterns/user-auth": 1 },
             { "/style/illustrations": 1 },
-            { "/style/themes": 1 }
+            { "/style/themes": 1 },
+            { "/community/our-team": 1 }
         ],
         "software": [
             { "/community/license": 4 },
@@ -1119,7 +1149,8 @@
             { "/style/color": 1 },
             { "/style/iconography": 1 },
             { "/style/typography": 1 },
-            { "/community/license": 1 }
+            { "/community/license": 1 },
+            { "/community/our-team": 1 }
         ],
         "delivered": [{ "/overview": 1 }],
         "by": [
@@ -1208,6 +1239,7 @@
             { "/design/websites": 4 },
             { "/style/color": 4 },
             { "/style/illustrations": 4 },
+            { "/community/our-team": 4 },
             { "/development/environment": 3 },
             { "/patterns/navigation": 3 },
             { "/community/license": 3 },
@@ -1262,7 +1294,8 @@
             { "/design/anatomy": 1 },
             { "/design/websites": 1 },
             { "/patterns/user-auth": 1 },
-            { "/community/license": 1 }
+            { "/community/license": 1 },
+            { "/community/our-team": 1 }
         ],
         "can": [
             { "/development/testing": 13 },
@@ -1374,6 +1407,7 @@
             { "/style/typography": 1 },
             { "/community/license": 1 },
             { "/community/innersourcing": 1 },
+            { "/community/our-team": 1 },
             { "/community/contactus": 1 }
         ],
         "feel": [
@@ -1433,7 +1467,8 @@
             { "/style/typography": 1 },
             { "/style/themes": 1 },
             { "/community/license": 1 },
-            { "/community/faq": 1 }
+            { "/community/faq": 1 },
+            { "/community/our-team": 1 }
         ],
         "belong": [{ "/overview": 1 }],
         "same": [
@@ -1494,6 +1529,7 @@
             { "/style/themes": 2 },
             { "/community/license": 2 },
             { "/community/features": 2 },
+            { "/community/our-team": 2 },
             { "/development/cli": 1 },
             { "/development/frameworks-web/angular": 1 },
             { "/development/frameworks-web/react": 1 },
@@ -1522,6 +1558,7 @@
             { "/patterns/lists": 2 },
             { "/patterns/loading": 2 },
             { "/community/faq": 2 },
+            { "/community/our-team": 2 },
             { "/development/cli": 1 },
             { "/design/anatomy": 1 },
             { "/design/websites": 1 },
@@ -1658,7 +1695,8 @@
             { "/development/testing": 1 },
             { "/design/websites": 1 },
             { "/patterns/forms": 1 },
-            { "/community/faq": 1 }
+            { "/community/faq": 1 },
+            { "/community/our-team": 1 }
         ],
         "studio": [
             { "/development/frameworks-mobile/intro": 3 },
@@ -1751,7 +1789,13 @@
             { "/community/contactus": 1 }
         ],
         "utilizing": [{ "/overview": 1 }, { "/design/accessibility": 1 }, { "/design/websites": 1 }],
-        "designers": [{ "/overview": 1 }, { "/design/anatomy": 1 }, { "/style/color": 1 }, { "/style/iconography": 1 }],
+        "designers": [
+            { "/overview": 1 },
+            { "/design/anatomy": 1 },
+            { "/style/color": 1 },
+            { "/style/iconography": 1 },
+            { "/community/our-team": 1 }
+        ],
         "following": [
             { "/patterns/user-auth": 9 },
             { "/development/frameworks-mobile/react-native": 6 },
@@ -1801,6 +1845,7 @@
             { "/style/themes": 3 },
             { "/get-started/new-project": 2 },
             { "/style/typography": 2 },
+            { "/community/our-team": 2 },
             { "/get-started/web": 1 },
             { "/get-started/mobile": 1 },
             { "/development/frameworks-mobile/react-native": 1 },
@@ -1899,6 +1944,7 @@
             { "/style/iconography": 2 },
             { "/style/illustrations": 2 },
             { "/community/faq": 2 },
+            { "/community/our-team": 2 },
             { "/overview": 1 },
             { "/get-started/web": 1 },
             { "/get-started/mobile": 1 },
@@ -1932,7 +1978,8 @@
             { "/patterns/lists": 1 },
             { "/patterns/user-auth": 1 },
             { "/style/iconography": 1 },
-            { "/community/innersourcing": 1 }
+            { "/community/innersourcing": 1 },
+            { "/community/our-team": 1 }
         ],
         "quickly": [
             { "/design/intro": 2 },
@@ -1983,7 +2030,8 @@
             { "/design/anatomy": 1 },
             { "/patterns/loading": 1 },
             { "/style/themes": 1 },
-            { "/community/faq": 1 }
+            { "/community/faq": 1 },
+            { "/community/our-team": 1 }
         ],
         "approaches": [
             { "/get-started/mobile": 2 },
@@ -1998,9 +2046,10 @@
             { "/community/innersourcing": 2 },
             { "/overview": 1 },
             { "/get-started/web": 1 },
-            { "/development/frameworks-web/intro": 1 }
+            { "/development/frameworks-web/intro": 1 },
+            { "/community/our-team": 1 }
         ],
-        "usable": [{ "/overview": 1 }, { "/patterns/appbar": 1 }],
+        "usable": [{ "/overview": 1 }, { "/patterns/appbar": 1 }, { "/community/our-team": 1 }],
         "components": [
             { "/development/frameworks-mobile/react-native": 16 },
             { "/design/anatomy": 10 },
@@ -2029,6 +2078,7 @@
             { "/community/bugs": 1 },
             { "/community/features": 1 },
             { "/community/faq": 1 },
+            { "/community/our-team": 1 },
             { "/community/contactus": 1 }
         ],
         "support": [
@@ -2040,6 +2090,7 @@
             { "/overview": 2 },
             { "/get-started/web": 2 },
             { "/style/illustrations": 2 },
+            { "/community/our-team": 2 },
             { "/development/frameworks-web/intro": 1 },
             { "/development/frameworks-mobile/intro": 1 },
             { "/development/testing": 1 },
@@ -2176,7 +2227,8 @@
             { "/development/frameworks-mobile/react-native": 1 },
             { "/community/innersourcing": 1 },
             { "/community/bugs": 1 },
-            { "/community/faq": 1 }
+            { "/community/faq": 1 },
+            { "/community/our-team": 1 }
         ],
         "provided": [{ "/community/license": 3 }, { "/overview": 1 }],
         "page": [
@@ -2251,7 +2303,8 @@
             { "/design/intro": 1 },
             { "/patterns/lists": 1 },
             { "/style/illustrations": 1 },
-            { "/community/innersourcing": 1 }
+            { "/community/innersourcing": 1 },
+            { "/community/our-team": 1 }
         ],
         "get": [
             { "/development/environment": 2 },
@@ -2330,7 +2383,8 @@
             { "/development/cli": 1 },
             { "/development/frameworks-web/angular": 1 },
             { "/development/frameworks-web/react": 1 },
-            { "/development/frameworks-mobile/ionic": 1 }
+            { "/development/frameworks-mobile/ionic": 1 },
+            { "/community/our-team": 1 }
         ],
         "project": [
             { "/development/frameworks-mobile/react-native": 20 },
@@ -2342,6 +2396,7 @@
             { "/development/cli": 5 },
             { "/design/intro": 3 },
             { "/overview": 2 },
+            { "/community/our-team": 2 },
             { "/design/anatomy": 1 },
             { "/design/accessibility": 1 },
             { "/patterns/user-auth": 1 },
@@ -2401,7 +2456,8 @@
             { "/patterns/lists": 1 },
             { "/patterns/steppers": 1 },
             { "/style/illustrations": 1 },
-            { "/community/innersourcing": 1 }
+            { "/community/innersourcing": 1 },
+            { "/community/our-team": 1 }
         ],
         "environment": [
             { "/development/environment": 4 },
@@ -2545,7 +2601,12 @@
             { "/style/typography": 1 },
             { "/community/faq": 1 }
         ],
-        "extensive": [{ "/overview": 1 }, { "/design/intro": 1 }, { "/style/iconography": 1 }],
+        "extensive": [
+            { "/overview": 1 },
+            { "/design/intro": 1 },
+            { "/style/iconography": 1 },
+            { "/community/our-team": 1 }
+        ],
         "icons": [
             { "/development/frameworks-mobile/react-native": 8 },
             { "/style/iconography": 8 },
@@ -2841,7 +2902,8 @@
             { "/patterns/loading": 1 },
             { "/patterns/user-auth": 1 },
             { "/community/innersourcing": 1 },
-            { "/community/faq": 1 }
+            { "/community/faq": 1 },
+            { "/community/our-team": 1 }
         ],
         "step": [
             { "/patterns/steppers": 5 },
@@ -2979,6 +3041,7 @@
             { "/patterns/forms": 1 },
             { "/patterns/navigation": 1 },
             { "/community/license": 1 },
+            { "/community/our-team": 1 },
             { "/community/contactus": 1 }
         ],
         "device": [
@@ -3326,7 +3389,8 @@
             { "/style/iconography": 1 },
             { "/style/illustrations": 1 },
             { "/style/typography": 1 },
-            { "/community/innersourcing": 1 }
+            { "/community/innersourcing": 1 },
+            { "/community/our-team": 1 }
         ],
         "product": [
             { "/design/websites": 7 },
@@ -3440,6 +3504,7 @@
             { "/style/typography": 1 },
             { "/style/themes": 1 },
             { "/community/faq": 1 },
+            { "/community/our-team": 1 },
             { "/community/contactus": 1 }
         ],
         "least": [{ "/get-started/new-project": 1 }, { "/development/environment": 1 }, { "/style/illustrations": 1 }],
@@ -3543,7 +3608,12 @@
         ],
         "expand": [{ "/get-started/new-project": 1 }],
         "offering": [{ "/get-started/new-project": 1 }],
-        "brand": [{ "/get-started/new-project": 1 }, { "/design/anatomy": 1 }, { "/design/websites": 1 }],
+        "brand": [
+            { "/get-started/new-project": 1 },
+            { "/design/anatomy": 1 },
+            { "/design/websites": 1 },
+            { "/community/our-team": 1 }
+        ],
         "never": [
             { "/get-started/new-project": 1 },
             { "/patterns/lists": 1 },
@@ -3830,6 +3900,7 @@
             { "/development/frameworks-mobile/intro": 2 },
             { "/style/color": 2 },
             { "/style/themes": 2 },
+            { "/community/our-team": 2 },
             { "/get-started/web": 1 },
             { "/get-started/mobile": 1 },
             { "/development/environment": 1 },
@@ -3929,7 +4000,8 @@
             { "/get-started/web": 2 },
             { "/design/intro": 2 },
             { "/style/typography": 2 },
-            { "/patterns/loading": 1 }
+            { "/patterns/loading": 1 },
+            { "/community/our-team": 1 }
         ],
         "desktop": [
             { "/get-started/web": 2 },
@@ -4059,7 +4131,8 @@
             { "/design/websites": 1 },
             { "/patterns/visualizations": 1 },
             { "/style/iconography": 1 },
-            { "/community/license": 1 }
+            { "/community/license": 1 },
+            { "/community/our-team": 1 }
         ],
         "html": [
             { "/development/frameworks-web/angular": 3 },
@@ -4158,7 +4231,8 @@
             { "/development/cli": 1 },
             { "/patterns/user-auth": 1 },
             { "/patterns/visualizations": 1 },
-            { "/community/innersourcing": 1 }
+            { "/community/innersourcing": 1 },
+            { "/community/our-team": 1 }
         ],
         "react": [
             { "/development/frameworks-mobile/react-native": 48 },
@@ -4182,7 +4256,8 @@
             { "/community/innersourcing": 2 },
             { "/community/features": 2 },
             { "/get-started/web": 1 },
-            { "/patterns/visualizations": 1 }
+            { "/patterns/visualizations": 1 },
+            { "/community/our-team": 1 }
         ],
         "pros": [{ "/get-started/web": 1 }, { "/development/frameworks-web/intro": 1 }],
         "cons": [{ "/get-started/web": 1 }, { "/development/frameworks-web/intro": 1 }],
@@ -4324,7 +4399,8 @@
             { "/development/testing": 1 },
             { "/patterns/forms": 1 },
             { "/patterns/navigation": 1 },
-            { "/style/themes": 1 }
+            { "/style/themes": 1 },
+            { "/community/our-team": 1 }
         ],
         "varieties": [{ "/get-started/mobile": 1 }, { "/development/testing": 1 }],
         "must": [
@@ -4458,7 +4534,8 @@
             { "/patterns/navigation": 1 },
             { "/patterns/overlay": 1 },
             { "/style/color": 1 },
-            { "/style/themes": 1 }
+            { "/style/themes": 1 },
+            { "/community/our-team": 1 }
         ],
         "base": [{ "/get-started/mobile": 3 }, { "/development/frameworks-mobile/react-native": 1 }],
         "deployed": [{ "/get-started/mobile": 1 }],
@@ -4514,10 +4591,12 @@
             { "/patterns/loading": 1 },
             { "/patterns/overlay": 1 },
             { "/patterns/steppers": 1 },
+            { "/patterns/user-auth": 1 },
             { "/patterns/visualizations": 1 },
             { "/style/color": 1 },
             { "/community/innersourcing": 1 },
-            { "/community/features": 1 }
+            { "/community/features": 1 },
+            { "/community/our-team": 1 }
         ],
         "implemented": [{ "/get-started/mobile": 1 }, { "/design/anatomy": 1 }, { "/patterns/navigation": 1 }],
         "differently": [{ "/get-started/mobile": 1 }],
@@ -4620,7 +4699,8 @@
             { "/design/anatomy": 2 },
             { "/get-started/mobile": 1 },
             { "/development/environment": 1 },
-            { "/patterns/internationalization": 1 }
+            { "/patterns/internationalization": 1 },
+            { "/community/our-team": 1 }
         ],
         "longer": [
             { "/get-started/mobile": 1 },
@@ -4635,7 +4715,8 @@
             { "/get-started/mobile": 1 },
             { "/development/testing": 1 },
             { "/design/anatomy": 1 },
-            { "/patterns/user-auth": 1 }
+            { "/patterns/user-auth": 1 },
+            { "/community/our-team": 1 }
         ],
         "provides": [
             { "/development/frameworks-mobile/react-native": 2 },
@@ -4693,7 +4774,8 @@
             { "/design/accessibility": 2 },
             { "/get-started/mobile": 1 },
             { "/development/testing": 1 },
-            { "/patterns/forms": 1 }
+            { "/patterns/forms": 1 },
+            { "/community/our-team": 1 }
         ],
         "make": [
             { "/development/frameworks-mobile/react-native": 4 },
@@ -4839,7 +4921,7 @@
             { "/community/innersourcing": 1 },
             { "/community/features": 1 }
         ],
-        "developer": [{ "/development/environment": 1 }, { "/patterns/lists": 1 }, { "/patterns/user-auth": 1 }],
+        "developer": [{ "/development/environment": 1 }, { "/patterns/lists": 1 }],
         "develop": [{ "/development/environment": 2 }, { "/design/websites": 1 }],
         "tutorial": [
             { "/development/environment": 1 },
@@ -5007,6 +5089,7 @@
             { "/development/frameworks-web/intro": 2 },
             { "/development/frameworks-mobile/react-native": 2 },
             { "/community/faq": 2 },
+            { "/community/our-team": 2 },
             { "/development/environment": 1 },
             { "/patterns/visualizations": 1 },
             { "/community/bugs": 1 },
@@ -5206,7 +5289,8 @@
             { "/community/innersourcing": 1 },
             { "/community/bugs": 1 },
             { "/community/features": 1 },
-            { "/community/faq": 1 }
+            { "/community/faq": 1 },
+            { "/community/our-team": 1 }
         ],
         "example": [
             { "/design/accessibility": 2 },
@@ -5413,7 +5497,8 @@
             { "/development/frameworks-web/angular": 1 },
             { "/development/frameworks-web/react": 1 },
             { "/development/frameworks-mobile/ionic": 1 },
-            { "/development/frameworks-mobile/react-native": 1 }
+            { "/development/frameworks-mobile/react-native": 1 },
+            { "/community/our-team": 1 }
         ],
         "specific": [
             { "/design/websites": 3 },
@@ -5542,7 +5627,8 @@
             { "/development/testing": 4 },
             { "/development/frameworks-web/intro": 1 },
             { "/community/innersourcing": 1 },
-            { "/community/bugs": 1 }
+            { "/community/bugs": 1 },
+            { "/community/our-team": 1 }
         ],
         "line": [
             { "/development/cli": 2 },
@@ -5577,7 +5663,8 @@
             { "/development/testing": 1 },
             { "/patterns/appbar": 1 },
             { "/patterns/forms": 1 },
-            { "/style/iconography": 1 }
+            { "/style/iconography": 1 },
+            { "/community/our-team": 1 }
         ],
         "create": [
             { "/patterns/user-auth": 4 },
@@ -5606,6 +5693,7 @@
             { "/development/frameworks-web/react": 5 },
             { "/development/frameworks-web/angular": 4 },
             { "/development/testing": 3 },
+            { "/community/our-team": 3 },
             { "/development/frameworks-mobile/ionic": 2 },
             { "/patterns/lists": 2 },
             { "/style/themes": 2 },
@@ -5623,6 +5711,7 @@
             { "/development/frameworks-mobile/ionic": 2 },
             { "/development/testing": 2 },
             { "/style/iconography": 2 },
+            { "/community/our-team": 2 },
             { "/development/cli": 1 },
             { "/development/frameworks-web/intro": 1 },
             { "/style/typography": 1 },
@@ -5785,6 +5874,7 @@
             { "/style/typography": 3 },
             { "/development/frameworks-web/intro": 2 },
             { "/community/faq": 2 },
+            { "/community/our-team": 2 },
             { "/design/websites": 1 },
             { "/patterns/forms": 1 },
             { "/patterns/overlay": 1 },
@@ -5897,7 +5987,8 @@
             { "/development/testing": 12 },
             { "/development/frameworks-web/intro": 2 },
             { "/patterns/forms": 1 },
-            { "/patterns/lists": 1 }
+            { "/patterns/lists": 1 },
+            { "/community/our-team": 1 }
         ],
         "full": [
             { "/patterns/empty-states": 2 },
@@ -5908,7 +5999,8 @@
             { "/patterns/navigation": 1 },
             { "/patterns/user-auth": 1 },
             { "/style/illustrations": 1 },
-            { "/community/license": 1 }
+            { "/community/license": 1 },
+            { "/community/our-team": 1 }
         ],
         "stack": [{ "/development/frameworks-web/intro": 1 }],
         "ui": [
@@ -5935,7 +6027,8 @@
         "custom": [
             { "/style/typography": 3 },
             { "/development/frameworks-web/intro": 1 },
-            { "/development/frameworks-mobile/intro": 1 }
+            { "/development/frameworks-mobile/intro": 1 },
+            { "/community/our-team": 1 }
         ],
         "combined": [{ "/design/anatomy": 2 }, { "/development/frameworks-web/intro": 1 }, { "/style/themes": 1 }],
         "redux": [{ "/development/frameworks-web/intro": 1 }],
@@ -6027,7 +6120,7 @@
             { "/community/bugs": 1 },
             { "/community/features": 1 }
         ],
-        "conduct": [{ "/development/frameworks-web/intro": 1 }],
+        "conduct": [{ "/development/frameworks-web/intro": 1 }, { "/community/our-team": 1 }],
         "depth": [{ "/development/frameworks-web/intro": 1 }, { "/development/testing": 1 }],
         "analysis": [{ "/development/frameworks-web/intro": 1 }],
         "appropriate": [
@@ -6243,7 +6336,8 @@
             { "/development/frameworks-web/angular": 2 },
             { "/development/frameworks-web/react": 2 },
             { "/development/frameworks-mobile/react-native": 2 },
-            { "/development/testing": 2 }
+            { "/development/testing": 2 },
+            { "/community/our-team": 1 }
         ],
         "scaffold": [
             { "/development/frameworks-web/angular": 2 },
@@ -6713,7 +6807,11 @@
             { "/development/frameworks-mobile/ionic": 1 }
         ],
         "views": [{ "/development/testing": 2 }, { "/development/frameworks-mobile/intro": 1 }],
-        "won": [{ "/development/frameworks-mobile/intro": 1 }, { "/development/frameworks-mobile/ionic": 1 }],
+        "won": [
+            { "/development/frameworks-mobile/intro": 1 },
+            { "/development/frameworks-mobile/ionic": 1 },
+            { "/community/our-team": 1 }
+        ],
         "process": [
             { "/patterns/internationalization": 3 },
             { "/patterns/steppers": 2 },
@@ -6724,7 +6822,11 @@
             { "/design/accessibility": 1 },
             { "/community/license": 1 }
         ],
-        "developing": [{ "/development/frameworks-mobile/ionic": 2 }, { "/development/frameworks-mobile/intro": 1 }],
+        "developing": [
+            { "/development/frameworks-mobile/ionic": 2 },
+            { "/development/frameworks-mobile/intro": 1 },
+            { "/community/our-team": 1 }
+        ],
         "ultimately": [
             { "/development/frameworks-mobile/intro": 1 },
             { "/patterns/loading": 1 },
@@ -6833,7 +6935,11 @@
             { "/design/websites": 1 }
         ],
         "normal": [{ "/development/frameworks-mobile/ionic": 1 }, { "/design/anatomy": 1 }],
-        "serve": [{ "/design/websites": 2 }, { "/development/frameworks-mobile/ionic": 1 }],
+        "serve": [
+            { "/design/websites": 2 },
+            { "/development/frameworks-mobile/ionic": 1 },
+            { "/community/our-team": 1 }
+        ],
         "localhost": [{ "/development/frameworks-mobile/ionic": 1 }],
         "completes": [{ "/development/frameworks-mobile/ionic": 1 }],
         "along": [{ "/development/frameworks-mobile/ionic": 1 }],
@@ -6848,7 +6954,8 @@
             { "/design/intro": 1 },
             { "/design/accessibility": 1 },
             { "/design/websites": 1 },
-            { "/community/faq": 1 }
+            { "/community/faq": 1 },
+            { "/community/our-team": 1 }
         ],
         "expo": [{ "/development/frameworks-mobile/react-native": 16 }, { "/community/innersourcing": 1 }],
         "client": [{ "/development/frameworks-mobile/react-native": 1 }, { "/patterns/forms": 1 }],
@@ -6929,7 +7036,8 @@
         "understand": [
             { "/development/frameworks-mobile/react-native": 1 },
             { "/design/intro": 1 },
-            { "/patterns/visualizations": 1 }
+            { "/patterns/visualizations": 1 },
+            { "/community/our-team": 1 }
         ],
         "remains": [{ "/development/frameworks-mobile/react-native": 1 }],
         "little": [{ "/development/frameworks-mobile/react-native": 1 }],
@@ -6997,7 +7105,8 @@
             { "/patterns/internationalization": 1 },
             { "/patterns/steppers": 1 },
             { "/style/color": 1 },
-            { "/style/illustrations": 1 }
+            { "/style/illustrations": 1 },
+            { "/community/our-team": 1 }
         ],
         "changes": [
             { "/development/frameworks-mobile/react-native": 1 },
@@ -7101,7 +7210,8 @@
             { "/development/frameworks-mobile/react-native": 1 },
             { "/development/testing": 1 },
             { "/style/typography": 1 },
-            { "/community/innersourcing": 1 }
+            { "/community/innersourcing": 1 },
+            { "/community/our-team": 1 }
         ],
         "during": [
             { "/patterns/forms": 2 },
@@ -7227,7 +7337,8 @@
             { "/design/anatomy": 8 },
             { "/patterns/user-auth": 7 },
             { "/development/testing": 1 },
-            { "/patterns/steppers": 1 }
+            { "/patterns/steppers": 1 },
+            { "/community/our-team": 1 }
         ],
         "function": [
             { "/development/testing": 3 },
@@ -7372,7 +7483,12 @@
             { "/patterns/loading": 1 },
             { "/patterns/user-auth": 1 }
         ],
-        "similar": [{ "/development/testing": 1 }, { "/patterns/forms": 1 }, { "/patterns/lists": 1 }],
+        "similar": [
+            { "/development/testing": 1 },
+            { "/patterns/forms": 1 },
+            { "/patterns/lists": 1 },
+            { "/community/our-team": 1 }
+        ],
         "cases": [
             { "/patterns/empty-states": 4 },
             { "/development/testing": 2 },
@@ -7817,7 +7933,12 @@
             { "/patterns/appbar": 1 },
             { "/patterns/internationalization": 1 }
         ],
-        "materials": [{ "/community/innersourcing": 2 }, { "/design/intro": 1 }, { "/community/license": 1 }],
+        "materials": [
+            { "/community/innersourcing": 2 },
+            { "/design/intro": 1 },
+            { "/community/license": 1 },
+            { "/community/our-team": 1 }
+        ],
         "plugin": [{ "/design/intro": 1 }, { "/style/illustrations": 1 }],
         "jump": [{ "/design/intro": 1 }],
         "encouraged": [{ "/design/intro": 1 }, { "/patterns/internationalization": 1 }, { "/patterns/user-auth": 1 }],
@@ -8085,7 +8206,12 @@
         "ones": [{ "/design/anatomy": 1 }, { "/patterns/user-auth": 1 }],
         "advanced": [{ "/design/anatomy": 1 }, { "/patterns/appbar": 1 }],
         "largest": [{ "/design/anatomy": 1 }],
-        "foundation": [{ "/design/anatomy": 1 }, { "/design/accessibility": 1 }, { "/patterns/visualizations": 1 }],
+        "foundation": [
+            { "/design/anatomy": 1 },
+            { "/design/accessibility": 1 },
+            { "/patterns/visualizations": 1 },
+            { "/community/our-team": 1 }
+        ],
         "stay": [{ "/design/anatomy": 1 }],
         "room": [{ "/design/anatomy": 1 }, { "/style/illustrations": 1 }],
         "customizations": [{ "/design/anatomy": 1 }],
@@ -8105,7 +8231,7 @@
         "invalid": [{ "/patterns/forms": 2 }, { "/design/anatomy": 1 }],
         "sequence": [{ "/design/anatomy": 1 }, { "/patterns/steppers": 1 }],
         "surrounding": [{ "/design/anatomy": 1 }],
-        "goes": [{ "/design/anatomy": 3 }],
+        "goes": [{ "/design/anatomy": 3 }, { "/community/our-team": 1 }],
         "another": [
             { "/design/anatomy": 2 },
             { "/patterns/internationalization": 2 },
@@ -8252,8 +8378,8 @@
         "practice": [{ "/design/accessibility": 1 }, { "/community/innersourcing": 1 }],
         "internationally": [{ "/design/accessibility": 1 }],
         "wcag": [{ "/design/accessibility": 1 }],
-        "released": [{ "/design/accessibility": 1 }],
-        "world": [{ "/design/accessibility": 1 }],
+        "released": [{ "/design/accessibility": 1 }, { "/community/our-team": 1 }],
+        "world": [{ "/design/accessibility": 1 }, { "/community/our-team": 1 }],
         "consortium": [{ "/design/accessibility": 1 }],
         "principles": [{ "/design/websites": 4 }, { "/design/accessibility": 2 }],
         "anyone": [{ "/design/accessibility": 1 }],
@@ -8439,7 +8565,8 @@
             { "/design/accessibility": 1 },
             { "/patterns/empty-states": 1 },
             { "/style/iconography": 1 },
-            { "/community/bugs": 1 }
+            { "/community/bugs": 1 },
+            { "/community/our-team": 1 }
         ],
         "description": [{ "/design/accessibility": 2 }, { "/community/bugs": 2 }, { "/style/iconography": 1 }],
         "hover": [{ "/design/accessibility": 1 }, { "/patterns/navigation": 1 }],
@@ -8889,7 +9016,8 @@
             { "/patterns/forms": 1 },
             { "/patterns/loading": 1 },
             { "/patterns/navigation": 1 },
-            { "/style/typography": 1 }
+            { "/style/typography": 1 },
+            { "/community/our-team": 1 }
         ],
         "accepted": [{ "/patterns/forms": 1 }],
         "next": [
@@ -8924,7 +9052,8 @@
             { "/patterns/user-auth": 2 },
             { "/patterns/forms": 1 },
             { "/community/license": 1 },
-            { "/community/faq": 1 }
+            { "/community/faq": 1 },
+            { "/community/our-team": 1 }
         ],
         "defer": [{ "/patterns/forms": 1 }],
         "link": [{ "/patterns/user-auth": 3 }, { "/patterns/forms": 1 }],
@@ -9160,7 +9289,12 @@
         "interfere": [{ "/patterns/lists": 1 }, { "/style/illustrations": 1 }],
         "navigating": [{ "/patterns/lists": 1 }, { "/style/color": 1 }],
         "tree": [{ "/patterns/lists": 2 }, { "/community/faq": 1 }],
-        "multi": [{ "/patterns/steppers": 2 }, { "/patterns/lists": 1 }, { "/patterns/user-auth": 1 }],
+        "multi": [
+            { "/patterns/steppers": 2 },
+            { "/patterns/lists": 1 },
+            { "/patterns/user-auth": 1 },
+            { "/community/our-team": 1 }
+        ],
         "progressive": [{ "/patterns/lists": 1 }],
         "disclosure": [{ "/patterns/lists": 1 }],
         "tricky": [{ "/patterns/lists": 1 }],
@@ -9271,7 +9405,7 @@
         "sheet": [{ "/patterns/overlay": 4 }, { "/patterns/steppers": 1 }],
         "appears": [{ "/patterns/overlay": 2 }, { "/patterns/steppers": 1 }],
         "capture": [{ "/patterns/overlay": 2 }],
-        "supplement": [{ "/patterns/overlay": 1 }],
+        "supplement": [{ "/patterns/overlay": 1 }, { "/community/our-team": 1 }],
         "confirmation": [{ "/patterns/overlay": 2 }, { "/patterns/user-auth": 2 }],
         "dialogs": [{ "/patterns/overlay": 3 }],
         "sidebars": [{ "/patterns/overlay": 4 }, { "/style/themes": 1 }],
@@ -9662,7 +9796,7 @@
         "aligns": [{ "/community/innersourcing": 1 }],
         "questions": [{ "/community/contactus": 2 }, { "/community/innersourcing": 1 }, { "/community/faq": 1 }],
         "discuss": [{ "/community/innersourcing": 1 }],
-        "iteration": [{ "/community/innersourcing": 1 }],
+        "iteration": [{ "/community/innersourcing": 1 }, { "/community/our-team": 1 }],
         "brought": [{ "/community/innersourcing": 1 }],
         "availability": [{ "/community/innersourcing": 1 }],
         "timeframe": [{ "/community/innersourcing": 1 }],
@@ -9704,6 +9838,31 @@
         "interest": [{ "/community/faq": 1 }],
         "expressed": [{ "/community/faq": 1 }],
         "demo": [{ "/community/faq": 1 }],
+        "history": [{ "/community/our-team": 1 }],
+        "seeds": [{ "/community/our-team": 1 }],
+        "were": [{ "/community/our-team": 1 }],
+        "sown": [{ "/community/our-team": 1 }],
+        "insight": [{ "/community/our-team": 2 }],
+        "gateway": [{ "/community/our-team": 1 }],
+        "exposed": [{ "/community/our-team": 1 }],
+        "polymer": [{ "/community/our-team": 2 }],
+        "summer": [{ "/community/our-team": 1 }],
+        "difficulties": [{ "/community/our-team": 1 }],
+        "led": [{ "/community/our-team": 1 }],
+        "thinking": [{ "/community/our-team": 1 }],
+        "rethink": [{ "/community/our-team": 1 }],
+        "conducted": [{ "/community/our-team": 1 }],
+        "interviews": [{ "/community/our-team": 1 }],
+        "wanted": [{ "/community/our-team": 1 }],
+        "evaluated": [{ "/community/our-team": 1 }],
+        "february": [{ "/community/our-team": 1 }],
+        "launches": [{ "/community/our-team": 1 }],
+        "september": [{ "/community/our-team": 1 }],
+        "ramped": [{ "/community/our-team": 1 }],
+        "began": [{ "/community/our-team": 1 }],
+        "awards": [{ "/community/our-team": 1 }],
+        "transformation": [{ "/community/our-team": 2 }],
+        "enterprise": [{ "/community/our-team": 1 }],
         "evolving": [{ "/community/contactus": 1 }],
         "grows": [{ "/community/contactus": 1 }],
         "regarding": [{ "/community/contactus": 1 }],

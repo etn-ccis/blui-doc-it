@@ -49,3 +49,38 @@ export type Result = {
     weight?: number;
     text?: string;
 };
+
+/**
+ * For current maintainers and contributors (present or past)
+ */
+export type Contributor = {
+    /**
+     * Contributor Name
+     */
+    name: string;
+
+    /**
+     * Short description on what they did
+     */
+    description?: string;
+
+    /**
+     * An image to be used for their avatars
+     */
+    image?: string;
+
+    /**
+     * A detailed description on the contributor role in the team
+     * current maintainers only
+     */
+    info?: string;
+
+    /**
+     * Contact info, social medias
+     * current maintainers only
+     */
+    contacts?: {
+        github?: string;
+        linkedIn?: string;
+    };
+};
