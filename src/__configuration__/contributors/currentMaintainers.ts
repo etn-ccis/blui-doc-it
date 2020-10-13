@@ -11,7 +11,7 @@ export const currentMaintainers: Contributor[] = [
         name: 'Huayun Huang',
         description: 'UX Designer & Developer',
         image: HuayunHuang,
-        info: `Huayun is a half-blood between a UX-driven designer and a detailed-oriented developer. A bit of a night owl, she does her best work between the hours of 12 and 4 am, and likes spending her spare time indulging in 2D visual arts. Be prepared! She has no mercy when it comes to reviewing your work.`,
+        info: `Huayun is a half-blood between a UX-driven designer and a detail-oriented developer. A bit of a night owl, she does her best work between the hours of 12 and 4 am, and likes spending her spare time indulging in 2D visual arts. Be prepared! She has no mercy when it comes to reviewing your work.`,
         contacts: {
             github: `https://github.com/huayunh`,
             linkedIn: `https://www.linkedin.com/in/huayun-huang/`,
