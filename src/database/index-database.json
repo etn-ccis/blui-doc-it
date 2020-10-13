@@ -714,7 +714,7 @@
             { "/community/features": 1 }
         ],
         "team": [
-            { "/community/our-team": 5 },
+            { "/community/our-team": 6 },
             { "/overview": 3 },
             { "/community/contactus": 3 },
             { "/development/frameworks-mobile/intro": 2 },
@@ -1289,13 +1289,13 @@
             { "/style/illustrations": 2 },
             { "/style/typography": 2 },
             { "/community/faq": 2 },
-            { "/community/our-team": 2 },
             { "/development/frameworks-mobile/intro": 1 },
             { "/development/frameworks-mobile/ionic": 1 },
             { "/design/anatomy": 1 },
             { "/design/websites": 1 },
             { "/patterns/user-auth": 1 },
-            { "/community/license": 1 }
+            { "/community/license": 1 },
+            { "/community/our-team": 1 }
         ],
         "can": [
             { "/development/testing": 13 },
@@ -4591,6 +4591,7 @@
             { "/patterns/loading": 1 },
             { "/patterns/overlay": 1 },
             { "/patterns/steppers": 1 },
+            { "/patterns/user-auth": 1 },
             { "/patterns/visualizations": 1 },
             { "/style/color": 1 },
             { "/community/innersourcing": 1 },
@@ -4920,7 +4921,7 @@
             { "/community/innersourcing": 1 },
             { "/community/features": 1 }
         ],
-        "developer": [{ "/development/environment": 1 }, { "/patterns/lists": 1 }, { "/patterns/user-auth": 1 }],
+        "developer": [{ "/development/environment": 1 }, { "/patterns/lists": 1 }],
         "develop": [{ "/development/environment": 2 }, { "/design/websites": 1 }],
         "tutorial": [
             { "/development/environment": 1 },
