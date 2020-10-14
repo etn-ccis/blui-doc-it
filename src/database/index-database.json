@@ -168,6 +168,7 @@
             { "/community/bugs": 1 },
             { "/community/features": 1 },
             { "/community/faq": 1 },
+            { "/community/our-team": 1 },
             { "/community/contactus": 1 }
         ],
         "overview": [
@@ -716,7 +717,7 @@
             { "/community/features": 1 }
         ],
         "team": [
-            { "/community/our-team": 6 },
+            { "/community/our-team": 7 },
             { "/overview": 3 },
             { "/community/contactus": 3 },
             { "/development/frameworks-mobile/intro": 2 },
@@ -2171,6 +2172,7 @@
             { "/patterns/forms": 1 },
             { "/style/iconography": 1 },
             { "/community/license": 1 },
+            { "/community/our-team": 1 },
             { "/community/contactus": 1 }
         ],
         "or": [
@@ -10008,7 +10010,11 @@
         "interest": [{ "/community/faq": 1 }],
         "expressed": [{ "/community/faq": 1 }],
         "demo": [{ "/community/faq": 1 }],
-        "history": [{ "/community/our-team": 1 }],
+        "history": [{ "/community/our-team": 2 }],
+        "member": [{ "/community/our-team": 1 }],
+        "recruit": [{ "/community/our-team": 1 }],
+        "job": [{ "/community/our-team": 1 }],
+        "career": [{ "/community/our-team": 1 }],
         "seeds": [{ "/community/our-team": 1 }],
         "were": [{ "/community/our-team": 1 }],
         "sown": [{ "/community/our-team": 1 }],
@@ -10278,6 +10284,13 @@
         "faq": [{ "/community/faq": 1 }],
         "question": [{ "/community/faq": 1 }],
         "answers": [{ "/community/faq": 1 }],
+        "about": [{ "/community/our-team": 1 }],
+        "history": [{ "/community/our-team": 1 }],
+        "team": [{ "/community/our-team": 1 }],
+        "member": [{ "/community/our-team": 1 }],
+        "recruit": [{ "/community/our-team": 1 }],
+        "job": [{ "/community/our-team": 1 }],
+        "career": [{ "/community/our-team": 1 }],
         "contact": [{ "/community/contactus": 1 }],
         "email": [{ "/community/contactus": 1 }],
         "feedback": [{ "/community/contactus": 1 }],
