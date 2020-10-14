@@ -56,10 +56,10 @@ A navigation drawer is a panel that is attached to the side of your application.
 
 Most drawers have four main sections:
 
--   **Header**: contains the name of the company, name of the product, or a logo
+-   **Header**: typically contains the name of the company, name of the product, or a logo
 -   **Subheader**: an optional section that can be used to support custom content, such as filtering or search
 -   **Body**: contains a list of primary pages that users can navigate to
--   **Footer**: contains the company logo, version number, and trademark information
+-   **Footer**: usually contains the company logo, version number, and trademark information
 
 There are several different styles of drawer navigation, each with slightly different behavior.
 
@@ -88,7 +88,7 @@ A permanent drawer is always visible and always open. The permanent drawer is ty
 
 ## Rail
 
-A navigation rail is a permanently collapsed drawer. The rail can show less information than a standard drawer but has the advantage of a more compact, space-saving package. Use this variation if you have:
+A navigation rail is a permanently collapsed drawer. The rail shows less information than a standard drawer but has the advantage of a more compact, space-saving appearance. Use this variation if you have:
 
 -   fewer than seven top-level pages
 -   a flat navigation hierarchy
@@ -112,7 +112,7 @@ caption={[
 A persistent drawer is an always-visible drawer that can be opened and closed (expanded or collapsed). In its open state, it looks and behaves like a permanent drawer. In its closed state, it looks and behaves like a navigation rail. The drawer is typically opened and closed by clicking an icon in the header. It can also be opened momentarily on desktop applications by hovering with the mouse. Use this variation if you have:
 
 -   fewer than seven top-level pages
--   primary pages with labels that require complex icons or too long to wrap effectively
+-   primary pages with complex icons or icons with long labels that wouldn't fit in a navigation rail
 -   limited space but require a nested navigation hierarchy
 
 <React.Fragment>
@@ -168,14 +168,17 @@ You can combine tabs and a drawer as a way to navigate between sub-pages (e.g., 
 />
 <MaterialDesignDescription title={'Bottom Navigation'} url={'https://material.io/components/bottom-navigation'} />
 
-For mobiles and tablets, you may use bottom tabs to replace the classical drawer navigations. Bottom tabs are a quick and easy way to navigate to the most frequently used primary navigation routes.
+For mobile and tablet applications, you may use bottom tabs to replace the classic drawer. Bottom tabs are a quick and easy way to navigate to the most frequently used primary navigation routes.
 
-Bottom tabs can also be used with a drawer. The tab is more prominent and can be used to highlight some main routes and features, while the drawer handles less important routes like settings, legal documents, FAQ pages.
+Bottom tabs can also be used in combination with a drawer. The tabs are more prominent and can be used to highlight some main routes and features, while the drawer handles the less important routes like settings, legal documents, FAQ pages.
 
 <React.Fragment>
     <ImageGrid
         images={[NavigationBottomWithDrawerImg]}
-        caption={['A temporary content-cover menu (#1) combined with a bottom tab navigation (#2) on mobile.']}
+        caption={[
+            '1. Menu button activates a temporary content-cover menu',
+            '2. Bottom tab navigation makes the primary pages more prominent.',
+        ]}
         regularWidth
     />
     <Divider />
