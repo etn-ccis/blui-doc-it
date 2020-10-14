@@ -11,7 +11,7 @@ export const currentMaintainers: Contributor[] = [
         name: 'Huayun Huang',
         description: 'UX Designer & Developer',
         image: HuayunHuang,
-        info: `Huayun is a half-blood between a UX-driven designer and a detailed-oriented developer. A bit of a night owl, Huayun does her best work between the hours of 12 and 4 am, and likes spending her spare time indulging in 2D visual arts. Be prepared! She has no mercy in your review requests.`,
+        info: `Huayun is a half-blood between a UX-driven designer and a detail-oriented developer. A bit of a night owl, she does her best work between the hours of 12 and 4 am, and likes spending her spare time indulging in 2D visual arts. Be prepared! She has no mercy when it comes to reviewing your work.`,
         contacts: {
             github: `https://github.com/huayunh`,
             linkedIn: `https://www.linkedin.com/in/huayun-huang/`,
@@ -21,7 +21,7 @@ export const currentMaintainers: Contributor[] = [
         name: 'Evan McLaughlin',
         description: `Front-End Developer`,
         image: EvanMcLaughlin,
-        info: `Evan is a local to the Pittsburgh area and has been doing front-end web development since graduating from the University of Rochester. He is an Angular specialist and insists that it's better than whatever else you're using. Evan's favorite coworker is his dog, Juniper, who helps debug his code daily.`,
+        info: `Evan is a Pittsburgh local who has been doing front-end web development since graduating from college. He is an Angular specialist and insists that it's better than whatever else you're using. Evan's favorite coworker is his dog, Juniper, who helps debug his code daily.`,
         contacts: {
             github: 'https://github.com/emclaug2',
             linkedIn: 'https://www.linkedin.com/in/evan-mclaughlin-3a4b4089/',
@@ -61,7 +61,7 @@ export const currentMaintainers: Contributor[] = [
         name: 'Kyle Horchen',
         description: 'UX Designer',
         image: KyleHorchen,
-        info: `Kyle is a UI/UX designer at Eaton. As a resident of Pittsburgh, Kyle has previously worked in the start-up and advertising industry with the privilege of contributing to some of the largest brands in the world. Most notably his work with the NBA and National Rugby League in Australia. A die-hard Star Wars fan, Kyle can recite every line of The Empire Strikes back and still watches it at least once a week.`,
+        info: `Formerly from the advertising industry, Kyle is a UI / UX designer who's worked with some of the largest brands in the world like the NBA and National Rugby League in Australia. A die-hard Star Wars fan, Kyle can recite every line of The Empire Strikes back and still watches it at least once a week.`,
         contacts: {
             github: 'https://github.com/Horchen154',
             linkedIn: 'https://www.linkedin.com/in/kyle-horchen-3294b142/',
