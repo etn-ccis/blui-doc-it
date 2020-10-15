@@ -37,6 +37,7 @@ type CarouselCardProps = {
     backgroundImage?: string;
     title: string;
     description: string;
+    icon?: JSX.Element;
     onClick?: Function;
 };
 
@@ -58,6 +59,7 @@ export const CarouselCard: React.FC<CarouselCardProps> = (props): JSX.Element =>
         >
             <div className={classes.cardBody}>
                 <div className={classes.textWrapper}>
+                    <div style={{ textAlign: 'center', opacity: 0.8 }}>{props.icon}</div>
                     <Typography variant={'h6'} style={{ display: 'flex', alignItems: 'center' }}>
                         {props.title}
                     </Typography>
