@@ -49,7 +49,7 @@ export const contributors: Contributor[] = [
     },
     {
         name: 'Bertrand Karerangabo',
-        description: 'PX Blue website and CLI',
+        description: 'Initial website and CLI',
     },
     {
         name: 'Tyler Hoffman',
