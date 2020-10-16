@@ -1,4 +1,4 @@
-import HuayunHuang from '../../app/assets/credits/huayun-huang.png';
+import HuayunHuang from '../../app/assets/credits/huayun-huang.jpg';
 import EvanMcLaughlin from '../../app/assets/credits/evan-mclaughlin.jpeg';
 import JosephBoyle from '../../app/assets/credits/joseph-boyle.png';
 import JeffeyGreiner from '../../app/assets/credits/jeffery-greiner.jpeg';
