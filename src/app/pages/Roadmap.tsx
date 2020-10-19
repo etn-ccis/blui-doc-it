@@ -48,9 +48,8 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         select: {
-            // minWidth: 100,
             alignSelf: 'stretch',
-            color: theme.palette.primary.contrastText,
+            color: theme.palette.type === 'light' ? theme.palette.primary.contrastText : theme.palette.text.primary,
             '&:not(:first-child)': {
                 marginLeft: theme.spacing(2),
             },
@@ -78,7 +77,7 @@ const useStyles = makeStyles((theme: Theme) =>
             fontSize: '0.875rem',
         },
         selectIcon: {
-            color: theme.palette.primary.contrastText,
+            color: theme.palette.type === 'light' ? theme.palette.primary.contrastText : theme.palette.text.primary,
         },
         emptyStateWrapper: {
             position: 'relative',

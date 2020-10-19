@@ -14,6 +14,7 @@ import { Link as LinkIcon } from '@material-ui/icons';
 import { Link, LinkProps } from 'react-router-dom';
 import { REGULAR_WIDTH_STYLE, copyTextToClipboard } from '../../app/shared';
 import * as Colors from '@pxblue/colors';
+import color from 'color';
 import clsx from 'clsx';
 import './markdown.css';
 
@@ -170,13 +171,24 @@ export const componentsMap = {
     li: (props: TypographyProps<'li'>): JSX.Element => (
         <Typography component={'li'} className={'mdLi'} style={{ ...REGULAR_WIDTH_STYLE }} {...props} />
     ),
-    blockquote: (props: TypographyProps<'blockquote'>): JSX.Element => (
-        <Typography
-            component={'blockquote'}
-            style={{ paddingRight: 16, marginBottom: 8, ...REGULAR_WIDTH_STYLE }}
-            {...props}
-        />
-    ),
+    blockquote: (props: TypographyProps<'blockquote'>): JSX.Element => {
+        const theme = useTheme();
+        return (
+            <Typography
+                component={'blockquote'}
+                style={{
+                    paddingRight: 16,
+                    marginBottom: 8,
+                    backgroundColor: color(theme.palette.primary.main)
+                        .fade(0.9)
+                        .string(),
+                    borderLeftColor: theme.palette.primary.main,
+                    ...REGULAR_WIDTH_STYLE,
+                }}
+                {...props}
+            />
+        );
+    },
     pre: (props: TypographyProps<'pre'>): JSX.Element => {
         const theme = useTheme();
         return (

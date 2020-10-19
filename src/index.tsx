@@ -1,3 +1,4 @@
+/* eslint-disable */
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 import React from 'react';
@@ -41,6 +42,33 @@ ReactDOM.render(
                     main: Colors.gold[500],
                     dark: Colors.gold[900],
                 },
+                background: {
+                    default: Colors.darkBlack[100],
+                    paper: Colors.black[900],
+                },
+                text: {
+                    primary: Colors.black[50],
+                    secondary: Colors.black[200],
+                    hint: Colors.black[200],
+                },
+            },
+            overrides: {
+                ...PXBThemes.blueDark.overrides,
+                MuiAppBar: {
+                    colorDefault: {
+                        color: Colors.black[50],
+                        backgroundColor: Colors.black[800],
+                    },
+                    colorPrimary: {
+                        color: Colors.black[50],
+                        backgroundColor: Colors.black[800],
+                    },
+                    colorSecondary: {
+                        color: Colors.white[200],
+                        backgroundColor: Colors.black[900],
+                    },
+                },
+                MuiTabs: {},
             },
         })}
     >
