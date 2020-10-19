@@ -8,6 +8,7 @@ import {
     makeStyles,
     Theme,
     createStyles,
+    useTheme,
 } from '@material-ui/core';
 import { Link as LinkIcon } from '@material-ui/icons';
 import { Link, LinkProps } from 'react-router-dom';
@@ -26,24 +27,29 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export const ExternalLink = (tProps: TypographyProps<'a'>): JSX.Element => (
-    <Typography
-        component={'a'}
-        target={'_blank'}
-        rel="noopener noreferrer"
-        style={{ fontWeight: 400, textDecoration: 'none', color: Colors.blue[500] }}
-        {...tProps}
-    />
-);
+export const ExternalLink = (tProps: TypographyProps<'a'>): JSX.Element => {
+    const theme = useTheme();
+    return (
+        <Typography
+            component={'a'}
+            target={'_blank'}
+            rel={'noopener noreferrer'}
+            style={{ fontWeight: 400, textDecoration: 'none', color: theme.palette.primary.main }}
+            {...tProps}
+        />
+    );
+};
 
-export const InternalLink = (props: LinkProps): JSX.Element => (
-    <Link
-        rel="noopener noreferrer"
-        style={{ fontWeight: 400, textDecoration: 'none', color: Colors.blue[500] }}
-        {...props}
-    />
-);
-
+export const InternalLink = (props: LinkProps): JSX.Element => {
+    const theme = useTheme();
+    return (
+        <Link
+            rel={'noopener noreferrer'}
+            style={{ fontWeight: 400, textDecoration: 'none', color: theme.palette.primary.main }}
+            {...props}
+        />
+    );
+};
 const getHash = (str: string): string =>
     str
         .replace(/ /g, '-')
@@ -171,10 +177,29 @@ export const componentsMap = {
             {...props}
         />
     ),
-    pre: (props: TypographyProps<'pre'>): JSX.Element => (
+    pre: (props: TypographyProps<'pre'>): JSX.Element => {
+        const theme = useTheme();
+        return (
+            <Typography
+                component={'pre'}
+                color={'textPrimary'}
+                style={{
+                    paddingRight: 16,
+                    marginBottom: 8,
+                    display: 'flex',
+                    backgroundColor:
+                        theme.palette.type === 'light' ? theme.palette.background.default : Colors.darkBlack[300],
+                    ...REGULAR_WIDTH_STYLE,
+                }}
+                {...props}
+            />
+        );
+    },
+    code: (props: TypographyProps<'code'>): JSX.Element => (
         <Typography
-            component={'pre'}
-            style={{ paddingRight: 16, marginBottom: 8, display: 'flex', ...REGULAR_WIDTH_STYLE }}
+            component={'code'}
+            color={'textPrimary'}
+            style={{ backgroundColor: 'inherit', fontFamily: 'Roboto Mono, Monospaced', fontSize: 12 }}
             {...props}
         />
     ),

@@ -3,7 +3,6 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, NavItem } from '@pxblue/react-components';
 import { PxblueSmall } from '@pxblue/icons-mui';
 
-import * as Colors from '@pxblue/colors';
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { EatonTagline } from '../assets/icons';
 import { Typography, useTheme, useMediaQuery } from '@material-ui/core';
@@ -72,7 +71,7 @@ export const NavigationDrawer = (): JSX.Element => {
                 },
             }}
             variant={isMobile || isLandingPage ? 'temporary' : 'permanent'}
-            activeItemBackgroundColor={theme.palette.primary.light}
+            // activeItemBackgroundColor={theme.palette.primary.light}
             itemFontColor={theme.palette.text.primary}
             divider={false}
         >
@@ -111,7 +110,14 @@ export const NavigationDrawer = (): JSX.Element => {
                 <DrawerNavGroup hidePadding activeItem={activeRoute} items={menuItems} />
             </DrawerBody>
             <DrawerFooter>
-                <div style={{ display: 'flex', justifyContent: 'center', background: Colors.gray[50], padding: 16 }}>
+                <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        background: theme.palette.background.default,
+                        padding: 16,
+                    }}
+                >
                     <EatonTagline style={{ fontSize: 150, height: 48 }} />
                 </div>
             </DrawerFooter>

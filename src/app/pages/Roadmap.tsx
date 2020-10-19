@@ -13,6 +13,7 @@ import {
     MenuItem,
     Toolbar,
     Button,
+    useTheme,
 } from '@material-ui/core';
 
 import { PageContent, ExpansionHeader } from '../components';
@@ -106,10 +107,8 @@ const getStatusColor = (status: Status): PXBlueColor | undefined => {
 };
 
 export const Roadmap: React.FC = (): JSX.Element => {
-    usePageTitle('Roadmap');
-    useGoogleAnalyticsPageView();
-    useBackgroundColor(Colors.gray[50]);
-    const classes = useStyles();
+    const theme = useTheme();
+    const classes = useStyles(theme);
     const [typeFilter, setTypeFilter] = useState<ItemTypeFilter>('all');
     const [statusFilter, setStatusFilter] = useState<Status | 'all'>('all');
     const [frameworkFilter, setFrameworkFilter] = useState<FrameworkFilter>('all');
@@ -122,6 +121,10 @@ export const Roadmap: React.FC = (): JSX.Element => {
         [1, 2, 3],
         [1, 2, 3],
     ];
+
+    usePageTitle('Roadmap');
+    useGoogleAnalyticsPageView();
+    useBackgroundColor(theme.palette.background.default);
 
     useEffect(() => {
         let isMounted = true;

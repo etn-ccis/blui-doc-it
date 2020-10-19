@@ -2,6 +2,7 @@ import React from 'react';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { PageContent } from '../components';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
+import { useTheme } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
@@ -16,7 +17,16 @@ export type MarkdownPageProps = {
 export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element => {
     usePageTitle(props.title);
     useGoogleAnalyticsPageView();
-    useBackgroundColor(props.background);
+    const theme = useTheme();
+    if (props.background === 'light') {
+        useBackgroundColor(
+            theme.palette.type === 'light' ? theme.palette.background.paper : theme.palette.background.default
+        );
+    } else if (props.background === 'dark') {
+        useBackgroundColor(theme.palette.type === 'light' ? Colors.white[200] : theme.palette.background.default);
+    } else {
+        useBackgroundColor(props.background);
+    }
     return (
         <PageContent noPadding={props.noPadding} wideLayout={props.wideLayout}>
             <props.markdown />
@@ -25,5 +35,5 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element =>
 };
 MarkdownPage.displayName = 'MarkdownPage';
 MarkdownPage.defaultProps = {
-    background: Colors.white[50],
+    background: 'light',
 };

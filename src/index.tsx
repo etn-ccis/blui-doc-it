@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import * as PXBThemes from '@pxblue/react-themes';
+import * as Colors from '@pxblue/colors';
 import 'typeface-open-sans';
 import 'typeface-roboto-mono';
 import { createStore } from 'redux';
@@ -25,7 +26,24 @@ import 'placeholder-loading/src/scss/placeholder-loading.scss';
 const store = createStore(Reducer());
 
 ReactDOM.render(
-    <MuiThemeProvider theme={createMuiTheme(PXBThemes.blue)}>
+    <MuiThemeProvider
+        theme={createMuiTheme({
+            ...PXBThemes.blueDark,
+            palette: {
+                ...PXBThemes.blueDark.palette,
+                primary: {
+                    light: Colors.orange[300],
+                    main: Colors.orange[500],
+                    dark: Colors.orange[900],
+                },
+                secondary: {
+                    light: Colors.gold[300],
+                    main: Colors.gold[500],
+                    dark: Colors.gold[900],
+                },
+            },
+        })}
+    >
         <CssBaseline />
         <Provider store={store}>
             <MDXProvider components={componentsMap}>

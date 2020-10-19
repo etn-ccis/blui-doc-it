@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         footer: {
             zIndex: 0,
-            backgroundColor: Colors.black[900],
+            backgroundColor: Colors.darkBlack[100],
             color: Colors.white[50],
             textAlign: 'center',
         },

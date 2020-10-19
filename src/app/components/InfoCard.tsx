@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
             width: '100%',
             backgroundSize: 'cover',
             marginBottom: theme.spacing(2),
-            border: `1px solid ${theme.palette.grey[100]}`,
+            border: `1px solid ${theme.palette.divider}`,
         },
         card: {
             '&:hover': {

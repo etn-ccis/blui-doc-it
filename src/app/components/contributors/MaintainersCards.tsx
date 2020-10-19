@@ -70,8 +70,9 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const getCardBackgroundColor = (index: number): string => {
     const listOfColors = Object.keys(BrandingColors);
+    const theme = useTheme();
     // @ts-ignore
-    return BrandingColors[listOfColors[index % listOfColors.length]][300];
+    return BrandingColors[listOfColors[index % listOfColors.length]][theme.palette.type === 'light' ? 300 : 800];
 };
 
 export const MaintainersCards: React.FC = () => {
