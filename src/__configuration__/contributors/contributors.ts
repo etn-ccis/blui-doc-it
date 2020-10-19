@@ -5,6 +5,8 @@ import BrianShyu from '../../app/assets/credits/brian-shyu.jpg';
 import KraigKeller from '../../app/assets/credits/kraig-keller.jpeg';
 import KyleHarris from '../../app/assets/credits/kyle-harris.jpg';
 import AndrewPuhalla from '../../app/assets/credits/andrew-puhalla.jpeg';
+import ChinnaGurrala from '../../app/assets/credits/chinna-gurrala.jpeg';
+import AnjaliPatodia from '../../app/assets/credits/anjali-patodia.png';
 
 import { Contributor } from '../../__types__';
 
@@ -31,6 +33,7 @@ export const contributors: Contributor[] = [
     {
         name: 'Chinna Gurrala',
         description: 'Front-End Developer',
+        image: ChinnaGurrala,
     },
     {
         name: 'Shivani Pitta',
@@ -70,6 +73,7 @@ export const contributors: Contributor[] = [
     {
         name: 'Anjali Patodia',
         description: 'React Components & Workflows',
+        image: AnjaliPatodia,
     },
     {
         name: 'Bryan Elkus',
