@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, NavItem } from '@pxblue/react-components';
 import { PxblueSmall } from '@pxblue/icons-mui';
+import * as Colors from '@pxblue/colors';
 
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { EatonTagline } from '../assets/icons';
@@ -71,7 +72,7 @@ export const NavigationDrawer = (): JSX.Element => {
                 },
             }}
             variant={isMobile || isLandingPage ? 'temporary' : 'permanent'}
-            // activeItemBackgroundColor={theme.palette.primary.light}
+            nestedBackgroundColor={theme.palette.type === 'light' ? undefined : Colors.darkBlack[500]}
             itemFontColor={theme.palette.text.primary}
             divider={false}
         >

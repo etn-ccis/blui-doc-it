@@ -68,6 +68,16 @@ ReactDOM.render(
                         backgroundColor: Colors.black[900],
                     },
                 },
+                MuiButton: {
+                    ...PXBThemes.blueDark.overrides?.MuiButton,
+                    outlined: {},
+                    outlinedPrimary: {},
+                },
+                MuiDrawer: {
+                    paper: {
+                        backgroundColor: Colors.darkBlack[300],
+                    },
+                },
                 MuiTabs: {},
             },
         })}
