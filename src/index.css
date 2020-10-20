@@ -1,4 +1,3 @@
-/* @import "holidayThemes/holidayStyles.css"; */
 html,
 body {
     height: 100%;
@@ -90,4 +89,13 @@ p.MuiTypography-h5.MuiTypography-paragraph {
 }
 .BrainhubCarousel__custom-arrowRight {
     right: 59px;
+}
+
+/* Start: Holiday Themes */
+
+/* Halloween Themes */
+.halloween pre,
+.halloween code {
+    background-color: #13181b; /* darkBlack 300 */
+    color: #e8eaea; /* black 50 */
 }

@@ -63,6 +63,7 @@ export const schedule: Schedule[] = [
                 backgroundPosition: 'bottom',
                 backgroundRepeat: 'no-repeat',
             },
+            className: 'halloween',
             appBarBackground: {
                 src: ghosts,
             },

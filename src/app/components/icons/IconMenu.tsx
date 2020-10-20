@@ -1,8 +1,10 @@
 import React, { useState, useCallback, ChangeEvent } from 'react';
 import * as AllMaterialIcons from '@material-ui/icons';
+import clsx from 'clsx';
 
 // PX Blue Icons and Symbols
 import * as MuiIcons from '@pxblue/icons-mui';
+import meta from '@pxblue/icons-mui/index.json';
 
 // Material-UI Components
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
@@ -18,11 +20,11 @@ import {
     Theme,
     createStyles,
 } from '@material-ui/core';
-import meta from '@pxblue/icons-mui/index.json';
 import { ExternalLink } from '../../../__configuration__/markdown/markdownMapping';
 import { unCamelCase, getSnakeCase, getKebabCase } from '../../shared/utilities';
 import { IconCard } from './IconCard';
 import { Icon, MatIconList, DetailedIcon } from '../../../__types__';
+import { getScheduledSiteConfig } from '../../../__configuration__/themes';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -100,6 +102,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
     const classes = useStyles(props);
     const { open } = props;
     const iconData = getIconFile(name);
+    const themedClassName = getScheduledSiteConfig().className;
 
     const getTabContent = useCallback(
         (tab: number): JSX.Element | null => {
@@ -309,7 +312,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                         {!isMaterial && <Tab label="About" className={classes.miniTab} />}
                     </Tabs>
                 </div>
-                <div className={classes.usageBox}>
+                <div className={clsx(classes.usageBox, themedClassName)}>
                     {activeTab === 2 && isMaterial && setActiveTab(1)}
                     {activeTab === 3 && isMaterial && setActiveTab(1)}
                     {activeTab === 0 && getTabContent(0)}
