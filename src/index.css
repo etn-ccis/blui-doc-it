@@ -99,3 +99,17 @@ p.MuiTypography-h5.MuiTypography-paragraph {
     background-color: #13181b; /* darkBlack 300 */
     color: #e8eaea; /* black 50 */
 }
+
+.halloween.ph-item {
+    background-color: #13181b; /* darkBlack 300 */
+    border-color: #2b353a;
+}
+
+.halloween.ph-item::before {
+    background: linear-gradient(to right, #13181b00 46%, #13181b55 50%, #13181b00 54%) 50% 50%;
+}
+
+.halloween.ph-item .ph-avatar,
+.halloween.ph-item .ph-row > div > * {
+    background-color: #2b353a;
+}

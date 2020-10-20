@@ -21,6 +21,7 @@ import { PageContent, ExpansionHeader } from '../components';
 import { Status, RoadmapItem, RoadmapBucket, FrameworkFilter, ItemTypeFilter, Release } from '../../__types__';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
+import { getScheduledSiteConfig } from '../../__configuration__/themes';
 
 import { EmptyState, InfoListItem, ListItemTag, Spacer } from '@pxblue/react-components';
 import { useSelector } from 'react-redux';
@@ -30,6 +31,7 @@ import { useBackgroundColor } from '../hooks/useBackgroundColor';
 import { PXBlueColor } from '@pxblue/types';
 import { getRoadmap } from '../api';
 import { ErrorOutline } from '@material-ui/icons';
+import clsx from 'clsx';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -120,6 +122,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
         [1, 2, 3],
         [1, 2, 3],
     ];
+    const themedClassName = getScheduledSiteConfig().className;
 
     usePageTitle('Roadmap');
     useGoogleAnalyticsPageView();
@@ -310,7 +313,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         {loadingGroups.map((group, groupNumber) =>
                             group.map((item, i) => (
                                 <div
-                                    className="ph-item"
+                                    className={clsx('ph-item', themedClassName)}
                                     key={`ph-group${groupNumber}-${i}`}
                                     style={{ marginBottom: groupNumber > 0 && i === 0 ? 48 : 0 }}
                                 >
