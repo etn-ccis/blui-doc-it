@@ -4,7 +4,7 @@ import { GitHub, LinkedIn } from '@material-ui/icons';
 import * as BrandingColors from '@pxblue/colors-branding';
 
 import { currentMaintainers } from '../../../__configuration__/contributors';
-import backgroundImage from '../../assets/circles.svg';
+import backgroundImage from '../../assets/themes/circles.svg';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({

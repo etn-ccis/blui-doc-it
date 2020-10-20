@@ -3,9 +3,9 @@ import { HalloweenTheme } from './Halloween';
 import * as PXBThemes from '@pxblue/react-themes';
 
 // landing page banner background images
-import circles from '../../app/assets/circles.svg';
-import castles from '../../app/assets/home/castles.svg';
-import ghosts from '../../app/assets/halloween-appbar-tile.svg';
+import circles from '../../app/assets/themes/circles.svg';
+import castles from '../../app/assets/themes/castles.svg';
+import ghosts from '../../app/assets/themes/halloween-appbar-tile.svg';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 
 type SiteConfig = {
