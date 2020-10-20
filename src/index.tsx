@@ -7,7 +7,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import * as PXBThemes from '@pxblue/react-themes';
+import { getScheduledSiteConfig } from './__configuration__/themes';
 import 'typeface-open-sans';
 import 'typeface-roboto-mono';
 import { createStore } from 'redux';
@@ -22,12 +22,11 @@ if (gaID) {
 }
 import { componentsMap } from './__configuration__/markdown/markdownMapping';
 import 'placeholder-loading/src/scss/placeholder-loading.scss';
-import { HalloweenTheme } from './app/themes';
 
 const store = createStore(Reducer());
 
 ReactDOM.render(
-    <MuiThemeProvider theme={createMuiTheme(HalloweenTheme)}>
+    <MuiThemeProvider theme={createMuiTheme(getScheduledSiteConfig().theme)}>
         <CssBaseline />
         <Provider store={store}>
             <MDXProvider components={componentsMap}>

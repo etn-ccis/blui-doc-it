@@ -76,9 +76,7 @@ export const NavigationDrawer = (): JSX.Element => {
             nestedBackgroundColor={theme.palette.type === 'light' ? undefined : Colors.darkBlack[500]}
             activeItemBackgroundColor={
                 theme.palette.type === 'light'
-                    ? color(theme.palette.primary.main)
-                          .fade(0.95)
-                          .string()
+                    ? undefined
                     : color(theme.palette.primary.main)
                           .fade(0.8)
                           .string()
