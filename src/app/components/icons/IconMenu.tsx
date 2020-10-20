@@ -303,8 +303,8 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                         onChange={(event: ChangeEvent<{}>, newTab: number): void => {
                             setActiveTab(newTab);
                         }}
-                        indicatorColor="primary"
-                        textColor="primary"
+                        indicatorColor={'primary'}
+                        textColor={'primary'}
                     >
                         <Tab label="Icon Font" className={classes.miniTab} />
                         <Tab label="SVG" className={classes.miniTab} />

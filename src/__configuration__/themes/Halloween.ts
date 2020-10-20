@@ -56,12 +56,16 @@ export const HalloweenTheme = {
                 backgroundColor: Colors.darkBlack[300],
             },
         },
-        MuiTabs: {},
+        MuiTabs: {
+            indicator: {
+                backgroundColor: Colors.orange[500],
+            },
+        },
         MuiTab: {
             selected: {},
             textColorInherit: {
                 '&$selected': {
-                    color: Colors.yellow[500],
+                    color: Colors.orange[500],
                 },
             },
         },
