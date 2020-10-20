@@ -223,4 +223,20 @@ export const componentsMap = {
             />
         );
     },
+    inlineCode: (props: TypographyProps<'code'>): JSX.Element => {
+        const theme = useTheme();
+        return (
+            <Typography
+                component={'code'}
+                color={'textPrimary'}
+                style={{
+                    backgroundColor:
+                        theme.palette.type === 'light' ? theme.palette.background.default : Colors.darkBlack[300],
+                    fontFamily: 'Roboto Mono, Monospaced',
+                    border: `${theme.palette.divider} 1px solid`,
+                }}
+                {...props}
+            />
+        );
+    },
 };

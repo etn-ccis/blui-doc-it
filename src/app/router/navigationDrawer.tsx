@@ -82,6 +82,7 @@ export const NavigationDrawer = (): JSX.Element => {
                           .string()
             }
             activeItemFontColor={theme.palette.type === 'light' ? undefined : theme.palette.primary.light}
+            activeItemIconColor={theme.palette.type === 'light' ? undefined : theme.palette.primary.light}
             itemFontColor={theme.palette.text.primary}
             divider={false}
         >

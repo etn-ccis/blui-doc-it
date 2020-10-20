@@ -5,11 +5,31 @@ import * as PXBThemes from '@pxblue/react-themes';
 // landing page banner background images
 import circles from '../../app/assets/circles.svg';
 import castles from '../../app/assets/home/castles.svg';
+import ghosts from '../../app/assets/halloween-appbar-tile.svg';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 
 type SiteConfig = {
+    /**
+     * A MUI theme to be applied during the scheduled period
+     */
     theme: ThemeOptions;
+
+    /**
+     * Configuration around the banner image in the landing page
+     */
     landingPageBanner: {
+        src: string;
+    } & CSSProperties;
+
+    /**
+     * A theme-specific class name to be used by SASS
+     */
+    className?: string;
+
+    /**
+     * Configuration around the app bar background image
+     */
+    appBarBackground?: {
         src: string;
     } & CSSProperties;
 };
@@ -33,8 +53,8 @@ type Schedule = {
 
 export const schedule: Schedule[] = [
     {
-        start: new Date(0, 9, 25), // Oct 25
-        end: new Date(0, 10, 2), // Nov 02
+        start: new Date(0, 9, 14), // Oct 14
+        end: new Date(0, 10, 1), // Nov 01
         config: {
             theme: HalloweenTheme,
             landingPageBanner: {
@@ -42,6 +62,9 @@ export const schedule: Schedule[] = [
                 backgroundSize: 'cover',
                 backgroundPosition: 'bottom',
                 backgroundRepeat: 'no-repeat',
+            },
+            appBarBackground: {
+                src: ghosts,
             },
         },
     },
