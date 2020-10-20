@@ -41,6 +41,11 @@ export const HalloweenTheme = {
                 backgroundColor: Colors.black[900],
             },
         },
+        MuiBackdrop: {
+            root: {
+                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            },
+        },
         MuiButton: {
             ...PXBThemes.blueDark.overrides?.MuiButton,
             outlined: {},

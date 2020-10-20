@@ -5,10 +5,13 @@ import * as PXBThemes from '@pxblue/react-themes';
 // landing page banner background images
 import circles from '../../app/assets/circles.svg';
 import castles from '../../app/assets/home/castles.svg';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 
 type SiteConfig = {
     theme: ThemeOptions;
-    landingPageBanner: string;
+    landingPageBanner: {
+        src: string;
+    } & CSSProperties;
 };
 
 type Schedule = {
@@ -30,11 +33,16 @@ type Schedule = {
 
 export const schedule: Schedule[] = [
     {
-        start: new Date(0, 10, 19), // Oct 19
+        start: new Date(0, 9, 19), // Oct 19
         end: new Date(0, 10, 2), // Nov 02
         config: {
             theme: HalloweenTheme,
-            landingPageBanner: castles,
+            landingPageBanner: {
+                src: castles,
+                backgroundSize: 'cover',
+                backgroundPosition: 'bottom',
+                backgroundRepeat: 'no-repeat',
+            },
         },
     },
     /*
@@ -76,6 +84,6 @@ export const getScheduledSiteConfig = (): SiteConfig => {
     // didn't find a holiday theme, fall back to the default blue theme
     return {
         theme: PXBThemes.blue,
-        landingPageBanner: circles,
+        landingPageBanner: { src: circles, backgroundSize: 1200 },
     };
 };

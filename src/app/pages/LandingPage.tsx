@@ -21,10 +21,10 @@ import {
 } from '../components';
 import { LatestReleases } from '../../docs';
 import * as Colors from '@pxblue/colors';
-import circles from '../assets/circles.svg';
 import { useHistory } from 'react-router-dom';
 
 import { cardData } from '../../__configuration__/landingPage/cardData';
+import { getScheduledSiteConfig } from '../../__configuration__/themes';
 import { Spacer } from '@pxblue/react-components';
 import { ReleaseInfo } from '../../docs/release-notes';
 import { currentMaintainers, contributors } from '../../__configuration__/contributors';
@@ -48,8 +48,7 @@ const useStyles = makeStyles((theme: Theme) =>
             width: '100%',
             color: theme.palette.primary.contrastText,
             backgroundColor: theme.palette.primary.main,
-            backgroundImage: `url(${circles})`,
-            backgroundSize: 1200,
+            backgroundSize: 'cover',
             backgroundPosition: '-240px center',
         },
         footer: {
@@ -65,13 +64,20 @@ export const LandingPage: React.FC = (): JSX.Element => {
     const history = useHistory();
     const theme = useTheme();
     const classes = useStyles();
+    const { src, ...bannerBackgroundProps } = getScheduledSiteConfig().landingPageBanner;
     usePageTitle('');
     useGoogleAnalyticsPageView();
 
     return (
         <>
             <SharedToolbar navigationIcon={<Menu />} />
-            <div className={classes.banner}>
+            <div
+                className={classes.banner}
+                style={{
+                    backgroundImage: `url("${src}")`,
+                    ...bannerBackgroundProps,
+                }}
+            >
                 <PXBLogo />
                 <Button
                     variant={'outlined'}
