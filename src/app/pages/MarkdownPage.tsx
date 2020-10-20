@@ -18,13 +18,13 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element =>
     usePageTitle(props.title);
     useGoogleAnalyticsPageView();
     const theme = useTheme();
+    let backgroundColor = props.background;
     if (props.background === 'light') {
-        useBackgroundColor(theme.palette.background.paper);
+        backgroundColor = theme.palette.background.paper;
     } else if (props.background === 'dark') {
-        useBackgroundColor(theme.palette.type === 'light' ? Colors.white[200] : theme.palette.background.default);
-    } else {
-        useBackgroundColor(props.background);
+        backgroundColor = theme.palette.type === 'light' ? Colors.white[200] : theme.palette.background.default;
     }
+    useBackgroundColor(backgroundColor);
     return (
         <PageContent noPadding={props.noPadding} wideLayout={props.wideLayout}>
             <props.markdown />
