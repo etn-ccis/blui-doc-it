@@ -31,8 +31,8 @@ const useStyles = makeStyles((theme: Theme) =>
         swatchWrapper: {
             border: `1px solid ${theme.palette.divider}`,
             marginBottom: theme.spacing(1),
-            maxWidth: theme.spacing(9),
-            minWidth: theme.spacing(9),
+            maxWidth: theme.spacing(8.5),
+            minWidth: theme.spacing(8.5),
             [theme.breakpoints.down('sm')]: {
                 marginRight: theme.spacing(0.5),
             },
