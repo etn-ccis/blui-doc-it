@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, createStyles, Theme, Card, Typography, CardProps, Chip } from '@material-ui/core';
+import { makeStyles, createStyles, Theme, Card, Typography, CardProps, Chip, useTheme } from '@material-ui/core';
 import { Angular, ReactBlue, Ionic } from '../../assets/icons';
 import { CTA_BUTTON } from '../../shared';
 import clsx from 'clsx';
@@ -105,8 +105,13 @@ const DemoButton: React.FC<DemoButtonProps> = (props): JSX.Element => {
 export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
     const { repository, angular, react, ionic, reactNative, ...cardProps } = props;
     const classes = useStyles();
+    const theme = useTheme();
     return (
-        <Card className={clsx(classes.demoCard)} {...cardProps}>
+        <Card
+            className={clsx(classes.demoCard)}
+            variant={theme.palette.type === 'light' ? 'elevation' : 'outlined'}
+            {...cardProps}
+        >
             <div className={classes.demoTitle}>
                 <Typography variant={'subtitle1'} style={{ lineHeight: 1, fontWeight: 'inherit' }}>
                     INTERACTIVE EXAMPLE

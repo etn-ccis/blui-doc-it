@@ -76,7 +76,11 @@ export const MaterialDesignDescription: React.FC<MaterialDesignDescriptionProps>
         ...cardProps
     } = props;
     return (
-        <Card className={classes.root} {...cardProps}>
+        <Card
+            className={classes.root}
+            variant={theme.palette.type === 'light' ? 'elevation' : 'outlined'}
+            {...cardProps}
+        >
             <CardActionArea
                 onClick={(e): void => {
                     if (e) {

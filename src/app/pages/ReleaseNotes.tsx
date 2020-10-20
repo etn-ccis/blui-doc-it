@@ -12,7 +12,7 @@ export const ReleaseNotes: React.FC = (): JSX.Element => {
     useGoogleAnalyticsPageView();
 
     return (
-        <PageContent>
+        <PageContent backgroundColor={theme.palette.background.paper}>
             {LatestReleases.map((item: ReleaseInfo, index: number) => (
                 <div key={item.title} style={{ marginBottom: theme.spacing(16) }}>
                     <Typography

@@ -35,8 +35,9 @@ const useStyles = makeStyles((theme: Theme) =>
         image: {
             width: '100%',
             backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
             marginBottom: theme.spacing(2),
-            border: `1px solid ${theme.palette.grey[100]}`,
+            border: `1px solid ${theme.palette.divider}`,
         },
         card: {
             '&:hover': {

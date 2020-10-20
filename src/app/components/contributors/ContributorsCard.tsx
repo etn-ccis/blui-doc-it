@@ -19,8 +19,8 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         noDescription: {},
         colorDefault: {
-            backgroundColor: theme.palette.primary.light,
-            color: theme.palette.primary.main,
+            backgroundColor: theme.palette.type === 'light' ? theme.palette.primary.light : theme.palette.primary.dark,
+            color: theme.palette.type === 'light' ? theme.palette.primary.main : theme.palette.primary.light,
         },
     })
 );

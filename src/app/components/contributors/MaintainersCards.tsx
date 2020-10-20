@@ -4,7 +4,7 @@ import { GitHub, LinkedIn } from '@material-ui/icons';
 import * as BrandingColors from '@pxblue/colors-branding';
 
 import { currentMaintainers } from '../../../__configuration__/contributors';
-import backgroundImage from '../../assets/circles.svg';
+import backgroundImage from '../../assets/themes/circles.svg';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -70,8 +70,9 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const getCardBackgroundColor = (index: number): string => {
     const listOfColors = Object.keys(BrandingColors);
+    const theme = useTheme();
     // @ts-ignore
-    return BrandingColors[listOfColors[index % listOfColors.length]][300];
+    return BrandingColors[listOfColors[index % listOfColors.length]][theme.palette.type === 'light' ? 300 : 800];
 };
 
 export const MaintainersCards: React.FC = () => {

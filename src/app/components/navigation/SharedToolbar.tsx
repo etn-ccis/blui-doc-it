@@ -22,6 +22,7 @@ import { AppState } from '../../redux/reducers';
 import Search from '@material-ui/icons/Search';
 import { SearchBar } from '../../pages';
 import { PADDING } from '../../shared';
+import { getScheduledSiteConfig } from '../../../__configuration__/themes';
 
 export type SharedToolbarProps = AppBarProps & {
     title?: string;
@@ -55,6 +56,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const isLandingPage = history.location.pathname === '/';
     const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
     const dispatch = useDispatch();
+    const appBarBackground = getScheduledSiteConfig().appBarBackground;
 
     const _navigationIcon = useCallback(
         () => (
@@ -91,7 +93,13 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
 
     return (
         <>
-            <AppBar position="sticky" color={color} elevation={0} style={{ zIndex: 1000 }} {...other}>
+            <AppBar
+                position="sticky"
+                color={color}
+                elevation={0}
+                style={{ zIndex: 1000, backgroundImage: appBarBackground && `url("${appBarBackground.src}")` }}
+                {...other}
+            >
                 <Toolbar className={classes.toolbar}>
                     {_navigationIcon()}
                     {props.title ? (

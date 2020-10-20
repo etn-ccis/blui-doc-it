@@ -1,7 +1,6 @@
 import React from 'react';
 import * as Docs from '../../docs';
 import { MarkdownPage, Resources, Roadmap, ReleaseNotes } from '../../app/pages';
-import * as Colors from '@pxblue/colors';
 
 export type SimpleNavItem = {
     title: string;
@@ -247,8 +246,8 @@ export const pageDefinitions: SimpleNavItem[] = [
                     <MarkdownPage
                         title={'Iconography'}
                         markdown={Docs.Style.Iconography}
-                        background={Colors.gray[50]}
                         wideLayout
+                        background={'dark'}
                     />
                 ),
             },
@@ -301,9 +300,7 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Our Team',
                 url: '/our-team',
-                component: (
-                    <MarkdownPage title={'Our Team'} markdown={Docs.Community.OurTeam} background={Colors.white[200]} />
-                ),
+                component: <MarkdownPage title={'Our Team'} markdown={Docs.Community.OurTeam} background={'dark'} />,
             },
             {
                 title: 'Contact Us',

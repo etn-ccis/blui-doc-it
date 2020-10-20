@@ -1,7 +1,6 @@
 import React from 'react';
 import { Typography, Divider, useTheme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/styles';
-import * as Colors from '@pxblue/colors';
 
 type SectionProps = {
     title: string;
@@ -16,7 +15,10 @@ export const Section: React.FC<SectionProps> = (props) => {
         <div
             style={Object.assign(
                 {
-                    backgroundColor: props.background === 'light' ? Colors.white[50] : Colors.white[200],
+                    backgroundColor:
+                        props.background === 'light'
+                            ? theme.palette.background.paper
+                            : theme.palette.background.default,
                     width: '100%',
                     padding: `${theme.spacing(6)}px 0`,
                 },
