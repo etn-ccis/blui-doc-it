@@ -58,8 +58,6 @@ export const schedule: Schedule[] = [
     */
 ];
 
-/* eslint-disable */
-
 export const getScheduledSiteConfig = (): SiteConfig => {
     const currentDate = new Date();
     currentDate.setFullYear(1900);
