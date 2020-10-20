@@ -57,5 +57,13 @@ export const HalloweenTheme = {
             },
         },
         MuiTabs: {},
+        MuiTab: {
+            selected: {},
+            textColorInherit: {
+                '&$selected': {
+                    color: Colors.yellow[500],
+                },
+            },
+        },
     },
 };
