@@ -33,7 +33,7 @@ type Schedule = {
 
 export const schedule: Schedule[] = [
     {
-        start: new Date(0, 9, 19), // Oct 19
+        start: new Date(0, 9, 25), // Oct 25
         end: new Date(0, 10, 2), // Nov 02
         config: {
             theme: HalloweenTheme,
