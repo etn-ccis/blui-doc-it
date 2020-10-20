@@ -29,10 +29,10 @@ type SwatchProps = ComponentProps<'div'> & {
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         swatchWrapper: {
-            border: `1px solid ${Colors.black[100]}`,
+            border: `1px solid ${theme.palette.divider}`,
             marginBottom: theme.spacing(1),
-            maxWidth: theme.spacing(9),
-            minWidth: theme.spacing(9),
+            maxWidth: theme.spacing(8.5),
+            minWidth: theme.spacing(8.5),
             [theme.breakpoints.down('sm')]: {
                 marginRight: theme.spacing(0.5),
             },

@@ -1,8 +1,10 @@
 import React, { useState, useCallback, ChangeEvent } from 'react';
 import * as AllMaterialIcons from '@material-ui/icons';
+import clsx from 'clsx';
 
 // PX Blue Icons and Symbols
 import * as MuiIcons from '@pxblue/icons-mui';
+import meta from '@pxblue/icons-mui/index.json';
 
 // Material-UI Components
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
@@ -10,19 +12,19 @@ import {
     Tabs,
     Tab,
     Typography,
-    ExpansionPanelSummary,
-    ExpansionPanel,
-    ExpansionPanelActions,
+    AccordionSummary,
+    Accordion,
+    AccordionActions,
     Button,
     makeStyles,
     Theme,
     createStyles,
 } from '@material-ui/core';
-import meta from '@pxblue/icons-mui/index.json';
 import { ExternalLink } from '../../../__configuration__/markdown/markdownMapping';
 import { unCamelCase, getSnakeCase, getKebabCase } from '../../shared/utilities';
 import { IconCard } from './IconCard';
 import { Icon, MatIconList, DetailedIcon } from '../../../__types__';
+import { getScheduledSiteConfig } from '../../../__configuration__/themes';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -100,6 +102,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
     const classes = useStyles(props);
     const { open } = props;
     const iconData = getIconFile(name);
+    const themedClassName = getScheduledSiteConfig().className;
 
     const getTabContent = useCallback(
         (tab: number): JSX.Element | null => {
@@ -262,12 +265,8 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
 
     return (
         <div className={classes.iconSheet} hidden={!open}>
-            <ExpansionPanel square defaultExpanded={true} elevation={16}>
-                <ExpansionPanelSummary
-                    expandIcon={<ExpandLessIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                >
+            <Accordion square defaultExpanded={true} elevation={16}>
+                <AccordionSummary expandIcon={<ExpandLessIcon />} aria-controls="panel1a-content" id="panel1a-header">
                     <div style={{ flexDirection: 'row', display: 'flex' }}>
                         <div style={{ flex: '0 1 auto', width: 'auto' }}>
                             <IconCard
@@ -296,7 +295,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                             </Typography>
                         </div>
                     </div>
-                </ExpansionPanelSummary>
+                </AccordionSummary>
                 <div style={{ width: 'auto' }}>
                     <Tabs
                         style={{ marginTop: '0px', marginLeft: '0px' }}
@@ -304,8 +303,8 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                         onChange={(event: ChangeEvent<{}>, newTab: number): void => {
                             setActiveTab(newTab);
                         }}
-                        indicatorColor="primary"
-                        textColor="primary"
+                        indicatorColor={'primary'}
+                        textColor={'primary'}
                     >
                         <Tab label="Icon Font" className={classes.miniTab} />
                         <Tab label="SVG" className={classes.miniTab} />
@@ -313,7 +312,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                         {!isMaterial && <Tab label="About" className={classes.miniTab} />}
                     </Tabs>
                 </div>
-                <div className={classes.usageBox}>
+                <div className={clsx(classes.usageBox, themedClassName)}>
                     {activeTab === 2 && isMaterial && setActiveTab(1)}
                     {activeTab === 3 && isMaterial && setActiveTab(1)}
                     {activeTab === 0 && getTabContent(0)}
@@ -321,7 +320,7 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                     {activeTab === 2 && getTabContent(2)}
                     {activeTab === 3 && getTabContent(3)}
                 </div>
-                <ExpansionPanelActions>
+                <AccordionActions>
                     <Button variant="contained" color="inherit" onClick={(): void => props.onClose()}>
                         Close
                     </Button>
@@ -335,8 +334,8 @@ export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {
                             Open in Material.io
                         </Button>
                     )}
-                </ExpansionPanelActions>
-            </ExpansionPanel>
+                </AccordionActions>
+            </Accordion>
         </div>
     );
 };

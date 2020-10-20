@@ -17,23 +17,26 @@ import {
     CarouselCard,
     FooterLinks,
     SharedToolbar,
+    ContributorsList,
 } from '../components';
 import { LatestReleases } from '../../docs';
 import * as Colors from '@pxblue/colors';
-import circles from '../assets/circles.svg';
 import { useHistory } from 'react-router-dom';
 
 import { cardData } from '../../__configuration__/landingPage/cardData';
+import { getScheduledSiteConfig } from '../../__configuration__/themes';
 import { Spacer } from '@pxblue/react-components';
 import { ReleaseInfo } from '../../docs/release-notes';
+import { currentMaintainers, contributors } from '../../__configuration__/contributors';
 
 import developImage from '../assets/home/develop.jpg';
 import designImage from '../assets/home/design.jpg';
+import { Design as DesignIcon } from '../assets/icons';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
 import { PXBLogo } from '../assets/icons/PXBLogo';
-import { Menu } from '@material-ui/icons';
+import { Menu, DeveloperMode } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -45,13 +48,12 @@ const useStyles = makeStyles((theme: Theme) =>
             width: '100%',
             color: theme.palette.primary.contrastText,
             backgroundColor: theme.palette.primary.main,
-            backgroundImage: `url(${circles})`,
-            backgroundSize: 1200,
+            backgroundSize: 'cover',
             backgroundPosition: '-240px center',
         },
         footer: {
             zIndex: 0,
-            backgroundColor: Colors.black[900],
+            backgroundColor: Colors.darkBlack[100],
             color: Colors.white[50],
             textAlign: 'center',
         },
@@ -62,13 +64,20 @@ export const LandingPage: React.FC = (): JSX.Element => {
     const history = useHistory();
     const theme = useTheme();
     const classes = useStyles();
+    const { src, ...bannerBackgroundProps } = getScheduledSiteConfig().landingPageBanner;
     usePageTitle('');
     useGoogleAnalyticsPageView();
 
     return (
         <>
             <SharedToolbar navigationIcon={<Menu />} />
-            <div className={classes.banner}>
+            <div
+                className={classes.banner}
+                style={{
+                    backgroundImage: `url("${src}")`,
+                    ...bannerBackgroundProps,
+                }}
+            >
                 <PXBLogo />
                 <Button
                     variant={'outlined'}
@@ -133,15 +142,40 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     backgroundImage={designImage}
                     title={'Getting started as a designer'}
                     description={'We offer many resources and assets for designers getting acquainted with PX Blue.'}
+                    icon={<DesignIcon fontSize={'large'} />}
                     onClick={(): void => history.push('/design/intro')}
                 />
                 <CarouselCard
                     backgroundImage={developImage}
                     title={'Getting started as a developer'}
                     description={'We have numerous guides and resources to prepare you for working with PX Blue.'}
+                    icon={<DeveloperMode fontSize={'large'} />}
                     onClick={(): void => history.push('/development/environment')}
                 />
             </CardCarousel>
+
+            <LandingSection title={'Contributors'} background={'light'}>
+                <ContributorsList
+                    contributors={currentMaintainers}
+                    title={'Current Maintainers'}
+                    style={{ margin: `${theme.spacing(4)}px 0` }}
+                />
+                <ContributorsList
+                    contributors={contributors}
+                    title={'Other Contributors'}
+                    style={{ margin: `${theme.spacing(4)}px 0` }}
+                />
+                <div style={{ textAlign: 'center' }}>
+                    <Button
+                        variant={'outlined'}
+                        color={'primary'}
+                        style={{ marginTop: theme.spacing(1) }}
+                        onClick={(): void => history.push('/community/innersourcing')}
+                    >
+                        Become a Contributor!
+                    </Button>
+                </div>
+            </LandingSection>
 
             {/* Footer Section */}
             <FooterLinks />

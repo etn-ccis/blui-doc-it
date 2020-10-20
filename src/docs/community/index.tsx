@@ -4,5 +4,6 @@ import FAQ from './faq.mdx';
 import Features from './features.mdx';
 import License from './license.mdx';
 import Innersourcing from './innersourcing.mdx';
+import OurTeam from './our-team.mdx';
 
-export { Bugs, Contact, FAQ, Features, License, Innersourcing };
+export { Bugs, Contact, FAQ, Features, License, Innersourcing, OurTeam };

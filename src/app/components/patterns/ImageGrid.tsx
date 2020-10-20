@@ -9,7 +9,6 @@ import {
     useTheme,
     useMediaQuery,
 } from '@material-ui/core';
-import { gray } from '@pxblue/colors';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -17,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
             marginBottom: theme.spacing(5),
         },
         image: {
-            border: `1px solid ${gray[50]}`,
+            border: `1px solid ${theme.palette.divider}`,
             maxHeight: '100%',
             maxWidth: '100%',
             [theme.breakpoints.up('sm')]: {

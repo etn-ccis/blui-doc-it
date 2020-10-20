@@ -6,13 +6,14 @@ import {
     createStyles,
     makeStyles,
     List,
-    ExpansionPanel,
-    ExpansionPanelDetails,
+    Accordion,
+    AccordionDetails,
     Divider,
     Select,
     MenuItem,
     Toolbar,
     Button,
+    useTheme,
 } from '@material-ui/core';
 
 import { PageContent, ExpansionHeader } from '../components';
@@ -20,6 +21,7 @@ import { PageContent, ExpansionHeader } from '../components';
 import { Status, RoadmapItem, RoadmapBucket, FrameworkFilter, ItemTypeFilter, Release } from '../../__types__';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
+import { getScheduledSiteConfig } from '../../__configuration__/themes';
 
 import { EmptyState, InfoListItem, ListItemTag, Spacer } from '@pxblue/react-components';
 import { useSelector } from 'react-redux';
@@ -29,6 +31,7 @@ import { useBackgroundColor } from '../hooks/useBackgroundColor';
 import { PXBlueColor } from '@pxblue/types';
 import { getRoadmap } from '../api';
 import { ErrorOutline } from '@material-ui/icons';
+import clsx from 'clsx';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -47,9 +50,8 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         select: {
-            // minWidth: 100,
             alignSelf: 'stretch',
-            color: theme.palette.primary.contrastText,
+            color: theme.palette.type === 'light' ? theme.palette.primary.contrastText : theme.palette.text.primary,
             '&:not(:first-child)': {
                 marginLeft: theme.spacing(2),
             },
@@ -77,7 +79,7 @@ const useStyles = makeStyles((theme: Theme) =>
             fontSize: '0.875rem',
         },
         selectIcon: {
-            color: theme.palette.primary.contrastText,
+            color: theme.palette.type === 'light' ? theme.palette.primary.contrastText : theme.palette.text.primary,
         },
         emptyStateWrapper: {
             position: 'relative',
@@ -106,10 +108,8 @@ const getStatusColor = (status: Status): PXBlueColor | undefined => {
 };
 
 export const Roadmap: React.FC = (): JSX.Element => {
-    usePageTitle('Roadmap');
-    useGoogleAnalyticsPageView();
-    useBackgroundColor(Colors.gray[50]);
-    const classes = useStyles();
+    const theme = useTheme();
+    const classes = useStyles(theme);
     const [typeFilter, setTypeFilter] = useState<ItemTypeFilter>('all');
     const [statusFilter, setStatusFilter] = useState<Status | 'all'>('all');
     const [frameworkFilter, setFrameworkFilter] = useState<FrameworkFilter>('all');
@@ -122,6 +122,11 @@ export const Roadmap: React.FC = (): JSX.Element => {
         [1, 2, 3],
         [1, 2, 3],
     ];
+    const themedClassName = getScheduledSiteConfig().className;
+
+    usePageTitle('Roadmap');
+    useGoogleAnalyticsPageView();
+    useBackgroundColor(theme.palette.background.default);
 
     useEffect(() => {
         let isMounted = true;
@@ -308,7 +313,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         {loadingGroups.map((group, groupNumber) =>
                             group.map((item, i) => (
                                 <div
-                                    className="ph-item"
+                                    className={clsx('ph-item', themedClassName)}
                                     key={`ph-group${groupNumber}-${i}`}
                                     style={{ marginBottom: groupNumber > 0 && i === 0 ? 48 : 0 }}
                                 >
@@ -346,9 +351,9 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     roadmapBuckets.map((bucket, bIndex) => {
                         if (roadmapBuckets[bIndex].items.length < 1) return null;
                         return (
-                            <ExpansionPanel key={`${bucket.name}_${bIndex}`} defaultExpanded>
+                            <Accordion key={`${bucket.name}_${bIndex}`} defaultExpanded>
                                 <ExpansionHeader name={bucket.name} description={bucket.description} />
-                                <ExpansionPanelDetails style={{ display: 'block', padding: 0 }}>
+                                <AccordionDetails style={{ display: 'block', padding: 0 }}>
                                     <Divider />
                                     <List style={{ padding: 0 }}>
                                         {bucket.items.map((item, index): JSX.Element | null => {
@@ -392,8 +397,8 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                             );
                                         })}
                                     </List>
-                                </ExpansionPanelDetails>
-                            </ExpansionPanel>
+                                </AccordionDetails>
+                            </Accordion>
                         );
                     })}
             </PageContent>

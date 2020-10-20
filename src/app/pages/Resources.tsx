@@ -7,13 +7,13 @@ import {
     createStyles,
     makeStyles,
     List,
-    ExpansionPanel,
-    ExpansionPanelDetails,
+    Accordion,
+    AccordionDetails,
     Divider,
+    useTheme,
 } from '@material-ui/core';
 
 import { ResourceRow, PageContent, ExpansionHeader } from '../components';
-import * as Colors from '@pxblue/colors';
 import { resources } from '../../__configuration__/resources';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
@@ -37,9 +37,10 @@ export const Resources: React.FC = (): JSX.Element => {
     const classes = useStyles();
     const [filter, setFilter] = useState<FrameworkFilter>('all');
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
+    const theme = useTheme();
     usePageTitle('Resources');
     useGoogleAnalyticsPageView();
-    useBackgroundColor(Colors.gray[50]);
+    useBackgroundColor(theme.palette.background.default);
     return (
         <>
             <AppBar
@@ -90,9 +91,9 @@ export const Resources: React.FC = (): JSX.Element => {
                             bucket.applies.includes(filter) ||
                             bucket.applies.includes('all') ||
                             filter === 'all') && (
-                            <ExpansionPanel key={`${bucket.name}_${bIndex}`} defaultExpanded>
+                            <Accordion key={`${bucket.name}_${bIndex}`} defaultExpanded>
                                 <ExpansionHeader name={bucket.name} description={bucket.description} />
-                                <ExpansionPanelDetails style={{ display: 'block', padding: 0 }}>
+                                <AccordionDetails style={{ display: 'block', padding: 0 }}>
                                     <Divider />
                                     <List style={{ padding: 0 }}>
                                         {bucket.items.map((item, index): JSX.Element | null =>
@@ -112,8 +113,8 @@ export const Resources: React.FC = (): JSX.Element => {
                                             ) : null
                                         )}
                                     </List>
-                                </ExpansionPanelDetails>
-                            </ExpansionPanel>
+                                </AccordionDetails>
+                            </Accordion>
                         )
                 )}
             </PageContent>
