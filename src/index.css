@@ -93,7 +93,7 @@ p.MuiTypography-h5.MuiTypography-paragraph {
 
 /* Start: Holiday Themes */
 
-/* Halloween Themes */
+/* Halloween Theme */
 .halloween pre,
 .halloween code {
     background-color: #13181b; /* darkBlack 300 */
@@ -112,4 +112,9 @@ p.MuiTypography-h5.MuiTypography-paragraph {
 .halloween.ph-item .ph-avatar,
 .halloween.ph-item .ph-row > div > * {
     background-color: #2b353a;
+}
+
+/* May the Forth Theme */
+.may-the-forth {
+    cursor: url('./app/assets/themes/vulcan.png'), auto;
 }

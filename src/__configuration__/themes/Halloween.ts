@@ -5,6 +5,7 @@ import { ThemeOptions } from '@material-ui/core';
 import castles from '../../app/assets/themes/castles.svg';
 import ghosts from '../../app/assets/themes/halloween-appbar-tile.svg';
 import witch from '../../app/assets/themes/witch.png';
+import { Schedule } from './types';
 
 const HalloweenTheme: ThemeOptions = {
     ...PXBThemes.blueDark,
@@ -77,7 +78,7 @@ const HalloweenTheme: ThemeOptions = {
     },
 };
 
-export const HalloweenSchedule = {
+export const HalloweenSchedule: Schedule = {
     start: new Date(0, 9, 14), // Oct 14
     end: new Date(0, 10, 13), // Nov 13
     config: {
