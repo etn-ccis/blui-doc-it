@@ -64,6 +64,7 @@ export const schedule: Schedule[] = [
                 backgroundPosition: 'bottom',
                 backgroundRepeat: 'no-repeat',
                 cursor: `url("${witch}"), auto`,
+                height: 400,
             },
             className: 'halloween',
             appBarBackground: {
