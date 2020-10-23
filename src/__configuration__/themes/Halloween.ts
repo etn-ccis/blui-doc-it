@@ -1,7 +1,8 @@
 import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
+import { ThemeOptions } from '@material-ui/core';
 
-export const HalloweenTheme = {
+export const HalloweenTheme: ThemeOptions = {
     ...PXBThemes.blueDark,
     palette: {
         ...PXBThemes.blueDark.palette,

@@ -74,7 +74,7 @@ export const ProgressIconCard: React.FC = (): JSX.Element => {
                         percent={(index + 1) * 10}
                         size={size}
                         color={colorSet[key][weight]}
-                        ring={4}
+                        ring={isOutlined ? 6 : 4}
                         outlined={isOutlined}
                     />
                 ))}

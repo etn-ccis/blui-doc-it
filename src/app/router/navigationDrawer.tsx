@@ -127,6 +127,10 @@ export const NavigationDrawer = (): JSX.Element => {
                         justifyContent: 'center',
                         background: theme.palette.background.default,
                         padding: 16,
+                        cursor: 'pointer',
+                    }}
+                    onClick={(): void => {
+                        window.open('https://eaton.com', 'blank');
                     }}
                 >
                     <EatonTagline style={{ fontSize: 150, height: 48 }} />
