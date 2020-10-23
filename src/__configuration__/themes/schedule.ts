@@ -1,90 +1,13 @@
-import { ThemeOptions } from '@material-ui/core';
-import { HalloweenTheme } from './Halloween';
-import * as PXBThemes from '@pxblue/react-themes';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { HalloweenSchedule } from './Halloween';
+import { defaultTheme } from './default';
+import { Schedule, SiteConfig } from './types';
 
-// landing page banner background images
-import circles from '../../app/assets/themes/circles.svg';
-import castles from '../../app/assets/themes/castles.svg';
-import ghosts from '../../app/assets/themes/halloween-appbar-tile.svg';
-import witch from '../../app/assets/themes/witch.png';
+// Add more holiday themes here
+export const schedule: Schedule[] = [HalloweenSchedule];
 
-type SiteConfig = {
-    /**
-     * A MUI theme to be applied during the scheduled period
-     */
-    theme: ThemeOptions;
-
-    /**
-     * Configuration around the banner image in the landing page
-     */
-    landingPageBanner: {
-        src: string;
-    } & CSSProperties;
-
-    /**
-     * A theme-specific class name to be used by SASS
-     */
-    className?: string;
-
-    /**
-     * Configuration around the app bar background image
-     */
-    appBarBackground?: {
-        src: string;
-    } & CSSProperties;
-};
-
-type Schedule = {
-    /**
-     * Start date of the duration (inclusive)
-     */
-    start: Date;
-
-    /**
-     * Ending date of the duration (inclusive)
-     */
-    end: Date;
-
-    /**
-     * If start & end is fulfilled, what configuration to apply to the site
-     */
-    config: SiteConfig;
-};
-
-export const schedule: Schedule[] = [
-    {
-        start: new Date(0, 9, 14), // Oct 14
-        end: new Date(0, 10, 13), // Nov 13
-        config: {
-            theme: HalloweenTheme,
-            landingPageBanner: {
-                src: castles,
-                backgroundSize: 'cover',
-                backgroundPosition: 'bottom',
-                backgroundRepeat: 'no-repeat',
-                cursor: `url("${witch}"), auto`,
-                height: 400,
-            },
-            className: 'halloween',
-            appBarBackground: {
-                src: ghosts,
-            },
-        },
-    },
-    /*
-    Example of a new year theme (wrapped to the next year)
-    {
-        start: new Date(0, 11, 31), // Dec 31
-        end: new Date(1, 0, 3),     // Jan 03
-        config: {
-            theme: NewYearsDayTheme,
-            landingPageBanner: Fireworks,
-        },
-    },
-    */
-];
-
+/**
+ * @returns a site configuration given the currently applied holiday theme
+ */
 export const getScheduledSiteConfig = (): SiteConfig => {
     const currentDate = new Date();
     currentDate.setFullYear(1900);
@@ -107,8 +30,5 @@ export const getScheduledSiteConfig = (): SiteConfig => {
     }
 
     // didn't find a holiday theme, fall back to the default blue theme
-    return {
-        theme: PXBThemes.blue,
-        landingPageBanner: { src: circles, backgroundSize: 1200 },
-    };
+    return defaultTheme;
 };
