@@ -1,12 +1,13 @@
 import { ThemeOptions } from '@material-ui/core';
 import { HalloweenTheme } from './Halloween';
 import * as PXBThemes from '@pxblue/react-themes';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 
 // landing page banner background images
 import circles from '../../app/assets/themes/circles.svg';
 import castles from '../../app/assets/themes/castles.svg';
 import ghosts from '../../app/assets/themes/halloween-appbar-tile.svg';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import witch from '../../app/assets/themes/witch.png';
 
 type SiteConfig = {
     /**
@@ -62,6 +63,7 @@ export const schedule: Schedule[] = [
                 backgroundSize: 'cover',
                 backgroundPosition: 'bottom',
                 backgroundRepeat: 'no-repeat',
+                cursor: `url("${witch}"), auto`,
             },
             className: 'halloween',
             appBarBackground: {
