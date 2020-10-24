@@ -1,3 +1,94 @@
+import { Divider, ImageGrid } from '../../app/components';
+import ConsumerIndustrial from '../../app/assets/design/project-identity/consumer-industry.png';
+
 # Project Identity
 
-How far can I do shit to PXB without getting caught?
+While PX Blue serves as a design system for a wide range of applications, it is understood that each project might face its own unique situation. As a designer, you need to maintain the balance between consistency as a PX Blue application and things unique to your own application.
+
+<ImageGrid
+    regularWidth
+    images={[ConsumerIndustrial]}
+    caption={[
+        `An examples of two projects, both designed to control devices, but with different targeted audience.`,
+        `1: Consumer-faced product. End user might be homeowners, small business owners, etc. Aiming at delighting the users.`,
+        `2: Industrial product. End user might be asset managers, facility assets managers, etc. Aiming at making things secure and efficient.`,
+    ]}
+/>
+
+## PX Blue is Flexible
+
+PX Blue Is a Wrapper around Material Design, and Your Project is a Wrapper Around PX Blue
+
+We follow the 8:2 rule — 80% PX Blue, and 20% yourself.
+
+## When to invent your own styles
+
+PX Blue stems from Eaton, a global electric equipment company, so the nature of PX Blue is more geared towards industrial applications, and the typical brand image is secure, efficient and professional.
+
+However, your situation might be different. You might be designing for a web page instead, where you seek to attract potential customers; your product might be more consumer-facing, and seeks for a more relaxed and friendly communication; or you are designing for an HMI, where the viewport is an embedded digital display on a device, and you need to limit your UI for larger button size and tap-only behaviors.
+
+Besides we are still evolving and cannot cover every single situation people encounter in their application design.
+
+## Common things to change but still PX Blue
+
+The following blah are things that can convey brand identity
+
+-   theme (light or dark)
+-   Typography (Size, weight, etc)
+-   Illustrations, animations, images, Splash screen
+-   Icon variations (outlined vs filled vs colored?, square button v border radius v rounded)
+-   Use of gradient
+-   ~component Elevation (use shadows or outline or transparency)~
+
+You need to make sure that your brand identity is consistent. That is, they should be under the same design system for packaging, for your website, for the email formats, and for the digital application itself.
+
+## Should NEVER Change
+
+These things should never change in designing a PX Blue application:
+
+-   Branding color for main UI / Themes
+-   Color convention
+-   Different font family
+-   Keep things consistent
+-   Things violating long-established design traditions
+-   Things we said NO in our design patterns page or on Material Design
+
+Whenever you decide to invent your own style, you need to have a clear reason for it.
+
+## Good Resources to point out to people?
+
+-   Material Studies
+-   ?
+
+## TBD
+
+-   White space
+-   Is there a best material study?
+
+<Divider />
+
+# Eric
+
+-   App Logo, using different glyphs and gradients. Note that there is no "Eaton app", emphasize on what that project is.
+-   Login screen, background patterns, sutle imagery
+-   Drawer header and drawer user menu background, email templates, can try to appy primary / secondary color around (like pp uses orange)
+-   Euphasus has magenta e-color
+-   Any brand should use the Eaton blue
+
+-   Background related to the indutry, photograph in the extended app bar
+-   status color should be consistent, usually override brand theme, so blue should stay a status of "all cleared". Don't let the branding color fight with a status color
+-   About page, can do something cool looking (e.g., product team put their signature there)
+-   Slash / transition screen...
+-   Stick to open sans. On mobile you might have some rare opportunity to go with the system. You might also use the Eaton font but it is not very legible, only use for headlines
+-   LIT is some small tweak but is less about branding. Typography: need a reason for typography variations, usually to catch attention / sort out hierarchies
+-   Stylization of the logo typography
+-   Theme: ideally every app should support both, but need to consider the use cases. Some app is more usable under light mode or dark mode. Designers should do UX research on this.
+-   Icons: Eric sometimes use the style of the icon to infer the status. Like filled ones are active / on, and outlined - filled. Recommend stick to baseline and use outlined if needed.
+-   Two tones: Mostly the progress icons only. Might only use those at a illustration level
+-   Consumer apps: more transition animations, more playful, more colorful, more gradient, etc, but it is bc it is a consumer app
+-   Illustrations: Eaton will have to revisit the policy on illustrations. Might need to sync up with Creative CoE on these standards
+-   Animation: States between inactive and active, can use some cool transition animations. Success screens
+-   Symbols can use some transparency for outlines to stick out from the maps
+-   Color convention: if for whatever reason in a certain industry the rules are inverted (green = open, red = closed) then do it. Don't invent something just bc you think it looks cool.
+-   Icons should be created only within guidelines, dont invent something crazy...
+-   Data viz: Coordination curve?
