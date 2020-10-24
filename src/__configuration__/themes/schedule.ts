@@ -4,7 +4,7 @@ import { defaultTheme } from './default';
 import { Schedule, SiteConfig } from './types';
 
 // Add more holiday themes here
-export const schedule: Schedule[] = [HalloweenSchedule, MayTheForthSchedule];
+export const schedule: Schedule[] = [MayTheForthSchedule, HalloweenSchedule];
 
 /**
  * @returns a site configuration given the currently applied holiday theme
@@ -23,8 +23,9 @@ export const getScheduledSiteConfig = (): SiteConfig => {
         }
         // wrapped to the next year
         else {
-            duration.end.setFullYear(1900);
-            if (duration.start <= currentDate || currentDate <= duration.end) {
+            // make a copy of the duration end, but starting at year 0
+            const endTemp = new Date(0, duration.end.getMonth(), duration.end.getDate());
+            if (duration.start <= currentDate || currentDate <= endTemp) {
                 return duration.config;
             }
         }
