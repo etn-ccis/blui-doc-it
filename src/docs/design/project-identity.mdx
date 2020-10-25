@@ -1,5 +1,10 @@
-import { Divider, ImageGrid } from '../../app/components';
-import ConsumerIndustrial from '../../app/assets/design/project-identity/consumer-industry.png';
+import { Divider, ImageGrid, MaterialDesignDescription } from '../../app/components';
+import ConsumerIndustrial from '../../app/assets/design/project-identity/consumer-industrial.png';
+import StyleChoice from '../../app/assets/design/project-identity/style-choice.png';
+import IllustrationConsumer from '../../app/assets/design/project-identity/illustration-consumer.png';
+import IllustrationIndustrial from '../../app/assets/design/project-identity/illustration-industrial.png';
+
+<!-- KEYWORDS: design tutorial branding brand identity flexible flex -->
 
 # Project Identity
 
@@ -11,8 +16,6 @@ PX Blue is here to suggest common practice to your project. It is by no means re
 
 PX Blue is built on top of Material Design. A design system stemed from Eaton, an international electric management company, it inherited many design principles from Material Design, while aiming for projects in the electric industries. Since PX Blue is facing a broader designer audience just like Material Design, we cannot just say, "you have to implement your navigation drawer using this design". It is up to the project designer to fill in those gaps.
 
-You are expected to build your own design system local to your project, which inherits the designs from PX Blue, but with some more fingerprints in it that makes your project fit your target audience. You might be designing for a web page instead, where you seek to attract potential customers; your product might be more consumer-facing, and seeks for a more relaxed and friendly communication; or you are designing for an HMI, where the viewport is an embedded digital display on a device, and you need to limit your UI for larger button size and tap-only behaviors.
-
 <ImageGrid
     regularWidth
     images={[ConsumerIndustrial]}
@@ -23,26 +26,85 @@ You are expected to build your own design system local to your project, which in
     ]}
 />
 
+You are expected to build your own design system local to your project, which inherits the designs from PX Blue, but with some more fingerprints in it that makes your project fit your target audience. You might be designing for a web page instead, where you seek to attract potential customers; your product might be more consumer-facing, and seeks for a more relaxed and friendly communication; or you are designing for an HMI, where the viewport is an embedded digital display on a device, and you need to limit your UI for larger button size and tap-only behaviors.
+
+<ImageGrid
+    regularWidth
+    images={[StyleChoice]}
+    caption={[
+        `You may tune styles for your application away from the PX Blue baseline style, as part of your local design system. In this example, the app bar (#1), the input form field (#2) and the buttons (#3) are changed.`,
+    ]}
+/>
+
 In certain situations, it might even be beneficial to explore beyond what PX Blue has to offer, _as long as you have a strong reason for it_ (not just "it looks cooler this way").
 
-## Common things to change but still PX Blue
+## Common Branding Efforts
 
-The following blah are things that can convey brand identity
+A few UI elements are commonly used to express a product's brand identity, while still remain consistent with the rest of the PX Blue applications.
 
--   theme (light or dark)
--   Typography (Size, weight, etc)
--   Illustrations, animations, images, Splash screen
--   Icon variations (outlined vs filled vs colored?, square button v border radius v rounded)
--   Use of gradient
--   ~component Elevation (use shadows or outline or transparency)~
+Note that, once you've developed a local design system, you need to make sure that your brand identity is consistent. That is, they should be under the same design system for packaging, for your website, for the email formats, and for the digital application itself.
 
-You need to make sure that your brand identity is consistent. That is, they should be under the same design system for packaging, for your website, for the email formats, and for the digital application itself.
+### Theme
+
+PX Blue [offers two themes](/style/themes): Blue theme and Blue Dark theme. Ideally, an application should support both themes, but some applications might be more usable depending on the environment and context of the usage.
+
+### Illustrations
+
+<ImageGrid
+    images={[IllustrationConsumer, IllustrationIndustrial]}
+    caption={[
+        `A consumer-oriented product (#1) might use an illustration for empty states, while an industrial product (#2) might use an icon instead.`,
+    ]}
+/>
+
+[Illustrations](/style/illustrations) are common for [websites](/design/websites) and consumer-faced products. Different image styles can convey different product styles (friendly vs. professional).
+
+### Images
+
+Similiar to illustrations, images are another way to make your applications and websites more consumer-friendly.
+
+**Insert images where we apply background + background images**:
+
+-   App bar
+-   Drawer header
+-   Drawer header but with user credentials
+-   Scorecard header
+-   Login
+
+### Icons
+
+We stick to material icon's baseline. If inventing your own or use icons from mdi, ensure that you've searched through the existing MD and PXB icon lib; also ensure that your new icons are following material's icon guidelines.
+
+### Component Variants
+
+Many components have variations, like outlined vs. filled vs. transparency-based.
+
+### Verbiage
+
+Your tone can change based on your application nature too. For websites, you want to be appealing and persvasive. For applications, you want to be concise and accurate.
+
+<MaterialDesignDescription
+    title={'Writing'}
+    url={`https://material.io/design/communication/writing.html`}
+    description={`Material's principles in writings.`}
+/>
+
+<!--
+-   theme (light or dark). Ideally it should support both, but some app might be more usable under certain themes. Up to the designer to do the research.
+-   Typography (Size, weight, etc. Or is this more about hierarchy?)
+-   Illustrations, images, Splash screen
+-   Animations
+-   Icon variations (outlined vs filled vs colored?, square button v border radius v rounded, might be less about that but more about showing status. Can invent your own icons but make sure to follow the icon creation tradition)
+-   Use of gradient (for light-related projects)
+-   component Elevation (use shadows or outline or transparency)
+-   Text tone
+-->
 
 ## Should NEVER Change
 
 These things should never change in designing a PX Blue application:
 
--   Branding color for main UI / Themes
+-   Branding color for main UI / Themes. Actually you can, but make sure they don't fight with PX Blue's status colors.
 -   Color convention
 -   Different font family
 -   Keep things consistent
@@ -51,15 +113,7 @@ These things should never change in designing a PX Blue application:
 
 Whenever you decide to invent your own style, you need to have a clear reason for it.
 
-## Good Resources to point out to people?
-
--   Material Studies
--   ?
-
-## TBD
-
--   White space
--   Is there a best material study?
+<!--
 
 <Divider />
 
@@ -88,3 +142,5 @@ Whenever you decide to invent your own style, you need to have a clear reason fo
 -   Color convention: if for whatever reason in a certain industry the rules are inverted (green = open, red = closed) then do it. Don't invent something just bc you think it looks cool.
 -   Icons should be created only within guidelines, dont invent something crazy...
 -   Data viz: Coordination curve?
+
+-->
