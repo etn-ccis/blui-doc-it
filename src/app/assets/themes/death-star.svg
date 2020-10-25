@@ -22,7 +22,7 @@
 <path opacity="0.1" d="M-43 411C-43 411 255.5 397.694 345.5 397.694C239.5 415.007 99.5 444.5 79 509C69.1966 539.845 -43 554.5 -43 554.5V411Z" fill="#1D2529"/>
 </g>
 <g opacity="0.5">
-<circle cx="228" cy="58" r="1" fill="white"/>
+<circle cx="200" cy="157" r="1" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 609 173)" fill="white"/>
 <circle cx="300" cy="68" r="1" fill="white"/>
 <circle cx="67" cy="36" r="1" fill="white"/>
@@ -31,6 +31,7 @@
 <circle cx="378.5" cy="45.5" r="2.5" fill="white"/>
 <circle cx="145.5" cy="13.5" r="2.5" fill="white"/>
 <circle cx="446" cy="100" r="1" fill="white"/>
+<circle cx="355" cy="228" r="1" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 172 17)" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 477 41)" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 244 9)" fill="white"/>
@@ -38,6 +39,7 @@
 <circle r="2.5" transform="matrix(-1 0 0 1 948.5 24.5)" fill="white"/>
 <circle cx="603" cy="8" r="1" fill="white"/>
 <circle cx="346" cy="119" r="1" fill="white"/>
+<circle cx="255" cy="247" r="1" fill="white"/>
 <circle cx="113" cy="87" r="1" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 272 36)" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 39 4)" fill="white"/>
@@ -47,62 +49,74 @@
 <circle r="1" transform="matrix(-1 0 0 1 1277 42)" fill="white"/>
 <circle cx="758" cy="119" r="1" fill="white"/>
 <circle cx="1092" cy="70" r="1" fill="white"/>
+<circle cx="1167" cy="185" r="1" fill="white"/>
 <circle cx="829" cy="36" r="1" fill="white"/>
 <circle cx="954" cy="85" r="1" fill="white"/>
 <circle cx="1181" cy="85" r="1" fill="white"/>
+<circle cx="1095" cy="66" r="1" fill="white"/>
 <circle cx="605.5" cy="67.5" r="2.5" fill="white"/>
 <circle cx="1008" cy="27" r="1" fill="white"/>
 <circle cx="1235" cy="27" r="1" fill="white"/>
+<circle cx="1149" cy="8" r="1" fill="white"/>
 <circle cx="980" cy="66" r="1" fill="white"/>
 <circle cx="1207" cy="66" r="1" fill="white"/>
+<circle cx="1121" cy="47" r="1" fill="white"/>
 <circle cx="1034" cy="8" r="1" fill="white"/>
 <circle cx="1261" cy="8" r="1" fill="white"/>
-</g>
-<g opacity="0.5">
 <circle r="1" transform="matrix(-1 0 0 1 1088 155)" fill="white"/>
+<circle r="1" transform="matrix(-1 0 0 1 1163 270)" fill="white"/>
 <circle cx="926" cy="72" r="1" fill="white"/>
 <circle cx="621" cy="96" r="1" fill="white"/>
 <circle cx="707" cy="270" r="1" fill="white"/>
 <circle cx="340" cy="88" r="1" fill="white"/>
-<circle cx="113" cy="88" r="1" fill="white"/>
-<circle cx="148" cy="78" r="1" fill="white"/>
+<circle cx="85" cy="187" r="1" fill="white"/>
+<circle cx="120" cy="177" r="1" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 1016 165)" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 1249 133)" fill="white"/>
+<circle r="1" transform="matrix(-1 0 0 1 1275 237)" fill="white"/>
 <circle cx="998" cy="82" r="1" fill="white"/>
 <circle cx="693" cy="106" r="1" fill="white"/>
 <circle cx="412" cy="98" r="1" fill="white"/>
-<circle cx="220" cy="88" r="1" fill="white"/>
+<circle cx="321" cy="226" r="1" fill="white"/>
+<circle cx="192" cy="187" r="1" fill="white"/>
 <circle r="2.5" transform="matrix(-1 0 0 1 937.5 142.5)" fill="white"/>
 <circle r="2.5" transform="matrix(-1 0 0 1 1170.5 110.5)" fill="white"/>
 <circle cx="1075" cy="58" r="1" fill="white"/>
 <circle cx="770" cy="82" r="1" fill="white"/>
 <circle cx="489" cy="74" r="1" fill="white"/>
+<circle cx="398" cy="202" r="1" fill="white"/>
 <circle cx="297" cy="64" r="1" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 870 197)" fill="white"/>
 <circle cx="1144" cy="114" r="1" fill="white"/>
 <circle cx="839" cy="138" r="1" fill="white"/>
 <circle cx="1072" cy="106" r="1" fill="white"/>
+<circle cx="1147" cy="221" r="1" fill="white"/>
 <circle cx="558" cy="130" r="1" fill="white"/>
 <circle cx="367.5" cy="121.5" r="2.5" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 713 105)" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 970 216)" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 1203 184)" fill="white"/>
 <circle cx="1044" cy="133" r="1" fill="white"/>
+<circle cx="1119" cy="248" r="1" fill="white"/>
 <circle cx="1277" cy="101" r="1" fill="white"/>
+<circle cx="1191" cy="82" r="1" fill="white"/>
 <circle cx="739" cy="157" r="1" fill="white"/>
 <circle cx="458" cy="149" r="1" fill="white"/>
+<circle cx="448" cy="272" r="1" fill="white"/>
 <circle cx="266" cy="139" r="1" fill="white"/>
 <circle cx="39" cy="139" r="1" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 558 216)" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 224 167)" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 487 133)" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 362 182)" fill="white"/>
-<circle r="1" transform="matrix(-1 0 0 1 135 182)" fill="white"/>
+<circle r="1" transform="matrix(-1 0 0 1 271 310)" fill="white"/>
+<circle r="1" transform="matrix(-1 0 0 1 107 281)" fill="white"/>
 <circle r="2.5" transform="matrix(-1 0 0 1 710.5 164.5)" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 308 124)" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 81 124)" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 336 163)" fill="white"/>
-<circle r="1" transform="matrix(-1 0 0 1 109 163)" fill="white"/>
+<circle r="1" transform="matrix(-1 0 0 1 245 291)" fill="white"/>
+<circle r="1" transform="matrix(-1 0 0 1 81 262)" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 282 105)" fill="white"/>
 <circle r="1" transform="matrix(-1 0 0 1 55 105)" fill="white"/>
 </g>
