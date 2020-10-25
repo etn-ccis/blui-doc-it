@@ -1,10 +1,11 @@
 import { HalloweenSchedule } from './halloween';
 import { MayTheForthSchedule } from './may-the-forth';
+import { ChristmasSchedule } from './christmas';
 import { defaultTheme } from './default';
 import { Schedule, SiteConfig } from './types';
 
 // Add more holiday themes here
-export const schedule: Schedule[] = [HalloweenSchedule, MayTheForthSchedule];
+export const schedule: Schedule[] = [ChristmasSchedule, HalloweenSchedule, MayTheForthSchedule];
 
 /**
  * @returns a site configuration given the currently applied holiday theme
