@@ -4,7 +4,7 @@ import { Schedule } from './types';
 
 export const MayTheForthSchedule: Schedule = {
     start: new Date(0, 4, 3), // May 03
-    end: new Date(1, 4, 5), // May 05
+    end: new Date(0, 4, 5), // May 05
     config: {
         theme: PXBThemes.blue,
         landingPageBanner: {
