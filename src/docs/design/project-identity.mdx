@@ -48,6 +48,8 @@ Note that, once you've developed a local design system, you need to make sure th
 
 PX Blue [offers two themes](/style/themes): Blue theme and Blue Dark theme. Ideally, an application should support both themes, but some applications might be more usable depending on the environment and context of the usage.
 
+By default, we use `#007bc1` as our primary theme color. But this is the baseline color and may vary from projects to projects. You may change the primary theme color, given that you carefully design it to avoid inflicting with the color convention ([see below](#color-convention)).
+
 ### Illustrations
 
 <ImageGrid
@@ -77,7 +79,7 @@ We stick to material icon's baseline. If inventing your own or use icons from md
 
 ### Component Variants
 
-Many components have variations, like outlined vs. filled vs. transparency-based.
+Many components have variations, like outlined vs. filled vs. transparency-based, flat vs elevated.
 
 ### Verbiage
 
@@ -86,32 +88,30 @@ Your tone can change based on your application nature too. For websites, you wan
 <MaterialDesignDescription
     title={'Writing'}
     url={`https://material.io/design/communication/writing.html`}
-    description={`Material's principles in writings.`}
+    description={`Material's principles in writing for user interface.`}
 />
-
-<!--
--   theme (light or dark). Ideally it should support both, but some app might be more usable under certain themes. Up to the designer to do the research.
--   Typography (Size, weight, etc. Or is this more about hierarchy?)
--   Illustrations, images, Splash screen
--   Animations
--   Icon variations (outlined vs filled vs colored?, square button v border radius v rounded, might be less about that but more about showing status. Can invent your own icons but make sure to follow the icon creation tradition)
--   Use of gradient (for light-related projects)
--   component Elevation (use shadows or outline or transparency)
--   Text tone
--->
 
 ## Should NEVER Change
 
 These things should never change in designing a PX Blue application:
 
--   Branding color for main UI / Themes. Actually you can, but make sure they don't fight with PX Blue's status colors.
--   Color convention
--   Different font family
--   Keep things consistent
--   Things violating long-established design traditions
--   Things we said NO in our design patterns page or on Material Design
+### Color Convention
 
-Whenever you decide to invent your own style, you need to have a clear reason for it.
+PX Blue has [a fixed set of status color palette](/style/color). The status colors are used to indicate the status of certain items. Do not let colors from other parts of your user interface to interfere with them and give your reader wromg impressions on what is being given with what status.
+
+### Font Family
+
+PX Blue [uses Open Sans and Noto Sans](/style/typography) for all its applications. We do allow you to change font weight and font size sporatically to display a better information hierarchy, but we strongly discourage you using fonts other than Open Sans and Noto Sans, especially Serif fonts.
+
+### Consistency
+
+We allow you to customize your UI and make design decisions, but you shall make sure your local design system is being carried through consistently. Once you pick a style, you should stick to it, instead of changing it every page.
+
+### Design Traditions
+
+Something are just design traditions. Everyone does that.
+
+Material Design and PX Blue highlight a few things in red. Those are our "do not". You should never include any design patterns like that in your designs.
 
 <!--
 
