@@ -52,7 +52,7 @@ export const ChristmasSchedule: Schedule = {
             backgroundSize: 700,
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center -23px',
-            backgroundColor: BrandingColors.navy[700],
+            backgroundColor: BrandingColors.navy[900],
         },
         className: 'christmas-eve',
         appBarBackground: {

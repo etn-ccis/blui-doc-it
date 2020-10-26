@@ -39,7 +39,7 @@ export const MayTheForthSchedule: Schedule = {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'bottom',
-            height: 400,
+            minHeight: 400,
         },
         className: 'may-the-forth',
     },

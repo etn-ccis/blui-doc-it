@@ -89,7 +89,7 @@ export const HalloweenSchedule: Schedule = {
             backgroundPosition: 'bottom',
             backgroundRepeat: 'no-repeat',
             cursor: `url("${witch}"), auto`,
-            height: 400,
+            minHeight: 400,
         },
         className: 'halloween',
         appBarBackground: {
