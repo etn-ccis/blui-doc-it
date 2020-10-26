@@ -1,4 +1,5 @@
 import { Divider, ImageGrid, MaterialDesignDescription } from '../../app/components';
+import PxblueSmallAltIcon from '@pxblue/icons-mui/PxblueSmallAlt';
 import ConsumerIndustrial from '../../app/assets/design/project-identity/consumer-industrial.png';
 import StyleChoice from '../../app/assets/design/project-identity/style-choice.png';
 import IllustrationConsumer from '../../app/assets/design/project-identity/illustration-consumer.png';
@@ -9,6 +10,13 @@ import IllustrationIndustrial from '../../app/assets/design/project-identity/ill
 # Project Identity
 
 While PX Blue serves as a design system for a wide range of applications, it is understood that each project might face its own unique situation. As a designer, you are responsible for maintaining the balance between consistency as a PX Blue application and things unique to your own application.
+
+<MaterialDesignDescription
+    title={'Design Patterns'}
+    url={'/patterns'}
+    description={`Follow PX Blue's design pattern guidelines.`}
+    avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+/>
 
 ## PX Blue is Flexible
 
@@ -69,19 +77,29 @@ Similiar to illustrations, images are another way to make your applications and 
 
 -   App bar
 -   Drawer header
--   Drawer header but with user credentials
+-   Drawer header but with user avatar
 -   Scorecard header
 -   Login
 
 ### Icons
 
-We stick to material icon's baseline. If inventing your own or use icons from mdi, ensure that you've searched through the existing MD and PXB icon lib; also ensure that your new icons are following material's icon guidelines.
+We use Material Design's baseline style for [our iconography](/style/iconography).
+
+However, we understand that many projects have their unique situation and the current iconography set may not cover every single use cases; you are welcome to invent your own icons, or harness [Material Design's community icons](https://materialdesignicons.com/). However, you should make sure that you have thoroughly scoured through Material Design and PX Blue's existing iconographies first, and that you are strictly following [Material Design's icon design guidelines](https://material.io/design/iconography/system-icons.html#design-principles).
 
 ### Component Variants
 
-Many components have variations, like outlined vs. filled vs. transparency-based, flat vs elevated.
+**Insert an image showing variations of buttons and text field**
+
+Many components have styling variations, and it is up to the designer to decide which one suits the best for the design context. Some common variations include:
+
+-   Outlined vs. contained (or filled)
+-   Flat vs. elevated
+-   Squared vs. semi-rounded corner vs. rounded corner
 
 ### Verbiage
+
+**Insert a side-by-side image, one saying "Create a new location" and another saying "Excellent! Now let's create a new location for your business."**
 
 Your tone can change based on your application nature too. For websites, you want to be appealing and persvasive. For applications, you want to be concise and accurate.
 
@@ -93,23 +111,27 @@ Your tone can change based on your application nature too. For websites, you wan
 
 ## Should NEVER Change
 
-These things should never change in designing a PX Blue application:
+Despite all the design freedom you have, there are a few things you should never change. Those either has to do with long-established traditions, or has to do with how PX Blue is established as a branded design system.
 
 ### Color Convention
 
+**Insert an image with color misuse on status colors**
+
 PX Blue has [a fixed set of status color palette](/style/color). The status colors are used to indicate the status of certain items. Do not let colors from other parts of your user interface to interfere with them and give your reader wromg impressions on what is being given with what status.
+
+In the rare case, there are certain color conventions in the specific industry you are designing for, like green = off, red = open in case of a breaker. Follow the indutrial convention there.
 
 ### Font Family
 
-PX Blue [uses Open Sans and Noto Sans](/style/typography) for all its applications. We do allow you to change font weight and font size sporatically to display a better information hierarchy, but we strongly discourage you using fonts other than Open Sans and Noto Sans, especially Serif fonts.
+PX Blue [uses Open Sans and Noto Sans](/style/typography) for all its applications. We [do encourage you to change font weight and font size](/style/typography#customization) sporatically to display a better information hierarchy, but we strongly discourage you using fonts other than Open Sans and Noto Sans, especially any [Serif fonts](https://en.wikipedia.org/wiki/Serif).
 
 ### Consistency
 
-We allow you to customize your UI and make design decisions, but you shall make sure your local design system is being carried through consistently. Once you pick a style, you should stick to it, instead of changing it every page.
+You shall make sure your local design system is being carried through consistently. Once you pick a style, you should stick to it, instead of changing it every page.
 
-### Design Traditions
+### Design Conventions
 
-Something are just design traditions. Everyone does that.
+Something are just design conventions. Everyone does that.
 
 Material Design and PX Blue highlight a few things in red. Those are our "do not". You should never include any design patterns like that in your designs.
 
@@ -117,7 +139,7 @@ Material Design and PX Blue highlight a few things in red. Those are our "do not
 
 <Divider />
 
-# Eric
+# Notes from Eric
 
 -   App Logo, using different glyphs and gradients. Note that there is no "Eaton app", emphasize on what that project is.
 -   Login screen, background patterns, sutle imagery
