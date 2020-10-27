@@ -1,5 +1,6 @@
 import * as PXBThemes from '@pxblue/react-themes';
 import DeathStar from '../../app/assets/themes/death-star.svg';
+import AppbarTile from '../../app/assets/themes/may-the-4th-appbar-tile.svg';
 import LightSaber1 from '../../app/assets/themes/light-saber-1.png';
 import LightSaber2 from '../../app/assets/themes/light-saber-2.png';
 import LightSaber3 from '../../app/assets/themes/light-saber-3.png';
@@ -42,6 +43,10 @@ export const MayTheForthSchedule: Schedule = {
             minHeight: 400,
             // Randomly pick a side for you. Sorry.
             cursor: `url("${lightSabers[Math.floor(Math.random() * lightSabers.length)]}"), auto`,
+        },
+        appBarBackground: {
+            src: AppbarTile,
+            backgroundSize: 'contain',
         },
         className: 'may-the-forth',
     },
