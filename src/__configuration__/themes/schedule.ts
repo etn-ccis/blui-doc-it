@@ -10,7 +10,7 @@ import { Schedule, SiteConfig } from './types';
  * Current schedules:
  * * May 3 - May 5: May the Forth Day
  * * Oct 14 - Nov 2: Halloween
- * * Dec 5 - Dec 26: Christmas
+ * * Dec 5 - Dec 25: Christmas
  */
 export const schedule: Schedule[] = [ChristmasSchedule, HalloweenSchedule, MayTheForthSchedule];
 

@@ -6,8 +6,8 @@ import AppBarTile from '../../app/assets/themes/christmas-appbar-tile.png';
 import { Schedule } from './types';
 
 export const ChristmasSchedule: Schedule = {
-    start: new Date(0, 11, 5), // Dec 05
-    end: new Date(0, 11, 26), // Dec 26
+    start: new Date(0, 11, 23), // Dec 23
+    end: new Date(0, 11, 25), // Dec 25
     config: {
         theme: {
             ...PXBThemes.blue,
