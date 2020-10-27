@@ -113,8 +113,3 @@ p.MuiTypography-h5.MuiTypography-paragraph {
 .halloween.ph-item .ph-row > div > * {
     background-color: #2b353a;
 }
-
-/* May the Forth Theme */
-.may-the-forth {
-    cursor: url('./app/assets/themes/light-saber.png'), auto;
-}
