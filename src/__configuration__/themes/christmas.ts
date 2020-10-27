@@ -48,7 +48,7 @@ export const ChristmasSchedule: Schedule = {
             },
         },
         landingPageBanner: {
-            src: ChristmasEve,
+            backgroundImage: `url(${ChristmasEve})`,
             backgroundSize: 700,
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center -23px',
@@ -56,7 +56,7 @@ export const ChristmasSchedule: Schedule = {
         },
         className: 'christmas-eve',
         appBarBackground: {
-            src: AppBarTile,
+            backgroundImage: `url(${AppBarTile})`,
         },
     },
 };

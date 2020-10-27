@@ -84,7 +84,7 @@ export const HalloweenSchedule: Schedule = {
     config: {
         theme: HalloweenTheme,
         landingPageBanner: {
-            src: castles,
+            backgroundImage: `url(${castles})`,
             backgroundSize: 'cover',
             backgroundPosition: 'bottom',
             backgroundRepeat: 'no-repeat',
@@ -93,7 +93,7 @@ export const HalloweenSchedule: Schedule = {
         },
         className: 'halloween',
         appBarBackground: {
-            src: ghosts,
+            backgroundImage: `url(${ghosts})`,
         },
     },
 };

@@ -11,7 +11,7 @@ export type SiteConfig = {
      * Configuration around the banner image in the landing page
      */
     landingPageBanner: {
-        src: string;
+        backgroundImage: string;
     } & CSSProperties;
 
     /**
@@ -22,9 +22,7 @@ export type SiteConfig = {
     /**
      * Configuration around the app bar background image
      */
-    appBarBackground?: {
-        src: string;
-    } & CSSProperties;
+    appBarBackground?: CSSProperties;
 };
 
 export type Schedule = {

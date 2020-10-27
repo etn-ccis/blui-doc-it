@@ -64,20 +64,14 @@ export const LandingPage: React.FC = (): JSX.Element => {
     const history = useHistory();
     const theme = useTheme();
     const classes = useStyles();
-    const { src, ...bannerBackgroundProps } = getScheduledSiteConfig().landingPageBanner;
+    const landingPageBanner = getScheduledSiteConfig().landingPageBanner;
     usePageTitle('');
     useGoogleAnalyticsPageView();
 
     return (
         <>
             <SharedToolbar navigationIcon={<Menu />} />
-            <div
-                className={classes.banner}
-                style={{
-                    backgroundImage: `url("${src}")`,
-                    ...bannerBackgroundProps,
-                }}
-            >
+            <div className={classes.banner} style={landingPageBanner}>
                 <PXBLogo />
                 <Button
                     variant={'outlined'}

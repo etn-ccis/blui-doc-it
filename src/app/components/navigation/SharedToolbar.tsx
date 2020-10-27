@@ -97,7 +97,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                 position="sticky"
                 color={color}
                 elevation={0}
-                style={{ zIndex: 1000, backgroundImage: appBarBackground && `url("${appBarBackground.src}")` }}
+                style={{ zIndex: 1000, ...appBarBackground }}
                 {...other}
             >
                 <Toolbar className={classes.toolbar}>

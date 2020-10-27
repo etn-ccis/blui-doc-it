@@ -31,5 +31,5 @@ export const defaultTheme: SiteConfig = {
             },
         },
     },
-    landingPageBanner: { src: circles, backgroundSize: 1200 },
+    landingPageBanner: { backgroundImage: `url(${circles})`, backgroundSize: 1200 },
 };
