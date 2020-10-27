@@ -4,7 +4,14 @@ import { ChristmasSchedule } from './christmas';
 import { defaultTheme } from './default';
 import { Schedule, SiteConfig } from './types';
 
-// Add more holiday themes here
+/**
+ * Add more holiday themes here.
+ *
+ * Current schedules:
+ * * May 3 - May 5: May the Forth Day
+ * * Oct 14 - Nov 2: Halloween
+ * * Dec 5 - Dec 26: Christmas
+ */
 export const schedule: Schedule[] = [ChristmasSchedule, HalloweenSchedule, MayTheForthSchedule];
 
 /**
