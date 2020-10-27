@@ -83,7 +83,6 @@
     },
     "text": {
         "0": [
-            { "/style/themes": 2 },
             { "/development/frameworks-mobile/ionic": 1 },
             { "/design/accessibility": 1 },
             { "/style/iconography": 1 },
@@ -102,7 +101,6 @@
             { "/style/illustrations": 2 },
             { "/style/typography": 2 },
             { "/design/accessibility": 1 },
-            { "/style/themes": 1 },
             { "/community/our-team": 1 }
         ],
         "3": [{ "/community/faq": 3 }, { "/community/license": 2 }, { "/style/illustrations": 1 }],
@@ -1040,7 +1038,6 @@
         "version": [
             { "/patterns/internationalization": 2 },
             { "/style/typography": 2 },
-            { "/style/themes": 2 },
             { "/overview": 1 },
             { "/development/environment": 1 },
             { "/development/frameworks-mobile/ionic": 1 },
@@ -1052,6 +1049,7 @@
             { "/patterns/steppers": 1 },
             { "/style/color": 1 },
             { "/style/illustrations": 1 },
+            { "/style/themes": 1 },
             { "/community/bugs": 1 },
             { "/community/faq": 1 }
         ],
@@ -1065,7 +1063,7 @@
             { "/patterns/loading": 13 },
             { "/patterns/overlay": 13 },
             { "/patterns/lists": 12 },
-            { "/style/themes": 12 },
+            { "/style/themes": 11 },
             { "/get-started/web": 10 },
             { "/design/intro": 10 },
             { "/design/anatomy": 10 },
@@ -1855,9 +1853,9 @@
             { "/patterns/navigation": 4 },
             { "/development/environment": 3 },
             { "/style/iconography": 3 },
-            { "/style/themes": 3 },
             { "/get-started/new-project": 2 },
             { "/style/typography": 2 },
+            { "/style/themes": 2 },
             { "/community/our-team": 2 },
             { "/get-started/web": 1 },
             { "/get-started/mobile": 1 },
@@ -2110,7 +2108,6 @@
             { "/development/testing": 1 },
             { "/patterns/navigation": 1 },
             { "/style/typography": 1 },
-            { "/style/themes": 1 },
             { "/community/contactus": 1 }
         ],
         "variety": [
@@ -4625,6 +4622,7 @@
             { "/patterns/user-auth": 1 },
             { "/patterns/visualizations": 1 },
             { "/style/color": 1 },
+            { "/style/themes": 1 },
             { "/community/innersourcing": 1 },
             { "/community/features": 1 },
             { "/community/our-team": 1 }
@@ -8870,7 +8868,7 @@
         "consistently": [{ "/design/websites": 1 }],
         "voice": [{ "/design/websites": 1 }],
         "straight": [{ "/design/websites": 1 }],
-        "technical": [{ "/design/websites": 1 }, { "/style/themes": 1 }, { "/community/contactus": 1 }],
+        "technical": [{ "/design/websites": 1 }, { "/community/contactus": 1 }],
         "jargon": [{ "/design/websites": 1 }],
         "computers": [{ "/design/websites": 1 }],
         "traffic": [{ "/design/websites": 1 }],
@@ -9884,12 +9882,12 @@
         "accents": [{ "/style/themes": 1 }],
         "standalone": [{ "/style/themes": 1 }],
         "effects": [{ "/style/themes": 1 }],
-        "individually": [{ "/style/themes": 1 }],
         "stylesheets": [{ "/style/themes": 1 }],
         "imported": [{ "/style/themes": 1 }],
         "objects": [{ "/style/themes": 1 }],
         "consumed": [{ "/style/themes": 1 }],
         "jss": [{ "/style/themes": 1 }],
+        "individually": [{ "/style/themes": 1 }],
         "bsd": [{ "/community/license": 3 }],
         "clause": [{ "/community/license": 2 }],
         "agreement": [{ "/community/license": 1 }],

@@ -1,2 +1,2 @@
-export * from './Halloween';
+export * from './types';
 export * from './schedule';

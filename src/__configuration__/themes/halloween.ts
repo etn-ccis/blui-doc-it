@@ -1,7 +1,13 @@
 import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
+import { ThemeOptions } from '@material-ui/core';
 
-export const HalloweenTheme = {
+import castles from '../../app/assets/themes/castles.svg';
+import ghosts from '../../app/assets/themes/halloween-appbar-tile.svg';
+import witch from '../../app/assets/themes/witch.png';
+import { Schedule } from './types';
+
+const HalloweenTheme: ThemeOptions = {
     ...PXBThemes.blueDark,
     palette: {
         ...PXBThemes.blueDark.palette,
@@ -68,6 +74,26 @@ export const HalloweenTheme = {
                     color: Colors.orange[500],
                 },
             },
+        },
+    },
+};
+
+export const HalloweenSchedule: Schedule = {
+    start: new Date(0, 9, 14), // Oct 14
+    end: new Date(0, 10, 2), // Nov 2
+    config: {
+        theme: HalloweenTheme,
+        landingPageBanner: {
+            backgroundImage: `url(${castles})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'bottom',
+            backgroundRepeat: 'no-repeat',
+            cursor: `url("${witch}"), auto`,
+            minHeight: 400,
+        },
+        className: 'halloween',
+        appBarBackground: {
+            backgroundImage: `url(${ghosts})`,
         },
     },
 };
