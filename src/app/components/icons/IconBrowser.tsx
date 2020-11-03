@@ -21,11 +21,11 @@ import * as AllMaterialIcons from '@material-ui/icons';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import meta from '@pxblue/icons-mui/index.json';
 import { IconCard } from './IconCard';
-import { IconMenu } from './IconMenu';
 import { unCamelCase } from '../../shared/utilities';
 import { Icon, MatIconList, DetailedIcon } from '../../../__types__';
 import { useQueryString } from '../../hooks/useQueryString';
 import { useHistory, useLocation } from 'react-router-dom';
+import {IconDrawer} from "./IconDrawer";
 
 type LetterGroups = {
     [key: string]: boolean;
@@ -359,14 +359,17 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                         })}
                 </div>
             </Paper>
-
-            {focusedIcon.name && (
-                <IconMenu
-                    onClose={(): void => setFocusedIcon({ name: '', isMaterial: true })}
-                    open={true}
-                    icon={focusedIcon}
-                />
-            )}
+            <IconDrawer
+                icon={focusedIcon}
+                component={
+                    focusedIcon.isMaterial
+                        ? MaterialIcons[focusedIcon.name]
+                        : PXBlueIcons[getMuiIconName(focusedIcon.name)]
+                }
+                drawerToggler={(): void => {
+                    setFocusedIcon({name: '', isMaterial: true});
+                    history.replace(`${location.pathname}`)
+                }} />
         </>
     );
 };
