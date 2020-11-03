@@ -9,6 +9,7 @@ import { Menu } from '@material-ui/icons';
 import { useSelector } from 'react-redux';
 
 import { pageDefinitions } from '../../__configuration__/navigationMenu/navigation';
+import { getScheduledSiteConfig } from '../../__configuration__/themes';
 import { AppBar, Toolbar, Typography, makeStyles, createStyles, useTheme, useMediaQuery } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
 
@@ -57,12 +58,13 @@ export const MainRouter = (): JSX.Element => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const toolbarHeight = isMobile ? 104 : 112;
+    const className = getScheduledSiteConfig().className;
 
     return (
         <Router>
             <ScrollToTop />
 
-            <DrawerLayout drawer={<NavigationDrawer />}>
+            <DrawerLayout drawer={<NavigationDrawer />} className={className}>
                 <Switch>
                     <Route exact path="/">
                         <LandingPage />

@@ -10,7 +10,7 @@ import { SmallPXBLogo } from '../../assets/icons/PXBLogo';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            background: Colors.black[900],
+            background: Colors.darkBlack[100],
             color: Colors.white[500],
             display: 'flex',
             flexWrap: 'wrap',

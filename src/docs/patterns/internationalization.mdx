@@ -17,10 +17,10 @@ import FormsImage from '../../app/assets/design-patterns/internationalization/fo
 <DemoCard
 repository={'internationalization'}
 angular={
-'https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fi18n%2Fi18n.component.ts'
+`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fi18n%2Fi18n.component.ts`
 }
 react={
-'https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/i18n/index.tsx&initialpath=i18n#'
+`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/i18n/index.tsx&initialpath=i18n`
 }
 />
 
@@ -36,7 +36,7 @@ You should always consider Internationalization during the design process, espec
 
 <MaterialDesignDescription
     title={'Language Support'}
-    url={'https://material.io/design/typography/language-support.html#language-considerations'}
+    url={`https://material.io/design/typography/language-support.html#language-considerations`}
 />
 
 ## Translation
@@ -88,7 +88,7 @@ Different languages or writing systems may require different vertical and horizo
 <MaterialDesignDescription
     title={'Bidirectionality'}
     description={'Learn about mirroring layout, mirroring elements, and localization.'}
-    url={'https://material.io/design/usability/bidirectionality.html'}
+    url={`https://material.io/design/usability/bidirectionality.html`}
 />
 
 Some languages, such as Arabic and Hebrew, are read from right to left. Applications supporting these languages will need to mirror the UI so the natural flow is from right to left. For example, navigation drawers should be displayed on the right side of the screen, icons should be to the right of the text in buttons, and [any icons with directionality](https://material.io/design/usability/bidirectionality.html#mirroring-elements) should be mirrored.
@@ -108,6 +108,12 @@ Some languages, such as Arabic and Hebrew, are read from right to left. Applicat
         '1: Icons that indicate directions should be mirrored.',
         '2: Icons with glyphs and symbols should never be mirrored.',
     ]}
+/>
+<MaterialDesignDescription
+    title={'Which icons should be mirrored for RTL?'}
+    description={'A list of Material icons that should be mirrored in a RTL UI.'}
+    url={`http://google.github.io/material-design-icons/#which-icons-should-be-mirrored-for-rtl-`}
+    avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
 />
 
 ## Cultural Differences

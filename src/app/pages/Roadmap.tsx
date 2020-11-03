@@ -13,6 +13,7 @@ import {
     MenuItem,
     Toolbar,
     Button,
+    useTheme,
 } from '@material-ui/core';
 
 import { PageContent, ExpansionHeader } from '../components';
@@ -20,15 +21,18 @@ import { PageContent, ExpansionHeader } from '../components';
 import { Status, RoadmapItem, RoadmapBucket, FrameworkFilter, ItemTypeFilter, Release } from '../../__types__';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
+import { getScheduledSiteConfig } from '../../__configuration__/themes';
 
 import { EmptyState, InfoListItem, ListItemTag, Spacer } from '@pxblue/react-components';
 import { useSelector } from 'react-redux';
 import { AppState } from '../redux/reducers';
 import * as Colors from '@pxblue/colors';
+import color from 'color';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
 import { PXBlueColor } from '@pxblue/types';
 import { getRoadmap } from '../api';
 import { ErrorOutline } from '@material-ui/icons';
+import clsx from 'clsx';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -47,9 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         select: {
-            // minWidth: 100,
             alignSelf: 'stretch',
-            color: theme.palette.primary.contrastText,
             '&:not(:first-child)': {
                 marginLeft: theme.spacing(2),
             },
@@ -76,9 +78,6 @@ const useStyles = makeStyles((theme: Theme) =>
             lineHeight: 1.2,
             fontSize: '0.875rem',
         },
-        selectIcon: {
-            color: theme.palette.primary.contrastText,
-        },
         emptyStateWrapper: {
             position: 'relative',
             top: '28vh',
@@ -94,7 +93,7 @@ const getStatusColor = (status: Status): PXBlueColor | undefined => {
         case 'finished':
             return Colors.green;
         case 'in-progress':
-            return Colors.blue;
+            return Colors.lightBlue;
         case 'pre-release':
             return Colors.purple;
         case 'deferred':
@@ -106,10 +105,8 @@ const getStatusColor = (status: Status): PXBlueColor | undefined => {
 };
 
 export const Roadmap: React.FC = (): JSX.Element => {
-    usePageTitle('Roadmap');
-    useGoogleAnalyticsPageView();
-    useBackgroundColor(Colors.gray[50]);
-    const classes = useStyles();
+    const theme = useTheme();
+    const classes = useStyles(theme);
     const [typeFilter, setTypeFilter] = useState<ItemTypeFilter>('all');
     const [statusFilter, setStatusFilter] = useState<Status | 'all'>('all');
     const [frameworkFilter, setFrameworkFilter] = useState<FrameworkFilter>('all');
@@ -122,6 +119,11 @@ export const Roadmap: React.FC = (): JSX.Element => {
         [1, 2, 3],
         [1, 2, 3],
     ];
+    const themedClassName = getScheduledSiteConfig().className;
+
+    usePageTitle('Roadmap');
+    useGoogleAnalyticsPageView();
+    useBackgroundColor(theme.palette.background.default);
 
     useEffect(() => {
         let isMounted = true;
@@ -214,7 +216,13 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         className={classes.tag}
                         label={status}
                         fontColor={statusColor ? statusColor[500] : undefined}
-                        backgroundColor={statusColor ? statusColor[50] : undefined}
+                        backgroundColor={
+                            statusColor
+                                ? color(statusColor[500])
+                                      .fade(0.9)
+                                      .string()
+                                : undefined
+                        }
                     />
                 );
             }
@@ -248,7 +256,6 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         value={typeFilter}
                         disableUnderline
                         onChange={(e): void => setTypeFilter(e.target.value as ItemTypeFilter | 'all')}
-                        classes={{ icon: classes.selectIcon }}
                         className={classes.select}
                     >
                         <MenuItem value={'all'}>Any Type</MenuItem>
@@ -260,7 +267,6 @@ export const Roadmap: React.FC = (): JSX.Element => {
                             value={frameworkFilter}
                             disableUnderline
                             onChange={(e): void => setFrameworkFilter(e.target.value as FrameworkFilter)}
-                            classes={{ icon: classes.selectIcon }}
                             className={classes.select}
                         >
                             <MenuItem value={'all'}>Any Framework</MenuItem>
@@ -274,7 +280,6 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         value={releaseFilter}
                         disableUnderline
                         onChange={(e): void => setReleaseFilter(e.target.value as Release)}
-                        classes={{ icon: classes.selectIcon }}
                         className={classes.select}
                     >
                         <MenuItem value={'all'}>Any Release</MenuItem>
@@ -287,7 +292,6 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         value={statusFilter}
                         disableUnderline
                         onChange={(e): void => setStatusFilter(e.target.value as Status | 'all')}
-                        classes={{ icon: classes.selectIcon }}
                         className={classes.select}
                     >
                         <MenuItem value={'all'}>Any Status</MenuItem>
@@ -308,7 +312,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         {loadingGroups.map((group, groupNumber) =>
                             group.map((item, i) => (
                                 <div
-                                    className="ph-item"
+                                    className={clsx('ph-item', themedClassName)}
                                     key={`ph-group${groupNumber}-${i}`}
                                     style={{ marginBottom: groupNumber > 0 && i === 0 ? 48 : 0 }}
                                 >

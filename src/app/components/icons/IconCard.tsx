@@ -1,6 +1,7 @@
 import React, { ElementType } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import clsx from 'clsx';
+import color from 'color';
 
 // Material-UI Components
 import Typography from '@material-ui/core/Typography';
@@ -14,14 +15,16 @@ const useStyles = makeStyles((theme: Theme) => ({
         color: theme.palette.text.primary,
     },
     selected: {
-        background: theme.palette.primary.light,
+        background: color(theme.palette.primary.main)
+            .fade(0.9)
+            .string(),
+        color: theme.palette.primary.main,
     },
     label: {
         width: '100%',
         textAlign: 'center',
         wordBreak: 'break-word',
         marginTop: '5px',
-        color: theme.palette.text.primary,
     },
 }));
 
@@ -43,7 +46,12 @@ export const IconCard: React.FC<IconCardProps> = (props): JSX.Element => {
         <div className={clsx(classes.wrapper, { [classes.selected]: selected }, className)} style={style}>
             <Component style={{ fontSize: iconSize, maxWidth: 84 }} />
             {showLabel && (
-                <Typography title={name} variant="subtitle2" className={classes.label}>
+                <Typography
+                    title={name}
+                    variant="subtitle2"
+                    className={classes.label}
+                    color={selected ? 'primary' : 'textPrimary'}
+                >
                     {name}
                 </Typography>
             )}

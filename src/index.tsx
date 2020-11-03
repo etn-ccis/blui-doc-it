@@ -1,3 +1,4 @@
+/* eslint-disable */
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 import React from 'react';
@@ -6,7 +7,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import * as PXBThemes from '@pxblue/react-themes';
+import { getScheduledSiteConfig } from './__configuration__/themes';
 import 'typeface-open-sans';
 import 'typeface-roboto-mono';
 import { createStore } from 'redux';
@@ -25,7 +26,7 @@ import 'placeholder-loading/src/scss/placeholder-loading.scss';
 const store = createStore(Reducer());
 
 ReactDOM.render(
-    <MuiThemeProvider theme={createMuiTheme(PXBThemes.blue)}>
+    <MuiThemeProvider theme={createMuiTheme(getScheduledSiteConfig().theme)}>
         <CssBaseline />
         <Provider store={store}>
             <MDXProvider components={componentsMap}>
