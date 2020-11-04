@@ -78,12 +78,16 @@ The collapsible appbar should transition smoothly between the expanded and colla
 
 <Divider />
 
-# Search Bar
+# Search
 
 <React.Fragment>
     <ImageGrid
-        images={[Search]}
-        caption={'When the search icon is clicked, a white search bar will slide in and cover the default tool bar. '}
+        images={[SiteSearch, PageSearch, ComponentSearch]}
+        caption={[
+            '1: Global (application-wide) search is always placed in the primary app bar.',
+            '2: Page-wide search can be placed below the primary app bar when searching content on a single page or screen.',
+            '3: Component-wide search allows the user to search for contents within individual components (e.g., cards, lists).',
+        ]}
     />
     <DemoCard
         repository={'search-bar'}
@@ -94,32 +98,28 @@ The collapsible appbar should transition smoothly between the expanded and colla
     />
 </React.Fragment>
 
-A very common pattern seen in many types of applications is the ability to search for data on a page. This is achieved by placing a search icon/button in the app bar. When this button is clicked, a white search bar slides in from the right to cover the default app bar. As the user enters text into the search field, the data is filtered in real-time. A back icon will close the Search Bar and clear the search results.
+A very common pattern seen in many types of applications is the ability to search for data.
+
+## Search Bar
+
+The search bar is used primarily when your search is a global search of all application content or when search is the primary interaction on a particular screen. This mode of search is achieved by placing a search icon/button in the primary app bar. When this button is clicked, a white search bar slides in from the right to cover the default app bar. As the user enters text into the search field, the data is filtered in real-time. A back icon will close the Search Bar and clear the search results.
+
+<ImageGrid
+    images={[Search]}
+    caption={'When the search icon is clicked, a white search bar will slide in and cover the default tool bar. '}
+/>
 
 ## Auto-complete
 
 For more advanced searching, you may wish to include an auto-complete feature. You can implement autocomplete by including a contextual menu below the search bar with suggested search items. Alternatively, you can use type-ahead to automatically update the recommended search query in the search field as the user types (Google search does this).
 
-<ImageGrid
-    regularWidth
-    images={[AutoVariants]}
-    caption={[
-        '1. Search suggestions are provided in a dropdown menu.',
-        '2. The most likely search is shown in the search field as the user types.',
-    ]}
-/>
-
-## Contextual search
-
-If your search is not a global-level search, you can relocate the search input to indicate the context of the search.
-
 <React.Fragment>
     <ImageGrid
-        images={[SiteSearch, PageSearch, ComponentSearch]}
+        regularWidth
+        images={[AutoVariants]}
         caption={[
-            '1: Site-wide search, a.k.a. global search, is always placed in the primary app bar.',
-            '2: Page-wide search, usually placed underneath the primary app bar. This can be helpful when your entire page is composed of one single view, such as a single-page list view.',
-            '3: Component-wide search allows the user to search for contents within a certain component (e.g., cards, lists).',
+            '1. Search suggestions are provided in a dropdown menu.',
+            '2. The most likely search is shown in the search field as the user types.',
         ]}
     />
     <Divider />
@@ -135,9 +135,15 @@ If your search is not a global-level search, you can relocate the search input t
 
 If certain dimensions are not specified, refer to the dimensions suggested in the mobile section above.
 
-<ImageGrid images={[Specs4Image]} regularWidth />
-<MaterialDesignDescription title={'App Bars: Top'} description={`For additional instructions, refer to Material Design's design specs`} url={`https://material.io/components/app-bars-top#specs`} />
-<Divider />
+<React.Fragment>
+    <ImageGrid images={[Specs4Image]} regularWidth />
+    <MaterialDesignDescription
+        title={'App Bars: Top'}
+        description={`For additional instructions, refer to Material Design's design specs`}
+        url={`https://material.io/components/app-bars-top#specs`}
+    />
+    <Divider />
+</React.Fragment>
 
 # Developers
 
