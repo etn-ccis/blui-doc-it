@@ -1,41 +1,30 @@
-import React, { useState, useCallback } from 'react';
-
+import React, {ElementType, useState} from 'react';
 // PX Blue Icons and Symbols
 import * as MuiIcons from '@pxblue/icons-mui';
-
 // Material-UI Components
-import {
-    Typography,
-    Collapse,
-    AppBar,
-    Paper,
-    Toolbar,
-    Divider,
-    InputBase,
-    Checkbox,
-    FormControlLabel,
-    makeStyles,
-    Theme,
-} from '@material-ui/core';
+import {Divider, InputBase, makeStyles, Theme, Typography} from '@material-ui/core';
+
 import * as AllMaterialIcons from '@material-ui/icons';
-import { fade } from '@material-ui/core/styles/colorManipulator';
+import {fade} from '@material-ui/core/styles/colorManipulator';
 import meta from '@pxblue/icons-mui/index.json';
-import { IconCard } from './IconCard';
-import { unCamelCase } from '../../shared/utilities';
-import { Icon, MatIconList, DetailedIcon } from '../../../__types__';
-import { useQueryString } from '../../hooks/useQueryString';
-import { useHistory, useLocation } from 'react-router-dom';
-import {IconDrawer} from "./IconDrawer";
+import {IconCard} from './IconCard';
+import {unCamelCase} from '../../shared/utilities';
+import {DetailedIcon, IconType, MatIconList} from '../../../__types__';
+import {useQueryString} from '../../hooks/useQueryString';
+import {useHistory, useLocation} from 'react-router-dom';
+import {IconDrawer} from './IconDrawer';
+
+// eslint-disable-next-line
+const materialMetadata = require('./MaterialMetadata.json');
 
 type LetterGroups = {
     [key: string]: boolean;
 };
 
-type LetterGrouping = {
-    [key: string]: Icon[];
+type CategoryGrouping = {
+    [key: string]: IconType[];
 };
 
-const hideResultsThreshold = 20;
 const PXBlueIcons: MatIconList = MuiIcons;
 const MaterialIcons: MatIconList = AllMaterialIcons;
 
@@ -64,11 +53,6 @@ const useStyles = makeStyles((theme: Theme) => ({
             paddingTop: theme.spacing(),
         },
         paddingBottom: theme.spacing(),
-    },
-    toggleIcon: {
-        display: 'inline-block',
-        verticalAlign: 'text-bottom',
-        transition: 'transform 200ms',
     },
     search: {
         position: 'relative',
@@ -126,51 +110,56 @@ const useStyles = makeStyles((theme: Theme) => ({
 const getMuiIconName = (filename: string): string =>
     filename.replace(/\.svg/, '').replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 || p3).toUpperCase());
 
-const getFilteredIcons = (): DetailedIcon[] =>
+const getNonProgressIcons = (): DetailedIcon[] =>
     (meta.icons as DetailedIcon[]).filter((icon) => !icon.family.includes('Progress'));
 
-const createIconList = (): Icon[] => {
-    const iconList: Icon[] = [];
-    getFilteredIcons().forEach((icon: DetailedIcon) => {
+const createIconList = (): IconType[] => {
+    const iconList: IconType[] = [];
+
+    getNonProgressIcons().forEach((icon: DetailedIcon) => {
         const mui = getMuiIconName(icon.filename);
         if (PXBlueIcons[mui]) {
-            iconList.push({ name: icon.filename.replace(/\.svg/, ''), isMaterial: false });
+            iconList.push({
+                name: icon.filename.replace(/\.svg/, ''),
+                isMaterial: false,
+                tags: icon.tags,
+                categories: icon.family,
+            });
         }
     });
-    Object.keys(MaterialIcons)
-        .filter((name) => {
-            if (name.includes('Outlined')) {
-                return false;
-            }
-            if (name.includes('Rounded')) {
-                return false;
-            }
-            if (name.includes('Sharp')) {
-                return false;
-            }
-            if (name.includes('TwoTone')) {
-                return false;
-            }
-            return true;
-        })
-        .forEach((iconName) => {
-            iconList.push({ name: iconName, isMaterial: true });
+    materialMetadata.icons.forEach((icon: DetailedIcon) => {
+        iconList.push({
+            name: icon.name,
+            isMaterial: true,
+            tags: icon.tags,
+            categories: icon.categories,
         });
+    });
     return iconList;
 };
 
-const groupIconList = (iconListToGroup: Icon[]): LetterGrouping => {
-    const groupings: LetterGrouping = {};
-    iconListToGroup.forEach((icon: Icon) => {
-        if (!groupings[icon.name.toUpperCase().charAt(0)]) {
-            groupings[icon.name.toUpperCase().charAt(0)] = [];
-        }
-        groupings[icon.name.toUpperCase().charAt(0)].push({ name: icon.name, isMaterial: icon.isMaterial });
+const emptyIcon = { name: '', isMaterial: true, tags: [], categories: [] };
+
+const groupIconList = (iconListToGroup: IconType[]): CategoryGrouping => {
+    const groupings: CategoryGrouping = {};
+    iconListToGroup.forEach((icon: IconType) => {
+        icon.categories.forEach((category: string) => {
+            // Check if the material icon (from metadata) exists in our current version material icon library
+            if (icon.isMaterial && MaterialIcons[getMuiIconName(icon.name)]) {
+                const cat = category.toLowerCase();
+                if (!groupings[cat]) {
+                    groupings[cat] = [Object.assign(icon, {})];
+                } else {
+                    groupings[cat].push(Object.assign(icon, {}));
+                }
+            }
+        });
     });
     return groupings;
 };
 
-const iconMatches = (icon: Icon, search: string, filterMaterial: boolean): boolean => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const iconMatches = (icon: IconType, search: string, filterMaterial: boolean): boolean => {
     if (filterMaterial && icon.isMaterial) {
         return false;
     }
@@ -188,7 +177,6 @@ const iconMatches = (icon: Icon, search: string, filterMaterial: boolean): boole
             return false;
         }
     }
-
     return true;
 };
 
@@ -199,14 +187,9 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     const query = useQueryString();
 
     const [search, setSearch] = useState<string>(() => query.iconSearch || '');
-    const [hideLetterGroups, setHideLetterGroups] = useState<LetterGroups>(() => {
-        if (query.icon) {
-            return { [query.icon.charAt(0).toUpperCase()]: true };
-        }
-        return {};
-    });
-    const [focusedIcon, setFocusedIcon] = useState<Icon>(() => {
-        const blankIcon = { name: '', isMaterial: true };
+
+    const [focusedIcon, setFocusedIcon] = useState<IconType>((): any => {
+        const blankIcon = { name: '', isMaterial: true, tags: [] };
         const icon = query.icon;
         const isMaterial = query.isMaterial === 'true' ? true : query.isMaterial === 'false' ? false : undefined;
 
@@ -215,161 +198,84 @@ export const IconBrowser: React.FC = (): JSX.Element => {
         if (isMaterial !== undefined) {
             if (!isMaterial && PXBlueIcons[icon]) return { name: icon, isMaterial: false };
             if (isMaterial && MaterialIcons[getMuiIconName(icon)])
-                return { name: getMuiIconName(icon), isMaterial: true };
+                return { name: getMuiIconName(icon), isMaterial: true, tags: [] };
         } else {
             if (PXBlueIcons[icon]) return { name: icon, isMaterial: false };
-            if (MaterialIcons[getMuiIconName(icon)]) return { name: getMuiIconName(icon), isMaterial: true };
+            if (MaterialIcons[getMuiIconName(icon)]) return { name: getMuiIconName(icon), isMaterial: true, tags: [] };
         }
 
         return blankIcon;
     });
-    const [filterMaterial, setFilterMaterial] = useState(false);
 
-    const icons: Icon[] = createIconList();
-    const iconList: Icon[] = icons;
-    const filteredIconList: Icon[] = iconList
-        .filter((icon: Icon): boolean => iconMatches(icon, search, filterMaterial))
-        .sort();
-    const groupedIcons = groupIconList(filteredIconList);
+    const icons: IconType[] = createIconList();
+    const iconList: IconType[] = icons;
+    //   const filteredIconList: Icon[] = iconList
+    //      .filter((icon: Icon): boolean => iconMatches(icon, search, filterMaterial))
+    //     .sort();
+    const groupedIcons = groupIconList(iconList);
 
-    const toggleCollapse = useCallback(
-        (letterGroup: string): void => {
-            const hidden: LetterGroups = hideLetterGroups;
-            hidden[letterGroup] = !hideLetterGroups[letterGroup];
-            setHideLetterGroups({ ...hidden });
-        },
-        [hideLetterGroups]
-    );
+    const getIconComponent = (icon: IconType): ElementType =>
+        icon.isMaterial ? MaterialIcons[getMuiIconName(icon.name)] : PXBlueIcons[getMuiIconName(icon.name)];
 
     return (
         <>
-            <Paper elevation={4}>
-                <AppBar position="static" color="primary" classes={{ root: classes.header }}>
-                    <Toolbar>
-                        <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-                            Icons
-                        </Typography>
-                        <div className={classes.grow} />
-                        <div className={classes.search}>
-                            <div className={classes.searchIcon}>
-                                <MaterialIcons.Search />
-                            </div>
-                            <InputBase
-                                placeholder="Search…"
-                                classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
-                                }}
-                                value={search}
-                                onChange={(evt): void => setSearch(evt.target.value)}
-                            />
-                        </div>
-                    </Toolbar>
-                </AppBar>
-                <Toolbar className={classes.hideIconsLabel} variant={'dense'}>
-                    <FormControlLabel
-                        control={<Checkbox color="primary" onClick={(): void => setFilterMaterial(!filterMaterial)} />}
-                        label="Hide Material Icons"
-                        labelPlacement="start"
-                    />
-                </Toolbar>
-                <div style={{ padding: '0 24px 24px' }}>
-                    {Object.keys(groupIconList(iconList))
-                        .sort()
-                        .map((letterGroup: string) => {
-                            if (!groupedIcons[letterGroup]) {
-                                return null;
-                            }
-                            return (
-                                <React.Fragment key={`${letterGroup}_group`}>
-                                    <Typography
-                                        variant={'h6'}
-                                        color={'primary'}
-                                        className={classes.groupHeader}
-                                        onClick={(): void => toggleCollapse(letterGroup)}
-                                    >
-                                        {letterGroup}
-                                        {filteredIconList.length <= hideResultsThreshold
-                                            ? null
-                                            : [
-                                                  <MaterialIcons.ExpandMore
-                                                      key={`${letterGroup}-${letterGroup.length}`}
-                                                      className={classes.toggleIcon}
-                                                      style={{
-                                                          transform: hideLetterGroups[letterGroup]
-                                                              ? 'rotate(180deg)'
-                                                              : undefined,
-                                                      }}
-                                                  />,
-                                              ]}
-                                    </Typography>
-                                    <Collapse
-                                        in={
-                                            filteredIconList.length <= hideResultsThreshold
-                                                ? true
-                                                : hideLetterGroups[letterGroup]
-                                        }
-                                        timeout="auto"
-                                        unmountOnExit
-                                    >
-                                        <div className={classes.section}>
-                                            {groupedIcons[letterGroup]
-                                                .filter((icon: Icon) => iconMatches(icon, search, filterMaterial))
-                                                .sort((a: Icon, b: Icon) => {
-                                                    if (a.name.toUpperCase() > b.name.toUpperCase()) {
-                                                        return 1;
-                                                    }
-                                                    return -1;
-                                                })
-                                                .map((icon: Icon) => (
-                                                    <div
-                                                        key={`${icon.name}-${icon.isMaterial.toString()}`}
-                                                        onClick={(): void => {
-                                                            history.replace(
-                                                                `${location.pathname}?icon=${getMuiIconName(
-                                                                    icon.name
-                                                                )}&isMaterial=${icon.isMaterial.toString()}`
-                                                            );
-                                                            setFocusedIcon(icon);
-                                                        }}
-                                                    >
-                                                        <IconCard
-                                                            key={icon.name}
-                                                            component={
-                                                                icon.isMaterial
-                                                                    ? MaterialIcons[icon.name]
-                                                                    : PXBlueIcons[getMuiIconName(icon.name)]
-                                                            }
-                                                            name={unCamelCase(getMuiIconName(icon.name))}
-                                                            className={classes.iconCard}
-                                                            selected={
-                                                                focusedIcon &&
-                                                                getMuiIconName(focusedIcon.name) ===
-                                                                    getMuiIconName(icon.name) &&
-                                                                focusedIcon.isMaterial === icon.isMaterial
-                                                            }
-                                                        />
-                                                    </div>
-                                                ))}
-                                        </div>
-                                    </Collapse>
-                                    <Divider />
-                                </React.Fragment>
-                            );
-                        })}
+            <div className={classes.search}>
+                <div className={classes.searchIcon}>
+                    <MaterialIcons.Search />
                 </div>
-            </Paper>
+                <InputBase
+                    placeholder="Search…"
+                    classes={{
+                        root: classes.inputRoot,
+                        input: classes.inputInput,
+                    }}
+                    value={search}
+                    onChange={(evt): void => setSearch(evt.target.value)}
+                />
+            </div>
+            <div style={{ padding: '0 24px 24px' }}>
+                {Object.keys(groupedIcons)
+                    .sort()
+                    .map((categoryGroupTitle: string) => (
+                        <React.Fragment key={`${categoryGroupTitle}_group`}>
+                            <Typography variant={'h6'} color={'primary'} className={classes.groupHeader}>
+                                {categoryGroupTitle}
+                            </Typography>
+                            <div className={classes.section}>
+                                {groupedIcons[categoryGroupTitle].map((icon: IconType) => (
+                                    <div
+                                        key={`${icon.name}-${icon.isMaterial.toString()}`}
+                                        onClick={(): void => {
+                                            history.replace(
+                                                `${location.pathname}?icon=${getMuiIconName(
+                                                    icon.name
+                                                )}&isMaterial=${icon.isMaterial.toString()}`
+                                            );
+                                            setFocusedIcon(icon);
+                                        }}
+                                    >
+                                        <IconCard
+                                            key={icon.name}
+                                            component={getIconComponent(icon)}
+                                            name={unCamelCase(getMuiIconName(icon.name))}
+                                            className={classes.iconCard}
+                                            selected={focusedIcon.name === icon.name}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                            <Divider />
+                        </React.Fragment>
+                    ))}
+            </div>
             <IconDrawer
                 icon={focusedIcon}
-                component={
-                    focusedIcon.isMaterial
-                        ? MaterialIcons[focusedIcon.name]
-                        : PXBlueIcons[getMuiIconName(focusedIcon.name)]
-                }
+                component={getIconComponent(focusedIcon)}
                 drawerToggler={(): void => {
-                    setFocusedIcon({name: '', isMaterial: true});
-                    history.replace(`${location.pathname}`)
-                }} />
+                    setFocusedIcon(emptyIcon);
+                    history.replace(`${location.pathname}`);
+                }}
+            />
         </>
     );
 };

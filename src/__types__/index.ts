@@ -6,15 +6,18 @@ export type DetailedIcon = {
     name: string;
     filename: string;
     family: string[];
+    categories: string[];
     style: string;
     tags: string[];
     description: string;
     author: string;
     size: number;
 };
-export type Icon = {
+export type IconType = {
     name: string;
     isMaterial: boolean;
+    tags: string[];
+    categories: string[];
 };
 export type MatIconList = {
     [key: string]: (props: SvgIconProps) => JSX.Element;

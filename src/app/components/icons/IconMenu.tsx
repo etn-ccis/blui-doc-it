@@ -23,7 +23,7 @@ import {
 import { ExternalLink } from '../../../__configuration__/markdown/markdownMapping';
 import { unCamelCase, getSnakeCase, getKebabCase } from '../../shared/utilities';
 import { IconCard } from './IconCard';
-import { Icon, MatIconList, DetailedIcon } from '../../../__types__';
+import { IconType, MatIconList, DetailedIcon } from '../../../__types__';
 import { getScheduledSiteConfig } from '../../../__configuration__/themes';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -90,7 +90,7 @@ const getMuiIconName = (filename: string): string =>
 type IconMenuProps = {
     onClose: Function;
     open: boolean;
-    icon: Icon;
+    icon: IconType;
 };
 
 export const IconMenu: React.FC<IconMenuProps> = (props): JSX.Element => {

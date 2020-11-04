@@ -1,4 +1,4 @@
-import React, {ElementType, useRef} from 'react';
+import React, { ElementType, useRef } from 'react';
 import {
     AppBar,
     Drawer as MuiDrawer,
@@ -7,22 +7,24 @@ import {
     Typography,
     useTheme,
     IconButton,
-    Divider, Button, withStyles
+    Divider,
+    Button,
+    withStyles,
 } from '@material-ui/core';
-import {makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 import * as Colors from '@pxblue/colors';
-import {ArrowDropDown, Close, FileCopy} from "@material-ui/icons";
+import { ArrowDropDown, Close, FileCopy } from '@material-ui/icons';
 import GetApp from '@material-ui/icons/GetApp';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 
-import {Spacer} from "@pxblue/react-components";
-import {Icon} from "../../../__types__";
-import {getSnakeCase} from "../../shared";
+import { Spacer } from '@pxblue/react-components';
+import { IconType } from '../../../__types__';
+import { getSnakeCase } from '../../shared';
 
 type DrawerProps = {
-    icon: Icon;
+    icon: IconType;
     drawerToggler: () => void;
     component: ElementType;
 };
@@ -39,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     appBar: {
         backgroundColor: Colors.black[500],
         paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(0.5)
+        paddingRight: theme.spacing(0.5),
     },
     appBarCloseButton: {
         color: Colors.white[50],
@@ -47,43 +49,42 @@ const useStyles = makeStyles((theme: Theme) => ({
     iconNameRow: {
         display: 'flex',
         padding: theme.spacing(2),
-        alignItems: 'center'
+        alignItems: 'center',
     },
     iconNameRowDescription: {
-        marginLeft: theme.spacing(3)
+        marginLeft: theme.spacing(3),
     },
     codeSnippetTitle: {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
     codeSnippet: {
         margin: `${theme.spacing(0.5)}px 0`,
         marginBottom: theme.spacing(2),
-        whiteSpace: 'normal'
+        whiteSpace: 'normal',
     },
     copyIcon: {
-        fontSize: 16
-    }
+        fontSize: 16,
+    },
 }));
-
 
 // eslint-disable-next-line
 const Accordion = withStyles((theme: Theme) => {
-        return {
-            root: {
-                boxShadow: 'none',
-                transition: `border 0ms`,
-                '&$expanded': {
-                    margin: 0,
-                    borderLeft: `solid 6px ${theme.palette.primary.main}`,
-                    borderTop: `solid 1px ${theme.palette.divider}`,
-                    borderBottom: `solid 1px ${theme.palette.divider}`,
-                }
+    return {
+        root: {
+            boxShadow: 'none',
+            transition: `border 0ms`,
+            '&$expanded': {
+                margin: 0,
+                borderLeft: `solid 6px ${theme.palette.primary.main}`,
+                borderTop: `solid 1px ${theme.palette.divider}`,
+                borderBottom: `solid 1px ${theme.palette.divider}`,
             },
-            expanded: {},
-        }
-    })(MuiAccordion);
+        },
+        expanded: {},
+    };
+})(MuiAccordion);
 
 // eslint-disable-next-line no-import-assign
 const AccordionSummary = withStyles({
@@ -103,7 +104,7 @@ const AccordionDetails = withStyles(() => ({
     root: {
         padding: '0 16px',
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
     },
 }))(MuiAccordionDetails);
 
@@ -114,8 +115,6 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
     const classes = useStyles(theme);
     const textAreaRef = useRef(null as any);
 
-
-
     const copyToClipboard = (e: any): void => {
         textAreaRef.current.select();
         document.execCommand('copy');
@@ -124,11 +123,31 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
         e.target.focus();
     };
 
+    // Can be Material or PX Blue icons
+    const downloadSvg = (): void => {
+        if (icon.isMaterial) {
+            window.open(
+                `https://fonts.gstatic.com/s/i/materialicons/${getSnakeCase(icon.name)}/v6/24px.svg?download=true`
+            );
+        } else {
+            window.open(`https://raw.githubusercontent.com/pxblue/icons/dev/svg/${icon.name}.svg`);
+        }
+    };
+
+    // Material Icons only
+    const downloadPng = (): void => {
+        window.open(`//fonts.gstatic.com/s/i/materialicons/${getSnakeCase(icon.name)}/v6/black-18dp.zip?download=true`);
+    };
+
     return (
-        <MuiDrawer open={Boolean(icon.name)} onClose={drawerToggler}
-                   anchor={'right'} transitionDuration={250}
-                   ModalProps={{hideBackdrop: false}}
-                   classes={{ paper: classes.drawer }}>
+        <MuiDrawer
+            open={Boolean(icon.name)}
+            onClose={drawerToggler}
+            anchor={'right'}
+            transitionDuration={250}
+            ModalProps={{ hideBackdrop: false }}
+            classes={{ paper: classes.drawer }}
+        >
             <AppBar position="static" color="primary">
                 <Toolbar className={classes.appBar}>
                     <Typography variant="h6" color="inherit" noWrap>
@@ -141,7 +160,7 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
                 </Toolbar>
             </AppBar>
             <div className={classes.iconNameRow}>
-                {icon.name && <Component style={{ fontSize: 36 }} />}
+                {icon.name && Component && <Component style={{ fontSize: 36 }} />}
                 <div className={classes.iconNameRowDescription}>
                     <Typography variant={'subtitle1'}>{icon.name}</Typography>
                     <Typography variant={'body1'}>Category (TODO)</Typography>
@@ -149,33 +168,43 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
             </div>
             <Divider />
             <div style={{ padding: theme.spacing(2) }}>
-                <Typography variant={'subtitle1'} style={{ marginBottom: theme.spacing(1) }}>Download</Typography>
+                <Typography variant={'subtitle1'} style={{ marginBottom: theme.spacing(1) }}>
+                    Download
+                </Typography>
                 <div>
-                    <Button variant="contained" color="primary" style={{ marginRight: theme.spacing(1) }}
-                            startIcon={<GetApp />}>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        style={{ marginRight: theme.spacing(1) }}
+                        startIcon={<GetApp />}
+                        onClick={downloadSvg}
+                    >
                         SVG
                     </Button>
-                    <Button variant="contained" color="primary"
-                            startIcon={<GetApp />}>
-                        PNG
-                    </Button>
+                    {isMaterial && (
+                        <Button variant="contained" color="primary" onClick={downloadPng} startIcon={<GetApp />}>
+                            PNG
+                        </Button>
+                    )}
                 </div>
             </div>
             <Accordion>
-                <AccordionSummary  expandIcon={<ArrowDropDown />}>
+                <AccordionSummary expandIcon={<ArrowDropDown />}>
                     <Typography>React</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <div>
-                        <Typography variant={'overline'} style={{ width: '100%' }}>Icon Font</Typography>
+                        <Typography variant={'overline'} style={{ width: '100%' }}>
+                            Icon Font
+                        </Typography>
                     </div>
                     {!isMaterial && <pre className={classes.codeSnippet}>{`<i className="pxb-${icon.name}"></i>`}</pre>}
                     {isMaterial && (
                         <pre className={classes.codeSnippet}>
-                                    {`import Icon from '@material-ui/core/Icon';`}
+                            {`import Icon from '@material-ui/core/Icon';`}
                             <br />
                             {`<Icon>${getSnakeCase(name)}</Icon>`}
-                                </pre>
+                        </pre>
                     )}
                     <div>
                         <div className={classes.codeSnippetTitle}>
@@ -183,32 +212,34 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
                             <FileCopy onClick={copyToClipboard} className={classes.copyIcon} />
                         </div>
                         {!isMaterial && (
-                            <pre className={classes.codeSnippet}
-                                 ref={textAreaRef}>
-                                    {`const icon = require('@pxblue/icons-svg/${name}.svg');`}
+                            <pre className={classes.codeSnippet} ref={textAreaRef}>
+                                {`const icon = require('@pxblue/icons-svg/${icon.name}.svg');`}
                                 <br />
                                 {`<img src={icon}/>`}
-                                </pre>
+                            </pre>
                         )}
                         {isMaterial && (
                             <pre className={classes.codeSnippet}>
-                                    {`import ${`${icon.name}Icon`} from '@material-ui/icons/${icon.name}';`}
+                                {`import ${`${icon.name}Icon`} from '@material-ui/icons/${icon.name}';`}
                                 <br />
                                 {`<${`${icon.name}Icon`}></${`${icon.name}Icon`}>`}
-                                </pre>
+                            </pre>
                         )}
                     </div>
-                    {!isMaterial &&
+                    {!isMaterial && (
                         <div>
-                            <Typography variant={'overline'} style={{ width: '100%' }}>Component</Typography>
+                            <Typography variant={'overline'} style={{ width: '100%' }}>
+                                Component
+                            </Typography>
                             <pre className={classes.codeSnippet}>
-                                {`import ${getMuiIconName(icon.name)}Icon from '@pxblue/icons-mui/${getMuiIconName(icon.name)}';`}
-                                <br/>
+                                {`import ${getMuiIconName(icon.name)}Icon from '@pxblue/icons-mui/${getMuiIconName(
+                                    icon.name
+                                )}';`}
+                                <br />
                                 {`<${getMuiIconName(icon.name)}Icon></${getMuiIconName(icon.name)}Icon>`}
                             </pre>
                         </div>
-
-                    }
+                    )}
                 </AccordionDetails>
             </Accordion>
             <Accordion>
@@ -221,7 +252,7 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
                 </AccordionDetails>
             </Accordion>
             <Accordion>
-                <AccordionSummary  expandIcon={<ArrowDropDown />}>
+                <AccordionSummary expandIcon={<ArrowDropDown />}>
                     <Typography>React Native</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -231,9 +262,10 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
                 </AccordionDetails>
             </Accordion>
             <div style={{ padding: 16 }}>
-                <Typography variant={'subtitle2'}>For detail usage and installation instructions, visit our Github.</Typography>
+                <Typography variant={'subtitle2'}>
+                    For detail usage and installation instructions, visit our Github.
+                </Typography>
             </div>
         </MuiDrawer>
-
-    )
+    );
 };

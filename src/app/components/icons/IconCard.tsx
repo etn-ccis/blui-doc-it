@@ -2,7 +2,6 @@ import React, { ElementType } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import color from 'color';
-
 // Material-UI Components
 import Typography from '@material-ui/core/Typography';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
@@ -41,10 +40,11 @@ type IconCardProps = {
 export const IconCard: React.FC<IconCardProps> = (props): JSX.Element => {
     const classes = useStyles();
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { component: Component, name, showLabel, style, selected, iconSize, className } = props;
     return (
         <div className={clsx(classes.wrapper, { [classes.selected]: selected }, className)} style={style}>
-            <Component style={{ fontSize: iconSize, maxWidth: 84 }} />
+            {name && Component && <Component style={{ fontSize: 36 }} />}
             {showLabel && (
                 <Typography
                     title={name}
