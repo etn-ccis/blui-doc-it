@@ -25,6 +25,7 @@ import { getSnakeCase } from '../../shared';
 
 type DrawerProps = {
     icon: IconType;
+    subtitle: string;
     drawerToggler: () => void;
     component: ElementType;
 };
@@ -109,7 +110,7 @@ const AccordionDetails = withStyles(() => ({
 }))(MuiAccordionDetails);
 
 export const IconDrawer = (props: DrawerProps): JSX.Element => {
-    const { drawerToggler, icon, component: Component } = props;
+    const { drawerToggler, icon, component: Component, subtitle } = props;
     const theme = useTheme();
     const isMaterial = props.icon.isMaterial;
     const classes = useStyles(theme);
@@ -162,8 +163,8 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
             <div className={classes.iconNameRow}>
                 {icon.name && Component && <Component style={{ fontSize: 36 }} />}
                 <div className={classes.iconNameRowDescription}>
-                    <Typography variant={'subtitle1'}>{icon.name}</Typography>
-                    <Typography variant={'body1'}>Category (TODO)</Typography>
+                    <Typography variant={'body1'}>{icon.name}</Typography>
+                    <Typography variant={'body2'}>{subtitle}</Typography>
                 </div>
             </div>
             <Divider />

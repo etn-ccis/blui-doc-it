@@ -8,10 +8,14 @@ import { CSSProperties } from '@material-ui/core/styles/withStyles';
 
 const useStyles = makeStyles((theme: Theme) => ({
     wrapper: {
+        cursor: 'pointer',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        justifyContent: 'center',
         color: theme.palette.text.primary,
+        height: 137,
+        width: 137,
     },
     selected: {
         background: color(theme.palette.primary.main)
@@ -35,15 +39,16 @@ type IconCardProps = {
     style?: CSSProperties;
     selected?: boolean;
     className?: string;
+    onClick?: any;
 };
 
 export const IconCard: React.FC<IconCardProps> = (props): JSX.Element => {
     const classes = useStyles();
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { component: Component, name, showLabel, style, selected, iconSize, className } = props;
+    const { component: Component, name, showLabel, style, selected, iconSize, className, onClick } = props;
     return (
-        <div className={clsx(classes.wrapper, { [classes.selected]: selected }, className)} style={style}>
+        <div className={clsx(classes.wrapper, { [classes.selected]: selected }, className)} style={style} onClick={onClick}>
             {name && Component && <Component style={{ fontSize: 36 }} />}
             {showLabel && (
                 <Typography
