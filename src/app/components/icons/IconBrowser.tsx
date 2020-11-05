@@ -17,7 +17,7 @@ import * as Colors from '@pxblue/colors';
 // eslint-disable-next-line
 const materialMetadata = require('./MaterialMetadata.json');
 
-export const getMuiIconName = (filename: string): string =>
+const getMuiIconName = (filename: string): string =>
     filename.replace(/\.svg/, '').replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 || p3).toUpperCase());
 
 type CategoryGrouping = {
@@ -143,9 +143,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     });
 
     const selectIcon = (icon: IconType, category: string): void => {
-        history.replace(
-            `${location.pathname}?icon=${icon.name}&isMaterial=${icon.isMaterial.toString()}`
-        );
+        history.replace(`${location.pathname}?icon=${icon.name}&isMaterial=${icon.isMaterial.toString()}`);
         setFocusedIcon(icon);
         // eslint-disable-next-line no-console
         console.log(icon);

@@ -22,8 +22,7 @@ import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 
 import { Spacer } from '@pxblue/react-components';
 import { IconType } from '../../../__types__';
-import { getKebabCase, getSnakeCase } from '../../shared';
-import {getMuiIconName} from "./IconBrowser";
+import {getKebabCase, getSnakeCase, unCamelCase} from '../../shared';
 
 type DrawerProps = {
     icon: IconType;
@@ -135,45 +134,41 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
 
     const getReactIconFontCopy = (): string => {
         if (isMaterial) {
-            return `import Icon from '@material-ui/core/Icon';\n<Icon>${icon.name}</Icon>`;
+            return `import Icon from '@material-ui/core/Icon';\n<Icon>${getSnakeCase(icon.name)}</Icon>`;
         }
-        return `<i className="pxb-${icon.name}"></i>`;
+        return `<i className="pxb-${getSnakeCase(icon.name)}"></i>`;
     };
     const getReactIconFontExample = (): JSX.Element => (
         <>
             {isMaterial && (
                 <>
-                    {`import ${`${icon.name}Icon`} from '@material-ui/icons/${icon.name}';`}
+                    {`import Icon from '@material-ui/core/Icon';`}
                     <br />
-                    {`<Icon>${icon.name}</Icon>`}
+                    {`<Icon>${getSnakeCase(icon.name)}</Icon>`}
                 </>
             )}
-            {!isMaterial && `<i className="pxb-${icon.name}"></i>`}
+            {!isMaterial && `<i className="pxb-${getSnakeCase(icon.name)}"></i>`}
         </>
     );
 
     const getReactSvgCopy = (): string => {
         if (isMaterial) {
-            return `import ${getSnakeCase(icon.name)}Icon from '@material-ui/icons/${getMuiIconName(
-                icon.name
-            )}';\n<${getMuiIconName(icon.name)}Icon></${getMuiIconName(icon.name)}Icon>`;
+            return `import ${icon.name}Icon from '@material-ui/icons/${icon.name}';\n<${icon.name}Icon></${icon.name}Icon>`;
         }
-        return `const icon = require('@pxblue/icons-svg/${icon.name}.svg');\n<img src={icon}/>`;
+        return `const icon = require('@pxblue/icons-svg/${getSnakeCase(icon.name)}.svg');\n<img src={icon}/>`;
     };
     const getReactSvgExample = (): JSX.Element => (
         <>
             {isMaterial && (
                 <>
-                    {`import ${`${getMuiIconName(icon.name)}Icon`} from '@material-ui/icons/${getMuiIconName(
-                        icon.name
-                    )}';`}
+                    {`import ${`${icon.name}Icon`} from '@material-ui/icons/${icon.name}';`}
                     <br />
-                    {`<${`${getMuiIconName(icon.name)}Icon`}></${`${getMuiIconName(icon.name)}Icon`}>`}
+                    {`<${`${icon.name}Icon`}></${`${icon.name}Icon`}>`}
                 </>
             )}
             {!isMaterial && (
                 <>
-                    {`const icon = require('@pxblue/icons-svg/${icon.name}.svg');`}
+                    {`const icon = require('@pxblue/icons-svg/${getSnakeCase(icon.name)}.svg');`}
                     <br />
                     {`<img src={icon}/>`}
                 </>
@@ -182,14 +177,12 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
     );
 
     const getReactComponentCopy = (): string =>
-        `import ${getMuiIconName(icon.name)}Icon from '@pxblue/icons-mui/${getMuiIconName(
-            icon.name
-        )}';\n<${getMuiIconName(icon.name)}Icon></${getMuiIconName(icon.name)}Icon>`;
+        `import ${icon.name}Icon from '@pxblue/icons-mui/${icon.name}';\n<${icon.name}Icon></${icon.name}Icon>`;
     const getReactComponentExample = (): JSX.Element => (
         <>
-            {`import ${getMuiIconName(icon.name)}Icon from '@pxblue/icons-mui/${getMuiIconName(icon.name)}';`}
+            {`import ${icon.name}Icon from '@pxblue/icons-mui/${icon.name}';`}
             <br />
-            {`<${getMuiIconName(icon.name)}Icon></${getMuiIconName(icon.name)}Icon>`}
+            {`<${icon.name}Icon></${icon.name}Icon>`}
         </>
     );
 
@@ -197,12 +190,12 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
         if (isMaterial) {
             return `<i class="${getSnakeCase(icon.name)}"></i>`;
         }
-        return `<i class="pxb-${icon.name}"></i>`;
+        return `<i class="pxb-${getSnakeCase(icon.name)}"></i>`;
     };
     const getAngularIconFontExample = (): JSX.Element => (
         <>
             {isMaterial && `<i class="${getSnakeCase(icon.name)}"></i>`}
-            {!isMaterial && `<i class="pxb-${icon.name}"></i>`}
+            {!isMaterial && `<i class="pxb-${getSnakeCase(icon.name)}"></i>`}
         </>
     );
 
@@ -230,9 +223,9 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
             )}
             {!isMaterial && (
                 <>
-                    {`import ${getMuiIconName(icon.name)} from '@pxblue/icons-svg/${icon.name}.svg';`}
+                    {`import ${icon.name} from '@pxblue/icons-svg/${getSnakeCase(icon.name)}.svg';`}
                     <br />
-                    {`const myIcon = <${getMuiIconName(icon.name)} />`}
+                    {`const myIcon = <${icon.name} />`}
                 </>
             )}
         </>
@@ -243,9 +236,9 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
                 icon.name
             )}"/>;`;
         }
-        return `import ${getMuiIconName(name)} from '@pxblue/icons-svg/${name}.svg';\nconst myIcon = <${getMuiIconName(
+        return `import ${icon.name} from '@pxblue/icons-svg/${getSnakeCase(icon.name)}.svg';\nconst myIcon = <${
             icon.name
-        )} />`;
+        } />`;
     };
 
     // Can be Material or PX Blue icons
@@ -290,7 +283,7 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
             <div className={classes.iconNameRow}>
                 {icon.name && Component && <Component style={{ fontSize: 36 }} />}
                 <div className={classes.iconNameRowDescription}>
-                    <Typography variant={'body1'}>{icon.name}</Typography>
+                    <Typography variant={'body1'}>{unCamelCase(icon.name)}</Typography>
                     <Typography variant={'body2'}>{subtitle}</Typography>
                 </div>
             </div>
@@ -317,7 +310,7 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
                 </div>
             </div>
             <Accordion onClick={(): void => openPanel('react')} expanded={activeFramework === 'react'}>
-                <AccordionSummary expandIcon={<ArrowDropDown />}>
+                <AccordionSummary expandIcon={<ArrowDropDown />} IconButtonProps={{ disableRipple: true }}>
                     <Typography>React</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -364,7 +357,7 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
                 </AccordionDetails>
             </Accordion>
             <Accordion onClick={(): void => openPanel('angular')} expanded={activeFramework === 'angular'}>
-                <AccordionSummary expandIcon={<ArrowDropDown />}>
+                <AccordionSummary expandIcon={<ArrowDropDown />} IconButtonProps={{ disableRipple: true }}>
                     <Typography>Angular</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -395,7 +388,7 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
                 </AccordionDetails>
             </Accordion>
             <Accordion onClick={(): void => openPanel('react-native')} expanded={activeFramework === 'react-native'}>
-                <AccordionSummary expandIcon={<ArrowDropDown />}>
+                <AccordionSummary expandIcon={<ArrowDropDown />}  IconButtonProps={{ disableRipple: true }}>
                     <Typography>React Native</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -416,7 +409,8 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
             <Divider />
             <div style={{ padding: 16 }}>
                 <Typography variant={'subtitle2'}>
-                    For detail usage and installation instructions, visit our <a href={'https://github.com/pxblue/icons'}>Github</a>.
+                    For detail usage and installation instructions, visit our{' '}
+                    <a href={'https://github.com/pxblue/icons'}>Github</a>.
                 </Typography>
             </div>
         </MuiDrawer>
