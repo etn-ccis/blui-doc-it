@@ -76,9 +76,9 @@ const createIconList = (): IconType[] => {
 
 const emptyIcon = { name: '', isMaterial: true, tags: [], categories: [] };
 
-const groupIconList = (iconListToGroup: IconType[]): CategoryGrouping => {
+const groupIconList = (icons: IconType[]): CategoryGrouping => {
     const groupings: CategoryGrouping = {};
-    iconListToGroup.forEach((icon: IconType) => {
+   icons.forEach((icon: IconType) => {
         icon.categories.forEach((category: string) => {
             // Check if the material icon (from metadata) exists in our current version material icon library
             // Or PX Blue icon exists in our Metadata file
@@ -117,6 +117,8 @@ const iconMatches = (icon: IconType, search: string): boolean => {
 };
 
 export const IconBrowser: React.FC = (): JSX.Element => {
+// eslint-disable-next-line no-console
+   console.log('render');
     const classes = useStyles();
     const history = useHistory();
     const location = useLocation();
@@ -125,7 +127,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     const [search, setSearch] = useState<string>(() => query.iconSearch || '');
     const [focusedCategory, setFocusedCategory] = useState('');
     const [focusedIcon, setFocusedIcon] = useState<IconType>((): any => {
-        // TODO, fix me
+        // TODO, fix me, this does not add all required meta data... yet
 
         const icon = query.icon;
         const isMaterial = query.isMaterial === 'true' ? true : query.isMaterial === 'false' ? false : undefined;
@@ -145,19 +147,18 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     const selectIcon = (icon: IconType, category: string): void => {
         history.replace(`${location.pathname}?icon=${icon.name}&isMaterial=${icon.isMaterial.toString()}`);
         setFocusedIcon(icon);
-        // eslint-disable-next-line no-console
-        console.log(icon);
         setFocusedCategory(category);
     };
 
     const capitalizeFirstLetter = (word: string): string => word.charAt(0).toUpperCase() + word.slice(1);
 
+
+   const getIconComponent = (icon: IconType): ElementType =>
+      icon.isMaterial ? MaterialIcons[icon.name] : PXBlueIcons[icon.name];
+
     const icons: IconType[] = createIconList();
     const filteredIconList: IconType[] = icons.filter((icon: IconType): boolean => iconMatches(icon, search)).sort();
     const groupedIcons = groupIconList(filteredIconList);
-
-    const getIconComponent = (icon: IconType): ElementType =>
-        icon.isMaterial ? MaterialIcons[icon.name] : PXBlueIcons[icon.name];
 
     return (
         <>
