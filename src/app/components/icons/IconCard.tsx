@@ -48,7 +48,11 @@ export const IconCard: React.FC<IconCardProps> = (props): JSX.Element => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { component: Component, name, showLabel, style, selected, iconSize, className, onClick } = props;
     return (
-        <div className={clsx(classes.wrapper, { [classes.selected]: selected }, className)} style={style} onClick={onClick}>
+        <div
+            className={clsx(classes.wrapper, { [classes.selected]: selected }, className)}
+            style={style}
+            onClick={onClick}
+        >
             {name && Component && <Component style={{ fontSize: 36 }} />}
             {showLabel && (
                 <Typography
