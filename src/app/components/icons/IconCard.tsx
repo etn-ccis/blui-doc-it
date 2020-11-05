@@ -5,6 +5,8 @@ import color from 'color';
 // Material-UI Components
 import Typography from '@material-ui/core/Typography';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from '../../redux/reducers';
 
 const useStyles = makeStyles((theme: Theme) => ({
     wrapper: {
@@ -44,14 +46,26 @@ type IconCardProps = {
 
 export const IconCard: React.FC<IconCardProps> = (props): JSX.Element => {
     const classes = useStyles();
+    const dispatch = useDispatch();
+    
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { component: Component, name, showLabel, style, selected, iconSize, className, onClick } = props;
+    const { component: Component, name, showLabel, style, className } = props;
+    // const selectedIcon = useSelector((state: AppState) => state.app.selectedIcon);
+    const selected = useSelector((state: AppState) => state.app.selectedIcon === name);
+
+    //eslint-disable-next-line
+    console.log('drawing icon');
+    
     return (
         <div
             className={clsx(classes.wrapper, { [classes.selected]: selected }, className)}
             style={style}
-            onClick={onClick}
+            onClick={(): void => {
+                // eslint-disable-next-line
+                console.log('clicking', name)
+                dispatch({type: 'SELECTION', payload: name});
+            }}
         >
             {name && Component && <Component style={{ fontSize: 36 }} />}
             {showLabel && (

@@ -118,7 +118,7 @@ const iconMatches = (icon: IconType, search: string): boolean => {
 
 export const IconBrowser: React.FC = (): JSX.Element => {
 // eslint-disable-next-line no-console
-   console.log('render');
+   console.log('rendering icon browser');
     const classes = useStyles();
     const history = useHistory();
     const location = useLocation();
@@ -144,11 +144,11 @@ export const IconBrowser: React.FC = (): JSX.Element => {
         return emptyIcon;
     });
 
-    const selectIcon = (icon: IconType, category: string): void => {
-        history.replace(`${location.pathname}?icon=${icon.name}&isMaterial=${icon.isMaterial.toString()}`);
-        setFocusedIcon(icon);
-        setFocusedCategory(category);
-    };
+    // const selectIcon = (icon: IconType, category: string): void => {
+    //     history.replace(`${location.pathname}?icon=${icon.name}&isMaterial=${icon.isMaterial.toString()}`);
+    //     setFocusedIcon(icon);
+    //     setFocusedCategory(category);
+    // };
 
     const capitalizeFirstLetter = (word: string): string => word.charAt(0).toUpperCase() + word.slice(1);
 
@@ -194,7 +194,11 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                                         component={getIconComponent(icon)}
                                         name={unCamelCase(icon.name)}
                                         selected={focusedIcon.name === icon.name}
-                                        onClick={(): void => selectIcon(icon, categoryGroupTitle)}
+                                        onClick={(): void => {
+                                            // eslint-disable-next-line no-console
+   console.log('selected icon', icon.name);
+                                            // selectIcon(icon, categoryGroupTitle)
+                                        }}
                                     />
                                 ))}
                             </div>

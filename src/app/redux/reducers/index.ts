@@ -7,11 +7,12 @@ import { CHANGE_PAGE_TITLE, CHANGE_COLOR_FORMAT, TOGGLE_DRAWER, TOGGLE_SEARCH } 
 export type AppState = {
     app: CommonState;
 };
-type CommonState = {
+export type CommonState = {
     pageTitle: string;
     colorFormat: 'rgb' | 'hex';
     drawerOpen: boolean;
     searchActive: boolean;
+    selectedIcon?: string;
 };
 const initialAppState: CommonState = {
     pageTitle: '',
@@ -40,6 +41,13 @@ const appReducer = (state = initialAppState, action: any): CommonState => {
             return {
                 ...state,
                 searchActive: action.payload,
+            };
+        case 'SELECTION':
+            //eslint-disable-next-line
+            console.log('selecting', action);
+            return {
+                ...state,
+                selectedIcon: action.payload
             };
         default:
             return state;
