@@ -1,44 +1,52 @@
 /*eslint-disable */
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from '../../redux/reducers';
+import { useHistory } from 'react-router-dom';
+import { IconType, MatIconList } from '../../../__types__';
 import {
     AppBar,
     Button,
     Divider,
     Drawer as MuiDrawer,
     IconButton,
+    Link,
     Theme,
     Toolbar,
     Tooltip,
     Typography,
     useTheme,
     withStyles,
+    makeStyles,
+    Accordion as MuiAccordion,
+    AccordionSummary as MuiAccordionSummary,
+    AccordionDetails as MuiAccordionDetails,
 } from '@material-ui/core';
+import { EmptyState, Spacer } from '@pxblue/react-components';
 
-import Icon from '@material-ui/core/Icon';
 import * as AllMaterialIcons from '@material-ui/icons';
 import * as MuiIcons from '@pxblue/icons-mui';
 
-import { makeStyles } from '@material-ui/core/styles';
-import * as Colors from '@pxblue/colors';
-import { ArrowDropDown, Close, FileCopy } from '@material-ui/icons';
-import GetApp from '@material-ui/icons/GetApp';
-import MuiAccordion from '@material-ui/core/Accordion';
-import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
-import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
-
-import { Spacer } from '@pxblue/react-components';
 import { getKebabCase, getSnakeCase, unCamelCase } from '../../shared';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from '../../redux/reducers';
-import { IconType, MatIconList } from '../../../__types__';
 import { emptyIcon } from './IconBrowser';
-import { useHistory } from 'react-router-dom';
+import { SELECT_ICON } from '../../redux/actions';
+import { downloadPng, downloadSvg } from './utilityFunctions';
+
+import * as Colors from '@pxblue/colors';
 
 type DrawerProps = {
     subtitle: string;
 };
 
 type Framework = 'angular' | 'react' | 'react-native';
+type IconInstruction =
+    | 'react-component'
+    | 'angular-svg'
+    | 'react-svg'
+    | 'react-native-svg'
+    | 'angular-font'
+    | 'react-font'
+    | undefined;
 
 const useStyles = makeStyles((theme: Theme) => ({
     drawer: {
@@ -74,8 +82,12 @@ const useStyles = makeStyles((theme: Theme) => ({
         whiteSpace: 'normal',
     },
     copyIcon: {
+        color: Colors.gray[500],
         fontSize: 16,
         cursor: 'pointer',
+    },
+    expandIcon: {
+        color: Colors.gray[500],
     },
 }));
 
@@ -120,12 +132,13 @@ const AccordionDetails = withStyles(() => ({
 
 export const IconDrawer = (props: DrawerProps): JSX.Element => {
     const { subtitle } = props;
-    const [reactIconFontToolTipOpen, setReactIconFontToolTipOpen] = useState(false);
-    const [reactSvgToolTipOpen, setReactSvgToolTipOpen] = useState(false);
-    const [reactComponentToolTipOpen, setReactComponentToolTipOpen] = useState(false);
-    const [angularIconFontToolTipOpen, setAngularIconFontToolTipOpen] = useState(false);
-    const [angularSvgToolTipOpen, setAngularSvgToolTipOpen] = useState(false);
-    const [reactNativeSvgToolTipOpen, setReactNativeSvgToolTipOpen] = useState(false);
+    // const [reactIconFontToolTipOpen, setReactIconFontToolTipOpen] = useState(false);
+    // const [reactSvgToolTipOpen, setReactSvgToolTipOpen] = useState(false);
+    // const [reactComponentToolTipOpen, setReactComponentToolTipOpen] = useState(false);
+    // const [angularIconFontToolTipOpen, setAngularIconFontToolTipOpen] = useState(false);
+    // const [angularSvgToolTipOpen, setAngularSvgToolTipOpen] = useState(false);
+    // const [reactNativeSvgToolTipOpen, setReactNativeSvgToolTipOpen] = useState(false);
+    const [copiedInstructions, setCopiedInstructions] = useState<IconInstruction>(undefined);
 
     const theme = useTheme();
     const history = useHistory();
@@ -135,12 +148,12 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
     const classes = useStyles(theme);
     const [activeFramework, setActiveFramework] = useState<Framework | undefined>(undefined);
 
-    const copyToClipboard = (e: any, text: string, toolTipFn: any): void => {
+    const copyToClipboard = (e: any, text: string, instruction: IconInstruction): void => {
         e.stopPropagation();
-        toolTipFn(true);
+        setCopiedInstructions(instruction);
         setTimeout(() => {
-            toolTipFn(false);
-        }, 500);
+            setCopiedInstructions(undefined);
+        }, 1000);
         void navigator.clipboard.writeText(text);
     };
 
@@ -253,43 +266,25 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
         } />`;
     };
 
-    // Can be Material or PX Blue icons
-    const downloadSvg = (): void => {
-        if (icon.isMaterial) {
-            window.open(
-                `https://fonts.gstatic.com/s/i/materialicons/${getSnakeCase(icon.name)}/v6/24px.svg?download=true`
-            );
-        } else {
-            window.open(`https://raw.githubusercontent.com/pxblue/icons/dev/svg/${icon.name}.svg`);
-        }
-    };
-
-    // Material Icons only
-    const downloadPng = (): void => {
-        window.open(`//fonts.gstatic.com/s/i/materialicons/${getSnakeCase(icon.name)}/v6/black-18dp.zip?download=true`);
-    };
-
     const openPanel = (framework: Framework): void =>
         framework === activeFramework ? setActiveFramework(undefined) : setActiveFramework(framework);
 
     const closeDrawer = (): void => {
         // history.replace(`${location.pathname}`);
-        dispatch({ type: 'SELECTION', payload: emptyIcon });
+        dispatch({ type: SELECT_ICON, payload: emptyIcon });
     };
 
     const PXBlueIcons: MatIconList = MuiIcons;
     const MaterialIcons: MatIconList = AllMaterialIcons;
     // @ts-ignore
-    const component: Component = icon.isMaterial ? MaterialIcons[icon.name] : PXBlueIcons[icon.name];
+    const IconComponent = icon.isMaterial ? MaterialIcons[icon.name] : PXBlueIcons[icon.name];
 
     return (
         <MuiDrawer
-            open={Boolean(icon.name)}
-            variant={'permanent'}
-            onClose={closeDrawer}
             anchor={'right'}
-            transitionDuration={250}
-            ModalProps={{ hideBackdrop: true, disableBackdropClick: true, disableScrollLock: true}}
+            variant={'permanent'}
+            open={Boolean(icon.name)}
+            onClose={closeDrawer}
             classes={{ paper: classes.drawer }}
         >
             <AppBar position="static" color="primary">
@@ -299,143 +294,225 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
                     </Typography>
                     <Spacer />
                     <IconButton onClick={closeDrawer} className={classes.appBarCloseButton}>
-                        <Close />
+                        <AllMaterialIcons.Close />
                     </IconButton>
                 </Toolbar>
             </AppBar>
-            <div className={classes.iconNameRow}>
-                <Icon>{getSnakeCase(icon.name)}</Icon>
-                <div className={classes.iconNameRowDescription}>
-                    <Typography variant={'body1'}>{unCamelCase(icon.name)}</Typography>
-                    <Typography variant={'body2'}>{subtitle}</Typography>
-                </div>
-            </div>
-            <Divider />
-            <div style={{ padding: theme.spacing(2) }}>
-                <Typography variant={'subtitle1'} style={{ marginBottom: theme.spacing(1) }}>
-                    Download
-                </Typography>
-                <div>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        style={{ marginRight: theme.spacing(1) }}
-                        startIcon={<GetApp />}
-                        onClick={downloadSvg}
-                    >
-                        SVG
-                    </Button>
-                    {isMaterial && (
-                        <Button variant="contained" color="primary" onClick={downloadPng} startIcon={<GetApp />}>
-                            PNG
-                        </Button>
-                    )}
-                </div>
-            </div>
-            <Accordion onClick={(): void => openPanel('react')} expanded={activeFramework === 'react'}>
-                <AccordionSummary expandIcon={<ArrowDropDown />} IconButtonProps={{ disableRipple: true }}>
-                    <Typography>React</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <div className={classes.codeSnippetTitle}>
-                        <Typography variant={'overline'}>Icon Font</Typography>
-                        <Tooltip title="Copied" placement="left" open={reactIconFontToolTipOpen}>
-                            <FileCopy
-                                className={classes.copyIcon}
-                                onClick={(e): void => {
-                                    copyToClipboard(e, getReactIconFontCopy(), setReactIconFontToolTipOpen);
-                                }}
-                            />
-                        </Tooltip>
+            {icon.name === '' && (
+                <EmptyState
+                    icon={<MuiIcons.Pxblue fontSize={'inherit'} />}
+                    title={'No Icon Selected'}
+                    description={'Select a icon on the left to download or view usage details'}
+                    style={{ padding: 24 }}
+                />
+            )}
+            {icon.name !== '' && (
+                <>
+                    <div className={classes.iconNameRow}>
+                        <IconComponent />
+                        <div className={classes.iconNameRowDescription}>
+                            <Typography variant={'body1'}>{unCamelCase(icon.name)}</Typography>
+                            <Typography variant={'caption'}>{isMaterial ? 'Material Icon' : 'PX Blue Icon'}</Typography>
+                        </div>
                     </div>
-                    <pre className={classes.codeSnippet}>{getReactIconFontExample()}</pre>
-                    <div className={classes.codeSnippetTitle}>
-                        <Typography variant={'overline'}>SVG</Typography>
-                        <Tooltip title="Copied" placement="left" open={reactSvgToolTipOpen}>
-                            <FileCopy
-                                className={classes.copyIcon}
-                                onClick={(e): void => {
-                                    copyToClipboard(e, getReactSvgCopy(), setReactSvgToolTipOpen);
-                                }}
-                            />
-                        </Tooltip>
+                    <Divider />
+                    <div style={{ padding: theme.spacing(2) }}>
+                        <Typography display={'block'} variant={'overline'} style={{ marginBottom: theme.spacing(1) }}>
+                            TAGS / KEYWORDS
+                        </Typography>
+                        <code style={{ display: 'block', whiteSpace: 'normal', padding: theme.spacing(1) }}>
+                            {icon.tags.join(', ')}
+                        </code>
                     </div>
-                    <pre className={classes.codeSnippet}>{getReactSvgExample()}</pre>
-                    {!isMaterial && (
-                        <>
-                            <div className={classes.codeSnippetTitle}>
-                                <Typography variant={'overline'}>Component</Typography>
-                                <Tooltip title="Copied" placement="left" open={reactComponentToolTipOpen}>
-                                    <FileCopy
-                                        className={classes.copyIcon}
-                                        onClick={(e): void => {
-                                            copyToClipboard(e, getReactComponentCopy(), setReactComponentToolTipOpen);
-                                        }}
-                                    />
-                                </Tooltip>
-                            </div>
-                            <pre className={classes.codeSnippet}>{getReactComponentExample()}</pre>
-                        </>
-                    )}
-                </AccordionDetails>
-            </Accordion>
-            <Accordion onClick={(): void => openPanel('angular')} expanded={activeFramework === 'angular'}>
-                <AccordionSummary expandIcon={<ArrowDropDown />} IconButtonProps={{ disableRipple: true }}>
-                    <Typography>Angular</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <div className={classes.codeSnippetTitle}>
-                        <Typography variant={'overline'}>Icon Font</Typography>
-                        <Tooltip title="Copied" placement="left" open={angularIconFontToolTipOpen}>
-                            <FileCopy
-                                className={classes.copyIcon}
-                                onClick={(e): void => {
-                                    copyToClipboard(e, getAngularIconFontCopy(), setAngularIconFontToolTipOpen);
-                                }}
-                            />
-                        </Tooltip>
+                    <Divider />
+                    <div style={{ padding: theme.spacing(2) }}>
+                        <Typography
+                            display={'block'}
+                            variant={'overline'}
+                            color={'primary'}
+                            style={{ marginBottom: theme.spacing(1) }}
+                        >
+                            Download
+                        </Typography>
+                        <div>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                style={{ marginRight: theme.spacing(1) }}
+                                startIcon={<AllMaterialIcons.GetApp />}
+                                onClick={() => downloadSvg(icon)}
+                            >
+                                SVG
+                            </Button>
+                            {isMaterial && (
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={() => downloadPng(icon)}
+                                    startIcon={<AllMaterialIcons.GetApp />}
+                                >
+                                    PNG
+                                </Button>
+                            )}
+                        </div>
                     </div>
-                    <pre className={classes.codeSnippet}>{getAngularIconFontExample()}</pre>
-                    <div className={classes.codeSnippetTitle}>
-                        <Typography variant={'overline'}>Svg</Typography>
-                        <Tooltip title="Copied" placement="left" open={angularSvgToolTipOpen}>
-                            <FileCopy
-                                className={classes.copyIcon}
-                                onClick={(e): void => {
-                                    copyToClipboard(e, getAngularSvgCopy(), setAngularSvgToolTipOpen);
-                                }}
-                            />
-                        </Tooltip>
+                    <Divider />
+                    <div>
+                        <Typography display={'block'} variant={'overline'} style={{ padding: theme.spacing(2) }}>
+                            Developer Usage
+                        </Typography>
+                        <Accordion
+                            expanded={activeFramework === 'react'}
+                            onChange={() => setActiveFramework(activeFramework === 'react' ? undefined : 'react')}
+                        >
+                            <AccordionSummary
+                                expandIcon={<AllMaterialIcons.ArrowDropDown className={classes.expandIcon} />}
+                                IconButtonProps={{ disableRipple: true }}
+                            >
+                                <Typography variant={activeFramework === 'react' ? 'subtitle2' : 'body2'}>
+                                    React
+                                </Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <div className={classes.codeSnippetTitle}>
+                                    <Typography variant={'overline'}>Icon Font</Typography>
+                                    <Tooltip title="Copied" placement="left" open={copiedInstructions === 'react-font'}>
+                                        <AllMaterialIcons.FileCopy
+                                            className={classes.copyIcon}
+                                            onClick={(e): void => {
+                                                copyToClipboard(e, getReactIconFontCopy(), 'react-font');
+                                            }}
+                                        />
+                                    </Tooltip>
+                                </div>
+                                <pre className={classes.codeSnippet}>{getReactIconFontExample()}</pre>
+                                <div className={classes.codeSnippetTitle}>
+                                    <Typography variant={'overline'}>SVG</Typography>
+                                    <Tooltip title="Copied" placement="left" open={copiedInstructions === 'react-svg'}>
+                                        <AllMaterialIcons.FileCopy
+                                            className={classes.copyIcon}
+                                            onClick={(e): void => {
+                                                copyToClipboard(e, getReactSvgCopy(), 'react-svg');
+                                            }}
+                                        />
+                                    </Tooltip>
+                                </div>
+                                <pre className={classes.codeSnippet}>{getReactSvgExample()}</pre>
+                                {!isMaterial && (
+                                    <>
+                                        <div className={classes.codeSnippetTitle}>
+                                            <Typography variant={'overline'}>Component</Typography>
+                                            <Tooltip
+                                                title="Copied"
+                                                placement="left"
+                                                open={copiedInstructions === 'react-component'}
+                                            >
+                                                <AllMaterialIcons.FileCopy
+                                                    className={classes.copyIcon}
+                                                    onClick={(e): void => {
+                                                        copyToClipboard(e, getReactComponentCopy(), 'react-component');
+                                                    }}
+                                                />
+                                            </Tooltip>
+                                        </div>
+                                        <pre className={classes.codeSnippet}>{getReactComponentExample()}</pre>
+                                    </>
+                                )}
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion
+                            expanded={activeFramework === 'angular'}
+                            onChange={() => setActiveFramework(activeFramework === 'angular' ? undefined : 'angular')}
+                        >
+                            <AccordionSummary
+                                expandIcon={<AllMaterialIcons.ArrowDropDown className={classes.expandIcon} />}
+                                IconButtonProps={{ disableRipple: true }}
+                            >
+                                <Typography variant={activeFramework === 'angular' ? 'subtitle2' : 'body2'}>
+                                    Angular
+                                </Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <div className={classes.codeSnippetTitle}>
+                                    <Typography variant={'overline'}>Icon Font</Typography>
+                                    <Tooltip
+                                        title="Copied"
+                                        placement="left"
+                                        open={copiedInstructions === 'angular-font'}
+                                    >
+                                        <AllMaterialIcons.FileCopy
+                                            className={classes.copyIcon}
+                                            onClick={(e): void => {
+                                                copyToClipboard(e, getAngularIconFontCopy(), 'angular-font');
+                                            }}
+                                        />
+                                    </Tooltip>
+                                </div>
+                                <pre className={classes.codeSnippet}>{getAngularIconFontExample()}</pre>
+                                <div className={classes.codeSnippetTitle}>
+                                    <Typography variant={'overline'}>Svg</Typography>
+                                    <Tooltip
+                                        title="Copied"
+                                        placement="left"
+                                        open={copiedInstructions === 'angular-svg'}
+                                    >
+                                        <AllMaterialIcons.FileCopy
+                                            className={classes.copyIcon}
+                                            onClick={(e): void => {
+                                                copyToClipboard(e, getAngularSvgCopy(), 'angular-svg');
+                                            }}
+                                        />
+                                    </Tooltip>
+                                </div>
+                                <pre className={classes.codeSnippet}>{getAngularSvgExample()}</pre>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion
+                            expanded={activeFramework === 'react-native'}
+                            onChange={() =>
+                                setActiveFramework(activeFramework === 'react-native' ? undefined : 'react-native')
+                            }
+                        >
+                            <AccordionSummary
+                                expandIcon={<AllMaterialIcons.ArrowDropDown className={classes.expandIcon} />}
+                                IconButtonProps={{ disableRipple: true }}
+                            >
+                                <Typography variant={activeFramework === 'react-native' ? 'subtitle2' : 'body2'}>
+                                    React Native
+                                </Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <div className={classes.codeSnippetTitle}>
+                                    <Typography variant={'overline'}>Svg</Typography>
+                                    <Tooltip
+                                        title="Copied"
+                                        placement="left"
+                                        open={copiedInstructions === 'react-native-svg'}
+                                    >
+                                        <AllMaterialIcons.FileCopy
+                                            className={classes.copyIcon}
+                                            onClick={(e): void => {
+                                                copyToClipboard(e, getReactNativeSvgCopy(), 'react-native-svg');
+                                            }}
+                                        />
+                                    </Tooltip>
+                                </div>
+                                <pre className={classes.codeSnippet}>{getReactNativeSvgExample()}</pre>
+                            </AccordionDetails>
+                        </Accordion>
                     </div>
-                    <pre className={classes.codeSnippet}>{getAngularSvgExample()}</pre>
-                </AccordionDetails>
-            </Accordion>
-            <Accordion onClick={(): void => openPanel('react-native')} expanded={activeFramework === 'react-native'}>
-                <AccordionSummary expandIcon={<ArrowDropDown />} IconButtonProps={{ disableRipple: true }}>
-                    <Typography>React Native</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <div className={classes.codeSnippetTitle}>
-                        <Typography variant={'overline'}>Svg</Typography>
-                        <Tooltip title="Copied" placement="left" open={reactNativeSvgToolTipOpen}>
-                            <FileCopy
-                                className={classes.copyIcon}
-                                onClick={(e): void => {
-                                    copyToClipboard(e, getReactNativeSvgCopy(), setReactNativeSvgToolTipOpen);
-                                }}
-                            />
-                        </Tooltip>
+                    <Divider />
+                    <div style={{ padding: 16 }}>
+                        <Typography variant={'subtitle2'} align={'center'}>
+                            For detailed usage and installation instructions, visit our{' '}
+                            <Link href={'https://github.com/pxblue/icons'} target={'_blank'}>
+                                Github
+                            </Link>
+                            .
+                        </Typography>
                     </div>
-                    <pre className={classes.codeSnippet}>{getReactNativeSvgExample()}</pre>
-                </AccordionDetails>
-            </Accordion>
-            <Divider />
-            <div style={{ padding: 16 }}>
-                <Typography variant={'subtitle2'}>
-                    For detail usage and installation instructions, visit our{' '}
-                    <a href={'https://github.com/pxblue/icons'}>Github</a>.
-                </Typography>
-            </div>
+                </>
+            )}
         </MuiDrawer>
     );
 };

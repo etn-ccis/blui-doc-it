@@ -33,13 +33,13 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element =>
         </PageContent>
     );
 
-    return (
-        props.drawer ?(
-            <div style={{marginRight: 350}}>
-                {innerContent}
-                {props.drawer}
-            </div>
-         ) : innerContent
+    return props.drawer ? (
+        <div style={{ marginRight: 350 }}>
+            {innerContent}
+            {props.drawer}
+        </div>
+    ) : (
+        innerContent
     );
 };
 MarkdownPage.displayName = 'MarkdownPage';

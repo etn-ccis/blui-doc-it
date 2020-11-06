@@ -1,5 +1,5 @@
 /*eslint-disable */
-import React, {ElementType, useEffect, useState} from 'react';
+import React, { ElementType, useEffect, useState } from 'react';
 // PX Blue Icons and Symbols
 import * as AllMaterialIcons from '@material-ui/icons';
 import * as MuiIcons from '@pxblue/icons-mui';
@@ -8,13 +8,17 @@ import {
     capitalize,
     Checkbox,
     Divider,
-    FormControl, Input,
+    FormControl,
+    Input,
     InputAdornment,
-    InputLabel, ListItemText,
-    makeStyles, MenuItem, Select,
+    InputLabel,
+    ListItemText,
+    makeStyles,
+    MenuItem,
+    Select,
     TextField,
     Theme,
-    Typography
+    Typography,
 } from '@material-ui/core';
 
 import meta from '@pxblue/icons-mui/index.json';
@@ -23,10 +27,11 @@ import { DetailedIcon, IconType, MatIconList } from '../../../__types__';
 import { useQueryString } from '../../hooks/useQueryString';
 import { IconDrawer } from './IconDrawer';
 import * as Colors from '@pxblue/colors';
-import {useDispatch, useSelector} from "react-redux";
-import {AppState} from "../../redux/reducers";
-import clsx from "clsx";
-import {MenuProps} from "@material-ui/core/Menu/Menu";
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from '../../redux/reducers';
+import clsx from 'clsx';
+import { MenuProps } from '@material-ui/core/Menu/Menu';
+import { SELECT_ICON } from '../../redux/actions';
 
 // eslint-disable-next-line
 const materialMetadata = require('./MaterialMetadata.json');
@@ -64,7 +69,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     searchBar: {
         display: 'flex',
-    }
+    },
 }));
 
 const getNonProgressIcons = (): DetailedIcon[] =>
@@ -146,22 +151,28 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     const [search, setSearch] = useState<string>(() => query.iconSearch || '');
     const [selectedCategories, setSelectedCategories] = React.useState<string[]>([]);
 
-
     // If URL contains pre-selected icon, load icon.
     useEffect((): any => {
         const icon = query.icon;
         const pxbIcon: IconType = PXBlueIcons[icon] as any;
         if (pxbIcon) {
-            dispatch({ type: 'SELECTION', payload: { name: icon, isMaterial: false, categories: pxbIcon.categories, tags: pxbIcon.tags } });
+            dispatch({
+                type: SELECT_ICON,
+                payload: { name: icon, isMaterial: false, categories: pxbIcon.categories, tags: pxbIcon.tags },
+            });
         }
         const muiIcon: IconType = MaterialIcons[icon] as any;
         if (muiIcon) {
-            dispatch({ type: 'SELECTION', payload: { name: icon, isMaterial: false, categories: muiIcon.categories, tags: muiIcon.tags } });
+            dispatch({
+                type: SELECT_ICON,
+                payload: { name: icon, isMaterial: false, categories: muiIcon.categories, tags: muiIcon.tags },
+            });
         }
     }, []);
 
     const capitalizeFirstLetter = (word: string): string => word.charAt(0).toUpperCase() + word.slice(1);
-    const getIconComponent = (icon: IconType): ElementType => icon.isMaterial ? MaterialIcons[icon.name] : PXBlueIcons[icon.name];
+    const getIconComponent = (icon: IconType): ElementType =>
+        icon.isMaterial ? MaterialIcons[icon.name] : PXBlueIcons[icon.name];
 
     const icons: IconType[] = createIconList();
     const filteredIconList: IconType[] = icons.filter((icon: IconType): boolean => iconMatches(icon, search)).sort();
@@ -170,7 +181,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     const filterViaTags = (e: any): void => {
         console.log(e.target);
         setSelectedCategories(e.target.values);
-    }
+    };
 
     return (
         <>
@@ -203,12 +214,14 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                         input={<Input />}
                         renderValue={(selected: any) => selected.join(', ')}
                     >
-                        {Array.from(filterableCategories).sort().map((category: string) => (
-                            <MenuItem key={category} value={category}>
-                                <Checkbox checked={selectedCategories.indexOf(category) > -1} />
-                                <ListItemText primary={category} />
-                            </MenuItem>
-                        ))}
+                        {Array.from(filterableCategories)
+                            .sort()
+                            .map((category: string) => (
+                                <MenuItem key={category} value={category}>
+                                    <Checkbox checked={selectedCategories.indexOf(category) > -1} />
+                                    <ListItemText primary={category} />
+                                </MenuItem>
+                            ))}
                     </Select>
                 </FormControl>
             </div>

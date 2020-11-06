@@ -10,6 +10,7 @@ import { AppState } from '../../redux/reducers';
 import { IconType } from '../../../__types__';
 import { unCamelCase } from '../../shared';
 import { useHistory } from 'react-router-dom';
+import { SELECT_ICON } from '../../redux/actions';
 
 const useStyles = makeStyles((theme: Theme) => ({
     wrapper: {
@@ -44,7 +45,7 @@ type IconCardProps = {
 export const IconCard: React.FC<IconCardProps> = (props): JSX.Element => {
     const classes = useStyles();
     const dispatch = useDispatch();
-   // const history = useHistory();
+    // const history = useHistory();
     const { component: Component, icon } = props;
     const selected = useSelector((state: AppState) => state.app.selectedIcon === icon);
 
@@ -52,9 +53,9 @@ export const IconCard: React.FC<IconCardProps> = (props): JSX.Element => {
         <div
             className={clsx(classes.wrapper, { [classes.selected]: selected })}
             onClick={(): void => {
-                dispatch({ type: 'SELECTION', payload: icon });
+                dispatch({ type: SELECT_ICON, payload: icon });
                 // Adding in the history is causing performance issues.  Maybe add a share button to the IconDrawer.
-               // history.replace(`${location.pathname}?icon=${icon.name}&isMaterial=${icon.isMaterial.toString()}`);
+                // history.replace(`${location.pathname}?icon=${icon.name}&isMaterial=${icon.isMaterial.toString()}`);
             }}
         >
             {Component && <Component style={{ fontSize: 36 }} />}

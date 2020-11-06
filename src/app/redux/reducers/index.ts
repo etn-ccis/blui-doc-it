@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { CHANGE_PAGE_TITLE, CHANGE_COLOR_FORMAT, TOGGLE_DRAWER, TOGGLE_SEARCH } from '../actions';
+import { CHANGE_PAGE_TITLE, CHANGE_COLOR_FORMAT, TOGGLE_DRAWER, TOGGLE_SEARCH, SELECT_ICON } from '../actions';
 import { IconType } from '../../../__types__';
 // import { connectRouter } from 'connected-react-router';
 // import { History } from 'history';
@@ -43,7 +43,7 @@ const appReducer = (state = initialAppState, action: any): CommonState => {
                 ...state,
                 searchActive: action.payload,
             };
-        case 'SELECTION':
+        case SELECT_ICON:
             return {
                 ...state,
                 selectedIcon: action.payload,
