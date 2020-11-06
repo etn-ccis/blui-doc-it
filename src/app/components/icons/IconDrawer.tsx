@@ -14,6 +14,7 @@ import {
     withStyles,
 } from '@material-ui/core';
 
+import Icon from '@material-ui/core/Icon';
 import * as AllMaterialIcons from '@material-ui/icons';
 import * as MuiIcons from '@pxblue/icons-mui';
 
@@ -281,7 +282,7 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
     const PXBlueIcons: MatIconList = MuiIcons;
     const MaterialIcons: MatIconList = AllMaterialIcons;
     // @ts-ignore
-    // const component: any = icon.isMaterial ? MaterialIcons[icon.name] : PXBlueIcons[icon.name];
+    const component: Component = icon.isMaterial ? MaterialIcons[icon.name] : PXBlueIcons[icon.name];
 
     return (
         <MuiDrawer
@@ -305,9 +306,7 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
                 </Toolbar>
             </AppBar>
             <div className={classes.iconNameRow}>
-                {/*
-    icon.isMaterial ? MaterialIcons[icon.name] : PXBlueIcons[icon.name]
-    */}
+                <Icon>{getSnakeCase(icon.name)}</Icon>
                 <div className={classes.iconNameRowDescription}>
                     <Typography variant={'body1'}>{unCamelCase(icon.name)}</Typography>
                     <Typography variant={'body2'}>{subtitle}</Typography>

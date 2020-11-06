@@ -4,7 +4,18 @@ import React, {ElementType, useEffect, useState} from 'react';
 import * as AllMaterialIcons from '@material-ui/icons';
 import * as MuiIcons from '@pxblue/icons-mui';
 // Material-UI Components
-import { Divider, InputAdornment, makeStyles, TextField, Theme, Typography } from '@material-ui/core';
+import {
+    capitalize,
+    Checkbox,
+    Divider,
+    FormControl, Input,
+    InputAdornment,
+    InputLabel, ListItemText,
+    makeStyles, MenuItem, Select,
+    TextField,
+    Theme,
+    Typography
+} from '@material-ui/core';
 
 import meta from '@pxblue/icons-mui/index.json';
 import { IconCard } from './IconCard';
@@ -15,6 +26,7 @@ import * as Colors from '@pxblue/colors';
 import {useDispatch, useSelector} from "react-redux";
 import {AppState} from "../../redux/reducers";
 import clsx from "clsx";
+import {MenuProps} from "@material-ui/core/Menu/Menu";
 
 // eslint-disable-next-line
 const materialMetadata = require('./MaterialMetadata.json');
@@ -45,7 +57,14 @@ const useStyles = makeStyles((theme: Theme) => ({
         backgroundColor: Colors.white[50],
         color: theme.palette.text.primary,
         marginTop: theme.spacing(1),
+        marginRight: theme.spacing(3),
     },
+    formControl: {
+        width: 240,
+    },
+    searchBar: {
+        display: 'flex',
+    }
 }));
 
 const getNonProgressIcons = (): DetailedIcon[] =>
@@ -76,12 +95,14 @@ const createIconList = (): IconType[] => {
     return iconList;
 };
 
+const filterableCategories: Set<string> = new Set<string>();
 export const emptyIcon = { name: '', isMaterial: true, tags: [], categories: [] };
 
 const groupIconList = (icons: IconType[]): CategoryGrouping => {
     const groupings: CategoryGrouping = {};
     icons.forEach((icon: IconType) => {
         icon.categories.forEach((category: string) => {
+            filterableCategories.add(capitalize(category));
             // Check if the material icon (from metadata) exists in our current version material icon library
             // Or PX Blue icon exists in our Metadata file
             if (
@@ -123,6 +144,8 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     const query = useQueryString();
     const dispatch = useDispatch();
     const [search, setSearch] = useState<string>(() => query.iconSearch || '');
+    const [selectedCategories, setSelectedCategories] = React.useState<string[]>([]);
+
 
     // If URL contains pre-selected icon, load icon.
     useEffect((): any => {
@@ -148,31 +171,58 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     const filteredIconList: IconType[] = icons.filter((icon: IconType): boolean => iconMatches(icon, search)).sort();
     const groupedIcons = groupIconList(filteredIconList);
 
+    const filterViaTags = (e: any): void => {
+        console.log(e.target);
+        setSelectedCategories(e.target.values);
+    }
+
     return (
         <>
-            <TextField
-                className={classes.search}
-                placeholder="Search Icons"
-                type={'text'}
-                value={search}
-                onChange={(evt: any): void => setSearch(evt.target.value)}
-                required
-                fullWidth
-                variant={'outlined'}
-                InputProps={{
-                    endAdornment: (
-                        <InputAdornment position={'end'}>
-                            <MaterialIcons.Search />
-                        </InputAdornment>
-                    ),
-                }}
-            />
+            <div className={classes.searchBar}>
+                <TextField
+                    className={classes.search}
+                    placeholder="Search Icons"
+                    type={'text'}
+                    value={search}
+                    onChange={(evt: any): void => setSearch(evt.target.value)}
+                    required
+                    fullWidth
+                    variant={'outlined'}
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position={'end'}>
+                                <MaterialIcons.Search />
+                            </InputAdornment>
+                        ),
+                    }}
+                />
+                <FormControl className={classes.formControl}>
+                    <InputLabel id="demo-mutiple-checkbox-label">All Categories</InputLabel>
+                    <Select
+                        labelId="demo-mutiple-checkbox-label"
+                        id="demo-mutiple-checkbox"
+                        multiple
+                        value={selectedCategories}
+                        onChange={filterViaTags}
+                        input={<Input />}
+                        renderValue={(selected: any) => selected.join(', ')}
+                    >
+                        {Array.from(filterableCategories).sort().map((category: string) => (
+                            <MenuItem key={category} value={category}>
+                                <Checkbox checked={selectedCategories.indexOf(category) > -1} />
+                                <ListItemText primary={category} />
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
+            </div>
+
             {Object.keys(groupedIcons)
                 .sort()
                 .map((categoryGroupTitle: string) => (
                     <React.Fragment key={`${categoryGroupTitle}_group`}>
                         <Typography variant={'h6'} className={classes.groupHeader}>
-                            {capitalizeFirstLetter(categoryGroupTitle)}
+                            {capitalize(categoryGroupTitle)}
                         </Typography>
                         <div className={classes.section}>
                             {groupedIcons[categoryGroupTitle].map((icon: IconType) => (
