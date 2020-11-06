@@ -53,8 +53,6 @@ export const IconCard: React.FC<IconCardProps> = (props): JSX.Element => {
             className={clsx(classes.wrapper, { [classes.selected]: selected })}
             onClick={(): void => {
                 dispatch({ type: 'SELECTION', payload: icon });
-                // @ts-ignore
-                document.getElementById('pxb-iconography-page').style.marginRight = '350px';
                 // Adding in the history is causing performance issues.  Maybe add a share button to the IconDrawer.
                // history.replace(`${location.pathname}?icon=${icon.name}&isMaterial=${icon.isMaterial.toString()}`);
             }}

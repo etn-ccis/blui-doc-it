@@ -158,10 +158,6 @@ export const IconBrowser: React.FC = (): JSX.Element => {
         if (muiIcon) {
             dispatch({ type: 'SELECTION', payload: { name: icon, isMaterial: false, categories: muiIcon.categories, tags: muiIcon.tags } });
         }
-        if (pxbIcon || muiIcon) {
-            //@ts-ignore
-            document.getElementById('pxb-iconography-page').style.marginRight = '350px';
-        }
     }, []);
 
     const capitalizeFirstLetter = (word: string): string => word.charAt(0).toUpperCase() + word.slice(1);
@@ -236,7 +232,6 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                         <Divider />
                     </React.Fragment>
                 ))}
-            <IconDrawer subtitle={''} />
         </>
     );
 };

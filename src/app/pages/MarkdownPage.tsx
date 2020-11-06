@@ -12,6 +12,7 @@ export type MarkdownPageProps = {
     noPadding?: boolean;
     background?: string;
     wideLayout?: boolean;
+    drawer?: React.ReactNode;
 };
 
 export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element => {
@@ -25,12 +26,20 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element =>
         backgroundColor = theme.palette.type === 'light' ? Colors.white[200] : theme.palette.background.default;
     }
     useBackgroundColor(backgroundColor);
-    // eslint-disable-next-line no-console
-    console.log('rendering markdown page');
-    return (
+
+    const innerContent = (
         <PageContent noPadding={props.noPadding} wideLayout={props.wideLayout}>
             <props.markdown />
         </PageContent>
+    );
+
+    return (
+        props.drawer ?(
+            <div style={{marginRight: 350}}>
+                {innerContent}
+                {props.drawer}
+            </div>
+         ) : innerContent
     );
 };
 MarkdownPage.displayName = 'MarkdownPage';

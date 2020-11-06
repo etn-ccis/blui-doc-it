@@ -1,5 +1,5 @@
 /*eslint-disable */
-import React, { Component, ElementType, useState } from 'react';
+import React, { Component, useState } from 'react';
 import {
     AppBar,
     Button,
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         width: 350,
     },
     drawerRoot: {
-        position: 'unset'
+        // position: 'unset'
     },
     appBar: {
         backgroundColor: Colors.black[500],
@@ -275,8 +275,6 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
     const closeDrawer = (): void => {
         // history.replace(`${location.pathname}`);
         dispatch({ type: 'SELECTION', payload: emptyIcon });
-        // @ts-ignore
-        document.getElementById('pxb-iconography-page').style.marginRight = '0';
     };
 
     const PXBlueIcons: MatIconList = MuiIcons;
@@ -287,11 +285,11 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
     return (
         <MuiDrawer
             open={Boolean(icon.name)}
+            variant={'permanent'}
             onClose={closeDrawer}
             anchor={'right'}
             transitionDuration={250}
             ModalProps={{ hideBackdrop: true, disableBackdropClick: true, disableScrollLock: true}}
-            style={{ position: 'unset' }}
             classes={{ paper: classes.drawer }}
         >
             <AppBar position="static" color="primary">
