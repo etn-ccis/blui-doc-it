@@ -1,4 +1,5 @@
-import React, { ElementType, useState } from 'react';
+/*eslint-disable */
+import React, { Component, ElementType, useState } from 'react';
 import {
     AppBar,
     Button,
@@ -12,6 +13,10 @@ import {
     useTheme,
     withStyles,
 } from '@material-ui/core';
+
+import * as AllMaterialIcons from '@material-ui/icons';
+import * as MuiIcons from '@pxblue/icons-mui';
+
 import { makeStyles } from '@material-ui/core/styles';
 import * as Colors from '@pxblue/colors';
 import { ArrowDropDown, Close, FileCopy } from '@material-ui/icons';
@@ -21,22 +26,25 @@ import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 
 import { Spacer } from '@pxblue/react-components';
-import { IconType } from '../../../__types__';
-import {getKebabCase, getSnakeCase, unCamelCase} from '../../shared';
+import { getKebabCase, getSnakeCase, unCamelCase } from '../../shared';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from '../../redux/reducers';
+import { IconType, MatIconList } from '../../../__types__';
+import { emptyIcon } from './IconBrowser';
+import { useHistory } from 'react-router-dom';
 
 type DrawerProps = {
-    icon: IconType;
     subtitle: string;
-    drawerToggler: () => void;
-    component: ElementType;
 };
 
 type Framework = 'angular' | 'react' | 'react-native';
 
 const useStyles = makeStyles((theme: Theme) => ({
     drawer: {
-        maxWidth: '55%',
         width: 350,
+    },
+    drawerRoot: {
+        position: 'unset'
     },
     appBar: {
         backgroundColor: Colors.black[500],
@@ -110,7 +118,7 @@ const AccordionDetails = withStyles(() => ({
 }))(MuiAccordionDetails);
 
 export const IconDrawer = (props: DrawerProps): JSX.Element => {
-    const { drawerToggler, icon, component: Component, subtitle } = props;
+    const { subtitle } = props;
     const [reactIconFontToolTipOpen, setReactIconFontToolTipOpen] = useState(false);
     const [reactSvgToolTipOpen, setReactSvgToolTipOpen] = useState(false);
     const [reactComponentToolTipOpen, setReactComponentToolTipOpen] = useState(false);
@@ -119,7 +127,10 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
     const [reactNativeSvgToolTipOpen, setReactNativeSvgToolTipOpen] = useState(false);
 
     const theme = useTheme();
-    const isMaterial = props.icon.isMaterial;
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const icon: IconType = useSelector((state: AppState) => state.app.selectedIcon) || emptyIcon;
+    const isMaterial = icon.isMaterial;
     const classes = useStyles(theme);
     const [activeFramework, setActiveFramework] = useState<Framework | undefined>(undefined);
 
@@ -260,13 +271,26 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
     const openPanel = (framework: Framework): void =>
         framework === activeFramework ? setActiveFramework(undefined) : setActiveFramework(framework);
 
+    const closeDrawer = (): void => {
+        // history.replace(`${location.pathname}`);
+        dispatch({ type: 'SELECTION', payload: emptyIcon });
+        // @ts-ignore
+        document.getElementById('pxb-iconography-page').style.marginRight = '0';
+    };
+
+    const PXBlueIcons: MatIconList = MuiIcons;
+    const MaterialIcons: MatIconList = AllMaterialIcons;
+    // @ts-ignore
+    // const component: any = icon.isMaterial ? MaterialIcons[icon.name] : PXBlueIcons[icon.name];
+
     return (
         <MuiDrawer
             open={Boolean(icon.name)}
-            onClose={drawerToggler}
+            onClose={closeDrawer}
             anchor={'right'}
             transitionDuration={250}
-            ModalProps={{ hideBackdrop: false }}
+            ModalProps={{ hideBackdrop: true, disableBackdropClick: true, disableScrollLock: true}}
+            style={{ position: 'unset' }}
             classes={{ paper: classes.drawer }}
         >
             <AppBar position="static" color="primary">
@@ -275,13 +299,15 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
                         Selected Icon
                     </Typography>
                     <Spacer />
-                    <IconButton onClick={drawerToggler} className={classes.appBarCloseButton}>
+                    <IconButton onClick={closeDrawer} className={classes.appBarCloseButton}>
                         <Close />
                     </IconButton>
                 </Toolbar>
             </AppBar>
             <div className={classes.iconNameRow}>
-                {icon.name && Component && <Component style={{ fontSize: 36 }} />}
+                {/*
+    icon.isMaterial ? MaterialIcons[icon.name] : PXBlueIcons[icon.name]
+    */}
                 <div className={classes.iconNameRowDescription}>
                     <Typography variant={'body1'}>{unCamelCase(icon.name)}</Typography>
                     <Typography variant={'body2'}>{subtitle}</Typography>
@@ -388,7 +414,7 @@ export const IconDrawer = (props: DrawerProps): JSX.Element => {
                 </AccordionDetails>
             </Accordion>
             <Accordion onClick={(): void => openPanel('react-native')} expanded={activeFramework === 'react-native'}>
-                <AccordionSummary expandIcon={<ArrowDropDown />}  IconButtonProps={{ disableRipple: true }}>
+                <AccordionSummary expandIcon={<ArrowDropDown />} IconButtonProps={{ disableRipple: true }}>
                     <Typography>React Native</Typography>
                 </AccordionSummary>
                 <AccordionDetails>

@@ -1,12 +1,15 @@
+/*eslint-disable */
 import React, { ElementType } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import color from 'color';
 // Material-UI Components
 import Typography from '@material-ui/core/Typography';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../redux/reducers';
+import { IconType } from '../../../__types__';
+import { unCamelCase } from '../../shared';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) => ({
     wrapper: {
@@ -35,55 +38,31 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 type IconCardProps = {
     component: ElementType;
-    iconSize?: number | 'inherit';
-    name?: string;
-    showLabel?: boolean;
-    style?: CSSProperties;
-    selected?: boolean;
-    className?: string;
-    onClick?: any;
+    icon: IconType;
 };
 
 export const IconCard: React.FC<IconCardProps> = (props): JSX.Element => {
     const classes = useStyles();
     const dispatch = useDispatch();
-    
+   // const history = useHistory();
+    const { component: Component, icon } = props;
+    const selected = useSelector((state: AppState) => state.app.selectedIcon === icon);
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { component: Component, name, showLabel, style, className } = props;
-    // const selectedIcon = useSelector((state: AppState) => state.app.selectedIcon);
-    const selected = useSelector((state: AppState) => state.app.selectedIcon === name);
-
-    //eslint-disable-next-line
-    console.log('drawing icon');
-    
     return (
         <div
-            className={clsx(classes.wrapper, { [classes.selected]: selected }, className)}
-            style={style}
+            className={clsx(classes.wrapper, { [classes.selected]: selected })}
             onClick={(): void => {
-                // eslint-disable-next-line
-                console.log('clicking', name)
-                dispatch({type: 'SELECTION', payload: name});
+                dispatch({ type: 'SELECTION', payload: icon });
+                // @ts-ignore
+                document.getElementById('pxb-iconography-page').style.marginRight = '350px';
+                // Adding in the history is causing performance issues.  Maybe add a share button to the IconDrawer.
+               // history.replace(`${location.pathname}?icon=${icon.name}&isMaterial=${icon.isMaterial.toString()}`);
             }}
         >
-            {name && Component && <Component style={{ fontSize: 36 }} />}
-            {showLabel && (
-                <Typography
-                    title={name}
-                    variant="subtitle2"
-                    className={classes.label}
-                    color={selected ? 'primary' : 'textPrimary'}
-                >
-                    {name}
-                </Typography>
-            )}
+            {Component && <Component style={{ fontSize: 36 }} />}
+            <Typography variant="subtitle2" className={classes.label} color={selected ? 'primary' : 'textPrimary'}>
+                {unCamelCase(icon.name)}
+            </Typography>
         </div>
     );
-};
-
-IconCard.defaultProps = {
-    showLabel: true,
-    selected: false,
-    iconSize: 'inherit',
 };

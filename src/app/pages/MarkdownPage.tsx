@@ -26,7 +26,7 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element =>
     }
     useBackgroundColor(backgroundColor);
     // eslint-disable-next-line no-console
-   console.log('rendering markdown page');
+    console.log('rendering markdown page');
     return (
         <PageContent noPadding={props.noPadding} wideLayout={props.wideLayout}>
             <props.markdown />

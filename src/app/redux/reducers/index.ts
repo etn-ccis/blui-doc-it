@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { CHANGE_PAGE_TITLE, CHANGE_COLOR_FORMAT, TOGGLE_DRAWER, TOGGLE_SEARCH } from '../actions';
+import { IconType } from '../../../__types__';
 // import { connectRouter } from 'connected-react-router';
 // import { History } from 'history';
 // import { AppActions } from '../actions/actionTypes';
@@ -12,7 +13,7 @@ export type CommonState = {
     colorFormat: 'rgb' | 'hex';
     drawerOpen: boolean;
     searchActive: boolean;
-    selectedIcon?: string;
+    selectedIcon?: IconType;
 };
 const initialAppState: CommonState = {
     pageTitle: '',
@@ -43,11 +44,9 @@ const appReducer = (state = initialAppState, action: any): CommonState => {
                 searchActive: action.payload,
             };
         case 'SELECTION':
-            //eslint-disable-next-line
-            console.log('selecting', action);
             return {
                 ...state,
-                selectedIcon: action.payload
+                selectedIcon: action.payload,
             };
         default:
             return state;

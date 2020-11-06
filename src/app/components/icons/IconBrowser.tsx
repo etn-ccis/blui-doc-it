@@ -1,18 +1,20 @@
-import React, { ElementType, useState } from 'react';
+/*eslint-disable */
+import React, {ElementType, useEffect, useState} from 'react';
 // PX Blue Icons and Symbols
+import * as AllMaterialIcons from '@material-ui/icons';
 import * as MuiIcons from '@pxblue/icons-mui';
 // Material-UI Components
 import { Divider, InputAdornment, makeStyles, TextField, Theme, Typography } from '@material-ui/core';
 
-import * as AllMaterialIcons from '@material-ui/icons';
 import meta from '@pxblue/icons-mui/index.json';
 import { IconCard } from './IconCard';
-import { unCamelCase } from '../../shared/utilities';
 import { DetailedIcon, IconType, MatIconList } from '../../../__types__';
 import { useQueryString } from '../../hooks/useQueryString';
-import { useHistory, useLocation } from 'react-router-dom';
 import { IconDrawer } from './IconDrawer';
 import * as Colors from '@pxblue/colors';
+import {useDispatch, useSelector} from "react-redux";
+import {AppState} from "../../redux/reducers";
+import clsx from "clsx";
 
 // eslint-disable-next-line
 const materialMetadata = require('./MaterialMetadata.json');
@@ -74,11 +76,11 @@ const createIconList = (): IconType[] => {
     return iconList;
 };
 
-const emptyIcon = { name: '', isMaterial: true, tags: [], categories: [] };
+export const emptyIcon = { name: '', isMaterial: true, tags: [], categories: [] };
 
 const groupIconList = (icons: IconType[]): CategoryGrouping => {
     const groupings: CategoryGrouping = {};
-   icons.forEach((icon: IconType) => {
+    icons.forEach((icon: IconType) => {
         icon.categories.forEach((category: string) => {
             // Check if the material icon (from metadata) exists in our current version material icon library
             // Or PX Blue icon exists in our Metadata file
@@ -117,44 +119,30 @@ const iconMatches = (icon: IconType, search: string): boolean => {
 };
 
 export const IconBrowser: React.FC = (): JSX.Element => {
-// eslint-disable-next-line no-console
-   console.log('rendering icon browser');
     const classes = useStyles();
-    const history = useHistory();
-    const location = useLocation();
     const query = useQueryString();
-
+    const dispatch = useDispatch();
     const [search, setSearch] = useState<string>(() => query.iconSearch || '');
-    const [focusedCategory, setFocusedCategory] = useState('');
-    const [focusedIcon, setFocusedIcon] = useState<IconType>((): any => {
-        // TODO, fix me, this does not add all required meta data... yet
 
+    // If URL contains pre-selected icon, load icon.
+    useEffect((): any => {
         const icon = query.icon;
-        const isMaterial = query.isMaterial === 'true' ? true : query.isMaterial === 'false' ? false : undefined;
-
-        if (!icon) return emptyIcon;
-        if (isMaterial !== undefined) {
-            if (!isMaterial && PXBlueIcons[icon]) return { name: icon, isMaterial: false, categories: [] };
-            if (isMaterial && MaterialIcons[getMuiIconName(icon)])
-                return { name: getMuiIconName(icon), isMaterial: true, tags: [] };
-        } else {
-            if (PXBlueIcons[icon]) return { name: icon, isMaterial: false };
-            if (MaterialIcons[getMuiIconName(icon)]) return { name: getMuiIconName(icon), isMaterial: true, tags: [] };
+        const pxbIcon: IconType = PXBlueIcons[icon] as any;
+        if (pxbIcon) {
+            dispatch({ type: 'SELECTION', payload: { name: icon, isMaterial: false, categories: pxbIcon.categories, tags: pxbIcon.tags } });
         }
-        return emptyIcon;
-    });
-
-    // const selectIcon = (icon: IconType, category: string): void => {
-    //     history.replace(`${location.pathname}?icon=${icon.name}&isMaterial=${icon.isMaterial.toString()}`);
-    //     setFocusedIcon(icon);
-    //     setFocusedCategory(category);
-    // };
+        const muiIcon: IconType = MaterialIcons[icon] as any;
+        if (muiIcon) {
+            dispatch({ type: 'SELECTION', payload: { name: icon, isMaterial: false, categories: muiIcon.categories, tags: muiIcon.tags } });
+        }
+        if (pxbIcon || muiIcon) {
+            //@ts-ignore
+            document.getElementById('pxb-iconography-page').style.marginRight = '350px';
+        }
+    }, []);
 
     const capitalizeFirstLetter = (word: string): string => word.charAt(0).toUpperCase() + word.slice(1);
-
-
-   const getIconComponent = (icon: IconType): ElementType =>
-      icon.isMaterial ? MaterialIcons[icon.name] : PXBlueIcons[icon.name];
+    const getIconComponent = (icon: IconType): ElementType => icon.isMaterial ? MaterialIcons[icon.name] : PXBlueIcons[icon.name];
 
     const icons: IconType[] = createIconList();
     const filteredIconList: IconType[] = icons.filter((icon: IconType): boolean => iconMatches(icon, search)).sort();
@@ -179,43 +167,26 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                     ),
                 }}
             />
-            <div>
-                {Object.keys(groupedIcons)
-                    .sort()
-                    .map((categoryGroupTitle: string) => (
-                        <React.Fragment key={`${categoryGroupTitle}_group`}>
-                            <Typography variant={'h6'} className={classes.groupHeader}>
-                                {capitalizeFirstLetter(categoryGroupTitle)}
-                            </Typography>
-                            <div className={classes.section}>
-                                {groupedIcons[categoryGroupTitle].map((icon: IconType) => (
-                                    <IconCard
-                                        key={`${categoryGroupTitle}_${icon.name}_material_${icon.isMaterial}`}
-                                        component={getIconComponent(icon)}
-                                        name={unCamelCase(icon.name)}
-                                        selected={focusedIcon.name === icon.name}
-                                        onClick={(): void => {
-                                            // eslint-disable-next-line no-console
-   console.log('selected icon', icon.name);
-                                            // selectIcon(icon, categoryGroupTitle)
-                                        }}
-                                    />
-                                ))}
-                            </div>
-                            <Divider />
-                        </React.Fragment>
-                    ))}
-            </div>
-            <IconDrawer
-                icon={focusedIcon}
-                component={getIconComponent(focusedIcon)}
-                subtitle={focusedCategory}
-                drawerToggler={(): void => {
-                    setFocusedIcon(emptyIcon);
-                    setFocusedCategory('');
-                    history.replace(`${location.pathname}`);
-                }}
-            />
+            {Object.keys(groupedIcons)
+                .sort()
+                .map((categoryGroupTitle: string) => (
+                    <React.Fragment key={`${categoryGroupTitle}_group`}>
+                        <Typography variant={'h6'} className={classes.groupHeader}>
+                            {capitalizeFirstLetter(categoryGroupTitle)}
+                        </Typography>
+                        <div className={classes.section}>
+                            {groupedIcons[categoryGroupTitle].map((icon: IconType) => (
+                                <IconCard
+                                    icon={icon}
+                                    component={getIconComponent(icon)}
+                                    key={`${categoryGroupTitle}_${icon.name}_material_${icon.isMaterial}`}
+                                />
+                            ))}
+                        </div>
+                        <Divider />
+                    </React.Fragment>
+                ))}
+            <IconDrawer subtitle={''} />
         </>
     );
 };
