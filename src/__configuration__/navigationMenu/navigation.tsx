@@ -249,7 +249,7 @@ export const pageDefinitions: SimpleNavItem[] = [
                         markdown={Docs.Style.Iconography}
                         wideLayout
                         background={'dark'}
-                        drawer={<IconDrawer subtitle={''} />}
+                        drawer={<IconDrawer />}
                     />
                 ),
             },

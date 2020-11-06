@@ -17,6 +17,9 @@ export const unCamelCase = (val: string): string =>
         .replace(/\b([A-Z]+)([A-Z])([a-z])/, '$1 $2$3')
         .replace(/^./, (str) => str.toUpperCase());
 
+export const titleCase = (val: string): string =>
+    val.replace('-', ' ').replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+
 // https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript
 function fallbackCopyTextToClipboard(text: string): void {
     const textArea = document.createElement('textarea');
@@ -34,10 +37,11 @@ function fallbackCopyTextToClipboard(text: string): void {
     document.execCommand('copy');
     document.body.removeChild(textArea);
 }
-export function copyTextToClipboard(text: string): void {
+export function copyTextToClipboard(text: string, onCopied?: () => void): void {
     if (!navigator.clipboard) {
         fallbackCopyTextToClipboard(text);
         return;
     }
     navigator.clipboard.writeText(text);
+    if (onCopied) onCopied();
 }
