@@ -54,7 +54,7 @@ const Icons: React.FC<IconGridProps> = (props) => {
                         xl={1}
                         key={`${icon.name}_${icon.isMaterial ? 'material' : 'pxblue'}`}
                         onClick={onIconSelected}
-                        title={icon.name}
+                        title={`${icon.name}-${icon.isMaterial ? 'material' : 'pxb'}`}
                     >
                         <div className={clsx(classes.wrapper, { [classes.selected]: isSelected })}>
                             <icon.Icon style={{ fontSize: 36 }} />

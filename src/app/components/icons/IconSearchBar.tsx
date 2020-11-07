@@ -42,7 +42,7 @@ type SearchBarProps = HTMLAttributes<HTMLDivElement> & {
 export const IconSearchBar: React.FC<SearchBarProps> = (props): JSX.Element => {
     const { onSearchChange } = props;
     const classes = useStyles();
-    const { iconSearch = '' } = useQueryString();
+    const { iconSearch = '', icon = '' } = useQueryString();
 
     const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
@@ -51,8 +51,8 @@ export const IconSearchBar: React.FC<SearchBarProps> = (props): JSX.Element => {
     };
 
     useEffect(() => {
-        onSearchChange({ target: { value: iconSearch } } as ChangeEvent<HTMLInputElement>);
-    }, [iconSearch]);
+        onSearchChange({ target: { value: iconSearch || icon } } as ChangeEvent<HTMLInputElement>);
+    }, []);
 
     return (
         <div className={classes.searchBar}>
@@ -60,7 +60,7 @@ export const IconSearchBar: React.FC<SearchBarProps> = (props): JSX.Element => {
                 className={classes.search}
                 placeholder="Search Icons"
                 type={'text'}
-                defaultValue={iconSearch}
+                defaultValue={iconSearch || icon}
                 onChange={onSearchChange}
                 fullWidth
                 variant={'outlined'}

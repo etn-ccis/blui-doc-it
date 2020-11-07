@@ -18,6 +18,8 @@ import { IconSearchBar } from './IconSearchBar';
 import { IconGrid } from './IconGrid';
 import { IconDrawer } from './IconDrawer';
 import { SelectedIconContext } from '../../contexts/selectedIconContextProvider';
+import { useHistory, useLocation } from 'react-router-dom';
+import { useQueryString } from '../../hooks/useQueryString';
 
 type MaterialMeta = {
     icons: DetailedIcon[];
@@ -101,7 +103,7 @@ const allMuiIcons: IconType[] = Object.keys(MuiIcons)
 
         if (iconDetails) searchableString += iconDetails.tags.join(' ');
         // @ts-ignore
-        searchIndex.add(iconKey, searchableString);
+        searchIndex.add(`${iconKey}-material`, searchableString);
 
         const icon: IconType = {
             name: iconKey,
@@ -112,7 +114,7 @@ const allMuiIcons: IconType[] = Object.keys(MuiIcons)
             // @ts-ignore
             Icon: MuiIcons[iconKey],
         };
-        allIconsMap[iconKey] = icon;
+        allIconsMap[`${iconKey}-material`] = icon;
         return icon;
     });
 const allPxbIcons: IconType[] = Object.keys(PXBIcons)
@@ -124,7 +126,7 @@ const allPxbIcons: IconType[] = Object.keys(PXBIcons)
         );
         if (iconDetails) searchableString += iconDetails.tags.join(' ');
         // @ts-ignore
-        searchIndex.add(iconKey, searchableString);
+        searchIndex.add(`${iconKey}-pxb`, searchableString);
 
         const icon: IconType = {
             name: iconKey,
@@ -135,20 +137,29 @@ const allPxbIcons: IconType[] = Object.keys(PXBIcons)
             // @ts-ignore
             Icon: PXBIcons[iconKey],
         };
-        allIconsMap[iconKey] = icon;
+        allIconsMap[`${iconKey}-pxb`] = icon;
         return icon;
     });
-const allIcons: IconType[] = allMuiIcons.concat(allPxbIcons);
+const allIcons: IconType[] = allMuiIcons.concat(allPxbIcons).sort((iconA, iconB) => (iconA.name < iconB.name ? -1 : 1));
 
 export const IconBrowser: React.FC = (): JSX.Element => {
     // const classes = useStyles();
-    // const iconSearchQuery = useSelector((state: AppState) => state.app.iconSearch);
+    const history = useHistory();
+    const location = useLocation();
+    const { icon: iconQuery, isMaterial: materialQuery } = useQueryString();
+    const isMaterial = materialQuery === 'true';
     const [iconKeys, setIconKeys] = useState<string[] | null>(null);
-    const [selectedIcon, setSelectedIcon] = React.useState<IconType | undefined>(undefined);
+    const [selectedIcon, setSelectedIcon] = React.useState<IconType | undefined>(
+        allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'pxb'}`]
+    );
     const type = 'Filled';
 
     const handleSelect = useCallback((event) => {
-        setSelectedIcon(allIconsMap[event.currentTarget.getAttribute('title')]);
+        const iconName = event.currentTarget.getAttribute('title').split('-');
+        history.replace(
+            `${location.pathname}?icon=${iconName[0]}&isMaterial=${iconName[1] === 'material' ? true : false}`
+        );
+        setSelectedIcon(allIconsMap[iconName.join('-')]);
     }, []);
 
     const isMounted = useRef(false);
@@ -170,7 +181,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                     setIconKeys(null);
                 } else {
                     searchIndex.search(value).then((results) => {
-                        setIconKeys(results);
+                        setIconKeys(results.sort());
                     });
                 }
             }, 220),

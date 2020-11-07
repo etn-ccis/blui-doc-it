@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export const IconDrawer: React.FC = () => {
     const { selectedIcon = emptyIcon } = useSelectedIcon();
+
     const theme = useTheme();
     // eslint-disable-next-line
     const history = useHistory();
