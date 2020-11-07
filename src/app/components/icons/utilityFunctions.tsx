@@ -4,6 +4,9 @@ import { getKebabCase, getSnakeCase } from '../../shared';
 
 export type Framework = 'angular' | 'react' | 'react-native';
 
+export const getMuiIconName = (filename: string): string =>
+    filename.replace(/\.svg/, '').replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 || p3).toUpperCase());
+
 // Can be Material or PX Blue icons
 export const downloadSvg = (icon: IconType): void => {
     if (icon.isMaterial) {
@@ -12,7 +15,7 @@ export const downloadSvg = (icon: IconType): void => {
             '_blank'
         );
     } else {
-        window.open(`https://raw.githubusercontent.com/pxblue/icons/dev/svg/${icon.name}.svg`, '_blank');
+        window.open(`https://raw.githubusercontent.com/pxblue/icons/dev/svg/${getSnakeCase(icon.name)}.svg`, '_blank');
     }
 };
 

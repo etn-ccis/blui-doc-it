@@ -32,6 +32,8 @@ import { DeveloperInstructionsPanel } from './DeveloperInstructions';
 const useStyles = makeStyles((theme: Theme) => ({
     drawer: {
         width: 350,
+        display: 'flex',
+        flexDirection: 'column',
     },
     appBar: {
         backgroundColor: Colors.black[500],
@@ -88,80 +90,85 @@ export const IconDrawer = (): JSX.Element => {
                     </IconButton>
                 </Toolbar>
             </AppBar>
-            {icon.name === '' && (
-                <EmptyState
-                    icon={<MuiIcons.Pxblue fontSize={'inherit'} />}
-                    title={'No Icon Selected'}
-                    description={'Select a icon on the left to download or view usage details'}
-                    style={{ padding: 24 }}
-                />
-            )}
-            {icon.name !== '' && (
-                <>
-                    <div className={classes.iconNameRow}>
-                        <IconComponent />
-                        <div className={classes.iconNameRowDescription}>
-                            <Typography variant={'body1'}>{unCamelCase(icon.name)}</Typography>
-                            <Typography variant={'caption'}>{isMaterial ? 'Material Icon' : 'PX Blue Icon'}</Typography>
+            <div style={{ flex: '1 1 0px', overflowY: 'auto' }}>
+                {icon.name === '' && (
+                    <EmptyState
+                        icon={<MuiIcons.Pxblue fontSize={'inherit'} />}
+                        title={'No Icon Selected'}
+                        description={'Select a icon on the left to download or view usage details'}
+                        style={{ padding: 24 }}
+                    />
+                )}
+                {icon.name !== '' && (
+                    <>
+                        <div className={classes.iconNameRow}>
+                            <IconComponent />
+                            <div className={classes.iconNameRowDescription}>
+                                <Typography variant={'body1'}>{unCamelCase(icon.name)}</Typography>
+                                <Typography variant={'caption'}>{isMaterial ? 'Material Icon' : 'PX Blue Icon'}</Typography>
+                            </div>
                         </div>
-                    </div>
-                    <Divider />
-                    <div style={{ padding: theme.spacing(2) }}>
-                        <Typography display={'block'} variant={'overline'} style={{ marginBottom: theme.spacing(1) }}>
-                            TAGS / KEYWORDS
+                        <Divider />
+                        <div style={{ padding: theme.spacing(2) }}>
+                            <Typography display={'block'} variant={'overline'} style={{ marginBottom: theme.spacing(1) }}>
+                                TAGS / KEYWORDS
                         </Typography>
-                        <code style={{ display: 'block', whiteSpace: 'normal', padding: theme.spacing(1) }}>
-                            {icon.tags.join(', ')}
-                        </code>
-                    </div>
-                    <Divider />
-                    <div style={{ padding: theme.spacing(2) }}>
-                        <Typography
-                            display={'block'}
-                            variant={'overline'}
-                            color={'primary'}
-                            style={{ marginBottom: theme.spacing(1) }}
-                        >
-                            Download
-                        </Typography>
-                        <div>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                style={{ marginRight: theme.spacing(1) }}
-                                startIcon={<AllMaterialIcons.GetApp />}
-                                onClick={(): void => downloadSvg(icon)}
+                            <code style={{ display: 'block', whiteSpace: 'normal', padding: theme.spacing(1) }}>
+                                {icon.tags.join(', ')}
+                            </code>
+                        </div>
+                        <Divider />
+                        <div style={{ padding: theme.spacing(2) }}>
+                            <Typography
+                                display={'block'}
+                                variant={'overline'}
+                                color={'primary'}
+                                style={{ marginBottom: theme.spacing(1) }}
                             >
-                                SVG
-                            </Button>
-                            {isMaterial && (
+                                Download
+                        </Typography>
+                            <div>
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={(): void => downloadPng(icon)}
+                                    style={{ marginRight: theme.spacing(1) }}
                                     startIcon={<AllMaterialIcons.GetApp />}
+                                    onClick={(): void => downloadSvg(icon)}
                                 >
-                                    PNG
+                                    SVG
                                 </Button>
-                            )}
+                                {!isMaterial &&
+                                    <Typography display={'block'} variant={'caption'} style={{marginTop: theme.spacing(0.5)}}>Icon file will open in a new window — right click it and Save As to download.</Typography>
+                                }
+                                {isMaterial && (
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        onClick={(): void => downloadPng(icon)}
+                                        startIcon={<AllMaterialIcons.GetApp />}
+                                    >
+                                        PNG
+                                    </Button>
+                                )}
+                            </div>
                         </div>
-                    </div>
-                    <Divider />
+                        <Divider />
 
-                    <DeveloperInstructionsPanel />
-                    <Divider />
+                        <DeveloperInstructionsPanel />
+                        <Divider />
 
-                    <div style={{ padding: 16 }}>
-                        <Typography variant={'subtitle2'} align={'center'}>
-                            For detailed usage and installation instructions, visit our{' '}
-                            <Link href={'https://github.com/pxblue/icons'} target={'_blank'}>
-                                Github
+                        <div style={{ padding: 16 }}>
+                            <Typography variant={'subtitle2'} align={'center'}>
+                                For detailed usage and installation instructions, visit our{' '}
+                                <Link href={'https://github.com/pxblue/icons'} target={'_blank'}>
+                                    Github
                             </Link>
                             .
                         </Typography>
-                    </div>
-                </>
-            )}
+                        </div>
+                    </>
+                )}
+            </div>
         </MuiDrawer>
     );
 };

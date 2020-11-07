@@ -27,6 +27,7 @@ import {
     getIconFontExample,
     getIconFontInstructions,
     getIconSvgExample,
+    getIconSvgInstructions,
 } from './utilityFunctions';
 
 type Framework = 'angular' | 'react' | 'react-native';
@@ -166,7 +167,7 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
                                 <FileCopy
                                     className={classes.copyIcon}
                                     onClick={(): void => {
-                                        copyTextToClipboard(getIconFontInstructions(framework, icon), () => {
+                                        copyTextToClipboard(getIconSvgInstructions(framework, icon), () => {
                                             setCopiedInstructions({ ...copiedInstructions, svg: true });
                                             setTimeout(
                                                 () => setCopiedInstructions({ ...copiedInstructions, svg: false }),

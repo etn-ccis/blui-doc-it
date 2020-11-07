@@ -1,43 +1,37 @@
-/*eslint-disable */
+/* eslint-disable */
 import React, { ElementType, useEffect, useState } from 'react';
 // PX Blue Icons and Symbols
 import * as AllMaterialIcons from '@material-ui/icons';
 import * as MuiIcons from '@pxblue/icons-mui';
+import meta from '@pxblue/icons-mui/index.json';
+
+// Hooks
+import { useDispatch, useSelector } from 'react-redux';
+import { useQueryString } from '../../hooks/useQueryString';
+
+// Types
+import { DetailedIcon, IconType, MatIconList } from '../../../__types__';
+
 // Material-UI Components
 import {
     capitalize,
-    Checkbox,
     Divider,
-    FormControl,
-    Input,
-    InputAdornment,
-    InputLabel,
-    ListItemText,
     makeStyles,
-    MenuItem,
-    Select,
-    TextField,
     Theme,
     Typography,
 } from '@material-ui/core';
-
-import meta from '@pxblue/icons-mui/index.json';
 import { IconCard } from './IconCard';
-import { DetailedIcon, IconType, MatIconList } from '../../../__types__';
-import { useQueryString } from '../../hooks/useQueryString';
-import { IconDrawer } from './IconDrawer';
+
 import * as Colors from '@pxblue/colors';
-import { useDispatch, useSelector } from 'react-redux';
+import { getMuiIconName } from './utilityFunctions';
+import { IconSearchBar } from './IconSearchBar';
 import { AppState } from '../../redux/reducers';
-import clsx from 'clsx';
-import { MenuProps } from '@material-ui/core/Menu/Menu';
-import { SELECT_ICON } from '../../redux/actions';
 
+type MaterialMeta = {
+    icons: DetailedIcon[];
+}
 // eslint-disable-next-line
-const materialMetadata = require('./MaterialMetadata.json');
-
-const getMuiIconName = (filename: string): string =>
-    filename.replace(/\.svg/, '').replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 || p3).toUpperCase());
+const materialMetadata: MaterialMeta = require('./MaterialMetadata.json');
 
 type CategoryGrouping = {
     [key: string]: IconType[];
@@ -45,6 +39,8 @@ type CategoryGrouping = {
 
 const PXBlueIcons: MatIconList = MuiIcons;
 const MaterialIcons: MatIconList = AllMaterialIcons;
+
+export const emptyIcon: IconType = { name: '', isMaterial: true, tags: [], categories: [] };
 
 const useStyles = makeStyles((theme: Theme) => ({
     section: {
@@ -56,19 +52,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     groupHeader: {
         marginTop: theme.spacing(3),
-    },
-    search: {
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: Colors.white[50],
-        color: theme.palette.text.primary,
-        marginTop: theme.spacing(1),
-        marginRight: theme.spacing(3),
-    },
-    formControl: {
-        width: 240,
-    },
-    searchBar: {
-        display: 'flex',
     },
 }));
 
@@ -101,7 +84,7 @@ const createIconList = (): IconType[] => {
 };
 
 const filterableCategories: Set<string> = new Set<string>();
-export const emptyIcon = { name: '', isMaterial: true, tags: [], categories: [] };
+
 
 const groupIconList = (icons: IconType[]): CategoryGrouping => {
     const groupings: CategoryGrouping = {};
@@ -126,108 +109,40 @@ const groupIconList = (icons: IconType[]): CategoryGrouping => {
     return groupings;
 };
 
-const iconMatches = (icon: IconType, search: string): boolean => {
-    const searchArray = search
-        .trim()
-        .toLowerCase()
-        .split(/\s+/);
-    for (let i = 0; i < searchArray.length; i++) {
-        if (
-            !icon.name
-                .toLowerCase()
-                .replace(/[ _]/g, '')
-                .includes(searchArray[i])
-        ) {
-            return false;
-        }
-    }
-    return true;
-};
+const icons: IconType[] = createIconList();
+
+const getIconComponent = (icon: IconType): ElementType =>
+    icon.isMaterial ? MaterialIcons[icon.name] : PXBlueIcons[icon.name];
+
+const filteredIconList: IconType[] = icons; //.filter((icon: IconType): boolean => iconMatches(icon, search)).sort();
+const groupedIcons = groupIconList(filteredIconList);
 
 export const IconBrowser: React.FC = (): JSX.Element => {
     const classes = useStyles();
-    const query = useQueryString();
-    const dispatch = useDispatch();
-    const [search, setSearch] = useState<string>(() => query.iconSearch || '');
-    const [selectedCategories, setSelectedCategories] = React.useState<string[]>([]);
+    const iconSearchQuery = useSelector((state: AppState) => state.app.iconSearch);
 
-    // If URL contains pre-selected icon, load icon.
-    useEffect((): any => {
-        const icon = query.icon;
-        const pxbIcon: IconType = PXBlueIcons[icon] as any;
-        if (pxbIcon) {
-            dispatch({
-                type: SELECT_ICON,
-                payload: { name: icon, isMaterial: false, categories: pxbIcon.categories, tags: pxbIcon.tags },
-            });
+    console.log('redering the icon browser');
+
+    const filteredIconList: IconType[] = icons.filter((icon: IconType): boolean => {
+        const searchQuery = (iconSearchQuery || '').toLocaleLowerCase().trim();
+        if(!searchQuery) return true;
+        if(icon.name.toLocaleLowerCase().includes(searchQuery)){
+            return true;
         }
-        const muiIcon: IconType = MaterialIcons[icon] as any;
-        if (muiIcon) {
-            dispatch({
-                type: SELECT_ICON,
-                payload: { name: icon, isMaterial: false, categories: muiIcon.categories, tags: muiIcon.tags },
-            });
+        for(const tag of icon.tags){
+            if(tag.toLocaleLowerCase().includes(searchQuery)) return true;
         }
-    }, []);
-
-    const capitalizeFirstLetter = (word: string): string => word.charAt(0).toUpperCase() + word.slice(1);
-    const getIconComponent = (icon: IconType): ElementType =>
-        icon.isMaterial ? MaterialIcons[icon.name] : PXBlueIcons[icon.name];
-
-    const icons: IconType[] = createIconList();
-    const filteredIconList: IconType[] = icons.filter((icon: IconType): boolean => iconMatches(icon, search)).sort();
+        return false;
+    });
     const groupedIcons = groupIconList(filteredIconList);
-
-    const filterViaTags = (e: any): void => {
-        console.log(e.target);
-        setSelectedCategories(e.target.values);
-    };
 
     return (
         <>
-            <div className={classes.searchBar}>
-                <TextField
-                    className={classes.search}
-                    placeholder="Search Icons"
-                    type={'text'}
-                    value={search}
-                    onChange={(evt: any): void => setSearch(evt.target.value)}
-                    required
-                    fullWidth
-                    variant={'outlined'}
-                    InputProps={{
-                        endAdornment: (
-                            <InputAdornment position={'end'}>
-                                <MaterialIcons.Search />
-                            </InputAdornment>
-                        ),
-                    }}
-                />
-                <FormControl className={classes.formControl}>
-                    <InputLabel id="demo-mutiple-checkbox-label">All Categories</InputLabel>
-                    <Select
-                        labelId="demo-mutiple-checkbox-label"
-                        id="demo-mutiple-checkbox"
-                        multiple
-                        value={selectedCategories}
-                        onChange={filterViaTags}
-                        input={<Input />}
-                        renderValue={(selected: any) => selected.join(', ')}
-                    >
-                        {Array.from(filterableCategories)
-                            .sort()
-                            .map((category: string) => (
-                                <MenuItem key={category} value={category}>
-                                    <Checkbox checked={selectedCategories.indexOf(category) > -1} />
-                                    <ListItemText primary={category} />
-                                </MenuItem>
-                            ))}
-                    </Select>
-                </FormControl>
-            </div>
+            <IconSearchBar />
 
             {Object.keys(groupedIcons)
                 .sort()
+                .slice(0,1)
                 .map((categoryGroupTitle: string) => (
                     <React.Fragment key={`${categoryGroupTitle}_group`}>
                         <Typography variant={'h6'} className={classes.groupHeader}>

@@ -1,4 +1,4 @@
-/*eslint-disable */
+/* eslint-disable */
 import React, { ElementType } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -42,13 +42,29 @@ type IconCardProps = {
     icon: IconType;
 };
 
-export const IconCard: React.FC<IconCardProps> = (props): JSX.Element => {
+export const IconCard: React.FC<IconCardProps> = (props): JSX.Element | null => {
+    const { component: Component, icon } = props;
     const classes = useStyles();
     const dispatch = useDispatch();
-    // const history = useHistory();
-    const { component: Component, icon } = props;
+    // eslint-disable-next-line
+    const history = useHistory();
+    const showIcon = useSelector((state: AppState) => {
+        const searchQuery = (state.app.iconSearch || '').toLocaleLowerCase().trim();
+        if(!searchQuery) return true;
+        if(searchQuery.length < 3) return true;
+        if(icon.name.toLocaleLowerCase().includes(searchQuery)){
+            return true;
+        }
+        for(const tag of icon.tags){
+            if(tag.toLocaleLowerCase().includes(searchQuery)) return true;
+        }
+        return false;
+    });
     const selected = useSelector((state: AppState) => state.app.selectedIcon === icon);
 
+    // eslint-disable-next-line
+    // console.log('rendering icon card');
+    // if(!showIcon) return null;
     return (
         <div
             className={clsx(classes.wrapper, { [classes.selected]: selected })}
@@ -57,8 +73,9 @@ export const IconCard: React.FC<IconCardProps> = (props): JSX.Element => {
                 // Adding in the history is causing performance issues.  Maybe add a share button to the IconDrawer.
                 // history.replace(`${location.pathname}?icon=${icon.name}&isMaterial=${icon.isMaterial.toString()}`);
             }}
+            style={{display: showIcon ? 'flex' : 'none'}}
         >
-            {Component && <Component style={{ fontSize: 36 }} />}
+            {/* {Component && <Component style={{ fontSize: 36 }} />} */}
             <Typography variant="subtitle2" className={classes.label} color={selected ? 'primary' : 'textPrimary'}>
                 {unCamelCase(icon.name)}
             </Typography>
