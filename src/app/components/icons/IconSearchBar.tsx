@@ -1,6 +1,5 @@
-/* eslint-disable */
-import React, { ChangeEvent, useEffect, useState } from 'react';
-import {Search} from '@material-ui/icons';
+import React, { ChangeEvent, useEffect, useState, HTMLAttributes } from 'react';
+import { Search } from '@material-ui/icons';
 import { useQueryString } from '../../hooks/useQueryString';
 // Material-UI Components
 import {
@@ -18,10 +17,6 @@ import {
 } from '@material-ui/core';
 
 import * as Colors from '@pxblue/colors';
-import { useDispatch, useSelector } from 'react-redux';
-import { SET_ICON_SEARCH } from '../../redux/actions';
-import { AppState } from '../../redux/reducers';
-
 
 const useStyles = makeStyles((theme: Theme) => ({
     search: {
@@ -41,29 +36,23 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const filterableCategories: Set<string> = new Set<string>();
 
-
-export const IconSearchBar: React.FC = (): JSX.Element => {
+type SearchBarProps = HTMLAttributes<HTMLDivElement> & {
+    onSearchChange: (event: ChangeEvent<HTMLInputElement>) => void;
+};
+export const IconSearchBar: React.FC<SearchBarProps> = (props): JSX.Element => {
+    const { onSearchChange } = props;
     const classes = useStyles();
-    const { iconSearch } = useQueryString();
-    const dispatch = useDispatch();
-    const searchQuery = useSelector((state: AppState) => state.app.iconSearch || '');
-    const [localSearchQuery, setLocalSearchQuery] = useState(iconSearch || '');
+    const { iconSearch = '' } = useQueryString();
 
-    const [selectedCategories, setSelectedCategories] = React.useState<string[]>([]);
-
-    console.log('redering the icon search bar');
-
-    // If URL contains pre-set search param, initialize it in redux.
-    useEffect((): any => {
-        if(iconSearch){
-            dispatch({type: SET_ICON_SEARCH, payload: iconSearch})
-        }
-    }, [iconSearch, dispatch]);
-
+    const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
     const filterViaTags = (e: any): void => {
         setSelectedCategories(e.target.values);
     };
+
+    useEffect(() => {
+        onSearchChange({ target: { value: iconSearch } } as ChangeEvent<HTMLInputElement>);
+    }, [iconSearch]);
 
     return (
         <div className={classes.searchBar}>
@@ -71,12 +60,8 @@ export const IconSearchBar: React.FC = (): JSX.Element => {
                 className={classes.search}
                 placeholder="Search Icons"
                 type={'text'}
-                value={localSearchQuery}
-                onChange={(evt: ChangeEvent): void => {
-                    setLocalSearchQuery((evt.target as HTMLInputElement).value);
-                    dispatch({type: SET_ICON_SEARCH, payload: (evt.target as HTMLInputElement).value})}
-                }
-                required
+                defaultValue={iconSearch}
+                onChange={onSearchChange}
                 fullWidth
                 variant={'outlined'}
                 InputProps={{

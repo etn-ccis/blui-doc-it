@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { AppState } from '../../redux/reducers';
 import { IconType } from '../../../__types__';
 import {
     Theme,
@@ -18,7 +16,7 @@ import {
 import { ArrowDropDown, FileCopy } from '@material-ui/icons';
 
 import { copyTextToClipboard, titleCase } from '../../shared';
-import { emptyIcon } from './IconBrowser';
+import { emptyIcon } from '.';
 
 import * as Colors from '@pxblue/colors';
 import {
@@ -29,6 +27,7 @@ import {
     getIconSvgExample,
     getIconSvgInstructions,
 } from './utilityFunctions';
+import { useSelectedIcon } from '../../contexts/selectedIconContextProvider';
 
 type Framework = 'angular' | 'react' | 'react-native';
 
@@ -89,7 +88,7 @@ const AccordionDetails = withStyles(() => ({
 
 export const DeveloperInstructionsPanel: React.FC = (): JSX.Element => {
     const theme = useTheme();
-    const icon: IconType = useSelector((state: AppState) => state.app.selectedIcon) || emptyIcon;
+    const { selectedIcon: icon = emptyIcon } = useSelectedIcon();
     const [activeFramework, setActiveFramework] = useState<Framework | undefined>(undefined);
 
     return (

@@ -1,8 +1,6 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from '../../redux/reducers';
+// import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { IconType, MatIconList } from '../../../__types__';
 import {
     AppBar,
     Button,
@@ -18,16 +16,16 @@ import {
 } from '@material-ui/core';
 import { EmptyState, Spacer } from '@pxblue/react-components';
 
-import * as AllMaterialIcons from '@material-ui/icons';
-import * as MuiIcons from '@pxblue/icons-mui';
+import { GetApp, Close } from '@material-ui/icons';
+import { Pxblue } from '@pxblue/icons-mui';
 
 import { unCamelCase } from '../../shared';
-import { emptyIcon } from './IconBrowser';
-import { SELECT_ICON } from '../../redux/actions';
+import { emptyIcon } from '.';
 import { downloadPng, downloadSvg } from './utilityFunctions';
 
 import * as Colors from '@pxblue/colors';
 import { DeveloperInstructionsPanel } from './DeveloperInstructions';
+import { useSelectedIcon } from '../../contexts/selectedIconContextProvider';
 
 const useStyles = makeStyles((theme: Theme) => ({
     drawer: {
@@ -53,29 +51,24 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
 }));
 
-export const IconDrawer = (): JSX.Element => {
+export const IconDrawer: React.FC = () => {
+    const { selectedIcon = emptyIcon } = useSelectedIcon();
     const theme = useTheme();
     // eslint-disable-next-line
     const history = useHistory();
-    const dispatch = useDispatch();
-    const icon: IconType = useSelector((state: AppState) => state.app.selectedIcon) || emptyIcon;
-    const isMaterial = icon.isMaterial;
+    // const dispatch = useDispatch();
     const classes = useStyles(theme);
 
     const closeDrawer = (): void => {
         // history.replace(`${location.pathname}`);
-        dispatch({ type: SELECT_ICON, payload: emptyIcon });
+        // dispatch({ type: SELECT_ICON, payload: emptyIcon });
     };
-
-    const PXBlueIcons: MatIconList = MuiIcons;
-    const MaterialIcons: MatIconList = AllMaterialIcons;
-    const IconComponent = icon.isMaterial ? MaterialIcons[icon.name] : PXBlueIcons[icon.name];
 
     return (
         <MuiDrawer
             anchor={'right'}
             variant={'permanent'}
-            open={Boolean(icon.name)}
+            open={Boolean(selectedIcon)}
             onClose={closeDrawer}
             classes={{ paper: classes.drawer }}
         >
@@ -86,35 +79,41 @@ export const IconDrawer = (): JSX.Element => {
                     </Typography>
                     <Spacer />
                     <IconButton onClick={closeDrawer} className={classes.appBarCloseButton}>
-                        <AllMaterialIcons.Close />
+                        <Close />
                     </IconButton>
                 </Toolbar>
             </AppBar>
             <div style={{ flex: '1 1 0px', overflowY: 'auto' }}>
-                {icon.name === '' && (
+                {selectedIcon.name === '' && (
                     <EmptyState
-                        icon={<MuiIcons.Pxblue fontSize={'inherit'} />}
+                        icon={<Pxblue fontSize={'inherit'} />}
                         title={'No Icon Selected'}
                         description={'Select a icon on the left to download or view usage details'}
                         style={{ padding: 24 }}
                     />
                 )}
-                {icon.name !== '' && (
+                {selectedIcon.name !== '' && (
                     <>
                         <div className={classes.iconNameRow}>
-                            <IconComponent />
+                            <selectedIcon.Icon />
                             <div className={classes.iconNameRowDescription}>
-                                <Typography variant={'body1'}>{unCamelCase(icon.name)}</Typography>
-                                <Typography variant={'caption'}>{isMaterial ? 'Material Icon' : 'PX Blue Icon'}</Typography>
+                                <Typography variant={'body1'}>{unCamelCase(selectedIcon.name)}</Typography>
+                                <Typography variant={'caption'}>
+                                    {selectedIcon.isMaterial ? 'Material Icon' : 'PX Blue Icon'}
+                                </Typography>
                             </div>
                         </div>
                         <Divider />
                         <div style={{ padding: theme.spacing(2) }}>
-                            <Typography display={'block'} variant={'overline'} style={{ marginBottom: theme.spacing(1) }}>
+                            <Typography
+                                display={'block'}
+                                variant={'overline'}
+                                style={{ marginBottom: theme.spacing(1) }}
+                            >
                                 TAGS / KEYWORDS
-                        </Typography>
+                            </Typography>
                             <code style={{ display: 'block', whiteSpace: 'normal', padding: theme.spacing(1) }}>
-                                {icon.tags.join(', ')}
+                                {selectedIcon.tags.join(', ')}
                             </code>
                         </div>
                         <Divider />
@@ -126,26 +125,32 @@ export const IconDrawer = (): JSX.Element => {
                                 style={{ marginBottom: theme.spacing(1) }}
                             >
                                 Download
-                        </Typography>
+                            </Typography>
                             <div>
                                 <Button
                                     variant="contained"
                                     color="primary"
                                     style={{ marginRight: theme.spacing(1) }}
-                                    startIcon={<AllMaterialIcons.GetApp />}
-                                    onClick={(): void => downloadSvg(icon)}
+                                    startIcon={<GetApp />}
+                                    onClick={(): void => downloadSvg(selectedIcon)}
                                 >
                                     SVG
                                 </Button>
-                                {!isMaterial &&
-                                    <Typography display={'block'} variant={'caption'} style={{marginTop: theme.spacing(0.5)}}>Icon file will open in a new window — right click it and Save As to download.</Typography>
-                                }
-                                {isMaterial && (
+                                {!selectedIcon.isMaterial && (
+                                    <Typography
+                                        display={'block'}
+                                        variant={'caption'}
+                                        style={{ marginTop: theme.spacing(0.5) }}
+                                    >
+                                        Icon file will open in a new window — right click it and Save As to download.
+                                    </Typography>
+                                )}
+                                {selectedIcon.isMaterial && (
                                     <Button
                                         variant="contained"
                                         color="primary"
-                                        onClick={(): void => downloadPng(icon)}
-                                        startIcon={<AllMaterialIcons.GetApp />}
+                                        onClick={(): void => downloadPng(selectedIcon)}
+                                        startIcon={<GetApp />}
                                     >
                                         PNG
                                     </Button>
@@ -162,9 +167,9 @@ export const IconDrawer = (): JSX.Element => {
                                 For detailed usage and installation instructions, visit our{' '}
                                 <Link href={'https://github.com/pxblue/icons'} target={'_blank'}>
                                     Github
-                            </Link>
-                            .
-                        </Typography>
+                                </Link>
+                                .
+                            </Typography>
                         </div>
                     </>
                 )}

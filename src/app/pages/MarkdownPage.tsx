@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { PageContent } from '../components';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
@@ -6,40 +6,33 @@ import { useTheme } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
-export type MarkdownPageProps = {
+export type MarkdownPageProps = HTMLAttributes<HTMLDivElement> & {
     title: string;
     markdown: React.FC;
     noPadding?: boolean;
     background?: string;
     wideLayout?: boolean;
-    drawer?: React.ReactNode;
 };
 
 export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element => {
-    usePageTitle(props.title);
+    const { title, markdown: Markdown, noPadding, background, wideLayout, ...divProps } = props;
+    usePageTitle(title);
     useGoogleAnalyticsPageView();
     const theme = useTheme();
-    let backgroundColor = props.background;
-    if (props.background === 'light') {
+    let backgroundColor = background;
+    if (background === 'light') {
         backgroundColor = theme.palette.background.paper;
-    } else if (props.background === 'dark') {
+    } else if (background === 'dark') {
         backgroundColor = theme.palette.type === 'light' ? Colors.white[200] : theme.palette.background.default;
     }
     useBackgroundColor(backgroundColor);
 
-    const innerContent = (
-        <PageContent noPadding={props.noPadding} wideLayout={props.wideLayout}>
-            <props.markdown />
-        </PageContent>
-    );
-
-    return props.drawer ? (
-        <div style={{ marginRight: 350 }}>
-            {innerContent}
-            {props.drawer}
+    return (
+        <div {...divProps}>
+            <PageContent noPadding={noPadding} wideLayout={wideLayout}>
+                <Markdown />
+            </PageContent>
         </div>
-    ) : (
-        innerContent
     );
 };
 MarkdownPage.displayName = 'MarkdownPage';

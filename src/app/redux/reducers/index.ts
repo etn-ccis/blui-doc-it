@@ -1,9 +1,5 @@
 import { combineReducers } from 'redux';
-import { CHANGE_PAGE_TITLE, CHANGE_COLOR_FORMAT, TOGGLE_DRAWER, TOGGLE_SEARCH, SELECT_ICON, SET_ICON_SEARCH } from '../actions';
-import { IconType } from '../../../__types__';
-// import { connectRouter } from 'connected-react-router';
-// import { History } from 'history';
-// import { AppActions } from '../actions/actionTypes';
+import { CHANGE_PAGE_TITLE, CHANGE_COLOR_FORMAT, TOGGLE_DRAWER, TOGGLE_SEARCH } from '../actions';
 
 export type AppState = {
     app: CommonState;
@@ -13,8 +9,6 @@ export type CommonState = {
     colorFormat: 'rgb' | 'hex';
     drawerOpen: boolean;
     searchActive: boolean;
-    selectedIcon?: IconType;
-    iconSearch?: string;
 };
 const initialAppState: CommonState = {
     pageTitle: '',
@@ -44,16 +38,6 @@ const appReducer = (state = initialAppState, action: any): CommonState => {
                 ...state,
                 searchActive: action.payload,
             };
-        case SELECT_ICON:
-            return {
-                ...state,
-                selectedIcon: action.payload,
-            };
-        case SET_ICON_SEARCH:
-            return {
-                ...state,
-                iconSearch: action.payload,
-            }
         default:
             return state;
     }

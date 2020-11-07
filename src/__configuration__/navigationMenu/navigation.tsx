@@ -1,7 +1,6 @@
 import React from 'react';
 import * as Docs from '../../docs';
 import { MarkdownPage, Resources, Roadmap, ReleaseNotes } from '../../app/pages';
-import { IconDrawer } from '../../app/components/icons/IconDrawer';
 
 export type SimpleNavItem = {
     title: string;
@@ -249,7 +248,7 @@ export const pageDefinitions: SimpleNavItem[] = [
                         markdown={Docs.Style.Iconography}
                         wideLayout
                         background={'dark'}
-                        drawer={<IconDrawer />}
+                        style={{ marginRight: 350 }}
                     />
                 ),
             },

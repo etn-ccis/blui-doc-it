@@ -15,9 +15,11 @@ export type DetailedIcon = {
 };
 export type IconType = {
     name: string;
+    type?: 'Outlined' | 'Two Tone' | 'Rounded' | 'Sharp' | 'Filled';
     isMaterial: boolean;
     tags: string[];
     categories: string[];
+    Icon?: any;
 };
 export type MatIconList = {
     [key: string]: (props: SvgIconProps) => JSX.Element;
