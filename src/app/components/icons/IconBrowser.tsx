@@ -96,6 +96,15 @@ Object.keys(MuiIcons)
         allIconsMap[`${iconKey}-material`] = icon;
 
         // add the icon details to the categorized icon list
+        if (iconDetails.categories.length === 0) {
+            if (/(Outlined|TwoTone|Rounded|Sharp)$/.test(iconKey)) {
+                // ignore the alternative styled options
+            } else {
+                const deprecatedLabel = 'obsolete material icons';
+                if (allIconsByCategory[deprecatedLabel]) allIconsByCategory[deprecatedLabel].push(icon);
+                else allIconsByCategory[deprecatedLabel] = [icon];
+            }
+        }
         for (let cat of iconDetails.categories) {
             cat = cat.toLocaleLowerCase();
             if (allIconsByCategory[cat]) allIconsByCategory[cat].push(icon);
@@ -112,7 +121,7 @@ Object.keys(PXBIcons)
     .map((iconKey) => {
         let searchableString = iconKey;
         const iconDetails: DetailedIcon | undefined = (pxbMetadata.icons as DetailedIcon[]).find(
-            (iconMeta) => iconMeta.name === getMuiIconName(iconKey)
+            (iconMeta) => getMuiIconName(iconMeta.filename) === iconKey
         ) || {
             name: '',
             filename: '',
@@ -276,7 +285,6 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                         </React.Fragment>
                     ) : null
                 )}
-
             <IconDrawer />
         </SelectedIconContext.Provider>
     );

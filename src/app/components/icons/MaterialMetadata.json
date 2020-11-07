@@ -2420,7 +2420,7 @@
             "version": 5,
             "unsupported_families": [],
             "categories": ["content"],
-            "tags": ["+", "-", "=", "account", "calculate", "count", "fiance", "math"],
+            "tags": ["+", "-", "\u003d", "account", "calculate", "count", "fiance", "math"],
             "sizes_px": [20, 24]
         },
         {
@@ -16798,7 +16798,7 @@
         },
         {
             "name": "table_rows",
-            "version": 7,
+            "version": 11,
             "unsupported_families": [],
             "categories": ["editor"],
             "tags": ["layout", "lines", "rows", "stacked", "table"],

@@ -45,6 +45,7 @@ const Icons: React.FC<IconGridProps> = (props) => {
         <Grid container spacing={2}>
             {icons.map((icon) => {
                 const isSelected = selected && selected.name === icon.name && selected.isMaterial === icon.isMaterial;
+                const iconDisplayName = unCamelCase(icon.name);
                 return (
                     <Grid
                         item
@@ -57,13 +58,15 @@ const Icons: React.FC<IconGridProps> = (props) => {
                         title={`${icon.name}-${icon.isMaterial ? 'material' : 'pxb'}`}
                     >
                         <div className={clsx(classes.wrapper, { [classes.selected]: isSelected })}>
-                            <icon.Icon style={{ fontSize: 36 }} />
+                            <icon.Icon
+                                style={{ fontSize: iconDisplayName.toLocaleLowerCase().includes('eaton') ? 24 : 36 }}
+                            />
                             <Typography
                                 variant="subtitle2"
                                 className={classes.label}
                                 color={isSelected ? 'primary' : 'textPrimary'}
                             >
-                                {unCamelCase(icon.name)}
+                                {iconDisplayName}
                             </Typography>
                         </div>
                     </Grid>
