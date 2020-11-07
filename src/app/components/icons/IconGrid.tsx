@@ -26,6 +26,7 @@ const useIconGridStyles = makeStyles((theme: Theme) => ({
         background: color(theme.palette.primary.main)
             .fade(0.9)
             .string(),
+        border: `1px solid ${theme.palette.primary.main}`,
         color: theme.palette.primary.main,
     },
     label: {

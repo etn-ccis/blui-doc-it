@@ -57,7 +57,6 @@ export const IconDrawer: React.FC = () => {
     const theme = useTheme();
     // eslint-disable-next-line
     const history = useHistory();
-    // const dispatch = useDispatch();
     const classes = useStyles(theme);
 
     const closeDrawer = (): void => {
@@ -96,7 +95,7 @@ export const IconDrawer: React.FC = () => {
                 {selectedIcon.name !== '' && (
                     <>
                         <div className={classes.iconNameRow}>
-                            <selectedIcon.Icon />
+                            <selectedIcon.Icon style={{ fontSize: 40 }} />
                             <div className={classes.iconNameRowDescription}>
                                 <Typography variant={'body1'}>{unCamelCase(selectedIcon.name)}</Typography>
                                 <Typography variant={'caption'}>

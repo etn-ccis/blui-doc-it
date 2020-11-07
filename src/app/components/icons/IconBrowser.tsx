@@ -10,9 +10,6 @@ import pxbMetadata from '@pxblue/icons-mui/index.json';
 // Types
 import { DetailedIcon, IconType } from '../../../__types__';
 
-// Material-UI Components
-// import { makeStyles, Theme } from '@material-ui/core';
-
 import { getMuiIconName } from './utilityFunctions';
 import { IconSearchBar } from './IconSearchBar';
 import { IconGrid } from './IconGrid';
@@ -20,53 +17,14 @@ import { IconDrawer } from './IconDrawer';
 import { SelectedIconContext } from '../../contexts/selectedIconContextProvider';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useQueryString } from '../../hooks/useQueryString';
+import { Typography, useTheme } from '@material-ui/core';
+import { titleCase } from '../../shared';
 
 type MaterialMeta = {
     icons: DetailedIcon[];
 };
 // eslint-disable-next-line
 const materialMetadata: MaterialMeta = require('./MaterialMetadata.json');
-
-// type CategoryGrouping = {
-//     [key: string]: IconType[];
-// };
-
-// const useStyles = makeStyles((theme: Theme) => ({
-//     section: {
-//         marginTop: theme.spacing(2),
-//         display: 'flex',
-//         flexWrap: 'wrap',
-//         fontSize: '36px',
-//         justifyContent: 'space-between',
-//     },
-//     groupHeader: {
-//         marginTop: theme.spacing(3),
-//     },
-// }));
-
-// const filterableCategories: Set<string> = new Set<string>();
-// const groupIconList = (icons: IconType[]): CategoryGrouping => {
-//     const groupings: CategoryGrouping = {};
-//     icons.forEach((icon: IconType) => {
-//         icon.categories.forEach((category: string) => {
-//             filterableCategories.add(capitalize(category));
-//             // Check if the material icon (from metadata) exists in our current version material icon library
-//             // Or PX Blue icon exists in our Metadata file
-//             if (
-//                 (icon.isMaterial && MaterialIcons[getMuiIconName(icon.name)]) ||
-//                 (!icon.isMaterial && PXBlueIcons[getMuiIconName(icon.name)])
-//             ) {
-//                 const cat = category.toLowerCase();
-//                 if (!groupings[cat]) {
-//                     groupings[cat] = [Object.assign(icon, {})];
-//                 } else {
-//                     groupings[cat].push(Object.assign(icon, {}));
-//                 }
-//             }
-//         });
-//     });
-//     return groupings;
-// };
 
 /*
  * GENERATE THE ICON LISTS AND SEARCH INDEX
@@ -79,8 +37,14 @@ type MuiIconClass = 'Outlined' | 'Two Tone' | 'Rounded' | 'Sharp' | 'Filled';
 type IconMapType = {
     [key: string]: IconType;
 };
+type IconCategoriesType = {
+    [key: string]: IconType[];
+};
 const allIconsMap: IconMapType = {};
-const allMuiIcons: IconType[] = Object.keys(MuiIcons)
+const allIconsByCategory: IconCategoriesType = {};
+
+// const allMuiIcons: IconType[] =
+Object.keys(MuiIcons)
     .sort()
     .map((iconKey) => {
         let type: MuiIconClass;
@@ -99,9 +63,20 @@ const allMuiIcons: IconType[] = Object.keys(MuiIcons)
         let searchableString = iconKey.replace(/(Outlined|TwoTone|Rounded|Sharp)$/, '');
         const iconDetails: DetailedIcon | undefined = materialMetadata.icons.find(
             (iconMeta) => getMuiIconName(iconMeta.name) === iconKey
-        );
+        ) || {
+            name: '',
+            filename: '',
+            family: [],
+            categories: [],
+            style: '',
+            tags: [],
+            description: '',
+            author: '',
+            size: 0,
+        };
 
-        if (iconDetails) searchableString += iconDetails.tags.join(' ');
+        // add the name and tags to the search index
+        searchableString += iconDetails.tags.join(' ');
         // @ts-ignore
         searchIndex.add(`${iconKey}-material`, searchableString);
 
@@ -109,22 +84,47 @@ const allMuiIcons: IconType[] = Object.keys(MuiIcons)
             name: iconKey,
             type,
             isMaterial: true,
-            tags: iconDetails?.tags || [],
-            categories: iconDetails?.categories || [],
+            tags: iconDetails.tags || [],
+            categories: iconDetails.categories || [],
             // @ts-ignore
             Icon: MuiIcons[iconKey],
         };
+
+        // add the icon details to the allIcons map
         allIconsMap[`${iconKey}-material`] = icon;
+
+        // add the icon details to the categorized icon list
+        for (let cat of iconDetails.categories) {
+            cat = cat.toLocaleLowerCase();
+            if (allIconsByCategory[cat]) allIconsByCategory[cat].push(icon);
+            else allIconsByCategory[cat] = [icon];
+        }
+
+        // return the icon
         return icon;
     });
-const allPxbIcons: IconType[] = Object.keys(PXBIcons)
+
+// const allPxbIcons: IconType[] =
+Object.keys(PXBIcons)
     .sort()
     .map((iconKey) => {
         let searchableString = iconKey;
         const iconDetails: DetailedIcon | undefined = (pxbMetadata.icons as DetailedIcon[]).find(
             (iconMeta) => iconMeta.name === getMuiIconName(iconKey)
-        );
-        if (iconDetails) searchableString += iconDetails.tags.join(' ');
+        ) || {
+            name: '',
+            filename: '',
+            family: [],
+            categories: [],
+            style: '',
+            tags: [],
+            description: '',
+            author: '',
+            size: 0,
+        };
+
+        // add the name and tags to the search index
+        searchableString += iconDetails.tags.join(' ');
         // @ts-ignore
         searchIndex.add(`${iconKey}-pxb`, searchableString);
 
@@ -132,23 +132,41 @@ const allPxbIcons: IconType[] = Object.keys(PXBIcons)
             name: iconKey,
             type: 'Filled',
             isMaterial: false,
-            tags: iconDetails?.tags || [],
-            categories: iconDetails?.family || [],
+            tags: iconDetails.tags || [],
+            categories: iconDetails.family || [],
             // @ts-ignore
             Icon: PXBIcons[iconKey],
         };
+
+        // add the icon details to the allIcons map
         allIconsMap[`${iconKey}-pxb`] = icon;
+
+        // add the icon details to the categorized icon list
+        for (let cat of iconDetails.family) {
+            cat = cat.toLocaleLowerCase();
+            if (allIconsByCategory[cat]) allIconsByCategory[cat].push(icon);
+            else allIconsByCategory[cat] = [icon];
+        }
+
+        // return the icon
         return icon;
     });
-const allIcons: IconType[] = allMuiIcons.concat(allPxbIcons).sort((iconA, iconB) => (iconA.name < iconB.name ? -1 : 1));
 
+// Uncomment this if you want to use a single list of icons instead of categories
+// const allIcons: IconType[] = allMuiIcons.concat(allPxbIcons).sort((iconA, iconB) => (iconA.name < iconB.name ? -1 : 1));
+
+/*
+ * The Icon Browser Component is a container for all of the pieces of the icon display
+ * It includes the search bar, the icon grid itself, and the details drawer.
+ */
 export const IconBrowser: React.FC = (): JSX.Element => {
-    // const classes = useStyles();
+    const theme = useTheme();
     const history = useHistory();
     const location = useLocation();
     const { icon: iconQuery, isMaterial: materialQuery } = useQueryString();
     const isMaterial = materialQuery === 'true';
     const [iconKeys, setIconKeys] = useState<string[] | null>(null);
+    const [iconCategories, setIconCategories] = useState<string[] | null>(null);
     const [selectedIcon, setSelectedIcon] = React.useState<IconType | undefined>(
         allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'pxb'}`]
     );
@@ -170,7 +188,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
         };
     }, []);
 
-    const handleChange = useMemo(
+    const handleSearchChange = useMemo(
         () =>
             debounce((value) => {
                 if (!isMounted.current) {
@@ -188,37 +206,72 @@ export const IconBrowser: React.FC = (): JSX.Element => {
         []
     );
 
-    const icons = useMemo(
+    const handleCategoryChange = useMemo(
         () =>
-            (iconKeys === null ? allIcons : iconKeys.map((key) => allIconsMap[key])).filter(
-                (icon) => type === icon.type
-            ),
-        [/*tag,*/ iconKeys]
+            debounce((value) => {
+                if (!isMounted.current) {
+                    return;
+                }
+
+                if (value.length === 0) {
+                    setIconCategories(null);
+                } else {
+                    setIconCategories(value);
+                }
+            }, 220),
+        []
     );
 
-    // console.log('redering the icon browser');
+    // Uncomment this if you prefer to display all of the icons in a single group without categories
+    // const icons = useMemo(
+    //     () =>
+    //         (iconKeys === null ? allIcons : iconKeys.map((key) => allIconsMap[key])).filter(
+    //             (icon) => type === icon.type
+    //         ),
+    //     [/*type,*/ iconKeys]
+    // );
 
-    // const filteredIconList: IconType[] = icons; //.filter((icon: IconType): boolean => {
-    //     const searchQuery = (iconSearchQuery || '').toLocaleLowerCase().trim();
-    //     if (!searchQuery) return true;
-    //     if (icon.name.toLocaleLowerCase().includes(searchQuery)) {
-    //         return true;
-    //     }
-    //     for (const tag of icon.tags) {
-    //         if (tag.toLocaleLowerCase().includes(searchQuery)) return true;
-    //     }
-    //     return false;
-    // });
-    // const groupedIcons = groupIconList(filteredIconList);
+    const iconsByCategory = useMemo(() => {
+        if (iconKeys === null) return allIconsByCategory;
+        const filteredCategories: IconCategoriesType = {};
+        for (const category of Object.keys(allIconsByCategory)) {
+            filteredCategories[category] = allIconsByCategory[category].filter(
+                (icon) =>
+                    iconKeys.includes(`${icon.name}-${icon.isMaterial ? 'material' : 'pxb'}`) && icon.type === type
+            );
+        }
+        return filteredCategories;
+    }, [/*type,*/ iconKeys]);
 
     return (
         <SelectedIconContext.Provider value={{ selectedIcon }}>
             <IconSearchBar
                 onSearchChange={(event): void => {
-                    handleChange(event.target.value);
+                    handleSearchChange(event.target.value);
                 }}
+                onCategoriesChanged={(event): void => {
+                    handleCategoryChange(event.target.value);
+                }}
+                iconCategories={Object.keys(iconsByCategory).sort()}
             />
-            <IconGrid icons={icons} onIconSelected={handleSelect} />
+
+            {Object.keys(iconsByCategory)
+                .sort()
+                .map((category) =>
+                    iconsByCategory[category].length > 0 &&
+                    (iconCategories === null || iconCategories.includes(category)) ? (
+                        <React.Fragment key={`category_${category}`}>
+                            <Typography
+                                variant={'h6'}
+                                style={{ marginTop: theme.spacing(3), marginBottom: theme.spacing(3) }}
+                            >
+                                {titleCase(category)}
+                            </Typography>
+                            <IconGrid icons={iconsByCategory[category]} onIconSelected={handleSelect} />
+                        </React.Fragment>
+                    ) : null
+                )}
+
             <IconDrawer />
         </SelectedIconContext.Provider>
     );

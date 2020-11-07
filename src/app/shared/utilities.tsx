@@ -20,6 +20,8 @@ export const unCamelCase = (val: string): string =>
 export const titleCase = (val: string): string =>
     val.replace('-', ' ').replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
 
+export const capitalize = (val: string): string => val.charAt(0).toUpperCase() + val.substr(1);
+
 // https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript
 function fallbackCopyTextToClipboard(text: string): void {
     const textArea = document.createElement('textarea');
