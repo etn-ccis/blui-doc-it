@@ -5,6 +5,8 @@ import { useBackgroundColor } from '../hooks/useBackgroundColor';
 import { useTheme } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
+import { useSelector } from 'react-redux';
+import { AppState } from '../redux/reducers';
 
 export type MarkdownPageProps = HTMLAttributes<HTMLDivElement> & {
     title: string;
@@ -12,13 +14,16 @@ export type MarkdownPageProps = HTMLAttributes<HTMLDivElement> & {
     noPadding?: boolean;
     background?: string;
     wideLayout?: boolean;
+    sidebar?: boolean;
 };
 
 export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element => {
-    const { title, markdown: Markdown, noPadding, background, wideLayout, ...divProps } = props;
+    const { title, markdown: Markdown, noPadding, background, wideLayout, sidebar, ...divProps } = props;
     usePageTitle(title);
     useGoogleAnalyticsPageView();
     const theme = useTheme();
+    const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
+
     let backgroundColor = background;
     if (background === 'light') {
         backgroundColor = theme.palette.background.paper;
@@ -29,7 +34,14 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element =>
 
     return (
         <div {...divProps}>
-            <PageContent noPadding={noPadding} wideLayout={wideLayout}>
+            <PageContent
+                noPadding={noPadding}
+                wideLayout={wideLayout}
+                style={{
+                    marginRight: sidebar && sidebarOpen ? 350 : 0,
+                    transition: `margin ${theme.transitions.duration.standard} ${theme.transitions.easing.easeInOut}`,
+                }}
+            >
                 <Markdown />
             </PageContent>
         </div>

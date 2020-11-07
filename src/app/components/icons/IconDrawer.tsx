@@ -26,6 +26,9 @@ import { downloadPng, downloadSvg } from './utilityFunctions';
 import * as Colors from '@pxblue/colors';
 import { DeveloperInstructionsPanel } from './DeveloperInstructions';
 import { useSelectedIcon } from '../../contexts/selectedIconContextProvider';
+import { useDispatch, useSelector } from 'react-redux';
+import { TOGGLE_SIDEBAR } from '../../redux/actions';
+import { AppState } from '../../redux/reducers';
 
 const useStyles = makeStyles((theme: Theme) => ({
     drawer: {
@@ -55,20 +58,21 @@ export const IconDrawer: React.FC = () => {
     const { selectedIcon = emptyIcon } = useSelectedIcon();
 
     const theme = useTheme();
-    // eslint-disable-next-line
     const history = useHistory();
+    const dispatch = useDispatch();
     const classes = useStyles(theme);
+    const drawerOpen = useSelector((state: AppState) => state.app.sidebarOpen);
 
     const closeDrawer = (): void => {
-        // history.replace(`${location.pathname}`);
-        // dispatch({ type: SELECT_ICON, payload: emptyIcon });
+        history.replace(`${location.pathname}`);
+        dispatch({ type: TOGGLE_SIDEBAR, payload: false });
     };
 
     return (
         <MuiDrawer
             anchor={'right'}
-            variant={'permanent'}
-            open={Boolean(selectedIcon)}
+            variant={'persistent'}
+            open={drawerOpen}
             onClose={closeDrawer}
             classes={{ paper: classes.drawer }}
         >

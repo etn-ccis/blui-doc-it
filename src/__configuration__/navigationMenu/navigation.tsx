@@ -248,7 +248,7 @@ export const pageDefinitions: SimpleNavItem[] = [
                         markdown={Docs.Style.Iconography}
                         wideLayout
                         background={'dark'}
-                        style={{ marginRight: 350 }}
+                        sidebar
                     />
                 ),
             },

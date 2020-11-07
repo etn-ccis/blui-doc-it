@@ -19,6 +19,8 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { useQueryString } from '../../hooks/useQueryString';
 import { Typography, useTheme } from '@material-ui/core';
 import { titleCase } from '../../shared';
+import { useDispatch } from 'react-redux';
+import { TOGGLE_SIDEBAR } from '../../redux/actions';
 
 type MaterialMeta = {
     icons: DetailedIcon[];
@@ -163,6 +165,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     const theme = useTheme();
     const history = useHistory();
     const location = useLocation();
+    const dispatch = useDispatch();
     const { icon: iconQuery, isMaterial: materialQuery } = useQueryString();
     const isMaterial = materialQuery === 'true';
     const [iconKeys, setIconKeys] = useState<string[] | null>(null);
@@ -174,10 +177,12 @@ export const IconBrowser: React.FC = (): JSX.Element => {
 
     const handleSelect = useCallback((event) => {
         const iconName = event.currentTarget.getAttribute('title').split('-');
+
+        setSelectedIcon(allIconsMap[iconName.join('-')]);
         history.replace(
             `${location.pathname}?icon=${iconName[0]}&isMaterial=${iconName[1] === 'material' ? true : false}`
         );
-        setSelectedIcon(allIconsMap[iconName.join('-')]);
+        dispatch({ type: TOGGLE_SIDEBAR, payload: true });
     }, []);
 
     const isMounted = useRef(false);

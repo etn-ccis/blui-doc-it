@@ -52,7 +52,6 @@ const Icons: React.FC<IconGridProps> = (props) => {
                         sm={6}
                         md={3}
                         lg={2}
-                        xl={1}
                         key={`${icon.name}_${icon.isMaterial ? 'material' : 'pxblue'}`}
                         onClick={onIconSelected}
                         title={`${icon.name}-${icon.isMaterial ? 'material' : 'pxb'}`}

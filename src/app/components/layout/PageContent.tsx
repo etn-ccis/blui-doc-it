@@ -14,18 +14,20 @@ export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
     useBackgroundColor(backgroundColor);
 
     return (
-        <div
-            style={Object.assign(
-                {
-                    padding: noPadding ? 0 : PADDING,
-                    maxWidth: wideLayout ? PAGE_WIDTH.WIDE : PAGE_WIDTH.REGULAR,
-                    margin: '0 auto',
-                },
-                style
-            )}
-            {...other}
-        >
-            {children}
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div
+                style={Object.assign(
+                    {
+                        padding: noPadding ? 0 : PADDING,
+                        maxWidth: wideLayout ? PAGE_WIDTH.WIDE : PAGE_WIDTH.REGULAR,
+                        // margin: '0 auto',
+                    },
+                    style
+                )}
+                {...other}
+            >
+                {children}
+            </div>
         </div>
     );
 };
