@@ -91,6 +91,7 @@ Object.keys(MuiIcons)
 
         const icon: IconType = {
             name: iconKey,
+            iconFontKey: iconDetails.name,
             type,
             isMaterial: true,
             tags: iconDetails.tags || [],
@@ -148,6 +149,7 @@ Object.keys(PXBIcons)
 
         const icon: IconType = {
             name: iconKey,
+            iconFontKey: iconDetails.name,
             type: 'Filled',
             isMaterial: false,
             tags: iconDetails.tags || [],

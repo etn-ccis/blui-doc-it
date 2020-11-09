@@ -15,6 +15,7 @@ export type DetailedIcon = {
 };
 export type IconType = {
     name: string;
+    iconFontKey: string;
     type?: 'Outlined' | 'Two Tone' | 'Rounded' | 'Sharp' | 'Filled';
     isMaterial: boolean;
     tags: string[];

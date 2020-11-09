@@ -6,7 +6,7 @@ export * from './IconSearchBar';
 export * from './IconDrawer';
 export * from './ProgressIconCard';
 
-export const emptyIcon: IconType = { name: '', isMaterial: true, tags: [], categories: [] };
+export const emptyIcon: IconType = { name: '', iconFontKey: '', isMaterial: true, tags: [], categories: [] };
 export const emptyIconDetails: DetailedIcon = {
     name: '',
     filename: '',

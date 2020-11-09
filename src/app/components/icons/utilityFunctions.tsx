@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconType } from '../../../__types__';
-import { getKebabCase, getSnakeCase } from '../../shared';
+import { getSnakeCase, snakeToKebabCase } from '../../shared';
 
 export type Framework = 'angular' | 'react' | 'react-native';
 
@@ -33,11 +33,12 @@ export const getIconFontInstructions = (framework: Framework, icon: IconType): s
     switch (framework) {
         case 'react':
             if (icon.isMaterial) {
-                return `import Icon from '@material-ui/core/Icon';\n<Icon>${getSnakeCase(icon.name)}</Icon>`;
+                return `import Icon from '@material-ui/core/Icon';\n<Icon>${icon.iconFontKey}</Icon>`;
             }
             return `<i className="pxb-${getSnakeCase(icon.name)}"></i>`;
         case 'angular':
-            return `<i class="${!icon.isMaterial ? 'pxb-' : ''}${getSnakeCase(icon.name)}"></i>`;
+            if (icon.isMaterial) return `<span class="material-icons">${icon.iconFontKey}</span>`;
+            return `<i class="pxb-${getSnakeCase(icon.name)}"></i>`;
         default:
             return '';
     }
@@ -52,14 +53,15 @@ export const getIconFontExample = (framework: Framework, icon: IconType): JSX.El
                         <>
                             {`import Icon from '@material-ui/core/Icon';`}
                             <br />
-                            {`<Icon>${getSnakeCase(icon.name)}</Icon>`}
+                            {`<Icon>${icon.iconFontKey}</Icon>`}
                         </>
                     )}
                     {!icon.isMaterial && `<i className="pxb-${getSnakeCase(icon.name)}"></i>`}
                 </>
             );
         case 'angular':
-            return <>{`<i class="${!icon.isMaterial ? 'pxb-' : ''}${getSnakeCase(icon.name)}"></i>`}</>;
+            if (icon.isMaterial) return <>{`<span class="material-icons">${icon.iconFontKey}</span>`}</>;
+            return <>{`<i class="pxb-${getSnakeCase(icon.name)}"></i>`}</>;
         default:
             return <></>;
     }
@@ -71,21 +73,23 @@ export const getIconSvgInstructions = (framework: Framework, icon: IconType): st
             if (icon.isMaterial) {
                 return `import ${icon.name}Icon from '@material-ui/icons/${icon.name}';\n<${icon.name}Icon></${icon.name}Icon>`;
             }
-            return `const icon = require('@pxblue/icons-svg/${getSnakeCase(icon.name)}.svg');\n<img src={icon}/>`;
+            return `import ${getMuiIconName(icon.name)} from '@pxblue/icons-svg/${getSnakeCase(
+                icon.name
+            )}.svg';\n<img src={${getMuiIconName(icon.name)}} />`;
         case 'angular':
             if (icon.isMaterial) {
-                return `<mat-icon>${getSnakeCase(icon.name)}</mat-icon>`;
+                return `<mat-icon>${icon.iconFontKey}</mat-icon>`;
             }
-            return `<mat-icon svgIcon="${getSnakeCase(icon.name)}"></mat-icon>`;
+            return `<mat-icon svgIcon="px-icons:${getSnakeCase(icon.name)}"></mat-icon>`;
         case 'react-native':
             if (icon.isMaterial) {
-                return `import Icon from 'react-native-vector-icons/MaterialIcons';\nconst myIcon = <Icon name="${getKebabCase(
-                    icon.name
+                return `import MatIcon from 'react-native-vector-icons/MaterialIcons';\n<MatIcon name="${snakeToKebabCase(
+                    icon.iconFontKey
                 )}"/>;`;
             }
-            return `import ${icon.name} from '@pxblue/icons-svg/${getSnakeCase(icon.name)}.svg';\nconst myIcon = <${
+            return `import ${icon.name} from '@pxblue/icons-svg/${getSnakeCase(icon.name)}.svg';\n<${
                 icon.name
-            } />`;
+            } width={24} height={24} fill={'black'} />`;
         default:
             return '';
     }
@@ -98,9 +102,11 @@ export const getIconSvgExample = (framework: Framework, icon: IconType): JSX.Ele
                 <>
                     {!icon.isMaterial && (
                         <>
-                            {`const icon = require('@pxblue/icons-svg/${getSnakeCase(icon.name)}.svg');`}
+                            {`import ${getMuiIconName(icon.name)} from '@pxblue/icons-svg/${getSnakeCase(
+                                icon.name
+                            )}.svg';`}
                             <br />
-                            {`<img src={icon}/>`}
+                            {`<img src={${getMuiIconName(icon.name)}} />`}
                         </>
                     )}
                 </>
@@ -108,8 +114,8 @@ export const getIconSvgExample = (framework: Framework, icon: IconType): JSX.Ele
         case 'angular':
             return (
                 <>
-                    {icon.isMaterial && `<mat-icon>${getSnakeCase(icon.name)}</mat-icon>`}
-                    {!icon.isMaterial && `<mat-icon svgIcon="${getSnakeCase(icon.name)}"></mat-icon>`}
+                    {icon.isMaterial && `<mat-icon>${icon.iconFontKey}</mat-icon>`}
+                    {!icon.isMaterial && `<mat-icon svgIcon="px-icons:${getSnakeCase(icon.name)}"></mat-icon>`}
                 </>
             );
         case 'react-native':
@@ -117,16 +123,16 @@ export const getIconSvgExample = (framework: Framework, icon: IconType): JSX.Ele
                 <>
                     {icon.isMaterial && (
                         <>
-                            {`import Icon from 'react-native-vector-icons/MaterialIcons';`}
+                            {`import MatIcon from 'react-native-vector-icons/MaterialIcons';`}
                             <br />
-                            {`const myIcon = <Icon name="${getKebabCase(icon.name)}"/>;`}
+                            {`<MatIcon name="${snakeToKebabCase(icon.iconFontKey)}"/>`}
                         </>
                     )}
                     {!icon.isMaterial && (
                         <>
                             {`import ${icon.name} from '@pxblue/icons-svg/${getSnakeCase(icon.name)}.svg';`}
                             <br />
-                            {`const myIcon = <${icon.name} />`}
+                            {`<${icon.name} width={24} height={24} fill={'black'} />`}
                         </>
                     )}
                 </>
@@ -139,9 +145,9 @@ export const getIconSvgExample = (framework: Framework, icon: IconType): JSX.Ele
 export const getIconComponentInstructions = (framework: Framework, icon: IconType): string => {
     switch (framework) {
         case 'react':
-            return `import ${icon.name}Icon from ${icon.isMaterial ? '@material-ui/icons/' : '@pxblue/icons-mui/'}${
+            return `import { ${icon.name} } from '${icon.isMaterial ? '@material-ui/icons' : '@pxblue/icons-mui'}';\n<${
                 icon.name
-            }';\n<${icon.name}Icon></${icon.name}Icon>`;
+            } />`;
         default:
             return '';
     }
@@ -152,11 +158,9 @@ export const getIconComponentExample = (framework: Framework, icon: IconType): J
         case 'react':
             return (
                 <>
-                    {`import ${icon.name}Icon from ${icon.isMaterial ? '@material-ui/icons/' : '@pxblue/icons-mui/'}${
-                        icon.name
-                    }';`}
+                    {`import { ${icon.name} } from '${icon.isMaterial ? '@material-ui/icons' : '@pxblue/icons-mui'}';`}
                     <br />
-                    {`<${icon.name}Icon></${icon.name}Icon>`}
+                    {`<${icon.name} />`}
                 </>
             );
         default:
