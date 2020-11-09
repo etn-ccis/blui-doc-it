@@ -63,9 +63,15 @@ Object.keys(MuiIcons)
             type = 'Filled';
         }
 
+        // Special-Case Icons
+        let searchName = iconKey;
+        if (iconKey === 'ThreeDRotation') searchName = '3dRotation';
+        else if (iconKey === 'ThreeSixty') searchName = '360';
+        else if (iconKey === 'FourK') searchName = '4k';
+
         let searchableString = iconKey.replace(/(Outlined|TwoTone|Rounded|Sharp)$/, '');
         const iconDetails: DetailedIcon | undefined = materialMetadata.icons.find(
-            (iconMeta) => getMuiIconName(iconMeta.name) === iconKey
+            (iconMeta) => getMuiIconName(iconMeta.name) === searchName
         ) || {
             name: '',
             filename: '',
@@ -78,6 +84,9 @@ Object.keys(MuiIcons)
             size: 0,
         };
 
+        //eslint-disable-next-line
+        if (iconKey === 'ThreeDRotation') console.log(iconDetails.name);
+
         // add the name and tags to the search index
         searchableString += iconDetails.tags.join(' ');
         // @ts-ignore
@@ -85,6 +94,7 @@ Object.keys(MuiIcons)
 
         const icon: IconType = {
             name: iconKey,
+            iconFontKey: iconDetails.name,
             type,
             isMaterial: true,
             tags: iconDetails.tags || [],
@@ -142,6 +152,7 @@ Object.keys(PXBIcons)
 
         const icon: IconType = {
             name: iconKey,
+            iconFontKey: iconDetails.name,
             type: 'Filled',
             isMaterial: false,
             tags: iconDetails.tags || [],
