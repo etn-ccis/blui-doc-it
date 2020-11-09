@@ -10,7 +10,16 @@ import { useSelector } from 'react-redux';
 
 import { pageDefinitions } from '../../__configuration__/navigationMenu/navigation';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
-import { AppBar, Toolbar, Typography, makeStyles, createStyles, useTheme, useMediaQuery } from '@material-ui/core';
+import {
+    AppBar,
+    Toolbar,
+    Typography,
+    makeStyles,
+    createStyles,
+    useTheme,
+    useMediaQuery,
+    Theme,
+} from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
 
 const buildRoutes = (routes: any[], url: string): JSX.Element[] => {
@@ -30,7 +39,7 @@ const buildRoutes = (routes: any[], url: string): JSX.Element[] => {
     return ret;
 };
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         footer: {
             zIndex: 0,
@@ -38,6 +47,7 @@ const useStyles = makeStyles(() =>
             textAlign: 'center',
             marginTop: '50vh',
             transform: 'inherit',
+            transition: `width ${theme.transitions.duration.standard} ${theme.transitions.easing.easeInOut}`,
         },
     })
 );
@@ -59,6 +69,7 @@ export const MainRouter = (): JSX.Element => {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const toolbarHeight = isMobile ? 104 : 112;
     const className = getScheduledSiteConfig().className;
+    const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
 
     return (
         <Router>
@@ -83,7 +94,12 @@ export const MainRouter = (): JSX.Element => {
                                 </Switch>
                             </div>
                             {/* Footer Section */}
-                            <AppBar position={'static'} className={classes.footer} elevation={0}>
+                            <AppBar
+                                position={'static'}
+                                className={classes.footer}
+                                elevation={0}
+                                style={{ width: `calc(100% - ${sidebarOpen ? 350 : 0}px)` }}
+                            >
                                 <Toolbar variant={'dense'}>
                                     <Typography variant={'caption'} align={'center'} style={{ flex: '1 1 0px' }}>
                                         {`Copyright ${new Date().getFullYear()} Eaton. Licensed under BSD-3-Clause.`}

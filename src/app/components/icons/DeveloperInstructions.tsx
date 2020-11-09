@@ -11,6 +11,7 @@ import {
     AccordionSummary as MuiAccordionSummary,
     AccordionDetails as MuiAccordionDetails,
     AccordionProps,
+    Divider,
 } from '@material-ui/core';
 
 import { ArrowDropDown, FileCopy } from '@material-ui/icons';
@@ -50,6 +51,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     expandIcon: {
         color: Colors.gray[500],
     },
+    expanded: {},
 }));
 
 const Accordion = withStyles((theme: Theme) => ({
@@ -59,8 +61,9 @@ const Accordion = withStyles((theme: Theme) => ({
         '&$expanded': {
             margin: 0,
             borderLeft: `solid 6px ${theme.palette.primary.main}`,
-            borderTop: `solid 1px ${theme.palette.divider}`,
-            borderBottom: `solid 1px ${theme.palette.divider}`,
+        },
+        '&:before': {
+            opacity: 0,
         },
     },
     expanded: {},
@@ -90,20 +93,24 @@ export const DeveloperInstructionsPanel: React.FC = (): JSX.Element => {
     const theme = useTheme();
     const { selectedIcon: icon = emptyIcon } = useSelectedIcon();
     const [activeFramework, setActiveFramework] = useState<Framework | undefined>(undefined);
+    const frameworks: Framework[] = ['angular', 'react', 'react-native'];
 
     return (
         <>
             <Typography display={'block'} variant={'overline'} style={{ padding: theme.spacing(2) }}>
                 Developer Usage
             </Typography>
-            {(['angular', 'react', 'react-native'] as Framework[]).map((framework) => (
-                <DeveloperInstructionAccordion
-                    key={`instructions_${framework}`}
-                    framework={framework}
-                    icon={icon}
-                    expanded={activeFramework === framework}
-                    onChange={(): void => setActiveFramework(activeFramework === framework ? undefined : framework)}
-                />
+            <Divider />
+            {frameworks.map((framework) => (
+                <React.Fragment key={`instructions_${framework}`}>
+                    <DeveloperInstructionAccordion
+                        framework={framework}
+                        icon={icon}
+                        expanded={activeFramework === framework}
+                        onChange={(): void => setActiveFramework(activeFramework === framework ? undefined : framework)}
+                    />
+                    <Divider />
+                </React.Fragment>
             ))}
         </>
     );

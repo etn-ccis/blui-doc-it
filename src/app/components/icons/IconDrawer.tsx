@@ -164,7 +164,6 @@ export const IconDrawer: React.FC = () => {
                         <Divider />
 
                         <DeveloperInstructionsPanel />
-                        <Divider />
 
                         <div style={{ padding: 16 }}>
                             <Typography variant={'subtitle2'} align={'center'}>
