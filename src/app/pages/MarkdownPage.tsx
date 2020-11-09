@@ -40,6 +40,7 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element =>
                 style={{
                     marginRight: sidebar && sidebarOpen ? 350 : 0,
                     transition: `margin ${theme.transitions.duration.standard} ${theme.transitions.easing.easeInOut}`,
+                    minWidth: 0,
                 }}
             >
                 <Markdown />

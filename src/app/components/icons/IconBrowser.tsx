@@ -21,6 +21,7 @@ import { Typography, useTheme } from '@material-ui/core';
 import { titleCase } from '../../shared';
 import { useDispatch } from 'react-redux';
 import { TOGGLE_SIDEBAR } from '../../redux/actions';
+import { EmptyState } from '@pxblue/react-components';
 
 type MaterialMeta = {
     icons: DetailedIcon[];
@@ -179,10 +180,14 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     const isMaterial = materialQuery === 'true';
     const [iconKeys, setIconKeys] = useState<string[] | null>(null);
     const [iconCategories, setIconCategories] = useState<string[] | null>(null);
-    const [selectedIcon, setSelectedIcon] = React.useState<IconType | undefined>(
-        allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'pxb'}`]
-    );
-    const type = 'Filled';
+    const [selectedIcon, setSelectedIcon] = React.useState<IconType | undefined>(() => {
+        if (allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'pxb'}`]) {
+            dispatch({ type: TOGGLE_SIDEBAR, payload: true });
+            return allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'pxb'}`];
+        }
+        return undefined;
+    });
+    const type = 'Filled'; // Future: allow users to select the style of icons to view
 
     const handleSelect = useCallback((event) => {
         const iconName = event.currentTarget.getAttribute('title').split('-');
@@ -257,6 +262,12 @@ export const IconBrowser: React.FC = (): JSX.Element => {
         return filteredCategories;
     }, [/*type,*/ iconKeys]);
 
+    let resultsCount = 0;
+    for (const category of Object.keys(iconsByCategory)) {
+        if (iconCategories === null || iconCategories.includes(category))
+            resultsCount += iconsByCategory[category].length;
+    }
+
     return (
         <SelectedIconContext.Provider value={{ selectedIcon }}>
             <IconSearchBar
@@ -269,22 +280,32 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                 iconCategories={Object.keys(iconsByCategory).sort()}
             />
 
-            {Object.keys(iconsByCategory)
-                .sort()
-                .map((category) =>
-                    iconsByCategory[category].length > 0 &&
-                    (iconCategories === null || iconCategories.includes(category)) ? (
-                        <React.Fragment key={`category_${category}`}>
-                            <Typography
-                                variant={'h6'}
-                                style={{ marginTop: theme.spacing(3), marginBottom: theme.spacing(3) }}
-                            >
-                                {titleCase(category)}
-                            </Typography>
-                            <IconGrid icons={iconsByCategory[category]} onIconSelected={handleSelect} />
-                        </React.Fragment>
-                    ) : null
-                )}
+            {resultsCount > 0 && <Typography variant={'caption'}>{resultsCount} Icons</Typography>}
+            {resultsCount > 0 &&
+                Object.keys(iconsByCategory)
+                    .sort()
+                    .map((category) =>
+                        iconsByCategory[category].length > 0 &&
+                        (iconCategories === null || iconCategories.includes(category)) ? (
+                            <React.Fragment key={`category_${category}`}>
+                                <Typography
+                                    variant={'h6'}
+                                    style={{ marginTop: theme.spacing(3), marginBottom: theme.spacing(3) }}
+                                >
+                                    {titleCase(category)}
+                                </Typography>
+                                <IconGrid icons={iconsByCategory[category]} onIconSelected={handleSelect} />
+                            </React.Fragment>
+                        ) : null
+                    )}
+            {resultsCount === 0 && (
+                <EmptyState
+                    title={'0 Matches'}
+                    description={'No icons matched your filters.'}
+                    icon={<MuiIcons.Search fontSize={'inherit'} />}
+                    style={{ height: 300, minHeight: 300 }}
+                />
+            )}
             <IconDrawer />
         </SelectedIconContext.Provider>
     );
