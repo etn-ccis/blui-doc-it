@@ -84,9 +84,6 @@ Object.keys(MuiIcons)
             size: 0,
         };
 
-        //eslint-disable-next-line
-        if (iconKey === 'ThreeDRotation') console.log(iconDetails.name);
-
         // add the name and tags to the search index
         searchableString += iconDetails.tags.join(' ');
         // @ts-ignore
@@ -94,7 +91,6 @@ Object.keys(MuiIcons)
 
         const icon: IconType = {
             name: iconKey,
-            iconFontKey: iconDetails.name,
             type,
             isMaterial: true,
             tags: iconDetails.tags || [],
@@ -152,7 +148,6 @@ Object.keys(PXBIcons)
 
         const icon: IconType = {
             name: iconKey,
-            iconFontKey: iconDetails.name,
             type: 'Filled',
             isMaterial: false,
             tags: iconDetails.tags || [],
