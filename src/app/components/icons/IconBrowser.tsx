@@ -189,6 +189,10 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     });
     const type = 'Filled'; // Future: allow users to select the style of icons to view
 
+    useEffect(() => {
+        if (!iconQuery || iconQuery === '') setSelectedIcon(undefined);
+    }, [iconQuery, setSelectedIcon]);
+
     const handleSelect = useCallback((event) => {
         const iconName = event.currentTarget.getAttribute('title').split('-');
 

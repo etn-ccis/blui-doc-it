@@ -13,6 +13,7 @@ import {
     Typography,
     useTheme,
     makeStyles,
+    useMediaQuery,
 } from '@material-ui/core';
 import { EmptyState, Spacer } from '@pxblue/react-components';
 
@@ -32,6 +33,7 @@ import { AppState } from '../../redux/reducers';
 
 const useStyles = makeStyles((theme: Theme) => ({
     drawer: {
+        maxWidth: '80%',
         width: 350,
         display: 'flex',
         flexDirection: 'column',
@@ -62,6 +64,7 @@ export const IconDrawer: React.FC = () => {
     const dispatch = useDispatch();
     const classes = useStyles(theme);
     const drawerOpen = useSelector((state: AppState) => state.app.sidebarOpen);
+    const sm = useMediaQuery(theme.breakpoints.down('sm'));
 
     const closeDrawer = (): void => {
         history.replace(`${location.pathname}`);
@@ -71,7 +74,7 @@ export const IconDrawer: React.FC = () => {
     return (
         <MuiDrawer
             anchor={'right'}
-            variant={'persistent'}
+            variant={sm ? 'temporary' : 'persistent'}
             open={drawerOpen}
             onClose={closeDrawer}
             classes={{ paper: classes.drawer }}

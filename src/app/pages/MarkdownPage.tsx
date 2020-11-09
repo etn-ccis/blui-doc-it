@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from 'react';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { PageContent } from '../components';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
-import { useTheme } from '@material-ui/core';
+import { useMediaQuery, useTheme } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 import { useSelector } from 'react-redux';
@@ -23,6 +23,7 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element =>
     useGoogleAnalyticsPageView();
     const theme = useTheme();
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
+    const sm = useMediaQuery(theme.breakpoints.down('sm'));
 
     let backgroundColor = background;
     if (background === 'light') {
@@ -38,7 +39,7 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element =>
                 noPadding={noPadding}
                 wideLayout={wideLayout}
                 style={{
-                    marginRight: sidebar && sidebarOpen ? 350 : 0,
+                    marginRight: sidebar && sidebarOpen ? (sm ? 0 : 350) : 0,
                     transition: `margin ${theme.transitions.duration.standard} ${theme.transitions.easing.easeInOut}`,
                     minWidth: 0,
                 }}
