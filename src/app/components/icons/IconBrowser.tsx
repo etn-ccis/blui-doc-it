@@ -210,6 +210,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
         isMounted.current = true;
         return (): void => {
             isMounted.current = false;
+            dispatch({ type: TOGGLE_SIDEBAR, payload: false });
         };
     }, []);
 

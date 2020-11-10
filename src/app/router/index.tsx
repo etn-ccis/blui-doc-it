@@ -8,7 +8,7 @@ import { AppState } from '../redux/reducers';
 import { Menu } from '@material-ui/icons';
 import { useSelector } from 'react-redux';
 
-import { pageDefinitions } from '../../__configuration__/navigationMenu/navigation';
+import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
 import {
     AppBar,
@@ -22,7 +22,7 @@ import {
 } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
 
-const buildRoutes = (routes: any[], url: string): JSX.Element[] => {
+const buildRoutes = (routes: SimpleNavItem[], url: string): JSX.Element[] => {
     let ret: any[] = [];
     for (let i = 0; i < routes.length; i++) {
         if (routes[i].component) {
@@ -33,7 +33,7 @@ const buildRoutes = (routes: any[], url: string): JSX.Element[] => {
             );
         }
         if (routes[i].pages) {
-            ret = ret.concat(buildRoutes(routes[i].pages, `${url}${routes[i].url}`));
+            ret = ret.concat(buildRoutes(routes[i].pages || [], `${url}${routes[i].url}`));
         }
     }
     return ret;
