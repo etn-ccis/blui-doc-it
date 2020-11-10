@@ -17,7 +17,8 @@ import { IconDrawer } from './IconDrawer';
 import { SelectedIconContext } from '../../contexts/selectedIconContextProvider';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useQueryString } from '../../hooks/useQueryString';
-import { Typography, useTheme } from '@material-ui/core';
+import { Grid, Typography, useTheme } from '@material-ui/core';
+import { Skeleton } from '@material-ui/lab';
 import { titleCase } from '../../shared';
 import { useDispatch } from 'react-redux';
 import { TOGGLE_SIDEBAR } from '../../redux/actions';
@@ -189,7 +190,13 @@ export const IconBrowser: React.FC = (): JSX.Element => {
         }
         return undefined;
     });
+    const [showCount, setShowCount] = useState(0);
     const type = 'Filled'; // Future: allow users to select the style of icons to view
+
+    // progressively load in the icons so the page loads faster
+    useEffect(() => {
+        setTimeout(() => setShowCount(Object.keys(allIconsByCategory).length), 700);
+    }, []);
 
     useEffect(() => {
         if (!iconQuery || iconQuery === '') setSelectedIcon(undefined);
@@ -288,9 +295,25 @@ export const IconBrowser: React.FC = (): JSX.Element => {
             />
 
             {resultsCount > 0 && <Typography variant={'caption'}>{resultsCount} Icons</Typography>}
+            {showCount === 0 && (
+                <Grid container spacing={2} style={{ marginTop: theme.spacing(11) }}>
+                    {Array(24)
+                        .fill('')
+                        .map((item, ind) => (
+                            <Grid item xs={4} sm={4} md={3} lg={2} key={`${ind}`}>
+                                <Skeleton
+                                    variant={'rect'}
+                                    style={{ width: 48, height: 48, borderRadius: 24, margin: 'auto' }}
+                                />
+                                <Skeleton variant={'text'} style={{ height: 32, maxWidth: 100, margin: 'auto' }} />
+                            </Grid>
+                        ))}
+                </Grid>
+            )}
             {resultsCount > 0 &&
                 Object.keys(iconsByCategory)
                     .sort()
+                    .slice(0, showCount)
                     .map((category) =>
                         iconsByCategory[category].length > 0 &&
                         (iconCategories === null || iconCategories.includes(category)) ? (
