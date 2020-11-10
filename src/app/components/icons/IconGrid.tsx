@@ -56,7 +56,7 @@ const Icons: React.FC<IconGridProps> = (props) => {
                         lg={2}
                         key={`${icon.name}_${icon.isMaterial ? 'material' : 'pxblue'}`}
                         onClick={onIconSelected}
-                        title={`${icon.name}-${icon.isMaterial ? 'material' : 'pxb'}`}
+                        data-iconid={`${icon.name}-${icon.isMaterial ? 'material' : 'pxb'}`}
                     >
                         <div className={clsx(classes.wrapper, { [classes.selected]: isSelected })}>
                             <icon.Icon

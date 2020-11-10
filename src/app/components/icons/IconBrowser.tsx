@@ -63,15 +63,9 @@ Object.keys(MuiIcons)
             type = 'Filled';
         }
 
-        // Special-Case Icons
-        let searchName = iconKey;
-        if (iconKey === 'ThreeDRotation') searchName = '3dRotation';
-        else if (iconKey === 'ThreeSixty') searchName = '360';
-        else if (iconKey === 'FourK') searchName = '4k';
-
         let searchableString = iconKey.replace(/(Outlined|TwoTone|Rounded|Sharp)$/, '');
         const iconDetails: DetailedIcon | undefined = materialMetadata.icons.find(
-            (iconMeta) => getMuiIconName(iconMeta.name) === searchName
+            (iconMeta) => getMuiIconName(iconMeta.name) === iconKey
         ) || {
             name: '',
             filename: '',
@@ -202,7 +196,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     }, [iconQuery, setSelectedIcon]);
 
     const handleSelect = useCallback((event) => {
-        const iconName = event.currentTarget.getAttribute('title').split('-');
+        const iconName = event.currentTarget.getAttribute('data-iconid').split('-');
 
         setSelectedIcon(allIconsMap[iconName.join('-')]);
         history.replace(

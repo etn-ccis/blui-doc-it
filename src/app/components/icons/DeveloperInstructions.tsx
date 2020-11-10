@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { IconType } from '../../../__types__';
 import {
     Theme,
-    Tooltip,
     Typography,
     useTheme,
     withStyles,
@@ -14,9 +13,9 @@ import {
     Divider,
 } from '@material-ui/core';
 
-import { ArrowDropDown, FileCopy } from '@material-ui/icons';
+import { ArrowDropDown } from '@material-ui/icons';
 
-import { copyTextToClipboard, titleCase } from '../../shared';
+import { titleCase } from '../../shared';
 import { emptyIcon } from '.';
 
 import * as Colors from '@pxblue/colors';
@@ -29,6 +28,7 @@ import {
     getIconSvgInstructions,
 } from './utilityFunctions';
 import { useSelectedIcon } from '../../contexts/selectedIconContextProvider';
+import { CopyToClipboard } from './CopyToClipboardButton';
 
 type Framework = 'angular' | 'react' | 'react-native';
 
@@ -42,11 +42,6 @@ const useStyles = makeStyles((theme: Theme) => ({
         margin: `${theme.spacing(0.5)}px 0`,
         marginBottom: theme.spacing(2),
         whiteSpace: 'normal',
-    },
-    copyIcon: {
-        color: Colors.gray[500],
-        fontSize: 16,
-        cursor: 'pointer',
     },
     expandIcon: {
         color: Colors.gray[500],
@@ -123,11 +118,6 @@ export type DeveloperAccordionProps = Omit<AccordionProps, 'children'> & {
 export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = (props) => {
     const { framework, icon } = props;
     const classes = useStyles();
-    const [copiedInstructions, setCopiedInstructions] = useState({
-        font: false,
-        svg: false,
-        component: false,
-    });
 
     return (
         <Accordion {...props}>
@@ -143,20 +133,10 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
                     <>
                         <div className={classes.codeSnippetTitle}>
                             <Typography variant={'overline'}>Icon Font</Typography>
-                            <Tooltip title="Copied" placement="left" open={copiedInstructions.font}>
-                                <FileCopy
-                                    className={classes.copyIcon}
-                                    onClick={(): void => {
-                                        copyTextToClipboard(getIconFontInstructions(framework, icon), () => {
-                                            setCopiedInstructions({ ...copiedInstructions, font: true });
-                                            setTimeout(
-                                                () => setCopiedInstructions({ ...copiedInstructions, font: false }),
-                                                1000
-                                            );
-                                        });
-                                    }}
-                                />
-                            </Tooltip>
+                            <CopyToClipboard
+                                copyText={getIconFontInstructions(framework, icon)}
+                                copiedPosition={'left'}
+                            />
                         </div>
                         <pre className={classes.codeSnippet}>{getIconFontExample(framework, icon)}</pre>
                     </>
@@ -169,20 +149,10 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
                     <>
                         <div className={classes.codeSnippetTitle}>
                             <Typography variant={'overline'}>SVG</Typography>
-                            <Tooltip title="Copied" placement="left" open={copiedInstructions.svg}>
-                                <FileCopy
-                                    className={classes.copyIcon}
-                                    onClick={(): void => {
-                                        copyTextToClipboard(getIconSvgInstructions(framework, icon), () => {
-                                            setCopiedInstructions({ ...copiedInstructions, svg: true });
-                                            setTimeout(
-                                                () => setCopiedInstructions({ ...copiedInstructions, svg: false }),
-                                                1000
-                                            );
-                                        });
-                                    }}
-                                />
-                            </Tooltip>
+                            <CopyToClipboard
+                                copyText={getIconSvgInstructions(framework, icon)}
+                                copiedPosition={'left'}
+                            />
                         </div>
                         <pre className={classes.codeSnippet}>{getIconSvgExample(framework, icon)}</pre>
                     </>
@@ -193,21 +163,10 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
                     <>
                         <div className={classes.codeSnippetTitle}>
                             <Typography variant={'overline'}>Icon Components</Typography>
-                            <Tooltip title="Copied" placement="left" open={copiedInstructions.component}>
-                                <FileCopy
-                                    className={classes.copyIcon}
-                                    onClick={(): void => {
-                                        copyTextToClipboard(getIconComponentInstructions(framework, icon), () => {
-                                            setCopiedInstructions({ ...copiedInstructions, component: true });
-                                            setTimeout(
-                                                () =>
-                                                    setCopiedInstructions({ ...copiedInstructions, component: false }),
-                                                1000
-                                            );
-                                        });
-                                    }}
-                                />
-                            </Tooltip>
+                            <CopyToClipboard
+                                copyText={getIconComponentInstructions(framework, icon)}
+                                copiedPosition={'left'}
+                            />
                         </div>
                         <pre className={classes.codeSnippet}>{getIconComponentExample(framework, icon)}</pre>
                     </>

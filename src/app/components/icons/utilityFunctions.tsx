@@ -4,8 +4,16 @@ import { getSnakeCase, snakeToKebabCase } from '../../shared';
 
 export type Framework = 'angular' | 'react' | 'react-native';
 
-export const getMuiIconName = (filename: string): string =>
-    filename.replace(/\.svg/, '').replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 || p3).toUpperCase());
+export const getMuiIconName = (filename: string): string => {
+    let muiName = filename
+        .replace(/\.svg/, '')
+        .replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 || p3).toUpperCase());
+    if (muiName.startsWith('3dRotation')) muiName = `ThreeD${muiName.slice(2)}`;
+    if (muiName.startsWith('360')) muiName = `ThreeSixty${muiName.slice(3)}`;
+    if (muiName.startsWith('4k')) muiName = `FourK${muiName.slice(2)}`;
+    if (muiName.startsWith('5g')) muiName = `FiveG${muiName.slice(2)}`;
+    return muiName;
+};
 
 // Can be Material or PX Blue icons
 export const downloadSvg = (icon: IconType): void => {

@@ -30,6 +30,7 @@ import { useSelectedIcon } from '../../contexts/selectedIconContextProvider';
 import { useDispatch, useSelector } from 'react-redux';
 import { TOGGLE_SIDEBAR } from '../../redux/actions';
 import { AppState } from '../../redux/reducers';
+import { CopyToClipboard } from './CopyToClipboardButton';
 
 const useStyles = makeStyles((theme: Theme) => ({
     drawer: {
@@ -53,6 +54,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     iconNameRowDescription: {
         marginLeft: theme.spacing(3),
+    },
+    iconNameWrapper: {
+        display: 'flex',
+        alignItems: 'center',
     },
 }));
 
@@ -104,7 +109,14 @@ export const IconDrawer: React.FC = () => {
                         <div className={classes.iconNameRow}>
                             <selectedIcon.Icon style={{ fontSize: 40 }} />
                             <div className={classes.iconNameRowDescription}>
-                                <Typography variant={'body1'}>{unCamelCase(selectedIcon.name)}</Typography>
+                                <div className={classes.iconNameWrapper}>
+                                    <Typography variant={'body1'}>{unCamelCase(selectedIcon.name)}</Typography>
+                                    <CopyToClipboard
+                                        title={'Copy Icon Name'}
+                                        copyText={unCamelCase(selectedIcon.name)}
+                                        style={{ marginLeft: theme.spacing(1) }}
+                                    />
+                                </div>
                                 <Typography variant={'caption'}>
                                     {selectedIcon.isMaterial ? 'Material Icon' : 'PX Blue Icon'}
                                 </Typography>
