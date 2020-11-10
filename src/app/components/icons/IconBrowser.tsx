@@ -300,7 +300,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                     {Array(24)
                         .fill('')
                         .map((item, ind) => (
-                            <Grid item xs={4} sm={4} md={3} lg={2} key={`${ind}`}>
+                            <Grid item xs={4} sm={4} md={3} lg={2} key={`${ind}`} style={{ minHeight: 137 }}>
                                 <Skeleton
                                     variant={'rect'}
                                     style={{ width: 48, height: 48, borderRadius: 24, margin: 'auto' }}

@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         width: 350,
         display: 'flex',
         flexDirection: 'column',
+        zIndex: 900,
     },
     appBar: {
         backgroundColor: Colors.black[500],

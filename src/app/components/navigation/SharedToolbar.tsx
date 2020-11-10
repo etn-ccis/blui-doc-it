@@ -7,11 +7,12 @@ import {
     ListItemText,
     AppBarProps,
     Hidden,
-    // useMediaQuery,
     IconButton,
     makeStyles,
     Theme,
     createStyles,
+    useTheme,
+    useMediaQuery,
 } from '@material-ui/core';
 import { PxblueSmall } from '@pxblue/icons-mui';
 import { Spacer } from '@pxblue/react-components';
@@ -51,10 +52,12 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const { title, color, subtitle, navigationIcon, ...other } = props;
     const classes = useStyles();
     const icon = navigationIcon ? navigationIcon : <PxblueSmall />;
-    // const matchesSM = useMediaQuery(theme.breakpoints.up('sm'));
     const history = useHistory();
+    const theme = useTheme();
     const isLandingPage = history.location.pathname === '/';
     const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
+    const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
+    const sm = useMediaQuery(theme.breakpoints.down('sm'));
     const dispatch = useDispatch();
     const appBarBackground = getScheduledSiteConfig().appBarBackground;
 
@@ -97,7 +100,13 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                 position="sticky"
                 color={color}
                 elevation={0}
-                style={{ zIndex: 1000, ...appBarBackground }}
+                style={{
+                    zIndex: 1000,
+                    width: `calc(100% - ${sidebarOpen ? 350 : 0}px)`,
+                    right: sidebarOpen ? (sm ? 0 : 350) : 0,
+                    transition: `width ${theme.transitions.duration.standard} ${theme.transitions.easing.easeInOut}`,
+                    ...appBarBackground,
+                }}
                 {...other}
             >
                 <Toolbar className={classes.toolbar}>
