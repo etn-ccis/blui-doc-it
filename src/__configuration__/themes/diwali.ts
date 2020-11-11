@@ -54,11 +54,9 @@ export const DiwaliSchedule: Schedule = {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center 65%',
-            boxShadow: '0 0 4px black',
-            position: 'relative',
-            zIndex: 1,
             backgroundColor: BrandingColors.wine[900],
             cursor: `url("${diwaliCursor}") 0 25, auto`,
+            textShadow: `0 0 4px black`,
         },
         className: 'christmas-eve',
         appBarBackground: {
