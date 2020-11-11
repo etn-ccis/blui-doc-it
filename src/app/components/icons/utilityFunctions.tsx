@@ -19,7 +19,7 @@ export const getMuiIconName = (filename: string): string => {
 export const downloadSvg = (icon: IconType): void => {
     if (icon.isMaterial) {
         window.open(
-            `https://fonts.gstatic.com/s/i/materialicons/${getSnakeCase(icon.name)}/v6/24px.svg?download=true`,
+            `https://fonts.gstatic.com/s/i/materialicons/${icon.iconFontKey}/v6/24px.svg?download=true`,
             '_blank'
         );
     } else {
@@ -29,10 +29,7 @@ export const downloadSvg = (icon: IconType): void => {
 
 // Material Icons only
 export const downloadPng = (icon: IconType): void => {
-    window.open(
-        `//fonts.gstatic.com/s/i/materialicons/${getSnakeCase(icon.name)}/v6/black-18dp.zip?download=true`,
-        '_blank'
-    );
+    window.open(`//fonts.gstatic.com/s/i/materialicons/${icon.iconFontKey}/v10/black-24dp.zip?download=true`, '_blank');
 };
 
 /* Functions for returning various code snippets for icons in each framework */
