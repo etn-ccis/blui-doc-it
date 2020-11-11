@@ -1,372 +1,345 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import debounce from 'lodash/debounce';
+import FlexSearch from 'flexsearch';
 
 // PX Blue Icons and Symbols
-import * as MuiIcons from '@pxblue/icons-mui';
+import * as MuiIcons from '@material-ui/icons';
+import * as PXBIcons from '@pxblue/icons-mui';
+import pxbMetadata from '@pxblue/icons-mui/index.json';
 
-// Material-UI Components
-import {
-    Typography,
-    Collapse,
-    AppBar,
-    Paper,
-    Toolbar,
-    Divider,
-    InputBase,
-    Checkbox,
-    FormControlLabel,
-    makeStyles,
-    Theme,
-} from '@material-ui/core';
-import * as AllMaterialIcons from '@material-ui/icons';
-import { fade } from '@material-ui/core/styles/colorManipulator';
-import meta from '@pxblue/icons-mui/index.json';
-import { IconCard } from './IconCard';
-import { IconMenu } from './IconMenu';
-import { unCamelCase } from '../../shared/utilities';
-import { Icon, MatIconList, DetailedIcon } from '../../../__types__';
-import { useQueryString } from '../../hooks/useQueryString';
+// Types
+import { DetailedIcon, IconType } from '../../../__types__';
+
+import { getMuiIconName } from './utilityFunctions';
+import { IconSearchBar } from './IconSearchBar';
+import { IconGrid } from './IconGrid';
+import { IconDrawer } from './IconDrawer';
+import { SelectedIconContext } from '../../contexts/selectedIconContextProvider';
 import { useHistory, useLocation } from 'react-router-dom';
+import { useQueryString } from '../../hooks/useQueryString';
+import { Grid, Typography, useTheme } from '@material-ui/core';
+import { Skeleton } from '@material-ui/lab';
+import { titleCase } from '../../shared';
+import { useDispatch } from 'react-redux';
+import { TOGGLE_SIDEBAR } from '../../redux/actions';
+import { EmptyState } from '@pxblue/react-components';
 
-type LetterGroups = {
-    [key: string]: boolean;
+type MaterialMeta = {
+    icons: DetailedIcon[];
 };
+// eslint-disable-next-line
+const materialMetadata: MaterialMeta = require('./MaterialMetadata.json');
 
-type LetterGrouping = {
-    [key: string]: Icon[];
+/*
+ * GENERATE THE ICON LISTS AND SEARCH INDEX
+ */
+const searchIndex = FlexSearch.create<string>({
+    async: true,
+    tokenize: 'full',
+});
+type MuiIconClass = 'Outlined' | 'Two Tone' | 'Rounded' | 'Sharp' | 'Filled';
+type IconMapType = {
+    [key: string]: IconType;
 };
+type IconCategoriesType = {
+    [key: string]: IconType[];
+};
+const allIconsMap: IconMapType = {};
+const allIconsByCategory: IconCategoriesType = {};
 
-const hideResultsThreshold = 20;
-const PXBlueIcons: MatIconList = MuiIcons;
-const MaterialIcons: MatIconList = AllMaterialIcons;
-
-const useStyles = makeStyles((theme: Theme) => ({
-    section: {
-        marginTop: '20px',
-        display: 'flex',
-        flexWrap: 'wrap',
-        fontSize: '36px',
-    },
-    grow: {
-        flexGrow: 1,
-    },
-    title: {
-        display: 'none',
-        [theme.breakpoints.up('sm')]: {
-            display: 'block',
-        },
-    },
-    header: {
-        boxShadow: 'none',
-    },
-    groupHeader: {
-        cursor: 'pointer',
-        '&:not(:first-of-type)': {
-            paddingTop: theme.spacing(),
-        },
-        paddingBottom: theme.spacing(),
-    },
-    toggleIcon: {
-        display: 'inline-block',
-        verticalAlign: 'text-bottom',
-        transition: 'transform 200ms',
-    },
-    search: {
-        position: 'relative',
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: fade(theme.palette.common.white, 0.15),
-        '&:hover': {
-            backgroundColor: fade(theme.palette.common.white, 0.25),
-        },
-        marginLeft: 0,
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(),
-            width: 'auto',
-        },
-    },
-    searchIcon: {
-        width: theme.spacing(5),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    inputRoot: {
-        color: 'inherit',
-        width: '100%',
-        height: '100%',
-    },
-    inputInput: {
-        paddingTop: theme.spacing(),
-        paddingRight: theme.spacing(),
-        paddingBottom: theme.spacing(),
-        paddingLeft: theme.spacing(5),
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            width: 140,
-            '&:focus': {
-                width: 200,
-            },
-        },
-    },
-    hideIconsLabel: {
-        justifyContent: 'flex-end',
-    },
-    iconCard: {
-        margin: '0 15px 25px 15px',
-        cursor: 'pointer',
-        width: 100,
-        padding: theme.spacing(0.5),
-    },
-}));
-
-const getMuiIconName = (filename: string): string =>
-    filename.replace(/\.svg/, '').replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 || p3).toUpperCase());
-
-const getFilteredIcons = (): DetailedIcon[] =>
-    (meta.icons as DetailedIcon[]).filter((icon) => !icon.family.includes('Progress'));
-
-const createIconList = (): Icon[] => {
-    const iconList: Icon[] = [];
-    getFilteredIcons().forEach((icon: DetailedIcon) => {
-        const mui = getMuiIconName(icon.filename);
-        if (PXBlueIcons[mui]) {
-            iconList.push({ name: icon.filename.replace(/\.svg/, ''), isMaterial: false });
+// const allMuiIcons: IconType[] =
+Object.keys(MuiIcons)
+    .sort()
+    .map((iconKey) => {
+        let type: MuiIconClass;
+        if (iconKey.includes('Outlined')) {
+            type = 'Outlined';
+        } else if (iconKey.includes('TwoTone')) {
+            type = 'Two Tone';
+        } else if (iconKey.includes('Rounded')) {
+            type = 'Rounded';
+        } else if (iconKey.includes('Sharp')) {
+            type = 'Sharp';
+        } else {
+            type = 'Filled';
         }
+
+        let searchableString = iconKey.replace(/(Outlined|TwoTone|Rounded|Sharp)$/, '');
+        const iconDetails: DetailedIcon | undefined = materialMetadata.icons.find(
+            (iconMeta) => getMuiIconName(iconMeta.name) === iconKey
+        ) || {
+            name: '',
+            filename: '',
+            family: [],
+            categories: [],
+            style: '',
+            tags: [],
+            description: '',
+            author: '',
+            size: 0,
+        };
+
+        // do not add obsolete icons to the search index or the master icon lists
+        if (iconDetails.categories.length === 0) {
+            if (/(Outlined|TwoTone|Rounded|Sharp)$/.test(iconKey)) {
+                // ignore the alternative styled options
+            } else {
+                // uncomment these lines to make these appear in a separate category
+                // const deprecatedLabel = 'obsolete material icons';
+                // if (allIconsByCategory[deprecatedLabel]) allIconsByCategory[deprecatedLabel].push(icon);
+                // else allIconsByCategory[deprecatedLabel] = [icon];
+                return;
+            }
+        }
+
+        // add the name and tags to the search index
+        searchableString += iconDetails.tags.join(' ');
+        // @ts-ignore
+        searchIndex.add(`${iconKey}-material`, searchableString);
+
+        const icon: IconType = {
+            name: iconKey,
+            iconFontKey: iconDetails.name,
+            type,
+            isMaterial: true,
+            tags: iconDetails.tags || [],
+            categories: iconDetails.categories || [],
+            // @ts-ignore
+            Icon: MuiIcons[iconKey],
+        };
+
+        // add the icon details to the allIcons map
+        allIconsMap[`${iconKey}-material`] = icon;
+
+        for (let cat of iconDetails.categories) {
+            cat = cat.toLocaleLowerCase();
+            if (allIconsByCategory[cat]) allIconsByCategory[cat].push(icon);
+            else allIconsByCategory[cat] = [icon];
+        }
+
+        // return the icon
+        return icon;
     });
-    Object.keys(MaterialIcons)
-        .filter((name) => {
-            if (name.includes('Outlined')) {
-                return false;
-            }
-            if (name.includes('Rounded')) {
-                return false;
-            }
-            if (name.includes('Sharp')) {
-                return false;
-            }
-            if (name.includes('TwoTone')) {
-                return false;
-            }
-            return true;
-        })
-        .forEach((iconName) => {
-            iconList.push({ name: iconName, isMaterial: true });
-        });
-    return iconList;
-};
 
-const groupIconList = (iconListToGroup: Icon[]): LetterGrouping => {
-    const groupings: LetterGrouping = {};
-    iconListToGroup.forEach((icon: Icon) => {
-        if (!groupings[icon.name.toUpperCase().charAt(0)]) {
-            groupings[icon.name.toUpperCase().charAt(0)] = [];
+// const allPxbIcons: IconType[] =
+Object.keys(PXBIcons)
+    .sort()
+    .map((iconKey) => {
+        let searchableString = iconKey;
+        const iconDetails: DetailedIcon | undefined = (pxbMetadata.icons as DetailedIcon[]).find(
+            (iconMeta) => getMuiIconName(iconMeta.filename) === iconKey
+        ) || {
+            name: '',
+            filename: '',
+            family: [],
+            categories: [],
+            style: '',
+            tags: [],
+            description: '',
+            author: '',
+            size: 0,
+        };
+
+        // add the name and tags to the search index
+        searchableString += iconDetails.tags.join(' ');
+        // @ts-ignore
+        searchIndex.add(`${iconKey}-pxb`, searchableString);
+
+        const icon: IconType = {
+            name: iconKey,
+            iconFontKey: iconDetails.name,
+            type: 'Filled',
+            isMaterial: false,
+            tags: iconDetails.tags || [],
+            categories: iconDetails.family || [],
+            // @ts-ignore
+            Icon: PXBIcons[iconKey],
+        };
+
+        // add the icon details to the allIcons map
+        allIconsMap[`${iconKey}-pxb`] = icon;
+
+        // add the icon details to the categorized icon list
+        for (let cat of iconDetails.family) {
+            cat = cat.toLocaleLowerCase();
+            if (allIconsByCategory[cat]) allIconsByCategory[cat].push(icon);
+            else allIconsByCategory[cat] = [icon];
         }
-        groupings[icon.name.toUpperCase().charAt(0)].push({ name: icon.name, isMaterial: icon.isMaterial });
+
+        // return the icon
+        return icon;
     });
-    return groupings;
-};
 
-const iconMatches = (icon: Icon, search: string, filterMaterial: boolean): boolean => {
-    if (filterMaterial && icon.isMaterial) {
-        return false;
-    }
-    const searchArray = search
-        .trim()
-        .toLowerCase()
-        .split(/\s+/);
-    for (let i = 0; i < searchArray.length; i++) {
-        if (
-            !icon.name
-                .toLowerCase()
-                .replace(/[ _]/g, '')
-                .includes(searchArray[i])
-        ) {
-            return false;
-        }
-    }
+// Uncomment this if you want to use a single list of icons instead of categories
+// const allIcons: IconType[] = allMuiIcons.concat(allPxbIcons).sort((iconA, iconB) => (iconA.name < iconB.name ? -1 : 1));
 
-    return true;
-};
-
+/*
+ * The Icon Browser Component is a container for all of the pieces of the icon display
+ * It includes the search bar, the icon grid itself, and the details drawer.
+ */
 export const IconBrowser: React.FC = (): JSX.Element => {
-    const classes = useStyles();
+    const theme = useTheme();
     const history = useHistory();
     const location = useLocation();
-    const query = useQueryString();
-
-    const [search, setSearch] = useState<string>(() => query.iconSearch || '');
-    const [hideLetterGroups, setHideLetterGroups] = useState<LetterGroups>(() => {
-        if (query.icon) {
-            return { [query.icon.charAt(0).toUpperCase()]: true };
+    const dispatch = useDispatch();
+    const { icon: iconQuery, isMaterial: materialQuery } = useQueryString();
+    const isMaterial = materialQuery === 'true';
+    const [iconKeys, setIconKeys] = useState<string[] | null>(null);
+    const [iconCategories, setIconCategories] = useState<string[] | null>(null);
+    const [selectedIcon, setSelectedIcon] = React.useState<IconType | undefined>(() => {
+        if (allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'pxb'}`]) {
+            dispatch({ type: TOGGLE_SIDEBAR, payload: true });
+            return allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'pxb'}`];
         }
-        return {};
+        return undefined;
     });
-    const [focusedIcon, setFocusedIcon] = useState<Icon>(() => {
-        const blankIcon = { name: '', isMaterial: true };
-        const icon = query.icon;
-        const isMaterial = query.isMaterial === 'true' ? true : query.isMaterial === 'false' ? false : undefined;
+    const [showCount, setShowCount] = useState(0);
+    const type = 'Filled'; // Future: allow users to select the style of icons to view
 
-        if (!icon) return blankIcon;
+    // progressively load in the icons so the page loads faster
+    useEffect(() => {
+        setTimeout(() => setShowCount(Object.keys(allIconsByCategory).length), 700);
+    }, []);
 
-        if (isMaterial !== undefined) {
-            if (!isMaterial && PXBlueIcons[icon]) return { name: icon, isMaterial: false };
-            if (isMaterial && MaterialIcons[getMuiIconName(icon)])
-                return { name: getMuiIconName(icon), isMaterial: true };
-        } else {
-            if (PXBlueIcons[icon]) return { name: icon, isMaterial: false };
-            if (MaterialIcons[getMuiIconName(icon)]) return { name: getMuiIconName(icon), isMaterial: true };
-        }
+    useEffect(() => {
+        if (!iconQuery || iconQuery === '') setSelectedIcon(undefined);
+    }, [iconQuery, setSelectedIcon]);
 
-        return blankIcon;
-    });
-    const [filterMaterial, setFilterMaterial] = useState(false);
+    const handleSelect = useCallback((event) => {
+        const iconName = event.currentTarget.getAttribute('data-iconid').split('-');
 
-    const icons: Icon[] = createIconList();
-    const iconList: Icon[] = icons;
-    const filteredIconList: Icon[] = iconList
-        .filter((icon: Icon): boolean => iconMatches(icon, search, filterMaterial))
-        .sort();
-    const groupedIcons = groupIconList(filteredIconList);
+        setSelectedIcon(allIconsMap[iconName.join('-')]);
+        history.replace(
+            `${location.pathname}?icon=${iconName[0]}&isMaterial=${iconName[1] === 'material' ? true : false}`
+        );
+        dispatch({ type: TOGGLE_SIDEBAR, payload: true });
+    }, []);
 
-    const toggleCollapse = useCallback(
-        (letterGroup: string): void => {
-            const hidden: LetterGroups = hideLetterGroups;
-            hidden[letterGroup] = !hideLetterGroups[letterGroup];
-            setHideLetterGroups({ ...hidden });
-        },
-        [hideLetterGroups]
+    const isMounted = useRef(false);
+    useEffect(() => {
+        isMounted.current = true;
+        return (): void => {
+            isMounted.current = false;
+            dispatch({ type: TOGGLE_SIDEBAR, payload: false });
+        };
+    }, []);
+
+    const handleSearchChange = useMemo(
+        () =>
+            debounce((value) => {
+                if (!isMounted.current) {
+                    return;
+                }
+
+                if (value === '') {
+                    setIconKeys(null);
+                } else {
+                    searchIndex.search(value).then((results) => {
+                        setIconKeys(results.sort());
+                    });
+                }
+            }, 220),
+        []
     );
 
-    return (
-        <>
-            <Paper elevation={4}>
-                <AppBar position="static" color="primary" classes={{ root: classes.header }}>
-                    <Toolbar>
-                        <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-                            Icons
-                        </Typography>
-                        <div className={classes.grow} />
-                        <div className={classes.search}>
-                            <div className={classes.searchIcon}>
-                                <MaterialIcons.Search />
-                            </div>
-                            <InputBase
-                                placeholder="Search…"
-                                classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
-                                }}
-                                value={search}
-                                onChange={(evt): void => setSearch(evt.target.value)}
-                            />
-                        </div>
-                    </Toolbar>
-                </AppBar>
-                <Toolbar className={classes.hideIconsLabel} variant={'dense'}>
-                    <FormControlLabel
-                        control={<Checkbox color="primary" onClick={(): void => setFilterMaterial(!filterMaterial)} />}
-                        label="Hide Material Icons"
-                        labelPlacement="start"
-                    />
-                </Toolbar>
-                <div style={{ padding: '0 24px 24px' }}>
-                    {Object.keys(groupIconList(iconList))
-                        .sort()
-                        .map((letterGroup: string) => {
-                            if (!groupedIcons[letterGroup]) {
-                                return null;
-                            }
-                            return (
-                                <React.Fragment key={`${letterGroup}_group`}>
-                                    <Typography
-                                        variant={'h6'}
-                                        color={'primary'}
-                                        className={classes.groupHeader}
-                                        onClick={(): void => toggleCollapse(letterGroup)}
-                                    >
-                                        {letterGroup}
-                                        {filteredIconList.length <= hideResultsThreshold
-                                            ? null
-                                            : [
-                                                  <MaterialIcons.ExpandMore
-                                                      key={`${letterGroup}-${letterGroup.length}`}
-                                                      className={classes.toggleIcon}
-                                                      style={{
-                                                          transform: hideLetterGroups[letterGroup]
-                                                              ? 'rotate(180deg)'
-                                                              : undefined,
-                                                      }}
-                                                  />,
-                                              ]}
-                                    </Typography>
-                                    <Collapse
-                                        in={
-                                            filteredIconList.length <= hideResultsThreshold
-                                                ? true
-                                                : hideLetterGroups[letterGroup]
-                                        }
-                                        timeout="auto"
-                                        unmountOnExit
-                                    >
-                                        <div className={classes.section}>
-                                            {groupedIcons[letterGroup]
-                                                .filter((icon: Icon) => iconMatches(icon, search, filterMaterial))
-                                                .sort((a: Icon, b: Icon) => {
-                                                    if (a.name.toUpperCase() > b.name.toUpperCase()) {
-                                                        return 1;
-                                                    }
-                                                    return -1;
-                                                })
-                                                .map((icon: Icon) => (
-                                                    <div
-                                                        key={`${icon.name}-${icon.isMaterial.toString()}`}
-                                                        onClick={(): void => {
-                                                            history.replace(
-                                                                `${location.pathname}?icon=${getMuiIconName(
-                                                                    icon.name
-                                                                )}&isMaterial=${icon.isMaterial.toString()}`
-                                                            );
-                                                            setFocusedIcon(icon);
-                                                        }}
-                                                    >
-                                                        <IconCard
-                                                            key={icon.name}
-                                                            component={
-                                                                icon.isMaterial
-                                                                    ? MaterialIcons[icon.name]
-                                                                    : PXBlueIcons[getMuiIconName(icon.name)]
-                                                            }
-                                                            name={unCamelCase(getMuiIconName(icon.name))}
-                                                            className={classes.iconCard}
-                                                            selected={
-                                                                focusedIcon &&
-                                                                getMuiIconName(focusedIcon.name) ===
-                                                                    getMuiIconName(icon.name) &&
-                                                                focusedIcon.isMaterial === icon.isMaterial
-                                                            }
-                                                        />
-                                                    </div>
-                                                ))}
-                                        </div>
-                                    </Collapse>
-                                    <Divider />
-                                </React.Fragment>
-                            );
-                        })}
-                </div>
-            </Paper>
+    const handleCategoryChange = useMemo(
+        () =>
+            debounce((value) => {
+                if (!isMounted.current) {
+                    return;
+                }
 
-            {focusedIcon.name && (
-                <IconMenu
-                    onClose={(): void => setFocusedIcon({ name: '', isMaterial: true })}
-                    open={true}
-                    icon={focusedIcon}
+                if (value.length === 0) {
+                    setIconCategories(null);
+                } else {
+                    setIconCategories(value);
+                }
+            }, 220),
+        []
+    );
+
+    // Uncomment this if you prefer to display all of the icons in a single group without categories
+    // const icons = useMemo(
+    //     () =>
+    //         (iconKeys === null ? allIcons : iconKeys.map((key) => allIconsMap[key])).filter(
+    //             (icon) => type === icon.type
+    //         ),
+    //     [/*type,*/ iconKeys]
+    // );
+
+    const iconsByCategory = useMemo(() => {
+        if (iconKeys === null) return allIconsByCategory;
+        const filteredCategories: IconCategoriesType = {};
+        for (const category of Object.keys(allIconsByCategory)) {
+            filteredCategories[category] = allIconsByCategory[category].filter(
+                (icon) =>
+                    iconKeys.includes(`${icon.name}-${icon.isMaterial ? 'material' : 'pxb'}`) && icon.type === type
+            );
+        }
+        return filteredCategories;
+    }, [/*type,*/ iconKeys]);
+
+    let resultsCount = 0;
+    for (const category of Object.keys(iconsByCategory)) {
+        if (iconCategories === null || iconCategories.includes(category))
+            resultsCount += iconsByCategory[category].length;
+    }
+
+    return (
+        <SelectedIconContext.Provider value={{ selectedIcon }}>
+            <IconSearchBar
+                onSearchChange={(event): void => {
+                    handleSearchChange(event.target.value);
+                }}
+                onCategoriesChanged={(event): void => {
+                    handleCategoryChange(event.target.value);
+                }}
+                iconCategories={Object.keys(iconsByCategory).sort()}
+            />
+
+            {resultsCount > 0 && <Typography variant={'caption'}>{resultsCount} Icons</Typography>}
+            {showCount === 0 && (
+                <Grid container spacing={2} style={{ marginTop: theme.spacing(11) }}>
+                    {Array(24)
+                        .fill('')
+                        .map((item, ind) => (
+                            <Grid item xs={4} sm={4} md={3} lg={2} key={`${ind}`} style={{ minHeight: 137 }}>
+                                <Skeleton
+                                    variant={'rect'}
+                                    style={{ width: 48, height: 48, borderRadius: 24, margin: 'auto' }}
+                                />
+                                <Skeleton variant={'text'} style={{ height: 32, maxWidth: 100, margin: 'auto' }} />
+                            </Grid>
+                        ))}
+                </Grid>
+            )}
+            {resultsCount > 0 &&
+                Object.keys(iconsByCategory)
+                    .sort()
+                    .slice(0, showCount)
+                    .map((category) =>
+                        iconsByCategory[category].length > 0 &&
+                        (iconCategories === null || iconCategories.includes(category)) ? (
+                            <React.Fragment key={`category_${category}`}>
+                                <Typography
+                                    variant={'h6'}
+                                    style={{ marginTop: theme.spacing(3), marginBottom: theme.spacing(3) }}
+                                >
+                                    {titleCase(category)}
+                                </Typography>
+                                <IconGrid icons={iconsByCategory[category]} onIconSelected={handleSelect} />
+                            </React.Fragment>
+                        ) : null
+                    )}
+            {resultsCount === 0 && (
+                <EmptyState
+                    title={'0 Matches'}
+                    description={'No icons matched your filters.'}
+                    icon={<MuiIcons.Search fontSize={'inherit'} />}
+                    style={{ height: 300, minHeight: 300 }}
                 />
             )}
-        </>
+            <IconDrawer />
+        </SelectedIconContext.Provider>
     );
 };
