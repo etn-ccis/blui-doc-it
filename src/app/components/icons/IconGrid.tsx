@@ -51,7 +51,7 @@ const Icons: React.FC<IconGridProps> = (props) => {
                     <Grid
                         item
                         xs={4}
-                        sm={4}
+                        sm={2}
                         md={3}
                         lg={2}
                         key={`${icon.name}_${icon.isMaterial ? 'material' : 'pxblue'}`}
