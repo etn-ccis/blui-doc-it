@@ -124,19 +124,23 @@ export const IconDrawer: React.FC = () => {
                             </div>
                         </div>
                         <Divider />
-                        <div style={{ padding: theme.spacing(2) }}>
-                            <Typography
-                                display={'block'}
-                                variant={'overline'}
-                                style={{ marginBottom: theme.spacing(1) }}
-                            >
-                                TAGS / KEYWORDS
-                            </Typography>
-                            <code style={{ display: 'block', whiteSpace: 'normal', padding: theme.spacing(1) }}>
-                                {selectedIcon.tags.join(', ')}
-                            </code>
-                        </div>
-                        <Divider />
+                        {selectedIcon.tags.length > 0 && (
+                            <>
+                                <div style={{ padding: theme.spacing(2) }}>
+                                    <Typography
+                                        display={'block'}
+                                        variant={'overline'}
+                                        style={{ marginBottom: theme.spacing(1) }}
+                                    >
+                                        TAGS / KEYWORDS
+                                    </Typography>
+                                    <code style={{ display: 'block', whiteSpace: 'normal', padding: theme.spacing(1) }}>
+                                        {selectedIcon.tags.join(', ')}
+                                    </code>
+                                </div>
+                                <Divider />
+                            </>
+                        )}
                         <div style={{ padding: theme.spacing(2) }}>
                             <Typography
                                 display={'block'}

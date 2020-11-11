@@ -15,6 +15,8 @@ import {
     useMediaQuery,
 } from '@material-ui/core';
 import { titleCase } from '../../shared';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../redux/reducers';
 
 type SearchBarProps = HTMLAttributes<HTMLDivElement> & {
     onSearchChange: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -25,15 +27,15 @@ export const IconSearchBar: React.FC<SearchBarProps> = (props): JSX.Element => {
     const { onSearchChange, onCategoriesChanged, iconCategories, ...divProps } = props;
     const { iconSearch = '' } = useQueryString();
     const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+    const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
 
     // Media Query adjustments to search spacing
-    const stackSmall = useMediaQuery('(max-width:749px)');
-    const sideBySideSmall = useMediaQuery('(min-width:750px) and (max-width:959px');
-    const stackMedium = useMediaQuery('(min-width:960px) and (max-width:1099px');
-    const sideBySideLarge = useMediaQuery('(min-width:1100px) and (max-width:1259px');
+    const small = useMediaQuery('(max-width:599px)');
+    const medium = useMediaQuery('(min-width:600px) and (max-width:959px');
+    const large = useMediaQuery('(min-width:960px) and (max-width:1099px');
 
-    const searchSize = stackSmall || stackMedium ? 12 : sideBySideSmall || sideBySideLarge ? 6 : 8;
-    const categorySize = stackSmall || stackMedium ? 12 : sideBySideSmall || sideBySideLarge ? 6 : 4;
+    const searchSize = small ? 12 : medium ? 8 : large ? (sidebarOpen ? 12 : 8) : 8;
+    const categorySize = small ? 12 : medium ? 4 : large ? (sidebarOpen ? 12 : 4) : 4;
 
     const handleFilterChange = useCallback(
         (e: any): void => {
@@ -77,9 +79,11 @@ export const IconSearchBar: React.FC<SearchBarProps> = (props): JSX.Element => {
                         multiple
                         value={selectedCategories}
                         onChange={handleFilterChange}
-                        renderValue={(selected: any): string => `${selected.length} selected`}
+                        renderValue={(selected: any): string =>
+                            `${selected.length === 1 ? titleCase(selected.join('')) : `${selected.length} selected`}`
+                        }
                         MenuProps={{
-                            style: { maxHeight: 500 },
+                            PaperProps: { style: { maxHeight: 360 } },
                             anchorOrigin: { vertical: 'bottom', horizontal: 'left' },
                             transformOrigin: { vertical: 'top', horizontal: 'left' },
                             getContentAnchorEl: null,
@@ -92,7 +96,7 @@ export const IconSearchBar: React.FC<SearchBarProps> = (props): JSX.Element => {
                     >
                         {iconCategories.sort().map((category: string) => (
                             <MenuItem key={category} value={category}>
-                                <Checkbox checked={selectedCategories.includes(category)} />
+                                <Checkbox checked={selectedCategories.includes(category)} edge={'start'} />
                                 <ListItemText primary={titleCase(category)} />
                             </MenuItem>
                         ))}
