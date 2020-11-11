@@ -29,7 +29,7 @@ export const downloadSvg = (icon: IconType): void => {
 
 // Material Icons only
 export const downloadPng = (icon: IconType): void => {
-    window.open(`//fonts.gstatic.com/s/i/materialicons/${icon.iconFontKey}/v10/black-24dp.zip?download=true`, '_blank');
+    window.open(`//fonts.gstatic.com/s/i/materialicons/${icon.iconFontKey}/v6/black-24dp.zip?download=true`, '_blank');
 };
 
 /* Functions for returning various code snippets for icons in each framework */
