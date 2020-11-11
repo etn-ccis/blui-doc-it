@@ -51,7 +51,7 @@ export const DiwaliSchedule: Schedule = {
         drawerActiveBackgroundFade: 0.75,
         landingPageBanner: {
             backgroundImage: `url(${Diwali})`,
-            backgroundSize: '300px',
+            backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center 65%',
             backgroundColor: BrandingColors.wine[900],
@@ -61,7 +61,7 @@ export const DiwaliSchedule: Schedule = {
         className: 'christmas-eve',
         appBarBackground: {
             backgroundImage: `url(${AppBarTile})`,
-            backgroundSize: '30%',
+            backgroundSize: '300px',
             backgroundPosition: 'left 75%',
         },
     },
