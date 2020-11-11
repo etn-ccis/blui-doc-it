@@ -1,19 +1,20 @@
 import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
 import * as BrandingColors from '@pxblue/colors-branding';
-import Diwali from '../../app/assets/themes/diwali3.jpg';
+import Diwali from '../../app/assets/themes/diwali-banner.jpg';
+import diwaliCursor from '../../app/assets/themes/diwali-cursor.png';
 import AppBarTile from '../../app/assets/themes/diwali-appbar-tile.png';
 import { Schedule } from './types';
 
 export const DiwaliSchedule: Schedule = {
-    start: new Date(0, 10, 5), // Nov 12
+    start: new Date(0, 10, 11), // Nov 11
     end: new Date(0, 10, 16), // Nov 16
     config: {
         theme: {
             ...PXBThemes.blue,
             palette: {
                 ...PXBThemes.blue.palette,
-                type: 'dark',
+                type: 'light',
                 primary: {
                     light: BrandingColors.wine[300],
                     main: BrandingColors.wine[400],
@@ -47,12 +48,17 @@ export const DiwaliSchedule: Schedule = {
                 },
             },
         },
+        drawerActiveBackgroundFade: 0.75,
         landingPageBanner: {
             backgroundImage: `url(${Diwali})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center 65%',
+            boxShadow: '0 0 4px black',
+            position: 'relative',
+            zIndex: 1,
             backgroundColor: BrandingColors.wine[900],
+            cursor: `url("${diwaliCursor}") 0 25, auto`,
         },
         className: 'christmas-eve',
         appBarBackground: {

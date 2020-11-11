@@ -8,6 +8,11 @@ export type SiteConfig = {
     theme: ThemeOptions;
 
     /**
+     * Optional fade() value to apply to the primary color for drawer selected items
+     */
+    drawerActiveBackgroundFade?: number;
+
+    /**
      * Configuration around the banner image in the landing page
      */
     landingPageBanner: {
