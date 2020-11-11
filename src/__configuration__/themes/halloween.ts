@@ -88,7 +88,7 @@ export const HalloweenSchedule: Schedule = {
             backgroundSize: 'cover',
             backgroundPosition: 'bottom',
             backgroundRepeat: 'no-repeat',
-            cursor: `url("${witch}"), auto`,
+            cursor: `url("${witch}") 0 25, auto`,
             minHeight: 400,
         },
         className: 'halloween',
