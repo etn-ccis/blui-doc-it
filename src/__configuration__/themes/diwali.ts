@@ -2,7 +2,7 @@ import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
 import * as BrandingColors from '@pxblue/colors-branding';
 import Diwali from '../../app/assets/themes/diwali3.jpg';
-import AppBarTile from '../../app/assets/themes/christmas-appbar-tile.png';
+import AppBarTile from '../../app/assets/themes/diwali-appbar-tile.png';
 import { Schedule } from './types';
 
 export const DiwaliSchedule: Schedule = {
@@ -10,9 +10,10 @@ export const DiwaliSchedule: Schedule = {
     end: new Date(0, 10, 16), // Nov 16
     config: {
         theme: {
-            ...PXBThemes.blueDark,
+            ...PXBThemes.blue,
             palette: {
-                ...PXBThemes.blueDark.palette,
+                ...PXBThemes.blue.palette,
+                type: 'dark',
                 primary: {
                     light: BrandingColors.wine[300],
                     main: BrandingColors.wine[400],
@@ -23,59 +24,26 @@ export const DiwaliSchedule: Schedule = {
                     main: Colors.gold[500],
                     dark: Colors.gold[900],
                 },
-                background: {
-                    default: Colors.darkBlack[100],
-                    paper: Colors.black[900],
-                },
-                text: {
-                    primary: Colors.black[50],
-                    secondary: Colors.black[200],
-                    hint: Colors.black[200],
-                },
             },
             overrides: {
-                ...PXBThemes.blueDark.overrides,
+                ...PXBThemes.blue.overrides,
                 MuiAppBar: {
-                    colorDefault: {
-                        color: Colors.black[50],
-                        backgroundColor: Colors.black[800],
-                    },
-                    colorPrimary: {
-                        color: Colors.black[50],
-                        backgroundColor: Colors.black[800],
-                    },
+                    ...PXBThemes.blue.overrides?.MuiAppBar,
                     colorSecondary: {
-                        color: Colors.white[200],
-                        backgroundColor: Colors.black[900],
-                    },
-                },
-                MuiBackdrop: {
-                    root: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        color: Colors.white[50],
+                        backgroundColor: BrandingColors.wine[500],
+                        '& .MuiInputBase-root': {
+                            color: Colors.white[50],
+                        },
+                        '& .MuiSelect-icon': {
+                            color: Colors.white[50],
+                        },
                     },
                 },
                 MuiButton: {
-                    ...PXBThemes.blueDark.overrides?.MuiButton,
+                    ...PXBThemes.blue.overrides?.MuiButton,
                     outlined: {},
                     outlinedPrimary: {},
-                },
-                MuiDrawer: {
-                    paper: {
-                        backgroundColor: Colors.darkBlack[300],
-                    },
-                },
-                MuiTabs: {
-                    indicator: {
-                        backgroundColor: Colors.orange[500],
-                    },
-                },
-                MuiTab: {
-                    selected: {},
-                    textColorInherit: {
-                        '&$selected': {
-                            color: Colors.orange[500],
-                        },
-                    },
                 },
             },
         },
@@ -84,11 +52,13 @@ export const DiwaliSchedule: Schedule = {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center 65%',
-            backgroundColor: BrandingColors.navy[900],
+            backgroundColor: BrandingColors.wine[900],
         },
         className: 'christmas-eve',
         appBarBackground: {
             backgroundImage: `url(${AppBarTile})`,
+            backgroundSize: '30%',
+            backgroundPosition: 'left 75%',
         },
     },
 };
