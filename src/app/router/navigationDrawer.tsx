@@ -11,6 +11,7 @@ import { Typography, useTheme, useMediaQuery } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../redux/reducers';
 import { TOGGLE_DRAWER } from '../redux/actions';
+import { getScheduledSiteConfig } from '../../__configuration__/themes';
 
 export const NavigationDrawer = (): JSX.Element => {
     const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
@@ -21,6 +22,7 @@ export const NavigationDrawer = (): JSX.Element => {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const dispatch = useDispatch();
     const isLandingPage = history.location.pathname === '/';
+    const activeDrawerFade = getScheduledSiteConfig().drawerActiveBackgroundFade;
 
     const createNavItems = useCallback((navData: SimpleNavItem[], parentUrl: string, depth: number): NavItem[] => {
         const convertedItems: NavItem[] = [];
@@ -75,7 +77,11 @@ export const NavigationDrawer = (): JSX.Element => {
             variant={isMobile || isLandingPage ? 'temporary' : 'permanent'}
             nestedBackgroundColor={theme.palette.type === 'light' ? undefined : Colors.darkBlack[500]}
             activeItemBackgroundColor={
-                theme.palette.type === 'light'
+                activeDrawerFade
+                    ? color(theme.palette.primary.main)
+                          .fade(activeDrawerFade)
+                          .string()
+                    : theme.palette.type === 'light'
                     ? undefined
                     : color(theme.palette.primary.main)
                           .fade(0.8)
@@ -127,6 +133,10 @@ export const NavigationDrawer = (): JSX.Element => {
                         justifyContent: 'center',
                         background: theme.palette.background.default,
                         padding: 16,
+                        cursor: 'pointer',
+                    }}
+                    onClick={(): void => {
+                        window.open('https://eaton.com', 'blank');
                     }}
                 >
                     <EatonTagline style={{ fontSize: 150, height: 48 }} />

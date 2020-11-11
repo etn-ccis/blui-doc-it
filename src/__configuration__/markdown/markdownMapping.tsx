@@ -233,7 +233,7 @@ export const componentsMap = {
                     backgroundColor:
                         theme.palette.type === 'light' ? theme.palette.background.default : Colors.darkBlack[300],
                     fontFamily: 'Roboto Mono, Monospaced',
-                    border: `${theme.palette.divider} 1px solid`,
+                    border: theme.palette.type === 'light' ? undefined : `${theme.palette.divider} 1px solid`,
                 }}
                 {...props}
             />

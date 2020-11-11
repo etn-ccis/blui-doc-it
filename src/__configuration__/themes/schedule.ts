@@ -1,87 +1,25 @@
-import { ThemeOptions } from '@material-ui/core';
-import { HalloweenTheme } from './Halloween';
-import * as PXBThemes from '@pxblue/react-themes';
+import { HalloweenSchedule } from './halloween';
+import { MayTheForthSchedule } from './may-the-forth';
+import { ChristmasSchedule } from './christmas';
+import { defaultTheme } from './default';
+import { Schedule, SiteConfig } from './types';
+import { DiwaliSchedule } from './diwali';
 
-// landing page banner background images
-import circles from '../../app/assets/themes/circles.svg';
-import castles from '../../app/assets/themes/castles.svg';
-import ghosts from '../../app/assets/themes/halloween-appbar-tile.svg';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+/**
+ * Add more holiday themes here.
+ *
+ * Current schedules:
+ * * May 3 - May 5: May the Forth Day
+ * * Oct 14 - Nov 2: Halloween
+ * * Nov 12 - Nov 16: Diwali (Changes each year)
+ * * Nov 19 - Nov 30: Thanksgiving (changes each year)
+ * * Dec 23 - Dec 25: Christmas
+ */
+export const schedule: Schedule[] = [DiwaliSchedule, ChristmasSchedule, HalloweenSchedule, MayTheForthSchedule];
 
-type SiteConfig = {
-    /**
-     * A MUI theme to be applied during the scheduled period
-     */
-    theme: ThemeOptions;
-
-    /**
-     * Configuration around the banner image in the landing page
-     */
-    landingPageBanner: {
-        src: string;
-    } & CSSProperties;
-
-    /**
-     * A theme-specific class name to be used by SASS
-     */
-    className?: string;
-
-    /**
-     * Configuration around the app bar background image
-     */
-    appBarBackground?: {
-        src: string;
-    } & CSSProperties;
-};
-
-type Schedule = {
-    /**
-     * Start date of the duration (inclusive)
-     */
-    start: Date;
-
-    /**
-     * Ending date of the duration (inclusive)
-     */
-    end: Date;
-
-    /**
-     * If start & end is fulfilled, what configuration to apply to the site
-     */
-    config: SiteConfig;
-};
-
-export const schedule: Schedule[] = [
-    {
-        start: new Date(0, 9, 14), // Oct 14
-        end: new Date(0, 10, 13), // Nov 13
-        config: {
-            theme: HalloweenTheme,
-            landingPageBanner: {
-                src: castles,
-                backgroundSize: 'cover',
-                backgroundPosition: 'bottom',
-                backgroundRepeat: 'no-repeat',
-            },
-            className: 'halloween',
-            appBarBackground: {
-                src: ghosts,
-            },
-        },
-    },
-    /*
-    Example of a new year theme (wrapped to the next year)
-    {
-        start: new Date(0, 11, 31), // Dec 31
-        end: new Date(1, 0, 3),     // Jan 03
-        config: {
-            theme: NewYearsDayTheme,
-            landingPageBanner: Fireworks,
-        },
-    },
-    */
-];
-
+/**
+ * @returns a site configuration given the currently applied holiday theme
+ */
 export const getScheduledSiteConfig = (): SiteConfig => {
     const currentDate = new Date();
     currentDate.setFullYear(1900);
@@ -96,16 +34,13 @@ export const getScheduledSiteConfig = (): SiteConfig => {
         }
         // wrapped to the next year
         else {
-            duration.end.setFullYear(1900);
-            if (duration.start <= currentDate || currentDate <= duration.end) {
+            // make a copy of the duration end, but starting at year 0
+            const endTemp = new Date(0, duration.end.getMonth(), duration.end.getDate());
+            if (duration.start <= currentDate || currentDate <= endTemp) {
                 return duration.config;
             }
         }
     }
-
     // didn't find a holiday theme, fall back to the default blue theme
-    return {
-        theme: PXBThemes.blue,
-        landingPageBanner: { src: circles, backgroundSize: 1200 },
-    };
+    return defaultTheme;
 };
