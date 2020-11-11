@@ -79,6 +79,19 @@ Object.keys(MuiIcons)
             size: 0,
         };
 
+        // do not add obsolete icons to the search index or the master icon lists
+        if (iconDetails.categories.length === 0) {
+            if (/(Outlined|TwoTone|Rounded|Sharp)$/.test(iconKey)) {
+                // ignore the alternative styled options
+            } else {
+                // uncomment these lines to make these appear in a separate category
+                // const deprecatedLabel = 'obsolete material icons';
+                // if (allIconsByCategory[deprecatedLabel]) allIconsByCategory[deprecatedLabel].push(icon);
+                // else allIconsByCategory[deprecatedLabel] = [icon];
+                return;
+            }
+        }
+
         // add the name and tags to the search index
         searchableString += iconDetails.tags.join(' ');
         // @ts-ignore
@@ -98,16 +111,6 @@ Object.keys(MuiIcons)
         // add the icon details to the allIcons map
         allIconsMap[`${iconKey}-material`] = icon;
 
-        // add the icon details to the categorized icon list
-        if (iconDetails.categories.length === 0) {
-            if (/(Outlined|TwoTone|Rounded|Sharp)$/.test(iconKey)) {
-                // ignore the alternative styled options
-            } else {
-                const deprecatedLabel = 'obsolete material icons';
-                if (allIconsByCategory[deprecatedLabel]) allIconsByCategory[deprecatedLabel].push(icon);
-                else allIconsByCategory[deprecatedLabel] = [icon];
-            }
-        }
         for (let cat of iconDetails.categories) {
             cat = cat.toLocaleLowerCase();
             if (allIconsByCategory[cat]) allIconsByCategory[cat].push(icon);

@@ -102,7 +102,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                 elevation={0}
                 style={{
                     zIndex: 1000,
-                    width: `calc(100% - ${sidebarOpen ? 350 : 0}px)`,
+                    width: `calc(100% - ${sidebarOpen ? (sm ? 0 : 350) : 0}px)`,
                     right: sidebarOpen ? (sm ? 0 : 350) : 0,
                     transition: `width ${theme.transitions.duration.standard} ${theme.transitions.easing.easeInOut}`,
                     ...appBarBackground,
