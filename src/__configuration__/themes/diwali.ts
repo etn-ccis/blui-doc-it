@@ -58,7 +58,7 @@ export const DiwaliSchedule: Schedule = {
             cursor: `url("${diwaliCursor}") 0 25, auto`,
             textShadow: `0 0 4px black`,
         },
-        className: 'christmas-eve',
+        className: 'diwali',
         appBarBackground: {
             backgroundImage: `url(${AppBarTile})`,
             backgroundSize: '300px',

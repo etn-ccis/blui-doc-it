@@ -2,6 +2,7 @@ import { makeStyles, Tooltip, TooltipProps } from '@material-ui/core';
 import { FileCopy } from '@material-ui/icons';
 import React, { useState } from 'react';
 import { copyTextToClipboard } from '../../shared';
+import { isMobile } from 'react-device-detect';
 import * as Colors from '@pxblue/colors';
 
 const useStyles = makeStyles(() => ({
@@ -38,7 +39,7 @@ export const CopyToClipboard: React.FC<CopyToClipboardProps> = (props) => {
     const [isCopied, setIsCopied] = useState(false);
     const [showTooltip, setShowTooltip] = useState(false);
 
-    return (
+    return isMobile ? null : (
         <Tooltip
             {...otherProps}
             title={isCopied ? copiedTitle : title}
