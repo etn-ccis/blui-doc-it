@@ -58,12 +58,7 @@ for (const ico of pxbMetadata.icons) {
     pxbMetaObject[getMuiIconName(ico.filename)] = ico;
 }
 
-// eslint-disable-next-line
-console.log('outside component');
-
 const loadIcons = (): void => {
-    // eslint-disable-next-line
-    console.log('loading icons');
     Object.keys(MuiIcons).map((iconKey) => {
         let type: MuiIconClass;
         if (iconKey.includes('Outlined')) {
