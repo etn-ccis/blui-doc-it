@@ -47,10 +47,24 @@ type IconCategoriesType = {
 const allIconsMap: IconMapType = {};
 const allIconsByCategory: IconCategoriesType = {};
 
-// const allMuiIcons: IconType[] =
-Object.keys(MuiIcons)
-    .sort()
-    .map((iconKey) => {
+// convert the metadata arrays into objects for faster searching
+const matMetaObject: { [key: string]: DetailedIcon } = {};
+for (const ico of materialMetadata.icons) {
+    matMetaObject[getMuiIconName(ico.name)] = ico;
+}
+const pxbMetaObject: { [key: string]: DetailedIcon } = {};
+for (const ico of pxbMetadata.icons) {
+    // @ts-ignore (our icon meta doesn't exactly match the material meta, but we never reference the missing props so it's ok)
+    pxbMetaObject[getMuiIconName(ico.filename)] = ico;
+}
+
+// eslint-disable-next-line
+console.log('outside component');
+
+const loadIcons = (): void => {
+    // eslint-disable-next-line
+    console.log('loading icons');
+    Object.keys(MuiIcons).map((iconKey) => {
         let type: MuiIconClass;
         if (iconKey.includes('Outlined')) {
             type = 'Outlined';
@@ -65,9 +79,7 @@ Object.keys(MuiIcons)
         }
 
         let searchableString = iconKey.replace(/(Outlined|TwoTone|Rounded|Sharp)$/, '');
-        const iconDetails: DetailedIcon | undefined = materialMetadata.icons.find(
-            (iconMeta) => getMuiIconName(iconMeta.name) === iconKey
-        ) || {
+        const iconDetails: DetailedIcon | undefined = matMetaObject[iconKey] || {
             name: '',
             filename: '',
             family: [],
@@ -121,14 +133,9 @@ Object.keys(MuiIcons)
         return icon;
     });
 
-// const allPxbIcons: IconType[] =
-Object.keys(PXBIcons)
-    .sort()
-    .map((iconKey) => {
+    Object.keys(PXBIcons).map((iconKey) => {
         let searchableString = iconKey;
-        const iconDetails: DetailedIcon | undefined = (pxbMetadata.icons as DetailedIcon[]).find(
-            (iconMeta) => getMuiIconName(iconMeta.filename) === iconKey
-        ) || {
+        const iconDetails: DetailedIcon | undefined = pxbMetaObject[iconKey] || {
             name: '',
             filename: '',
             family: [],
@@ -169,9 +176,7 @@ Object.keys(PXBIcons)
         // return the icon
         return icon;
     });
-
-// Uncomment this if you want to use a single list of icons instead of categories
-// const allIcons: IconType[] = allMuiIcons.concat(allPxbIcons).sort((iconA, iconB) => (iconA.name < iconB.name ? -1 : 1));
+};
 
 /*
  * The Icon Browser Component is a container for all of the pieces of the icon display
@@ -193,12 +198,22 @@ export const IconBrowser: React.FC = (): JSX.Element => {
         }
         return undefined;
     });
-    const [showCount, setShowCount] = useState(0);
-    const type = 'Filled'; // Future: allow users to select the style of icons to view
+    const [iconsLoading, setIconsLoading] = useState(true);
+    const iconClass = 'Filled'; // Future: allow users to select the style of icons to view
 
-    // progressively load in the icons so the page loads faster
+    const isMounted = useRef(false);
     useEffect(() => {
-        setTimeout(() => setShowCount(Object.keys(allIconsByCategory).length), 700);
+        isMounted.current = true;
+        return (): void => {
+            isMounted.current = false;
+            dispatch({ type: TOGGLE_SIDEBAR, payload: false });
+        };
+    }, []);
+
+    // Load the icons after first render
+    useEffect(() => {
+        if (Object.keys(allIconsMap).length === 0) loadIcons();
+        setIconsLoading(false);
     }, []);
 
     useEffect(() => {
@@ -213,15 +228,6 @@ export const IconBrowser: React.FC = (): JSX.Element => {
             `${location.pathname}?icon=${iconName[0]}&isMaterial=${iconName[1] === 'material' ? true : false}`
         );
         dispatch({ type: TOGGLE_SIDEBAR, payload: true });
-    }, []);
-
-    const isMounted = useRef(false);
-    useEffect(() => {
-        isMounted.current = true;
-        return (): void => {
-            isMounted.current = false;
-            dispatch({ type: TOGGLE_SIDEBAR, payload: false });
-        };
     }, []);
 
     const handleSearchChange = useMemo(
@@ -258,22 +264,13 @@ export const IconBrowser: React.FC = (): JSX.Element => {
         []
     );
 
-    // Uncomment this if you prefer to display all of the icons in a single group without categories
-    // const icons = useMemo(
-    //     () =>
-    //         (iconKeys === null ? allIcons : iconKeys.map((key) => allIconsMap[key])).filter(
-    //             (icon) => type === icon.type
-    //         ),
-    //     [/*type,*/ iconKeys]
-    // );
-
     const iconsByCategory = useMemo(() => {
         if (iconKeys === null) return allIconsByCategory;
         const filteredCategories: IconCategoriesType = {};
         for (const category of Object.keys(allIconsByCategory)) {
             filteredCategories[category] = allIconsByCategory[category].filter(
                 (icon) =>
-                    iconKeys.includes(`${icon.name}-${icon.isMaterial ? 'material' : 'pxb'}`) && icon.type === type
+                    iconKeys.includes(`${icon.name}-${icon.isMaterial ? 'material' : 'pxb'}`) && icon.type === iconClass
             );
         }
         return filteredCategories;
@@ -297,8 +294,8 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                 iconCategories={Object.keys(iconsByCategory).sort()}
             />
 
-            {resultsCount > 0 && <Typography variant={'caption'}>{resultsCount} Icons</Typography>}
-            {showCount === 0 && (
+            {!iconsLoading && resultsCount > 0 && <Typography variant={'caption'}>{resultsCount} Icons</Typography>}
+            {iconsLoading && (
                 <Grid container spacing={2} style={{ marginTop: theme.spacing(11) }}>
                     {Array(24)
                         .fill('')
@@ -313,10 +310,10 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                         ))}
                 </Grid>
             )}
-            {resultsCount > 0 &&
+            {!iconsLoading &&
+                resultsCount > 0 &&
                 Object.keys(iconsByCategory)
                     .sort()
-                    .slice(0, showCount)
                     .map((category) =>
                         iconsByCategory[category].length > 0 &&
                         (iconCategories === null || iconCategories.includes(category)) ? (
@@ -331,7 +328,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                             </React.Fragment>
                         ) : null
                     )}
-            {resultsCount === 0 && (
+            {!iconsLoading && resultsCount === 0 && (
                 <EmptyState
                     title={'0 Matches'}
                     description={'No icons matched your filters.'}
