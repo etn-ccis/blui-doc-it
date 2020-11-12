@@ -306,7 +306,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                 </Toolbar>
             </AppBar>
 
-            <PageContent>
+            <PageContent style={{ minWidth: '100%' }}>
                 {loading && (
                     <div>
                         {loadingGroups.map((group, groupNumber) =>
