@@ -34,8 +34,9 @@ export const getScheduledSiteConfig = (): SiteConfig => {
         }
         // wrapped to the next year
         else {
-            // make a copy of the duration end, but starting at year 0
-            const endTemp = new Date(0, duration.end.getMonth(), duration.end.getDate());
+            // make a copy of the duration end, but starting at year 1900
+            const endTemp = new Date(duration.end.getTime());
+            endTemp.setFullYear(1900);
             if (duration.start <= currentDate || currentDate <= endTemp) {
                 return duration.config;
             }

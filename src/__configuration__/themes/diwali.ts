@@ -8,7 +8,7 @@ import { Schedule } from './types';
 
 export const DiwaliSchedule: Schedule = {
     start: new Date(0, 10, 11), // Nov 11
-    end: new Date(0, 10, 16), // Nov 16
+    end: new Date(0, 10, 17), // Nov 17
     config: {
         theme: {
             ...PXBThemes.blue,
@@ -48,7 +48,7 @@ export const DiwaliSchedule: Schedule = {
                 },
             },
         },
-        drawerActiveBackgroundFade: 0.75,
+        drawerActiveBackgroundFade: 0.85,
         landingPageBanner: {
             backgroundImage: `url(${Diwali})`,
             backgroundSize: 'cover',
