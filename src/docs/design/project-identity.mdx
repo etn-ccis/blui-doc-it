@@ -4,12 +4,24 @@ import ConsumerIndustrial from '../../app/assets/design/project-identity/consume
 import StyleChoice from '../../app/assets/design/project-identity/style-choice.png';
 import IllustrationConsumer from '../../app/assets/design/project-identity/illustration-consumer.png';
 import IllustrationIndustrial from '../../app/assets/design/project-identity/illustration-industrial.png';
+import ImageAppBar from '../../app/assets/design/project-identity/image-app-bar.png';
+import ImageDrawerRegular from '../../app/assets/design/project-identity/image-drawer-regular.png';
+import ImageDrawerProfile from '../../app/assets/design/project-identity/image-drawer-profile.png';
+import ImageScorecardHeader from '../../app/assets/design/project-identity/image-scorecard-header.png';
+import ImageLogin from '../../app/assets/design/project-identity/image-login.png';
+import ImageSuccess from '../../app/assets/design/project-identity/image-success.png';
+import VariationButton from '../../app/assets/design/project-identity/variation-button.png';
+import VariationTextField from '../../app/assets/design/project-identity/variation-text-field.png';
+import VerbiageNeutral from '../../app/assets/design/project-identity/verbiage-neutral.png';
+import VerbiageExcitement from '../../app/assets/design/project-identity/verbiage-excitement.png';
+import ListColorCorrect from '../../app/assets/design/project-identity/list-color-correct.png';
+import ListColorIncorrect from '../../app/assets/design/project-identity/list-color-incorrect.png';
 
 <!-- KEYWORDS: design tutorial branding brand identity flexible flex -->
 
 # Project Identity
 
-While PX Blue serves as a design system for a wide range of applications, it is understood that each project might face its own unique situation. As a designer, you are responsible for maintaining the balance between consistency as a PX Blue application and things unique to your own application.
+PX Blue provides a foundation for designing and developing applications in a way that makes them feel like they are a part of the same brand. However, the purpose of PX Blue is not to make every application look the same. There is a balance that you must strike between maintaining consistency between applications and establishing a unique brand for each product. PX Blue provides some of the basic elements and patterns to help you build consistency, leaving you more time to focus on what makes your product unique.
 
 <MaterialDesignDescription
     title={'Design Patterns'}
@@ -20,9 +32,7 @@ While PX Blue serves as a design system for a wide range of applications, it is 
 
 ## PX Blue is Flexible
 
-PX Blue is here to suggest common practice to your project. It is by no means restricting your project to a certain set of design patterns.
-
-PX Blue is built on top of Material Design. A design system stemed from Eaton, an international electric management company, it inherited many design principles from Material Design, while aiming for projects in the electric industries. Since PX Blue is facing a broader designer audience just like Material Design, we cannot just say, "you have to implement your navigation drawer using this design". It is up to the project designer to fill in those gaps.
+PX Blue is not prescriptive — just as we build on top of Material Design principles, you too can build on top of PX Blue principles to make your products better for your target audience. There are many gray areas and gaps in PX Blue where you are free to make changes and tweaks.
 
 <ImageGrid
     regularWidth
@@ -34,7 +44,7 @@ PX Blue is built on top of Material Design. A design system stemed from Eaton, a
     ]}
 />
 
-You are expected to build your own design system local to your project, which inherits the designs from PX Blue, but with some more fingerprints in it that makes your project fit your target audience. You might be designing for a web page instead, where you seek to attract potential customers; your product might be more consumer-facing, and seeks for a more relaxed and friendly communication; or you are designing for an HMI, where the viewport is an embedded digital display on a device, and you need to limit your UI for larger button size and tap-only behaviors.
+We fully expect you to establish your own local design system for your project that extends PX Blue and adds your own flair / style / identity. Depending on your use case, you may want your design system to be more flashy, visual, relaxed, friendly, etc. Depending on where your application will reside, you may also need to change aspects of the design system related to accessibility (such as larger buttons for touch-screens) or legal-requirements in your target markets.
 
 <ImageGrid
     regularWidth
@@ -44,7 +54,7 @@ You are expected to build your own design system local to your project, which in
     ]}
 />
 
-In certain situations, it might even be beneficial to explore beyond what PX Blue has to offer, _as long as you have a strong reason for it_ (not just "it looks cooler this way").
+While establishing your local product identity, remember that PX Blue is here to help establish consistency, so you do not want to go so far down the road of customization that this is lost. Below, we go into details about some common areas of customization as well as some areas that should be avoided.
 
 ## Common Branding Efforts
 
@@ -73,13 +83,19 @@ By default, we use `#007bc1` as our primary theme color. But this is the baselin
 
 Similiar to illustrations, images are another way to make your applications and websites more consumer-friendly.
 
-**Insert images where we apply background + background images**:
-
--   App bar
--   Drawer header
--   Drawer header but with user avatar
--   Scorecard header
--   Login
+<ImageGrid
+    images={[ImageAppBar, ImageDrawerRegular, ImageDrawerProfile, ImageScorecardHeader, ImageLogin, ImageSuccess]}
+    caption={[
+        `There are many opportunities where you can apply background images or tiles to promote your brand identity.`,
+        `1: Background image on an extended app bar.`,
+        `2: Background tile on a drawer header.`,
+        `3: Background tile on a drawer .`,
+        `4: Background images on the header of scorecards.`,
+        `5: Background tiles on a login screen on the desktop.`,
+        `6: Geometric shape on a login card.`,
+        `7: Wavy, delightful background pattern for account creation success screen.`,
+    ]}
+/>
 
 ### Icons
 
@@ -89,7 +105,10 @@ However, we understand that many projects have their unique situation and the cu
 
 ### Component Variants
 
-**Insert an image showing variations of buttons and text field**
+<ImageGrid
+    images={[VariationButton, VariationTextField]}
+    caption={'Buttons and text fields have many style variations.'}
+/>
 
 Many components have styling variations, and it is up to the designer to decide which one suits the best for the design context. Some common variations include:
 
@@ -99,7 +118,10 @@ Many components have styling variations, and it is up to the designer to decide 
 
 ### Verbiage
 
-**Insert a side-by-side image, one saying "Create a new location" and another saying "Excellent! Now let's create a new location for your business."**
+<ImageGrid
+    images={[VerbiageNeutral, VerbiageExcitement]}
+    caption={`Depends on the industry of your product, sometimes you want to sound more neutral and professional (#1), while other times you might want to cheer up your user through an (often cumbersome) configuration workflow (#2).`}
+/>
 
 Your tone can change based on your application nature too. For websites, you want to be appealing and persvasive. For applications, you want to be concise and accurate.
 
@@ -115,11 +137,11 @@ Despite all the design freedom you have, there are a few things you should never
 
 ### Color Convention
 
-**Insert an image with color misuse on status colors**
+<ImageGrid images={[ListColorCorrect, ListColorIncorrect]} caption={'Do not break color conventions.'} />
 
 PX Blue has [a fixed set of status color palette](/style/color). The status colors are used to indicate the status of certain items. Do not let colors from other parts of your user interface to interfere with them and give your reader wromg impressions on what is being given with what status.
 
-In the rare case, there are certain color conventions in the specific industry you are designing for, like green = off, red = open in case of a breaker. Follow the indutrial convention there.
+In the rare case, there are certain color conventions in the specific industry you are designing for, like green = close, red = open in case of a breaker. Follow the indutrial convention there.
 
 ### Font Family
 
