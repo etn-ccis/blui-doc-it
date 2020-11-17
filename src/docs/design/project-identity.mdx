@@ -19,9 +19,11 @@ import ListColorIncorrect from '../../app/assets/design/project-identity/list-co
 
 <!-- KEYWORDS: design tutorial branding brand identity flexible flex -->
 
-# Project Identity
+# Project Identity and Design Flexibility
 
-PX Blue provides a foundation for designing and developing applications in a way that makes them feel like they are a part of the same brand. However, the purpose of PX Blue is not to make every application look the same. There is a balance that you must strike between maintaining consistency between applications and establishing a unique brand for each product. PX Blue provides some of the basic elements and patterns to help you build consistency, leaving you more time to focus on what makes your product unique.
+PX Blue provides a foundation for designing and developing applications in a way that makes them feel like they are a part of the same brand. However, the purpose of PX Blue is not to make every application look the same.
+
+As PX Blue serves as a design system for a wide range of applications, some projects might demand unique design or branding elements to better suit their audience. There is a balance that you must strike between maintaining consistency between applications and establishing a unique brand for each product. PX Blue provides some of the basic elements and patterns to help you build consistency, leaving you more time to focus on what makes your product unique.
 
 <MaterialDesignDescription
     title={'Design Patterns'}
@@ -33,19 +35,23 @@ PX Blue provides a foundation for designing and developing applications in a way
 
 ## PX Blue is Flexible
 
-PX Blue is not prescriptive — just as we build on top of Material Design principles, you too can build on top of PX Blue principles to make your products better for your target audience. There are many gray areas and gaps in PX Blue where you are free to make changes and tweaks.
+PX Blue is not prescriptive — using PX Blue to be more efficient in practice shouldn’t mean restricting creativity in a project, or feeling limited on what might be improved.
+
+just as we build on top of [Material Design](https://material.io) principles, you too can build on top of PX Blue principles to make your products better for your target audience. There are many gray areas and gaps in PX Blue where you are free to make changes and tweaks.
 
 <ImageGrid
     regularWidth
     images={[ConsumerIndustrial]}
     caption={[
-        `An example of two projects, both designed to control devices, but with different targeted audience.`,
-        `1: A consumer-faced product. End user might be homeowners, small business owners, etc. The project is designed to delight the users.`,
-        `2: Industrial product. End user might be asset managers, facility assets managers, etc. The project is designed to  convey a secure and efficient picture for equipment management.`,
+        `An example of two projects, both designed to control devices, but with a different targeted audience.`,
+        `1: A consumer-faced product. End users might be homeowners, small business owners, etc. The project is designed to delight the users.`,
+        `2: Industrial product. End users might be asset managers, facility assets managers, etc. The project is designed to  convey a secure and efficient picture for equipment management.`,
     ]}
 />
 
-We fully expect you to establish your own local design system for your project that extends PX Blue and adds your own flair / style / identity. Depending on your use case, you may want your design system to be more flashy, visual, relaxed, friendly, etc. Depending on where your application will reside, you may also need to change aspects of the design system related to accessibility (such as larger buttons for touch-screens) or legal-requirements in your target markets.
+## Build a Local Design System
+
+We expect that you will establish your own local design system for your project that extends PX Blue and adds your own style / identity. Depending on your use case, your design system may need to be more flashy, visual, relaxed, friendly, etc. Depending on where your application will be used, you may also need to change aspects of the design system related to accessibility (such as larger buttons for touch-screens) or legal requirements in your target markets.
 
 <ImageGrid
     regularWidth
@@ -55,19 +61,13 @@ We fully expect you to establish your own local design system for your project t
     ]}
 />
 
-While establishing your local product identity, remember that PX Blue is here to help establish consistency, so you do not want to go so far down the road of customization that this is lost. Below, we go into details about some common areas of customization as well as some areas that should be avoided.
+While establishing your local product identity, remember that PX Blue is here to help establish consistency. You do not want to customize so much that this is lost. Below, we go into details about some common areas of customization as well as some areas that should be avoided.
 
 ## Common Things to Change
 
 There are some areas where we strongly encourage you to make changes and establish your own brand identity.
 
 Keep in mind that once you've established a local design system, you must make sure that you apply it consistently everywhere. You should use it in your packaging, your website, your email templates, the application, etc.
-
-### Theme
-
-PX Blue [offers two themes](/style/themes): Blue theme and Blue Dark theme. Ideally, an application should support both themes, but some applications might be more usable depending on the environment and context of the usage.
-
-By default, we use `#007bc1` as our primary theme color. But this is the baseline color and may vary from projects to projects. You may change the primary theme color, given that you carefully design it to avoid inflicting with the color convention ([see below](#color-convention)).
 
 ### Illustrations
 
@@ -82,7 +82,7 @@ By default, we use `#007bc1` as our primary theme color. But this is the baselin
 
 ### Images
 
-Similiar to illustrations, images are another way to make your applications and websites more user-friendly.
+Similar to illustrations, images are another way to make your applications and websites more user-friendly.
 
 <ImageGrid
     images={[ImageAppBar, ImageDrawerRegular, ImageDrawerProfile, ImageScorecardHeader, ImageLogin, ImageSuccess]}
@@ -135,6 +135,12 @@ The actual text used in your application can change based on your intended tone.
 ## Things You Should NEVER Change
 
 When it comes to PX Blue, you have a great deal of design freedom, but there are a few things you should never change. Most of these are related to maintaining visual consistency and other conventions between applications.
+
+### Theme
+
+PX Blue [offers two themes](/style/themes): Blue theme and Blue Dark theme. Ideally, an application should support both themes, but some applications might be more usable depending on the environment and context of the usage.
+
+You are expected to stay close to those two themes. Both themes have been thoroughly researched to ensure they meet the standards for usability and accessibility.
 
 ### Status Colors
 
