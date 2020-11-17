@@ -56,11 +56,11 @@ We fully expect you to establish your own local design system for your project t
 
 While establishing your local product identity, remember that PX Blue is here to help establish consistency, so you do not want to go so far down the road of customization that this is lost. Below, we go into details about some common areas of customization as well as some areas that should be avoided.
 
-## Common Branding Efforts
+## Common Things to Change
 
-A few UI elements are commonly used to express a product's brand identity, while still remain consistent with the rest of the PX Blue applications.
+There are some areas where we strongly encourage you to make changes and establish your own brand identity.
 
-Note that, once you've developed a local design system, you need to make sure that your brand identity is consistent. That is, they should be under the same design system for packaging, for your website, for the email formats, and for the digital application itself.
+Keep in mind that once you've established a local design system, you must make sure that you apply it consistently everywhere. You should use it in your packaging, your website, your email templates, the application, etc.
 
 ### Theme
 
@@ -77,11 +77,11 @@ By default, we use `#007bc1` as our primary theme color. But this is the baselin
     ]}
 />
 
-[Illustrations](/style/illustrations) are common for [websites](/design/websites) and consumer-faced products. Different image styles can convey different product styles (friendly vs. professional).
+[Illustrations](/style/illustrations) are common for [websites](/design/websites) and other consumer-facing products. Different image styles can create different moods (e.g., friendly vs. professional) and set the tone for how users will use your application.
 
 ### Images
 
-Similiar to illustrations, images are another way to make your applications and websites more consumer-friendly.
+Similiar to illustrations, images are another way to make your applications and websites more user-friendly.
 
 <ImageGrid
     images={[ImageAppBar, ImageDrawerRegular, ImageDrawerProfile, ImageScorecardHeader, ImageLogin, ImageSuccess]}
@@ -99,9 +99,9 @@ Similiar to illustrations, images are another way to make your applications and 
 
 ### Icons
 
-We use Material Design's baseline style for [our iconography](/style/iconography).
+PX Blue primarily uses the baseline style of Material Design's icons (see [our iconography](/style/iconography)).
 
-However, we understand that many projects have their unique situation and the current iconography set may not cover every single use cases; you are welcome to invent your own icons, or harness [Material Design's community icons](https://materialdesignicons.com/). However, you should make sure that you have thoroughly scoured through Material Design and PX Blue's existing iconographies first, and that you are strictly following [Material Design's icon design guidelines](https://material.io/design/iconography/system-icons.html#design-principles).
+However, we understand that the current iconography set may not cover every single use case or requirement for your product. In these situations, you are welcome to invent your own icons or leverage [Material Design's community icons](https://materialdesignicons.com/). Before going this route, make sure that you have thoroughly explored the available icons first and when creating new icons, ensure that they follow the [Material Design icon design guidelines](https://material.io/design/iconography/system-icons.html#design-principles).
 
 ### Component Variants
 
@@ -110,11 +110,11 @@ However, we understand that many projects have their unique situation and the cu
     caption={'Buttons and text fields have many style variations.'}
 />
 
-Many components have styling variations, and it is up to the designer to decide which one suits the best for the design context. Some common variations include:
+Many components have style variations. These variations are all available for you to use, and it is up to you to decide which ones work best for your application. Some common variations include:
 
--   Outlined vs. contained (or filled)
--   Flat vs. elevated
--   Squared vs. semi-rounded corner vs. rounded corner
+-   Outlined vs. Contained / Filled
+-   Flat vs. Elevated
+-   Square vs. Rounded Corner vs. Round
 
 ### Verbiage
 
@@ -123,68 +123,34 @@ Many components have styling variations, and it is up to the designer to decide 
     caption={`Depends on the industry of your product, sometimes you want to sound more neutral and professional (#1), while other times you might want to cheer up your user through an (often cumbersome) configuration workflow (#2).`}
 />
 
-Your tone can change based on your application nature too. For websites, you want to be appealing and persvasive. For applications, you want to be concise and accurate.
+The actual text used in your application can change based on your intended tone. For websites, you may want to use more persuasive and appealing language to encourage the audience to buy or use your product. Inside an application, you may want to use a more serious tone, especially for applications that deal with potential safety concerns. Consumer-facing products in general carry a more cheerful tone.
 
 <MaterialDesignDescription
     title={'Writing'}
     url={`https://material.io/design/communication/writing.html`}
-    description={`Material's principles in writing for user interface.`}
+    description={`Material Design's language principles for user interface.`}
 />
 
-## Should NEVER Change
+## Things You Should NEVER Change
 
-Despite all the design freedom you have, there are a few things you should never change. Those either has to do with long-established traditions, or has to do with how PX Blue is established as a branded design system.
+When it comes to PX Blue, you have a great deal of design freedom, but there are a few things you should never change. Most of these are related to maintaining visual consistency and other conventions between applications.
 
-### Color Convention
+### Status Colors
 
 <ImageGrid images={[ListColorCorrect, ListColorIncorrect]} caption={'Do not break color conventions.'} />
 
-PX Blue has [a fixed set of status color palette](/style/color). The status colors are used to indicate the status of certain items. Do not let colors from other parts of your user interface to interfere with them and give your reader wromg impressions on what is being given with what status.
+PX Blue has strict guidelines around our [status color palette](/style/color). The status colors are used to indicate the status of certain items or devices. These should not be changed for any reason — users should be able to instantly know what these colors mean in any PX Blue application. Further, the colors you are using to brand your application should not interfere with these colors.
 
-In the rare case, there are certain color conventions in the specific industry you are designing for, like green = close, red = open in case of a breaker. Follow the indutrial convention there.
+The only situation where these may be changed is if there is an industry-specific convention that differs from the PX Blue recommendations (e.g., green = circuit closed, red = circuit open for breakers). In these situations, you should follow the industry-specific convention.
 
 ### Font Family
 
-PX Blue [uses Open Sans and Noto Sans](/style/typography) for all its applications. We [do encourage you to change font weight and font size](/style/typography#customization) sporatically to display a better information hierarchy, but we strongly discourage you using fonts other than Open Sans and Noto Sans, especially any [Serif fonts](https://en.wikipedia.org/wiki/Serif).
+PX Blue [uses Open Sans and Noto Sans](/style/typography) for all applications. You are encouraged to adjust font [weight and size](/style/typography#customization) where necessary to establish a visual type hierarchy, but we strongly discourage the use of any fonts other than Open Sans and Noto Sans, particularly any [Serif fonts](https://en.wikipedia.org/wiki/Serif).
 
 ### Consistency
 
 You shall make sure your local design system is being carried through consistently. Once you pick a style, you should stick to it, instead of changing it every page.
 
-### Design Conventions
+### Design Patterns
 
-Something are just design conventions. Everyone does that.
-
-Material Design and PX Blue highlight a few things in red. Those are our "do not". You should never include any design patterns like that in your designs.
-
-<!--
-
-<Divider />
-
-# Notes from Eric
-
--   App Logo, using different glyphs and gradients. Note that there is no "Eaton app", emphasize on what that project is.
--   Login screen, background patterns, sutle imagery
--   Drawer header and drawer user menu background, email templates, can try to appy primary / secondary color around (like pp uses orange)
--   Ephesus has magenta e-color
--   Any brand should use the Eaton blue
-
--   Background related to the indutry, photograph in the extended app bar
--   status color should be consistent, usually override brand theme, so blue should stay a status of "all cleared". Don't let the branding color fight with a status color
--   About page, can do something cool looking (e.g., product team put their signature there)
--   Slash / transition screen...
--   Stick to open sans. On mobile you might have some rare opportunity to go with the system. You might also use the Eaton font but it is not very legible, only use for headlines
--   LIT is some small tweak but is less about branding. Typography: need a reason for typography variations, usually to catch attention / sort out hierarchies
--   Stylization of the logo typography
--   Theme: ideally every app should support both, but need to consider the use cases. Some app is more usable under light mode or dark mode. Designers should do UX research on this.
--   Icons: Eric sometimes use the style of the icon to infer the status. Like filled ones are active / on, and outlined - filled. Recommend stick to baseline and use outlined if needed.
--   Two tones: Mostly the progress icons only. Might only use those at a illustration level
--   Consumer apps: more transition animations, more playful, more colorful, more gradient, etc, but it is bc it is a consumer app
--   Illustrations: Eaton will have to revisit the policy on illustrations. Might need to sync up with Creative CoE on these standards
--   Animation: States between inactive and active, can use some cool transition animations. Success screens
--   Symbols can use some transparency for outlines to stick out from the maps
--   Color convention: if for whatever reason in a certain industry the rules are inverted (green = open, red = closed) then do it. Don't invent something just bc you think it looks cool.
--   Icons should be created only within guidelines, dont invent something crazy...
--   Data viz: Coordination curve?
-
--->
+Throughout our [design patterns](/patterns), we provide examples of "things not to do" — these are typically identified by an image with a red underline. You should never use any of these expressly-forbidden patterns in your products. In all cases, we provide an example of the preferred approach.
