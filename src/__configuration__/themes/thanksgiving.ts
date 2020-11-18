@@ -64,5 +64,6 @@ export const ThanksgivingSchedule: Schedule = {
             backgroundSize: '300px',
             backgroundPosition: 'left 75%',
         },
+        landingPageTagline: 'gobble till you wobble',
     },
 };
