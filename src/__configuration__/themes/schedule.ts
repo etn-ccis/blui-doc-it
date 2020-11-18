@@ -4,18 +4,28 @@ import { ChristmasSchedule } from './christmas';
 import { defaultTheme } from './default';
 import { Schedule, SiteConfig } from './types';
 import { DiwaliSchedule } from './diwali';
+import { WomenSDaySchedule } from './women-s-day';
+import { ThanksgivingSchedule } from './thanksgiving';
 
 /**
  * Add more holiday themes here.
  *
  * Current schedules:
- * * May 3 - May 5: May the Forth Day
- * * Oct 14 - Nov 2: Halloween
- * * Nov 12 - Nov 16: Diwali (Changes each year)
- * * Nov 19 - Nov 30: Thanksgiving (changes each year)
- * * Dec 23 - Dec 25: Christmas
+ * * Mar 7 - Mar 9: Women's Day
+ * * May 3 - May 6: May the Forth Day
+ * * Oct 14 - Nov 3: Halloween
+ * * Nov 12 - Nov 17: Diwali (Changes each year)
+ * * Nov 22 - Nov 30: Thanksgiving (changes each year)
+ * * Dec 23 - Dec 26: Christmas
  */
-export const schedule: Schedule[] = [DiwaliSchedule, ChristmasSchedule, HalloweenSchedule, MayTheForthSchedule];
+export const schedule: Schedule[] = [
+    ThanksgivingSchedule,
+    WomenSDaySchedule,
+    DiwaliSchedule,
+    ChristmasSchedule,
+    HalloweenSchedule,
+    MayTheForthSchedule,
+];
 
 /**
  * @returns a site configuration given the currently applied holiday theme
@@ -34,8 +44,9 @@ export const getScheduledSiteConfig = (): SiteConfig => {
         }
         // wrapped to the next year
         else {
-            // make a copy of the duration end, but starting at year 0
-            const endTemp = new Date(0, duration.end.getMonth(), duration.end.getDate());
+            // make a copy of the duration end, but starting at year 1900
+            const endTemp = new Date(duration.end.getTime());
+            endTemp.setFullYear(1900);
             if (duration.start <= currentDate || currentDate <= endTemp) {
                 return duration.config;
             }
