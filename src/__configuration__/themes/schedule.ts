@@ -4,12 +4,14 @@ import { ChristmasSchedule } from './christmas';
 import { defaultTheme } from './default';
 import { Schedule, SiteConfig } from './types';
 import { DiwaliSchedule } from './diwali';
+import { WomenSDaySchedule } from './women-s-day';
 import { ThanksgivingSchedule } from './thanksgiving';
 
 /**
  * Add more holiday themes here.
  *
  * Current schedules:
+ * * Mar 7 - Mar 9: Women's Day
  * * May 3 - May 6: May the Forth Day
  * * Oct 14 - Nov 3: Halloween
  * * Nov 12 - Nov 17: Diwali (Changes each year)
@@ -18,6 +20,7 @@ import { ThanksgivingSchedule } from './thanksgiving';
  */
 export const schedule: Schedule[] = [
     ThanksgivingSchedule,
+    WomenSDaySchedule,
     DiwaliSchedule,
     ChristmasSchedule,
     HalloweenSchedule,

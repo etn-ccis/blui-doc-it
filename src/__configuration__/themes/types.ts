@@ -33,6 +33,11 @@ export type SiteConfig = {
      * Configuration around the app bar background image
      */
     appBarBackground?: CSSProperties;
+
+    /**
+     * a tagline for the landing page banner
+     */
+    landingPageTagline?: string;
 };
 
 export type Schedule = {

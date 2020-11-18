@@ -95,5 +95,6 @@ export const HalloweenSchedule: Schedule = {
         appBarBackground: {
             backgroundImage: `url(${ghosts})`,
         },
+        landingPageTagline: 'boo',
     },
 };
