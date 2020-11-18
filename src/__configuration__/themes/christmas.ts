@@ -58,5 +58,6 @@ export const ChristmasSchedule: Schedule = {
         appBarBackground: {
             backgroundImage: `url(${AppBarTile})`,
         },
+        landingPageTagline: 'ho ho ho',
     },
 };

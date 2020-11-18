@@ -64,5 +64,6 @@ export const MayTheForthSchedule: Schedule = {
                 .toString()}), url("${AppbarTile}"), ${Colors.darkBlack[100]}`,
         },
         className: 'may-the-forth',
+        landingPageTagline: 'may the forth be with you',
     },
 };
