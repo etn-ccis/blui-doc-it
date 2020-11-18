@@ -64,9 +64,10 @@ export const LandingPage: React.FC = (): JSX.Element => {
     const history = useHistory();
     const theme = useTheme();
     const classes = useStyles();
-    const configs = getScheduledSiteConfig();
-    const landingPageBanner = configs.landingPageBanner;
-    const tagline = configs.landingPageTagline;
+    const themeConfig = getScheduledSiteConfig();
+    const landingPageBanner = themeConfig.landingPageBanner;
+    const logoColor = themeConfig.logoColor;
+    const tagline = themeConfig.landingPageTagline;
     usePageTitle('');
     useGoogleAnalyticsPageView();
 
@@ -74,7 +75,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
         <>
             <SharedToolbar navigationIcon={<Menu />} />
             <div className={classes.banner} style={landingPageBanner}>
-                <PXBLogo tagline={tagline} />
+                <PXBLogo color={logoColor} tagline={tagline} />
                 <Button
                     variant={'outlined'}
                     color={'inherit'}

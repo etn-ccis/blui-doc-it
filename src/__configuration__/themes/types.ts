@@ -19,6 +19,11 @@ export type SiteConfig = {
         backgroundImage: string;
     } & CSSProperties;
 
+    /*
+     * Configures the pxblue logo color on the landing page.
+     */
+    logoColor?: string;
+
     /**
      * A theme-specific class name to be used by SASS
      */

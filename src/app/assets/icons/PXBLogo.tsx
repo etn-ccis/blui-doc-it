@@ -10,6 +10,7 @@ type PXBlueSVGProps = {
 
 type PXBLogoProps = {
     tagline?: string;
+    color?: string;
 };
 
 export const PXBlueSVG: React.FC<PXBlueSVGProps> = (props) => {
@@ -30,12 +31,12 @@ export const PXBlueSVG: React.FC<PXBlueSVGProps> = (props) => {
     );
 };
 
-export const PXBLogo: React.FC<PXBLogoProps> = ({ tagline }) => {
+export const PXBLogo: React.FC<PXBLogoProps> = ({ tagline, color }) => {
     const theme = useTheme();
 
     return (
         <div style={{ textAlign: 'center', position: 'relative' }}>
-            <PXBlueSVG className={'rotateMe'} size={82} color={theme.palette.primary.contrastText} />
+            <PXBlueSVG className={'rotateMe'} size={82} color={color || theme.palette.primary.contrastText} />
             <Typography variant={'h3'} align={'center'} style={{ fontWeight: 300, marginBottom: theme.spacing() }}>
                 Power Xpert <b>Blue</b>
             </Typography>
