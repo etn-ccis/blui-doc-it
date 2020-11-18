@@ -2,6 +2,7 @@ import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
 import Banner from '../../app/assets/themes/international-women-s-day-banner.svg';
 import AppBarTile from '../../app/assets/themes/international-women-s-day-appbar-tile.svg';
+import Cursor from '../../app/assets/themes/women-s-day-cursor.png';
 import { Schedule } from './types';
 
 // Custom palette since we don't have pink colors
@@ -23,7 +24,7 @@ export const WomenSDaySchedule: Schedule = {
                     dark: DARK_COLOR,
                 },
                 secondary: {
-                    main: Colors.lightBlue[400],
+                    main: Colors.lightBlue[300],
                 },
             },
             overrides: {
@@ -71,6 +72,7 @@ export const WomenSDaySchedule: Schedule = {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'left',
             textShadow: `0 0 5px black`,
+            cursor: `url("${Cursor}"), auto`,
         },
         drawerActiveBackgroundFade: 0.9,
         className: 'christmas-eve',
