@@ -513,7 +513,7 @@
             { "/development/testing": 42 },
             { "/design/intro": 29 },
             { "/design/websites": 22 },
-            { "/design/project-identity": 21 },
+            { "/design/project-identity": 20 },
             { "/development/frameworks-mobile/react-native": 18 },
             { "/design/accessibility": 18 },
             { "/patterns/internationalization": 18 },
@@ -3572,7 +3572,7 @@
             { "/patterns/loading": 1 }
         ],
         "areas": [
-            { "/design/project-identity": 4 },
+            { "/design/project-identity": 3 },
             { "/design/websites": 2 },
             { "/get-started/new-project": 1 },
             { "/patterns/empty-states": 1 },
@@ -9122,12 +9122,7 @@
         "five": [{ "/design/websites": 1 }, { "/patterns/navigation": 1 }],
         "ideally": [{ "/design/websites": 1 }, { "/design/project-identity": 1 }],
         "shades": [{ "/style/themes": 2 }, { "/design/websites": 1 }],
-        "gray": [
-            { "/style/themes": 2 },
-            { "/design/websites": 1 },
-            { "/design/project-identity": 1 },
-            { "/style/color": 1 }
-        ],
+        "gray": [{ "/style/themes": 2 }, { "/design/websites": 1 }, { "/style/color": 1 }],
         "palette": [
             { "/style/color": 4 },
             { "/style/illustrations": 2 },
@@ -9251,7 +9246,7 @@
         "restricting": [{ "/design/project-identity": 1 }],
         "creativity": [{ "/design/project-identity": 1 }],
         "too": [{ "/style/illustrations": 2 }, { "/design/project-identity": 1 }, { "/patterns/overlay": 1 }],
-        "gaps": [{ "/design/project-identity": 1 }],
+        "opportunities": [{ "/design/project-identity": 1 }, { "/community/contactus": 1 }],
         "tweaks": [{ "/design/project-identity": 1 }],
         "extends": [{ "/design/project-identity": 1 }, { "/patterns/user-auth": 1 }],
         "adds": [{ "/design/project-identity": 1 }],
@@ -10419,7 +10414,6 @@
         "evolving": [{ "/community/contactus": 1 }],
         "grows": [{ "/community/contactus": 1 }],
         "regarding": [{ "/community/contactus": 1 }],
-        "opportunities": [{ "/community/contactus": 1 }],
         "com": [{ "/community/contactus": 1 }],
         "inquiries": [{ "/community/contactus": 1 }],
         "day": [{ "/community/contactus": 1 }],
