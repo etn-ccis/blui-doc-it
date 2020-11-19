@@ -1,14 +1,14 @@
 import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
 import * as BrandingColors from '@pxblue/colors-branding';
-import Diwali from '../../app/assets/themes/diwali-banner.jpg';
-import diwaliCursor from '../../app/assets/themes/diwali-cursor.png';
-import AppBarTile from '../../app/assets/themes/diwali-appbar-tile.png';
+import Thanksgiving from '../../app/assets/themes/thanksgiving-banner.jpg';
+import turkeyCursor from '../../app/assets/themes/turkey-cursor.png';
+import AppBarTile from '../../app/assets/themes/thanksgiving-appbar-tile.png';
 import { Schedule } from './types';
 
-export const DiwaliSchedule: Schedule = {
-    start: new Date(0, 10, 11), // Nov 11
-    end: new Date(0, 10, 17), // Nov 17
+export const ThanksgivingSchedule: Schedule = {
+    start: new Date(0, 10, 22), // Nov 22
+    end: new Date(0, 11, 1), // Nov 30
     config: {
         theme: {
             ...PXBThemes.blue,
@@ -16,14 +16,14 @@ export const DiwaliSchedule: Schedule = {
                 ...PXBThemes.blue.palette,
                 type: 'light',
                 primary: {
-                    light: BrandingColors.wine[300],
-                    main: BrandingColors.wine[400],
-                    dark: BrandingColors.wine[900],
+                    light: BrandingColors.rust[100],
+                    main: BrandingColors.rust[500],
+                    dark: BrandingColors.rust[900],
                 },
                 secondary: {
-                    light: Colors.gold[300],
-                    main: Colors.gold[500],
-                    dark: Colors.gold[900],
+                    light: BrandingColors.goldenrod[300],
+                    main: BrandingColors.goldenrod[500],
+                    dark: BrandingColors.goldenrod[900],
                 },
             },
             overrides: {
@@ -32,7 +32,7 @@ export const DiwaliSchedule: Schedule = {
                     ...PXBThemes.blue.overrides?.MuiAppBar,
                     colorSecondary: {
                         color: Colors.white[50],
-                        backgroundColor: BrandingColors.wine[500],
+                        backgroundColor: BrandingColors.rust[500],
                         '& .MuiInputBase-root': {
                             color: Colors.white[50],
                         },
@@ -48,21 +48,22 @@ export const DiwaliSchedule: Schedule = {
                 },
             },
         },
-        drawerActiveBackgroundFade: 0.85,
         landingPageBanner: {
-            backgroundImage: `url(${Diwali})`,
+            backgroundImage: `url(${Thanksgiving})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center 65%',
-            backgroundColor: BrandingColors.wine[900],
-            cursor: `url("${diwaliCursor}") 0 25, auto`,
-            textShadow: `0 0 4px black`,
+            backgroundPosition: 'center 88%',
+            backgroundColor: BrandingColors.rust[900],
+            cursor: `url("${turkeyCursor}") 0 25, auto`,
+            color: BrandingColors.rust[500],
         },
-        className: 'diwali',
+        logoColor: BrandingColors.rust[500],
+        className: 'thanksgiving',
         appBarBackground: {
             backgroundImage: `url(${AppBarTile})`,
             backgroundSize: '300px',
             backgroundPosition: 'left 75%',
         },
+        landingPageTagline: 'gobble till you wobble',
     },
 };

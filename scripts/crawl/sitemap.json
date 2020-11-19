@@ -103,6 +103,10 @@
                 {
                     "title": "Websites",
                     "url": "/websites"
+                },
+                {
+                    "title": "Project Identity",
+                    "url": "/project-identity"
                 }
             ]
         },

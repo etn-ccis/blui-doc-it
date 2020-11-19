@@ -1,10 +1,16 @@
 import React from 'react';
 import { Typography, useTheme } from '@material-ui/core';
+import { ListItemTag } from '@pxblue/react-components';
 
 type PXBlueSVGProps = {
     className?: string;
     color?: string;
     size?: number;
+};
+
+type PXBLogoProps = {
+    tagline?: string;
+    color?: string;
 };
 
 export const PXBlueSVG: React.FC<PXBlueSVGProps> = (props) => {
@@ -25,17 +31,32 @@ export const PXBlueSVG: React.FC<PXBlueSVGProps> = (props) => {
     );
 };
 
-export const PXBLogo: React.FC = () => {
+export const PXBLogo: React.FC<PXBLogoProps> = ({ tagline, color }) => {
     const theme = useTheme();
 
     return (
-        <>
-            <PXBlueSVG className={'rotateMe'} size={82} color={theme.palette.primary.contrastText} />
+        <div style={{ textAlign: 'center', position: 'relative' }}>
+            <PXBlueSVG className={'rotateMe'} size={82} color={color || theme.palette.primary.contrastText} />
             <Typography variant={'h3'} align={'center'} style={{ fontWeight: 300, marginBottom: theme.spacing() }}>
                 Power Xpert <b>Blue</b>
             </Typography>
+            {tagline && (
+                <ListItemTag
+                    label={tagline}
+                    backgroundColor={theme.palette.secondary.main}
+                    fontColor={theme.palette.secondary.contrastText}
+                    style={{
+                        position: 'absolute',
+                        textShadow: 'none',
+                        top: 90,
+                        right: '-3em',
+                        transform: 'rotate(10deg)',
+                        boxShadow: '0 0 4px black',
+                    }}
+                />
+            )}
             <Typography align={'center'}>Powering Teams to Make What Matters *</Typography>
-        </>
+        </div>
     );
 };
 PXBLogo.displayName = 'PXBLogo';

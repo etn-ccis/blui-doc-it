@@ -15,7 +15,7 @@ const lightSabers = [LightSaber1, LightSaber2, LightSaber3, LightSaber4, LightSa
 
 export const MayTheForthSchedule: Schedule = {
     start: new Date(0, 4, 3), // May 3
-    end: new Date(0, 4, 5), // May 5
+    end: new Date(0, 4, 6), // May 6
     config: {
         theme: {
             ...PXBThemes.blue,
@@ -64,5 +64,6 @@ export const MayTheForthSchedule: Schedule = {
                 .toString()}), url("${AppbarTile}"), ${Colors.darkBlack[100]}`,
         },
         className: 'may-the-forth',
+        landingPageTagline: 'may the forth be with you',
     },
 };

@@ -1,0 +1,161 @@
+import { Divider, ImageGrid, MaterialDesignDescription } from '../../app/components';
+import PxblueSmallAltIcon from '@pxblue/icons-mui/PxblueSmallAlt';
+import ConsumerIndustrial from '../../app/assets/design/project-identity/consumer-industrial.png';
+import StyleChoice from '../../app/assets/design/project-identity/style-choice.png';
+import IllustrationConsumer from '../../app/assets/design/project-identity/illustration-consumer.png';
+import IllustrationIndustrial from '../../app/assets/design/project-identity/illustration-industrial.png';
+import ImageAppBar from '../../app/assets/design/project-identity/image-app-bar.png';
+import ImageDrawerRegular from '../../app/assets/design/project-identity/image-drawer-regular.png';
+import ImageDrawerProfile from '../../app/assets/design/project-identity/image-drawer-profile.png';
+import ImageScorecardHeader from '../../app/assets/design/project-identity/image-scorecard-header.png';
+import ImageLogin from '../../app/assets/design/project-identity/image-login.png';
+import ImageSuccess from '../../app/assets/design/project-identity/image-success.png';
+import VariationButton from '../../app/assets/design/project-identity/variation-button.png';
+import VariationTextField from '../../app/assets/design/project-identity/variation-text-field.png';
+import VerbiageNeutral from '../../app/assets/design/project-identity/verbiage-neutral.png';
+import VerbiageExcitement from '../../app/assets/design/project-identity/verbiage-excitement.png';
+import ListColorCorrect from '../../app/assets/design/project-identity/list-color-correct.png';
+import ListColorIncorrect from '../../app/assets/design/project-identity/list-color-incorrect.png';
+
+<!-- KEYWORDS: design tutorial branding brand identity flexible flex -->
+
+# Project Identity and Design Flexibility
+
+PX Blue provides a foundation for designing and developing applications in a way that makes them feel like they are a part of the same brand. However, the purpose of PX Blue is not to make every application look the same.
+
+As PX Blue serves as a design system for a wide range of applications, some projects might demand unique design or branding elements to better suit their audience. There is a balance that you must strike among maintaining consistency between applications and establishing a unique brand for each product. PX Blue provides some of the basic elements and patterns to help you build consistency, leaving you more time to focus on what makes your product unique.
+
+<MaterialDesignDescription
+    title={'Design Patterns'}
+    url={'/patterns'}
+    description={`Follow PX Blue's design pattern guidelines.`}
+    avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+    minCardHeight={'unset'}
+/>
+
+## PX Blue is Flexible
+
+PX Blue is not prescriptive — it should make you more efficient without restricting your creativity in a project.
+
+Just as we build on top of [Material Design](https://material.io) principles, you too can build on top of PX Blue principles to make your products better for your target audience. There are many opportunities in PX Blue where you are free to make changes and tweaks.
+
+<ImageGrid
+    regularWidth
+    images={[ConsumerIndustrial]}
+    caption={[
+        `An example of two projects, both designed to control devices, but with a different targeted audience.`,
+        `1: A consumer-faced product. End users might be homeowners, small business owners, etc. The project is designed to delight the users.`,
+        `2: Industrial product. End users might be asset managers, facility assets managers, etc. The project is designed to  convey a secure and efficient picture for equipment management.`,
+    ]}
+/>
+
+## Build a Local Design System
+
+We expect that you will establish your own local design system for your project that extends PX Blue and adds your own style / identity. Depending on your use case, your design system may need to be more flashy, visual, relaxed, friendly, etc. Depending on where your application will be used, you may also need to change aspects of the design system related to accessibility (such as larger buttons for touch-screens) or legal requirements in your target markets.
+
+<ImageGrid
+    regularWidth
+    images={[StyleChoice]}
+    caption={[
+        `You may tune styles for your application away from the PX Blue baseline style, as part of your local design system. In this example, the app bar (#1), the input form field (#2) and the buttons (#3) are changed.`,
+    ]}
+/>
+
+While establishing your local product identity, remember that PX Blue is here to help establish consistency. You do not want to customize so much that this is lost. Below, we go into details about some common areas of customization as well as some areas that should be avoided.
+
+## Common Things to Change
+
+There are some areas where we strongly encourage you to make changes and establish your own brand identity.
+
+Keep in mind that once you've established a local design system, you must make sure that you apply it consistently everywhere. You should use it in your packaging, your website, your email templates, the application, etc.
+
+### Illustrations
+
+<ImageGrid
+    images={[IllustrationConsumer, IllustrationIndustrial]}
+    caption={[
+        `A consumer-oriented product (#1) might use an illustration for empty states, while an industrial product (#2) might use an icon instead.`,
+    ]}
+/>
+
+[Illustrations](/style/illustrations) are common for [websites](/design/websites) and other consumer-facing products. Different image styles can create different moods (e.g., friendly vs. professional) and set the tone for how users will use your application.
+
+### Images
+
+Similar to illustrations, images are another way to make your applications and websites more user-friendly.
+
+<ImageGrid
+    images={[ImageAppBar, ImageDrawerRegular, ImageDrawerProfile, ImageScorecardHeader, ImageLogin, ImageSuccess]}
+    caption={[
+        `There are many opportunities where you can apply background images or tiles to promote your brand identity.`,
+        `1: Background image on an extended app bar.`,
+        `2: Background tile on a drawer header.`,
+        `3: Background tile on a drawer .`,
+        `4: Background images on the header of scorecards.`,
+        `5: Background tiles on a login screen on the desktop.`,
+        `6: Geometric shape on a login card.`,
+        `7: Wavy, delightful background pattern for account creation success screen.`,
+    ]}
+/>
+
+### Icons
+
+PX Blue primarily uses the baseline style of Material Design's icons (see [our iconography](/style/iconography)).
+
+However, we understand that the current iconography set may not cover every single use case or requirement for your product. In these situations, you are welcome to invent your own icons or leverage [Material Design's community icons](https://materialdesignicons.com/). Before going this route, make sure that you have thoroughly explored the available icons first and when creating new icons, ensure that they follow the [Material Design icon design guidelines](https://material.io/design/iconography/system-icons.html#design-principles).
+
+### Component Variants
+
+<ImageGrid
+    images={[VariationButton, VariationTextField]}
+    caption={'Buttons and text fields have many style variations.'}
+/>
+
+Many components have style variations. These variations are all available for you to use, and it is up to you to decide which ones work best for your application. Some common variations include:
+
+-   Outlined vs. Contained / Filled
+-   Flat vs. Elevated
+-   Square vs. Rounded Corner vs. Round
+
+### Verbiage
+
+<ImageGrid
+    images={[VerbiageNeutral, VerbiageExcitement]}
+    caption={`Depends on the industry of your product, sometimes you want to sound more neutral and professional (#1), while other times you might want to cheer up your user through an (often cumbersome) configuration workflow (#2).`}
+/>
+
+The actual text used in your application can change based on your intended tone. For websites, you may want to use more persuasive and appealing language to encourage the audience to buy or use your product. Inside an application, you may want to use a more serious tone, especially for applications that deal with potential safety concerns. Consumer-facing products in general carry a more cheerful tone.
+
+<MaterialDesignDescription
+    title={'Writing'}
+    url={`https://material.io/design/communication/writing.html`}
+    description={`Material Design's language principles for user interface.`}
+/>
+
+## Things You Should NEVER Change
+
+When it comes to PX Blue, you have a great deal of design freedom, but there are a few things you should never change. Most of these are related to maintaining visual consistency and other conventions between applications.
+
+### Theme
+
+PX Blue [offers two themes](/style/themes): Blue theme and Blue Dark theme. Ideally, an application should support both themes, but some applications might be more usable depending on the environment and context of the usage.
+
+You are expected to stay close to those two themes. Both themes have been thoroughly researched to ensure they meet the standards for usability and accessibility.
+
+> One notable exception to this rule is if you are building products that will be white-labeled or sold under a different brand. In this case, you may find it beneficial to create your own custom themes that will better align with the brand.
+
+### Status Colors
+
+<ImageGrid images={[ListColorCorrect, ListColorIncorrect]} caption={'Do not break color conventions.'} />
+
+PX Blue has strict guidelines around our [status color palette](/style/color). The status colors are used to indicate the status of certain items or devices. These should not be changed for any reason — users should be able to instantly know what these colors mean in any PX Blue application. Further, the colors you are using to brand your application should not interfere with these colors.
+
+The only situation where these may be changed is if there is an industry-specific convention that differs from the PX Blue recommendations (e.g., green = circuit closed, red = circuit open for breakers). In these situations, you should follow the industry-specific convention.
+
+### Font Family
+
+PX Blue [uses Open Sans and Noto Sans](/style/typography) for all applications. You are encouraged to adjust font [weight and size](/style/typography#customization) where necessary to establish a visual type hierarchy, but we strongly discourage the use of any fonts other than Open Sans and Noto Sans, particularly any [Serif fonts](https://en.wikipedia.org/wiki/Serif).
+
+### Design Patterns
+
+Throughout our [design patterns](/patterns), we provide examples of "things not to do" — these are typically identified by an image with a red underline. You should never use any of these expressly-forbidden patterns in your products. In all cases, we provide an example of the preferred approach.

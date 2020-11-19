@@ -32,6 +32,9 @@ type MaterialDesignDescriptionProps = {
 
     // URL to be opened from a new window
     url: string;
+
+    // minimum card height
+    minCardHeight?: 'unset' | number;
 } & CardProps;
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -49,7 +52,6 @@ const useStyles = makeStyles((theme: Theme) =>
         contentArea: {
             flexDirection: 'row',
             display: 'flex',
-            minHeight: CTA_BUTTON.HEIGHT,
             alignItems: 'flex-start',
             padding: theme.spacing(1),
             paddingBottom: theme.spacing(1.5),
@@ -73,6 +75,7 @@ export const MaterialDesignDescription: React.FC<MaterialDesignDescriptionProps>
         icon = <OpenInNew style={{ color: theme.palette.text.hint }} />,
         title = `Material's Description`,
         url,
+        minCardHeight,
         ...cardProps
     } = props;
     return (
@@ -89,7 +92,7 @@ export const MaterialDesignDescription: React.FC<MaterialDesignDescriptionProps>
                 }}
                 {...props.CardActionAreaProps}
             >
-                <div className={classes.contentArea}>
+                <div className={classes.contentArea} style={{ minHeight: minCardHeight || CTA_BUTTON.HEIGHT }}>
                     {avatar}
                     <div className={classes.textArea}>
                         <Typography variant={'body2'} className={classes.title}>

@@ -19,7 +19,8 @@
         "cy:run": "cypress run",
         "cypress:open": "cypress open",
         "cytest": "start-server-and-test start http://localhost:3000 cy:run",
-        "indexer": "cd scripts/crawl && node crawler.js && node indexer.js && cd ../.. && prettier \"src/database/*.json\" --write"
+        "indexer": "cd scripts/crawl && node crawler.js && node indexer.js && cd ../.. && prettier \"src/database/*.json\" --write",
+        "analyze": "source-map-explorer 'build/static/js/*.js'"
     },
     "prettier": "@pxblue/prettier-config",
     "dependencies": {
@@ -123,6 +124,7 @@
         "resolve-url-loader": "3.1.1",
         "sass-loader": "8.0.0",
         "semver": "6.3.0",
+        "source-map-explorer": "^2.5.0",
         "start-server-and-test": "^1.11.0",
         "style-loader": "1.0.0",
         "terser-webpack-plugin": "^4.2.2",
