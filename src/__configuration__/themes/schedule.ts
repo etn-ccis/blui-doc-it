@@ -40,10 +40,6 @@ export const schedule: Schedule[] = [
  * @returns a site configuration given the currently applied holiday theme
  */
 export const getScheduledSiteConfig = (): SiteConfig => {
-    // return NewYearsSchedule.config;
-    // return KwanzaaSchedule.config;
-    return HanukkahSchedule.config;
-
     const currentDate = new Date();
     currentDate.setFullYear(1900);
 

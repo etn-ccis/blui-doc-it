@@ -1,8 +1,7 @@
 import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
-// import * as BrandingColors from '@pxblue/colors-branding';
 import NewYears from '../../app/assets/themes/new-years/new-years-banner.jpg';
-import fireworkCursor from '../../app/assets/themes/new-years/firework-rocket-cursor-2.png';
+import fireworkCursor from '../../app/assets/themes/new-years/firework-rocket-cursor.png';
 import AppBarTile from '../../app/assets/themes/new-years/new-years-appbar-tile.png';
 import { Schedule } from './types';
 

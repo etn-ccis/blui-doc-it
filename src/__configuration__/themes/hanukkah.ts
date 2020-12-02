@@ -63,6 +63,6 @@ export const HanukkahSchedule: Schedule = {
             backgroundSize: '300px',
             backgroundPosition: 'left 75%',
         },
-        landingPageTagline: 'Hanukkah Sameach!',
+        landingPageTagline: 'Hanukkah Sameach!', // "Happy Hanukkah"
     },
 };
