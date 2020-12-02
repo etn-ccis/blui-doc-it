@@ -1,8 +1,8 @@
 import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
 import * as BrandingColors from '@pxblue/colors-branding';
-import Hanukkah from '../../app/assets/themes/hanukkah/hanukkah-banner-4.jpg';
-import dreidelCursor from '../../app/assets/themes/hanukkah/dreidel-cursor-2.png';
+import Hanukkah from '../../app/assets/themes/hanukkah/hanukkah-banner.png';
+import dreidelCursor from '../../app/assets/themes/hanukkah/dreidel-cursor.png';
 import AppBarTile from '../../app/assets/themes/hanukkah/hanukkah-appbar-tile.png';
 import { Schedule } from './types';
 
@@ -54,10 +54,9 @@ export const HanukkahSchedule: Schedule = {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center 88%',
             backgroundColor: BrandingColors.blue[900],
-            cursor: `url("${dreidelCursor}") 0 25, auto`,
+            cursor: `url("${dreidelCursor}") 0 0, auto`,
             color: Colors.white[50],
         },
-        // logoColor: BrandingColors.rust[500],
         className: 'hanukkah',
         appBarBackground: {
             backgroundImage: `url(${AppBarTile})`,

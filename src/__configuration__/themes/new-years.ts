@@ -2,7 +2,7 @@ import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
 // import * as BrandingColors from '@pxblue/colors-branding';
 import NewYears from '../../app/assets/themes/new-years/new-years-banner.jpg';
-import fireworkCursor from '../../app/assets/themes/new-years/firework-rocket-cursor.png';
+import fireworkCursor from '../../app/assets/themes/new-years/firework-rocket-cursor-2.png';
 import AppBarTile from '../../app/assets/themes/new-years/new-years-appbar-tile.png';
 import { Schedule } from './types';
 
@@ -31,15 +31,15 @@ export const NewYearsSchedule: Schedule = {
                 MuiAppBar: {
                     colorDefault: {
                         color: Colors.black[50],
-                        backgroundColor: Colors.black[800],
+                        backgroundColor: Colors.darkBlack[200],
                     },
                     colorPrimary: {
                         color: Colors.black[50],
-                        backgroundColor: Colors.black[800],
+                        backgroundColor: Colors.darkBlack[200],
                     },
                     colorSecondary: {
                         color: Colors.white[200],
-                        backgroundColor: Colors.black[900],
+                        backgroundColor: Colors.darkBlack[400],
                     },
                 },
                 MuiBackdrop: {
@@ -54,7 +54,7 @@ export const NewYearsSchedule: Schedule = {
                 },
                 MuiDrawer: {
                     paper: {
-                        backgroundColor: Colors.darkBlack[300],
+                        backgroundColor: Colors.darkBlack[100],
                     },
                 },
                 MuiTabs: {

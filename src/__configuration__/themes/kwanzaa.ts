@@ -1,8 +1,8 @@
 import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
-// import * as BrandingColors from '@pxblue/colors-branding';
-import Kwanzaa from '../../app/assets/themes/kwanzaa/kwanzaa-banner-3.png';
-import candleCursor from '../../app/assets/themes/kwanzaa/candle-cursor.jpeg';
+import * as BrandingColors from '@pxblue/colors-branding';
+import Kwanzaa from '../../app/assets/themes/kwanzaa/kwanzaa-banner.png';
+import cornCursor from '../../app/assets/themes/kwanzaa/corn-cursor.png';
 import AppBarTile from '../../app/assets/themes/kwanzaa/kwanzaa-appbar-tile.png';
 import { Schedule } from './types';
 
@@ -21,9 +21,9 @@ export const KwanzaaSchedule: Schedule = {
                     dark: Colors.red[900],
                 },
                 secondary: {
-                    light: Colors.green[300],
-                    main: Colors.green[500],
-                    dark: Colors.green[900],
+                    light: BrandingColors.emerald[300],
+                    main: BrandingColors.emerald[500],
+                    dark: BrandingColors.emerald[900],
                 },
             },
             overrides: {
@@ -52,12 +52,11 @@ export const KwanzaaSchedule: Schedule = {
             backgroundImage: `url(${Kwanzaa})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center 88%',
+            backgroundPosition: 'center 35%',
             backgroundColor: Colors.red[900],
-            cursor: `url("${candleCursor}") 0 25, auto`,
+            cursor: `url("${cornCursor}") 25 0, auto`,
             color: Colors.white[50],
         },
-        // logoColor: BrandingColors.rust[500],
         className: 'kwanzaa',
         appBarBackground: {
             backgroundImage: `url(${AppBarTile})`,
