@@ -2,8 +2,8 @@ import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
 import * as BrandingColors from '@pxblue/colors-branding';
 // import Kwanzaa from '../../app/assets/themes/kwanzaa/kwanzaa-banner.png';
-import Kwanzaa from '../../app/assets/themes/kwanzaa/kwanzaa-banner-2.png';
-import flagCursor from '../../app/assets/themes/kwanzaa/flag-cursor.svg';
+import Kwanzaa from '../../app/assets/themes/kwanzaa/kwanzaa-banner.png';
+import flagCursor from '../../app/assets/themes/kwanzaa/flag-cursor.png';
 import AppBarTile from '../../app/assets/themes/kwanzaa/kwanzaa-appbar-tile.png';
 import { Schedule } from './types';
 
