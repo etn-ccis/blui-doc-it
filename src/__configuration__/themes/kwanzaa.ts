@@ -1,14 +1,15 @@
 import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
 import * as BrandingColors from '@pxblue/colors-branding';
-import Kwanzaa from '../../app/assets/themes/kwanzaa/kwanzaa-banner.png';
-import cornCursor from '../../app/assets/themes/kwanzaa/corn-cursor.png';
+// import Kwanzaa from '../../app/assets/themes/kwanzaa/kwanzaa-banner.png';
+import Kwanzaa from '../../app/assets/themes/kwanzaa/kwanzaa-banner-2.png';
+import flagCursor from '../../app/assets/themes/kwanzaa/flag-cursor.svg';
 import AppBarTile from '../../app/assets/themes/kwanzaa/kwanzaa-appbar-tile.png';
 import { Schedule } from './types';
 
 export const KwanzaaSchedule: Schedule = {
     start: new Date(0, 11, 26), // Dec 26
-    end: new Date(0, 11, 30), // Dec 30 - should run until Jan 1 (cutting this off on early to account for New Years theme)
+    end: new Date(0, 11, 31), // Dec 30 - should run until Jan 1 (cutting this off on early to account for New Years theme)
     config: {
         theme: {
             ...PXBThemes.blue,
@@ -32,7 +33,7 @@ export const KwanzaaSchedule: Schedule = {
                     ...PXBThemes.blue.overrides?.MuiAppBar,
                     colorSecondary: {
                         color: Colors.white[50],
-                        backgroundColor: Colors.red[500],
+                        backgroundColor: Colors.red[900],
                         '& .MuiInputBase-root': {
                             color: Colors.white[50],
                         },
@@ -52,9 +53,9 @@ export const KwanzaaSchedule: Schedule = {
             backgroundImage: `url(${Kwanzaa})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center 35%',
+            backgroundPosition: 'center 96%',
             backgroundColor: Colors.red[900],
-            cursor: `url("${cornCursor}") 25 0, auto`,
+            cursor: `url("${flagCursor}") 0 0, auto`,
             color: Colors.white[50],
         },
         className: 'kwanzaa',

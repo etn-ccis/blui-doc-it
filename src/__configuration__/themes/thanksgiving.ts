@@ -1,9 +1,9 @@
 import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
 import * as BrandingColors from '@pxblue/colors-branding';
-import Thanksgiving from '../../app/assets/themes/thanksgiving-banner.jpg';
-import turkeyCursor from '../../app/assets/themes/turkey-cursor.png';
-import AppBarTile from '../../app/assets/themes/thanksgiving-appbar-tile.png';
+import Thanksgiving from '../../app/assets/themes/thanksgiving/thanksgiving-banner.jpg';
+import turkeyCursor from '../../app/assets/themes/thanksgiving/turkey-cursor.png';
+import AppBarTile from '../../app/assets/themes/thanksgiving/thanksgiving-appbar-tile.png';
 import { Schedule } from './types';
 
 export const ThanksgivingSchedule: Schedule = {

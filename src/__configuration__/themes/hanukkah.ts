@@ -8,7 +8,7 @@ import { Schedule } from './types';
 
 export const HanukkahSchedule: Schedule = {
     start: new Date(0, 11, 10), // Dec 10
-    end: new Date(0, 11, 18), // Dec 18
+    end: new Date(0, 11, 19), // Dec 18
     config: {
         theme: {
             ...PXBThemes.blue,

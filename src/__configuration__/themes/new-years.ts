@@ -1,13 +1,13 @@
 import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
-import NewYears from '../../app/assets/themes/new-years/new-years-banner.jpg';
+import NewYears from '../../app/assets/themes/new-years/new-years-banner.png';
 import fireworkCursor from '../../app/assets/themes/new-years/firework-rocket-cursor.png';
 import AppBarTile from '../../app/assets/themes/new-years/new-years-appbar-tile.png';
 import { Schedule } from './types';
 
 export const NewYearsSchedule: Schedule = {
     start: new Date(0, 11, 31), // Dec 31
-    end: new Date(0, 0, 1), // Jan 1
+    end: new Date(1, 0, 2), // Jan 2
     config: {
         theme: {
             ...PXBThemes.blueDark,
@@ -23,6 +23,15 @@ export const NewYearsSchedule: Schedule = {
                     light: Colors.lightBlue[300],
                     main: Colors.lightBlue[500],
                     dark: Colors.lightBlue[900],
+                },
+                background: {
+                    default: Colors.darkBlack[100],
+                    paper: Colors.black[900],
+                },
+                text: {
+                    primary: Colors.black[50],
+                    secondary: Colors.black[200],
+                    hint: Colors.black[200],
                 },
             },
             overrides: {
@@ -77,7 +86,7 @@ export const NewYearsSchedule: Schedule = {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center 33%',
             backgroundColor: Colors.black[900],
-            cursor: `url("${fireworkCursor}") 32 0, auto`,
+            cursor: `url("${fireworkCursor}") 0 0, auto`,
             color: Colors.white[50],
         },
         logoColor: Colors.white[50],

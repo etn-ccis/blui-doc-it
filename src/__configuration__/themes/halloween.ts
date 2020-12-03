@@ -2,9 +2,9 @@ import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
 import { ThemeOptions } from '@material-ui/core';
 
-import castles from '../../app/assets/themes/castles.svg';
-import ghosts from '../../app/assets/themes/halloween-appbar-tile.svg';
-import witch from '../../app/assets/themes/witch.png';
+import castles from '../../app/assets/themes/halloween/castles.svg';
+import ghosts from '../../app/assets/themes/halloween/halloween-appbar-tile.svg';
+import witch from '../../app/assets/themes/halloween/witch.png';
 import { Schedule } from './types';
 
 const HalloweenTheme: ThemeOptions = {

@@ -1,19 +1,19 @@
 import * as PXBThemes from '@pxblue/react-themes';
-import DeathStar from '../../app/assets/themes/death-star.svg';
-import AppbarTile from '../../app/assets/themes/may-the-4th-appbar-tile.svg';
-import LightSaber1 from '../../app/assets/themes/light-saber-1.png';
-import LightSaber2 from '../../app/assets/themes/light-saber-2.png';
-import LightSaber3 from '../../app/assets/themes/light-saber-3.png';
-import LightSaber4 from '../../app/assets/themes/light-saber-4.png';
-import LightSaber5 from '../../app/assets/themes/light-saber-5.png';
-import LightSaber6 from '../../app/assets/themes/light-saber-6.png';
+import DeathStar from '../../app/assets/themes/may-the-fourth/death-star.svg';
+import AppbarTile from '../../app/assets/themes/may-the-fourth/may-the-4th-appbar-tile.svg';
+import LightSaber1 from '../../app/assets/themes/may-the-fourth/light-saber-1.png';
+import LightSaber2 from '../../app/assets/themes/may-the-fourth/light-saber-2.png';
+import LightSaber3 from '../../app/assets/themes/may-the-fourth/light-saber-3.png';
+import LightSaber4 from '../../app/assets/themes/may-the-fourth/light-saber-4.png';
+import LightSaber5 from '../../app/assets/themes/may-the-fourth/light-saber-5.png';
+import LightSaber6 from '../../app/assets/themes/may-the-fourth/light-saber-6.png';
 import * as Colors from '@pxblue/colors';
 import color from 'color';
 import { Schedule } from './types';
 
 const lightSabers = [LightSaber1, LightSaber2, LightSaber3, LightSaber4, LightSaber5, LightSaber6];
 
-export const MayTheForthSchedule: Schedule = {
+export const MayTheFourthSchedule: Schedule = {
     start: new Date(0, 4, 3), // May 3
     end: new Date(0, 4, 6), // May 6
     config: {
@@ -63,7 +63,7 @@ export const MayTheForthSchedule: Schedule = {
                 .fade(0.9)
                 .toString()}), url("${AppbarTile}"), ${Colors.darkBlack[100]}`,
         },
-        className: 'may-the-forth',
-        landingPageTagline: 'may the forth be with you',
+        className: 'may-the-fourth',
+        landingPageTagline: 'may the fourth be with you',
     },
 };
