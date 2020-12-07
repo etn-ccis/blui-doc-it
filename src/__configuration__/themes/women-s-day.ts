@@ -1,8 +1,8 @@
 import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
-import Banner from '../../app/assets/themes/international-women-s-day-banner.svg';
-import AppBarTile from '../../app/assets/themes/international-women-s-day-appbar-tile.svg';
-import Cursor from '../../app/assets/themes/women-s-day-cursor.png';
+import Banner from '../../app/assets/themes/women-s-day/international-women-s-day-banner.svg';
+import AppBarTile from '../../app/assets/themes/women-s-day/international-women-s-day-appbar-tile.svg';
+import Cursor from '../../app/assets/themes/women-s-day/women-s-day-cursor.png';
 import { Schedule } from './types';
 
 // Custom palette since we don't have pink colors

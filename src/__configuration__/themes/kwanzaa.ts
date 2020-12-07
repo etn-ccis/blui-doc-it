@@ -1,14 +1,15 @@
 import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
 import * as BrandingColors from '@pxblue/colors-branding';
-import Thanksgiving from '../../app/assets/themes/thanksgiving/thanksgiving-banner.jpg';
-import turkeyCursor from '../../app/assets/themes/thanksgiving/turkey-cursor.png';
-import AppBarTile from '../../app/assets/themes/thanksgiving/thanksgiving-appbar-tile.png';
+// import Kwanzaa from '../../app/assets/themes/kwanzaa/kwanzaa-banner.png';
+import Kwanzaa from '../../app/assets/themes/kwanzaa/kwanzaa-banner.png';
+import flagCursor from '../../app/assets/themes/kwanzaa/flag-cursor.png';
+import AppBarTile from '../../app/assets/themes/kwanzaa/kwanzaa-appbar-tile.png';
 import { Schedule } from './types';
 
-export const ThanksgivingSchedule: Schedule = {
-    start: new Date(0, 10, 22), // Nov 22
-    end: new Date(0, 11, 1), // Nov 30
+export const KwanzaaSchedule: Schedule = {
+    start: new Date(0, 11, 26), // Dec 26
+    end: new Date(0, 11, 31), // Dec 30 - should run until Jan 1 (cutting this off on early to account for New Years theme)
     config: {
         theme: {
             ...PXBThemes.blue,
@@ -16,14 +17,14 @@ export const ThanksgivingSchedule: Schedule = {
                 ...PXBThemes.blue.palette,
                 type: 'light',
                 primary: {
-                    light: BrandingColors.rust[100],
-                    main: BrandingColors.rust[500],
-                    dark: BrandingColors.rust[900],
+                    light: Colors.red[100],
+                    main: Colors.red[500],
+                    dark: Colors.red[900],
                 },
                 secondary: {
-                    light: BrandingColors.goldenrod[300],
-                    main: BrandingColors.goldenrod[500],
-                    dark: BrandingColors.goldenrod[900],
+                    light: BrandingColors.emerald[300],
+                    main: BrandingColors.emerald[500],
+                    dark: BrandingColors.emerald[900],
                 },
             },
             overrides: {
@@ -32,7 +33,7 @@ export const ThanksgivingSchedule: Schedule = {
                     ...PXBThemes.blue.overrides?.MuiAppBar,
                     colorSecondary: {
                         color: Colors.white[50],
-                        backgroundColor: BrandingColors.rust[500],
+                        backgroundColor: Colors.red[900],
                         '& .MuiInputBase-root': {
                             color: Colors.white[50],
                         },
@@ -49,21 +50,19 @@ export const ThanksgivingSchedule: Schedule = {
             },
         },
         landingPageBanner: {
-            backgroundImage: `url(${Thanksgiving})`,
+            backgroundImage: `url(${Kwanzaa})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center 88%',
-            backgroundColor: BrandingColors.rust[900],
-            cursor: `url("${turkeyCursor}") 0 25, auto`,
-            color: BrandingColors.rust[500],
+            backgroundPosition: 'center 96%',
+            backgroundColor: Colors.red[900],
+            cursor: `url("${flagCursor}") 0 0, auto`,
+            color: Colors.white[50],
         },
-        logoColor: BrandingColors.rust[500],
-        className: 'thanksgiving',
+        className: 'kwanzaa',
         appBarBackground: {
             backgroundImage: `url(${AppBarTile})`,
             backgroundSize: '300px',
             backgroundPosition: 'left 75%',
         },
-        landingPageTagline: 'gobble till you wobble',
     },
 };

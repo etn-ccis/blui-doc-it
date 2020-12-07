@@ -1,9 +1,9 @@
 import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
 import * as BrandingColors from '@pxblue/colors-branding';
-import Diwali from '../../app/assets/themes/diwali-banner.jpg';
-import diwaliCursor from '../../app/assets/themes/diwali-cursor.png';
-import AppBarTile from '../../app/assets/themes/diwali-appbar-tile.png';
+import Diwali from '../../app/assets/themes/diwali/diwali-banner.jpg';
+import diwaliCursor from '../../app/assets/themes/diwali/diwali-cursor.png';
+import AppBarTile from '../../app/assets/themes/diwali/diwali-appbar-tile.png';
 import { Schedule } from './types';
 
 export const DiwaliSchedule: Schedule = {
