@@ -7,7 +7,7 @@ import { Schedule } from './types';
 
 export const NewYearsSchedule: Schedule = {
     start: new Date(0, 11, 31), // Dec 31
-    end: new Date(1, 0, 2), // Jan 2
+    end: new Date(1, 0, 7), // Jan 7
     config: {
         theme: {
             ...PXBThemes.blueDark,
@@ -88,6 +88,7 @@ export const NewYearsSchedule: Schedule = {
             backgroundColor: Colors.black[900],
             cursor: `url("${fireworkCursor}") 0 0, auto`,
             color: Colors.white[50],
+            textShadow: `0 0 5px black`,
         },
         logoColor: Colors.white[50],
         className: 'new-years',
