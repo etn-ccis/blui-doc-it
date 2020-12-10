@@ -1,22 +1,28 @@
 import { HalloweenSchedule } from './halloween';
-import { MayTheForthSchedule } from './may-the-forth';
+import { MayTheFourthSchedule } from './may-the-fourth';
 import { ChristmasSchedule } from './christmas';
 import { defaultTheme } from './default';
 import { Schedule, SiteConfig } from './types';
 import { DiwaliSchedule } from './diwali';
 import { WomenSDaySchedule } from './women-s-day';
 import { ThanksgivingSchedule } from './thanksgiving';
+import { HanukkahSchedule } from './hanukkah';
+import { KwanzaaSchedule } from './kwanzaa';
+import { NewYearsSchedule } from './new-years';
 
 /**
  * Add more holiday themes here.
  *
  * Current schedules:
  * * Mar 7 - Mar 9: Women's Day
- * * May 3 - May 6: May the Forth Day
+ * * May 3 - May 6: May the Fourth Day
  * * Oct 14 - Nov 3: Halloween
- * * Nov 12 - Nov 17: Diwali (Changes each year)
+ * * Nov 12 - Nov 17: Diwali (changes each year)
  * * Nov 22 - Nov 30: Thanksgiving (changes each year)
+ * * Dec 10 - Dec 18: Hanukkah (changes each year)
  * * Dec 23 - Dec 26: Christmas
+ * * Dec 26 - Dec 30: Kwanzaa (Kwanzaa runs until Jan 1. Cutting this short to account for New Years.)
+ * * Dec 31 - Jan 1: New Years
  */
 export const schedule: Schedule[] = [
     ThanksgivingSchedule,
@@ -24,7 +30,10 @@ export const schedule: Schedule[] = [
     DiwaliSchedule,
     ChristmasSchedule,
     HalloweenSchedule,
-    MayTheForthSchedule,
+    MayTheFourthSchedule,
+    HanukkahSchedule,
+    KwanzaaSchedule,
+    NewYearsSchedule,
 ];
 
 /**

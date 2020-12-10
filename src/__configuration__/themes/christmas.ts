@@ -1,8 +1,8 @@
 import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
 import * as BrandingColors from '@pxblue/colors-branding';
-import ChristmasEve from '../../app/assets/themes/christmas-eve.png';
-import AppBarTile from '../../app/assets/themes/christmas-appbar-tile.png';
+import ChristmasEve from '../../app/assets/themes/christmas/christmas-eve.png';
+import AppBarTile from '../../app/assets/themes/christmas/christmas-appbar-tile.png';
 import { Schedule } from './types';
 
 export const ChristmasSchedule: Schedule = {

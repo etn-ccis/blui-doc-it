@@ -93,23 +93,29 @@ p.MuiTypography-h5.MuiTypography-paragraph {
 
 /* Start: Holiday Themes */
 
-/* Halloween Theme */
+/* Halloween Theme & New Years Theme */
 .halloween pre,
-.halloween code {
+.halloween code,
+.new-years pre,
+.new-years code {
     background-color: #13181b; /* darkBlack 300 */
     color: #e8eaea; /* black 50 */
 }
 
-.halloween.ph-item {
+.halloween.ph-item,
+.new-years.ph-item {
     background-color: #13181b; /* darkBlack 300 */
     border-color: #2b353a;
 }
 
-.halloween.ph-item::before {
+.halloween.ph-item::before,
+.new-years.ph-item::before {
     background: linear-gradient(to right, #13181b00 46%, #13181b55 50%, #13181b00 54%) 50% 50%;
 }
 
 .halloween.ph-item .ph-avatar,
-.halloween.ph-item .ph-row > div > * {
+.halloween.ph-item .ph-row > div > *,
+.new-years.ph-item .ph-avatar,
+.new-years.ph-item .ph-row > div > * {
     background-color: #2b353a;
 }

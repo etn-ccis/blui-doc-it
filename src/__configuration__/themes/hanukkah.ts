@@ -1,14 +1,14 @@
 import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
 import * as BrandingColors from '@pxblue/colors-branding';
-import Thanksgiving from '../../app/assets/themes/thanksgiving/thanksgiving-banner.jpg';
-import turkeyCursor from '../../app/assets/themes/thanksgiving/turkey-cursor.png';
-import AppBarTile from '../../app/assets/themes/thanksgiving/thanksgiving-appbar-tile.png';
+import Hanukkah from '../../app/assets/themes/hanukkah/hanukkah-banner.png';
+import dreidelCursor from '../../app/assets/themes/hanukkah/dreidel-cursor.png';
+import AppBarTile from '../../app/assets/themes/hanukkah/hanukkah-appbar-tile.png';
 import { Schedule } from './types';
 
-export const ThanksgivingSchedule: Schedule = {
-    start: new Date(0, 10, 22), // Nov 22
-    end: new Date(0, 11, 1), // Nov 30
+export const HanukkahSchedule: Schedule = {
+    start: new Date(0, 11, 10), // Dec 10
+    end: new Date(0, 11, 19), // Dec 18
     config: {
         theme: {
             ...PXBThemes.blue,
@@ -16,14 +16,14 @@ export const ThanksgivingSchedule: Schedule = {
                 ...PXBThemes.blue.palette,
                 type: 'light',
                 primary: {
-                    light: BrandingColors.rust[100],
-                    main: BrandingColors.rust[500],
-                    dark: BrandingColors.rust[900],
+                    light: BrandingColors.blue[100],
+                    main: BrandingColors.blue[500],
+                    dark: BrandingColors.blue[900],
                 },
                 secondary: {
-                    light: BrandingColors.goldenrod[300],
-                    main: BrandingColors.goldenrod[500],
-                    dark: BrandingColors.goldenrod[900],
+                    light: Colors.gray[300],
+                    main: Colors.gray[500],
+                    dark: Colors.gray[900],
                 },
             },
             overrides: {
@@ -32,7 +32,7 @@ export const ThanksgivingSchedule: Schedule = {
                     ...PXBThemes.blue.overrides?.MuiAppBar,
                     colorSecondary: {
                         color: Colors.white[50],
-                        backgroundColor: BrandingColors.rust[500],
+                        backgroundColor: BrandingColors.blue[500],
                         '& .MuiInputBase-root': {
                             color: Colors.white[50],
                         },
@@ -49,21 +49,20 @@ export const ThanksgivingSchedule: Schedule = {
             },
         },
         landingPageBanner: {
-            backgroundImage: `url(${Thanksgiving})`,
+            backgroundImage: `url(${Hanukkah})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center 88%',
-            backgroundColor: BrandingColors.rust[900],
-            cursor: `url("${turkeyCursor}") 0 25, auto`,
-            color: BrandingColors.rust[500],
+            backgroundColor: BrandingColors.blue[900],
+            cursor: `url("${dreidelCursor}") 0 0, auto`,
+            color: Colors.white[50],
         },
-        logoColor: BrandingColors.rust[500],
-        className: 'thanksgiving',
+        className: 'hanukkah',
         appBarBackground: {
             backgroundImage: `url(${AppBarTile})`,
             backgroundSize: '300px',
             backgroundPosition: 'left 75%',
         },
-        landingPageTagline: 'gobble till you wobble',
+        landingPageTagline: 'Hanukkah Sameach!', // "Happy Hanukkah"
     },
 };
