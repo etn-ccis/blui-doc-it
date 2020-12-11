@@ -3,7 +3,6 @@ import EvanMcLaughlin from '../../app/assets/credits/evan-mclaughlin.jpeg';
 import JosephBoyle from '../../app/assets/credits/joseph-boyle.png';
 import JeffeyGreiner from '../../app/assets/credits/jeffery-greiner.jpeg';
 import ThomasDailey from '../../app/assets/credits/thomas-dailey.jpeg';
-import KyleHorchen from '../../app/assets/credits/kyle-horchen.jpg';
 import { Contributor } from '../../__types__';
 
 export const currentMaintainers: Contributor[] = [
@@ -55,16 +54,6 @@ export const currentMaintainers: Contributor[] = [
         contacts: {
             github: 'https://github.com/daileytj',
             linkedIn: 'https://www.linkedin.com/in/thomas-dailey/',
-        },
-    },
-    {
-        name: 'Kyle Horchen',
-        description: 'UX Designer',
-        image: KyleHorchen,
-        info: `Formerly from the advertising industry, Kyle is a UI / UX designer who's worked with some of the largest brands in the world like the NBA and National Rugby League in Australia. A die-hard Star Wars fan, Kyle can recite every line of The Empire Strikes back and still watches it at least once a week.`,
-        contacts: {
-            github: 'https://github.com/Horchen154',
-            linkedIn: 'https://www.linkedin.com/in/kyle-horchen-3294b142/',
         },
     },
 ];

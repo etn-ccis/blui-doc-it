@@ -1,4 +1,5 @@
 import EricAtha from '../../app/assets/credits/eric-atha.jpg';
+import KyleHorchen from '../../app/assets/credits/kyle-horchen.jpg';
 import IanTodhunter from '../../app/assets/credits/ian-todhunter.jpg';
 import ShivaniPitta from '../../app/assets/credits/shivani-pitta.jpeg';
 import BrianShyu from '../../app/assets/credits/brian-shyu.jpg';
@@ -15,6 +16,11 @@ export const contributors: Contributor[] = [
         name: 'Eric Atha',
         description: 'UX Designer',
         image: EricAtha,
+    },
+    {
+        name: 'Kyle Horchen',
+        description: 'UX Designer',
+        image: KyleHorchen,
     },
     {
         name: 'Kraig Keller',
