@@ -1,4 +1,4 @@
-import { DemoCard, Divider, ImageGrid, MaterialDesignDescription } from '../../app/components';
+import { DemoCard, Divider, ImageGrid, MaterialDesignDescription, ToC } from '../../app/components';
 import Dynamic from '../../app/assets/design-patterns/steppers/dynamic-stepper.gif';
 import StepperBanner from '../../app/assets/design-patterns/steppers/steppers-banner.svg';
 import LinearStepper from '../../app/assets/design-patterns/steppers/linear-stepper.png';
@@ -25,6 +25,14 @@ Steppers are used to communicate progress through a linear, multi-step workflow 
         repository={'dynamic-stepper'}
         angular={`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fdynamic-stepper%2Fdynamic-stepper.component.ts`}
         react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/dynamic-stepper/index.tsx&initialpath=dynamic-stepper`}
+    />
+    <ToC
+        anchors={[
+            { title: 'Common Use Cases', hash: '#common-use-cases' },
+            { title: 'Variations', hash: '#variations' },
+            { title: 'Design Specifications', hash: '#design-specifications' },
+            { title: 'Developers', hash: '#developers' },
+        ]}
     />
     <Divider />
 </React.Fragment>

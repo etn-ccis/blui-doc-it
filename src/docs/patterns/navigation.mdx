@@ -1,4 +1,4 @@
-import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, ToC } from '../../app/components';
 import PermanentImg from '../../app/assets/design-patterns/navigation/navigation-permanent.png';
 import PersistentImg from '../../app/assets/design-patterns/navigation/navigation-persistent.png';
 import AnatomyImg from '../../app/assets/design-patterns/navigation/anatomy.png';
@@ -40,6 +40,15 @@ Navigation refers to how users access the different areas of your application an
         title={'Understanding Navigation'}
         url={`https://material.io/design/navigation/understanding-navigation.html#types-of-navigation`}
         description={`Read about Material Design's navigation fundamentals.`}
+    />
+    <ToC
+        anchors={[
+            { title: 'Drawer Navigation', hash: '#drawer-navigation' },
+            { title: 'Tab Navigation', hash: '#tab-navigation' },
+            { title: 'Behaviors', hash: '#behaviors' },
+            { title: 'Design Specifications', hash: '#design-specifications' },
+            { title: 'Developers', hash: '#developers' },
+        ]}
     />
     <Divider />
 </React.Fragment>

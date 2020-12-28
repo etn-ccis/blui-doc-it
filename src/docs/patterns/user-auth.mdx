@@ -1,4 +1,4 @@
-import { DemoCard, ImageGrid, Divider, MaterialDesignDescription } from '../../app/components';
+import { DemoCard, ImageGrid, Divider, MaterialDesignDescription, ToC } from '../../app/components';
 import PxblueSmallAltIcon from '@pxblue/icons-mui/PxblueSmallAlt';
 
 <!-- Intro -->
@@ -58,7 +58,16 @@ Most applications require some form of user authentication to keep unauthorized 
 
 -->
 
-<Divider />
+<React.Fragment>
+    <ToC
+        anchors={[
+            { title: 'Variations', hash: '#variations' },
+            { title: 'Behaviors', hash: '#behaviors' },
+            { title: 'Developers', hash: '#developers' },
+        ]}
+    />
+    <Divider />
+</React.Fragment>
 
 # Variations
 
@@ -247,7 +256,7 @@ When the users are logged in, they have the option to change their password by g
     <Divider />
 </React.Fragment>
 
-# Behavior
+# Behaviors
 
 ## Email Communications
 

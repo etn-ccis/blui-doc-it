@@ -1,4 +1,4 @@
-import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, ToC } from '../../app/components';
 import Banner from '../../app/assets/design-patterns/empty-states/empty-state-banner.svg';
 import Image1 from '../../app/assets/design-patterns/empty-states/empty-state-variations.png';
 import DesktopImage from '../../app/assets/design-patterns/empty-states/empty-state-desktop.png';
@@ -30,6 +30,14 @@ At times, there may be areas of your application that do not have data available
         caption={[
             '1: Mobile screen showing empty state as a functionality placeholder.',
             '2: Desktop screen with empty state and call to action button.',
+        ]}
+    />
+    <ToC
+        anchors={[
+            { title: 'Common Use Cases', hash: '#common-use-cases' },
+            { title: 'Anatomy', hash: '#anatomy' },
+            { title: 'Design Specifications', hash: '#design-specifications' },
+            { title: 'Developers', hash: '#developers' },
         ]}
     />
     <Divider />

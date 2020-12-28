@@ -47,17 +47,28 @@ const useStyles = makeStyles((theme: Theme) =>
             textAlign: 'center',
             marginTop: '50vh',
             transform: 'inherit',
-            transition: `width ${theme.transitions.duration.standard} ${theme.transitions.easing.easeInOut}`,
+            transition: theme.transitions.create('width'),
         },
     })
 );
 
 const ScrollToTop = (): any => {
-    const { pathname } = useLocation();
-
+    const { pathname, hash } = useLocation();
     useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [pathname]);
+        // if an anchor link is present, scroll to the anchor link;
+        // else scroll the page to the top
+        if (hash) {
+            const id = hash.replace('#', '');
+            const headline = document.getElementById(id);
+            if (headline) {
+                window.scrollTo(0, headline.offsetTop);
+            } else {
+                window.scrollTo(0, 0);
+            }
+        } else {
+            window.scrollTo(0, 0);
+        }
+    }, [pathname, hash]);
 
     return null;
 };

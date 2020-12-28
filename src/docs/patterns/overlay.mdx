@@ -1,4 +1,4 @@
-import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, ToC } from '../../app/components';
 import Banner from '../../app/assets/design-patterns/overlays/overlay-banner.svg';
 import SimpleDialog from '../../app/assets/design-patterns/overlays/simple-dialog.png';
 import DialogTask from '../../app/assets/design-patterns/overlays/dialog-task.png';
@@ -18,7 +18,17 @@ import Specs2 from '../../app/assets/design-patterns/overlays/specs-dialog-2.png
 
 Overlays are content that appears on top of other content. They can be used to display information, or capture it.
 
-<Divider />
+<React.Fragment>
+    <ToC
+        anchors={[
+            { title: 'Common Use Cases', hash: '#common-use-cases' },
+            { title: 'Variations', hash: '#variations' },
+            { title: 'Design Specifications', hash: '#design-specifications' },
+            { title: 'Developers', hash: '#developers' },
+        ]}
+    />
+    <Divider />
+</React.Fragment>
 
 # Common Use Cases
 

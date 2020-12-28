@@ -1,4 +1,4 @@
-import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, ToC } from '../../app/components';
 import SummaryImage from '../../app/assets/design-patterns/form-validation/form-validation.svg';
 import Image4 from '../../app/assets/design-patterns/form-validation/form-validation-password-entering.png';
 import Image5 from '../../app/assets/design-patterns/form-validation/form-validation-password-error.png';
@@ -37,6 +37,14 @@ Forms are an integral part of many applications, particularly during the [user r
         repository={'form-validation'}
         angular={`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fform-validation%2Fform-validation.component.ts`}
         react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/form-validation/index.tsx&initialpath=form-validation`}
+    />
+    <ToC
+        anchors={[
+            { title: 'Anatomy', hash: '#anatomy' },
+            { title: 'Behaviors', hash: '#behaviors' },
+            { title: 'Design Specifications', hash: '#design-specifications' },
+            { title: 'Developers', hash: '#developers' },
+        ]}
     />
     <Divider />
 </React.Fragment>

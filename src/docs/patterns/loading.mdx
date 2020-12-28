@@ -1,4 +1,4 @@
-import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, ToC } from '../../app/components';
 import LoadingBanner from '../../app/assets/design-patterns/loading-states/loading-banner.svg';
 import LoadingMobile from '../../app/assets/design-patterns/loading-states/mobile-loading-state.png';
 import LoadedModal from '../../app/assets/design-patterns/loading-states/mobile-loaded-state.png';
@@ -20,6 +20,14 @@ Often times, your application will need to load data from (or send data to) a re
     <MaterialDesignDescription
         title={'Progress Indicators'}
         url={`https://material.io/components/progress-indicators`}
+    />
+    <ToC
+        anchors={[
+            { title: 'Variations', hash: '#variations' },
+            { title: 'Behaviors', hash: '#behaviors' },
+            { title: 'Design Specifications', hash: '#design-specifications' },
+            { title: 'Developers', hash: '#developers' },
+        ]}
     />
     <Divider />
 </React.Fragment>
@@ -83,7 +91,7 @@ Progress bars should be used sparingly in your application. They should only be 
 
 <Divider />
 
-# Behavior
+# Behaviors
 
 ## Real-time Data (Polling / Pub-Sub)
 

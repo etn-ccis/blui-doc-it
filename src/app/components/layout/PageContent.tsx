@@ -2,6 +2,7 @@ import React, { HTMLAttributes } from 'react';
 import * as Colors from '@pxblue/colors';
 import { useBackgroundColor } from '../../hooks/useBackgroundColor';
 import { PAGE_WIDTH, PADDING } from '../../shared';
+import { Spacer } from '@pxblue/react-components';
 
 export type PageContentProps = HTMLAttributes<HTMLDivElement> & {
     noPadding?: boolean;
@@ -15,6 +16,7 @@ export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Spacer flex={0} width={40} />
             <div
                 style={Object.assign(
                     {
