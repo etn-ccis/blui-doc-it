@@ -11,6 +11,11 @@ export type SimpleNavItem = {
     hidden?: boolean;
 };
 
+export type RedirectItem = {
+    oldUrl: string;
+    newUrl: string;
+};
+
 // Change scripts/crawl/sitemap.json after you make changes here.
 export const pageDefinitions: SimpleNavItem[] = [
     {
@@ -323,5 +328,12 @@ export const pageDefinitions: SimpleNavItem[] = [
         title: 'Release Notes',
         url: '/release-notes',
         component: <ReleaseNotes />,
+    },
+];
+
+export const pageRedirects: RedirectItem[] = [
+    {
+        oldUrl: '/patterns/login',
+        newUrl: '/patterns/user-auth',
     },
 ];
