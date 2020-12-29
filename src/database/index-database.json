@@ -7644,7 +7644,9 @@
             { "/patterns/forms": 2 },
             { "/development/testing": 1 },
             { "/patterns/lists": 1 },
-            { "/patterns/navigation": 1 }
+            { "/patterns/loading": 1 },
+            { "/patterns/navigation": 1 },
+            { "/patterns/user-auth": 1 }
         ],
         "workflows": [
             { "/design/anatomy": 8 },
@@ -7811,9 +7813,7 @@
             { "/development/testing": 3 },
             { "/design/anatomy": 2 },
             { "/patterns/navigation": 2 },
-            { "/patterns/lists": 1 },
-            { "/patterns/loading": 1 },
-            { "/patterns/user-auth": 1 }
+            { "/patterns/lists": 1 }
         ],
         "similar": [
             { "/development/testing": 1 },
