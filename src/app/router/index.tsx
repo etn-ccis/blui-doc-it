@@ -8,7 +8,7 @@ import { AppState } from '../redux/reducers';
 import { Menu } from '@material-ui/icons';
 import { useSelector } from 'react-redux';
 
-import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
+import { pageDefinitions, SimpleNavItem, pageRedirects } from '../../__configuration__/navigationMenu/navigation';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
 import {
     AppBar,
@@ -35,6 +35,14 @@ const buildRoutes = (routes: SimpleNavItem[], url: string): JSX.Element[] => {
         if (routes[i].pages) {
             ret = ret.concat(buildRoutes(routes[i].pages || [], `${url}${routes[i].url}`));
         }
+    }
+    return ret;
+};
+
+const buildRedirects = (): JSX.Element[] => {
+    const ret: JSX.Element[] = [];
+    for (let i = 0; i < pageRedirects.length; i++) {
+        ret.push(<Redirect exact from={pageRedirects[i].oldUrl} to={pageRedirects[i].newUrl} />);
     }
     return ret;
 };
@@ -86,6 +94,7 @@ export const MainRouter = (): JSX.Element => {
                             <div style={{ minHeight: `calc(50vh - ${toolbarHeight}px)` }}>
                                 <Switch>
                                     {buildRoutes(pageDefinitions, '')}
+                                    {buildRedirects()}
 
                                     {/* Catch-All Redirect to Landing Page */}
                                     <Route path="*">
