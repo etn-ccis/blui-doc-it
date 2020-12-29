@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme: Theme) =>
             borderLeft: `2px solid ${theme.palette.divider}`,
             padding: `0 ${theme.spacing(2)}px`,
             margin: `${theme.spacing(2)}px 0`,
-            [theme.breakpoints.up('xl')]: {
+            maxWidth: 248,
+            [theme.breakpoints.up('lg')]: {
                 borderLeft: 'none',
                 padding: `${theme.spacing(5)}px ${theme.spacing(3)}px`,
                 margin: 0,
@@ -26,12 +27,11 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'block',
             marginBottom: theme.spacing(2),
         },
-        linkWrapper: {
-            marginBottom: theme.spacing(),
-        },
         link: {
+            marginBottom: theme.spacing(),
             textDecoration: 'none',
             color: theme.palette.text.primary,
+            display: 'block',
             '&:hover': {
                 color: theme.palette.primary.main,
             },
@@ -49,11 +49,9 @@ export const ToC: React.FC<ToCProps> = (props) => {
                 On This Page
             </Typography>
             {anchors.map((anchor, index) => (
-                <div key={index} className={classes.linkWrapper}>
-                    <Link to={anchor.hash} className={classes.link}>
-                        {anchor.title}
-                    </Link>
-                </div>
+                <Link key={index} to={anchor.hash} className={classes.link}>
+                    {anchor.title}
+                </Link>
             ))}
         </div>
     );
