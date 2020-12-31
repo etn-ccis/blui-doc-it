@@ -159,13 +159,6 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const roadmapBuckets =
         // Filter buckets by item type
         roadmap
-            .map((bucket) => ({
-                // TODO: Remove this map function in the next push (it's only here for backwards compatibility with the older Roadmap types)
-                ...bucket,
-                type: bucket.type ? bucket.type : 'development',
-                // @ts-ignore
-                framework: bucket.framework ? bucket.framework : bucket.applies,
-            }))
             .filter(
                 (bucket) => !bucket.type || bucket.type === typeFilter || bucket.type === 'all' || typeFilter === 'all'
             )
@@ -181,25 +174,18 @@ export const Roadmap: React.FC = (): JSX.Element => {
             // Filter line items by remaining filters
             .map((bucket) => ({
                 ...bucket,
-                items: bucket.items
-                    .map((item) => ({
-                        // TODO: Remove this map function in the next push (it's only here for backwards compatibility with the older Roadmap types)
-                        ...item,
-                        // @ts-ignore
-                        framework: item.framework ? item.framework : item.applies,
-                    }))
-                    .filter((item) => {
-                        const show =
-                            (typeFilter === 'design' || // if filtering by design, ignore the framework filter
-                                item.framework === undefined ||
-                                item.framework.includes(frameworkFilter) ||
-                                item.framework.includes('all') ||
-                                frameworkFilter === 'all') &&
-                            (filterByRelease(releaseFilter, item) || releaseFilter === 'all') &&
-                            (item.status === statusFilter || statusFilter === 'all');
-                        if (show) results++;
-                        return show;
-                    }),
+                items: bucket.items.filter((item) => {
+                    const show =
+                        (typeFilter === 'design' || // if filtering by design, ignore the framework filter
+                            item.framework === undefined ||
+                            item.framework.includes(frameworkFilter) ||
+                            item.framework.includes('all') ||
+                            frameworkFilter === 'all') &&
+                        (filterByRelease(releaseFilter, item) || releaseFilter === 'all') &&
+                        (item.status === statusFilter || statusFilter === 'all');
+                    if (show) results++;
+                    return show;
+                }),
             }));
 
     const getTags = useCallback(
