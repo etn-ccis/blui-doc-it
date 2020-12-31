@@ -7,6 +7,13 @@ import clsx from 'clsx';
 
 type ToCProps = {
     anchors: Array<{ title: string; hash: string }>;
+
+    /**
+     * Whether the first anchor passed in is pointing to the page top
+     * When set to `true`, the first anchor is omitted for md and smaller sized screens
+     * @default true
+     */
+    isFirstAnchorIntro?: boolean;
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -18,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
             maxWidth: TOC_WIDTH,
             [theme.breakpoints.up('lg')]: {
                 borderLeft: 'none',
-                padding: `${theme.spacing(5)}px ${theme.spacing(3)}px`,
+                padding: `${theme.spacing(5)}px ${theme.spacing(1)}px`,
                 margin: 0,
                 position: 'fixed',
                 top: theme.spacing(8),
@@ -28,6 +35,9 @@ const useStyles = makeStyles((theme: Theme) =>
         onThisPage: {
             display: 'block',
             marginBottom: theme.spacing(2),
+            [theme.breakpoints.up('lg')]: {
+                marginLeft: theme.spacing(2),
+            },
         },
         link: {
             marginBottom: theme.spacing(),
@@ -38,9 +48,14 @@ const useStyles = makeStyles((theme: Theme) =>
                 color: theme.palette.primary.main,
             },
             [theme.breakpoints.up('lg')]: {
+                borderLeft: `2px solid transparent`,
+                paddingLeft: theme.spacing(2),
                 '&$activeLink': {
                     color: theme.palette.primary.main,
                     fontWeight: 600,
+                    borderLeft: `3px solid ${
+                        theme.palette.type === 'light' ? theme.palette.primary.light : theme.palette.primary.dark
+                    }`,
                 },
             },
         },
@@ -49,7 +64,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const ToC: React.FC<ToCProps> = (props) => {
-    const { anchors } = props;
+    const { anchors, isFirstAnchorIntro = true } = props;
     const classes = useStyles();
     const { pathname, hash } = useLocation();
     const [activeSection, setActiveSection] = useState(-1);
@@ -110,6 +125,7 @@ export const ToC: React.FC<ToCProps> = (props) => {
                 <Link
                     key={index}
                     to={anchor.hash}
+                    style={isFirstAnchorIntro ? undefined : { display: 'none' }}
                     className={clsx(classes.link, { [classes.activeLink]: activeSection === index })}
                     replace
                 >
