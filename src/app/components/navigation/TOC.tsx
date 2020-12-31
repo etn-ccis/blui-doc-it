@@ -3,6 +3,7 @@ import { makeStyles, createStyles, Theme, Typography } from '@material-ui/core';
 import { Link, useLocation } from 'react-router-dom';
 import { DRAWER_WIDTH, TOC_WIDTH, PAGE_WIDTH } from '../../shared';
 import clsx from 'clsx';
+import { useTOC } from '../../hooks/useTOC';
 
 type ToCProps = {
     anchors: Array<{ title: string; hash: string }>;
@@ -73,6 +74,7 @@ export const TOC: React.FC<ToCProps> = (props) => {
     const { pathname, hash } = useLocation();
     const [activeSection, setActiveSection] = useState(0);
     const [sectionOffsetTop, setSectionOffsetTop] = useState<number[]>([]);
+    useTOC(true);
 
     const initializeSectionOffsetTop = useCallback(() => {
         // go through all the section anchors, read their offsetTop values

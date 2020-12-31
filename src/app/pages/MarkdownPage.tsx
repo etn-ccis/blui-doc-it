@@ -15,11 +15,10 @@ export type MarkdownPageProps = HTMLAttributes<HTMLDivElement> & {
     background?: string;
     wideLayout?: boolean;
     sidebar?: boolean;
-    hasToC?: boolean;
 };
 
 export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element => {
-    const { title, markdown: Markdown, noPadding, background, wideLayout, sidebar, hasToC, ...divProps } = props;
+    const { title, markdown: Markdown, noPadding, background, wideLayout, sidebar, ...divProps } = props;
     usePageTitle(title);
     useGoogleAnalyticsPageView();
     const theme = useTheme();
@@ -39,7 +38,6 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element =>
             <PageContent
                 noPadding={noPadding}
                 wideLayout={wideLayout}
-                hasToC={hasToC}
                 style={{
                     marginRight: sidebar && sidebarOpen ? (sm ? 0 : 350) : 0,
                     transition: `margin ${theme.transitions.duration.standard} ${theme.transitions.easing.easeInOut}`,

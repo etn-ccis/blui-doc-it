@@ -4,12 +4,13 @@ import { useBackgroundColor } from '../../hooks/useBackgroundColor';
 import { PAGE_WIDTH, PADDING, TOC_WIDTH } from '../../shared';
 import { Spacer } from '@pxblue/react-components';
 import { makeStyles, Theme, createStyles } from '@material-ui/core';
+import { AppState } from '../../redux/reducers';
+import { useSelector } from 'react-redux';
 
 export type PageContentProps = HTMLAttributes<HTMLDivElement> & {
     noPadding?: boolean;
     backgroundColor?: string;
     wideLayout?: boolean;
-    hasToC?: boolean;
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -24,13 +25,14 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
-    const { noPadding, children, style, backgroundColor, wideLayout, hasToC, ...other } = props;
+    const { noPadding, children, style, backgroundColor, wideLayout, ...other } = props;
     const classes = useStyles();
+    const hasTOC = useSelector((state: AppState) => state.app.hasTOC);
     useBackgroundColor(backgroundColor);
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-            {hasToC && <Spacer className={classes.spacer} flex={0} width={TOC_WIDTH} />}
+            {hasTOC && <Spacer className={classes.spacer} flex={0} width={TOC_WIDTH} />}
             <div
                 style={Object.assign(
                     {
