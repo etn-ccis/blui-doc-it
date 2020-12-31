@@ -49,7 +49,7 @@ export const ToC: React.FC<ToCProps> = (props) => {
                 On This Page
             </Typography>
             {anchors.map((anchor, index) => (
-                <Link key={index} to={anchor.hash} className={classes.link}>
+                <Link key={index} to={anchor.hash} className={classes.link} replace>
                     {anchor.title}
                 </Link>
             ))}
