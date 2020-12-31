@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 '&$activeLink': {
                     color: theme.palette.primary.main,
                     fontWeight: 600,
-                    borderLeft: `3px solid ${
+                    borderLeft: `2px solid ${
                         theme.palette.type === 'light' ? theme.palette.primary.light : theme.palette.primary.dark
                     }`,
                 },
@@ -76,7 +76,7 @@ export const ToC: React.FC<ToCProps> = (props) => {
         anchors.forEach((anchor) => {
             const sectionAnchor = document.getElementById(anchor.hash.slice(1));
             if (sectionAnchor) {
-                anchorTops.push(sectionAnchor.offsetTop - 200);
+                anchorTops.push(sectionAnchor.offsetTop - 200); // add a bit more scroll padding
             } else {
                 anchorTops.push(0);
             }
