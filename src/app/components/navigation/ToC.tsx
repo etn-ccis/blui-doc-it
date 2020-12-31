@@ -1,7 +1,9 @@
-import React from 'react';
+/* eslint-disable */
+import React, { useCallback, useEffect, useState } from 'react';
 import { makeStyles, createStyles, Theme, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { DRAWER_WIDTH, TOC_WIDTH, PAGE_WIDTH } from '../../shared';
+import clsx from 'clsx';
 
 type ToCProps = {
     anchors: Array<{ title: string; hash: string }>;
@@ -35,13 +37,66 @@ const useStyles = makeStyles((theme: Theme) =>
             '&:hover': {
                 color: theme.palette.primary.main,
             },
+            [theme.breakpoints.up('lg')]: {
+                '&$activeLink': {
+                    color: theme.palette.primary.main,
+                    fontWeight: 600,
+                },
+            },
         },
+        activeLink: {},
     })
 );
 
 export const ToC: React.FC<ToCProps> = (props) => {
     const { anchors } = props;
     const classes = useStyles();
+    const [activeSection, setActiveSection] = useState(-1);
+    const [sectionOffsetTop, setSectionOffsetTop] = useState<number[]>([]);
+
+    const initializeSectionOffsetTop = useCallback(() => {
+        // go through all the section anchors, read their offsetTop values
+        const anchorTops: number[] = [];
+        anchors.forEach((anchor) => {
+            const sectionAnchor = document.getElementById(anchor.hash.slice(1));
+            if (sectionAnchor) {
+                anchorTops.push(sectionAnchor.offsetTop - 200);
+            } else {
+                anchorTops.push(0);
+            }
+        });
+        setSectionOffsetTop(anchorTops);
+    }, [anchors]);
+
+    /** Change the active section */
+    const scrollHandler = useCallback((): void => {
+        const scrollY = window.scrollY;
+        for (let i = 0; i < sectionOffsetTop.length; i++) {
+            // find the first Y value on the list smaller than scrollY
+
+            if (i !== sectionOffsetTop.length - 1) {
+                if (sectionOffsetTop[i] <= scrollY && scrollY < sectionOffsetTop[i + 1]) {
+                    setActiveSection(i);
+                    return;
+                }
+            } else {
+                if (sectionOffsetTop[i] <= scrollY) {
+                    setActiveSection(i);
+                    return;
+                }
+            }
+        }
+    }, [sectionOffsetTop]);
+
+    useEffect(() => {
+        window.addEventListener('scroll', scrollHandler);
+        window.addEventListener('load', initializeSectionOffsetTop);
+
+        return (): void => {
+            window.removeEventListener('scroll', scrollHandler);
+            window.removeEventListener('load', initializeSectionOffsetTop);
+        };
+    }, [sectionOffsetTop]);
 
     return (
         <div className={classes.root}>
@@ -49,7 +104,12 @@ export const ToC: React.FC<ToCProps> = (props) => {
                 On This Page
             </Typography>
             {anchors.map((anchor, index) => (
-                <Link key={index} to={anchor.hash} className={classes.link} replace>
+                <Link
+                    key={index}
+                    to={anchor.hash}
+                    className={clsx(classes.link, { [classes.activeLink]: activeSection === index })}
+                    replace
+                >
                     {anchor.title}
                 </Link>
             ))}
