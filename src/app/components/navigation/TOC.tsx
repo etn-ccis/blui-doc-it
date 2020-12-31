@@ -88,7 +88,7 @@ export const TOC: React.FC<ToCProps> = (props) => {
             }
         });
         setSectionOffsetTop(anchorTops);
-    }, [anchors]);
+    }, [anchors, pathname]);
 
     /** Change the active section */
     const scrollHandler = useCallback((): void => {
@@ -118,11 +118,9 @@ export const TOC: React.FC<ToCProps> = (props) => {
             window.removeEventListener('scroll', scrollHandler);
             window.removeEventListener('load', initializeSectionOffsetTop);
         };
-    }, [sectionOffsetTop]);
+    }, [sectionOffsetTop, scrollHandler, initializeSectionOffsetTop]);
 
-    useEffect(() => {
-        initializeSectionOffsetTop();
-    }, [pathname, hash]);
+    useEffect(initializeSectionOffsetTop, [pathname, hash]);
 
     return (
         <div className={classes.root}>
