@@ -60,6 +60,11 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         activeLink: {},
+        hideIntro: {
+            [theme.breakpoints.down('md')]: {
+                display: 'none',
+            },
+        },
     })
 );
 
@@ -125,8 +130,10 @@ export const ToC: React.FC<ToCProps> = (props) => {
                 <Link
                     key={index}
                     to={anchor.hash}
-                    style={isFirstAnchorIntro ? undefined : { display: 'none' }}
-                    className={clsx(classes.link, { [classes.activeLink]: activeSection === index })}
+                    className={clsx(classes.link, {
+                        [classes.activeLink]: activeSection === index,
+                        [classes.hideIntro]: isFirstAnchorIntro && index === 0,
+                    })}
                     replace
                 >
                     {anchor.title}
