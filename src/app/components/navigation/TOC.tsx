@@ -71,7 +71,7 @@ export const TOC: React.FC<ToCProps> = (props) => {
     const { anchors, isFirstAnchorIntro = true } = props;
     const classes = useStyles();
     const { pathname, hash } = useLocation();
-    const [activeSection, setActiveSection] = useState(-1);
+    const [activeSection, setActiveSection] = useState(0);
     const [sectionOffsetTop, setSectionOffsetTop] = useState<number[]>([]);
 
     const initializeSectionOffsetTop = useCallback(() => {
