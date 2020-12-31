@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useCallback, useEffect, useState } from 'react';
 import { makeStyles, createStyles, Theme, Typography } from '@material-ui/core';
 import { Link, useLocation } from 'react-router-dom';
@@ -68,7 +67,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export const ToC: React.FC<ToCProps> = (props) => {
+export const TOC: React.FC<ToCProps> = (props) => {
     const { anchors, isFirstAnchorIntro = true } = props;
     const classes = useStyles();
     const { pathname, hash } = useLocation();
@@ -119,7 +118,9 @@ export const ToC: React.FC<ToCProps> = (props) => {
         };
     }, [sectionOffsetTop]);
 
-    useEffect(initializeSectionOffsetTop, [pathname, hash]);
+    useEffect(() => {
+        initializeSectionOffsetTop();
+    }, [pathname, hash]);
 
     return (
         <div className={classes.root}>
