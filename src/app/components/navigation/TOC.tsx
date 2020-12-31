@@ -120,7 +120,20 @@ export const TOC: React.FC<ToCProps> = (props) => {
         };
     }, [sectionOffsetTop, scrollHandler, initializeSectionOffsetTop]);
 
-    useEffect(initializeSectionOffsetTop, [pathname, hash]);
+    useEffect(() => {
+        // wait for the images to load first
+        const timer3000 = setTimeout((): void => {
+            initializeSectionOffsetTop();
+        }, 3000);
+        // another one to account for slower internet
+        const timer10000 = setTimeout((): void => {
+            initializeSectionOffsetTop();
+        }, 10000);
+        return (): void => {
+            clearTimeout(timer3000);
+            clearTimeout(timer10000);
+        };
+    }, [pathname, hash]);
 
     return (
         <div className={classes.root}>
