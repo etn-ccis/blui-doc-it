@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, createStyles, Theme, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { DRAWER_WIDTH } from '../../shared';
+import { DRAWER_WIDTH, TOC_WIDTH, PAGE_WIDTH } from '../../shared';
 
 type ToCProps = {
     anchors: Array<{ title: string; hash: string }>;
@@ -13,14 +13,14 @@ const useStyles = makeStyles((theme: Theme) =>
             borderLeft: `2px solid ${theme.palette.divider}`,
             padding: `0 ${theme.spacing(2)}px`,
             margin: `${theme.spacing(2)}px 0`,
-            maxWidth: 248,
+            maxWidth: TOC_WIDTH,
             [theme.breakpoints.up('lg')]: {
                 borderLeft: 'none',
                 padding: `${theme.spacing(5)}px ${theme.spacing(3)}px`,
                 margin: 0,
                 position: 'fixed',
                 top: theme.spacing(8),
-                left: DRAWER_WIDTH,
+                left: `calc(50% + ${DRAWER_WIDTH}px*0.5 - ${TOC_WIDTH}px*0.5 - ${PAGE_WIDTH.REGULAR}px*0.5)`,
             },
         },
         onThisPage: {

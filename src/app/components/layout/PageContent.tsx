@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 import * as Colors from '@pxblue/colors';
 import { useBackgroundColor } from '../../hooks/useBackgroundColor';
-import { PAGE_WIDTH, PADDING } from '../../shared';
+import { PAGE_WIDTH, PADDING, TOC_WIDTH } from '../../shared';
 import { Spacer } from '@pxblue/react-components';
 import { makeStyles, Theme, createStyles } from '@material-ui/core';
 
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         spacer: {
             display: 'none',
-            [theme.breakpoints.only('lg')]: {
+            [theme.breakpoints.up('lg')]: {
                 display: 'block',
             },
         },
@@ -30,7 +30,7 @@ export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-            {hasToC && <Spacer className={classes.spacer} flex={0} width={200} />}
+            {hasToC && <Spacer className={classes.spacer} flex={0} width={TOC_WIDTH} />}
             <div
                 style={Object.assign(
                     {
