@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useCallback, useEffect, useState } from 'react';
 import { makeStyles, createStyles, Theme, Typography } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { DRAWER_WIDTH, TOC_WIDTH, PAGE_WIDTH } from '../../shared';
 import clsx from 'clsx';
 
@@ -51,6 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export const ToC: React.FC<ToCProps> = (props) => {
     const { anchors } = props;
     const classes = useStyles();
+    const { pathname, hash } = useLocation();
     const [activeSection, setActiveSection] = useState(-1);
     const [sectionOffsetTop, setSectionOffsetTop] = useState<number[]>([]);
 
@@ -97,6 +98,8 @@ export const ToC: React.FC<ToCProps> = (props) => {
             window.removeEventListener('load', initializeSectionOffsetTop);
         };
     }, [sectionOffsetTop]);
+
+    useEffect(initializeSectionOffsetTop, [pathname, hash]);
 
     return (
         <div className={classes.root}>
