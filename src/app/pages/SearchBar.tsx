@@ -102,7 +102,15 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     // Push a new value on the browser history stack (if needed)
     const pushHistory = useCallback(
         (searchQuery: string) => {
-            if (searchQuery) {
+            // match everything preceded by "&search=" and either end directly or is followed by a "&"
+            const currentQueryString = location.search.match(/(?<=&search=)[^&]*($|(?=&))/g);
+
+            // only push history when the user is not searching for the exact same string
+            if (
+                searchQuery &&
+                (!currentQueryString ||
+                    (currentQueryString && currentQueryString[0] !== encodeURIComponent(searchQuery)))
+            ) {
                 history.push({
                     pathname: location.pathname,
                     search: `${location.search
