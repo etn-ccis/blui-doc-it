@@ -128,7 +128,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
             pushHistory(searchQuery);
             if (searchQuery) setSearchResults(search(searchQuery, siteMapDatabase, indexDatabase));
         },
-        [pushHistory, setSearchResults]
+        [pushHistory]
     );
 
     const dismissSearchBar = (): void => {
@@ -159,7 +159,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                 dispatch({ type: TOGGLE_SEARCH, payload: false });
             }
         }
-    }, [deepQuery, prevQuery, searchActive]);
+    }, [deepQuery, prevQuery, updateSearchResults, searchActive, dispatch]);
 
     // do auto suggestion stuff here
     const onChangeHandler = (q: string): void => {
