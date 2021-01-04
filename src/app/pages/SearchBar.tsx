@@ -24,6 +24,7 @@ import siteMapDatabase from '../../database/sitemap-database.json';
 import indexDatabase from '../../database/index-database.json';
 import { useQueryString } from '../hooks/useQueryString';
 import { usePrevious } from '../hooks/usePrevious';
+import clsx from 'clsx';
 
 export type SearchbarProps = AppBarProps;
 
@@ -93,7 +94,6 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     const location = useLocation();
     const deepQuery = decodeURI(useQueryString().search || '');
     const prevQuery = usePrevious(deepQuery);
-    // const [query, setQuery] = useState('');
     const [searchResults, setSearchResults] = useState<Result[]>([]);
     const [showSearchResult, setShowSearchResult] = useState(false);
     const [inputString, setInputString] = useState('');
@@ -151,7 +151,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                 dispatch({ type: TOGGLE_SEARCH, payload: false });
             }
         }
-    }, [deepQuery, prevQuery, setInputString, setShowSearchResult, updateSearchResults, searchActive, dispatch]);
+    }, [deepQuery, prevQuery, searchActive]);
 
     // do auto suggestion stuff here
     const onChangeHandler = (q: string): void => {
@@ -211,12 +211,12 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
             )}
 
             <AppBar
-                className={`${classes.appBar} ${searchActive && classes.showSearchBar}`}
+                className={clsx(classes.appBar, { [classes.showSearchBar]: searchActive })}
                 position={'sticky'}
                 style={{ zIndex: 1001 }}
                 {...props}
             >
-                <Toolbar style={{ display: 'flex' }} id="search-bar">
+                <Toolbar style={{ display: 'flex' }} id={'search-bar'}>
                     {searchActive && ( // to allow autofocus
                         <TextField
                             className={classes.searchfield}
