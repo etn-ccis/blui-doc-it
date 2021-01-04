@@ -102,7 +102,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     // Push a new value on the browser history stack (if needed)
     const pushHistory = useCallback(
         (searchQuery: string) => {
-            if (searchQuery && !location.search.includes(`search=${encodeURIComponent(searchQuery)}`)) {
+            if (searchQuery) {
                 history.push({
                     pathname: location.pathname,
                     search: `${location.search
