@@ -110,7 +110,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const [typeFilter, setTypeFilter] = useState<ItemTypeFilter>('all');
     const [statusFilter, setStatusFilter] = useState<Status | 'all'>('all');
     const [frameworkFilter, setFrameworkFilter] = useState<FrameworkFilter>('all');
-    const [releaseFilter, setReleaseFilter] = useState<Release | 'all'>('R18');
+    const [releaseFilter, setReleaseFilter] = useState<Release | 'all'>('R19');
     const [roadmap, setRoadmap] = useState<RoadmapBucket[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
@@ -146,7 +146,8 @@ export const Roadmap: React.FC = (): JSX.Element => {
         (release === 'R16' && item.quarter === 'Q2' && item.year === 2020) ||
         (release === 'R17' && item.quarter === 'Q3' && item.year === 2020) ||
         (release === 'R18' && item.quarter === 'Q4' && item.year === 2020) ||
-        (release === 'R19' && item.quarter === 'Q1' && item.year === 2021);
+        (release === 'R19' && item.quarter === 'Q1' && item.year === 2021) ||
+        (release === 'R20' && item.quarter === 'Q2' && item.year === 2021);
 
     const clearFilters = useCallback(() => {
         setTypeFilter('all');
@@ -273,6 +274,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         <MenuItem value={'R17'}>R17 (3Q20)</MenuItem>
                         <MenuItem value={'R18'}>R18 (4Q20)</MenuItem>
                         <MenuItem value={'R19'}>R19 (1Q21)</MenuItem>
+                        <MenuItem value={'R20'}>R20 (2Q21)</MenuItem>
                     </Select>
                     <Select
                         value={statusFilter}
