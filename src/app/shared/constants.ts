@@ -1,5 +1,8 @@
 export const PADDING = 24;
 
+export const DRAWER_WIDTH = 270;
+export const TOC_WIDTH = 200;
+
 export const PAGE_WIDTH = {
     WIDE: 1280, // medias, components
     REGULAR: 766 + PADDING * 2, // text

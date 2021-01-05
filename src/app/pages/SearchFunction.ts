@@ -17,12 +17,14 @@ function getShortText(keyword: string, url: string, siteMapDatabase: any): [stri
         .replace(/import .*? from .*?;/gim, '')
         .replace(/\r\n/g, '\n')
         .replace(/\n/gim, ' ')
-        .replace(/<!--.*?-->/g, ' ') // replaces all comments (including keywords)
+        .replace(/<!--.*?-->/g, ' ') // replace all comments (including keywords)
         .replace(/\[(.*?)\]\(.*?\)/g, '$1') // replace all the markdown links [text](url) into text
-        .replace(/<[a-z].*?>/gim, ' ')
+        .replace(/<[a-zA-Z].*?>/gim, ' ') // replace all <xxx> and <xxx />
+        .replace(/<\/[a-zA-Z].*?>/gim, ' ') // replace all </xxx>
         .replace(/[#`]/g, '')
         .replace(/\s\s+/g, ' ')
-        .split(' '); // replace multiple spaces into only one space
+        .split(' '); // replace multiple white spaces into only one space
+
     const keywordPosition = fullTextArray.map((str) => str.toLowerCase().replace(/[.,;()*-]/gm, ' ')).indexOf(keyword);
     if (keywordPosition === -1) {
         return [fullTextArray.slice(0, MAX_TEXT_LENGTH).join(' '), true];

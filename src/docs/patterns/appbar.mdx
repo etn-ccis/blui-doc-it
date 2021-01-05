@@ -1,4 +1,4 @@
-import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
 import Banner from '../../app/assets/design-patterns/app-bar/appbar-banner.png';
 import Collapsible from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsible.gif';
 import Search from '../../app/assets/design-patterns/app-bar/search-bar/search.gif';
@@ -24,6 +24,16 @@ App bars, sometimes called toolbars, are often one of the first elements you see
 
 <React.Fragment>
     <MaterialDesignDescription title={'App Bars: Top'} url={`https://material.io/components/app-bars-top/`} />
+    <TOC
+        anchors={[
+            { title: 'Introduction', hash: '#app-bars' },
+            { title: 'Basic App Bar', hash: '#basic-app-bar' },
+            { title: 'Collapsible App Bar', hash: '#collapsible-app-bar' },
+            { title: 'Search', hash: '#search' },
+            { title: 'Design Specifications', hash: '#design-specifications' },
+            { title: 'Developers', hash: '#developers' },
+        ]}
+    />
     <Divider />
 </React.Fragment>
 

@@ -1,4 +1,4 @@
-import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
 
 import ListBannerImage from '../../app/assets/design-patterns/lists/lists.svg';
 
@@ -50,18 +50,20 @@ import SpecTypographyImage from '../../app/assets/design-patterns/lists/spec-typ
 
 Lists and tables are frequently used throughout PX Blue applications. They are intended to represent groups of similar logical items, such as a device, an alarm, or a setting. They can display data from simple name-value pairs up to complex timelines or device lists.
 
-<MaterialDesignDescription title={'Lists'} url={`https://material.io/components/lists/`} />
-
-<!--
-A TOC like this would be nice, but apparently these links are not working
--   [Common Use Cases](#common-use-cases)
--   [Variations](#variations)
--   [Behaviors](#behaviors)
--   [Design Specifications](#design-specifications)
--   [Developers](#developers)
--->
-
-<Divider />
+<React.Fragment>
+    <MaterialDesignDescription title={'Lists'} url={`https://material.io/components/lists/`} />
+    <TOC
+        anchors={[
+            { title: 'Introduction', hash: '#lists--tables' },
+            { title: 'Common Use Cases', hash: '#common-use-cases' },
+            { title: 'Variations', hash: '#variations' },
+            { title: 'Behaviors', hash: '#behaviors' },
+            { title: 'Design Specifications', hash: '#design-specifications' },
+            { title: 'Developers', hash: '#developers' },
+        ]}
+    />
+    <Divider />
+</React.Fragment>
 
 # Common Use Cases
 
