@@ -1,9 +1,12 @@
 import { ImageGrid, MaterialDesignDescription } from '../../app/components';
+import { Divider, Typography } from '@material-ui/core';
+import PxblueSmallAltIcon from '@pxblue/icons-mui/PxblueSmallAlt';
+
 import TypeScaleImg from '../../app/assets/typography/type-scale.png';
 import LargerApplicationImg from '../../app/assets/typography/larger-application.png';
 import ApplicationImg from '../../app/assets/typography/application.png';
 import HeadlineOptionsImg from '../../app/assets/typography/headline-options.png';
-import { Divider, Typography } from '@material-ui/core';
+import SimplifiedChineseImg from '../../app/assets/typography/noto-sans-cjk-sc.png';
 
 <!-- KEYWORDS: design style typography text -->
 
@@ -13,7 +16,7 @@ PX Blue builds off of the Material Design system, so in general, you may refer t
 
 <MaterialDesignDescription
     title={'The Type System'}
-    url={'https://material.io/guidelines/style/typography.html'}
+    url={'https://material.io/design/typography/the-type-system.html'}
     description={`Material Design's typography guidelines.`}
 />
 
@@ -43,17 +46,40 @@ The examples below depict how the designs would look using standard PX Blue comp
 <React.Fragment>
     <ImageGrid
         images={[ApplicationImg]}
-        style={{ marginTop: 48, marginBottom: 16 }}
         regularWidth
         caption={['1: Card layout using default PX Blue styles', '2: Card layout using custom created styles']}
     />
     <ImageGrid
         images={[HeadlineOptionsImg]}
-        style={{ marginTop: 48, marginBottom: 16 }}
         regularWidth
         caption={[
             '1: Two line headline using default PX Blue styles',
             '2: Two line headline using custom created styles',
         ]}
+    />
+    <Divider />
+</React.Fragment>
+
+# Internationalization
+
+<ImageGrid
+    images={[SimplifiedChineseImg]}
+    regularWidth
+    caption={['Use "Noto Sans CJK SC" font for Simplified Chinese.']}
+/>
+
+PX Blue recommends using [Noto Sans](https://www.google.com/get/noto/) for all non-western languages. You should choose the appropriate font based on the language you are designging for.
+
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'Internationalization'}
+        url={'/patterns/internationalization'}
+        description={`Follow PX Blue's guideline to design your UI for different languages.`}
+        avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+    />
+    <MaterialDesignDescription
+        title={'Language Support'}
+        url={'https://material.io/design/typography/language-support.html'}
+        description={`Material Design's guideline on typography considerations for global audiences.`}
     />
 </React.Fragment>
