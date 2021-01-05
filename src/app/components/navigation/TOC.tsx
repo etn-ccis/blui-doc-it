@@ -88,10 +88,10 @@ export const TOC: React.FC<ToCProps> = (props) => {
             }
         });
         setSectionOffsetTop(anchorTops);
-    }, [anchors, pathname]);
+    }, [anchors, pathname, setSectionOffsetTop]);
 
     /** Change the active section */
-    const scrollHandler = useCallback((): void => {
+    const calculateAndSetActiveSection = useCallback((): void => {
         const scrollY = window.scrollY;
         for (let i = 0; i < sectionOffsetTop.length; i++) {
             // find the first Y value on the list smaller than scrollY
@@ -108,17 +108,18 @@ export const TOC: React.FC<ToCProps> = (props) => {
                 }
             }
         }
-    }, [sectionOffsetTop]);
+    }, [sectionOffsetTop, initializeSectionOffsetTop]);
 
     useEffect(() => {
-        window.addEventListener('scroll', scrollHandler);
+        
         window.addEventListener('load', initializeSectionOffsetTop);
+        window.addEventListener('scroll', calculateAndSetActiveSection);
 
         return (): void => {
-            window.removeEventListener('scroll', scrollHandler);
             window.removeEventListener('load', initializeSectionOffsetTop);
+            window.removeEventListener('scroll', calculateAndSetActiveSection);
         };
-    }, [sectionOffsetTop, scrollHandler, initializeSectionOffsetTop]);
+    }, [sectionOffsetTop, initializeSectionOffsetTop, calculateAndSetActiveSection]);
 
     useEffect(() => {
         // wait for the images to load first
@@ -134,6 +135,10 @@ export const TOC: React.FC<ToCProps> = (props) => {
             clearTimeout(timer10000);
         };
     }, [pathname, hash]);
+
+    useEffect(()=>{
+        calculateAndSetActiveSection();
+    }, [sectionOffsetTop])
 
     return (
         <div className={classes.root}>
