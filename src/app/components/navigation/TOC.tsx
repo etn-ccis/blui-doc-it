@@ -111,7 +111,6 @@ export const TOC: React.FC<ToCProps> = (props) => {
     }, [sectionOffsetTop, initializeSectionOffsetTop]);
 
     useEffect(() => {
-        
         window.addEventListener('load', initializeSectionOffsetTop);
         window.addEventListener('scroll', calculateAndSetActiveSection);
 
@@ -122,7 +121,6 @@ export const TOC: React.FC<ToCProps> = (props) => {
     }, [sectionOffsetTop, initializeSectionOffsetTop, calculateAndSetActiveSection]);
 
     useEffect(() => {
-
         initializeSectionOffsetTop();
 
         // wait for the images to load first
@@ -139,9 +137,9 @@ export const TOC: React.FC<ToCProps> = (props) => {
         };
     }, [pathname, hash]);
 
-    useEffect(()=>{
+    useEffect(() => {
         calculateAndSetActiveSection();
-    }, [sectionOffsetTop])
+    }, [sectionOffsetTop]);
 
     return (
         <div className={classes.root}>
