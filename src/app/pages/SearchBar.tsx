@@ -24,6 +24,7 @@ import siteMapDatabase from '../../database/sitemap-database.json';
 import indexDatabase from '../../database/index-database.json';
 import { useQueryString } from '../hooks/useQueryString';
 import { usePrevious } from '../hooks/usePrevious';
+import clsx from 'clsx';
 
 export type SearchbarProps = AppBarProps;
 
@@ -93,7 +94,6 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     const location = useLocation();
     const deepQuery = decodeURI(useQueryString().search || '');
     const prevQuery = usePrevious(deepQuery);
-    // const [query, setQuery] = useState('');
     const [searchResults, setSearchResults] = useState<Result[]>([]);
     const [showSearchResult, setShowSearchResult] = useState(false);
     const [inputString, setInputString] = useState('');
@@ -102,7 +102,15 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     // Push a new value on the browser history stack (if needed)
     const pushHistory = useCallback(
         (searchQuery: string) => {
-            if (searchQuery && !location.search.includes(`search=${encodeURIComponent(searchQuery)}`)) {
+            // match everything preceded by "&search=" and either end directly or is followed by a "&"
+            const currentQueryString = location.search.match(/(?<=&search=)[^&]*($|(?=&))/g);
+
+            // only push history when the user is not searching for the exact same string
+            if (
+                searchQuery &&
+                (!currentQueryString ||
+                    (currentQueryString && currentQueryString[0] !== encodeURIComponent(searchQuery)))
+            ) {
                 history.push({
                     pathname: location.pathname,
                     search: `${location.search
@@ -120,7 +128,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
             pushHistory(searchQuery);
             if (searchQuery) setSearchResults(search(searchQuery, siteMapDatabase, indexDatabase));
         },
-        [pushHistory, setSearchResults]
+        [pushHistory]
     );
 
     const dismissSearchBar = (): void => {
@@ -151,7 +159,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                 dispatch({ type: TOGGLE_SEARCH, payload: false });
             }
         }
-    }, [deepQuery, prevQuery, setInputString, setShowSearchResult, updateSearchResults, searchActive, dispatch]);
+    }, [deepQuery, prevQuery, updateSearchResults, searchActive, dispatch]);
 
     // do auto suggestion stuff here
     const onChangeHandler = (q: string): void => {
@@ -211,12 +219,12 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
             )}
 
             <AppBar
-                className={`${classes.appBar} ${searchActive && classes.showSearchBar}`}
+                className={clsx(classes.appBar, { [classes.showSearchBar]: searchActive })}
                 position={'sticky'}
                 style={{ zIndex: 1001 }}
                 {...props}
             >
-                <Toolbar style={{ display: 'flex' }} id="search-bar">
+                <Toolbar style={{ display: 'flex' }} id={'search-bar'}>
                     {searchActive && ( // to allow autofocus
                         <TextField
                             className={classes.searchfield}

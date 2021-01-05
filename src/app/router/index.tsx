@@ -42,7 +42,7 @@ const buildRoutes = (routes: SimpleNavItem[], url: string): JSX.Element[] => {
 const buildRedirects = (): JSX.Element[] => {
     const ret: JSX.Element[] = [];
     for (let i = 0; i < pageRedirects.length; i++) {
-        ret.push(<Redirect exact from={pageRedirects[i].oldUrl} to={pageRedirects[i].newUrl} />);
+        ret.push(<Redirect exact from={pageRedirects[i].oldUrl} to={pageRedirects[i].newUrl} key={i} />);
     }
     return ret;
 };
