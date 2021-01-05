@@ -122,6 +122,9 @@ export const TOC: React.FC<ToCProps> = (props) => {
     }, [sectionOffsetTop, initializeSectionOffsetTop, calculateAndSetActiveSection]);
 
     useEffect(() => {
+
+        initializeSectionOffsetTop();
+
         // wait for the images to load first
         const timer3000 = setTimeout((): void => {
             initializeSectionOffsetTop();
