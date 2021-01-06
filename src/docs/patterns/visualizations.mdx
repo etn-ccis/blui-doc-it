@@ -1,4 +1,4 @@
-import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
 import PxblueSmallAltIcon from '@pxblue/icons-mui/PxblueSmallAlt';
 
 import VisualizationBanner from '../../app/assets/design-patterns/visualizations/visualizations-banner.svg';
@@ -16,7 +16,17 @@ import DontUsePrimaryColor from '../../app/assets/design-patterns/visualizations
 
 Data is the foundation of most PX Blue applications, but many users are not interested in looking at the raw data. Visualizations allow you to present this data in a (visual) way that is easier to understand and allows users to draw conclusions and take actions based on the data. The most common visualizations in PX Blue applications are charts / graphs and maps.
 
-<Divider />
+<React.Fragment>
+    <TOC
+        anchors={[
+            { title: 'Introduction', hash: '#visualizations' },
+            { title: 'Charts / Graphs', hash: '#charts--graphs' },
+            { title: 'Maps', hash: '#maps' },
+            { title: 'Developers', hash: '#developers' },
+        ]}
+    />
+    <Divider />
+</React.Fragment>
 
 # Charts / Graphs
 

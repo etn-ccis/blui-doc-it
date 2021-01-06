@@ -1,5 +1,12 @@
 import { combineReducers } from 'redux';
-import { CHANGE_PAGE_TITLE, CHANGE_COLOR_FORMAT, TOGGLE_DRAWER, TOGGLE_SEARCH, TOGGLE_SIDEBAR } from '../actions';
+import {
+    CHANGE_PAGE_TITLE,
+    CHANGE_COLOR_FORMAT,
+    TOGGLE_DRAWER,
+    TOGGLE_SEARCH,
+    TOGGLE_SIDEBAR,
+    TOGGLE_TOC,
+} from '../actions';
 
 export type AppState = {
     app: CommonState;
@@ -10,6 +17,7 @@ export type CommonState = {
     drawerOpen: boolean;
     searchActive: boolean;
     sidebarOpen: boolean;
+    hasTOC: boolean;
 };
 const initialAppState: CommonState = {
     pageTitle: '',
@@ -17,6 +25,7 @@ const initialAppState: CommonState = {
     drawerOpen: false,
     searchActive: false,
     sidebarOpen: false,
+    hasTOC: false,
 };
 const appReducer = (state = initialAppState, action: any): CommonState => {
     switch (action.type) {
@@ -44,6 +53,11 @@ const appReducer = (state = initialAppState, action: any): CommonState => {
             return {
                 ...state,
                 sidebarOpen: action.payload,
+            };
+        case TOGGLE_TOC:
+            return {
+                ...state,
+                hasTOC: action.payload,
             };
         default:
             return state;

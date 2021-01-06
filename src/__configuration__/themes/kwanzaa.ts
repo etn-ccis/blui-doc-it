@@ -59,6 +59,7 @@ export const KwanzaaSchedule: Schedule = {
             color: Colors.white[50],
         },
         className: 'kwanzaa',
+        drawerActiveBackgroundFade: 0.9,
         appBarBackground: {
             backgroundImage: `url(${AppBarTile})`,
             backgroundSize: '300px',

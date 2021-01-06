@@ -90,7 +90,7 @@ export const getNpmVersion = async (packageName: string): Promise<string | undef
 
 export const getRoadmap = async (): Promise<RoadmapBucket[] | undefined> => {
     try {
-        const response = await roadmap.get('/R18Roadmap.json');
+        const response = await roadmap.get('/R19Roadmap.json');
         if (response && response.status === 200) return response.data;
         return undefined;
     } catch (thrown) {

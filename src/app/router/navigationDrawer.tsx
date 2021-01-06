@@ -12,6 +12,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../redux/reducers';
 import { TOGGLE_DRAWER } from '../redux/actions';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
+import { DRAWER_WIDTH } from '../shared';
 
 export const NavigationDrawer = (): JSX.Element => {
     const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
@@ -68,7 +69,7 @@ export const NavigationDrawer = (): JSX.Element => {
     return (
         <Drawer
             open={drawerOpen}
-            width={270}
+            width={DRAWER_WIDTH}
             ModalProps={{
                 onBackdropClick: (): void => {
                     dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
