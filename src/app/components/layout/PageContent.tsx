@@ -36,6 +36,7 @@ export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
             <div
                 style={Object.assign(
                     {
+                        width: '100%',
                         padding: noPadding ? 0 : PADDING,
                         maxWidth: wideLayout ? PAGE_WIDTH.WIDE : PAGE_WIDTH.REGULAR,
                     },
