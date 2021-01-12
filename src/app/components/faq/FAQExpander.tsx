@@ -32,15 +32,13 @@ export const FAQExpander: React.FC<FAQProps> = (props) => {
     const classes = useStyles();
 
     return (
-        <>
-            <Accordion defaultExpanded={false} {...accordionProps}>
-                <AccordionSummary expandIcon={<ExpandMore color={'primary'} />} className={classes.summary}>
-                    <Typography variant={'body1'} color={'primary'} style={{ fontWeight: 600 }}>
-                        {question}
-                    </Typography>
-                </AccordionSummary>
-                <AccordionDetails className={classes.details}>{props.children}</AccordionDetails>
-            </Accordion>
-        </>
+        <Accordion {...accordionProps}>
+            <AccordionSummary expandIcon={<ExpandMore color={'primary'} />} className={classes.summary}>
+                <Typography variant={'body1'} color={'primary'} style={{ fontWeight: 600 }}>
+                    {question}
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails className={classes.details}>{props.children}</AccordionDetails>
+        </Accordion>
     );
 };
