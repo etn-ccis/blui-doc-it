@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { LinkProps, Theme } from '@material-ui/core';
+import { Link, LinkProps } from 'react-router-dom';
+import { Theme } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 

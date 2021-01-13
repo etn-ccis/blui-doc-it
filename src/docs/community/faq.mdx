@@ -1,36 +1,126 @@
+import { Divider, FAQExpander } from '../../app/components';
+
 <!-- KEYWORDS: faq question answers -->
 
 # Frequently Asked Questions
 
-### 1. How do I update to PX Blue 2.2+ if I'm currently using 2.1?
+We strive to provide as much information as possible about PX Blue in our documentation as possible. However, we can't always cover everything. Below are some common questions that people have asked about the platform. Please check to see if your question has been answered below before contacting us directly.
 
-1. First, delete the PX Blue 2.1 theme files from your project source tree.
-2. Next, install the new themes package from NPM:
-    - [Angular Themes](https://www.npmjs.com/package/@pxblue/angular-themes)
-    - [React Themes](https://www.npmjs.com/package/@pxblue/react-themes)
-    - [React Native Themes](https://www.npmjs.com/package/@pxblue/react-native-themes)
-3. Update your import statements to point to the npm package instead of the local file.
-4. You'll also need to add a line to reference the Open Sans font package (where to add the line varies by framework)
+## General
 
-Detailed instructions can be found in our updated Framework Guides.
+<div>
+<FAQExpander question={`Can you provide our team with an overview of PX Blue?`}>
 
--   [Angular](/development/frameworks-web/angular)
--   [React](/development/frameworks-web/react)
+Yes. If you would like to meet with our team to go over the basics (whats and whys) of PX Blue and go through everything that we have to offer, please get in touch with us to set up a time.
 
-### 2. Can I use Ionic with PX Blue?
+</FAQExpander>
 
-With version 2.3.0, PX Blue introduced support for Ionic applications. While Ionic supports the use of a variety of frameworks for development, at this time PX Blue support is limited to Ionic 4+ applications built using Angular and Angular Material.
+<FAQExpander question={`What is your release schedule?`}>
 
-### 3. Can I use Bootstrap with PX Blue?
+PX Blue operates on a continuous delivery model — we release new resources as soon as they are available. Our work is planned on a quarterly basis and towards the end of each quarter we hold a release announcement event where we go over all of the updates to the platform that were made during that quarter and answer questions from the community. If you would like to attend these announcements, please contact us and we will add you to our mailing list. You can track our progress for the current quarter on our [Roadmap](/roadmap) page, which is updated every two weeks.
 
-PX Blue does not support the use of Twitter Bootstrap for PX Blue applications. Bootstrap can cause conflicts with PX Blue components and themes and is an unnecessary addition next to the Material component libraries and frameworks supported by PX Blue. If you are accustomed to using Bootstrap for layout, you can read about the PX Blue alternative approach on our [Layout Patterns](/patterns/layout) page.
+</FAQExpander>
+</div>
 
-### 4. Can I use other charting solutions (e.g., D3) with PX Blue?
+## Developers
+
+<div>
+<FAQExpander question={`How do I start a project?`}>
+
+If you are starting a new project, we highly recommend using the [PX Blue CLI](/development/cli) to start your project. This will automatically integrate all of the necessary PX Blue resources as well as give you several templates to choose from for starting your project. If you need to integrate PX Blue into an existing project, we have comprehensive Getting Started guides for [Web](/development/frameworks-web/intro) and [Mobile](/development/frameworks-mobile/intro) projects that walk you through the steps necessary to add PX Blue to your project, including adding themes, components libraries, etc.
+
+</FAQExpander>
+
+<FAQExpander question={`Do you support VueJS, WPF, Flutter, or other frameworks?`}>
+
+At this time, PX Blue only supports Angular or React for web projects and Ionic (with Angular) or React Native for mobile applications. While we would love to be able to support all of the other great frameworks that are out there, the PX Blue team does not currently have the resources to effectively support them all. One of the primary goals of PX Blue is to maximize re-usability and code-sharing between projects / teams — supporting every possible framework goes against this principle. We've tried to support enough frameworks to give teams flexibility in their choice while also ensuring that we can continue to provide meaningful content on an ongoing basis. 
+
+</FAQExpander>
+
+<FAQExpander question={`Can the PX Blue team build my application?`}>
+
+The PX Blue team is not currently staffed for doing project development for product teams. We are available to support your development team with integrating and using the PX Blue resources in your project, but you will need to build your own development team to create your application.
+
+</FAQExpander>
+
+<FAQExpander question={`Do you have icons for _____?`}>
+
+With PX Blue, you have access to all of the Material Design icons as well as additional icons that have been designed specifically for PX Blue applications. These can all be browsed on our [Iconography](/style/iconography) page. Clicking on an icon will show information about the icon including usage instructions in our supported frameworks as well as buttons to download icons individually. If you need an icon that is not currently available, contact us and we will work with you on a solution.
+
+</FAQExpander>
+
+<FAQExpander question={`How do I build my own theme?`}>
+
+Most applications should stick to using the default PX Blue themes. However, in some cases you may need to develop your own theme, such as for products that are sold under a different brand or are white-labeled for other companies. In this case, you should refer to the theming instructions for your selected framework ([Angular](https://v7.material.angular.io/guide/theming), [React](https://material-ui.com/customization/theming/), [React Native](https://callstack.github.io/react-native-paper/theming.html)). You may wish to start with the default PX Blue themes and extend only the pieces that need to change for your project.
+
+</FAQExpander>
+
+<FAQExpander question={`Can I use other charting solutions (e.g., D3) with PX Blue?`}>
 
 Currently, PX Blue recommends using [Highcharts](http://www.highcharts.com) for your charting needs. If you prefer an open-source charting alternative, PX Blue also offers resources for working with [ChartJS](https://www.chartjs.org/). You can read more about this on our [Visualizations](/patterns/visualizations) page. You may use other charting solutions in your application if there is a genuine business need, but keep in mind that this may compromise the consistency and reusability of your solution when compared to other projects.
 
-### 5. Do you have Design Patterns for...?
+</FAQExpander>
 
-We will be continuously updating the Design Patterns section of pxblue.github.io with new patterns and code samples as they are ready. We will prioritize patterns and examples based on interest expressed from development teams. If there is something you want to see, [Contact us](/community/contactus).
+<FAQExpander question={`What if I need to build a desktop app?`}>
+
+If you need to build a standalone desktop application, we recommend using a tool like [Electron](https://www.electronjs.org/). This will allow you to build the application using one of PX Blue's supported web technologies while still being able to package the application for installation onto a desktop.
+
+</FAQExpander>
+
+<FAQExpander question={`How can I contribute?`}>
+
+If you are interested in contributing to PX Blue, that's awesome! We welcome pull requests for features and bug fixes. We're also more than happy to have you report bugs and reach out to us with comments, suggestions, or other ideas. Please read our [Innersourcing](/community/innersourcing) guide for more details.
+
+</FAQExpander>
+</div>
+
+
+## Designers
+
+<div>
+<FAQExpander question={`Do you have any design assets for PX Blue?`}>
+
+Yes! We have standardized on Figma as our preferred tool for designing PX Blue applications. We have a [Component Stickersheet](https://www.figma.com/community/file/852558784352181868) as well as a [Design Pattern Stickersheet](https://www.figma.com/community/file/926189711301522231) that give you access to a wide array of design elements that you can use to kick start your projects. 
+
+</FAQExpander>
+
+<FAQExpander question={`Do you have assets for Adobe Illustrator or Sketch?`}>
+
+At this time, we have standardized on Figma as our design tool of choice for PX Blue applications and will not be maintaining resources for other tools. This is to ensure that teams are able to be working from the same set of resources to help maintain consistency and re-usability across products. If you would like to learn more about Figma or getting access for you team, please get in touch with us.
+
+</FAQExpander>
+
+<FAQExpander question={`Do you have design patterns for _____?`}>
+
+We will be continuously updating the [Design Patterns](/patterns) section with new patterns and code samples as they are available. We will prioritize patterns and examples based on interest expressed from development teams. If there is something you want to see, please contact us.
 
 If you have built something that you would like to share, check out our information on [innersourcing](/community/innersourcing) and [Contact Us](/community/contactus) with a demo.
+
+</FAQExpander>
+
+<FAQExpander question={`What do other PX Blue projects look like?`}>
+
+If you are interested in seeing some examples of past and present projects that have been designed using PX Blue, please get in touch with us. We would be more than happy to point you to some reference materials from other projects.
+
+</FAQExpander>
+
+<FAQExpander question={`How much creative freedom do I have as a designer?`}>
+
+PX Blue is not meant to limit your creativity or make you feel like you are designing in a box. We want PX Blue products to feel like they are part of the same family, but we do not want them to all feel like the same application. There are some aspects of applications that need to be the same across products to drive this consistency, but other areas are fair game for you to develop your own style. You can learn more by reading our page on [Product Identity](/design/project-identity).
+
+</FAQExpander>
+
+<FAQExpander question={`What if my development team says _____ is not possible?`}>
+
+If you are designing your project using the PX Blue assets we provide, these should be achievable without much issue on the development side. If you have specific concerns, please feel free to contact our development team and we can help your developers find a solution that will work.
+
+</FAQExpander>
+
+<FAQExpander question={`How can I contribute?`} style={{marginBottom: 64}}>
+
+If you are interested in contributing to PX Blue, that's awesome! We would love to see what you have designed. If you have components or patterns that you think would be valuable to share with the rest of the PX Blue community, please get in touch with us for a discussion. You can also find more information on our [Innersourcing](/community/innersourcing#how-we-innersource-new-features) page.
+
+</FAQExpander>
+</div>
+
+Don't see what you're looking for? [Contact Us](/community/contactus).
