@@ -4,6 +4,8 @@ import icons from '../../../src/app/assets/card-images/icons.png';
 import typography from '../../../src/app/assets/card-images/typography.png';
 import github from '../../../src/app/assets/card-images/github.png';
 import resources from '../../../src/app/assets/card-images/resources.png';
+import patterns from '../../../src/app/assets/card-images/patterns.svg';
+import feature from '../../../src/app/assets/card-images/feature-request.png';
 
 export const cardData = [
     {
@@ -25,6 +27,12 @@ export const cardData = [
         path: '/style/iconography',
     },
     {
+        title: 'Design Patterns',
+        description: `Learn about common interactions and designs found in PX Blue applications.`,
+        image: patterns,
+        path: '/patterns',
+    },
+    {
         title: 'Typography',
         description: `Learn more about the PX Blue type system and how to build an effective type hierarchy in your applications.`,
         image: typography,
@@ -40,6 +48,12 @@ export const cardData = [
         title: 'Resources',
         description: `Have a look at all of the code examples and packages available from PX Blue. We're constantly updating and adding new materials.`,
         image: resources,
+        path: '/resources',
+    },
+    {
+        title: 'Feature Request',
+        description: `We absolutely welcome suggestions for new patterns, components, icons, and everything.`,
+        image: feature,
         path: '/resources',
     },
 ];
