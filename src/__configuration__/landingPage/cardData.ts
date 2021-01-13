@@ -54,6 +54,6 @@ export const cardData = [
         title: 'Feature Request',
         description: `We absolutely welcome suggestions for new patterns, components, icons, and everything.`,
         image: feature,
-        path: '/resources',
+        path: '/community/features',
     },
 ];
