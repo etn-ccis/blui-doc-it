@@ -294,7 +294,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                 </Toolbar>
             </AppBar>
 
-            <PageContent style={{ width: '100%' }}>
+            <PageContent>
                 {loading && (
                     <div>
                         {loadingGroups.map((group, groupNumber) =>
