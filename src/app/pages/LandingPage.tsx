@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme: Theme) =>
             maxWidth: '100%',
             width: 400,
             height: 250,
-            display: 'block'
+            display: 'block',
         },
         footer: {
             zIndex: 0,
@@ -82,7 +82,11 @@ export const LandingPage: React.FC = (): JSX.Element => {
         <>
             <SharedToolbar navigationIcon={<Menu />} />
             <div className={classes.banner} style={landingPageBanner}>
-                {customBannerText ? <div style={customBannerText} className={classes.customBannerText} /> :<PXBLogo color={logoColor} tagline={tagline} />}
+                {customBannerText ? (
+                    <div style={customBannerText} className={classes.customBannerText} />
+                ) : (
+                    <PXBLogo color={logoColor} tagline={tagline} />
+                )}
                 <Button
                     variant={'outlined'}
                     color={'inherit'}
