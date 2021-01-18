@@ -35,6 +35,11 @@ export type SiteConfig = {
     appBarBackground?: CSSProperties;
 
     /**
+     * A link to a custom banner text image. Will replace the default ones.
+     */
+    customBannerText?: CSSProperties;
+
+    /**
      * a tagline for the landing page banner
      */
     landingPageTagline?: string;

@@ -51,6 +51,12 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundSize: 'cover',
             backgroundPosition: '-240px center',
         },
+        customBannerText: {
+            maxWidth: '100%',
+            width: 400,
+            height: 250,
+            display: 'block'
+        },
         footer: {
             zIndex: 0,
             backgroundColor: Colors.darkBlack[100],
@@ -68,6 +74,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
     const landingPageBanner = themeConfig.landingPageBanner;
     const logoColor = themeConfig.logoColor;
     const tagline = themeConfig.landingPageTagline;
+    const customBannerText = themeConfig.customBannerText;
     usePageTitle('');
     useGoogleAnalyticsPageView();
 
@@ -75,7 +82,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
         <>
             <SharedToolbar navigationIcon={<Menu />} />
             <div className={classes.banner} style={landingPageBanner}>
-                <PXBLogo color={logoColor} tagline={tagline} />
+                {customBannerText ? <div style={customBannerText} className={classes.customBannerText} /> :<PXBLogo color={logoColor} tagline={tagline} />}
                 <Button
                     variant={'outlined'}
                     color={'inherit'}

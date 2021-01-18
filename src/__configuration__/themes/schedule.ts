@@ -9,6 +9,7 @@ import { ThanksgivingSchedule } from './thanksgiving';
 import { HanukkahSchedule } from './hanukkah';
 import { KwanzaaSchedule } from './kwanzaa';
 import { NewYearsSchedule } from './new-years';
+import { SpringFestivalSchedule } from './spring-festival';
 
 /**
  * Add more holiday themes here.
@@ -34,6 +35,7 @@ export const schedule: Schedule[] = [
     HanukkahSchedule,
     KwanzaaSchedule,
     NewYearsSchedule,
+    SpringFestivalSchedule,
 ];
 
 /**
