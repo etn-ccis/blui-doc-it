@@ -8,7 +8,7 @@ import { Schedule } from './types';
 
 export const DiwaliSchedule: Schedule = {
     start: new Date(0, 10, 11), // Nov 11
-    end: new Date(0, 10, 17), // Nov 17
+    end: new Date(0, 10, 17), // Nov 16
     config: {
         theme: {
             ...PXBThemes.blue,
