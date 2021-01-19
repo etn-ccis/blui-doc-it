@@ -9,7 +9,7 @@ import { Schedule } from './types';
 
 export const KwanzaaSchedule: Schedule = {
     start: new Date(0, 11, 26), // Dec 26
-    end: new Date(0, 11, 31), // Dec 30 - should run until Jan 1 (cutting this off on early to account for New Years theme)
+    end: new Date(0, 11, 31), // Dec 30 - festival should run until Jan 1, but we cut this off on early to account for New Years theme
     config: {
         theme: {
             ...PXBThemes.blue,

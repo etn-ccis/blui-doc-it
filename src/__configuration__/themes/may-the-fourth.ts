@@ -15,7 +15,7 @@ const lightSabers = [LightSaber1, LightSaber2, LightSaber3, LightSaber4, LightSa
 
 export const MayTheFourthSchedule: Schedule = {
     start: new Date(0, 4, 3), // May 3
-    end: new Date(0, 4, 6), // May 6
+    end: new Date(0, 4, 6), // May 5
     config: {
         theme: {
             ...PXBThemes.blue,

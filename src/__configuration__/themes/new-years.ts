@@ -7,7 +7,7 @@ import { Schedule } from './types';
 
 export const NewYearsSchedule: Schedule = {
     start: new Date(0, 11, 31), // Dec 31
-    end: new Date(1, 0, 7), // Jan 7
+    end: new Date(1, 0, 7), // Jan 6 (Next Year)
     config: {
         theme: {
             ...PXBThemes.blueDark,

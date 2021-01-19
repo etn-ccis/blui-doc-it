@@ -8,7 +8,7 @@ import { Schedule } from './types';
 
 export const SpringFestivalSchedule: Schedule = {
     start: new Date(0, 1, 11), // Feb 11
-    end: new Date(1, 1, 18), // Feb 19
+    end: new Date(0, 1, 19), // Feb 18
     config: {
         theme: {
             ...PXBThemes.blue,
