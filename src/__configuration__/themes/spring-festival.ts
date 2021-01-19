@@ -58,7 +58,7 @@ export const SpringFestivalSchedule: Schedule = {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center center',
             backgroundColor: Colors.red[800],
-            cursor: `url("${cursor}") 16 0, auto`,
+            cursor: `url("${cursor}") 12 0, auto`,
             color: Colors.white[50],
         },
         className: 'spring-festival',
