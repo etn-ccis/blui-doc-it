@@ -125,10 +125,9 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     // Show updated search results after updating the browser history
     const updateSearchResults = useCallback(
         (searchQuery: string) => {
-            pushHistory(searchQuery);
             if (searchQuery) setSearchResults(search(searchQuery, siteMapDatabase, indexDatabase));
         },
-        [pushHistory]
+        [setSearchResults]
     );
 
     const dismissSearchBar = (): void => {
@@ -202,7 +201,6 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                                 className={classes.searchResult}
                                 key={index.toString()}
                                 onClick={(): void => {
-                                    dismissSearchBar();
                                     history.push(result.url);
                                 }}
                             >
