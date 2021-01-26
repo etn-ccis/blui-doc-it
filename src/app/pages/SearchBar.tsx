@@ -92,7 +92,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
     const dispatch = useDispatch();
     const location = useLocation();
-    const deepQuery = decodeURI(useQueryString().search || '');
+    const deepQuery = useQueryString().search || '';
     const prevQuery = usePrevious(deepQuery);
     const [searchResults, setSearchResults] = useState<Result[]>([]);
     const [showSearchResult, setShowSearchResult] = useState(false);
