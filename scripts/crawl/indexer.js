@@ -121,6 +121,7 @@ function transformToArray(str) {
         .replace(/import .*? from .*?;/gim, ' ') // take out all the import statements
         .replace(/\r\n/g, '\n')
         .replace(/\n/gim, ' ') // new lines count as a space
+        .replace(/<FAQExpander question={`(.*?)`}(.*?)>/gim, '$1') // pull out the FAQ question strings <FAQExpander question={''}>
         .replace(/<[\/]?[a-z].+?>/gim, ' ') // take out all the native tags <xxx> and </xxx>
         .replace(/<[a-z].+?[ ]?\/>/gim, ' ') // take out all the native tags <xxx/>
         .replace(/<!--[\s]*?((?!keywords:).)*?[\s]*?-->/gi, ' ') // omit the comments except for keywords

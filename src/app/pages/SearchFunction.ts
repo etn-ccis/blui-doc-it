@@ -1,7 +1,7 @@
 import { Result } from '../../__types__';
 
 const MAX_RESULT = 10; // stop searching once we get 20 results
-const MAX_TEXT_LENGTH = 30; // get this many words as a preview
+const MAX_TEXT_LENGTH = 300; // get this many characters as a preview
 
 // return
 // * a string at most <MAX_TEXT_LENGTH> chars long, centered around the keyword position
@@ -9,35 +9,45 @@ const MAX_TEXT_LENGTH = 30; // get this many words as a preview
 //   was not found in the raw text due to some indexing issue
 // A placeholder text maybe replaced later by some other non-placeholder text
 function getShortText(keyword: string, url: string, siteMapDatabase: any): [string, boolean] {
-    const fullText: string = siteMapDatabase[url].text;
+    let fullText: string = siteMapDatabase[url].text;
     if (!fullText) {
         return ['', true];
     }
-    const fullTextArray: string[] = fullText
+
+    fullText = fullText
         .replace(/import .*? from .*?;/gim, '')
         .replace(/\r\n/g, '\n')
         .replace(/\n/gim, ' ')
         .replace(/<!--.*?-->/g, ' ') // replace all comments (including keywords)
         .replace(/\[(.*?)\]\(.*?\)/g, '$1') // replace all the markdown links [text](url) into text
+        .replace(/<FAQExpander question={`(.*?)`}(.*?)>/gim, '$1') // pull out the FAQ question strings <FAQExpander question={''}>
         .replace(/<[a-zA-Z].*?>/gim, ' ') // replace all <xxx> and <xxx />
         .replace(/<\/[a-zA-Z].*?>/gim, ' ') // replace all </xxx>
         .replace(/[#`]/g, '')
-        .replace(/\s\s+/g, ' ')
-        .split(' '); // replace multiple white spaces into only one space
+        .replace(/\s\s+/g, ' ');
 
-    const keywordPosition = fullTextArray.map((str) => str.toLowerCase().replace(/[.,;()*-]/gm, ' ')).indexOf(keyword);
-    if (keywordPosition === -1) {
-        return [fullTextArray.slice(0, MAX_TEXT_LENGTH).join(' '), true];
+    // find the keyword in the full text
+    const keywordIndex = fullText.toLowerCase().indexOf(
+        keyword
+            .toLowerCase()
+            .replace(/[.,;()*-]/gm, ' ')
+            .trim()
+    );
+
+    // if it's found, collect the characters on either side for preview (break on spaces)
+    if (keywordIndex > -1) {
+        // 1/4 of the preview text is before the keyword, 3/4 is after
+        const textPreview = fullText.substr(
+            Math.max(keywordIndex - MAX_TEXT_LENGTH / 4, 0),
+            Math.min(MAX_TEXT_LENGTH + keyword.length, fullText.length - 1)
+        );
+        const firstSpace = textPreview.indexOf(' ');
+        const lastSpace = textPreview.lastIndexOf(' ');
+        return [textPreview.substring(firstSpace, lastSpace), false];
     }
-    const MAX_TEXT_LENGTH_HALF = MAX_TEXT_LENGTH / 2;
-    return [
-        keywordPosition > MAX_TEXT_LENGTH_HALF
-            ? fullTextArray
-                  .slice(keywordPosition - MAX_TEXT_LENGTH_HALF, keywordPosition + MAX_TEXT_LENGTH_HALF)
-                  .join(' ')
-            : fullTextArray.slice(0, MAX_TEXT_LENGTH).join(' '),
-        false,
-    ];
+    // otherwise return the initial text from the top of the page
+    console.log(fullText); // eslint-disable-line
+    return [fullText.substr(0, MAX_TEXT_LENGTH), true];
 }
 
 /* 
