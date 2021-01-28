@@ -121,14 +121,23 @@ function transformToArray(str) {
         .replace(/import .*? from .*?;/gim, ' ') // take out all the import statements
         .replace(/\r\n/g, '\n')
         .replace(/\n/gim, ' ') // new lines count as a space
+        .replace(/<FAQExpander question={`(.*?)`}(.*?)>/gim, '$1') // pull out the FAQ question strings <FAQExpander question={''}>
+        // pull out the caption props
+        // .replace(/<ImageGrid.*?\/>/gim, (match) => {
+        //     if(!match.includes('caption={')) return '';
+        //     const str = match.replace(/<ImageGrid.*?caption={(.*?)}.*?\/>/gim, (match2, g1) => {
+        //         let caption = g1.trim();
+        //         if (caption.startsWith('[')) caption = caption.substr(1, caption.length - 2);
+        //         return caption;
+        //     })            
+        //     return `(caption: ${str.trim()})`;
+        // })
         .replace(/<[\/]?[a-z].+?>/gim, ' ') // take out all the native tags <xxx> and </xxx>
         .replace(/<[a-z].+?[ ]?\/>/gim, ' ') // take out all the native tags <xxx/>
         .replace(/<!--[\s]*?((?!keywords:).)*?[\s]*?-->/gi, ' ') // omit the comments except for keywords
         // .replace(/<!--[\s]*?(keywords:)(.*?)[\s]*?-->/gi, '$2') // replace keyword comments
         .replace(/\[(.*?)\]\(.*?\)/g, '$1'); // replace all the markdown links [text](url) into text
-    // .replace(/[!@\?#\$%\^&\*\(\)\-\\\|\[\]\+`~\.\,\?<>\{\}/":;]/gim, ' ') // replace any special characters
-    // .split(' ')
-    // .filter((s) => s !== '');
+        // .replace(/[!@\?#\$%\^&\*\(\)\-\\\|\[\]\+`~\.\,\?<>\{\}/":;]/gim, ' ') // replace any special characters
     return tokenizer.tokenize(str); // will take out special chars and split using spaces
 }
 
