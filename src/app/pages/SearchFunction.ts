@@ -1,6 +1,6 @@
 import { Result } from '../../__types__';
 
-const MAX_RESULT = 10; // stop searching once we get 20 results
+const MAX_RESULT = 10; // stop searching once we get 10 results
 const MAX_TEXT_LENGTH = 300; // get this many characters as a preview
 
 // return
@@ -21,6 +21,17 @@ function getShortText(keyword: string, url: string, siteMapDatabase: any): [stri
         .replace(/<!--.*?-->/g, ' ') // replace all comments (including keywords)
         .replace(/\[(.*?)\]\(.*?\)/g, '$1') // replace all the markdown links [text](url) into text
         .replace(/<FAQExpander question={`(.*?)`}(.*?)>/gim, '$1') // pull out the FAQ question strings <FAQExpander question={''}>
+        // pull out the caption props
+        // .replace(/<ImageGrid.*?\/>/gim, (match) => {
+        //     if (!match.includes('caption={')) return '';
+        //     const str = match.replace(/<ImageGrid.*?caption={(.*?)}.*?\/>/gim, (match2, g1) => {
+        //         let caption = g1.trim();
+        //         if (caption.startsWith('[')) caption = caption.substr(1, caption.length - 2);
+        //         if (caption.replace(/[,]*[\n]*?]$/gim)) caption = caption.substr(0, caption.length - 1);
+        //         return caption;
+        //     });
+        //     return `(caption: ${str.trim()})`;
+        // })
         .replace(/<[a-zA-Z].*?>/gim, ' ') // replace all <xxx> and <xxx />
         .replace(/<\/[a-zA-Z].*?>/gim, ' ') // replace all </xxx>
         .replace(/[#`]/g, '')
@@ -46,7 +57,6 @@ function getShortText(keyword: string, url: string, siteMapDatabase: any): [stri
         return [textPreview.substring(firstSpace, lastSpace), false];
     }
     // otherwise return the initial text from the top of the page
-    console.log(fullText); // eslint-disable-line
     return [fullText.substr(0, MAX_TEXT_LENGTH), true];
 }
 

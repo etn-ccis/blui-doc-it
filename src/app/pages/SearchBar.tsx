@@ -123,12 +123,9 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     );
 
     // Show updated search results after updating the browser history
-    const updateSearchResults = useCallback(
-        (searchQuery: string) => {
-            if (searchQuery) setSearchResults(search(searchQuery, siteMapDatabase, indexDatabase));
-        },
-        [setSearchResults]
-    );
+    const updateSearchResults = useCallback((searchQuery: string) => {
+        if (searchQuery) setSearchResults(search(searchQuery, siteMapDatabase, indexDatabase));
+    }, []);
 
     const dismissSearchBar = (): void => {
         if (location.search.includes(`search=`)) {
