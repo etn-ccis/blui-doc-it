@@ -92,7 +92,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
     const dispatch = useDispatch();
     const location = useLocation();
-    const deepQuery = decodeURI(useQueryString().search || '');
+    const deepQuery = useQueryString().search || '';
     const prevQuery = usePrevious(deepQuery);
     const [searchResults, setSearchResults] = useState<Result[]>([]);
     const [showSearchResult, setShowSearchResult] = useState(false);
@@ -103,7 +103,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     const pushHistory = useCallback(
         (searchQuery: string) => {
             // match everything preceded by "&search=" and either end directly or is followed by a "&"
-            const currentQueryString = location.search.match(/(?<=&search=)[^&]*($|(?=&))/g);
+            const currentQueryString = location.search.match(/&search=[^&]*($|(?=&))/g)?.slice(8);
 
             // only push history when the user is not searching for the exact same string
             if (
@@ -123,13 +123,9 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     );
 
     // Show updated search results after updating the browser history
-    const updateSearchResults = useCallback(
-        (searchQuery: string) => {
-            pushHistory(searchQuery);
-            if (searchQuery) setSearchResults(search(searchQuery, siteMapDatabase, indexDatabase));
-        },
-        [pushHistory]
-    );
+    const updateSearchResults = useCallback((searchQuery: string) => {
+        if (searchQuery) setSearchResults(search(searchQuery, siteMapDatabase, indexDatabase));
+    }, []);
 
     const dismissSearchBar = (): void => {
         if (location.search.includes(`search=`)) {
@@ -202,7 +198,6 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                                 className={classes.searchResult}
                                 key={index.toString()}
                                 onClick={(): void => {
-                                    dismissSearchBar();
                                     history.push(result.url);
                                 }}
                             >

@@ -14,7 +14,7 @@ export const useQueryString = (): SearchParams => {
     params.forEach((param) => {
         const keyVal = param.split('=', 2);
         if (keyVal.length > 1) {
-            ret[keyVal[0]] = decodeURI(keyVal[1]);
+            ret[keyVal[0]] = decodeURIComponent(keyVal[1]);
         }
     });
     return ret;

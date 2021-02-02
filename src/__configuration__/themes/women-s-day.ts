@@ -12,7 +12,7 @@ const DARK_COLOR = '#B41461';
 
 export const WomenSDaySchedule: Schedule = {
     start: new Date(0, 2, 7), // Mar 7
-    end: new Date(0, 2, 10), // Mar 10
+    end: new Date(0, 2, 10), // Mar 9
     config: {
         theme: {
             ...PXBThemes.blue,
