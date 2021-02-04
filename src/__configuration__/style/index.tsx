@@ -2,7 +2,7 @@ import themes from '../../app/assets/card-images/themes.png';
 import palette from '../../app/assets/card-images/palette.png';
 import illustrations from '../../app/assets/card-images/illustrations.png';
 import icons from '../../app/assets/card-images/icons.png';
-import typography from '../../app/assets/card-images/typography.png';
+import typography from '../../app/assets/card-images/typography-square.png';
 
 export const links = [
     {
