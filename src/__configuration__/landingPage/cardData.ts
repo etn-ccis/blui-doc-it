@@ -29,13 +29,13 @@ export const cardData = [
     },
     {
         title: 'Figma Stickersheet',
-        description: `View our library of pre-built Material and PX Blue components to jump start your project design process.`,
+        description: `View our library of pre-built Material and PX Blue Figma components to jump start your project design process.`,
         image: figma,
-        path: '/community',
+        path: 'https://www.figma.com/community/file/852558784352181868',
     },
     {
-        title: 'Component Libraries',
-        description: `Check out our libraries of pre-styled custom web components that help you build applications faster.`,
+        title: 'Component APIs',
+        description: `Check out our libraries of pre-built JavaScript components that accelerate your application development.`,
         image: components,
         path: 'https://pxblue-components.github.io',
     },
@@ -61,6 +61,6 @@ export const cardData = [
         title: 'Roadmap',
         description: `See what the team is currently working on and what we have planned for future updates.`,
         image: roadmap,
-        path: '/community',
+        path: '/roadmap',
     },
 ];
