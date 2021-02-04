@@ -37,7 +37,7 @@ Often times, your application will need to load data from (or send data to) a re
 
 There are a number of different ways to indicate to a user that something is happening / loading behind the scenes. Different variations are appropriate in different situations.
 
-## Placeholder Shapes
+## Placeholder Shapes / Skeleton
 
 When loading data for the first time, you do not want to show an empty screen while you are fetching the data. Instead, you should show placeholders that mimic (using simple shapes) the data that will eventually be loaded. This will give the impression that your application is faster and gives users an indication of what kind of data is being loaded.
 
@@ -128,15 +128,30 @@ Context plays an important role in sizing your indicators. If you are using them
 
 # Developers
 
-## Placeholder Shapes
+## Placeholder Shapes / Skeleton
 
 There are a number of libraries available to help you create placeholder shapes, such as:
 
--   [@netbasal/ngx-content-loader](https://www.npmjs.com/package/@netbasal/ngx-content-loader) (Angular, Ionic)
--   [ion-skeleton-text](https://ionicframework.com/docs/api/skeleton-text) (Ionic)
--   [placeholder-loading](https://www.npmjs.com/package/placeholder-loading) (React, Angular, Ionic)
--   [react-content-loader](https://www.npmjs.com/package/react-content-loader) (React)
--   [rn-placeholder](https://www.npmjs.com/package/rn-placeholder) (React Native)
+**Angular**:
+
+-   [@netbasal/ngx-content-loader](https://www.npmjs.com/package/@netbasal/ngx-content-loader)
+-   [placeholder-loading](https://www.npmjs.com/package/placeholder-loading)
+
+**Ionic**:
+
+-   [@netbasal/ngx-content-loader](https://www.npmjs.com/package/@netbasal/ngx-content-loader)
+-   [placeholder-loading](https://www.npmjs.com/package/placeholder-loading)
+-   [ion-skeleton-text](https://ionicframework.com/docs/api/skeleton-text)
+
+**React**:
+
+-   [placeholder-loading](https://www.npmjs.com/package/placeholder-loading)
+-   [react-content-loader](https://www.npmjs.com/package/react-content-loader)
+-   [@material-ui/lab/Skeleton](https://material-ui.com/components/skeleton/#skeleton)
+
+**React Native**:
+
+-   [rn-placeholder](https://www.npmjs.com/package/rn-placeholder)
 
 ## Progress Indicators
 
