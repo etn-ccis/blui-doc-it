@@ -31,7 +31,7 @@ export const links = [
     },
     {
         title: 'Typography',
-        url: '/style/typograpohy',
+        url: '/style/typography',
         description:
             'Learn more about the PX Blue type system and how to build an effective type hierarchy in your applications.',
         image: typography,

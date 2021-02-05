@@ -7,7 +7,7 @@ type Link = {
     title: string;
     url: string;
     description: string;
-    image: string;
+    image: string | JSX.Element;
     background?: {
         size?: string;
         position?: string;
