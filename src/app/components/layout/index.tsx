@@ -4,3 +4,4 @@ export * from './ExpansionHeader';
 export * from './PageContent';
 export * from './RegularWidth';
 export * from './Section';
+export * from './LinkGrid';

@@ -18,7 +18,7 @@ const getTopPaddingForAspectRatio = (ratio: AspectRatio | undefined): string => 
 };
 type AspectRatio = '16x9' | '4x3' | '3x2' | '2x1' | '1x1';
 type InfoCardProps = {
-    source: string;
+    source: string | JSX.Element;
     onClick?: (event: MouseEvent) => void;
     aspectRatio?: AspectRatio;
     title: string;
@@ -27,6 +27,7 @@ type InfoCardProps = {
     background?: {
         size?: string;
         position?: string;
+        color?: string;
     };
 };
 
@@ -38,6 +39,7 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundRepeat: 'no-repeat',
             marginBottom: theme.spacing(2),
             border: `1px solid ${theme.palette.divider}`,
+            position: 'relative',
         },
         card: {
             '&:hover': {
@@ -61,15 +63,35 @@ export const InfoCard: React.FC<InfoCardProps> = (props): JSX.Element => {
             onClick={props.onClick}
             className={props.onClick ? classes.card : ''}
         >
-            <div
-                style={{
-                    backgroundImage: `url(${props.source})`,
-                    paddingTop: getTopPaddingForAspectRatio(props.aspectRatio),
-                    backgroundPosition: background.position,
-                    backgroundSize: background.size,
-                }}
-                className={classes.image}
-            />
+            {typeof props.source === 'string' ? (
+                <div
+                    style={{
+                        backgroundImage: `url(${props.source})`,
+                        paddingTop: getTopPaddingForAspectRatio(props.aspectRatio),
+                        backgroundPosition: background.position,
+                        backgroundSize: background.size,
+                    }}
+                    className={classes.image}
+                />
+            ) : (
+                <div style={{ paddingTop: getTopPaddingForAspectRatio(props.aspectRatio) }} className={classes.image}>
+                    <div
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            backgroundColor: background.color,
+                        }}
+                    >
+                        {props.source}
+                    </div>
+                </div>
+            )}
             <Typography variant={'h6'}>{props.title}</Typography>
             <Typography variant={'body2'} style={{ color: theme.palette.text.secondary, marginTop: theme.spacing(1) }}>
                 {props.description}
