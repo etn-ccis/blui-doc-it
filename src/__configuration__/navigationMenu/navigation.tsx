@@ -243,6 +243,7 @@ export const pageDefinitions: SimpleNavItem[] = [
     {
         title: 'Style Guide',
         url: '/style',
+        component: <MarkdownPage title={'Style Guide'} markdown={Docs.Style.Home} />,
         pages: [
             {
                 title: 'Color Palette',
@@ -276,6 +277,7 @@ export const pageDefinitions: SimpleNavItem[] = [
     {
         title: 'Community',
         url: '/community',
+        component: <MarkdownPage title={'PX Blue Community'} markdown={Docs.Community.Home} />,
         pages: [
             {
                 title: 'Licensing',

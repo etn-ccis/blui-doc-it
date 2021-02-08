@@ -1,0 +1,38 @@
+<svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<rect width="300" height="200" fill="#DBEEF2"/>
+<rect x="50" y="29" width="200" height="151" rx="14" fill="#57A4B9"/>
+<path d="M50 81H250V166C250 173.732 243.732 180 236 180H64C56.268 180 50 173.732 50 166V81Z" fill="#7FC0CF"/>
+<rect x="62" y="41" width="83" height="16" fill="#7FC0CF"/>
+<rect x="62" y="61" width="68" height="10" fill="#7FC0CF"/>
+<rect x="130" y="139" width="40" height="10" fill="#57A4B9"/>
+<rect x="67" y="139" width="40" height="10" fill="#57A4B9"/>
+<rect x="75" y="153" width="24" height="10" fill="#57A4B9"/>
+<rect x="138" y="153" width="24" height="10" fill="#57A4B9"/>
+<rect x="203" y="153" width="24" height="10" fill="#57A4B9"/>
+<rect x="195" y="139" width="40" height="10" fill="#57A4B9"/>
+<circle cx="150" cy="112" r="20" fill="#57A4B9"/>
+<circle cx="87" cy="112" r="20" fill="#57A4B9"/>
+<circle cx="215" cy="112" r="20" fill="#57A4B9"/>
+<rect x="-166" y="29" width="200" height="151" rx="14" fill="#87C6D4"/>
+<path d="M-166 81H34V166C34 173.732 27.732 180 20 180H-152C-159.732 180 -166 173.732 -166 166V81Z" fill="#ABD7E1"/>
+<rect x="-13" y="153" width="24" height="10" fill="#87C6D4"/>
+<rect x="-21" y="139" width="40" height="10" fill="#87C6D4"/>
+<circle cx="-1" cy="112" r="20" fill="#87C6D4"/>
+<rect x="266" y="29" width="200" height="151" rx="14" fill="#87C6D4"/>
+<path d="M266 81H466V166C466 173.732 459.732 180 452 180H280C272.268 180 266 173.732 266 166V81Z" fill="#ABD7E1"/>
+<rect x="278" y="41" width="83" height="16" fill="#ABD7E1"/>
+<rect x="278" y="61" width="68" height="10" fill="#ABD7E1"/>
+<rect x="283" y="139" width="40" height="10" fill="#87C6D4"/>
+<rect x="291" y="153" width="24" height="10" fill="#87C6D4"/>
+<circle cx="303" cy="112" r="20" fill="#87C6D4"/>
+<g style="mix-blend-mode:color-dodge">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M238 126L253.711 164.951L259.843 150.361L273.373 163.892L275.74 161.525L262.045 147.831L275.832 142.27L238 126Z" fill="#AB1A1A"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="300" height="200" fill="white"/>
+</clipPath>
+</defs>
+</svg>

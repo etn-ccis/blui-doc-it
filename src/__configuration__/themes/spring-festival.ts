@@ -1,15 +1,14 @@
 import * as PXBThemes from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
-import * as BrandingColors from '@pxblue/colors-branding';
-// import Kwanzaa from '../../app/assets/themes/kwanzaa/kwanzaa-banner.png';
-import Kwanzaa from '../../app/assets/themes/kwanzaa/kwanzaa-banner.png';
-import flagCursor from '../../app/assets/themes/kwanzaa/flag-cursor.png';
-import AppBarTile from '../../app/assets/themes/kwanzaa/kwanzaa-appbar-tile.png';
+import banner from '../../app/assets/themes/spring-festival/banner.svg';
+import cursor from '../../app/assets/themes/spring-festival/cursor.png';
+import titleBlock from '../../app/assets/themes/spring-festival/title-block.svg';
+import AppBarTile from '../../app/assets/themes/spring-festival/tile.svg';
 import { Schedule } from './types';
 
-export const KwanzaaSchedule: Schedule = {
-    start: new Date(0, 11, 26), // Dec 26
-    end: new Date(0, 11, 31), // Dec 30 - festival should run until Jan 1, but we cut this off on early to account for New Years theme
+export const SpringFestivalSchedule: Schedule = {
+    start: new Date(0, 1, 11), // Feb 11
+    end: new Date(0, 1, 19), // Feb 18
     config: {
         theme: {
             ...PXBThemes.blue,
@@ -22,24 +21,28 @@ export const KwanzaaSchedule: Schedule = {
                     dark: Colors.red[900],
                 },
                 secondary: {
-                    light: BrandingColors.emerald[300],
-                    main: BrandingColors.emerald[500],
-                    dark: BrandingColors.emerald[900],
+                    main: Colors.yellow[500],
                 },
             },
             overrides: {
                 ...PXBThemes.blue.overrides,
                 MuiAppBar: {
                     ...PXBThemes.blue.overrides?.MuiAppBar,
-                    colorSecondary: {
+                    root: {
                         color: Colors.white[50],
-                        backgroundColor: Colors.red[900],
                         '& .MuiInputBase-root': {
                             color: Colors.white[50],
                         },
                         '& .MuiSelect-icon': {
                             color: Colors.white[50],
                         },
+                    },
+                    colorPrimary: {
+                        backgroundColor: Colors.red[900],
+                    },
+                    colorSecondary: {
+                        backgroundColor: Colors.red[800],
+                        color: Colors.white[50],
                     },
                 },
                 MuiButton: {
@@ -50,20 +53,24 @@ export const KwanzaaSchedule: Schedule = {
             },
         },
         landingPageBanner: {
-            backgroundImage: `url(${Kwanzaa})`,
+            backgroundImage: `url(${banner})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center 96%',
-            backgroundColor: Colors.red[900],
-            cursor: `url("${flagCursor}") 0 0, auto`,
+            backgroundPosition: 'center center',
+            backgroundColor: Colors.red[800],
+            cursor: `url("${cursor}") 12 0, auto`,
             color: Colors.white[50],
         },
-        className: 'kwanzaa',
+        className: 'spring-festival',
+        customBannerText: {
+            backgroundImage: `url(${titleBlock})`,
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+        },
         drawerActiveBackgroundFade: 0.9,
         appBarBackground: {
             backgroundImage: `url(${AppBarTile})`,
-            backgroundSize: '300px',
-            backgroundPosition: 'left 75%',
         },
     },
 };

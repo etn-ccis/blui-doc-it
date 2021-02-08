@@ -23,7 +23,7 @@ The PX Blue CLI will automatically include:
 -   PX Blue Themes ([@pxblue/react-themes](https://www.npmjs.com/package/@pxblue/react-themes))
 -   PX Blue Icons ([@pxblue/icons-mui](https://www.npmjs.com/package/@pxblue/icons-mui))
 -   PX Blue Colors ([@pxblue/colors](https://www.npmjs.com/package/@pxblue/colors))
--   Open Sans web font ([typeface-open-sans](https://www.npmjs.com/package/typeface-open-sans))
+-   Open Sans web font ([@fontsource/open-sans](https://www.npmjs.com/package/@fontsource/open-sans))
 -   PX Blue ESLint and Prettier configurations, if selected ([@pxblue/eslint-config](https://www.npmjs.com/package/@pxblue/eslint-config) / [@pxblue/prettier-config](https://www.npmjs.com/package/@pxblue/prettier-config))
 -   IE 11 Polyfills ([react-app-polyfill](https://www.npmjs.com/package/react-app-polyfill))
 -   Enzyme testing library ([enzyme](https://www.npmjs.com/package/enzyme) / [enzyme-adapter-react-16](https://www.npmjs.com/package/enzyme-adapter-react-16))
@@ -84,7 +84,7 @@ Import the theme files, Material UI theme provider, and **Open Sans** font into 
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import * as PXBThemes from '@pxblue/react-themes';
-require('typeface-open-sans');
+import '@pxblue/react-themes/open-sans';
 ```
 
 To add the theme to your whole application, you would simply add a `<ThemeProvider>` around your top-level component and pass it the theme you want to use, e.g.:

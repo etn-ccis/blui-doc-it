@@ -53,7 +53,7 @@ export const contributors: Contributor[] = [
     },
     {
         name: 'Brian Shyu',
-        description: 'PX Blue Manager',
+        description: 'Strategy & Promotion',
         image: BrianShyu,
     },
     {

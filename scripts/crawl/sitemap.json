@@ -169,6 +169,7 @@
         {
             "title": "Style Guide",
             "url": "/style",
+            "hasLandingPage": true,
             "pages": [
                 {
                     "title": "Color Palette",
@@ -195,6 +196,7 @@
         {
             "title": "Community",
             "url": "/community",
+            "hasLandingPage": true,
             "pages": [
                 {
                     "title": "Licensing",
