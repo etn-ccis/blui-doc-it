@@ -2,7 +2,7 @@ import HuayunHuang from '../../app/assets/credits/huayun-huang.jpg';
 import EvanMcLaughlin from '../../app/assets/credits/evan-mclaughlin.jpeg';
 import JosephBoyle from '../../app/assets/credits/joseph-boyle.png';
 import JeffeyGreiner from '../../app/assets/credits/jeffery-greiner.jpeg';
-import ThomasDailey from '../../app/assets/credits/thomas-dailey.jpeg';
+import ThomasDailey from '../../app/assets/credits/thomas-dailey.png';
 import { Contributor } from '../../__types__';
 
 export const currentMaintainers: Contributor[] = [
