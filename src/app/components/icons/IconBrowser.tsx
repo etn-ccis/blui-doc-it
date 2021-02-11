@@ -173,6 +173,17 @@ const loadIcons = (): void => {
     });
 };
 
+const parseBoolean = (str: string): boolean | undefined => {
+    switch (str) {
+        case 'true':
+            return true;
+        case 'false':
+            return false;
+        default:
+            return undefined;
+    }
+};
+
 /*
  * The Icon Browser Component is a container for all of the pieces of the icon display
  * It includes the search bar, the icon grid itself, and the details drawer.
@@ -183,16 +194,10 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     const location = useLocation();
     const dispatch = useDispatch();
     const { icon: iconQuery, isMaterial: materialQuery } = useQueryString();
-    const isMaterial = materialQuery === 'true';
+    const isMaterial = parseBoolean(materialQuery);
     const [iconKeys, setIconKeys] = useState<string[] | null>(null);
     const [iconCategories, setIconCategories] = useState<string[] | null>(null);
-    const [selectedIcon, setSelectedIcon] = React.useState<IconType | undefined>(() => {
-        if (allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'pxb'}`]) {
-            dispatch({ type: TOGGLE_SIDEBAR, payload: true });
-            return allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'pxb'}`];
-        }
-        return undefined;
-    });
+    const [selectedIcon, setSelectedIcon] = React.useState<IconType | undefined>(undefined);
     const [iconsLoading, setIconsLoading] = useState(true);
     const iconClass = 'Filled'; // Future: allow users to select the style of icons to view
 
@@ -209,6 +214,19 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     useEffect(() => {
         if (Object.keys(allIconsMap).length === 0) loadIcons();
         setIconsLoading(false);
+        // If loading from a query param, load the icon if it exists in the icon map.
+        if (iconQuery) {
+            if (isMaterial !== undefined && allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'pxb'}`]) {
+                dispatch({ type: TOGGLE_SIDEBAR, payload: true });
+                setSelectedIcon(allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'pxb'}`]);
+            } else if (isMaterial === undefined) {
+                let newSelectedIcon;
+                if ((newSelectedIcon = allIconsMap[`${iconQuery}-material`] || allIconsMap[`${iconQuery}-pxb`])) {
+                    dispatch({ type: TOGGLE_SIDEBAR, payload: true });
+                    setSelectedIcon(newSelectedIcon);
+                }
+            }
+        }
     }, []);
 
     useEffect(() => {
