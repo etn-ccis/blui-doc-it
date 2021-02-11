@@ -1,0 +1,119 @@
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
+import SimpleDesktopMenu from '../../app/assets/design-patterns/menus/desktop-menu-simple.png';
+import SimpleMenuVariants from '../../app/assets/design-patterns/menus/simple-menu-variants.png';
+import DesktopUserMenu from '../../app/assets/design-patterns/menus/desktop-user-menu.png';
+import MobileUserMenu from '../../app/assets/design-patterns/menus/mobile-user-menu.png';
+import MobileBottomSheet from '../../app/assets/design-patterns/menus/mobile-basic-bottomsheet.png';
+
+<!-- KEYWORDS: design pattern navigation drawer menu tab tabs navigate nav -->
+
+# Account Details
+
+<!-- TODO: Replace -->
+
+<!-- <ImageGrid images={[Banner]} regularWidth /> -->
+
+When applications implement a form of [User Authentication](/patterns/user-auth), they must include ways for users to view / update their personal or account information as well as take account-related actions, such as logging out of the application or changing a password. There are several ways to present this information to the user in a PX Blue application.
+
+<React.Fragment>
+    <Divider />
+</React.Fragment>
+
+# Account Settings Page
+
+<ImageGrid
+    images={[SimpleDesktopMenu]}
+    regularWidth
+    caption={`A simple dropdown menu accessed from the 'View More' button.`}
+/>
+
+At a minimum, your application should implement a dedicated account settings page for viewing and editing a user's account details, preferences, settings, etc. This page should also include a way for users to take account related actions. The style of this page should be consistent with other settings pages in your application, if applicable.
+
+<React.Fragment>
+    <Divider />
+</React.Fragment>
+
+# In the Navigation Drawer
+
+<ImageGrid
+    images={[SimpleDesktopMenu]}
+    regularWidth
+    caption={`A simple dropdown menu accessed from the 'View More' button.`}
+/>
+
+If your application is using [Drawer Navigation](/patterns/navigation#drawer-navigation), you can include quick-access user information and actions in the Drawer. Commonly, this involves placing an an avatar in the drawer header along with basic information about the user, such as their name and username / email address. Additional account actions and a link to the account settings page can be placed in the drawer body just above the footer.
+
+This approach is most effective when there are relatively few account-related actions. If you have more, you should keep most of them on the account settings page and provide access to only the most common / frequent actions in the drawer (e.g., Log Out). You should **NOT** use this approach if you are using a navigation rail or other primary navigation other than a drawer.
+
+<React.Fragment>
+    <ImageGrid
+        images={[SimpleMenuVariants]}
+        regularWidth
+        caption={`Menus can come in a variety of different styles, including simple text (1), selection (2), nested (3), and scrolling (4).`}
+    />
+    <Divider />
+</React.Fragment>
+
+# Via User Menu
+
+<ImageGrid
+    images={[DesktopUserMenu]}
+    regularWidth
+    caption={`The user menu is controlled by an Avatar button and displays useful user-related information and actions.`}
+/>
+
+Another way to present user information and actions is with the user menu. The user menu appears as an Avatar in the [App Bar](/patterns/appbar), usually displaying the user's initials or a user-selected profile picture. When clicked, the avatar opens a menu with the user-related content, such as links to the user profile / settings, log out functionality, etc. Further, the menu should also display basic information about the user when opened, such as their name and / or username.
+
+This approach is most effective if you have more than a few account-related actions, or if you want to present more detailed information about a user. The user menu is a good option if you want to avoid overloading the navigation drawer. This technique can also be used in conjunction with a navigation rail.
+
+On mobile, the user menu content should be presented in a [Bottom Sheet](/patterns/overlay#bottom-sheet) instead of a dropdown menu.
+
+<React.Fragment>
+    <ImageGrid
+        images={[SimpleMenuVariants]}
+        regularWidth
+        caption={`Menus can come in a variety of different styles, including simple text (1), selection (2), nested (3), and scrolling (4).`}
+    />
+    <Divider />
+</React.Fragment>
+
+# Design Specifications
+
+## Mobile
+
+<!-- <ImageGrid
+    images={[
+        PanelSpecsMobileImg,
+    ]}
+    regularWidth
+/> -->
+
+## Desktop and Tablet
+
+If certain dimensions are not specified, refer to the dimensions suggested in the mobile section above.
+
+<Divider />
+
+# Developers
+
+Use the following components to implement this pattern:
+
+**Angular** and **Ionic**:
+
+-   Angular Material
+    -   [Side Nav](https://material.angular.io/components/sidenav/overview)
+-   @pxblue/angular-components
+    -   [Drawer](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+    -   [User Menu](https://pxblue-components.github.io/angular/?path=/info/components-user-menu--readme)
+
+**React**:
+
+-   Material UI
+    -   [Drawer](https://material-ui.com/components/drawers/)
+-   @pxblue/react-components
+    -   [User Menu](https://pxblue-components.github.io/react/?path=/info/components-user-menu--get-read-me-story)
+
+**React Native**:
+
+-   @pxblue/react-native-components
+    -   [User Menu](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--user-menu)

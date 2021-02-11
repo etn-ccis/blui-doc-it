@@ -116,6 +116,10 @@
             "hasLandingPage": true,
             "pages": [
                 {
+                    "title": "Account Details",
+                    "url": "/account-details"
+                },
+                {
                     "title": "App Bars",
                     "url": "/appbar"
                 },
@@ -138,10 +142,6 @@
                 {
                     "title": "Loading & Waiting",
                     "url": "/loading"
-                },
-                {
-                    "title": "Menus",
-                    "url": "/menus"
                 },
                 {
                     "title": "Navigation",

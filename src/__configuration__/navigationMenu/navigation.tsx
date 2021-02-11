@@ -178,6 +178,11 @@ export const pageDefinitions: SimpleNavItem[] = [
         component: <MarkdownPage title={'Design Patterns'} markdown={Docs.Patterns.Home} />,
         pages: [
             {
+                title: 'Account Details',
+                url: '/account-details',
+                component: <MarkdownPage title={'Menus'} markdown={Docs.Patterns.AccountDetails} />,
+            },
+            {
                 title: 'App Bars',
                 url: '/appbar',
                 component: <MarkdownPage title={'App Bars'} markdown={Docs.Patterns.AppBar} />,
@@ -206,11 +211,6 @@ export const pageDefinitions: SimpleNavItem[] = [
                 title: 'Loading & Waiting',
                 url: '/loading',
                 component: <MarkdownPage title={'Loading & Waiting'} markdown={Docs.Patterns.Loading} />,
-            },
-            {
-                title: 'Menus',
-                url: '/menus',
-                component: <MarkdownPage title={'Menus'} markdown={Docs.Patterns.Menus} />,
             },
             {
                 title: 'Navigation',
