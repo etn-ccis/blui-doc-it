@@ -140,6 +140,10 @@
                     "url": "/loading"
                 },
                 {
+                    "title": "Menus",
+                    "url": "/menus"
+                },
+                {
                     "title": "Navigation",
                     "url": "/navigation"
                 },

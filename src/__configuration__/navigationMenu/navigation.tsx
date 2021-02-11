@@ -208,6 +208,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Loading & Waiting'} markdown={Docs.Patterns.Loading} />,
             },
             {
+                title: 'Menus',
+                url: '/menus',
+                component: <MarkdownPage title={'Menus'} markdown={Docs.Patterns.Menus} />,
+            },
+            {
                 title: 'Navigation',
                 url: '/navigation',
                 component: <MarkdownPage title={'Navigation'} markdown={Docs.Patterns.Navigation} />,
