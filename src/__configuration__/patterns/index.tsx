@@ -13,6 +13,12 @@ import VisualizationImage from '../../app/assets/design-patterns/visualizations/
 
 export const patterns = [
     {
+        title: 'Account Details',
+        url: '/patterns/account-details',
+        description: 'Providing a way for users to access their information / preferences.',
+        image: AppBarsImg,
+    },
+    {
         title: 'App Bars',
         url: '/patterns/appbar',
         description: 'Common interactions in the header of an application.',

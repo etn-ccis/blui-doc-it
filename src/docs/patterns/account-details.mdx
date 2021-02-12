@@ -1,9 +1,9 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
-import SimpleDesktopMenu from '../../app/assets/design-patterns/menus/desktop-menu-simple.png';
-import SimpleMenuVariants from '../../app/assets/design-patterns/menus/simple-menu-variants.png';
-import DesktopUserMenu from '../../app/assets/design-patterns/menus/desktop-user-menu.png';
-import MobileUserMenu from '../../app/assets/design-patterns/menus/mobile-user-menu.png';
-import MobileBottomSheet from '../../app/assets/design-patterns/menus/mobile-basic-bottomsheet.png';
+import AccountSettingsPage from '../../app/assets/design-patterns/account-details/account-settings-page.png';
+import DrawerAccountDetails from '../../app/assets/design-patterns/account-details/drawer-account-details.png';
+import DesktopUserMenu from '../../app/assets/design-patterns/account-details/desktop-user-menu.png';
+import MobileUserMenu from '../../app/assets/design-patterns/account-details/mobile-user-menu.png';
+import MobileBottomSheet from '../../app/assets/design-patterns/account-details/account-settings-page.png';
 
 <!-- KEYWORDS: design pattern navigation drawer menu tab tabs navigate nav -->
 
@@ -33,9 +33,8 @@ When applications implement a form of [User Authentication](/patterns/user-auth)
 # Account Settings Page
 
 <ImageGrid
-    images={[SimpleDesktopMenu]}
-    regularWidth
-    caption={`A simple dropdown menu accessed from the 'View More' button.`}
+    images={[AccountSettingsPage]}
+    caption={`A basic account settings page with typical user information and options.`}
 />
 
 At a minimum, your application should implement a dedicated account settings page for viewing and editing a user's account details, preferences, settings, etc. This page should also include a way for users to take account related actions. The style of this page should be consistent with other settings pages in your application, if applicable.
@@ -47,9 +46,8 @@ At a minimum, your application should implement a dedicated account settings pag
 # In the Navigation Drawer
 
 <ImageGrid
-    images={[SimpleDesktopMenu]}
-    regularWidth
-    caption={`A simple dropdown menu accessed from the 'View More' button.`}
+    images={[DrawerAccountDetails]}
+    caption={`A navigation drawer showing basic user details and account-related actions.`}
 />
 
 If your application is using [Drawer Navigation](/patterns/navigation#drawer-navigation), you can include quick-access user information and actions in the Drawer. Commonly, this involves placing an an avatar in the drawer header along with basic information about the user, such as their name and username / email address. Additional account actions and a link to the account settings page can be placed in the drawer body just above the footer (see the [contents](/patterns/account-details#contents) section below).
@@ -57,11 +55,6 @@ If your application is using [Drawer Navigation](/patterns/navigation#drawer-nav
 This approach is most effective when there are relatively few account-related actions. You should **NOT** use this approach if you are using a navigation rail or a primary navigation mechanism other than a drawer.
 
 <React.Fragment>
-    <ImageGrid
-        images={[SimpleMenuVariants]}
-        regularWidth
-        caption={`Menus can come in a variety of different styles, including simple text (1), selection (2), nested (3), and scrolling (4).`}
-    />
     <Divider />
 </React.Fragment>
 
@@ -81,9 +74,8 @@ On mobile, the user menu content should be presented in a [Bottom Sheet](/patter
 
 <React.Fragment>
     <ImageGrid
-        images={[SimpleMenuVariants]}
-        regularWidth
-        caption={`Menus can come in a variety of different styles, including simple text (1), selection (2), nested (3), and scrolling (4).`}
+        images={[MobileUserMenu]}
+        caption={`On mobile-sized screens, the menu contents should be presented in a bottom sheet.`}
     />
     <Divider />
 </React.Fragment>
@@ -101,11 +93,6 @@ You should include:
 When using the user menu, you will likely have more room available if you wish to include other frequently accessed account functions, such as change password, contact support, etc.
 
 <React.Fragment>
-    <ImageGrid
-        images={[SimpleMenuVariants]}
-        regularWidth
-        caption={`Menus can come in a variety of different styles, including simple text (1), selection (2), nested (3), and scrolling (4).`}
-    />
     <Divider />
 </React.Fragment>
 
