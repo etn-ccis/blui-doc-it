@@ -1,9 +1,15 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
+import Banner from '../../app/assets/design-patterns/account-details/account-details-banner.png';
 import AccountSettingsPage from '../../app/assets/design-patterns/account-details/account-settings-page.png';
 import DrawerAccountDetails from '../../app/assets/design-patterns/account-details/drawer-account-details.png';
 import DesktopUserMenu from '../../app/assets/design-patterns/account-details/desktop-user-menu.png';
 import MobileUserMenu from '../../app/assets/design-patterns/account-details/mobile-user-menu.png';
 import MobileBottomSheet from '../../app/assets/design-patterns/account-details/account-settings-page.png';
+
+import Specs1 from '../../app/assets/design-patterns/account-details/spec-typography-mobile.png';
+import Specs2 from '../../app/assets/design-patterns/account-details/spec-typography-desktop.png';
+import Specs3 from '../../app/assets/design-patterns/account-details/spec-bottomsheet.png';
+import Specs4 from '../../app/assets/design-patterns/account-details/spec-drawer.png';
 
 <!-- KEYWORDS: design pattern navigation drawer menu tab tabs navigate nav -->
 
@@ -11,7 +17,7 @@ import MobileBottomSheet from '../../app/assets/design-patterns/account-details/
 
 <!-- TODO: Replace -->
 
-<!-- <ImageGrid images={[Banner]} regularWidth /> -->
+<ImageGrid images={[Banner]} regularWidth />
 
 When applications implement a form of [User Authentication](/patterns/user-auth), they must include ways for users to view / update their personal or account information as well as take account-related actions, such as logging out of the application or changing a password. There are several ways to present this information to the user in a PX Blue application.
 
@@ -100,17 +106,13 @@ When using the user menu, you will likely have more room available if you wish t
 
 ## Mobile
 
-<!-- <ImageGrid
-    images={[
-        PanelSpecsMobileImg,
-    ]}
-    regularWidth
-/> -->
+<ImageGrid images={[Specs1, Specs3, Specs4]} regularWidth />
 
 ## Desktop and Tablet
 
 If certain dimensions are not specified, refer to the dimensions suggested in the mobile section above.
 
+<ImageGrid images={[Specs2]} regularWidth />
 <Divider />
 
 # Developers

@@ -1,3 +1,4 @@
+import AccountDetailsBanner from '../../app/assets/design-patterns/account-details/account-details-banner.png';
 import AppBarsImg from '../../app/assets/design-patterns/app-bar/appbar-banner.png';
 import EmptyStatesImg from '../../app/assets/design-patterns/empty-states/empty-state-banner.svg';
 import FormValidationImg from '../../app/assets/design-patterns/form-validation/form-validation.svg';
@@ -16,7 +17,10 @@ export const patterns = [
         title: 'Account Details',
         url: '/patterns/account-details',
         description: 'Providing a way for users to access their information / preferences.',
-        image: AppBarsImg,
+        image: AccountDetailsBanner,
+        background: {
+            position: '25% center',
+        },
     },
     {
         title: 'App Bars',
