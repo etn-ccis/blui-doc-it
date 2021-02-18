@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
             right: 0,
             transition: 'all 200ms ease-in-out',
             position: 'fixed',
+            zIndex: theme.zIndex.modal,
         },
         showSearchBar: {
             width: '100%',
@@ -44,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) =>
             flex: 1,
         },
         backdrop: {
-            zIndex: 999,
+            zIndex: theme.zIndex.modal,
         },
         searchResultsOverlay: {
             position: 'fixed',
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme: Theme) =>
             width: '100%',
             height: '100%',
             overflowY: 'auto',
-            zIndex: 1001,
+            zIndex: theme.zIndex.modal,
             backgroundColor: theme.palette.background.default,
             [theme.breakpoints.down('xs')]: {
                 marginTop: theme.spacing(7),
@@ -216,7 +217,6 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
             <AppBar
                 className={clsx(classes.appBar, { [classes.showSearchBar]: searchActive })}
                 position={'sticky'}
-                style={{ zIndex: 1001 }}
                 {...props}
             >
                 <Toolbar style={{ display: 'flex' }} id={'search-bar'}>
