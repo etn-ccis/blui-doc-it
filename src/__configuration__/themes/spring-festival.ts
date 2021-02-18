@@ -28,7 +28,12 @@ export const SpringFestivalSchedule: Schedule = {
                 ...PXBThemes.blue.overrides,
                 MuiAppBar: {
                     ...PXBThemes.blue.overrides?.MuiAppBar,
-                    root: {
+                    colorPrimary: {
+                        backgroundColor: Colors.red[900],
+                        color: Colors.white[50],
+                    },
+                    colorSecondary: {
+                        backgroundColor: Colors.red[800],
                         color: Colors.white[50],
                         '& .MuiInputBase-root': {
                             color: Colors.white[50],
@@ -36,13 +41,6 @@ export const SpringFestivalSchedule: Schedule = {
                         '& .MuiSelect-icon': {
                             color: Colors.white[50],
                         },
-                    },
-                    colorPrimary: {
-                        backgroundColor: Colors.red[900],
-                    },
-                    colorSecondary: {
-                        backgroundColor: Colors.red[800],
-                        color: Colors.white[50],
                     },
                 },
                 MuiButton: {

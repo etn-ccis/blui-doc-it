@@ -92,6 +92,7 @@ export const NavigationDrawer = (): JSX.Element => {
             activeItemIconColor={theme.palette.type === 'light' ? undefined : theme.palette.primary.light}
             itemFontColor={theme.palette.text.primary}
             divider={false}
+            activeItem={activeRoute}
         >
             <DrawerHeader
                 icon={<PxblueSmall />}
@@ -125,7 +126,7 @@ export const NavigationDrawer = (): JSX.Element => {
                 }
             />
             <DrawerBody>
-                <DrawerNavGroup hidePadding activeItem={activeRoute} items={menuItems} />
+                <DrawerNavGroup hidePadding items={menuItems} />
             </DrawerBody>
             <DrawerFooter>
                 <div
