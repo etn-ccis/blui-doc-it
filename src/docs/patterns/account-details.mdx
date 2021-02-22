@@ -1,4 +1,5 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
+import PxblueSmallAltIcon from '@pxblue/icons-mui/PxblueSmallAlt';
 import Banner from '../../app/assets/design-patterns/account-details/account-details-banner.png';
 import AccountSettingsPage from '../../app/assets/design-patterns/account-details/account-settings-page.png';
 import DrawerAccountDetails from '../../app/assets/design-patterns/account-details/drawer-account-details.png';
@@ -11,11 +12,9 @@ import Specs2 from '../../app/assets/design-patterns/account-details/spec-typogr
 import Specs3 from '../../app/assets/design-patterns/account-details/spec-bottomsheet.png';
 import Specs4 from '../../app/assets/design-patterns/account-details/spec-drawer.png';
 
-<!-- KEYWORDS: design pattern navigation drawer menu tab tabs navigate nav -->
+<!-- KEYWORDS: design pattern user account details settings menu avatar -->
 
 # Account Details
-
-<!-- TODO: Replace -->
 
 <ImageGrid images={[Banner]} regularWidth />
 
@@ -26,8 +25,8 @@ When applications implement a form of [User Authentication](/patterns/user-auth)
         anchors={[
             { title: 'Introduction', hash: '#account-details' },
             { title: 'Account Settings Page', hash: '#account-settings-page' },
-            { title: 'In the Navigation Drawer', hash: '#in-the-navigation-drawer' },
-            { title: 'Via User Menu', hash: '#via-user-menu' },
+            { title: 'In a Navigation Drawer', hash: '#in-a-navigation-drawer' },
+            { title: 'In a User Menu', hash: '#in-a-user-menu' },
             { title: 'Contents', hash: '#contents' },
             { title: 'Design Specifications', hash: '#design-specifications' },
             { title: 'Developers', hash: '#developers' },
@@ -43,28 +42,34 @@ When applications implement a form of [User Authentication](/patterns/user-auth)
     caption={`A basic account settings page with typical user information and options.`}
 />
 
-At a minimum, your application should implement a dedicated account settings page for viewing and editing a user's account details, preferences, settings, etc. This page should also include a way for users to take account related actions. The style of this page should be consistent with other settings pages in your application, if applicable.
+At a minimum, your application should implement a dedicated account settings page for viewing and editing a user's account details, preferences, settings, etc. This page should also include a way for users to take account-related actions. The style of this page should be consistent with other settings pages in your application, if applicable. If you have multiple settings pages in your application, the account settings should be easily accessible from the top level.
 
 <React.Fragment>
     <Divider />
 </React.Fragment>
 
-# In the Navigation Drawer
+# In a Navigation Drawer
 
 <ImageGrid
     images={[DrawerAccountDetails]}
     caption={`A navigation drawer showing basic user details and account-related actions.`}
 />
 
-If your application is using [Drawer Navigation](/patterns/navigation#drawer-navigation), you can include quick-access user information and actions in the Drawer. Commonly, this involves placing an an avatar in the drawer header along with basic information about the user, such as their name and username / email address. Additional account actions and a link to the account settings page can be placed in the drawer body just above the footer (see the [contents](/patterns/account-details#contents) section below).
+If your application is using [Drawer Navigation](/patterns/navigation#drawer-navigation), you can include quick-access user information and actions in the Drawer. Commonly, this involves placing an avatar in the drawer header along with basic information about the user (e.g., their name, username, email address, job title and / or organization affiliation). Additional account actions and a link to the account settings page can be placed at the bottom of the drawer body, just above the footer, if present (see the [contents](/patterns/account-details#contents) section below).
 
-This approach is most effective when there are relatively few account-related actions. You should **NOT** use this approach if you are using a navigation rail or a primary navigation mechanism other than a drawer.
+This approach is most effective when there are relatively few account-related actions. If you are using a navigation rail, you may place account settings links in the rail, but you will not be able to show specific details about the user. Consider using the [User Menu](#via-user-menu) in this situation or if you are using a primary navigation mechanism other than a drawer.
 
 <React.Fragment>
+    <MaterialDesignDescription
+        title={'Drawer Navigation'}
+        url={'/patterns/navigation#drawer-navigation'}
+        description={`Follow PX Blue's guideline for using a Drawer.`}
+        avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+    />
     <Divider />
 </React.Fragment>
 
-# Via User Menu
+# In a User Menu
 
 <ImageGrid
     images={[DesktopUserMenu]}
@@ -72,25 +77,37 @@ This approach is most effective when there are relatively few account-related ac
     caption={`The user menu is controlled by an Avatar button and displays useful user-related information and actions.`}
 />
 
-Another way to present user information and actions is with the user menu. The user menu appears as an Avatar in the [App Bar](/patterns/appbar), usually displaying a user-selected profile picture. If your application does not support user-elected images, you can default to displaying the user's initials or a generic [person icon](/style/iconography?icon=Person&isMaterial=true).When clicked, the avatar opens a menu with the user-related content, such as links to the user profile / settings, log out functionality, etc. (see the [contents](/patterns/account-details#contents) section below). Further, the menu should also display basic information about the user when opened, such as their name and / or username.
+Another way to present user information and actions is with the user menu. The user menu appears as an Avatar in the [App Bar](/patterns/appbar) which opens a menu with the user-related content (see the [contents](#contents) section below).
 
-This approach is most effective if you have more than a few account-related actions, or if you want to present more detailed information about a user. The user menu is a good option if you want to avoid overloading the navigation drawer. This technique can also be used in conjunction with a navigation rail.
-
-On mobile, the user menu content should be presented in a [Bottom Sheet](/patterns/overlay#bottom-sheet) instead of a dropdown menu.
+This approach is most effective if you have more than three account-related actions, or if you want to present more detailed information about a user since it avoids cluttering the primary navigation drawer.
 
 <React.Fragment>
     <ImageGrid
         images={[MobileUserMenu]}
         caption={`On mobile-sized screens, the menu contents should be presented in a bottom sheet.`}
     />
+    <MaterialDesignDescription
+        title={'Bottom Sheet'}
+        url={'/patterns/overlay#bottom-sheet'}
+        description={`Follow PX Blue's guideline for using a Bottom Sheet.`}
+        avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+    />
     <Divider />
 </React.Fragment>
 
 # Contents
 
-Whether you are using the drawer or a dedicated user menu component, the content should be very similar. Most account functions can be located on the account settings page, but you should provide access to the most common / frequent actions in the drawer or user menu.
+Whether you are using the drawer or a dedicated user menu component, the content should be very similar.
 
-You should include:
+## Avatar
+
+In the header, you should present an avatar that identifies the user along with basic information about them, such as their name, username, email, job title, etc. The avatar can take several forms. Usually, it will display a user-selected profile picture. If your application does not support user-selected images, you can default to displaying the user's initials or a generic [person icon](/style/iconography?icon=Person&isMaterial=true).
+
+## Account Functions
+
+Most account functions can be located on the account settings page, but you should provide access to the most common / frequent actions in the drawer or user menu as well.
+
+You should at least include:
 
 -   A link to the account settings page
 -   A Log Out button
@@ -137,4 +154,5 @@ Use the following components to implement this pattern:
 **React Native**:
 
 -   @pxblue/react-native-components
+    -   [Drawer](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--drawer)
     -   [User Menu](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--user-menu)
