@@ -116,8 +116,8 @@
             "hasLandingPage": true,
             "pages": [
                 {
-                    "title": "Account Details",
-                    "url": "/account-details"
+                    "title": "Account Menu",
+                    "url": "/account-menu"
                 },
                 {
                     "title": "App Bars",

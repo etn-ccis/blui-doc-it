@@ -11,7 +11,7 @@ import Steppers from './steppers.mdx';
 import UserAuth from './user-auth.mdx';
 import Visualizations from './visualizations.mdx';
 import Home from './home.mdx';
-import AccountDetails from './account-details.mdx';
+import AccountMenu from './account-menu.mdx';
 
 export {
     AppBar,
@@ -22,7 +22,7 @@ export {
     Layout,
     Lists,
     Loading,
-    AccountDetails,
+    AccountMenu,
     UserAuth,
     Navigation,
     Overlays,

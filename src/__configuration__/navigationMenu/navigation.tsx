@@ -178,9 +178,9 @@ export const pageDefinitions: SimpleNavItem[] = [
         component: <MarkdownPage title={'Design Patterns'} markdown={Docs.Patterns.Home} />,
         pages: [
             {
-                title: 'Account Details',
-                url: '/account-details',
-                component: <MarkdownPage title={'Menus'} markdown={Docs.Patterns.AccountDetails} />,
+                title: 'Account Menu',
+                url: '/account-menu',
+                component: <MarkdownPage title={'Account Menu'} markdown={Docs.Patterns.AccountMenu} />,
             },
             {
                 title: 'App Bars',
