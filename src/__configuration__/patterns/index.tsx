@@ -19,7 +19,7 @@ export const patterns = [
         description: 'Providing a way for users to access their information / preferences.',
         image: AccountDetailsBanner,
         background: {
-            position: '25% center',
+            position: '75% 0',
         },
     },
     {
