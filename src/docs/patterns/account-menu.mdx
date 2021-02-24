@@ -8,11 +8,10 @@ import AvatarVariants from '../../app/assets/design-patterns/account-menu/avatar
 
 import Specs1 from '../../app/assets/design-patterns/account-menu/spec-typography-mobile.png';
 import Specs2 from '../../app/assets/design-patterns/account-menu/spec-typography-desktop.png';
-import Specs3 from '../../app/assets/design-patterns/account-menu/spec-bottomsheet.png';
 import Specs4 from '../../app/assets/design-patterns/account-menu/spec-drawer.png';
 import Specs5 from '../../app/assets/design-patterns/account-menu/spec-avatar.png';
 
-<!-- KEYWORDS: design pattern user account details settings menu avatar -->
+<!-- KEYWORDS: design pattern user account details settings menu avatar profile -->
 
 # Account Menu
 
@@ -57,8 +56,9 @@ If your application is using [Drawer Navigation](/patterns/navigation#drawer-nav
     images={[DrawerDetails]}
     regularWidth
     caption={[
-        `1. Place the top account-related actions at the bottom of the drawer.`,
-        `2. Avoid overcrowding the drawer by including too many user actions.`,
+        `1. User avatar and basic information can be placed in the drawer header.`,
+        `2. Place the top account-related actions at the bottom of the drawer.`,
+        `3. Avoid overcrowding the drawer by including too many user actions.`,
     ]}
 />
 
@@ -115,10 +115,15 @@ Whether you are using the drawer or a dedicated user menu component, the content
         `2. Basic avatar showing user's initials.`,
         `3. Avatar showing a user-selected profile picture.`,
         `4. Avatar with a notification indicator.`,
+        `5. Avatar icon with full name / username.`,
     ]}
 />
 
-In the header, you should present an avatar that identifies the user along with basic information about them, such as their name, username, email, job title, etc. The avatar can take several forms. Usually, it will display a user-selected profile picture. If your application does not support user-selected images, you can default to displaying the user's initials or a generic [person icon](/style/iconography?icon=Person&isMaterial=true).
+An avatar is used to identify the currently logged-in user / account. It may appear in the drawer header or in the [App Bar](/patterns/appbar).
+
+Avatars can take several forms. Usually, they display a user-selected profile picture. If your application does not support user-selected images, you can default to displaying the user's initials or a [person icon](/style/iconography?icon=Person&isMaterial=true). You can also elect to show the user's full name or username — this may be particularly useful when your application uses shared or generic accounts (e.g., 'Administrator').
+
+The avatar should be accompanied by basic information about the user, such as their name, username, email, job title, etc., which can be placed in the navigation drawer header or in the user menu header.
 
 ## Account Functions
 
@@ -146,7 +151,7 @@ When using the user menu, you will likely have more room available if you wish t
 
 ### User Menu
 
-<ImageGrid images={[Specs3, Specs1]} regularWidth />
+<ImageGrid images={[Specs1]} regularWidth />
 
 ### Avatar
 
@@ -181,6 +186,7 @@ Use the following components to implement this pattern:
 -   Material UI
     -   [Drawer](https://material-ui.com/components/drawers/)
 -   @pxblue/react-components
+    -   [Drawer](https://pxblue-components.github.io/react/?path=/info/components-drawer--get-read-me-story)
     -   [User Menu](https://pxblue-components.github.io/react/?path=/info/components-user-menu--get-read-me-story)
 
 **React Native**:
