@@ -10,6 +10,7 @@ import { HanukkahSchedule } from './hanukkah';
 import { KwanzaaSchedule } from './kwanzaa';
 import { NewYearsSchedule } from './new-years';
 import { SpringFestivalSchedule } from './spring-festival';
+import { StPatricksDaySchedule } from './st-patricks-day';
 
 /**
  * Add more holiday themes here.
@@ -17,6 +18,7 @@ import { SpringFestivalSchedule } from './spring-festival';
  * Current schedules:
  * * Feb 11 - Feb 18: Spring Festival (changes each year)
  * * Mar 7 - Mar 9: Women's Day
+ * * Mar 16 - Mar 19: St. Patrick's Day
  * * May 3 - May 5: May the Fourth Day
  * * Oct 14 - Nov 2: Halloween
  * * Nov 11 - Nov 17: Diwali (changes each year)
@@ -37,6 +39,7 @@ export const schedule: Schedule[] = [
     KwanzaaSchedule,
     NewYearsSchedule,
     SpringFestivalSchedule,
+    StPatricksDaySchedule,
 ];
 
 /**
