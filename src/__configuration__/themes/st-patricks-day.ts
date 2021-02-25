@@ -62,5 +62,6 @@ export const StPatricksDaySchedule: Schedule = {
             backgroundSize: '300px',
             backgroundPosition: 'left 75%',
         },
+        landingPageTagline: 'Top o\' the mornin\' to ya!'
     },
 };
