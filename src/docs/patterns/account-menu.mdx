@@ -2,14 +2,17 @@ import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '..
 import PxblueSmallAltIcon from '@pxblue/icons-mui/PxblueSmallAlt';
 import Banner from '../../app/assets/design-patterns/account-menu/account-menu-banner.png';
 import AccountSettingsPage from '../../app/assets/design-patterns/account-menu/account-settings-page.png';
-import DrawerDetails from '../../app/assets/design-patterns/account-menu/drawer-do-and-dont.png';
+import DrawerDetails1 from '../../app/assets/design-patterns/account-menu/drawer-do-and-dont-1.png';
+import DrawerDetails2 from '../../app/assets/design-patterns/account-menu/drawer-do-and-dont-2.png';
 import UserMenuContents from '../../app/assets/design-patterns/account-menu/user-menu-contents.png';
 import AvatarVariants from '../../app/assets/design-patterns/account-menu/avatar-variants.png';
+import CrowdedDrawer from '../../app/assets/design-patterns/account-menu/crowded-drawer.png';
+import CrowdedUserMenu from '../../app/assets/design-patterns/account-menu/crowded-user-menu.png';
 
 import Specs1 from '../../app/assets/design-patterns/account-menu/spec-typography-mobile.png';
 import Specs2 from '../../app/assets/design-patterns/account-menu/spec-typography-desktop.png';
-import Specs4 from '../../app/assets/design-patterns/account-menu/spec-drawer.png';
-import Specs5 from '../../app/assets/design-patterns/account-menu/spec-avatar.png';
+import Specs3 from '../../app/assets/design-patterns/account-menu/spec-drawer.png';
+import Specs4 from '../../app/assets/design-patterns/account-menu/spec-avatar.png';
 
 <!-- KEYWORDS: design pattern user account details settings menu avatar profile -->
 
@@ -53,12 +56,10 @@ At a minimum, your application should implement a dedicated account settings pag
 If your application is using [Drawer Navigation](/patterns/navigation#drawer-navigation), you can include quick-access user information and actions in the Drawer. Commonly, this involves placing an avatar in the drawer header along with basic information about the user (e.g., their name, username, email address, job title and / or organization affiliation). Additional account actions and a link to the account settings page can be placed at the bottom of the drawer body, just above the footer, if present (see the [contents](/patterns/account-menu#contents) section below).
 
 <ImageGrid
-    images={[DrawerDetails]}
-    regularWidth
+    images={[DrawerDetails1, DrawerDetails2]}
     caption={[
         `1. User avatar and basic information can be placed in the drawer header.`,
         `2. Place the top account-related actions at the bottom of the drawer.`,
-        `3. Avoid overcrowding the drawer by including too many user actions.`,
     ]}
 />
 
@@ -138,6 +139,10 @@ You should at least include:
 When using the user menu, you will likely have more room available if you wish to include other frequently accessed account functions, such as change password, contact support, etc.
 
 <React.Fragment>
+    <ImageGrid
+        images={[CrowdedDrawer, CrowdedUserMenu]}
+        caption={`Avoid overcrowding the drawer and the user menu by including too many user actions.`}
+    />
     <Divider />
 </React.Fragment>
 
@@ -147,7 +152,7 @@ When using the user menu, you will likely have more room available if you wish t
 
 ### Navigation Drawer
 
-<ImageGrid images={[Specs4]} regularWidth />
+<ImageGrid images={[Specs3]} regularWidth />
 
 ### User Menu
 
@@ -155,7 +160,7 @@ When using the user menu, you will likely have more room available if you wish t
 
 ### Avatar
 
-<ImageGrid images={[Specs5]} regularWidth />
+<ImageGrid images={[Specs4]} regularWidth />
 
 ## Desktop and Tablet
 
