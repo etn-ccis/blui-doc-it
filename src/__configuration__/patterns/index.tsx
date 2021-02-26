@@ -1,3 +1,4 @@
+import AccountDetailsBanner from '../../app/assets/design-patterns/account-menu/account-menu-banner.png';
 import AppBarsImg from '../../app/assets/design-patterns/app-bar/appbar-banner.png';
 import EmptyStatesImg from '../../app/assets/design-patterns/empty-states/empty-state-banner.svg';
 import FormValidationImg from '../../app/assets/design-patterns/form-validation/form-validation.svg';
@@ -12,6 +13,15 @@ import StepperImg from '../../app/assets/design-patterns/steppers/steppers-banne
 import VisualizationImage from '../../app/assets/design-patterns/visualizations/visualizations-banner.svg';
 
 export const patterns = [
+    {
+        title: 'Account Menu',
+        url: '/patterns/account-menu',
+        description: 'Providing a way for users to access their information / preferences.',
+        image: AccountDetailsBanner,
+        background: {
+            position: '75% 0',
+        },
+    },
     {
         title: 'App Bars',
         url: '/patterns/appbar',
