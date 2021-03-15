@@ -60,6 +60,20 @@ export const NavigationDrawer = (): JSX.Element => {
         return convertedItems;
     }, []);
 
+    const getDrawerNavItemActiveBackgroundColor = useCallback((): string | undefined => {
+        if (activeDrawerFade) {
+            return color(theme.palette.primary.main)
+                .fade(activeDrawerFade)
+                .string();
+        } else if (theme.palette.type === 'light') {
+            return undefined; // use the drawer default
+        }
+        // TODO: remove this logic when we publish the better dark theme
+        return color(theme.palette.primary.main)
+            .fade(0.8)
+            .string();
+    }, [theme, activeDrawerFade]);
+
     useEffect(() => {
         setActiveRoute(location.pathname);
     }, [location.pathname]);
@@ -77,22 +91,14 @@ export const NavigationDrawer = (): JSX.Element => {
             }}
             variant={isMobile || isLandingPage ? 'temporary' : 'permanent'}
             nestedBackgroundColor={theme.palette.type === 'light' ? undefined : Colors.darkBlack[500]}
-            activeItemBackgroundColor={
-                activeDrawerFade
-                    ? color(theme.palette.primary.main)
-                          .fade(activeDrawerFade)
-                          .string()
-                    : theme.palette.type === 'light'
-                    ? undefined
-                    : color(theme.palette.primary.main)
-                          .fade(0.8)
-                          .string()
-            }
+            activeItemBackgroundColor={getDrawerNavItemActiveBackgroundColor()}
             activeItemFontColor={theme.palette.type === 'light' ? undefined : theme.palette.primary.light}
             activeItemIconColor={theme.palette.type === 'light' ? undefined : theme.palette.primary.light}
             itemFontColor={theme.palette.text.primary}
             divider={false}
             activeItem={activeRoute}
+            hidePadding
+            activeItemBackgroundShape={'round'}
         >
             <DrawerHeader
                 icon={<PxblueSmall />}
@@ -126,7 +132,7 @@ export const NavigationDrawer = (): JSX.Element => {
                 }
             />
             <DrawerBody>
-                <DrawerNavGroup hidePadding items={menuItems} />
+                <DrawerNavGroup items={menuItems} />
             </DrawerBody>
             <DrawerFooter>
                 <div
