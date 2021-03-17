@@ -1,6 +1,6 @@
 import React from 'react';
-import { List } from '@material-ui/core';
-import { NotificationsActive } from '@material-ui/icons';
+import { Badge, IconButton, List } from '@material-ui/core';
+import { AddBox, Assignment, Delete, DeviceHub, NotificationsActive } from '@material-ui/icons';
 import { InfoListItem, ListItemTag } from '@pxblue/react-components';
 import { GradeA } from '@pxblue/icons-mui';
 import * as Colors from '@pxblue/colors';
@@ -34,6 +34,28 @@ export const ListDemo: JSX.Element = (
                 /* do nothing */
             }}
             ripple
+            dense
+        />
+        <InfoListItem
+            title={'An info list item with list actions on the right'}
+            icon={<DeviceHub />}
+            rightComponent={
+                <div style={{ display: 'flex' }}>
+                    <IconButton>
+                        <Delete />
+                    </IconButton>
+                    <IconButton>
+                        <Assignment />
+                    </IconButton>
+                    <IconButton>
+                        <Badge color={'primary'} variant={'dot'}>
+                            <AddBox />
+                        </Badge>
+                    </IconButton>
+                </div>
+            }
+            iconAlign={'center'}
+            divider={'partial'}
             dense
         />
     </List>

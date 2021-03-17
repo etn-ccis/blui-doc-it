@@ -2,17 +2,7 @@ import React, { useState } from 'react';
 import { Spacer } from '@pxblue/react-components';
 import { blue as lightTheme, blueDark as darkTheme } from '@pxblue/react-themes';
 import { makeStyles, ThemeProvider, useTheme, createMuiTheme } from '@material-ui/core/styles';
-import {
-    Card,
-    Divider,
-    Select,
-    Toolbar,
-    MenuItem,
-    // Typography,
-    Theme,
-    Switch,
-    FormControlLabel,
-} from '@material-ui/core';
+import { Card, Divider, Select, Toolbar, MenuItem, Theme, Switch, FormControlLabel } from '@material-ui/core';
 import { componentNameList, componentList } from './componentList';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -60,9 +50,6 @@ export const ThemeBrowser: React.FC = () => {
                         }}
                         color={'primary'}
                         disableUnderline
-                        // renderValue={(): React.ReactNode => (
-                        //     <Typography variant={'h6'}>{componentNameList[selectedComponent]}</Typography>
-                        // )}
                         className={classes.selectControl}
                         classes={{ icon: classes.selectControlIcon, select: classes.selectControlMenu }}
                     >
@@ -80,6 +67,7 @@ export const ThemeBrowser: React.FC = () => {
                         onChange={(): void => {
                             setLocalThemeDark(!localThemeDark);
                         }}
+                        labelPlacement={'start'}
                     />
                 </Toolbar>
                 <Divider />
