@@ -15,10 +15,19 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     toolbar: {
         padding: `0 ${theme.spacing(2)}px`,
+        [theme.breakpoints.down('xs')]: {
+            flexDirection: 'column',
+            paddingTop: theme.spacing(),
+            paddingBottom: theme.spacing(),
+            alignItems: 'flex-end',
+        },
     },
     selectControl: {
         backgroundColor: '#aaa2',
         borderRadius: theme.shape.borderRadius,
+        [theme.breakpoints.down('xs')]: {
+            width: '100%',
+        },
     },
     selectControlMenu: {
         padding: `${theme.spacing(1.5)}px ${theme.spacing(5)}px ${theme.spacing(1.5)}px ${theme.spacing(2)}px`,
@@ -26,6 +35,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     selectControlIcon: {
         marginRight: theme.spacing(),
+    },
+    card: {
+        '&:hover': {
+            boxShadow: theme.shadows[6],
+        },
+        marginBottom: theme.spacing(4),
     },
 }));
 
@@ -40,7 +55,7 @@ export const ThemeBrowser: React.FC = () => {
 
     return (
         <ThemeProvider theme={createMuiTheme(localThemeDark ? darkTheme : lightTheme)}>
-            <Card>
+            <Card className={classes.card}>
                 <Toolbar className={classes.toolbar}>
                     <Select
                         value={selectedComponent}
