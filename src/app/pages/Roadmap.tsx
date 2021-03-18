@@ -202,11 +202,11 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         key={`${item.name}_status`}
                         className={classes.tag}
                         label={status}
-                        fontColor={statusColor ? statusColor[500] : undefined}
+                        fontColor={statusColor ? statusColor[theme.palette.type === 'dark' ? 200 : 500] : undefined}
                         backgroundColor={
                             statusColor
                                 ? color(statusColor[500])
-                                      .fade(0.9)
+                                      .fade(theme.palette.type === 'dark' ? 0.8 : 0.9)
                                       .string()
                                 : undefined
                         }
