@@ -5,12 +5,14 @@ import LightThemeColors from '../../app/assets/styles/themes/light-theme-colors.
 import DarkThemeColors from '../../app/assets/styles/themes/dark-theme-colors.png';
 import LightThemeExample from '../../app/assets/styles/themes/light-theme-example.png';
 import DarkThemeExample from '../../app/assets/styles/themes/dark-theme-example.png';
+import OutlinedAndFlat from '../../app/assets/styles/themes/outlined-and-flat.png';
+import DarkThemeElevation from '../../app/assets/styles/themes/dark-theme-elevation.png';
 
 <!-- KEYWORDS: design style theme light dark mode -->
 
 # Themes
 
-One of the key benefits of PX Blue is consistency of look & feel between different applications. This is achieved primarily through the use of PX Blue themes. PX Blue offers two themes: a light theme (blue) and a dark theme (blueDark).
+One of the key benefits of PX Blue is the consistency of look & feel between different applications. This is achieved primarily through the use of PX Blue themes. PX Blue offers two themes: a light theme (blue) and a dark theme (blueDark).
 
 <div style={REGULAR_WIDTH_STYLE}>
     <MaterialDesignDescription
@@ -34,7 +36,7 @@ Have a look at the component theme explorer below and learn how PX Blue themes w
     <ThemeBrowser />
 </div>
 
-You are also encouraged to explore our more detailed theme examples where you can modify the code and see the effects in real time.
+You are also encouraged to explore our more detailed theme examples where you can modify the code and see the effects in real-time.
 
 <div style={REGULAR_WIDTH_STYLE}>
     <DemoCard
@@ -51,9 +53,9 @@ You are also encouraged to explore our more detailed theme examples where you ca
     <ImageGrid images={[LightThemeExample]} regularWidth caption={'An example of a light-themed application.'} />
 </div>
 
-The blue theme, inherited and expanded from Material Design's baseline theme, is the default theme for all PX Blue applications. With a clean color vibrance and high text legibility, it is designed to suit day to day use on a computer monitor, on-site facility inspection with a tablet, and on a mobile phone screen. It should be applied at the root level of your app.
+The blue theme, inherited and expanded from Material Design's baseline theme, is the default theme for all PX Blue applications. With a clean color vibrance and high text legibility, it is designed to suit day-to-day use on a computer monitor, on-site facility inspection with a tablet, and on a mobile phone screen. It should be applied at the root level of your app.
 
-The light theme uses our iconic [Blue 500](/style/color) color (`#007bc1`) throughout the application, notably in toolbars, buttons and icons. In some places, Light Blue 500 is applied as an accent color on interactive UI elements such as form controls. The light theme's base background color is White 200, although the surface elements are often shaded in White 50 (pure white).
+The light theme uses our iconic [Blue 500](/style/color) color (`#007bc1`) throughout the application, notably in toolbars, buttons, and icons. In some places, Light Blue 500 is applied as an accent color on interactive UI elements such as form controls. The light theme's base background color is White 200, although the surface elements are often shaded in White 50 (pure white).
 
 <ImageGrid images={[LightThemeColors]} regularWidth />
 <Divider />
@@ -64,20 +66,29 @@ The light theme uses our iconic [Blue 500](/style/color) color (`#007bc1`) throu
     <ImageGrid images={[DarkThemeExample]} regularWidth caption={'An example of a dark-themed application.'} />
 </div>
 
-The dark theme is intended primarily for applications used in low-light conditions. As the name indicates, it utilizes different shades of dark colors (grays and blacks), and uses other colors only for interactive components and status displays.
+The dark theme is intended primarily for applications used in low-light conditions. As the name indicates, it utilizes different shades of dark colors (grays and blacks) and uses other colors only for interactive components and status displays.
 
 <ImageGrid images={[DarkThemeColors]} regularWidth />
 
 To accommodate for [accessibility requirements](/design/accessibility), PX Blue uses the 200 shade of colors when text is used on a dark background, such as in an outlined button and a text field label. For "contained" elements, such as in an elevated / contained button, the same style is used as in the light theme (500 shades).
 
-> A PIC SHOWING
->
-> -   YEA: BLUE200 on dark: outlined button, icon button
-> -   YEA: WHITE50 on BLUE500: flat button, icon button with badge
-> -   NAY: DARK on BLUE200: flat button, list item tag
-
-> A PIC showing that carefully using transparency for bg colors make your stuff looks good on light and dark theme, such as the list item tag
-
+<div style={REGULAR_WIDTH_STYLE}>
+    <ImageGrid
+        images={[OutlinedAndFlat]}
+        caption={`You may use the 200 shade of text colors on a dark background (1) or White 50 on 500 shades (2). However, the 200 shades should never be used as a background color (3), as they glare in a dark environment.`}
+        regularWidth
+    />
+    <ImageGrid
+        images={[DarkThemeElevation]}
+        caption={[
+            'In dark theme, you can express surface elevation with:',
+            '1: A different surface color. (Optionally, you may apply a drop shadow to further define the edge.)',
+            '2: Use outlined component style.',
+            '3: However, you should never use SOLELY the drop shadow, no matter how dark the shadow is.',
+        ]}
+        regularWidth
+    />
+</div>
 <Divider />
 
 # Developers

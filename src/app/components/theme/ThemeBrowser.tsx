@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme: Theme) => ({
             boxShadow: theme.shadows[6],
         },
         marginBottom: theme.spacing(4),
+        boxSizing: 'border-box',
     },
 }));
 
@@ -58,7 +59,7 @@ export const ThemeBrowser: React.FC = () => {
 
     return (
         <ThemeProvider theme={createMuiTheme(localThemeDark ? darkTheme : lightTheme)}>
-            <Card className={classes.card}>
+            <Card className={classes.card} variant={globalTheme.palette.type === 'dark' ? 'outlined' : undefined}>
                 <Toolbar className={classes.toolbar}>
                     <Select
                         value={selectedComponent}
