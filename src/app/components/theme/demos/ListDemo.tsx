@@ -17,7 +17,6 @@ export const ListDemo: JSX.Element = (
                 /* do nothing */
             }}
             ripple
-            dense
         />
         <InfoListItem
             statusColor={Colors.red[500]}
@@ -34,7 +33,6 @@ export const ListDemo: JSX.Element = (
                 /* do nothing */
             }}
             ripple
-            dense
         />
         <InfoListItem
             title={'An info list item with list actions on the right'}
@@ -56,7 +54,6 @@ export const ListDemo: JSX.Element = (
             }
             iconAlign={'center'}
             divider={'partial'}
-            dense
         />
     </List>
 );
