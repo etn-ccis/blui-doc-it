@@ -10534,7 +10534,7 @@
         "extreme": [{ "/patterns/navigation": 1 }],
         "limitations": [{ "/patterns/navigation": 1 }],
         "combine": [{ "/patterns/navigation": 1 }],
-        "secondary": [{ "/patterns/navigation": 1 }],
+        "secondary": [{ "/patterns/navigation": 1 }, { "/style/themes": 1 }],
         "classic": [{ "/patterns/navigation": 1 }],
         "routes": [{ "/patterns/navigation": 3 }],
         "prominent": [{ "/patterns/navigation": 1 }],
