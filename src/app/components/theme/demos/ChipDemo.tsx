@@ -36,6 +36,16 @@ export const ChipDemo: JSX.Element = (
                                 /* do nothing */
                             }}
                         />
+                        <Chip
+                            clickable
+                            icon={<Check />}
+                            label={`Default`}
+                            color={'secondary'}
+                            onDelete={(): void => {
+                                /* do nothing */
+                            }}
+                            style={{ marginLeft: 8 }}
+                        />
                     </TableCell>
                 </TableRow>
                 <TableRow>
@@ -58,6 +68,16 @@ export const ChipDemo: JSX.Element = (
                             onDelete={(): void => {
                                 /* do nothing */
                             }}
+                        />
+                        <Chip
+                            disabled
+                            icon={<Check />}
+                            label={`Default disabled`}
+                            color={'secondary'}
+                            onDelete={(): void => {
+                                /* do nothing */
+                            }}
+                            style={{ marginLeft: 8 }}
                         />
                     </TableCell>
                 </TableRow>
@@ -84,6 +104,17 @@ export const ChipDemo: JSX.Element = (
                                 /* do nothing */
                             }}
                         />
+                        <Chip
+                            clickable
+                            variant={'outlined'}
+                            icon={<Check />}
+                            label={`Outlined`}
+                            color={'secondary'}
+                            onDelete={(): void => {
+                                /* do nothing */
+                            }}
+                            style={{ marginLeft: 8 }}
+                        />
                     </TableCell>
                 </TableRow>
                 <TableRow>
@@ -108,6 +139,17 @@ export const ChipDemo: JSX.Element = (
                             onDelete={(): void => {
                                 /* do nothing */
                             }}
+                        />
+                        <Chip
+                            disabled
+                            icon={<Check />}
+                            variant={'outlined'}
+                            label={`Outlined disabled`}
+                            color={'secondary'}
+                            onDelete={(): void => {
+                                /* do nothing */
+                            }}
+                            style={{ marginLeft: 8 }}
                         />
                     </TableCell>
                 </TableRow>

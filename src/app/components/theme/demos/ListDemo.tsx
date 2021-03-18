@@ -26,7 +26,7 @@ export const ListDemo: JSX.Element = (
             icon={<NotificationsActive />}
             rightComponent={
                 <div style={{ display: 'flex' }}>
-                    <ListItemTag label={'active'} backgroundColor={Colors.red[500]} style={{ marginRight: 16 }} />
+                    <ListItemTag label={'active'} backgroundColor={Colors.red[500]} style={{ marginLeft: 16 }} />
                 </div>
             }
             divider={'partial'}
@@ -47,7 +47,7 @@ export const ListDemo: JSX.Element = (
                     <IconButton>
                         <Assignment />
                     </IconButton>
-                    <IconButton>
+                    <IconButton edge={'end'}>
                         <Badge color={'primary'} variant={'dot'}>
                             <AddBox />
                         </Badge>

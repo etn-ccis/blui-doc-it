@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         },
     },
     selectControl: {
-        backgroundColor: '#aaa2',
+        backgroundColor: '#abb2',
         borderRadius: theme.shape.borderRadius,
         [theme.breakpoints.down('xs')]: {
             width: '100%',
@@ -32,6 +32,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     selectControlMenu: {
         padding: `${theme.spacing(1.5)}px ${theme.spacing(5)}px ${theme.spacing(1.5)}px ${theme.spacing(2)}px`,
         paddingRight: `${theme.spacing(5)}px !important`,
+        '&:focus': {
+            borderRadius: theme.shape.borderRadius,
+        },
     },
     selectControlIcon: {
         marginRight: theme.spacing(),
