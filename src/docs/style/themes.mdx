@@ -28,13 +28,13 @@ One of the key benefits of PX Blue is consistency of look & feel between differe
 
 ## Explore Our Themes
 
-Have a look at the component theme explorer below and learn how PX Blue themes work on a high level. The theme explorer selectively showcases some of the most representative components from Material Design and from our component library that fabrics our theme.
+Have a look at the component theme explorer below and learn how PX Blue themes work at a high level. Here we showcase some of the most representative components from Material Design and how our themes affect them.
 
 <div style={REGULAR_WIDTH_STYLE}>
     <ThemeBrowser />
 </div>
 
-You are also encouraged to visit our code examples, modify our code, and see the magic happens in real time.
+You are also encouraged to explore our more detailed theme examples where you can modify the code and see the effects in real time.
 
 <div style={REGULAR_WIDTH_STYLE}>
     <DemoCard
@@ -53,22 +53,22 @@ You are also encouraged to visit our code examples, modify our code, and see the
 
 The blue theme, inherited and expanded from Material Design's baseline theme, is the default theme for all PX Blue applications. With a clean color vibrance and high text legibility, it is designed to suit day to day use on a computer monitor, on-site facility inspection with a tablet, and on a mobile phone screen. It should be applied at the root level of your app.
 
-The blue theme uses our [iconic Blue 500 color](/style/color) (`#007bc1`) throughout the application, notably in toolbars, buttons and icons. Occasionally you will notice a accent / secondary color, Light Blue 500, being applied to interactive UI elements such as form controls. Blue theme's base background color is White 200, although the surface elements are often shaded in pure White (White 50).
+The light theme uses our iconic [Blue 500](/style/color) color (`#007bc1`) throughout the application, notably in toolbars, buttons and icons. In some places, Light Blue 500 is applied as an accent color on interactive UI elements such as form controls. The light theme's base background color is White 200, although the surface elements are often shaded in White 50 (pure white).
 
 <ImageGrid images={[LightThemeColors]} regularWidth />
 <Divider />
 
-# Blue Dark Theme
+# Dark Theme / Blue Dark Theme
 
 <div style={REGULAR_WIDTH_STYLE}>
     <ImageGrid images={[DarkThemeExample]} regularWidth caption={'An example of a dark-themed application.'} />
 </div>
 
-The blue dark theme is constructed in a similiar fashion just like the blue theme, but is intended primarily for applications used in low-light conditions. As the name indicates, the blue dark theme is dominated by different shades of dark colors, and uses colors only to for interactive components and status displays.
+The dark theme is intended primarily for applications used in low-light conditions. As the name indicates, it utilizes different shades of dark colors (grays and blacks), and uses other colors only for interactive components and status displays.
 
 <ImageGrid images={[DarkThemeColors]} regularWidth />
 
-To accomodate for [accessibility requirements](/design/accessibility), PX Blue uses 200 colors when a text shows by itself on a dark background, such as in an outlined button and a text field label. For a "contained" element, such as in an elevated / contained button, the style remains Blue 500 on White.
+To accommodate for [accessibility requirements](/design/accessibility), PX Blue uses the 200 shade of colors when text is used on a dark background, such as in an outlined button and a text field label. For "contained" elements, such as in an elevated / contained button, the same style is used as in the light theme (500 shades).
 
 > A PIC SHOWING
 >
@@ -84,7 +84,7 @@ To accomodate for [accessibility requirements](/design/accessibility), PX Blue u
 
 ## Angular and Ionic
 
-PX Blue offers the theming support via the package [@pxblue/angular-themes](https://www.npmjs.com/package/@pxblue/angular-themes), which is a collection of SCSS stylesheets that are imported into your application and applied through classes (`pxb-blue` or `pxb-dark`), to both PX Blue components and Angular Material components.
+Angular themes are available from our @pxblue/angular-themes package, which is a collection of SCSS stylesheets that are imported into your application and applied via classes (`pxb-blue` or `pxb-dark`) to both PX Blue components and Angular Material components.
 
 -   @pxblue/angular-themes: [NPM](https://www.npmjs.com/package/@pxblue/angular-themes), [GitHub](https://github.com/pxblue/themes/tree/master/angular)
 -   [Theming Guide](https://material.angular.io/guide/theming) on Angular Material
@@ -93,18 +93,18 @@ If you are using Ionic for hybrid application development, you can utilize our A
 
 ## React
 
-PX Blue's React themes are packaged through [@pxblue/react-themes](https://www.npmjs.com/package/@pxblue/react-themes). It contains JSON objects that are consumed by the theme mechanism for Material UI components (`<ThemeProvider />`). The package also contains some specific rules defined in [JSS](https://material-ui.com/customization/css-in-js/).
+React themes are available from our @pxblue/react-themes package, which contains JSON objects that are consumed by the theme mechanism for Material UI components (`<ThemeProvider />`), including some specific styling rules defined in [JSS](https://material-ui.com/customization/css-in-js/).
 
 -   @pxblue/react-themes: [NPM](https://www.npmjs.com/package/@pxblue/react-themes), [GitHub](https://github.com/pxblue/themes/tree/master/react)
 -   [Theming Guide](https://material-ui.com/customization/themes/) on Material-UI
 
 ## React Native
 
-React Native themes are encapsulated in [@pxblue/react-native-themes](https://www.npmjs.com/package/@pxblue/react-native-themes), which relies on React Native Paper's theming mechanism.
+React Native themes are available from our @pxblue/react-themes package, which utilize React Native Paper's theming mechanism. This package contains two separate dark themes which must be applied to different components to achieve the correct appearance (see the package readme for details).
 
 -   @pxblue/react-native-themes: [NPM](https://www.npmjs.com/package/@pxblue/react-native-themes), [GitHub](https://github.com/pxblue/themes/tree/master/react-native)
 -   [Theming Guide](https://callstack.github.io/react-native-paper/theming.html) on React Native Paper
 
 ## Color Palette
 
-All of the [PX Blue colors](/style/color) are available individually ([@pxblue/colors](https://www.npmjs.com/package/@pxblue/colors)) for use in your application. However, for the most part, you should rely on our themes packages to alter the styles.
+All of the [PX Blue colors](/style/color) are available individually ([@pxblue/colors](https://www.npmjs.com/package/@pxblue/colors)) for use in your application. However, in most cases, you should use values from the themes to alter styles for better future-proofing.
