@@ -2,8 +2,19 @@ import React, { useState } from 'react';
 import { Spacer } from '@pxblue/react-components';
 import { blue as lightTheme, blueDark as darkTheme } from '@pxblue/react-themes';
 import { makeStyles, ThemeProvider, useTheme, createMuiTheme } from '@material-ui/core/styles';
-import { Card, Divider, Select, Toolbar, MenuItem, Theme, Switch, FormControlLabel } from '@material-ui/core';
+import {
+    Card,
+    Divider,
+    Select,
+    Toolbar,
+    MenuItem,
+    Theme,
+    Switch,
+    FormControlLabel,
+    Typography,
+} from '@material-ui/core';
 import { componentNameList, componentList } from './componentList';
+import clsx from 'clsx';
 
 const useStyles = makeStyles((theme: Theme) => ({
     themeControlContainer: {},
@@ -46,6 +57,14 @@ const useStyles = makeStyles((theme: Theme) => ({
         marginBottom: theme.spacing(4),
         boxSizing: 'border-box',
     },
+    footnote: {
+        padding: `${theme.spacing()}px ${theme.spacing(2)}px`,
+    },
+    noShowOnMobile: {
+        [theme.breakpoints.up('sm')]: {
+            display: 'none',
+        },
+    },
 }));
 
 export const ThemeBrowser: React.FC = () => {
@@ -53,9 +72,7 @@ export const ThemeBrowser: React.FC = () => {
     const [localThemeDark, setLocalThemeDark] = useState(globalTheme.palette.type === 'dark');
     const [selectedComponent, setSelectedComponent] = useState(0);
     const classes = useStyles(localThemeDark ? darkTheme : lightTheme);
-    const componentBackground = localThemeDark
-        ? darkTheme.palette?.background?.default
-        : lightTheme.palette?.background?.default;
+    const localBackground = localThemeDark ? darkTheme.palette?.background : lightTheme.palette?.background;
 
     return (
         <ThemeProvider theme={createMuiTheme(localThemeDark ? darkTheme : lightTheme)}>
@@ -90,8 +107,17 @@ export const ThemeBrowser: React.FC = () => {
                     />
                 </Toolbar>
                 <Divider />
-                <div className={classes.componentContainer} style={{ backgroundColor: componentBackground }}>
+                <div className={classes.componentContainer} style={{ backgroundColor: localBackground?.default }}>
                     {componentList[selectedComponent]}
+                </div>
+                <Divider className={classes.noShowOnMobile} />
+                <div
+                    className={clsx(classes.footnote, classes.noShowOnMobile)}
+                    style={{ backgroundColor: localBackground?.paper }}
+                >
+                    <Typography variant={'caption'}>
+                        You may not get the best theme preview experience on mobile.
+                    </Typography>
                 </div>
             </Card>
         </ThemeProvider>
