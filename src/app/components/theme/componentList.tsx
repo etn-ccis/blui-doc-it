@@ -6,6 +6,7 @@ import { ChipDemo } from './demos/ChipDemo';
 import { ListDemo } from './demos/ListDemo';
 import { DialogDemo } from './demos/DialogDemo';
 import { ScoreCardDemo } from './demos/ScoreCardDemo';
+import { SnackbarDemo } from './demos/SnackbarDemo';
 
 export const componentNameList: string[] = [
     'App Bar with Tab Bar',
@@ -14,6 +15,7 @@ export const componentNameList: string[] = [
     'Dialog',
     'List',
     'Scorecard',
+    'Snackbar',
     'Switch',
     'Text Field',
 ];
@@ -25,6 +27,7 @@ export const componentList: JSX.Element[] = [
     DialogDemo,
     ListDemo,
     ScoreCardDemo,
+    SnackbarDemo,
     SwitchDemo,
     TextFieldDemo,
 ];

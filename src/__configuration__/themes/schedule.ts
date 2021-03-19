@@ -18,7 +18,7 @@ import { StPatricksDaySchedule } from './st-patricks-day';
  * Current schedules:
  * * Feb 11 - Feb 18: Spring Festival (changes each year)
  * * Mar 7 - Mar 9: Women's Day
- * * Mar 16 - Mar 19: St. Patrick's Day
+ * * Mar 16 - Mar 18: St. Patrick's Day
  * * May 3 - May 5: May the Fourth Day
  * * Oct 14 - Nov 2: Halloween
  * * Nov 11 - Nov 17: Diwali (changes each year)
