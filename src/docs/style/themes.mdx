@@ -12,7 +12,7 @@ import DarkThemeElevation from '../../app/assets/styles/themes/dark-theme-elevat
 
 # Themes
 
-One of the key benefits of PX Blue is the consistency of look & feel between different applications. This is achieved primarily through the use of PX Blue themes. PX Blue offers two themes: a light theme (blue) and a dark theme (blueDark).
+One of the key benefits of PX Blue is the consistent look & feel between different applications. This is achieved primarily through the use of PX Blue themes. PX Blue offers two themes: a light theme (blue) and a dark theme (blueDark).
 
 <div style={REGULAR_WIDTH_STYLE}>
     <MaterialDesignDescription
@@ -28,7 +28,7 @@ One of the key benefits of PX Blue is the consistency of look & feel between dif
     />
 </div>
 
-Both themes are inherited and expanded from Material Design's baseline theme, and the major differences are the color palette and [typographies](/style/typography). On this page, we will focus on color usage.
+Both themes inherit from Material Design's baseline theme and expand upon it with PX Blue specific styles. The major differences between PX Blue themes and the default Material theme are the color palettes and [typographies](/style/typography).
 
 ## Explore Our Themes
 
@@ -52,10 +52,10 @@ You are also encouraged to explore our more detailed theme examples where you ca
 # Blue Theme / Light Theme
 
 <div style={REGULAR_WIDTH_STYLE}>
-    <ImageGrid images={[LightThemeExample]} regularWidth caption={'An example of a light-themed application.'} />
+    <ImageGrid images={[LightThemeExample]} regularWidth caption={'An example of an application using the light them.'} />
 </div>
 
-The blue theme is the default theme for all PX Blue applications. With a clean color vibrance and high text legibility, it is designed to suit day-to-day use on a computer monitor, on-site facility inspection with a tablet, and on a mobile phone screen. It should be applied at the root level of your app.
+The blue theme is the default theme for all PX Blue applications. With a clean color vibrance and high text legibility, it is well-suited for everyday use on a computer monitor, on-site facility inspection on a tablet, or on a mobile phone screen.
 
 The light theme uses our iconic [Blue 500](/style/color) color (`#007bc1`) throughout the application, notably in toolbars, buttons, and icons. In some places, Light Blue 500 is applied as an accent/secondary color on interactive UI elements such as form controls. The light theme's base background color is White 200, although the surface elements are often shaded in White 50 (pure white).
 
@@ -65,10 +65,10 @@ The light theme uses our iconic [Blue 500](/style/color) color (`#007bc1`) throu
 # Dark Theme / Blue Dark Theme
 
 <div style={REGULAR_WIDTH_STYLE}>
-    <ImageGrid images={[DarkThemeExample]} regularWidth caption={'An example of a dark-themed application.'} />
+    <ImageGrid images={[DarkThemeExample]} regularWidth caption={'An example of an application using the dark theme.'} />
 </div>
 
-The dark theme is intended primarily for applications used in low-light conditions. As the name indicates, it utilizes different shades of dark colors (grays and blacks) and uses other colors only for interactive components and status displays.
+The dark theme is intended primarily for applications used in low-light conditions. As the name indicates, it utilizes mostly dark colors (grays and blacks). Other colors are typically reserved for interactive components and status displays.
 
 <ImageGrid images={[DarkThemeColors]} regularWidth />
 
@@ -77,7 +77,7 @@ To accommodate for [accessibility requirements](/design/accessibility), PX Blue 
 <div style={REGULAR_WIDTH_STYLE}>
     <ImageGrid
         images={[OutlinedAndFlat]}
-        caption={`You may use the 200 shade of text colors on a dark background (#1) or White 50 on 500 shades (#2). However, the 200 shades should never be used as a background color (#3), as they glare in a dark environment.`}
+        caption={`You may use the 200 shade of text colors on a dark background (#1) or White 50 on 500 shades (#2). However, the 200 shades should never be used as a background color (#3), as they can cause glare in a dark environment.`}
         regularWidth
     />
     <ImageGrid
@@ -86,7 +86,7 @@ To accommodate for [accessibility requirements](/design/accessibility), PX Blue 
             'In dark theme, you can express surface elevation with:',
             '1: A different surface color. (Optionally, you may apply a drop shadow to further define the edge.)',
             '2: Use outlined component style.',
-            '3: However, you should never use SOLELY the drop shadow, no matter how dark the shadow is.',
+            '3: However, you should never rely SOLELY on the drop shadow, no matter how dark it is.',
         ]}
         regularWidth
     />
