@@ -123,15 +123,20 @@ export const TOC: React.FC<ToCProps> = (props) => {
     useEffect(() => {
         initializeSectionOffsetTop();
 
-        // wait for the images to load first
+        // an initial positioning, in case some people got impatient
+        const timer1000 = setTimeout((): void => {
+            initializeSectionOffsetTop();
+        }, 1000);
+        // wait for the images to load on a regular internet
         const timer3000 = setTimeout((): void => {
             initializeSectionOffsetTop();
         }, 3000);
         // another one to account for slower internet
-        const timer10000 = setTimeout((): void => {
+        const timer10000 = setInterval((): void => {
             initializeSectionOffsetTop();
         }, 10000);
         return (): void => {
+            clearTimeout(timer1000);
             clearTimeout(timer3000);
             clearTimeout(timer10000);
         };
