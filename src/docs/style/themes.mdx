@@ -1,5 +1,4 @@
-import { ImageGrid, DemoCard, MaterialDesignDescription, Divider, ThemeBrowser } from '../../app/components';
-import { REGULAR_WIDTH_STYLE } from '../../app/shared';
+import { ImageGrid, DemoCard, MaterialDesignDescription, Divider, ThemeBrowser, TOC } from '../../app/components';
 
 import LightThemeColors from '../../app/assets/styles/themes/light-theme-colors.png';
 import DarkThemeColors from '../../app/assets/styles/themes/dark-theme-colors.png';
@@ -14,50 +13,49 @@ import DarkThemeElevation from '../../app/assets/styles/themes/dark-theme-elevat
 
 One of the key benefits of PX Blue is the consistent look & feel between different applications. This is achieved primarily through the use of PX Blue themes. PX Blue offers two themes: a light theme (blue) and a dark theme (blueDark).
 
-<div style={REGULAR_WIDTH_STYLE}>
-    <MaterialDesignDescription
-        title={'Material Theming Overview'}
-        description={`Material Design's brief introduction to theming.`}
-        url={'https://material.io/design/material-theming/overview.html#'}
-    />
-    <MaterialDesignDescription
-        title={'Dark Theme'}
-        url={'https://material.io/design/color/dark-theme.html'}
-        description={`Material Design's dark theme guide.`}
-        style={{ marginRight: 0 }}
-    />
-</div>
+<MaterialDesignDescription
+    title={'Material Theming Overview'}
+    description={`Material Design's brief introduction to theming.`}
+    url={'https://material.io/design/material-theming/overview.html#'}
+/>
+<MaterialDesignDescription
+    title={'Dark Theme'}
+    url={'https://material.io/design/color/dark-theme.html'}
+    description={`Material Design's dark theme guide.`}
+    style={{ marginRight: 0 }}
+/>
 
 Both themes inherit from Material Design's baseline theme and expand upon it with PX Blue specific styles. The major differences between PX Blue themes and the baseline Material theme are the color palettes and [typographies](/style/typography).
+
+<TOC
+    anchors={[
+        { title: 'Introduction', hash: '#themes' },
+        { title: 'Blue Theme / Light Theme', hash: '#blue-theme--light-theme' },
+        { title: 'Dark Theme / Blue Dark Theme', hash: '#dark-theme--blue-dark-theme' },
+        { title: 'Developers', hash: '#developers' },
+    ]}
+/>
 
 ## Explore Our Themes
 
 Have a look at the component theme explorer below and learn how PX Blue themes work at a high level. Here we showcase some of the most representative components from Material Design and PX Blue, and how our themes affect them.
 
-<div style={REGULAR_WIDTH_STYLE}>
-    <ThemeBrowser />
-</div>
+<ThemeBrowser />
 
 You are also encouraged to explore our more detailed theme examples where you can modify the code and see the effects in real-time.
 
-<div style={REGULAR_WIDTH_STYLE}>
+<React.Fragment>
     <DemoCard
         repository={'showcase-demo'}
         angular={`https://stackblitz.com/github/pxblue/angular-showcase-demo/tree/master`}
         react={`https://codesandbox.io/s/github/pxblue/react-showcase-demo/tree/master`}
     />
     <Divider />
-</div>
+</React.Fragment>
 
 # Blue Theme / Light Theme
 
-<div style={REGULAR_WIDTH_STYLE}>
-    <ImageGrid
-        images={[LightThemeExample]}
-        regularWidth
-        caption={'An example of an application using the light theme.'}
-    />
-</div>
+<ImageGrid images={[LightThemeExample]} regularWidth caption={'An example of an application using the light theme.'} />
 
 The blue theme is the default theme for all PX Blue applications. With a clean color vibrance and high text legibility, it is well-suited for everyday use on a computer monitor, on-site facility inspection on a tablet, or on a mobile phone screen.
 
@@ -68,13 +66,7 @@ The light theme uses our iconic [Blue 500](/style/color) color (`#007bc1`) throu
 
 # Dark Theme / Blue Dark Theme
 
-<div style={REGULAR_WIDTH_STYLE}>
-    <ImageGrid
-        images={[DarkThemeExample]}
-        regularWidth
-        caption={'An example of an application using the dark theme.'}
-    />
-</div>
+<ImageGrid images={[DarkThemeExample]} regularWidth caption={'An example of an application using the dark theme.'} />
 
 The dark theme is intended primarily for applications used in low-light conditions. As the name indicates, it utilizes mostly dark colors (grays and blacks). Other colors are typically reserved for interactive components and status displays.
 
@@ -82,23 +74,21 @@ The dark theme is intended primarily for applications used in low-light conditio
 
 To accommodate for [accessibility requirements](/design/accessibility), PX Blue uses the 200 shade of colors when text is used on a dark background, such as in an outlined button and a text field label. For "contained" elements, such as in an elevated / contained button, the same style is used as in the light theme (500 shades).
 
-<div style={REGULAR_WIDTH_STYLE}>
-    <ImageGrid
-        images={[OutlinedAndFlat]}
-        caption={`You may use the 200 shade of text colors on a dark background (#1) or White 50 on 500 shades (#2). However, the 200 shades should never be used as a background color (#3), as they can cause glare in a dark environment.`}
-        regularWidth
-    />
-    <ImageGrid
-        images={[DarkThemeElevation]}
-        caption={[
-            'In dark theme, you can express surface elevation with:',
-            '1: A different surface color. (Optionally, you may apply a drop shadow to further define the edge.)',
-            '2: Use outlined component style.',
-            '3: However, you should never rely SOLELY on the drop shadow, no matter how dark it is.',
-        ]}
-        regularWidth
-    />
-</div>
+<ImageGrid
+    images={[OutlinedAndFlat]}
+    caption={`You may use the 200 shade of text colors on a dark background (#1) or White 50 on 500 shades (#2). However, the 200 shades should never be used as a background color (#3), as they can cause glare in a dark environment.`}
+    regularWidth
+/>
+<ImageGrid
+images={[DarkThemeElevation]}
+caption={[
+'In dark theme, you can express surface elevation with:',
+'1: A different surface color. (Optionally, you may apply a drop shadow to further define the edge.)',
+'2: Use outlined component style.',
+'3: However, you should never rely SOLELY on the drop shadow, no matter how dark it is.',
+]}
+regularWidth
+/>
 <Divider />
 
 # Developers

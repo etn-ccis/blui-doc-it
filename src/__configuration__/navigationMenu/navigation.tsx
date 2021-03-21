@@ -275,7 +275,7 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Themes',
                 url: '/themes',
-                component: <MarkdownPage title={'Themes'} markdown={Docs.Style.Themes} wideLayout />,
+                component: <MarkdownPage title={'Themes'} markdown={Docs.Style.Themes} />,
             },
         ],
     },
