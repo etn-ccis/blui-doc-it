@@ -31,12 +31,13 @@ const useStyles = makeStyles((theme: Theme) =>
             left: 0,
             backgroundColor: theme.palette.type === 'light' ? '#fffd' : '#000a',
             display: 'flex',
-            zIndex: 1001,
+            zIndex: theme.zIndex.modal,
             alignItems: 'center',
             justifyContent: 'center',
             [theme.breakpoints.up('sm')]: {
                 cursor: 'zoom-out',
             },
+            padding: theme.spacing(2),
         },
     })
 );

@@ -1,63 +1,121 @@
-import { ImageGrid, DemoCard, MaterialDesignDescription, Divider } from '../../app/components';
-import { REGULAR_WIDTH_STYLE } from '../../app/shared';
-import LightThemeImage from '../../app/assets/design-patterns/theme/theme-light.png';
-import DarkThemeImage from '../../app/assets/design-patterns/theme/theme-dark.png';
+import { ImageGrid, DemoCard, MaterialDesignDescription, Divider, ThemeBrowser, TOC } from '../../app/components';
 
-<!-- KEYWORDS: design style theme -->
+import LightThemeColors from '../../app/assets/styles/themes/light-theme-colors.png';
+import DarkThemeColors from '../../app/assets/styles/themes/dark-theme-colors.png';
+import LightThemeExample from '../../app/assets/styles/themes/light-theme-example.png';
+import DarkThemeExample from '../../app/assets/styles/themes/dark-theme-example.png';
+import OutlinedAndFlat from '../../app/assets/styles/themes/outlined-and-flat.png';
+import DarkThemeElevation from '../../app/assets/styles/themes/dark-theme-elevation.png';
 
-# Power Xpert Blue Themes
+<!-- KEYWORDS: design style theme light dark mode -->
 
-One of the key benefits of PX Blue is consistency of look & feel between different applications. This is achieved primarily through the use of PX Blue themes.
+# Themes
 
-<div style={REGULAR_WIDTH_STYLE}>
-    <MaterialDesignDescription
-        title={'Material Theming Overview'}
-        description={`Material Design's brief introduction to theming.`}
-        url={'https://material.io/design/material-theming/overview.html#'}
+One of the key benefits of PX Blue is the consistent look & feel between different applications. This is achieved primarily through the use of PX Blue themes. PX Blue offers two themes: a light theme (blue) and a dark theme (blueDark).
+
+<MaterialDesignDescription
+    title={'Material Theming Overview'}
+    description={`Material Design's brief introduction to theming.`}
+    url={'https://material.io/design/material-theming/overview.html#'}
+/>
+<MaterialDesignDescription
+    title={'Dark Theme'}
+    url={'https://material.io/design/color/dark-theme.html'}
+    description={`Material Design's dark theme guide.`}
+    style={{ marginRight: 0 }}
+/>
+
+Both themes inherit from Material Design's baseline theme and expand upon it with PX Blue specific styles. The major differences between PX Blue themes and the baseline Material theme are the color palettes and [typographies](/style/typography).
+
+<TOC
+    anchors={[
+        { title: 'Introduction', hash: '#themes' },
+        { title: 'Blue Theme / Light Theme', hash: '#blue-theme--light-theme' },
+        { title: 'Dark Theme / Blue Dark Theme', hash: '#dark-theme--blue-dark-theme' },
+        { title: 'Developers', hash: '#developers' },
+    ]}
+/>
+
+## Explore Our Themes
+
+Have a look at the component theme explorer below and learn how PX Blue themes work at a high level. Here we showcase some of the most representative components from Material Design and PX Blue, and how our themes affect them.
+
+<ThemeBrowser />
+
+You are also encouraged to explore our more detailed theme examples where you can modify the code and see the effects in real-time.
+
+<React.Fragment>
+    <DemoCard
+        repository={'showcase-demo'}
+        angular={`https://stackblitz.com/github/pxblue/angular-showcase-demo/tree/master`}
+        react={`https://codesandbox.io/s/github/pxblue/react-showcase-demo/tree/master`}
     />
-    <MaterialDesignDescription
-        title={'Dark Theme'}
-        url={'https://material.io/design/color/dark-theme.html'}
-        description={`Material Design's dark theme guide.`}
-        style={{ marginRight: 0 }}
-    />
-</div>
+    <Divider />
+</React.Fragment>
+
+# Blue Theme / Light Theme
+
+<ImageGrid images={[LightThemeExample]} regularWidth caption={'An example of an application using the light theme.'} />
+
+The blue theme is the default theme for all PX Blue applications. With a clean color vibrance and high text legibility, it is well-suited for everyday use on a computer monitor, on-site facility inspection on a tablet, or on a mobile phone screen.
+
+The light theme uses our iconic [Blue 500](/style/color) color (`#007bc1`) throughout the application, notably in toolbars, buttons, and icons. In some places, Light Blue 500 is applied as a secondary color on interactive UI elements such as form controls. The light theme's base background color is White 200, although the surface elements are often shaded in White 50 (pure white).
+
+<ImageGrid images={[LightThemeColors]} regularWidth />
 <Divider />
 
-# Available Themes
+# Dark Theme / Blue Dark Theme
+
+<ImageGrid images={[DarkThemeExample]} regularWidth caption={'An example of an application using the dark theme.'} />
+
+The dark theme is intended primarily for applications used in low-light conditions. As the name indicates, it utilizes mostly dark colors (grays and blacks). Other colors are typically reserved for interactive components and status displays.
+
+<ImageGrid images={[DarkThemeColors]} regularWidth />
+
+To accommodate for [accessibility requirements](/design/accessibility), PX Blue uses the 200 shade of colors when text is used on a dark background, such as in an outlined button and a text field label. For "contained" elements, such as in an elevated / contained button, the same style is used as in the light theme (500 shades).
 
 <ImageGrid
-    images={[LightThemeImage, DarkThemeImage]}
-    caption={'PX Blue offers a light theme (default theme) and a dark theme (for low-light condition usage).'}
+    images={[OutlinedAndFlat]}
+    caption={`You may use the 200 shade of text colors on a dark background (#1) or White 50 on 500 shades (#2). However, the 200 shades should never be used as a background color (#3), as they can cause glare in a dark environment.`}
+    regularWidth
 />
-
-The PX Blue themes packages includes two distinct themes:
-
--   **Blue** is the default theme for all PX Blue applications. It should be applied at the root level of your app. It provides a variety of shades of blue for use in buttons, toolbars, etc. The standard background color is a light gray.
--   **Blue Dark** is complementary to the Blue theme. It is intended primarily for applications used in low-light conditions. The primary colors used in the Blue Dark theme are various shades of gray with blue accents. It can be used as a standalone theme or combined with the Blue (default) theme to provide contrast for areas such as detail sidebars.
-
-<DemoCard
-    repository={'showcase-demo'}
-    angular={`https://stackblitz.com/github/pxblue/angular-showcase-demo/tree/master`}
-    react={`https://codesandbox.io/s/github/pxblue/react-showcase-demo/tree/master`}
+<ImageGrid
+images={[DarkThemeElevation]}
+caption={[
+'In dark theme, you can express surface elevation with:',
+'1: A different surface color. (Optionally, you may apply a drop shadow to further define the edge.)',
+'2: Use outlined component style.',
+'3: However, you should never rely SOLELY on the drop shadow, no matter how dark it is.',
+]}
+regularWidth
 />
-
-> **NOTE:** Combining multiple themes in your application is optional. You may stick to using a single theme (Blue) for your entire application and then apply one-off styling where necessary to achieve other effects.
-
 <Divider />
 
 # Developers
 
-## Theme Formats
+## Angular and Ionic
 
--   **Angular** themes are a collection of SCSS stylesheets that are imported into your application and applied through classes ('pxb-blue' or 'pxb-dark').
+Angular themes are available from our @pxblue/angular-themes package, which is a collection of SCSS stylesheets that are imported into your application and applied via classes (`pxb-blue` or `pxb-dark`) to both PX Blue components and Angular Material components.
 
--   **React** themes are JSON objects that are consumed by the theme mechanism for Material UI components (`<MuiThemeProvider>`). They also contain some specific rules defined in [JSS](https://material-ui.com/customization/css-in-js/).
+-   @pxblue/angular-themes: [NPM](https://www.npmjs.com/package/@pxblue/angular-themes), [GitHub](https://github.com/pxblue/themes/tree/master/angular)
+-   [Theming Guide](https://material.angular.io/guide/theming) on Angular Material
 
-> **NOTE:** If you are using Ionic for hybrid application development, you can utilize the Angular themes and [Angular Material](https://material.angular.io/components/categories) component library. A future version of PX Blue will include more robust theming for React Native applications.
+If you are using Ionic for hybrid application development, you can utilize our Angular themes as well. See [our Ionic getting started guide](/development/frameworks-mobile/ionic).
 
-## Usage
+## React
 
-For detailed usage instructions for PX Blue themes, you can read the package instructions on [GitHub](https://github.com/pxblue/themes#px-blue-themes-for-eaton-applications) or our getting started guides for [Angular](/development/frameworks-web/angular) and [React](/development/frameworks-web/react). For additional information on how Material component libraries apply themes, see [Angular Material Theming](https://material.angular.io/guide/theming) or [Material UI Theming](https://material-ui.com/customization/themes/).
+React themes are available from our @pxblue/react-themes package, which contains JSON objects that are consumed by the theme mechanism for Material UI components (`<ThemeProvider />`), including some specific styling rules defined in [JSS](https://material-ui.com/customization/css-in-js/).
 
-> All of the [PX Blue colors](/style/color) are available individually ([@pxblue/colors](https://www.npmjs.com/package/@pxblue/colors)) for use in your application.
+-   @pxblue/react-themes: [NPM](https://www.npmjs.com/package/@pxblue/react-themes), [GitHub](https://github.com/pxblue/themes/tree/master/react)
+-   [Theming Guide](https://material-ui.com/customization/themes/) on Material-UI
+
+## React Native
+
+React Native themes are available from our @pxblue/react-themes package, which utilize React Native Paper's theming mechanism. This package contains two separate dark themes which must be applied to different components to achieve the correct appearance (see the package readme for details).
+
+-   @pxblue/react-native-themes: [NPM](https://www.npmjs.com/package/@pxblue/react-native-themes), [GitHub](https://github.com/pxblue/themes/tree/master/react-native)
+-   [Theming Guide](https://callstack.github.io/react-native-paper/theming.html) on React Native Paper
+
+## Color Palette
+
+All of the [PX Blue colors](/style/color) are available individually ([@pxblue/colors](https://www.npmjs.com/package/@pxblue/colors)) for use in your application. However, in most cases, you should use values from the themes to alter styles for better future-proofing.

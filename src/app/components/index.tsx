@@ -8,3 +8,4 @@ export * from './patterns';
 export * from './contributors';
 export * from './faq';
 export * from './typography';
+export * from './theme';

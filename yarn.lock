@@ -2074,10 +2074,10 @@
   resolved "https://registry.yarnpkg.com/@pxblue/prettier-config/-/prettier-config-1.0.2.tgz#fb00503df6557b66c3d91d43c9101e614c35d2ec"
   integrity sha512-/3cLBoTjZs3kV1ATPA/Sp0tsL7XmlV/b8HW/qt0jqR/uP5+cdXL2YIhMXQngLRa7PhpSkEiRIYK5sl0rKsXTUg==
 
-"@pxblue/react-components@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/react-components/-/react-components-5.0.0.tgz#f245e51de9c0bf2403ee12769aff87dd0875a3ec"
-  integrity sha512-HrZxrV8lWj/09m/pjtTsoo2z/RUBxKj3gu//vqwL3LtN+i3FeTl9guvDbJIHpLWFxHfBJ/AVgOgyIjWAWqRJAA==
+"@pxblue/react-components@^5.0.1-beta.1":
+  version "5.0.1-beta.1"
+  resolved "https://registry.yarnpkg.com/@pxblue/react-components/-/react-components-5.0.1-beta.1.tgz#dffffe7f9352eb9e56f737e1fec874f280cd99df"
+  integrity sha512-RuqD4jkaMfx2SCrFleUijFvdmsZzg0T7lm9qJQ9Mf5EjEQPC5tAxpZ45IAF5AXlMTkoFGa5D0Fl2P8hMQ7fkGw==
   dependencies:
     "@pxblue/colors" "^3.0.0"
     color "^3.1.2"
@@ -2091,13 +2091,14 @@
     color "^3.1.2"
     react-jss "^10.4.0"
 
-"@pxblue/react-themes@^6.0.0-beta.0":
-  version "6.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/react-themes/-/react-themes-6.0.0-beta.0.tgz#885e861769c9ffebef87fae0546d0bacddaadfe6"
-  integrity sha512-dTYJnt6YJbWgo253sqcpz0sGjyy0+NSEEili45dscszb9iq+9zWpQUtSXIGrLQHHRexJoGxuuiQ7F8Wa22G7Rg==
+"@pxblue/react-themes@^6.0.0-beta.2":
+  version "6.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@pxblue/react-themes/-/react-themes-6.0.0-beta.2.tgz#38926da93816bc503e2df73d4084dc192fe0f2cb"
+  integrity sha512-VcVrbWMq/78TtmjOTQI0pE6tpP02gIOGLURzdB4YxmENgWtRS1QH9xNFRxr3YBFQxDaqRMWP1P0Le1vysYjRdA==
   dependencies:
     "@fontsource/open-sans" "^4.1.0"
     "@pxblue/colors" "^3.0.0"
+    color "^3.1.3"
 
 "@pxblue/types@^2.0.0":
   version "2.0.0"
