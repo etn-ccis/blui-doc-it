@@ -1,11 +1,12 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
 import LoadingBanner from '../../app/assets/design-patterns/loading-states/loading-banner.svg';
-import LoadingMobile from '../../app/assets/design-patterns/loading-states/mobile-loading-state.png';
-import LoadedModal from '../../app/assets/design-patterns/loading-states/mobile-loaded-state.png';
-import DesktopLoading from '../../app/assets/design-patterns/loading-states/desktop-loading.gif';
+import Skeleton from '../../app/assets/design-patterns/loading-states/skeleton.gif';
+import Wave from '../../app/assets/design-patterns/loading-states/wave.gif';
+import Pulsate from '../../app/assets/design-patterns/loading-states/pulsate.gif';
 import OverlaySpinner from '../../app/assets/design-patterns/loading-states/overlay-spinner.png';
 import InlineSpinner from '../../app/assets/design-patterns/form-validation/verify-input-on-page-change.png';
 import MiniSpinner from '../../app/assets/design-patterns/loading-states/mini-spinner.png';
+import ProgressBar from '../../app/assets/design-patterns/loading-states/progress-bar.gif';
 import Specs from '../../app/assets/design-patterns/loading-states/specs-1.png';
 
 <!-- KEYWORDS: design pattern loading asynchronous api refresh -->
@@ -14,7 +15,7 @@ import Specs from '../../app/assets/design-patterns/loading-states/specs-1.png';
 
 <ImageGrid images={[LoadingBanner]} regularWidth />
 
-Often times, your application will need to load data from (or send data to) a remote location with some amount of latency. When this happens, you will need to provide some indication to the user that something is happening. Different situations may call for different styles of indicator, explained below.
+Oftentimes, your application will need to load data from (or send data to) a remote location with some amount of latency. When this happens, you will need to provide some indication to the user that something is happening. Different situations may call for different styles of indicator, explained below.
 
 <React.Fragment>
     <MaterialDesignDescription
@@ -39,32 +40,36 @@ There are a number of different ways to indicate to a user that something is hap
 
 ## Placeholder Shapes / Skeleton
 
-When loading data for the first time, you do not want to show an empty screen while you are fetching the data. Instead, you should show placeholders that mimic (using simple shapes) the data that will eventually be loaded. This will give the impression that your application is faster and gives users an indication of what kind of data is being loaded.
+<ImageGrid
+    images={[Skeleton]}
+    caption={['When your application is loading structured data, use skeletons to tell your user what to expect.']}
+    regularWidth
+/>
 
-The placeholder should match as closely as possible the real structure of the data. For example, if you are loading a list where each item has an icon, two lines of text, and an action button, then your placeholder should have a circle, two rectangles for the text, and another rectangle for the button. You should show as many placeholder elements as necessary to fill the area in the application that is loading data. You will want to apply an animation on the placeholder shapes to give a sense of progress.
+When loading data for the first time, you do not want to show an empty screen while you are fetching the data. Instead, you should show placeholder shapes ("skeletons") that mimic the data that will eventually be loaded. This will give the impression that your application is faster and gives users an indication of what kind of data is being loaded.
 
-<React.Fragment>
-    <ImageGrid
-        images={[LoadingMobile, LoadedModal]}
-        caption={'When data is loading, use placeholder shapes for where the data will appear.'}
-    />
-    <ImageGrid
-        regularWidth
-        images={[DesktopLoading]}
-        caption={'Show a transition on the placeholder shapes to indicate progress.'}
-    />
-    <DemoCard
-        repository={'loading-states'}
-        angular={`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Floading-states%2Floading-states.component.ts`}
-        react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/loading-states/index.tsx&initialpath=loading-states`}
-        ionic={`https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Floading-states%2Floading-states.component.ts`}
-        reactNative
-    />
-</React.Fragment>
+<DemoCard
+    repository={'loading-states'}
+    angular={`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Floading-states%2Floading-states.component.ts`}
+    react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/loading-states/index.tsx&initialpath=loading-states`}
+    ionic={`https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Floading-states%2Floading-states.component.ts`}
+    reactNative
+/>
+
+The skeleton should match as closely as possible the real _structure_ of the data, using shapes like rectangles and circles. The data _length_, however, may not be available at the time of loading, and it is likely that your skeleton ended up looking slightly different from your real data. This is OK; your mission is only to set up users' expectations.
+
+<ImageGrid
+    images={[Wave, Pulsate]}
+    caption={[
+        'Skeletons are usually animated, to indicate that the application is still running and responding. There are two kinds of skeleton animations.',
+        '1: Wave, where a flash glides pass gray shapes.',
+        '2: Pulsate, where the gray shades change their brightness periodically.',
+    ]}
+/>
 
 ## Spinner Overlays
 
-Spinner overlays make use of a semi-transparent overlay with a large, centered spinner. This variation of indicator is useful when you want to block user interaction with the screen (or a section of the screen) while processing occurs.
+Spinner overlays make use of a semi-transparent overlay with a large, centered spinner. This variation of indicators is useful when you want to block user interaction with the screen (or a section of the screen) while processing occurs.
 
 <ImageGrid
     regularWidth
@@ -87,6 +92,11 @@ Contextual spinners can be used as an alternative to spinner overlays in certain
 />
 
 ## Progress Bars
+
+<ImageGrid
+    images={[ProgressBar]}
+    caption={'Use progress bar when the progress is measurable, such as when the user is uploading a known-sized file.'}
+/>
 
 Progress bars should be used sparingly in your application. They should only be used in situations where progress is discrete / measurable. For example, it could be used to indicate progress when uploading a file to a server.
 
