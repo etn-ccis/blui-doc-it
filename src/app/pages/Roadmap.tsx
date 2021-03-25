@@ -110,7 +110,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const [typeFilter, setTypeFilter] = useState<ItemTypeFilter>('all');
     const [statusFilter, setStatusFilter] = useState<Status | 'all'>('all');
     const [frameworkFilter, setFrameworkFilter] = useState<FrameworkFilter>('all');
-    const [releaseFilter, setReleaseFilter] = useState<Release | 'all'>('R19');
+    const [releaseFilter, setReleaseFilter] = useState<Release>('R20');
     const [roadmap, setRoadmap] = useState<RoadmapBucket[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
@@ -130,7 +130,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
 
         setLoading(true);
         const loadRoadmap = async (): Promise<void> => {
-            const data = await getRoadmap();
+            const data = await getRoadmap(releaseFilter);
             if (isMounted) {
                 setRoadmap(data || []);
             }
@@ -140,7 +140,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
         return (): void => {
             isMounted = false;
         };
-    }, []);
+    }, [releaseFilter, setRoadmap, setLoading]);
 
     const filterByRelease = (release: Release, item: any): boolean =>
         (release === 'R16' && item.quarter === 'Q2' && item.year === 2020) ||
@@ -152,7 +152,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const clearFilters = useCallback(() => {
         setTypeFilter('all');
         setFrameworkFilter('all');
-        setReleaseFilter('all');
+        setReleaseFilter('R20');
         setStatusFilter('all');
     }, [setTypeFilter, setFrameworkFilter, setReleaseFilter, setStatusFilter]);
 
@@ -182,7 +182,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                             item.framework.includes(frameworkFilter) ||
                             item.framework.includes('all') ||
                             frameworkFilter === 'all') &&
-                        (filterByRelease(releaseFilter, item) || releaseFilter === 'all') &&
+                        filterByRelease(releaseFilter, item) &&
                         (item.status === statusFilter || statusFilter === 'all');
                     if (show) results++;
                     return show;
@@ -269,12 +269,12 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         onChange={(e): void => setReleaseFilter(e.target.value as Release)}
                         className={classes.select}
                     >
-                        <MenuItem value={'all'}>Any Release</MenuItem>
                         <MenuItem value={'R16'}>R16 (2Q20)</MenuItem>
                         <MenuItem value={'R17'}>R17 (3Q20)</MenuItem>
                         <MenuItem value={'R18'}>R18 (4Q20)</MenuItem>
                         <MenuItem value={'R19'}>R19 (1Q21)</MenuItem>
                         <MenuItem value={'R20'}>R20 (2Q21)</MenuItem>
+                        <MenuItem value={'R21'}>R21 (3Q21)</MenuItem>
                     </Select>
                     <Select
                         value={statusFilter}
