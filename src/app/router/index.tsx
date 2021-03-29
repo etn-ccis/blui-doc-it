@@ -27,13 +27,13 @@ const buildRoutes = (routes: SimpleNavItem[], url: string): JSX.Element[] => {
     for (let i = 0; i < routes.length; i++) {
         if (routes[i].component) {
             ret.push(
-                <Route exact path={`${url}${routes[i].url}`} key={`${url}/${routes[i].url}`}>
+                <Route exact path={`${url}${routes[i].url || ''}`} key={`${url}/${routes[i].url || ''}`}>
                     {routes[i].component}
                 </Route>
             );
         }
         if (routes[i].pages) {
-            ret = ret.concat(buildRoutes(routes[i].pages || [], `${url}${routes[i].url}`));
+            ret = ret.concat(buildRoutes(routes[i].pages || [], `${url}${routes[i].url || ''}`));
         }
     }
     return ret;

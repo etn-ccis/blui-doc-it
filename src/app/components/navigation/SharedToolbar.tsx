@@ -61,7 +61,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const dispatch = useDispatch();
     const appBarBackground = getScheduledSiteConfig().appBarBackground;
 
-    const _navigationIcon = useCallback(
+    const getNavigationIcon = useCallback(
         () => (
             <Hidden mdUp={navigationIcon !== undefined && !isLandingPage}>
                 <IconButton
@@ -110,7 +110,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                 {...other}
             >
                 <Toolbar className={classes.toolbar}>
-                    {_navigationIcon()}
+                    {getNavigationIcon()}
                     {props.title ? (
                         <ListItemText
                             id={'dropdown-toolbar-text'}

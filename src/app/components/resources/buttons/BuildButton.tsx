@@ -93,7 +93,7 @@ export const BuildButton: React.FC<BuildButtonProps> = (props) => {
                 setBuild(buildStatus);
             }
         };
-        loadBuildStatus();
+        void loadBuildStatus();
 
         return (): void => {
             isMounted = false;

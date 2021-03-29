@@ -20,7 +20,7 @@ export const ButtonDemo: JSX.Element = (
             <TableBody>
                 {(['primary', 'secondary', 'default'] as Array<'primary' | 'secondary' | 'default'>).map((color) =>
                     [false, true].map((isDisabled) => (
-                        <TableRow key={`${color}-${isDisabled}`}>
+                        <TableRow key={`${color}-${isDisabled ? 'disabled' : 'enabled'}`}>
                             <TableCell key={'elevated'}>
                                 <Button color={color} variant={'contained'} disabled={isDisabled} startIcon={<Add />}>
                                     {isDisabled ? 'Disabled' : 'Enabled'}

@@ -238,7 +238,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
 
         setSelectedIcon(allIconsMap[iconName.join('-')]);
         history.replace(
-            `${location.pathname}?icon=${iconName[0]}&isMaterial=${iconName[1] === 'material' ? true : false}`
+            `${location.pathname}?icon=${iconName[0]}&isMaterial=${iconName[1] === 'material' ? 'true' : 'false'}`
         );
         dispatch({ type: TOGGLE_SIDEBAR, payload: true });
     }, []);
@@ -253,7 +253,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                 if (value === '') {
                     setIconKeys(null);
                 } else {
-                    searchIndex.search(value).then((results) => {
+                    void searchIndex.search(value).then((results) => {
                         setIconKeys(results.sort());
                     });
                 }

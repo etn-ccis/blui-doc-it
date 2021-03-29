@@ -1,14 +1,6 @@
-export const getSnakeCase = (str: string): string =>
-    str
-        .replace(/[A-Z]/g, '_$&')
-        .toLowerCase()
-        .substr(1);
+export const getSnakeCase = (str: string): string => str.replace(/[A-Z]/g, '_$&').toLowerCase().substr(1);
 
-export const getKebabCase = (str: string): string =>
-    str
-        .replace(/[A-Z]/g, '-$&')
-        .toLowerCase()
-        .substr(1);
+export const getKebabCase = (str: string): string => str.replace(/[A-Z]/g, '-$&').toLowerCase().substr(1);
 
 export const snakeToKebabCase = (str: string): string => str.replace('_', '-').toLowerCase();
 
@@ -46,6 +38,6 @@ export function copyTextToClipboard(text: string, onCopied?: () => void): void {
         fallbackCopyTextToClipboard(text);
         return;
     }
-    navigator.clipboard.writeText(text);
+    void navigator.clipboard.writeText(text);
     if (onCopied) onCopied();
 }

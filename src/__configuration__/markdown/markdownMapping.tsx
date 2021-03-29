@@ -179,9 +179,7 @@ export const componentsMap = {
                 style={{
                     paddingRight: 16,
                     marginBottom: 8,
-                    backgroundColor: color(theme.palette.primary.main)
-                        .fade(0.9)
-                        .string(),
+                    backgroundColor: color(theme.palette.primary.main).fade(0.9).string(),
                     borderLeftColor: theme.palette.primary.main,
                     ...REGULAR_WIDTH_STYLE,
                 }}
