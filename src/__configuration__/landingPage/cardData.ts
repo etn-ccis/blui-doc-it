@@ -28,7 +28,7 @@ export const cardData = [
         path: '/patterns',
     },
     {
-        title: 'Figma Stickersheet',
+        title: 'Figma Sticker Sheet',
         description: `View our library of pre-built Material and PX Blue Figma components to jump start your project design process.`,
         image: figma,
         path: 'https://www.figma.com/community/file/852558784352181868',

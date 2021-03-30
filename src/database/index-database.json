@@ -8726,7 +8726,14 @@
             { "/community/faq": 1 },
             { "/community/our-team": 1 }
         ],
-        "stickersheet": [{ "/design/intro": 2 }, { "/community/faq": 2 }],
+        "sticker": [{ "/design/intro": 2 }, { "/community/faq": 2 }],
+        "sheet": [
+            { "/patterns/overlay": 5 },
+            { "/design/intro": 2 },
+            { "/community/faq": 2 },
+            { "/patterns/account-menu": 1 },
+            { "/patterns/steppers": 1 }
+        ],
         "pattern": [
             { "/patterns/appbar": 4 },
             { "/design/anatomy": 3 },
@@ -10019,7 +10026,6 @@
             { "/patterns/navigation": 1 },
             { "/patterns/steppers": 1 }
         ],
-        "sheet": [{ "/patterns/overlay": 5 }, { "/patterns/account-menu": 1 }, { "/patterns/steppers": 1 }],
         "nav": [{ "/patterns/navigation": 2 }, { "/patterns/account-menu": 1 }],
         "appbar": [{ "/patterns/appbar": 3 }, { "/patterns/lists": 1 }],
         "collapse": [{ "/patterns/appbar": 1 }],
