@@ -87,7 +87,7 @@ export const contributors: Contributor[] = [
     },
     {
         name: 'Kyle Harris',
-        description: 'Figma Stickersheet Components',
+        description: 'Figma Sticker Sheet Components',
         image: KyleHarris,
     },
     {

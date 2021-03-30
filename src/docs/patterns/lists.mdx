@@ -116,22 +116,13 @@ Lists typically appear inside of a panel (mobile) or a card (desktop). Occasiona
 
 <ImageGrid
     images={[SimpleListImage1, SimpleListImage2]}
-    caption={[
-        '1: A simple key-value list.',
-        '2: A key-value list with icons and subtitle.',
-    ]}
+    caption={['1: A simple key-value list.', '2: A key-value list with icons and subtitle.']}
 />
 <DemoCard
     repository={'data-list'}
-    angular={
-        `https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fdata-list%2Fdata-list.component.ts`
-    }
-    react={
-        `https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/data-list/index.tsx&initialpath=data-list`
-    }
-    ionic={
-        `https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fsearch-bar%2Fsearch-bar.component.ts`
-    }
+    angular={`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fdata-list%2Fdata-list.component.ts`}
+    react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/data-list/index.tsx&initialpath=data-list`}
+    ionic={`https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fsearch-bar%2Fsearch-bar.component.ts`}
     reactNative
 />
 
@@ -139,8 +130,13 @@ The simplest type of list simply presents a single line (or multiple lines) of t
 
 ## Lists with Status
 
-<ImageGrid images={[StatusListImage]} regularWidth caption={`Use an icon avatar and / or a status stripe to catch people's attention.`}/>
-<DemoCard repository={'status-list'}
+<ImageGrid
+    images={[StatusListImage]}
+    regularWidth
+    caption={`Use an icon avatar and / or a status stripe to catch people's attention.`}
+/>
+<DemoCard
+    repository={'status-list'}
     angular={`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fstatus-list%2Fstatus-list.component.ts`}
     react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/status-list/index.tsx&initialpath=status-list`}
     ionic={`https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fstatus-list%2Fstatus-list.component.ts`}
@@ -195,12 +191,8 @@ Depending on the data being displayed, you can add additional UI elements to the
 
 <DemoCard
     repository={'responsive-table'}
-    angular={
-        `https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fresponsive-table%2Fresponsive-table.component.ts`
-    }
-    react={
-        `https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/responsive-table/index.tsx&initialpath=responsive-table`
-    }
+    angular={`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fresponsive-table%2Fresponsive-table.component.ts`}
+    react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/responsive-table/index.tsx&initialpath=responsive-table`}
 />
 <MaterialDesignDescription title={'Data Tables'} url={`https://material.io/components/data-tables/`} />
 
@@ -245,7 +237,8 @@ Common global list actions include:
 ### Drag and Drop
 
 <ImageGrid images={[SortableListImage]} regularWidth />
-<DemoCard repository={'sortable-list'}
+<DemoCard
+repository={'sortable-list'}
 angular={`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fsortable-list%2Fsortable-list.component.ts`}
 react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/sortable-list/index.tsx&initialpath=sortable-list`}
 ionic={`https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fsortable-list%2Fsortable-list.component.ts`}
@@ -283,7 +276,8 @@ Lists can be used to navigate a tree-like structure in an application. See [the 
 ### Actions on Selected Items
 
 <ImageGrid images={[MultiSelectImage]} regularWidth />
-<DemoCard repository={'multiselect-list'}
+<DemoCard
+repository={'multiselect-list'}
 angular={`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fmultiselect-list%2Fmultiselect-list.component.ts`}
 react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/multiselect-list/index.tsx&initialpath=multiselect-list`}
 ionic={`https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fmultiselect-list%2Fmultiselect-list.component.ts`}
@@ -316,8 +310,16 @@ When it comes to responsive design and progressive disclosure, it can be tricky 
 # Design Specifications
 
 <ImageGrid images={[Spec1Image, Spec2Image, Spec3Image, Spec4Image, Spec5Image, SpecTypographyImage]} regularWidth />
-<MaterialDesignDescription title={'Lists'} description={`For additional instructions, refer to Material Design's design specs`} url={`https://material.io/components/lists#specs`} />
-<MaterialDesignDescription title={'Data Tables'} description={`For additional instructions, refer to Material Design's design specs`} url={`https://material.io/components/data-tables#specs`} />
+<MaterialDesignDescription
+title={'Lists'}
+description={`For additional instructions, refer to Material Design's design specs`}
+url={`https://material.io/components/lists#specs`}
+/>
+<MaterialDesignDescription
+title={'Data Tables'}
+description={`For additional instructions, refer to Material Design's design specs`}
+url={`https://material.io/components/data-tables#specs`}
+/>
 <Divider />
 
 # Developers
