@@ -84,33 +84,6 @@ const AccordionDetails = withStyles(() => ({
     },
 }))(MuiAccordionDetails);
 
-export const DeveloperInstructionsPanel: React.FC = (): JSX.Element => {
-    const theme = useTheme();
-    const { selectedIcon: icon = emptyIcon } = useSelectedIcon();
-    const [activeFramework, setActiveFramework] = useState<Framework | undefined>(undefined);
-    const frameworks: Framework[] = ['angular', 'react', 'react-native'];
-
-    return (
-        <>
-            <Typography display={'block'} variant={'overline'} style={{ padding: theme.spacing(2) }}>
-                Developer Usage
-            </Typography>
-            <Divider />
-            {frameworks.map((framework) => (
-                <React.Fragment key={`instructions_${framework}`}>
-                    <DeveloperInstructionAccordion
-                        framework={framework}
-                        icon={icon}
-                        expanded={activeFramework === framework}
-                        onChange={(): void => setActiveFramework(activeFramework === framework ? undefined : framework)}
-                    />
-                    <Divider />
-                </React.Fragment>
-            ))}
-        </>
-    );
-};
-
 export type DeveloperAccordionProps = Omit<AccordionProps, 'children'> & {
     framework: Framework;
     icon: IconType;
@@ -173,5 +146,32 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
                 )}
             </AccordionDetails>
         </Accordion>
+    );
+};
+
+export const DeveloperInstructionsPanel: React.FC = (): JSX.Element => {
+    const theme = useTheme();
+    const { selectedIcon: icon = emptyIcon } = useSelectedIcon();
+    const [activeFramework, setActiveFramework] = useState<Framework | undefined>(undefined);
+    const frameworks: Framework[] = ['angular', 'react', 'react-native'];
+
+    return (
+        <>
+            <Typography display={'block'} variant={'overline'} style={{ padding: theme.spacing(2) }}>
+                Developer Usage
+            </Typography>
+            <Divider />
+            {frameworks.map((framework) => (
+                <React.Fragment key={`instructions_${framework}`}>
+                    <DeveloperInstructionAccordion
+                        framework={framework}
+                        icon={icon}
+                        expanded={activeFramework === framework}
+                        onChange={(): void => setActiveFramework(activeFramework === framework ? undefined : framework)}
+                    />
+                    <Divider />
+                </React.Fragment>
+            ))}
+        </>
     );
 };

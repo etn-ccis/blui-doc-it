@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { IconButton, Typography, makeStyles, createStyles, useMediaQuery, Theme } from '@material-ui/core';
-import Carousel from '@brainhubeu/react-carousel';
+import Carousel, { slidesToShowPlugin, infinitePlugin, arrowsPlugin } from '@brainhubeu/react-carousel';
 import * as Colors from '@pxblue/colors';
 
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
@@ -38,7 +38,7 @@ type CarouselCardProps = {
     title: string;
     description: string;
     icon?: JSX.Element;
-    onClick?: Function;
+    onClick?: () => void;
 };
 
 export const CarouselCard: React.FC<CarouselCardProps> = (props): JSX.Element => {
@@ -48,7 +48,7 @@ export const CarouselCard: React.FC<CarouselCardProps> = (props): JSX.Element =>
             className={classes.cardWrapper}
             style={{
                 height: props.height,
-                backgroundImage: `url(${props.backgroundImage})`,
+                backgroundImage: `url(${props.backgroundImage || ''})`,
                 cursor: props.onClick ? 'pointer' : 'default',
             }}
             onClick={(): void => {
@@ -95,28 +95,43 @@ export const CardCarousel: React.FC<CardCarouselProps> = (props): JSX.Element =>
         <>{props.children}</>
     ) : (
         <Carousel
+            plugins={[
+                {
+                    resolve: slidesToShowPlugin,
+                    options: {
+                        numberOfSlides: displayCount,
+                    },
+                },
+                {
+                    resolve: arrowsPlugin,
+                    options: {
+                        arrowLeft: showArrows ? (
+                            <IconButton color={'inherit'}>
+                                <ChevronLeft fontSize={'large'} />
+                            </IconButton>
+                        ) : undefined,
+                        arrowRight: showArrows ? (
+                            <IconButton color={'inherit'}>
+                                <ChevronRight fontSize={'large'} />
+                            </IconButton>
+                        ) : undefined,
+                        addArrowClickHandler: true,
+                    },
+                },
+            ].concat(
+                isArray && props.infinite
+                    ? [
+                          {
+                              resolve: infinitePlugin,
+                              options: {
+                                  // @ts-ignore
+                                  numberOfInfiniteClones: 3,
+                              },
+                          },
+                      ]
+                    : []
+            )}
             draggable={false}
-            infinite={isArray && props.infinite}
-            slidesPerPage={displayCount}
-            arrowLeft={
-                showArrows ? (
-                    <IconButton color={'inherit'}>
-                        <ChevronLeft fontSize={'large'} />
-                    </IconButton>
-                ) : (
-                    undefined
-                )
-            }
-            arrowRight={
-                showArrows ? (
-                    <IconButton color={'inherit'}>
-                        <ChevronRight fontSize={'large'} />
-                    </IconButton>
-                ) : (
-                    undefined
-                )
-            }
-            addArrowClickHandler
         >
             {props.children}
         </Carousel>

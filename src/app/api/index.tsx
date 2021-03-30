@@ -6,10 +6,7 @@ export const github = axios.create({
     timeout: 5000,
     headers: {
         Accept: 'application/vnd.github.v3+json',
-        Authorization: `token ${(process.env.REACT_APP_DOCIT_GITHUB_TOKEN || '')
-            .split('')
-            .reverse()
-            .join('')}`,
+        Authorization: `token ${(process.env.REACT_APP_DOCIT_GITHUB_TOKEN || '').split('').reverse().join('')}`,
     },
 });
 export const circleci = axios.create({
@@ -35,7 +32,7 @@ export const getBuildStatus = async (repository: string, branches: string[]): Pr
             results.push(
                 circleci.get(
                     `/${repository}/tree/${branch.replace('-', '')}?limit=1&filter=completed&circle-token=${
-                        process.env.REACT_APP_DOCIT_CIRCLECI_TOKEN
+                        process.env.REACT_APP_DOCIT_CIRCLECI_TOKEN || ''
                     }`
                 )
             );

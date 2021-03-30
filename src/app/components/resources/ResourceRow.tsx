@@ -68,7 +68,7 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
                     setVersion(npmVersion);
                 }
             };
-            loadVersion();
+            void loadVersion();
             return (): void => {
                 isMounted = false;
             };
@@ -99,9 +99,9 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
                                 variant={'subtitle2'}
                                 className={classes.version}
                                 onClick={(): void => {
-                                    window.open(`https://www.npmjs.com/package/${packageName}`, '_blank');
+                                    window.open(`https://www.npmjs.com/package/${packageName || ''}`, '_blank');
                                 }}
-                            >{`@${version}`}</Typography>
+                            >{`@${version || 'X.X.X'}`}</Typography>
                         )}
                         {small && buttons()}
                     </div>
