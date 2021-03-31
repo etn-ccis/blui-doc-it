@@ -1707,10 +1707,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@brainhubeu/react-carousel@^1.12.15":
-  version "1.19.26"
-  resolved "https://registry.yarnpkg.com/@brainhubeu/react-carousel/-/react-carousel-1.19.26.tgz#57de7b934596ede7a42ab07c46e5942574180447"
-  integrity sha512-+YO8cJrJEk+QDZTQM+i7ct5Ouy0LyoVHQD4fomdsV+3AQmWUkMVZNBYmxFMvhRQVFKreTTzyKuGPkhDKilL/CQ==
+"@brainhubeu/react-carousel@1.12.15":
+  version "1.12.15"
+  resolved "https://registry.yarnpkg.com/@brainhubeu/react-carousel/-/react-carousel-1.12.15.tgz#6a80f52c696c81917f07059da8f87148dc2cb1a0"
+  integrity sha512-+rf8yzDZMd9AObspSUIck3nQejDG1nQO1I3gdHrHaam5h1u+dx3Jbk9j5DkiyygppuNRsnkGNKCUje+GF8p0xQ==
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
@@ -2763,10 +2763,10 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
-"@types/brainhubeu__react-carousel@^2.0.0":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@types/brainhubeu__react-carousel/-/brainhubeu__react-carousel-2.0.2.tgz#f238255f3fecbab98d8a413303b4fa52aa924624"
-  integrity sha512-qmOfB2AcENaQWGI0SNgte8+4+sHMFtfaBpU0ks+YpbCIkKw0zow0pTLPVoFYvskPI7ieM+bYtO22XpkXUS7oUg==
+"@types/brainhubeu__react-carousel@^1.0.0":
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/@types/brainhubeu__react-carousel/-/brainhubeu__react-carousel-1.15.0.tgz#8cb1b6b182d9b00f37a0e5b922df4b8f8a690250"
+  integrity sha512-dUwOz4LkUhbqiGH8+ud8L1ygfNZ01Z6lmU0tJkikF51TH/9g14dg6cJE5tLnDCxkpnJm1/0xv0+aRYSsg1xvLg==
   dependencies:
     "@types/react" "*"
 
