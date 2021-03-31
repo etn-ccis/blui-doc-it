@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { IconButton, Typography, makeStyles, createStyles, useMediaQuery, Theme } from '@material-ui/core';
-import Carousel, { slidesToShowPlugin, infinitePlugin, arrowsPlugin } from '@brainhubeu/react-carousel';
+import Carousel from '@brainhubeu/react-carousel';
 import * as Colors from '@pxblue/colors';
 
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
 import '@brainhubeu/react-carousel/lib/style.css';
+
+// TODO: Strip out all of this carousel nonsense since we aren't using it...just use a traditional Grid
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -95,43 +97,24 @@ export const CardCarousel: React.FC<CardCarouselProps> = (props): JSX.Element =>
         <>{props.children}</>
     ) : (
         <Carousel
-            plugins={[
-                {
-                    resolve: slidesToShowPlugin,
-                    options: {
-                        numberOfSlides: displayCount,
-                    },
-                },
-                {
-                    resolve: arrowsPlugin,
-                    options: {
-                        arrowLeft: showArrows ? (
-                            <IconButton color={'inherit'}>
-                                <ChevronLeft fontSize={'large'} />
-                            </IconButton>
-                        ) : undefined,
-                        arrowRight: showArrows ? (
-                            <IconButton color={'inherit'}>
-                                <ChevronRight fontSize={'large'} />
-                            </IconButton>
-                        ) : undefined,
-                        addArrowClickHandler: true,
-                    },
-                },
-            ].concat(
-                isArray && props.infinite
-                    ? [
-                          {
-                              resolve: infinitePlugin,
-                              options: {
-                                  // @ts-ignore
-                                  numberOfInfiniteClones: 3,
-                              },
-                          },
-                      ]
-                    : []
-            )}
             draggable={false}
+            infinite={isArray && props.infinite}
+            slidesPerPage={displayCount}
+            arrowLeft={
+                showArrows ? (
+                    <IconButton color={'inherit'}>
+                        <ChevronLeft fontSize={'large'} />
+                    </IconButton>
+                ) : undefined
+            }
+            arrowRight={
+                showArrows ? (
+                    <IconButton color={'inherit'}>
+                        <ChevronRight fontSize={'large'} />
+                    </IconButton>
+                ) : undefined
+            }
+            addArrowClickHandler
         >
             {props.children}
         </Carousel>
