@@ -1,4 +1,4 @@
-import * as PXBThemes from '@pxblue/react-themes';
+import { blueDark } from '@pxblue/react-themes';
 import * as Colors from '@pxblue/colors';
 import { ThemeOptions } from '@material-ui/core';
 
@@ -8,9 +8,8 @@ import witch from '../../app/assets/themes/halloween/witch.png';
 import { Schedule } from './types';
 
 const HalloweenTheme: ThemeOptions = {
-    ...PXBThemes.blueDark,
     palette: {
-        ...PXBThemes.blueDark.palette,
+        ...blueDark.palette,
         primary: {
             light: Colors.orange[300],
             main: Colors.orange[500],
@@ -31,8 +30,8 @@ const HalloweenTheme: ThemeOptions = {
             hint: Colors.black[200],
         },
     },
+    typography: blueDark.typography,
     overrides: {
-        ...PXBThemes.blueDark.overrides,
         MuiAppBar: {
             colorDefault: {
                 color: Colors.black[50],
@@ -53,7 +52,6 @@ const HalloweenTheme: ThemeOptions = {
             },
         },
         MuiButton: {
-            ...PXBThemes.blueDark.overrides?.MuiButton,
             outlined: {},
             outlinedPrimary: {},
         },

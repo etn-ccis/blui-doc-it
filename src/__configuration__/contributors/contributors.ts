@@ -8,6 +8,7 @@ import KyleHarris from '../../app/assets/credits/kyle-harris.jpg';
 import AndrewPuhalla from '../../app/assets/credits/andrew-puhalla.jpeg';
 import ChinnaGurrala from '../../app/assets/credits/chinna-gurrala.jpeg';
 import AnjaliPatodia from '../../app/assets/credits/anjali-patodia.png';
+import MarianaBela from '../../app/assets/credits/mariana-bela.jpg';
 
 import { Contributor } from '../../__types__';
 
@@ -87,11 +88,16 @@ export const contributors: Contributor[] = [
     },
     {
         name: 'Kyle Harris',
-        description: 'Figma Stickersheet Components',
+        description: 'Figma Sticker Sheet Components',
         image: KyleHarris,
     },
     {
         name: 'Jean Perriault',
         description: 'Design Engineer',
+    },
+    {
+        name: 'Mariana Bela',
+        description: 'Figma Design Pattern Library',
+        image: MarianaBela,
     },
 ];

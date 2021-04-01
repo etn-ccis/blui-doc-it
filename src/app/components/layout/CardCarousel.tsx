@@ -6,6 +6,8 @@ import * as Colors from '@pxblue/colors';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
 import '@brainhubeu/react-carousel/lib/style.css';
 
+// TODO: Strip out all of this carousel nonsense since we aren't using it...just use a traditional Grid
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         cardWrapper: {
@@ -38,7 +40,7 @@ type CarouselCardProps = {
     title: string;
     description: string;
     icon?: JSX.Element;
-    onClick?: Function;
+    onClick?: () => void;
 };
 
 export const CarouselCard: React.FC<CarouselCardProps> = (props): JSX.Element => {
@@ -48,7 +50,7 @@ export const CarouselCard: React.FC<CarouselCardProps> = (props): JSX.Element =>
             className={classes.cardWrapper}
             style={{
                 height: props.height,
-                backgroundImage: `url(${props.backgroundImage})`,
+                backgroundImage: `url(${props.backgroundImage || ''})`,
                 cursor: props.onClick ? 'pointer' : 'default',
             }}
             onClick={(): void => {
@@ -103,18 +105,14 @@ export const CardCarousel: React.FC<CardCarouselProps> = (props): JSX.Element =>
                     <IconButton color={'inherit'}>
                         <ChevronLeft fontSize={'large'} />
                     </IconButton>
-                ) : (
-                    undefined
-                )
+                ) : undefined
             }
             arrowRight={
                 showArrows ? (
                     <IconButton color={'inherit'}>
                         <ChevronRight fontSize={'large'} />
                     </IconButton>
-                ) : (
-                    undefined
-                )
+                ) : undefined
             }
             addArrowClickHandler
         >

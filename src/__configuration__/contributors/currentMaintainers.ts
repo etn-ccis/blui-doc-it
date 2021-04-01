@@ -2,7 +2,7 @@ import HuayunHuang from '../../app/assets/credits/huayun-huang.jpg';
 import EvanMcLaughlin from '../../app/assets/credits/evan-mclaughlin.jpeg';
 import JosephBoyle from '../../app/assets/credits/joseph-boyle.png';
 import JeffeyGreiner from '../../app/assets/credits/jeffery-greiner.jpeg';
-import ThomasDailey from '../../app/assets/credits/thomas-dailey.png';
+import ThomasDailey from '../../app/assets/credits/thomas-dailey.jpg';
 import { Contributor } from '../../__types__';
 
 export const currentMaintainers: Contributor[] = [
@@ -40,8 +40,9 @@ export const currentMaintainers: Contributor[] = [
         name: 'Jeff Greiner',
         description: 'Quality Assurance',
         image: JeffeyGreiner,
-        info: `Jeff is a perfectionist. With over ${new Date().getFullYear() -
-            2006} years of experience in software testing and as a Software Engineer in Test, Jeff continues to be passionate about quality and the journey that it takes to produce the best results. When Jeff is not testing, he can be found doing home remodeling with his wife or turning wrenches.`,
+        info: `Jeff is a perfectionist. With over ${
+            new Date().getFullYear() - 2006
+        } years of experience in software testing and as a Software Engineer in Test, Jeff continues to be passionate about quality and the journey that it takes to produce the best results. When Jeff is not testing, he can be found doing home remodeling with his wife or turning wrenches.`,
         contacts: {
             github: 'https://github.com/jeffvg',
         },

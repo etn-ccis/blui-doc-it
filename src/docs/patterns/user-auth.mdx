@@ -81,17 +81,17 @@ User authentication contains four primary workflows:
 
 All of these workflows should follow the rules specified by our [forms and validation](/patterns/forms) pattern, and multi-step workflows should be connected using our [steppers](/patterns/steppers) pattern.
 
-<MaterialDesignDescription 
+<MaterialDesignDescription
     title={'Forms and Validation'}
     url={'/patterns/forms'}
     description={`Follow PX Blue's guideline for form controls.`}
-     avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+    avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
 />
-<MaterialDesignDescription 
+<MaterialDesignDescription
     title={'Steppers'}
     url={'/patterns/steppers'}
     description={`Follow PX Blue's guideline for navigating between pages.`}
-     avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+    avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
 />
 
 Your authentication and registration workflows should work equally well on different screen sizes. On mobile, these should be presented as full-screen layouts, whereas on desktop, they should be presented in a card centered on the screen as an [overlay](/patterns/overlay).
@@ -181,7 +181,11 @@ The majority of the joining-an-organization screens are the same regardless of t
         '3: Success: organization joined',
     ]}
 />
-<ImageGrid images={[JoinAnOrganizationDesktop]} caption={'A join-an-organization screen example on desktop.'} regularWidth />
+<ImageGrid
+    images={[JoinAnOrganizationDesktop]}
+    caption={'A join-an-organization screen example on desktop.'}
+    regularWidth
+/>
 
 ## Login
 
@@ -235,7 +239,12 @@ The login screen for an application should also present users with a way to rese
 
 <ImageGrid
     images={[ForgotPasswordEnterEmail, ForgotPasswordConfirmSent, ForgotPasswordNewPassword, ForgotPasswordWelcome]}
-    caption={['1: Enter email address', '2: Success: reset instructions sent', '3: Create a new assword', '4: Success: password reset']}
+    caption={[
+        '1: Enter email address',
+        '2: Success: reset instructions sent',
+        '3: Create a new assword',
+        '4: Success: password reset',
+    ]}
 />
 <ImageGrid images={[ResetPasswordDesktop]} caption={'A reset-password screen example on desktop.'} regularWidth />
 

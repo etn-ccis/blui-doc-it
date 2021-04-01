@@ -33,6 +33,7 @@ import { PXBlueColor } from '@pxblue/types';
 import { getRoadmap } from '../api';
 import { ErrorOutline } from '@material-ui/icons';
 import clsx from 'clsx';
+import { AVAILABLE_RELEASES, CURRENT_RELEASE } from '../../__configuration__/roadmap';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -110,7 +111,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const [typeFilter, setTypeFilter] = useState<ItemTypeFilter>('all');
     const [statusFilter, setStatusFilter] = useState<Status | 'all'>('all');
     const [frameworkFilter, setFrameworkFilter] = useState<FrameworkFilter>('all');
-    const [releaseFilter, setReleaseFilter] = useState<Release | 'all'>('R19');
+    const [releaseFilter, setReleaseFilter] = useState<Release>(CURRENT_RELEASE);
     const [roadmap, setRoadmap] = useState<RoadmapBucket[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
@@ -130,29 +131,22 @@ export const Roadmap: React.FC = (): JSX.Element => {
 
         setLoading(true);
         const loadRoadmap = async (): Promise<void> => {
-            const data = await getRoadmap();
+            const data = await getRoadmap(releaseFilter);
             if (isMounted) {
                 setRoadmap(data || []);
             }
             setLoading(false);
         };
-        loadRoadmap();
+        void loadRoadmap();
         return (): void => {
             isMounted = false;
         };
-    }, []);
-
-    const filterByRelease = (release: Release, item: any): boolean =>
-        (release === 'R16' && item.quarter === 'Q2' && item.year === 2020) ||
-        (release === 'R17' && item.quarter === 'Q3' && item.year === 2020) ||
-        (release === 'R18' && item.quarter === 'Q4' && item.year === 2020) ||
-        (release === 'R19' && item.quarter === 'Q1' && item.year === 2021) ||
-        (release === 'R20' && item.quarter === 'Q2' && item.year === 2021);
+    }, [releaseFilter, setRoadmap, setLoading]);
 
     const clearFilters = useCallback(() => {
         setTypeFilter('all');
         setFrameworkFilter('all');
-        setReleaseFilter('all');
+        setReleaseFilter(CURRENT_RELEASE);
         setStatusFilter('all');
     }, [setTypeFilter, setFrameworkFilter, setReleaseFilter, setStatusFilter]);
 
@@ -182,7 +176,6 @@ export const Roadmap: React.FC = (): JSX.Element => {
                             item.framework.includes(frameworkFilter) ||
                             item.framework.includes('all') ||
                             frameworkFilter === 'all') &&
-                        (filterByRelease(releaseFilter, item) || releaseFilter === 'all') &&
                         (item.status === statusFilter || statusFilter === 'all');
                     if (show) results++;
                     return show;
@@ -202,11 +195,11 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         key={`${item.name}_status`}
                         className={classes.tag}
                         label={status}
-                        fontColor={statusColor ? statusColor[500] : undefined}
+                        fontColor={statusColor ? statusColor[theme.palette.type === 'dark' ? 200 : 500] : undefined}
                         backgroundColor={
                             statusColor
                                 ? color(statusColor[500])
-                                      .fade(0.9)
+                                      .fade(theme.palette.type === 'dark' ? 0.8 : 0.9)
                                       .string()
                                 : undefined
                         }
@@ -269,12 +262,13 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         onChange={(e): void => setReleaseFilter(e.target.value as Release)}
                         className={classes.select}
                     >
-                        <MenuItem value={'all'}>Any Release</MenuItem>
-                        <MenuItem value={'R16'}>R16 (2Q20)</MenuItem>
-                        <MenuItem value={'R17'}>R17 (3Q20)</MenuItem>
-                        <MenuItem value={'R18'}>R18 (4Q20)</MenuItem>
-                        <MenuItem value={'R19'}>R19 (1Q21)</MenuItem>
-                        <MenuItem value={'R20'}>R20 (2Q21)</MenuItem>
+                        {AVAILABLE_RELEASES.map((release) => (
+                            <MenuItem key={release.name} value={release.name}>{`${
+                                release.name
+                            } (${release.quarter.split('').reverse().join('')}${release.year
+                                .toString()
+                                .substr(2)})`}</MenuItem>
+                        ))}
                     </Select>
                     <Select
                         value={statusFilter}

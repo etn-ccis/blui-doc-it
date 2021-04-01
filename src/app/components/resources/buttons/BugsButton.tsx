@@ -50,7 +50,7 @@ export const BugsButton: React.FC<BugsButtonProps> = (props) => {
                 setBugs(bugCount);
             }
         };
-        loadBugs();
+        void loadBugs();
 
         return (): void => {
             isMounted = false;

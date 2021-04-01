@@ -25,9 +25,7 @@ export const MayTheFourthSchedule: Schedule = {
                     ...PXBThemes.blue.overrides?.MuiAppBar,
                     colorPrimary: {
                         '& .MuiIconButton-colorInherit': {
-                            backgroundColor: color(Colors.darkBlack[100])
-                                .fade(0.3)
-                                .toString(),
+                            backgroundColor: color(Colors.darkBlack[100]).fade(0.3).toString(),
                         },
                     },
                     colorSecondary: {

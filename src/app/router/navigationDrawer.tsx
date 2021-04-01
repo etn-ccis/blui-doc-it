@@ -32,7 +32,7 @@ export const NavigationDrawer = (): JSX.Element => {
             if (item.hidden) {
                 continue;
             }
-            const fullURL = `${parentUrl}${item.url}`;
+            const fullURL = `${parentUrl}${item.url || ''}`;
             convertedItems.push({
                 title: item.title,
                 icon: depth === 0 ? item.icon : undefined,
@@ -54,7 +54,7 @@ export const NavigationDrawer = (): JSX.Element => {
                           dispatch({ type: TOGGLE_DRAWER, payload: false });
                       }
                     : undefined,
-                items: item.pages ? createNavItems(item.pages, `${parentUrl}${item.url}`, depth + 1) : undefined,
+                items: item.pages ? createNavItems(item.pages, `${parentUrl}${item.url || ''}`, depth + 1) : undefined,
             });
         }
         return convertedItems;
@@ -62,16 +62,12 @@ export const NavigationDrawer = (): JSX.Element => {
 
     const getDrawerNavItemActiveBackgroundColor = useCallback((): string | undefined => {
         if (activeDrawerFade) {
-            return color(theme.palette.primary.main)
-                .fade(activeDrawerFade)
-                .string();
+            return color(theme.palette.primary.main).fade(activeDrawerFade).string();
         } else if (theme.palette.type === 'light') {
             return undefined; // use the drawer default
         }
         // TODO: remove this logic when we publish the better dark theme
-        return color(theme.palette.primary.main)
-            .fade(0.8)
-            .string();
+        return color(theme.palette.primary.main).fade(0.8).string();
     }, [theme, activeDrawerFade]);
 
     useEffect(() => {

@@ -1,15 +1,12 @@
 import axios from 'axios';
-import { RoadmapBucket } from '../../__types__';
+import { Release, RoadmapBucket } from '../../__types__';
 
 export const github = axios.create({
     baseURL: 'https://api.github.com/',
     timeout: 5000,
     headers: {
         Accept: 'application/vnd.github.v3+json',
-        Authorization: `token ${(process.env.REACT_APP_DOCIT_GITHUB_TOKEN || '')
-            .split('')
-            .reverse()
-            .join('')}`,
+        Authorization: `token ${(process.env.REACT_APP_DOCIT_GITHUB_TOKEN || '').split('').reverse().join('')}`,
     },
 });
 export const circleci = axios.create({
@@ -35,7 +32,7 @@ export const getBuildStatus = async (repository: string, branches: string[]): Pr
             results.push(
                 circleci.get(
                     `/${repository}/tree/${branch.replace('-', '')}?limit=1&filter=completed&circle-token=${
-                        process.env.REACT_APP_DOCIT_CIRCLECI_TOKEN
+                        process.env.REACT_APP_DOCIT_CIRCLECI_TOKEN || ''
                     }`
                 )
             );
@@ -88,9 +85,9 @@ export const getNpmVersion = async (packageName: string): Promise<string | undef
     }
 };
 
-export const getRoadmap = async (): Promise<RoadmapBucket[] | undefined> => {
+export const getRoadmap = async (release: Release): Promise<RoadmapBucket[] | undefined> => {
     try {
-        const response = await roadmap.get('/R19Roadmap.json');
+        const response = await roadmap.get(`/${release}Roadmap.json`);
         if (response && response.status === 200) return response.data;
         return undefined;
     } catch (thrown) {

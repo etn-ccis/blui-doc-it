@@ -63,13 +63,10 @@ const rows: TypographyInfo[] = [
     {
         variant: 'caption',
         fontWeight: 'Regular / 400',
-        lineHeight: '20dp / 1.67em',
     },
     {
         variant: 'overline',
         fontWeight: 'Semibold / 600',
-        fontSize: '12dp / 0.75rem',
-        lineHeight: '32dp / 2.67em',
     },
 ];
 
