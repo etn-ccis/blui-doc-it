@@ -2,7 +2,6 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, NavItem } from '@pxblue/react-components';
 import { PxblueSmall } from '@pxblue/icons-mui';
-import * as Colors from '@pxblue/colors';
 import color from 'color';
 
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
@@ -63,11 +62,8 @@ export const NavigationDrawer = (): JSX.Element => {
     const getDrawerNavItemActiveBackgroundColor = useCallback((): string | undefined => {
         if (activeDrawerFade) {
             return color(theme.palette.primary.main).fade(activeDrawerFade).string();
-        } else if (theme.palette.type === 'light') {
-            return undefined; // use the drawer default
         }
-        // TODO: remove this logic when we publish the better dark theme
-        return color(theme.palette.primary.main).fade(0.8).string();
+        return undefined;
     }, [theme, activeDrawerFade]);
 
     useEffect(() => {
@@ -86,10 +82,7 @@ export const NavigationDrawer = (): JSX.Element => {
                 },
             }}
             variant={isMobile || isLandingPage ? 'temporary' : 'permanent'}
-            nestedBackgroundColor={theme.palette.type === 'light' ? undefined : Colors.darkBlack[500]}
             activeItemBackgroundColor={getDrawerNavItemActiveBackgroundColor()}
-            activeItemFontColor={theme.palette.type === 'light' ? undefined : theme.palette.primary.light}
-            activeItemIconColor={theme.palette.type === 'light' ? undefined : theme.palette.primary.light}
             itemFontColor={theme.palette.text.primary}
             divider={false}
             activeItem={activeRoute}
@@ -114,7 +107,6 @@ export const NavigationDrawer = (): JSX.Element => {
                             display: 'flex',
                             alignItems: 'center',
                             cursor: 'pointer',
-                            color: theme.palette.primary.contrastText,
                         }}
                         onClick={(): void => {
                             history.push('/');
