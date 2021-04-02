@@ -8,7 +8,7 @@ import { Schedule } from './types';
 
 export const EarthDaySchedule: Schedule = {
     start: new Date(0, 3, 20), // Apr 20
-    end: new Date(1, 3, 25), // Apr 24
+    end: new Date(0, 3, 25), // Apr 24
     config: {
         theme: {
             ...PXBThemes.blue,
