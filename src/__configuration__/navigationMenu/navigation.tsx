@@ -310,6 +310,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'FAQ'} markdown={Docs.Community.FAQ} />,
             },
             {
+                title: 'Attributions',
+                url: '/attributions',
+                component: <MarkdownPage title={'Attributions'} markdown={Docs.Community.Attributions} />,
+            },
+            {
                 title: 'Our Team',
                 url: '/our-team',
                 component: <MarkdownPage title={'Our Team'} markdown={Docs.Community.OurTeam} background={'dark'} />,
