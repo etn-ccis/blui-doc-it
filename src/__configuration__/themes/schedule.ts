@@ -11,6 +11,7 @@ import { KwanzaaSchedule } from './kwanzaa';
 import { NewYearsSchedule } from './new-years';
 import { SpringFestivalSchedule } from './spring-festival';
 import { StPatricksDaySchedule } from './st-patricks-day';
+import { EarthDaySchedule } from './earth-day';
 
 /**
  * Add more holiday themes here.
@@ -19,6 +20,7 @@ import { StPatricksDaySchedule } from './st-patricks-day';
  * * Feb 11 - Feb 18: Spring Festival (changes each year)
  * * Mar 7 - Mar 9: Women's Day
  * * Mar 16 - Mar 18: St. Patrick's Day
+ * * Apr 20 - Apr 24: Earth Day
  * * May 3 - May 5: May the Fourth Day
  * * Oct 14 - Nov 2: Halloween
  * * Nov 11 - Nov 17: Diwali (changes each year)
@@ -40,6 +42,7 @@ export const schedule: Schedule[] = [
     NewYearsSchedule,
     SpringFestivalSchedule,
     StPatricksDaySchedule,
+    EarthDaySchedule,
 ];
 
 /**
