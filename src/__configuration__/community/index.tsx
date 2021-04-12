@@ -75,7 +75,7 @@ export const links = [
             </span>
         ),
         background: {
-            color: BrandingColors.navy[300],
+            color: BrandingColors.pine[300],
         },
     },
     {
@@ -88,7 +88,7 @@ export const links = [
             </span>
         ),
         background: {
-            color: BrandingColors.pine[300],
+            color: BrandingColors.navy[300],
         },
     },
     {
