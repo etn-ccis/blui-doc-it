@@ -223,10 +223,6 @@
                     "url": "/faq"
                 },
                 {
-                    "title": "Attributions",
-                    "url": "/attributions"
-                },
-                {
                     "title": "Our Team",
                     "url": "/our-team"
                 },
@@ -247,6 +243,10 @@
         {
             "title": "Release Notes",
             "url": "/release-notes"
+        },
+        {
+            "title": "Attributions",
+            "url": "/attributions"
         }
     ]
 }

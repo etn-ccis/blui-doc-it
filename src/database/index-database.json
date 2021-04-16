@@ -79,7 +79,6 @@
         "request": [{ "/community/features": 1 }],
         "features": [{ "/community/features": 1 }],
         "faq": [{ "/community/faq": 1 }],
-        "attributions": [{ "/community/attributions": 1 }],
         "our": [{ "/community/our-team": 1 }],
         "team": [{ "/community/our-team": 1 }],
         "contact": [{ "/community/contactus": 1 }],
@@ -87,7 +86,8 @@
         "resources": [{ "/resources": 1 }],
         "roadmap": [{ "/roadmap": 1 }],
         "release": [{ "/release-notes": 1 }],
-        "notes": [{ "/release-notes": 1 }]
+        "notes": [{ "/release-notes": 1 }],
+        "attributions": [{ "/attributions": 1 }]
     },
     "text": {
         "0": [
@@ -179,7 +179,6 @@
             { "/community/bugs": 1 },
             { "/community/features": 1 },
             { "/community/faq": 1 },
-            { "/community/attributions": 1 },
             { "/community/our-team": 1 },
             { "/community/contactus": 1 }
         ],
@@ -371,8 +370,7 @@
             { "/community/features": 5 },
             { "/community/contactus": 5 },
             { "/community/bugs": 4 },
-            { "/development/cli": 3 },
-            { "/community/attributions": 1 }
+            { "/development/cli": 3 }
         ],
         "power": [
             { "/overview": 5 },
@@ -570,8 +568,7 @@
             { "/patterns/steppers": 4 },
             { "/community/contactus": 4 },
             { "/patterns/empty-states": 3 },
-            { "/community/features": 3 },
-            { "/community/attributions": 1 }
+            { "/community/features": 3 }
         ],
         "mobile": [
             { "/get-started/mobile": 15 },
@@ -668,8 +665,7 @@
             { "/design/websites": 1 },
             { "/patterns/visualizations": 1 },
             { "/style/iconography": 1 },
-            { "/style/typography": 1 },
-            { "/community/attributions": 1 }
+            { "/style/typography": 1 }
         ],
         "will": [
             { "/development/frameworks-mobile/react-native": 13 },
@@ -1031,8 +1027,7 @@
             { "/patterns/forms": 1 },
             { "/patterns/internationalization": 1 },
             { "/patterns/navigation": 1 },
-            { "/community/bugs": 1 },
-            { "/community/attributions": 1 }
+            { "/community/bugs": 1 }
         ],
         "new": [
             { "/get-started/new-project": 5 },
@@ -1238,7 +1233,6 @@
             { "/development/frameworks-web/angular": 6 },
             { "/development/frameworks-mobile/react-native": 6 },
             { "/design/accessibility": 6 },
-            { "/community/attributions": 6 },
             { "/development/frameworks-web/react": 5 },
             { "/design/intro": 5 },
             { "/development/frameworks-mobile/ionic": 4 },
@@ -1651,7 +1645,6 @@
             { "/development/frameworks-web/react": 1 },
             { "/patterns/steppers": 1 },
             { "/style/color": 1 },
-            { "/community/attributions": 1 },
             { "/community/contactus": 1 }
         ],
         "material": [
@@ -2447,8 +2440,7 @@
             { "/overview": 2 },
             { "/style/themes": 1 },
             { "/community/innersourcing": 1 },
-            { "/community/bugs": 1 },
-            { "/community/attributions": 1 }
+            { "/community/bugs": 1 }
         ],
         "provide": [
             { "/community/faq": 4 },
@@ -2603,7 +2595,6 @@
             { "/community/faq": 10 },
             { "/get-started/new-project": 6 },
             { "/development/cli": 5 },
-            { "/community/attributions": 5 },
             { "/design/intro": 3 },
             { "/design/project-identity": 3 },
             { "/overview": 2 },
@@ -2853,8 +2844,7 @@
             { "/style/illustrations": 1 },
             { "/style/themes": 1 },
             { "/community/license": 1 },
-            { "/community/features": 1 },
-            { "/community/attributions": 1 }
+            { "/community/features": 1 }
         ],
         "colors": [
             { "/style/color": 20 },
@@ -3286,7 +3276,6 @@
             { "/style/themes": 6 },
             { "/patterns/internationalization": 5 },
             { "/community/faq": 5 },
-            { "/community/attributions": 5 },
             { "/patterns/loading": 4 },
             { "/style/illustrations": 4 },
             { "/community/innersourcing": 4 },
@@ -3407,8 +3396,7 @@
             { "/style/iconography": 1 },
             { "/style/illustrations": 1 },
             { "/community/license": 1 },
-            { "/community/innersourcing": 1 },
-            { "/community/attributions": 1 }
+            { "/community/innersourcing": 1 }
         ],
         "strictly": [{ "/get-started/new-project": 1 }, { "/get-started/mobile": 1 }],
         "devices": [
@@ -7107,7 +7095,6 @@
             { "/development/frameworks-web/react": 8 },
             { "/design/project-identity": 3 },
             { "/community/faq": 2 },
-            { "/community/attributions": 2 },
             { "/community/features": 1 }
         ],
         "order": [
@@ -7157,8 +7144,7 @@
             { "/patterns/internationalization": 1 },
             { "/style/typography": 1 },
             { "/community/license": 1 },
-            { "/community/faq": 1 },
-            { "/community/attributions": 1 }
+            { "/community/faq": 1 }
         ],
         "test": [
             { "/development/testing": 37 },
@@ -8709,8 +8695,7 @@
             { "/community/faq": 3 },
             { "/design/intro": 2 },
             { "/patterns/internationalization": 1 },
-            { "/community/license": 1 },
-            { "/community/attributions": 1 }
+            { "/community/license": 1 }
         ],
         "figma": [
             { "/design/intro": 5 },
@@ -9001,8 +8986,7 @@
             { "/design/accessibility": 2 },
             { "/design/anatomy": 1 },
             { "/patterns/navigation": 1 },
-            { "/patterns/user-auth": 1 },
-            { "/community/attributions": 1 }
+            { "/patterns/user-auth": 1 }
         ],
         "increasing": [{ "/design/anatomy": 1 }],
         "members": [{ "/design/anatomy": 1 }],
@@ -10044,7 +10028,7 @@
             { "/patterns/steppers": 1 }
         ],
         "nav": [{ "/patterns/navigation": 2 }, { "/patterns/account-menu": 1 }],
-        "appbar": [{ "/patterns/appbar": 3 }, { "/patterns/lists": 1 }, { "/community/attributions": 1 }],
+        "appbar": [{ "/patterns/appbar": 3 }, { "/patterns/lists": 1 }],
         "collapse": [{ "/patterns/appbar": 1 }],
         "toolbar": [{ "/patterns/appbar": 7 }],
         "banner": [{ "/patterns/appbar": 2 }],
@@ -10748,7 +10732,7 @@
         "communication": [{ "/style/color": 1 }],
         "alerts": [{ "/style/color": 3 }],
         "attention": [{ "/style/color": 2 }],
-        "gold": [{ "/style/color": 2 }, { "/community/attributions": 1 }],
+        "gold": [{ "/style/color": 2 }],
         "tripped": [{ "/style/color": 1 }],
         "electrical": [{ "/style/color": 1 }],
         "confused": [{ "/style/color": 1 }],
@@ -11060,34 +11044,6 @@
         "achievable": [{ "/community/faq": 1 }],
         "valuable": [{ "/community/faq": 1 }],
         "discussion": [{ "/community/faq": 1 }],
-        "attribution": [{ "/community/attributions": 1 }],
-        "credits": [{ "/community/attributions": 1 }],
-        "attributions": [{ "/community/attributions": 2 }],
-        "cc": [{ "/community/attributions": 1 }],
-        "st": [{ "/community/attributions": 1 }],
-        "patricks": [{ "/community/attributions": 1 }],
-        "day": [{ "/community/attributions": 3 }, { "/community/contactus": 1 }],
-        "leaf": [{ "/community/attributions": 1 }],
-        "clover": [{ "/community/attributions": 1 }],
-        "alexander": [{ "/community/attributions": 1 }],
-        "skowalsky": [{ "/community/attributions": 1 }],
-        "noun": [{ "/community/attributions": 5 }],
-        "saint": [{ "/community/attributions": 1 }],
-        "patrick": [{ "/community/attributions": 1 }],
-        "isabel": [{ "/community/attributions": 2 }],
-        "mart": [{ "/community/attributions": 1 }],
-        "nez": [{ "/community/attributions": 1 }],
-        "pot": [{ "/community/attributions": 1 }],
-        "horseshoe": [{ "/community/attributions": 1 }],
-        "nikita": [{ "/community/attributions": 1 }],
-        "kozin": [{ "/community/attributions": 1 }],
-        "lucky": [{ "/community/attributions": 1 }],
-        "coin": [{ "/community/attributions": 1 }],
-        "erin": [{ "/community/attributions": 1 }],
-        "agnoli": [{ "/community/attributions": 1 }],
-        "earth": [{ "/community/attributions": 1 }],
-        "tezar": [{ "/community/attributions": 1 }],
-        "tantular": [{ "/community/attributions": 1 }],
         "history": [{ "/community/our-team": 2 }],
         "member": [{ "/community/our-team": 1 }],
         "recruit": [{ "/community/our-team": 1 }],
@@ -11120,6 +11076,7 @@
         "regarding": [{ "/community/contactus": 1 }],
         "com": [{ "/community/contactus": 1 }],
         "inquiries": [{ "/community/contactus": 1 }],
+        "day": [{ "/community/contactus": 1 }],
         "hearing": [{ "/community/contactus": 1 }]
     },
     "keyword": {
@@ -11374,8 +11331,6 @@
         "faq": [{ "/community/faq": 1 }],
         "question": [{ "/community/faq": 1 }],
         "answers": [{ "/community/faq": 1 }],
-        "attribution": [{ "/community/attributions": 1 }],
-        "credits": [{ "/community/attributions": 1 }],
         "about": [{ "/community/our-team": 1 }],
         "history": [{ "/community/our-team": 1 }],
         "team": [{ "/community/our-team": 1 }],
