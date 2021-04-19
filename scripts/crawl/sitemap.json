@@ -243,6 +243,10 @@
         {
             "title": "Release Notes",
             "url": "/release-notes"
+        },
+        {
+            "title": "Attributions",
+            "url": "/attributions"
         }
     ]
 }

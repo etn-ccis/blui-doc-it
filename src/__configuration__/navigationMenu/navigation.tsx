@@ -336,6 +336,12 @@ export const pageDefinitions: SimpleNavItem[] = [
         url: '/release-notes',
         component: <ReleaseNotes />,
     },
+    {
+        title: 'Attributions',
+        url: '/attributions',
+        hidden: true,
+        component: <MarkdownPage title={'Attributions'} markdown={Docs.Community.Attributions} />,
+    },
 ];
 
 export const pageRedirects: RedirectItem[] = [

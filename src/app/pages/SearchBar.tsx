@@ -25,6 +25,7 @@ import indexDatabase from '../../database/index-database.json';
 import { useQueryString } from '../hooks/useQueryString';
 import { usePrevious } from '../hooks/usePrevious';
 import clsx from 'clsx';
+import ReactGA from 'react-ga';
 
 export type SearchbarProps = AppBarProps;
 
@@ -112,12 +113,14 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                 (!currentQueryString ||
                     (currentQueryString && currentQueryString[0] !== encodeURIComponent(searchQuery)))
             ) {
+                const newSearchUrl = `${location.search
+                    .replace(/(&?search=.+?)(&.+)*$/g, '$2')
+                    .replace(/^\?&/, '?')}&search=${encodeURIComponent(searchQuery)}`;
                 history.push({
                     pathname: location.pathname,
-                    search: `${location.search
-                        .replace(/(&?search=.+?)(&.+)*$/g, '$2')
-                        .replace(/^\?&/, '?')}&search=${encodeURIComponent(searchQuery)}`,
+                    search: newSearchUrl,
                 });
+                ReactGA.pageview(`${location.pathname}${newSearchUrl}`);
             }
         },
         [history, location]

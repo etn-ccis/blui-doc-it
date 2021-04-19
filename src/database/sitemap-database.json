@@ -173,5 +173,6 @@
     },
     "/resources": { "title": "Resources" },
     "/roadmap": { "title": "Roadmap" },
-    "/release-notes": { "title": "Release Notes" }
+    "/release-notes": { "title": "Release Notes" },
+    "/attributions": { "title": "Attributions" }
 }

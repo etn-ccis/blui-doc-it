@@ -86,7 +86,8 @@
         "resources": [{ "/resources": 1 }],
         "roadmap": [{ "/roadmap": 1 }],
         "release": [{ "/release-notes": 1 }],
-        "notes": [{ "/release-notes": 1 }]
+        "notes": [{ "/release-notes": 1 }],
+        "attributions": [{ "/attributions": 1 }]
     },
     "text": {
         "0": [
