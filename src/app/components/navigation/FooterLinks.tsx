@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         hotLinks: {
-            flex: '2 2 0px',
+            flex: '1 1 0px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -45,8 +45,8 @@ const useStyles = makeStyles((theme: Theme) =>
 export const FooterLinks: React.FC = (): JSX.Element => {
     const theme = useTheme();
     const classes = useStyles();
-    const singleColumn = useMediaQuery('(max-width:679px)');
-    const xxs = useMediaQuery('(max-width:429px)');
+    const singleColumn = useMediaQuery('(max-width:928px)');
+    const xxs = useMediaQuery('(max-width:614px)');
     const padding = xxs ? theme.spacing(2) : singleColumn ? theme.spacing(4) : theme.spacing(8);
     return (
         <div className={classes.root} style={{ textAlign: singleColumn ? 'center' : 'left' }}>
@@ -66,7 +66,7 @@ export const FooterLinks: React.FC = (): JSX.Element => {
 
             {/* Section 2: Quick Links */}
             <div className={classes.hotLinks} style={{ minWidth: xxs ? '100%' : '', padding: padding }}>
-                <div style={{ width: xxs ? '100%' : 300, columnCount: xxs ? 1 : 2, columnGap: padding }}>
+                <div style={{ width: xxs ? '100%' : 550, columnCount: xxs ? 1 : 3, columnGap: padding }}>
                     <NavLink
                         to={'/overview'}
                         title={'What is PX Blue?'}
@@ -92,6 +92,24 @@ export const FooterLinks: React.FC = (): JSX.Element => {
                         hoverColor={Colors.white[50]}
                     />
                     <NavLink
+                        to={'https://pxblue-components.github.io/'}
+                        title={'Component Libraries'}
+                        className={classes.navLink}
+                        hoverColor={Colors.white[50]}
+                    />
+                    <NavLink
+                        to={'https://www.figma.com/community/file/852558784352181868'}
+                        title={'Figma Sticker Sheet'}
+                        className={classes.navLink}
+                        hoverColor={Colors.white[50]}
+                    />
+                    <NavLink
+                        to={'/attributions'}
+                        title={'Image Attributions'}
+                        className={classes.navLink}
+                        hoverColor={Colors.white[50]}
+                    />
+                    <NavLink
                         to={'/resources'}
                         title={'Resources'}
                         className={classes.navLink}
@@ -109,9 +127,16 @@ export const FooterLinks: React.FC = (): JSX.Element => {
             {!singleColumn && <div className={classes.divider} />}
 
             {/* Section 3: Contact Us */}
-            <div style={{ flex: '1 0 auto', minWidth: xxs ? '100%' : 250, padding: padding, color: Colors.white[100] }}>
+            <div
+                style={{
+                    flex: '1 1 0px',
+                    minWidth: singleColumn ? '100%' : 250,
+                    padding: padding,
+                    color: Colors.white[100],
+                }}
+            >
                 {/* <Typography variant={'subtitle1'}>Connect with us</Typography> */}
-                <div style={{ color: Colors.white[500], marginTop: theme.spacing(1) }}>
+                <div style={{ color: Colors.white[500], marginTop: theme.spacing(1), textAlign: 'center' }}>
                     <Eaton
                         className={classes.socialIcon}
                         style={{ fontSize: 120 }}

@@ -310,11 +310,6 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'FAQ'} markdown={Docs.Community.FAQ} />,
             },
             {
-                title: 'Attributions',
-                url: '/attributions',
-                component: <MarkdownPage title={'Attributions'} markdown={Docs.Community.Attributions} />,
-            },
-            {
                 title: 'Our Team',
                 url: '/our-team',
                 component: <MarkdownPage title={'Our Team'} markdown={Docs.Community.OurTeam} background={'dark'} />,
@@ -340,6 +335,12 @@ export const pageDefinitions: SimpleNavItem[] = [
         title: 'Release Notes',
         url: '/release-notes',
         component: <ReleaseNotes />,
+    },
+    {
+        title: 'Attributions',
+        url: '/attributions',
+        hidden: true,
+        component: <MarkdownPage title={'Attributions'} markdown={Docs.Community.Attributions} />,
     },
 ];
 
