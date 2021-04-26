@@ -17,3 +17,9 @@
 .headline:not(:first-child) .MuiIconButton-root:active .MuiSvgIcon-root {
     opacity: 0.5;
 }
+
+@media (hover: none) {
+    .headline:not(:first-child) .headline-text .MuiSvgIcon-root {
+        opacity: 0.25;
+    }
+}
