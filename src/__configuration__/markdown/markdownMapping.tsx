@@ -9,6 +9,7 @@ import {
     Theme,
     createStyles,
     useTheme,
+    IconButton,
 } from '@material-ui/core';
 import { Link as LinkIcon } from '@material-ui/icons';
 import { Link, LinkProps } from 'react-router-dom';
@@ -75,10 +76,6 @@ const Headline: React.FC<Headline> = ({
     return (
         <div
             className={clsx(className, 'headline')}
-            onClick={(): void => {
-                copyTextToClipboard(`${window.location.origin}${window.location.pathname}#${hash}`);
-                setOnCopy(true);
-            }}
             {...otherDivProps}
             style={{ ...REGULAR_WIDTH_STYLE, ...otherDivProps.style }}
         >
@@ -88,16 +85,21 @@ const Headline: React.FC<Headline> = ({
                 color={'primary'}
                 component={'span'}
                 {...otherTypographyProps}
-                style={{ hyphens: 'auto', display: 'flex', ...otherTypographyProps.style }}
+                className={'headline-text'}
+                style={{ hyphens: 'auto', ...otherTypographyProps.style }}
             >
                 {otherTypographyProps.children}
-                <LinkIcon
-                    color={'action'}
-                    style={{ marginLeft: 16, alignSelf: 'center' }}
-                    titleAccess={'copy to clipboard'}
-                    fontSize={'inherit'}
-                    {...otherSvgIconProps}
-                />
+                <IconButton
+                    onClick={(): void => {
+                        copyTextToClipboard(`${window.location.origin}${window.location.pathname}#${hash}`);
+                        setOnCopy(true);
+                    }}
+                    style={{ position: 'relative', right: -8 }}
+                    size={'small'}
+                    color={'primary'}
+                >
+                    <LinkIcon titleAccess={'copy to clipboard'} {...otherSvgIconProps} />
+                </IconButton>
             </Typography>
             {onCopy && (
                 <Snackbar
