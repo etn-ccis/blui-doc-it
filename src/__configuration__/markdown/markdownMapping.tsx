@@ -94,7 +94,7 @@ const Headline: React.FC<Headline> = ({
                         copyTextToClipboard(`${window.location.origin}${window.location.pathname}#${hash}`);
                         setOnCopy(true);
                     }}
-                    style={{ position: 'relative', right: -8 }}
+                    style={{ marginLeft: 8 }}
                     size={'small'}
                     color={'primary'}
                 >
