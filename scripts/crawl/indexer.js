@@ -129,7 +129,7 @@ function transformToArray(str) {
         //         let caption = g1.trim();
         //         if (caption.startsWith('[')) caption = caption.substr(1, caption.length - 2);
         //         return caption;
-        //     })            
+        //     })
         //     return `(caption: ${str.trim()})`;
         // })
         .replace(/<[\/]?[a-z].+?>/gim, ' ') // take out all the native tags <xxx> and </xxx>
@@ -137,7 +137,7 @@ function transformToArray(str) {
         .replace(/<!--[\s]*?((?!keywords:).)*?[\s]*?-->/gi, ' ') // omit the comments except for keywords
         // .replace(/<!--[\s]*?(keywords:)(.*?)[\s]*?-->/gi, '$2') // replace keyword comments
         .replace(/\[(.*?)\]\(.*?\)/g, '$1'); // replace all the markdown links [text](url) into text
-        // .replace(/[!@\?#\$%\^&\*\(\)\-\\\|\[\]\+`~\.\,\?<>\{\}/":;]/gim, ' ') // replace any special characters
+    // .replace(/[!@\?#\$%\^&\*\(\)\-\\\|\[\]\+`~\.\,\?<>\{\}/":;]/gim, ' ') // replace any special characters
     return tokenizer.tokenize(str); // will take out special chars and split using spaces
 }
 
