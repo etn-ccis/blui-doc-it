@@ -32,6 +32,7 @@ import LocalListActionsImage from '../../app/assets/design-patterns/lists/local-
 import MultiSelectImage from '../../app/assets/design-patterns/lists/multi-select-list.png';
 import NavigateListImage1 from '../../app/assets/design-patterns/lists/navigate-list-1.png';
 import NavigateListImage2 from '../../app/assets/design-patterns/lists/navigate-list-2.png';
+import HoverActionsImage from '../../app/assets/design-patterns/lists/hover-actions.gif';
 
 <!-- Specs -->
 
@@ -265,6 +266,16 @@ Drag and drop is a special case for list sorting. It re-orders the items in a li
 If there are actions that you need to perform on individual list items, you may add icon buttons or an action menu. If you have three or fewer actions, they can be represented by individual icon buttons. If there are more than three, you should move them into an action menu.
 
 > If your entire list item is clickable, you should not include local list actions, as the two interactions can interfere with one another.
+
+On desktop applications, you may use hover events to display applicable list actions. Hover list actions can save spaces, leaving more room for displaying static information.
+
+<ImageGrid
+    images={[HoverActionsImage]}
+    caption={
+        'Hover actions can save more room on a desktop application, and save your application from repeated columns of action buttons; but the nature of it prevents this pattern from being used over touch screen devices like mobile phones and tablets.'
+    }
+    regularWidth
+/>
 
 ### Navigating Down a Tree Structure
 
