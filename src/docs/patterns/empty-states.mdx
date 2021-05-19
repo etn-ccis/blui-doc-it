@@ -3,6 +3,8 @@ import Banner from '../../app/assets/design-patterns/empty-states/empty-state-ba
 import Image1 from '../../app/assets/design-patterns/empty-states/empty-state-variations.png';
 import DesktopImage from '../../app/assets/design-patterns/empty-states/empty-state-desktop.png';
 import ElementImage from '../../app/assets/design-patterns/empty-states/empty-state-element.png';
+import DontDistractImage from '../../app/assets/design-patterns/empty-states/dont-distract.png';
+import DoEncourageImage from '../../app/assets/design-patterns/empty-states/do-encourage.png';
 import Specs1Image from '../../app/assets/design-patterns/empty-states/specs-1.png';
 import Specs2Image from '../../app/assets/design-patterns/empty-states/specs-2.png';
 
@@ -37,6 +39,7 @@ At times, there may be areas of your application that do not have data available
             { title: 'Introduction', hash: '#empty-states' },
             { title: 'Common Use Cases', hash: '#common-use-cases' },
             { title: 'Anatomy', hash: '#anatomy' },
+            { title: 'Behavior', hash: '#behavior' },
             { title: 'Design Specifications', hash: '#design-specifications' },
             { title: 'Developers', hash: '#developers' },
         ]}
@@ -86,6 +89,25 @@ In the most common cases, Empty States should be used full-screen as the only co
 ### Element-level
 
 While less common, empty states can also be used as an indicator for individual sections of a page rather than the entire page (such as a single card having no data on a dashboard / overview screen). In these cases, it may be appropriate to use a smaller icon and text depending on the available space.
+
+<Divider />
+
+# Behavior
+
+The empty state pattern should communicate to the users clearly about:
+
+-   What they are looking at: What data can possibly show up if the dataset is not empty.
+-   Why they end up here: What they did previously that causes the dataset to be empty, if any.
+-   How to get out of here: What actions do they need to take for data to populate.
+
+<ImageGrid
+    images={[DontDistractImage, DoEncourageImage]}
+    caption={
+        'Do not use table headers and paginations to distract your user as they are not in active use. Instead, provide instructions to help your user out of the empty state situation.'
+    }
+/>
+
+Empty states can also be a great place to express your project identities, especially if your application is designed to be consumer-facing. See [Project Identity](/design/project-identity#illustrations) for details.
 
 <Divider />
 
