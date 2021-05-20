@@ -94,20 +94,20 @@ While less common, empty states can also be used as an indicator for individual 
 
 # Behavior
 
-The empty state pattern should communicate to the users clearly about:
+The empty state should clearly communicate to users:
 
--   What they are looking at: What data can possibly show up if the dataset is not empty.
--   Why they end up here: What they did previously that causes the dataset to be empty, if any.
--   How to get out of here: What actions do they need to take for data to populate.
+-   What they are looking at: What data will be present if the dataset is not empty?
+-   Why the state is empty: What actions (or inactions) did they perform that caused the dataset to be empty?
+-   How to get the data: What actions do they need to take to populate the data?
 
 <ImageGrid
     images={[DontDistractImage, DoEncourageImage]}
     caption={
-        'Do not use table headers and paginations to distract your user as they are not in active use. Instead, provide instructions to help your user out of the empty state situation.'
+        'Do not display table headers or pagination when datasets are empty as they can be distracting to users. Instead, provide instructions to help your user out of the empty state situation.'
     }
 />
 
-Empty states can also be a great place to express your project identities, especially if your application is designed to be consumer-facing. See [Project Identity](/design/project-identity#illustrations) for details.
+Empty states can also be a great place to express your project identity, especially if your application is designed to be consumer-facing. See [Project Identity](/design/project-identity#illustrations) for details.
 
 <Divider />
 
