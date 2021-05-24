@@ -1,1 +1,1 @@
-export * from './ThemeBrowser';
+export * from './ThemeExplorer';
