@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
 }));
 
-export const ThemeBrowser: React.FC = () => {
+export const ThemeExplorer: React.FC = () => {
     const globalTheme = useTheme();
     const [localThemeDark, setLocalThemeDark] = useState(globalTheme.palette.type === 'dark');
     const [selectedComponent, setSelectedComponent] = useState(0);
