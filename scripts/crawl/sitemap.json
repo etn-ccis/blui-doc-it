@@ -97,10 +97,6 @@
                     "url": "/anatomy"
                 },
                 {
-                    "title": "Design Resources",
-                    "url": "/design-resources"
-                },
-                {
                     "title": "Accessibility",
                     "url": "/accessibility"
                 },
@@ -238,7 +234,17 @@
         },
         {
             "title": "Resources",
-            "url": "/resources"
+            "url": "/resources",
+            "pages": [
+                {
+                    "title": "Developer Resources",
+                    "url": "/developer"
+                },
+                {
+                    "title": "Designer Resources",
+                    "url": "/designer"
+                }
+            ]
         },
         {
             "title": "Roadmap",
