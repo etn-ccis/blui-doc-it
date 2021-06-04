@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export const Resources: React.FC = (): JSX.Element => {
+export const DevResources: React.FC = (): JSX.Element => {
     const classes = useStyles();
     const [filter, setFilter] = useState<FrameworkFilter>('all');
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
