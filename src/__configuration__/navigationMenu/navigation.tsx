@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Docs from '../../docs';
-import { MarkdownPage, Resources, Roadmap, ReleaseNotes } from '../../app/pages';
+import { MarkdownPage, DevResources, Roadmap, ReleaseNotes } from '../../app/pages';
 
 export type SimpleNavItem = {
     title: string;
@@ -324,7 +324,18 @@ export const pageDefinitions: SimpleNavItem[] = [
     {
         title: 'Resources',
         url: '/resources',
-        component: <Resources />,
+        pages: [
+            {
+                title: 'Developer Resources',
+                url: '/developer',
+                component: <DevResources />,
+            },
+            {
+                title: 'Designer Resources',
+                url: '/designer',
+                component: <MarkdownPage title={'Designer Resources'} markdown={Docs.Resources.DesignerResources} />,
+            },
+        ],
     },
     {
         title: 'Roadmap',
@@ -348,5 +359,10 @@ export const pageRedirects: RedirectItem[] = [
     {
         oldUrl: '/patterns/login',
         newUrl: '/patterns/user-auth',
+    },
+    // Remove this when we have a landing page for all the resources
+    {
+        oldUrl: '/resources',
+        newUrl: '/resources/developer',
     },
 ];

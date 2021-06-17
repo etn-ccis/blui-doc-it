@@ -3,6 +3,7 @@ import EvanMcLaughlin from '../../app/assets/credits/evan-mclaughlin.jpeg';
 import JosephBoyle from '../../app/assets/credits/joseph-boyle.png';
 import JeffeyGreiner from '../../app/assets/credits/jeffery-greiner.jpeg';
 import ThomasDailey from '../../app/assets/credits/thomas-dailey.jpg';
+import EktaGhag from '../../app/assets/credits/ekta-ghag.jpg';
 import { Contributor } from '../../__types__';
 
 export const currentMaintainers: Contributor[] = [
@@ -55,6 +56,16 @@ export const currentMaintainers: Contributor[] = [
         contacts: {
             github: 'https://github.com/daileytj',
             linkedIn: 'https://www.linkedin.com/in/thomas-dailey/',
+        },
+    },
+    {
+        name: 'Ekta Ghag',
+        description: `Front-End Developer`,
+        image: EktaGhag,
+        info: `Ekta is a front-end developer based out of India. She enjoys exploring new technologies and has a flair for developing awesome UI. She likes to spend her leisure time creating Mandala artwork and watching lots of movies.`,
+        contacts: {
+            github: 'https://github.com/ektasawant',
+            linkedIn: 'https://www.linkedin.com/in/ekta-ghag-138120134/',
         },
     },
 ];

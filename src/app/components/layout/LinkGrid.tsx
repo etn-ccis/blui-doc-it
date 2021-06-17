@@ -27,7 +27,10 @@ export const LinkGrid: React.FC<LinkGridProps> = (props): JSX.Element => {
                     <InfoCard
                         spacing={6}
                         source={link.image}
-                        onClick={(): void => history.push(link.url)}
+                        onClick={(): void => {
+                            if (link.url.startsWith('/')) history.push(link.url);
+                            else window.open(link.url, '_blank');
+                        }}
                         background={link.background}
                         aspectRatio={'1x1'} // using 1x1 for now until we find better thumbnail pics
                         title={link.title}
