@@ -2,10 +2,9 @@ import { ImageGrid, MaterialDesignDescription, TypographyTable } from '../../app
 import { Divider, Typography } from '@material-ui/core';
 import PxblueSmallAltIcon from '@pxblue/icons-mui/PxblueSmallAlt';
 
-import LargerApplicationImg from '../../app/assets/styles/typography/larger-application.png';
-import ApplicationImg from '../../app/assets/styles/typography/application.png';
-import HeadlineOptionsImg from '../../app/assets/styles/typography/headline-options.png';
 import SimplifiedChineseImg from '../../app/assets/styles/typography/noto-sans-cjk-sc.png';
+import AppBar from '../../app/assets/styles/typography/subtitle-variations.png';
+import ScoreCard from '../../app/assets/styles/typography/scorecard-variations.png';
 
 <!-- KEYWORDS: design style typography text -->
 
@@ -32,28 +31,40 @@ PX Blue provides a type scale that includes a range of styles to support the nee
 
 # Customization
 
-Different products have different needs, and we do not expect these pre-defined styles will cover every potential use case. Slight customization of these styles, such as changing a font weight in a particular component, are acceptable and expected. In most cases, you should be able to adjust existing styles without having to define an entirely new style. If you find that you must create new styles (see below), they should still use the PX Blue font (Open Sans) and adhere to our color guidelines.
+The standard styles above should cover most of the typography needs in your application. However, it is unrealistic to presume that these styles will cover _every_ potential use case. Slight customization of these styles — such as changing a font weight for a particular component — are acceptable and expected. In most cases, these can be treated as one-off styling tweaks, rather than an entirely new style. If you find that you are using customized styles in multiple places, [contact us](/community/contactus) so we can consider standardizing these styles or provide alternative recommendations.
 
-<ImageGrid images={[LargerApplicationImg]} style={{ marginTop: 32 }} regularWidth />
+Most PX Blue components have been designed to work well with the standard styles. Most often, you'll only need to worry about custom typography styles when you are developing your own product-specific components. Keep in mind that even if you are adjusting font styles, you should still continue to use the Open Sans font family.
 
-## When to create custom font styles
+## Common Customizations
 
-New font styles can be created when a design calls for additional font sizes or states that are currently not available in PX Blue. The most common cases for custom styles have been additional headline styles (in certain components) and the modification of Body 2 from semi-bold to regular. Ultimately, the need for custom styles depends on you and what's best for the product. PX Blue is available to provide recommendations and design reviews. If you need help defining a new style, do not hesitate to [contact us](/community/contactus)!
+There are a few specific elements in PX Blue applications that are often customized — to the point that they can be considered alternative standard styles.
 
-The examples below depict how the designs would look using standard PX Blue compared to how the design looks with new created font styles.
+### App Bar Subtitle
+
+The most commonly customized style in PX Blue applications is the subtitle in the [App Bar](/patterns/appbar) component. This typically makes use of the Body1 style, but a variety of different styles are acceptable. One favorite is to use 18dp / Light.
 
 <React.Fragment>
     <ImageGrid
-        images={[ApplicationImg]}
-        regularWidth
-        caption={['1: Card layout using default PX Blue styles', '2: Card layout using custom created styles']}
-    />
-    <ImageGrid
-        images={[HeadlineOptionsImg]}
+        images={[AppBar]}
         regularWidth
         caption={[
-            '1: Two line headline using default PX Blue styles',
-            '2: Two line headline using custom created styles',
+            '1: App Bar with the standard typography styles.',
+            '2: App Bar with commonly used custom subtitle style.',
+        ]}
+    />
+</React.Fragment>
+
+### Scorecard Header
+
+The standard Scorecard component makes use of custom styles by default: the three lines of text are H6, Body1, and 14dp / Light. You should avoid changing the style for the first line, but the second and third lines can be customized as appropriate.
+
+<React.Fragment>
+    <ImageGrid
+        images={[ScoreCard]}
+        regularWidth
+        caption={[
+            '1: Scorecard with the standard typography styles.',
+            '2: Scorecard with custom text styles on the second and third lines. These styles can be adjusted based on the displayed information.',
         ]}
     />
     <Divider />
