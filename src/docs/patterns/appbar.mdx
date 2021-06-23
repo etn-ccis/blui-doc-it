@@ -19,7 +19,7 @@ import Specs4Image from '../../app/assets/design-patterns/app-bar/specs-4.png';
 import Specs5Image from '../../app/assets/design-patterns/app-bar/specs-5.png';
 import Specs6Image from '../../app/assets/design-patterns/app-bar/specs-6.png';
 
-<!-- KEYWORDS: design pattern appbar search collapse extend prominent toolbar banner header -->
+<!-- KEYWORDS: design pattern appbar search collapse collapsible extend prominent toolbar banner header -->
 
 # App Bars
 
@@ -72,14 +72,14 @@ A special case of the basic app bar is the dropdown toolbar. This version transf
 
 # Collapsible App Bar
 
-In some situations, you may want to present more than just a title and subtitle in an app bar, such as a large graphic, buttons, or multiple lines of text. Collapsible app bars, sometimes referred to as expandable app bars, extended app bars, and prominent app bars, are ideal for this situation. The app bar starts out tall but will shrink as the user scrolls down the page until it becomes a basic app bar.
+In some situations, you may want to present more than just a title and subtitle in an app bar, such as a large graphic, buttons, or multiple lines of text. Collapsible app bars — sometimes referred to as expandable app bars, extended app bars, or prominent app bars — are ideal for this situation. The app bar starts out tall but will shrink as the user scrolls down the page until it becomes a basic app bar.
 
 <React.Fragment>
     <ImageGrid
         images={[CollapsibleAppBar1, CollapsibleAppBar2]}
         caption={[
-            `1: A standard collapsible app bar.`,
-            `2: A collapsible app bar changed its color to red to indicate an alarmed status.`,
+            `1: A collapsible app bar using the default blue color.`,
+            `2: A collapsible app bar using a red background to indicate an alarmed status.`,
         ]}
     />
     <DemoCard
@@ -91,12 +91,12 @@ In some situations, you may want to present more than just a title and subtitle 
     />
 </React.Fragment>
 
-Collapsible app bars put a larger emphasize on the app bar content on page load, and provide an opportunity to show images pertain to the page topic.This allows you the flexibility to present an eye-catching banner without permanently reducing the amount of usable space on the page. This pattern is most commonly used for mobile applications, but could also be used for web.
+Collapsible app bars put a greater emphasis on the app bar content on page load and provide an opportunity to show images pertinent to the page topic. This allows you the flexibility to present an eye-catching banner without permanently reducing the amount of usable space on the page. This pattern is most commonly used for mobile applications, but could also be used for web.
 
 <ImageGrid
     images={[CollapsibleAppBarDynamic, CollapsibleAppBarSnap]}
     caption={[
-        `Collapsible app bars have two variants: a dynmaic, scroll-with-finger one that transitions smoothly (first image), and an app bar that "snaps" and collapses once the user scrolls pass a certain point (second image). If you are uncertain whether your page content height is more than one screen tall, use the snap variant to prevent having your app bar stucks halfway through the collapsing.`,
+        `Collapsible app bars can have two slightly different behaviors: 'dynamic', which resizes proportionally to the scroll position (first image), and  'snap', which collapses in one step once the user scrolls pass a certain threshold (second image). You should avoid using collapsible app bars on pages that do not have significant amounts of scrollable content to prevent situations where the app bar can only be partially collapsed or not collapsed at all.`,
     ]}
 />
 
