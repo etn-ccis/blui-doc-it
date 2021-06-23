@@ -9,6 +9,7 @@ import CollapsibleAppBarDynamic from '../../app/assets/design-patterns/app-bar/c
 import CollapsibleAppBarSnap from '../../app/assets/design-patterns/app-bar/collapsible-app-bar-snap.gif';
 import CollapsibleAppBar1 from '../../app/assets/design-patterns/app-bar/collapsible-app-bar-1.png';
 import CollapsibleAppBar2 from '../../app/assets/design-patterns/app-bar/collapsible-app-bar-2.png';
+import HideOnCollapse from '../../app/assets/design-patterns/app-bar/what-to-hide-on-collapse.png';
 import AutoVariants from '../../app/assets/design-patterns/app-bar/search-bar/auto-complete-variants.png';
 import BasicBars from '../../app/assets/design-patterns/app-bar/basic-app-bars.png';
 import DropdownVariations from '../../app/assets/design-patterns/app-bar/dropdown-toolbar-variations.png';
@@ -101,6 +102,14 @@ Collapsible app bars put a greater emphasis on the app bar content on page load 
 />
 
 The collapsible appbar should transition smoothly between the expanded and collapsed states — this means you will need to account for how the app bar will look throughout the transition. Because elements will disappear as the app bar shrinks, you'll need to use various transition techniques to do this smoothly, depending on your content.
+
+<ImageGrid
+    images={[HideOnCollapse]}
+    caption={[
+        `When a collapsible app bar (#1) collapses, it may choose to either hide the third line of text (#2), second line of text (#3), but the page title, or the first line of text, should never be hidden (#4).`,
+    ]}
+    regularWidth
+/>
 
 <Divider />
 
