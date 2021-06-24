@@ -1,12 +1,15 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
 import Banner from '../../app/assets/design-patterns/app-bar/appbar-banner.png';
-import Collapsible from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsible.gif';
 import Search from '../../app/assets/design-patterns/app-bar/search-bar/search.gif';
 import MiniSearch from '../../app/assets/design-patterns/app-bar/search-bar/mini-search.png';
 import SiteSearch from '../../app/assets/design-patterns/app-bar/search-bar/site-search.png';
 import PageSearch from '../../app/assets/design-patterns/app-bar/search-bar/page-search.png';
 import ComponentSearch from '../../app/assets/design-patterns/app-bar/search-bar/component-search.png';
-import Collapsed from '../../app/assets/design-patterns/app-bar/collapsible-appbar/collapsed.png';
+import CollapsibleAppBarDynamic from '../../app/assets/design-patterns/app-bar/collapsible-app-bar-dynamic.gif';
+import CollapsibleAppBarSnap from '../../app/assets/design-patterns/app-bar/collapsible-app-bar-snap.gif';
+import CollapsibleAppBar1 from '../../app/assets/design-patterns/app-bar/collapsible-app-bar-1.png';
+import CollapsibleAppBar2 from '../../app/assets/design-patterns/app-bar/collapsible-app-bar-2.png';
+import HideOnCollapse from '../../app/assets/design-patterns/app-bar/what-to-hide-on-collapse.png';
 import AutoVariants from '../../app/assets/design-patterns/app-bar/search-bar/auto-complete-variants.png';
 import BasicBars from '../../app/assets/design-patterns/app-bar/basic-app-bars.png';
 import DropdownVariations from '../../app/assets/design-patterns/app-bar/dropdown-toolbar-variations.png';
@@ -14,8 +17,10 @@ import Specs1Image from '../../app/assets/design-patterns/app-bar/specs-1.png';
 import Specs2Image from '../../app/assets/design-patterns/app-bar/specs-2.png';
 import Specs3Image from '../../app/assets/design-patterns/app-bar/specs-3.png';
 import Specs4Image from '../../app/assets/design-patterns/app-bar/specs-4.png';
+import Specs5Image from '../../app/assets/design-patterns/app-bar/specs-5.png';
+import Specs6Image from '../../app/assets/design-patterns/app-bar/specs-6.png';
 
-<!-- KEYWORDS: design pattern appbar search collapse toolbar banner -->
+<!-- KEYWORDS: design pattern appbar search collapse collapsible extend prominent toolbar banner header -->
 
 # App Bars
 
@@ -68,11 +73,15 @@ A special case of the basic app bar is the dropdown toolbar. This version transf
 
 # Collapsible App Bar
 
+In some situations, you may want to present more than just a title and subtitle in an app bar, such as a large graphic, buttons, or multiple lines of text. Collapsible app bars — sometimes referred to as expandable app bars, extended app bars, or prominent app bars — are ideal for this situation. The app bar starts out tall but will shrink as the user scrolls down the page until it becomes a basic app bar.
+
 <React.Fragment>
     <ImageGrid
-        images={[Collapsible, Collapsed]}
-        gridImageProps={{ style: { maxHeight: 265, overflow: 'hidden' } }}
-        caption={['The middle row of text shrinks in size and opacity until it disappears.']}
+        images={[CollapsibleAppBar1, CollapsibleAppBar2]}
+        caption={[
+            `1: A collapsible app bar using the default blue color.`,
+            `2: A collapsible app bar using a red background to indicate an alarmed status.`,
+        ]}
     />
     <DemoCard
         repository={'collapsible-appbar'}
@@ -83,9 +92,24 @@ A special case of the basic app bar is the dropdown toolbar. This version transf
     />
 </React.Fragment>
 
-In some situations, you may want to present more than just a title and subtitle in an app bar, such as a large graphic, buttons, or multiple lines of text. In these cases, you can use a collapsible app bar that starts out tall but will shrink as the user scrolls down the page until it becomes a basic app bar. This allows you the flexibility to present an eye-catching banner without permanently reducing the amount of usable space on the page. This is a pattern most commonly used for mobile applications, but could also be used for web.
+Collapsible app bars put a greater emphasis on the app bar content on page load and provide an opportunity to show images pertinent to the page topic. This allows you the flexibility to present an eye-catching banner without permanently reducing the amount of usable space on the page. This pattern is most commonly used for mobile applications, but could also be used for web.
+
+<ImageGrid
+    images={[CollapsibleAppBarDynamic, CollapsibleAppBarSnap]}
+    caption={[
+        `Collapsible app bars can have two slightly different behaviors: 'dynamic', which resizes proportionally to the scroll position (first image), and  'snap', which collapses in one step once the user scrolls pass a certain threshold (second image). You should avoid using collapsible app bars on pages that do not have significant amounts of scrollable content to prevent situations where the app bar can only be partially collapsed or not collapsed at all.`,
+    ]}
+/>
 
 The collapsible appbar should transition smoothly between the expanded and collapsed states — this means you will need to account for how the app bar will look throughout the transition. Because elements will disappear as the app bar shrinks, you'll need to use various transition techniques to do this smoothly, depending on your content.
+
+<ImageGrid
+    images={[HideOnCollapse]}
+    caption={[
+        `When a collapsible app bar (#1) collapses, you may choose to either hide the third line of text (#2) or the second line of text (#3), but the page title (first line) should never be hidden (#4).`,
+    ]}
+    regularWidth
+/>
 
 <Divider />
 
@@ -140,7 +164,7 @@ For more advanced searching, you may wish to include an auto-complete feature. Y
 
 ## Mobile
 
-<ImageGrid images={[Specs1Image, Specs2Image, Specs3Image]} regularWidth />
+<ImageGrid images={[Specs1Image, Specs2Image, Specs3Image, Specs5Image, Specs6Image]} regularWidth />
 
 The App Bar subtitle typography style is subject to change based on its content or your design preference. You can read more in our [Custom Typography](/style/typography#customization) documentation.
 
