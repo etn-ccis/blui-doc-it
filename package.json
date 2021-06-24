@@ -5,7 +5,7 @@
     "private": true,
     "scripts": {
         "start": "node scripts/start.js",
-        "build": "node scripts/build.js",
+        "build": "yarn indexer && node scripts/build.js",
         "test": "node scripts/test.js",
         "check:links": "bash ./___scripts___/link-check/checklinks.sh",
         "check:links-ci": "bash ./___scripts___/link-check/checklinksCI.sh",
@@ -15,7 +15,7 @@
         "lint:fix": "eslint \"src/**/**.{tsx,ts}\" --fix",
         "prettier": "prettier \"**/*.{ts,tsx,js,jsx,json,css,scss,html,mdx,md}\" --write",
         "prettier:check": "prettier \"**/*.{ts,tsx,js,jsx,json,css,scss,html,mdx,md}\" --check",
-        "precommit": "yarn prettier && yarn lint && yarn check:links && yarn indexer",
+        "precommit": "yarn prettier && yarn lint && yarn check:links",
         "cy:run": "cypress run",
         "cypress:open": "cypress open",
         "cytest": "start-server-and-test start http://localhost:3000 cy:run",
