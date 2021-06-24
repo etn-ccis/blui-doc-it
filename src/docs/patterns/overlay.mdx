@@ -119,16 +119,6 @@ Sidebars should always appear on the opposite side of the screen as the main [na
 
 Bottom sheets are content surfaces that slide in from the bottom of the screen, primarily used in mobile applications. These typically contain a list of options or actions and are usually activated via an action button in the [app bar](/patterns/appbar).
 
-<React.Fragment>
-    <ImageGrid
-        images={[ModalBottomSheetMobile, ModalBottomSheetDesktop]}
-        caption={[
-            '1. On mobile, the modal bottom sheet takes up the full width of the screen.',
-            '2. On desktop, bottom sheets can usually be replaced by a contextual menu instead.',
-        ]}
-    />
-</React.Fragment>
-
 There are three types of bottom sheet: **Standard**, **Modal**, and **Expandable**.
 
 <React.Fragment>
@@ -139,6 +129,16 @@ There are three types of bottom sheet: **Standard**, **Modal**, and **Expandable
             '1. Standard bottom sheet opens over the main content, but does not block interaction.',
             '2. Modal bottom sheet (most common) blocks interaction with the main content until it is dismissed or an action is selected.',
             '3. Expandable bottom sheet (mobile only) can be swiped / dragged to expand or collapse, revealing additional content or transitioning to a full screen view.',
+        ]}
+    />
+</React.Fragment>
+
+<React.Fragment>
+    <ImageGrid
+        images={[ModalBottomSheetMobile, ModalBottomSheetDesktop]}
+        caption={[
+            '1. On mobile, the modal bottom sheet takes up the full width of the screen.',
+            '2. On desktop, bottom sheets can usually be replaced by a contextual menu instead.',
         ]}
     />
 </React.Fragment>
