@@ -156,7 +156,9 @@ export const IconDrawer: React.FC = () => {
                                     color="primary"
                                     style={{ marginRight: theme.spacing(1) }}
                                     startIcon={<GetApp />}
-                                    onClick={(): void => downloadSvg(selectedIcon)}
+                                    onClick={(): void => {
+                                        void downloadSvg(selectedIcon, 'red', 240);
+                                    }}
                                 >
                                     SVG
                                 </Button>

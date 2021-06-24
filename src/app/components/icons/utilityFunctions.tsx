@@ -1,5 +1,6 @@
 import React from 'react';
 import { IconType } from '../../../__types__';
+import { getMaterialSvg } from '../../api';
 import { getSnakeCase, snakeToKebabCase } from '../../shared';
 
 export type Framework = 'angular' | 'react' | 'react-native';
@@ -15,13 +16,37 @@ export const getMuiIconName = (filename: string): string => {
     return muiName;
 };
 
-// Can be Material or PX Blue icons
-export const downloadSvg = (icon: IconType): void => {
-    if (icon.isMaterial) {
-        window.open(
-            `https://fonts.gstatic.com/s/i/materialicons/${icon.iconFontKey}/v6/24px.svg?download=true`,
-            '_blank'
+export const changeSvgColorAndSize = (svg: string, color: string | undefined, size: number | undefined): string => {
+    let newSvg = svg;
+    if (color) {
+        newSvg = newSvg.replace(/<svg.*?>/i, (match) => match.replace('height=', `fill="${color}" height=`));
+    }
+    if (size) {
+        newSvg = newSvg.replace(/<svg.*?>/i, (match) =>
+            match.replace(/height=".*?"/i, `height="${size}"`).replace(/width=".*?"/i, `width="${size}"`)
         );
+    }
+    // eslint-disable-next-line
+    console.log('resizing element', newSvg);
+    return newSvg;
+};
+
+// Can be Material or PX Blue icons
+export const downloadSvg = async (icon: IconType, color?: string, size?: number): Promise<void> => {
+    if (icon.isMaterial) {
+        const iconData = await getMaterialSvg(getSnakeCase(icon.name).toLowerCase()) || '';
+
+        // create a placeholder dom element and attach the new file download handler to it
+        const element = document.createElement('a');
+        element.setAttribute(
+            'href',
+            `data:text/plain;charset=utf-8, ${encodeURIComponent(changeSvgColorAndSize(iconData, color, size))}`
+        );
+        element.setAttribute('download', `${getSnakeCase(icon.name).toLowerCase()}.svg`);
+        element.style.display = 'none';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
     } else {
         window.open(`https://raw.githubusercontent.com/pxblue/icons/dev/svg/${getSnakeCase(icon.name)}.svg`, '_blank');
     }

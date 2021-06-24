@@ -21,6 +21,10 @@ export const roadmap = axios.create({
     baseURL: 'https://raw.githubusercontent.com/pxblue/pxb-database/master/deployed/doc-it',
     timeout: 5000,
 });
+export const icons = axios.create({
+    baseURL: 'https://fonts.gstatic.com/s/i/materialicons',
+    timeout: 5000,
+});
 
 // API Calls
 
@@ -88,6 +92,20 @@ export const getNpmVersion = async (packageName: string): Promise<string | undef
 export const getRoadmap = async (release: Release): Promise<RoadmapBucket[] | undefined> => {
     try {
         const response = await roadmap.get(`/${release}Roadmap.json`);
+        if (response && response.status === 200) return response.data;
+        return undefined;
+    } catch (thrown) {
+        if (axios.isCancel(thrown)) {
+            // request canceled
+            return undefined;
+        }
+        return undefined;
+    }
+};
+
+export const getMaterialSvg = async (name: string): Promise<string | undefined> => {
+    try {
+        const response = await icons.get(`/${name}/v6/24px.svg`);
         if (response && response.status === 200) return response.data;
         return undefined;
     } catch (thrown) {
