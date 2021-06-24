@@ -1,6 +1,7 @@
 import React from 'react';
 
 // Full Release Notes
+import R20 from './R20/R20.mdx';
 import R19 from './R19/R19.mdx';
 import R18 from './R18/R18.mdx';
 import R17 from './R17/R17.mdx';
@@ -16,6 +17,7 @@ import R8 from './R8/R8.mdx';
 import R7 from './R7/R7.mdx';
 
 // Summaries (for Landing Page)
+import R20Summary from './R20/Summary.mdx';
 import R19Summary from './R19/Summary.mdx';
 import R18Summary from './R18/Summary.mdx';
 import R17Summary from './R17/Summary.mdx';
@@ -38,6 +40,13 @@ export type ReleaseInfo = {
     summary: JSX.Element;
 };
 const Releases: ReleaseInfo[] = [
+    {
+        title: 'R20',
+        date: 'June 2021',
+        version: '2.4.1',
+        details: <R20 />,
+        summary: <R20Summary />,
+    },
     {
         title: 'R19',
         date: 'March 2021',
