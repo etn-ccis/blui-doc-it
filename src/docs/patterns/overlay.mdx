@@ -2,7 +2,8 @@ import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '..
 import Banner from '../../app/assets/design-patterns/overlays/overlay-banner.svg';
 import SimpleDialog from '../../app/assets/design-patterns/overlays/simple-dialog.png';
 import DialogTask from '../../app/assets/design-patterns/overlays/dialog-task.png';
-import SimpleBottomsheet from '../../app/assets/design-patterns/overlays/simple-bottomsheet.png';
+import ModalBottomSheetMobile from '../../app/assets/design-patterns/overlays/modal-bottom-sheet-mobile.png';
+import ModalBottomSheetDesktop from '../../app/assets/design-patterns/overlays/modal-bottom-sheet-desktop.png';
 import Maps from '../../app/assets/design-patterns/overlays/bottomsheet-styles.png';
 import SidePanel from '../../app/assets/design-patterns/overlays/desktop-user-details.png';
 import TrendLegend from '../../app/assets/design-patterns/overlays/desktop-trend-legend.png';
@@ -120,8 +121,7 @@ Bottom sheets are content surfaces that slide in from the bottom of the screen, 
 
 <React.Fragment>
     <ImageGrid
-        regularWidth
-        images={[SimpleBottomsheet]}
+        images={[ModalBottomSheetMobile, ModalBottomSheetDesktop]}
         caption={[
             '1. On mobile, the modal bottom sheet takes up the full width of the screen.',
             '2. On desktop, bottom sheets can usually be replaced by a contextual menu instead.',
@@ -129,7 +129,7 @@ Bottom sheets are content surfaces that slide in from the bottom of the screen, 
     />
 </React.Fragment>
 
-There are three types of bottom sheet **Standard**, **Modal**, and **Expandable**.
+There are three types of bottom sheet: **Standard**, **Modal**, and **Expandable**.
 
 <React.Fragment>
     <ImageGrid
