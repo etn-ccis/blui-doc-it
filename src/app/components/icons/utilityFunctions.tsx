@@ -26,8 +26,6 @@ export const changeSvgColorAndSize = (svg: string, color: string | undefined, si
             match.replace(/height=".*?"/i, `height="${size}"`).replace(/width=".*?"/i, `width="${size}"`)
         );
     }
-    // eslint-disable-next-line
-    console.log('resizing element', newSvg);
     return newSvg;
 };
 
@@ -42,7 +40,8 @@ export const downloadSvg = async (icon: IconType, color?: string, size?: number)
             'href',
             `data:text/plain;charset=utf-8, ${encodeURIComponent(changeSvgColorAndSize(iconData, color, size))}`
         );
-        element.setAttribute('download', `${getSnakeCase(icon.name).toLowerCase()}.svg`);
+        const iconName = [icon.name, color, '-', size?.toString(), 'dp'].join('');
+        element.setAttribute('download', `${getSnakeCase(iconName).toLowerCase()}.svg`);
         element.style.display = 'none';
         document.body.appendChild(element);
         element.click();
@@ -53,8 +52,8 @@ export const downloadSvg = async (icon: IconType, color?: string, size?: number)
 };
 
 // Material Icons only
-export const downloadPng = (icon: IconType): void => {
-    window.open(`//fonts.gstatic.com/s/i/materialicons/${icon.iconFontKey}/v6/black-24dp.zip?download=true`, '_blank');
+export const downloadPng = (icon: IconType, color: string, size: number): void => {
+    window.open(`//fonts.gstatic.com/s/i/materialicons/${icon.iconFontKey}/v6/${color.toLowerCase()}-${size.toString()}dp.zip?download=true`, '_blank');
 };
 
 /* Functions for returning various code snippets for icons in each framework */

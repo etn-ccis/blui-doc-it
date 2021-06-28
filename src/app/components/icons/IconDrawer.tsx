@@ -23,7 +23,6 @@ import Select from '@material-ui/core/Select';
 import { EmptyState, Spacer } from '@pxblue/react-components';
 
 import { GetApp, Close } from '@material-ui/icons';
-// import { Button, Paper, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
 import { Pxblue } from '@pxblue/icons-mui';
 
 import { unCamelCase } from '../../shared';
@@ -82,7 +81,7 @@ export const IconDrawer: React.FC = () => {
     const dispatch = useDispatch();
     const classes = useStyles(theme);
     const [iconSize, setIconSize] = React.useState(24);
-    const [iconColor, setIconColor] = React.useState('black');
+    const [iconColor, setIconColor] = React.useState('Black');
     const drawerOpen = useSelector((state: AppState) => state.app.sidebarOpen);
     const sm = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -175,30 +174,58 @@ export const IconDrawer: React.FC = () => {
                             </Typography>
                             <div>
                                 <FormControl className={classes.formControl}>
-                                    <InputLabel id="icon-size-select-label">Select a Size:</InputLabel>
-                                    <Select
-                                        labelId="icon-size-select-label"
-                                        id="icon-size-select"
-                                        value={iconSize}
-                                        onChange={handleChange}
-                                    >
-                                        <MenuItem value={18}>18dp</MenuItem>
-                                        <MenuItem value={24}>24dp</MenuItem>
-                                        <MenuItem value={36}>36dp</MenuItem>
-                                        <MenuItem value={48}>48dp</MenuItem>
-                                    </Select>
+                                    <InputLabel id="icon-size-select-label">
+                                        Select a Size:
+                                    </InputLabel>
+                                    {selectedIcon.isMaterial ? (
+                                        <Select
+                                            labelId="icon-size-select-label"
+                                            id="icon-size-select"
+                                            value={iconSize}
+                                            onChange={handleChange}
+                                        >
+                                            <MenuItem value={18}>18dp</MenuItem>
+                                            <MenuItem value={24}>24dp</MenuItem>
+                                            <MenuItem value={36}>36dp</MenuItem>
+                                            <MenuItem value={48}>48dp</MenuItem>
+                                        </Select>
+                                    ) : (
+                                        <Select
+                                            labelId="icon-size-select-label"
+                                            id="icon-size-select"
+                                            value={iconSize}
+                                            onChange={handleChange}
+                                        >
+                                            <MenuItem value={24}>24dp</MenuItem>
+                                            <MenuItem value={48}>48dp</MenuItem>
+                                        </Select>
+                                    )}
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel id="icon-color-select-label">Select a Color:</InputLabel>
-                                    <Select
-                                        labelId="icon-color-select-label"
-                                        id="icon-color-select"
-                                        value={iconColor}
-                                        onChange={handleColorChange}
-                                    >
-                                        <MenuItem value={'black'}>Black</MenuItem>
-                                        <MenuItem value={'white'}>White</MenuItem>
-                                    </Select>
+                                    {selectedIcon.isMaterial ? (
+                                        <Select
+                                            labelId="icon-color-select-label"
+                                            id="icon-color-select"
+                                            value={iconColor}
+                                            onChange={handleColorChange}
+                                        >
+                                            <MenuItem value={'Black'}>Black</MenuItem>
+                                            <MenuItem value={'White'}>White</MenuItem>
+                                        </Select>
+                                    ) : (
+                                        <Select
+                                            labelId="icon-color-select-label"
+                                            id="icon-color-select"
+                                            value={iconColor}
+                                            onChange={handleColorChange}
+                                        >
+                                            <MenuItem value={'Black'}>Black</MenuItem>
+                                            <MenuItem value={'White'}>White</MenuItem>
+                                            <MenuItem value={'Blue'}>Blue</MenuItem>
+                                            <MenuItem value={'Gray'}>Gray</MenuItem>
+                                        </Select>
+                                    )}
                                 </FormControl>
                             </div>
                             <div>
@@ -226,7 +253,7 @@ export const IconDrawer: React.FC = () => {
                                     <Button
                                         variant="contained"
                                         color="primary"
-                                        onClick={(): void => downloadPng(selectedIcon)}
+                                        onClick={(): void => downloadPng(selectedIcon, iconColor, iconSize)}
                                         startIcon={<GetApp />}
                                     >
                                         PNG
