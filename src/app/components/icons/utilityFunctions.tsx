@@ -1,7 +1,8 @@
 import React from 'react';
 import { IconType } from '../../../__types__';
-import { getMaterialSvg } from '../../api';
+import { getMaterialSvg, getPxblueSvg } from '../../api';
 import { getSnakeCase, snakeToKebabCase } from '../../shared';
+import * as Colors from '@pxblue/colors';
 
 export type Framework = 'angular' | 'react' | 'react-native';
 
@@ -18,8 +19,11 @@ export const getMuiIconName = (filename: string): string => {
 
 export const changeSvgColorAndSize = (svg: string, color: string | undefined, size: number | undefined): string => {
     let newSvg = svg;
+    
     if (color) {
-        newSvg = newSvg.replace(/<svg.*?>/i, (match) => match.replace('height=', `fill="${color}" height=`));
+        // @ts-ignore
+        const colorCode = color === 'White' ? Colors[color.toLowerCase()][50] : Colors[color.toLowerCase()][500];
+        newSvg = newSvg.replace(/<svg.*?>/i, (match) => match.replace('height=', `fill="${colorCode}" height=`));
     }
     if (size) {
         newSvg = newSvg.replace(/<svg.*?>/i, (match) =>
@@ -29,31 +33,42 @@ export const changeSvgColorAndSize = (svg: string, color: string | undefined, si
     return newSvg;
 };
 
+export const createDownloadSvgElement = (icon: IconType, iconData: string, color: string, size: number): void => {
+    // create a placeholder dom element and attach the new file download handler to it
+    const element = document.createElement('a');
+    element.setAttribute(
+        'href',
+        `data:text/plain;charset=utf-8, ${encodeURIComponent(changeSvgColorAndSize(iconData, color, size))}`
+        );
+    const iconName = [icon.name, color, '-', size, 'dp'].join('');
+    element.setAttribute('download', `${getSnakeCase(iconName).toLowerCase()}.svg`);
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+};
+
 // Can be Material or PX Blue icons
-export const downloadSvg = async (icon: IconType, color?: string, size?: number): Promise<void> => {
+export const downloadSvg = async (icon: IconType, color: string, size: number): Promise<void> => {
     if (icon.isMaterial) {
         const iconData = await getMaterialSvg(getSnakeCase(icon.name).toLowerCase()) || '';
-
-        // create a placeholder dom element and attach the new file download handler to it
-        const element = document.createElement('a');
-        element.setAttribute(
-            'href',
-            `data:text/plain;charset=utf-8, ${encodeURIComponent(changeSvgColorAndSize(iconData, color, size))}`
-        );
-        const iconName = [icon.name, color, '-', size?.toString(), 'dp'].join('');
-        element.setAttribute('download', `${getSnakeCase(iconName).toLowerCase()}.svg`);
-        element.style.display = 'none';
-        document.body.appendChild(element);
-        element.click();
-        document.body.removeChild(element);
+        // create a placeholder dom element and attach the new material icon svg download handler to it
+        createDownloadSvgElement(icon, iconData, color, size);
     } else {
-        window.open(`https://raw.githubusercontent.com/pxblue/icons/dev/svg/${getSnakeCase(icon.name)}.svg`, '_blank');
+        const iconData = await getPxblueSvg(getSnakeCase(icon.name).toLowerCase()) || '';
+        // create a placeholder dom element and attach the new pxblue icon svg download handler to it
+        createDownloadSvgElement(icon, iconData, color, size);
     }
 };
 
 // Material Icons only
 export const downloadPng = (icon: IconType, color: string, size: number): void => {
-    window.open(`//fonts.gstatic.com/s/i/materialicons/${icon.iconFontKey}/v6/${color.toLowerCase()}-${size.toString()}dp.zip?download=true`, '_blank');
+    if (icon.isMaterial) {
+        window.open(`//fonts.gstatic.com/s/i/materialicons/${icon.iconFontKey}/v6/${color.toLowerCase()}-${size.toString()}dp.zip?download=true`, '_blank');
+    } else {
+        const colorName = color === 'White' ? `${color}50` : `${color}500`
+        window.open(`https://raw.githubusercontent.com/pxblue/icons/dev/png/png${size}/${getSnakeCase(icon.name)}_${colorName.toLocaleLowerCase()}_${size}dp.png?download=true`, '_blank');
+    }
 };
 
 /* Functions for returning various code snippets for icons in each framework */

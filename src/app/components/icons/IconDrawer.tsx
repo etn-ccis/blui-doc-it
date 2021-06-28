@@ -240,6 +240,14 @@ export const IconDrawer: React.FC = () => {
                                 >
                                     SVG
                                 </Button>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={(): void => downloadPng(selectedIcon, iconColor, iconSize)}
+                                    startIcon={<GetApp />}
+                                >
+                                    PNG
+                                </Button>
                                 {!selectedIcon.isMaterial && (
                                     <Typography
                                         display={'block'}
@@ -248,16 +256,6 @@ export const IconDrawer: React.FC = () => {
                                     >
                                         Icon file will open in a new window — right click it and Save As to download.
                                     </Typography>
-                                )}
-                                {selectedIcon.isMaterial && (
-                                    <Button
-                                        variant="contained"
-                                        color="primary"
-                                        onClick={(): void => downloadPng(selectedIcon, iconColor, iconSize)}
-                                        startIcon={<GetApp />}
-                                    >
-                                        PNG
-                                    </Button>
                                 )}
                             </div>
                         </div>
