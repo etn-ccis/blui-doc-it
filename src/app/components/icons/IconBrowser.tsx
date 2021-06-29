@@ -27,6 +27,7 @@ import { EmptyState } from '@pxblue/react-components';
 type MaterialMeta = {
     icons: DetailedIcon[];
 };
+// https://fonts.google.com/metadata/icons
 // eslint-disable-next-line
 const materialMetadata: MaterialMeta = require('./MaterialMetadata.json');
 

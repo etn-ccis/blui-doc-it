@@ -25,6 +25,8 @@ export type IconType = {
 export type MatIconList = {
     [key: string]: (props: SvgIconProps) => JSX.Element;
 };
+export type IconSize = 18 | 24 | 36 | 48;
+export type IconColor = 'black' | 'blue' | 'gray' | 'white';
 
 export type ItemTypeFilter = 'all' | 'design' | 'development';
 export type Status = 'backlog' | 'in-progress' | 'pre-release' | 'deferred' | 'finished';

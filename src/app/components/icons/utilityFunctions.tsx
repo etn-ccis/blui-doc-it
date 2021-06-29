@@ -1,6 +1,8 @@
 import React from 'react';
-import { IconType } from '../../../__types__';
-import { getSnakeCase, snakeToKebabCase } from '../../shared';
+import { IconColor, IconSize, IconType } from '../../../__types__';
+import { getSvg } from '../../api';
+import { capitalize, getSnakeCase, snakeToKebabCase } from '../../shared';
+import * as Colors from '@pxblue/colors';
 
 export type Framework = 'angular' | 'react' | 'react-native';
 
@@ -15,21 +17,96 @@ export const getMuiIconName = (filename: string): string => {
     return muiName;
 };
 
-// Can be Material or PX Blue icons
-export const downloadSvg = (icon: IconType): void => {
-    if (icon.isMaterial) {
-        window.open(
-            `https://fonts.gstatic.com/s/i/materialicons/${icon.iconFontKey}/v6/24px.svg?download=true`,
-            '_blank'
-        );
-    } else {
-        window.open(`https://raw.githubusercontent.com/pxblue/icons/dev/svg/${getSnakeCase(icon.name)}.svg`, '_blank');
+const getColorCode = (color: IconColor): string => {
+    switch (color) {
+        case 'black':
+            return Colors.black[500];
+        case 'gray':
+            return Colors.gray[500];
+        case 'blue':
+            return Colors.blue[500];
+        case 'white':
+            return Colors.white[50];
+        default:
+            return Colors.black[500];
     }
 };
 
-// Material Icons only
-export const downloadPng = (icon: IconType): void => {
-    window.open(`//fonts.gstatic.com/s/i/materialicons/${icon.iconFontKey}/v6/black-24dp.zip?download=true`, '_blank');
+export const changeSvgColorAndSize = (
+    svg: string,
+    color: IconColor | undefined,
+    size: IconSize | undefined
+): string => {
+    let newSvg = svg;
+
+    if (color) {
+        newSvg = newSvg.replace(/<svg.*?>/i, (match) =>
+            match.replace('height=', `fill="${getColorCode(color)}" height=`)
+        );
+    }
+    if (size) {
+        newSvg = newSvg.replace(/<svg.*?>/i, (match) =>
+            match.replace(/height=".*?"/i, `height="${size}"`).replace(/width=".*?"/i, `width="${size}"`)
+        );
+    }
+    return newSvg;
+};
+
+export const createDownloadElement = (iconUrl: string, iconName: string): void => {
+    const element = document.createElement('a');
+    element.setAttribute('href', iconUrl);
+    element.setAttribute('download', iconName);
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+};
+
+export const createDownloadSvgElement = (icon: IconType, iconData: string, color: IconColor, size: IconSize): void => {
+    const iconUrl = `data:text/plain;charset=utf-8, ${encodeURIComponent(
+        changeSvgColorAndSize(iconData, color, size)
+    )}`;
+    const iconName = [icon.name, capitalize(color), '_', size, 'dp'].join('');
+    createDownloadElement(iconUrl, `${getSnakeCase(iconName).toLowerCase()}.svg`);
+};
+
+export const createDownloadPxbPngElement = async (
+    iconName: string,
+    colorName: string,
+    size: IconSize
+): Promise<void> => {
+    const formattedIconName = `${getSnakeCase(iconName)}_${colorName}_${size}dp.png`;
+    const iconSrc = `https://raw.githubusercontent.com/pxblue/icons/dev/png/png${size}/${formattedIconName}`;
+    const icon = await fetch(iconSrc);
+    const iconBlog = await icon.blob();
+    const iconUrl = URL.createObjectURL(iconBlog);
+    createDownloadElement(iconUrl, formattedIconName);
+};
+
+export const createDownloadMaterialPngElement = (iconName: string, colorName: IconColor, size: IconSize): void => {
+    const iconUrl = `https://fonts.gstatic.com/s/i/materialicons/${iconName}/v6/${colorName}-${size}dp.zip`;
+    const formattedIconName = `${iconName}/v6/${colorName}-${size}dp.zip`;
+    createDownloadElement(iconUrl, formattedIconName);
+};
+
+// Material or PX Blue SVG icons
+export const downloadSvg = async (icon: IconType, color: IconColor, size: IconSize): Promise<void> => {
+    if (icon.isMaterial) {
+        const iconData = (await getSvg(getSnakeCase(icon.name), 'material')) || '';
+        createDownloadSvgElement(icon, iconData, color, size);
+    } else {
+        const iconData = (await getSvg(getSnakeCase(icon.name), 'pxblue')) || '';
+        createDownloadSvgElement(icon, iconData, color, size);
+    }
+};
+// Material or PX Blue PNG icons
+export const downloadPng = (icon: IconType, color: IconColor, size: IconSize): void => {
+    if (icon.isMaterial) {
+        createDownloadMaterialPngElement(icon.iconFontKey, color, size);
+    } else {
+        const colorName = color === 'white' ? `${color}50` : `${color}500`;
+        void createDownloadPxbPngElement(icon.name, colorName, size);
+    }
 };
 
 /* Functions for returning various code snippets for icons in each framework */
