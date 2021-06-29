@@ -58,7 +58,7 @@ export const IndependenceDaySchedule: Schedule = {
             textShadow: `0 0 5px black`,
             cursor: `url("${IndependenceDayCursor}") 0 0, auto`,
         },
-        className: 'st-patricks-day',
+        className: 'independence-day',
         appBarBackground: {
             backgroundImage: `url(${AppBarTile})`,
             backgroundSize: '600px',
