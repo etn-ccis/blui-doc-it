@@ -92,7 +92,7 @@ export const IconDrawer: React.FC = () => {
     };
 
     useEffect(() => {
-        if(previousSelectedIcon && previousSelectedIcon.isMaterial !== selectedIcon.isMaterial){
+        if (previousSelectedIcon && previousSelectedIcon.isMaterial !== selectedIcon.isMaterial) {
             setIconSize(24 as IconSize);
             setIconColor('black' as IconColor);
         }
@@ -173,9 +173,7 @@ export const IconDrawer: React.FC = () => {
                             </Typography>
                             <div>
                                 <FormControl className={classes.formControl}>
-                                    <InputLabel id="icon-size-select-label">
-                                        Select a Size:
-                                    </InputLabel>
+                                    <InputLabel id="icon-size-select-label">Select a Size:</InputLabel>
                                     <Select
                                         labelId="icon-size-select-label"
                                         id="icon-size-select"
@@ -187,7 +185,6 @@ export const IconDrawer: React.FC = () => {
                                         {selectedIcon.isMaterial && <MenuItem value={36}>36dp</MenuItem>}
                                         <MenuItem value={48}>48dp</MenuItem>
                                     </Select>
-
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel id="icon-color-select-label">Select a Color:</InputLabel>
@@ -197,12 +194,10 @@ export const IconDrawer: React.FC = () => {
                                         value={iconColor}
                                         onChange={(e): void => setIconColor(e.target.value as IconColor)}
                                     >
-
                                         <MenuItem value={'black'}>Black</MenuItem>
                                         <MenuItem value={'white'}>White</MenuItem>
                                         {!selectedIcon.isMaterial && <MenuItem value={'blue'}>Blue</MenuItem>}
                                         {!selectedIcon.isMaterial && <MenuItem value={'gray'}>Gray</MenuItem>}
-
                                     </Select>
                                 </FormControl>
                             </div>

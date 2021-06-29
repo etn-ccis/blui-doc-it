@@ -109,7 +109,8 @@ export const getRoadmap = async (release: Release): Promise<RoadmapBucket[] | un
 
 export const getSvg = async (name: string, family: 'material' | 'pxblue'): Promise<string | undefined> => {
     try {
-        const response = family === 'pxblue' ? await pxblueIcons.get(`/${name}.svg`) : await icons.get(`/${name}/v6/24px.svg`);
+        const response =
+            family === 'pxblue' ? await pxblueIcons.get(`/${name}.svg`) : await icons.get(`/${name}/v6/24px.svg`);
         if (response && response.status === 200) return response.data;
         return undefined;
     } catch (thrown) {
@@ -119,4 +120,4 @@ export const getSvg = async (name: string, family: 'material' | 'pxblue'): Promi
         }
         return undefined;
     }
-}
+};

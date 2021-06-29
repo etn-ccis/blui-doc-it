@@ -30,13 +30,19 @@ const getColorCode = (color: IconColor): string => {
         default:
             return Colors.black[500];
     }
-}
+};
 
-export const changeSvgColorAndSize = (svg: string, color: IconColor | undefined, size: IconSize | undefined): string => {
+export const changeSvgColorAndSize = (
+    svg: string,
+    color: IconColor | undefined,
+    size: IconSize | undefined
+): string => {
     let newSvg = svg;
 
     if (color) {
-        newSvg = newSvg.replace(/<svg.*?>/i, (match) => match.replace('height=', `fill="${getColorCode(color)}" height=`));
+        newSvg = newSvg.replace(/<svg.*?>/i, (match) =>
+            match.replace('height=', `fill="${getColorCode(color)}" height=`)
+        );
     }
     if (size) {
         newSvg = newSvg.replace(/<svg.*?>/i, (match) =>
@@ -54,36 +60,42 @@ export const createDownloadElement = (iconUrl: string, iconName: string): void =
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
-}
+};
 
 export const createDownloadSvgElement = (icon: IconType, iconData: string, color: IconColor, size: IconSize): void => {
-    const iconUrl = `data:text/plain;charset=utf-8, ${encodeURIComponent(changeSvgColorAndSize(iconData, color, size))}`;
+    const iconUrl = `data:text/plain;charset=utf-8, ${encodeURIComponent(
+        changeSvgColorAndSize(iconData, color, size)
+    )}`;
     const iconName = [icon.name, capitalize(color), '_', size, 'dp'].join('');
     createDownloadElement(iconUrl, `${getSnakeCase(iconName).toLowerCase()}.svg`);
 };
 
-export const createDownloadPxbPngElement = async (iconName: string, colorName: string, size: IconSize): Promise<void> => {
+export const createDownloadPxbPngElement = async (
+    iconName: string,
+    colorName: string,
+    size: IconSize
+): Promise<void> => {
     const formattedIconName = `${getSnakeCase(iconName)}_${colorName}_${size}dp.png`;
     const iconSrc = `https://raw.githubusercontent.com/pxblue/icons/dev/png/png${size}/${formattedIconName}`;
     const icon = await fetch(iconSrc);
     const iconBlog = await icon.blob();
-    const iconUrl = URL.createObjectURL(iconBlog)
+    const iconUrl = URL.createObjectURL(iconBlog);
     createDownloadElement(iconUrl, formattedIconName);
-}
+};
 
 export const createDownloadMaterialPngElement = (iconName: string, colorName: IconColor, size: IconSize): void => {
     const iconUrl = `https://fonts.gstatic.com/s/i/materialicons/${iconName}/v6/${colorName}-${size}dp.zip`;
     const formattedIconName = `${iconName}/v6/${colorName}-${size}dp.zip`;
     createDownloadElement(iconUrl, formattedIconName);
-}
+};
 
 // Material or PX Blue SVG icons
 export const downloadSvg = async (icon: IconType, color: IconColor, size: IconSize): Promise<void> => {
     if (icon.isMaterial) {
-        const iconData = await getSvg(getSnakeCase(icon.name), 'material') || '';
+        const iconData = (await getSvg(getSnakeCase(icon.name), 'material')) || '';
         createDownloadSvgElement(icon, iconData, color, size);
     } else {
-        const iconData = await getSvg(getSnakeCase(icon.name), 'pxblue') || '';
+        const iconData = (await getSvg(getSnakeCase(icon.name), 'pxblue')) || '';
         createDownloadSvgElement(icon, iconData, color, size);
     }
 };
@@ -157,8 +169,9 @@ export const getIconSvgInstructions = (framework: Framework, icon: IconType): st
                     icon.iconFontKey
                 )}"/>;`;
             }
-            return `import ${icon.name} from '@pxblue/icons-svg/${getSnakeCase(icon.name)}.svg';\n<${icon.name
-                } width={24} height={24} fill={'black'} />`;
+            return `import ${icon.name} from '@pxblue/icons-svg/${getSnakeCase(icon.name)}.svg';\n<${
+                icon.name
+            } width={24} height={24} fill={'black'} />`;
         default:
             return '';
     }
@@ -214,8 +227,9 @@ export const getIconSvgExample = (framework: Framework, icon: IconType): JSX.Ele
 export const getIconComponentInstructions = (framework: Framework, icon: IconType): string => {
     switch (framework) {
         case 'react':
-            return `import { ${icon.name} } from '${icon.isMaterial ? '@material-ui/icons' : '@pxblue/icons-mui'}';\n<${icon.name
-                } />`;
+            return `import { ${icon.name} } from '${icon.isMaterial ? '@material-ui/icons' : '@pxblue/icons-mui'}';\n<${
+                icon.name
+            } />`;
         default:
             return '';
     }
