@@ -107,9 +107,9 @@ export const getRoadmap = async (release: Release): Promise<RoadmapBucket[] | un
     }
 };
 
-export const getMaterialSvg = async (name: string): Promise<string | undefined> => {
+export const getSvg = async (name: string, family: 'material' | 'pxblue'): Promise<string | undefined> => {
     try {
-        const response = await icons.get(`/${name}/v6/24px.svg`);
+        const response = family === 'pxblue' ? await pxblueIcons.get(`/${name}.svg`) : await icons.get(`/${name}/v6/24px.svg`);
         if (response && response.status === 200) return response.data;
         return undefined;
     } catch (thrown) {
@@ -119,18 +119,4 @@ export const getMaterialSvg = async (name: string): Promise<string | undefined> 
         }
         return undefined;
     }
-};
-
-export const getPxblueSvg = async (name: string): Promise<string | undefined> => {
-    try {
-        const response = await pxblueIcons.get(`/${name}.svg`);
-        if (response && response.status === 200) return response.data;
-        return undefined;
-    } catch (thrown) {
-        if (axios.isCancel(thrown)) {
-            // request canceled
-            return undefined;
-        }
-        return undefined;
-    }
-};
+}

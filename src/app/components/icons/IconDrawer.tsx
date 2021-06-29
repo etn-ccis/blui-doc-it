@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import {
     AppBar,
@@ -36,6 +35,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { TOGGLE_SIDEBAR } from '../../redux/actions';
 import { AppState } from '../../redux/reducers';
 import { CopyToClipboard } from './CopyToClipboardButton';
+import { IconSize, IconColor } from '../../../__types__';
+import { usePrevious } from '../../hooks/usePrevious';
 
 const useStyles = makeStyles((theme: Theme) => ({
     drawer: {
@@ -75,16 +76,13 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export const IconDrawer: React.FC = () => {
     const { selectedIcon = emptyIcon } = useSelectedIcon();
-
+    const previousSelectedIcon = usePrevious(selectedIcon);
     const theme = useTheme();
     const history = useHistory();
     const dispatch = useDispatch();
     const classes = useStyles(theme);
-    type IconSize = 18 | 24 | 36 | 48;
-    type IconColor = 'Black' | 'Blue' | 'Gray' | 'White';
-
     const [iconSize, setIconSize] = React.useState<IconSize>(24);
-    const [iconColor, setIconColor] = React.useState<IconColor>('Black');
+    const [iconColor, setIconColor] = React.useState<IconColor>('black');
     const drawerOpen = useSelector((state: AppState) => state.app.sidebarOpen);
     const sm = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -94,8 +92,10 @@ export const IconDrawer: React.FC = () => {
     };
 
     useEffect(() => {
-        setIconSize(24 as IconSize);
-        setIconColor('Black' as IconColor);
+        if(previousSelectedIcon && previousSelectedIcon.isMaterial !== selectedIcon.isMaterial){
+            setIconSize(24 as IconSize);
+            setIconColor('black' as IconColor);
+        }
     }, [selectedIcon]);
 
     return (
@@ -198,10 +198,10 @@ export const IconDrawer: React.FC = () => {
                                         onChange={(e): void => setIconColor(e.target.value as IconColor)}
                                     >
 
-                                        <MenuItem value={'Black'}>Black</MenuItem>
-                                        <MenuItem value={'White'}>White</MenuItem>
-                                        {!selectedIcon.isMaterial && <MenuItem value={'Blue'}>Blue</MenuItem>}
-                                        {!selectedIcon.isMaterial && <MenuItem value={'Gray'}>Gray</MenuItem>}
+                                        <MenuItem value={'black'}>Black</MenuItem>
+                                        <MenuItem value={'white'}>White</MenuItem>
+                                        {!selectedIcon.isMaterial && <MenuItem value={'blue'}>Blue</MenuItem>}
+                                        {!selectedIcon.isMaterial && <MenuItem value={'gray'}>Gray</MenuItem>}
 
                                     </Select>
                                 </FormControl>

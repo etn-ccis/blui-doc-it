@@ -1,7 +1,7 @@
 import React from 'react';
-import { IconType } from '../../../__types__';
-import { getMaterialSvg, getPxblueSvg } from '../../api';
-import { getSnakeCase, snakeToKebabCase } from '../../shared';
+import { IconColor, IconSize, IconType } from '../../../__types__';
+import { getSvg } from '../../api';
+import { capitalize, getSnakeCase, snakeToKebabCase } from '../../shared';
 import * as Colors from '@pxblue/colors';
 
 export type Framework = 'angular' | 'react' | 'react-native';
@@ -17,9 +17,8 @@ export const getMuiIconName = (filename: string): string => {
     return muiName;
 };
 
-const getColorCode = (color: string): string => {
-    const lowerColor = color.toLowerCase();
-    switch (lowerColor) {
+const getColorCode = (color: IconColor): string => {
+    switch (color) {
         case 'black':
             return Colors.black[500];
         case 'gray':
@@ -33,7 +32,7 @@ const getColorCode = (color: string): string => {
     }
 }
 
-export const changeSvgColorAndSize = (svg: string, color: string | undefined, size: number | undefined): string => {
+export const changeSvgColorAndSize = (svg: string, color: IconColor | undefined, size: IconSize | undefined): string => {
     let newSvg = svg;
 
     if (color) {
@@ -47,65 +46,53 @@ export const changeSvgColorAndSize = (svg: string, color: string | undefined, si
     return newSvg;
 };
 
-export const createDownloadSvgElement = (icon: IconType, iconData: string, color: string, size: number): void => {
-    // create a placeholder dom element and attach the new file download handler to it
+export const createDownloadElement = (iconUrl: string, iconName: string): void => {
     const element = document.createElement('a');
-    element.setAttribute(
-        'href',
-        `data:text/plain;charset=utf-8, ${encodeURIComponent(changeSvgColorAndSize(iconData, color, size))}`
-    );
-    const iconName = [icon.name, color, '-', size, 'dp'].join('');
-    element.setAttribute('download', `${getSnakeCase(iconName).toLowerCase()}.svg`);
+    element.setAttribute('href', iconUrl);
+    element.setAttribute('download', iconName);
     element.style.display = 'none';
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
+}
+
+export const createDownloadSvgElement = (icon: IconType, iconData: string, color: IconColor, size: IconSize): void => {
+    const iconUrl = `data:text/plain;charset=utf-8, ${encodeURIComponent(changeSvgColorAndSize(iconData, color, size))}`;
+    const iconName = [icon.name, capitalize(color), '_', size, 'dp'].join('');
+    createDownloadElement(iconUrl, `${getSnakeCase(iconName).toLowerCase()}.svg`);
 };
 
-export const createDownloadPxbPngElement = async (iconName: string, colorName: string, size: number): Promise<void> => {
-    const imageName = `${getSnakeCase(iconName)}_${colorName.toLocaleLowerCase()}_${size}dp.png`;
-    const imageSrc = `https://raw.githubusercontent.com/pxblue/icons/dev/png/png${size}/${imageName}`;
-    const image = await fetch(imageSrc);
-    const imageBlog = await image.blob();
-    const imageURL = URL.createObjectURL(imageBlog)
-
-    const link = document.createElement('a');
-    link.href = imageURL;
-    link.download = imageName;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+export const createDownloadPxbPngElement = async (iconName: string, colorName: string, size: IconSize): Promise<void> => {
+    const formattedIconName = `${getSnakeCase(iconName)}_${colorName}_${size}dp.png`;
+    const iconSrc = `https://raw.githubusercontent.com/pxblue/icons/dev/png/png${size}/${formattedIconName}`;
+    const icon = await fetch(iconSrc);
+    const iconBlog = await icon.blob();
+    const iconUrl = URL.createObjectURL(iconBlog)
+    createDownloadElement(iconUrl, formattedIconName);
 }
 
-export const createDownloadMaterialPngElement = (iconName: string, colorName: string, size: number): void => {
-    const element = document.createElement('a');
-    element.setAttribute(
-        'href',
-        `https://fonts.gstatic.com/s/i/materialicons/${iconName}/v6/${colorName}-${size}dp.zip`
-    );
-    element.style.display = 'none';
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+export const createDownloadMaterialPngElement = (iconName: string, colorName: IconColor, size: IconSize): void => {
+    const iconUrl = `https://fonts.gstatic.com/s/i/materialicons/${iconName}/v6/${colorName}-${size}dp.zip`;
+    const formattedIconName = `${iconName}/v6/${colorName}-${size}dp.zip`;
+    createDownloadElement(iconUrl, formattedIconName);
 }
+
 // Material or PX Blue SVG icons
-export const downloadSvg = async (icon: IconType, color: string, size: number): Promise<void> => {
+export const downloadSvg = async (icon: IconType, color: IconColor, size: IconSize): Promise<void> => {
     if (icon.isMaterial) {
-        const iconData = await getMaterialSvg(getSnakeCase(icon.name).toLowerCase()) || '';
-        // create a placeholder dom element and attach the new material icon svg download handler to it
+        const iconData = await getSvg(getSnakeCase(icon.name), 'material') || '';
         createDownloadSvgElement(icon, iconData, color, size);
     } else {
-        const iconData = await getPxblueSvg(getSnakeCase(icon.name).toLowerCase()) || '';
-        // create a placeholder dom element and attach the new pxblue icon svg download handler to it
+        const iconData = await getSvg(getSnakeCase(icon.name), 'pxblue') || '';
         createDownloadSvgElement(icon, iconData, color, size);
     }
 };
 // Material or PX Blue PNG icons
-export const downloadPng = (icon: IconType, color: string, size: number): void => {
+export const downloadPng = (icon: IconType, color: IconColor, size: IconSize): void => {
     if (icon.isMaterial) {
-        createDownloadMaterialPngElement(icon.iconFontKey, color.toLowerCase(), size);
+        createDownloadMaterialPngElement(icon.iconFontKey, color, size);
     } else {
-        const colorName = color === 'White' ? `${color}50` : `${color}500`;
+        const colorName = color === 'white' ? `${color}50` : `${color}500`;
         void createDownloadPxbPngElement(icon.name, colorName, size);
     }
 };
