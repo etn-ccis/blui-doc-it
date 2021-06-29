@@ -17,13 +17,27 @@ export const getMuiIconName = (filename: string): string => {
     return muiName;
 };
 
+const getColorCode = (color:string): string => {
+    const lowerColor = color.toLowerCase();
+    switch(lowerColor){
+        case 'black':
+            return Colors.black[500];
+        case 'gray':
+            return Colors.gray[500];
+        case 'blue':
+            return Colors.blue[500];
+        case 'white':
+            return Colors.white[50];
+        default:
+            return Colors.black[500];
+    }
+}
+
 export const changeSvgColorAndSize = (svg: string, color: string | undefined, size: number | undefined): string => {
     let newSvg = svg;
     
     if (color) {
-        // @ts-ignore
-        const colorCode = color === 'White' ? Colors[color.toLowerCase()][50] : Colors[color.toLowerCase()][500];
-        newSvg = newSvg.replace(/<svg.*?>/i, (match) => match.replace('height=', `fill="${colorCode}" height=`));
+        newSvg = newSvg.replace(/<svg.*?>/i, (match) => match.replace('height=', `fill="${getColorCode(color)}" height=`));
     }
     if (size) {
         newSvg = newSvg.replace(/<svg.*?>/i, (match) =>
@@ -48,7 +62,21 @@ export const createDownloadSvgElement = (icon: IconType, iconData: string, color
     document.body.removeChild(element);
 };
 
-// Can be Material or PX Blue icons
+export const createDownloadPxbPngElement = async (iconName: string, colorName: string, size: number): Promise<void> => {
+    const imageName = `${getSnakeCase(iconName)}_${colorName.toLocaleLowerCase()}_${size}dp.png`;
+    const imageSrc = `https://raw.githubusercontent.com/pxblue/icons/dev/png/png${size}/${imageName}`
+    const image = await fetch(imageSrc) || ''
+    const imageBlog = await image.blob() || ''
+    const imageURL = URL.createObjectURL(imageBlog)
+  
+    const link = document.createElement('a');
+    link.href = imageURL;
+    link.download = imageName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+// Material or PX Blue SVG icons
 export const downloadSvg = async (icon: IconType, color: string, size: number): Promise<void> => {
     if (icon.isMaterial) {
         const iconData = await getMaterialSvg(getSnakeCase(icon.name).toLowerCase()) || '';
@@ -60,14 +88,13 @@ export const downloadSvg = async (icon: IconType, color: string, size: number): 
         createDownloadSvgElement(icon, iconData, color, size);
     }
 };
-
-// Material Icons only
+// Material or PX Blue PNG icons
 export const downloadPng = (icon: IconType, color: string, size: number): void => {
     if (icon.isMaterial) {
         window.open(`//fonts.gstatic.com/s/i/materialicons/${icon.iconFontKey}/v6/${color.toLowerCase()}-${size.toString()}dp.zip?download=true`, '_blank');
     } else {
-        const colorName = color === 'White' ? `${color}50` : `${color}500`
-        window.open(`https://raw.githubusercontent.com/pxblue/icons/dev/png/png${size}/${getSnakeCase(icon.name)}_${colorName.toLocaleLowerCase()}_${size}dp.png?download=true`, '_blank');
+        const colorName = color === 'White' ? `${color}50` : `${color}500`;
+        void createDownloadPxbPngElement(icon.name, colorName, size);
     }
 };
 

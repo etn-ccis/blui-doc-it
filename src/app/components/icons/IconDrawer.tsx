@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import {
@@ -80,8 +80,11 @@ export const IconDrawer: React.FC = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const classes = useStyles(theme);
-    const [iconSize, setIconSize] = React.useState(24);
-    const [iconColor, setIconColor] = React.useState('Black');
+    type IconSize = 18 | 24 | 36 | 48;
+    type IconColor = 'Black' | 'Blue' | 'Gray' | 'White';
+
+    const [iconSize, setIconSize] = React.useState<IconSize>(24);
+    const [iconColor, setIconColor] = React.useState<IconColor>('Black');
     const drawerOpen = useSelector((state: AppState) => state.app.sidebarOpen);
     const sm = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -90,14 +93,10 @@ export const IconDrawer: React.FC = () => {
         dispatch({ type: TOGGLE_SIDEBAR, payload: false });
     };
 
-
-    const handleChange = (event: React.ChangeEvent<{ value: unknown }>): void => {
-        setIconSize(event.target.value as number);
-    };
-
-    const handleColorChange = (event: React.ChangeEvent<{ value: unknown }>): void => {
-        setIconColor(event.target.value as string);
-    };
+    useEffect(() => {
+        setIconSize(24 as IconSize);
+        setIconColor('Black' as IconColor);
+    }, [selectedIcon]);
 
     return (
         <MuiDrawer
@@ -177,55 +176,34 @@ export const IconDrawer: React.FC = () => {
                                     <InputLabel id="icon-size-select-label">
                                         Select a Size:
                                     </InputLabel>
-                                    {selectedIcon.isMaterial ? (
-                                        <Select
-                                            labelId="icon-size-select-label"
-                                            id="icon-size-select"
-                                            value={iconSize}
-                                            onChange={handleChange}
-                                        >
-                                            <MenuItem value={18}>18dp</MenuItem>
-                                            <MenuItem value={24}>24dp</MenuItem>
-                                            <MenuItem value={36}>36dp</MenuItem>
-                                            <MenuItem value={48}>48dp</MenuItem>
-                                        </Select>
-                                    ) : (
-                                        <Select
-                                            labelId="icon-size-select-label"
-                                            id="icon-size-select"
-                                            value={iconSize}
-                                            onChange={handleChange}
-                                        >
-                                            <MenuItem value={24}>24dp</MenuItem>
-                                            <MenuItem value={48}>48dp</MenuItem>
-                                        </Select>
-                                    )}
+                                    <Select
+                                        labelId="icon-size-select-label"
+                                        id="icon-size-select"
+                                        value={iconSize}
+                                        onChange={(e): void => setIconSize(e.target.value as IconSize)}
+                                    >
+                                        {selectedIcon.isMaterial && <MenuItem value={18}>18dp</MenuItem>}
+                                        <MenuItem value={24}>24dp</MenuItem>
+                                        {selectedIcon.isMaterial && <MenuItem value={36}>36dp</MenuItem>}
+                                        <MenuItem value={48}>48dp</MenuItem>
+                                    </Select>
+
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel id="icon-color-select-label">Select a Color:</InputLabel>
-                                    {selectedIcon.isMaterial ? (
-                                        <Select
-                                            labelId="icon-color-select-label"
-                                            id="icon-color-select"
-                                            value={iconColor}
-                                            onChange={handleColorChange}
-                                        >
-                                            <MenuItem value={'Black'}>Black</MenuItem>
-                                            <MenuItem value={'White'}>White</MenuItem>
-                                        </Select>
-                                    ) : (
-                                        <Select
-                                            labelId="icon-color-select-label"
-                                            id="icon-color-select"
-                                            value={iconColor}
-                                            onChange={handleColorChange}
-                                        >
-                                            <MenuItem value={'Black'}>Black</MenuItem>
-                                            <MenuItem value={'White'}>White</MenuItem>
-                                            <MenuItem value={'Blue'}>Blue</MenuItem>
-                                            <MenuItem value={'Gray'}>Gray</MenuItem>
-                                        </Select>
-                                    )}
+                                    <Select
+                                        labelId="icon-color-select-label"
+                                        id="icon-color-select"
+                                        value={iconColor}
+                                        onChange={(e): void => setIconColor(e.target.value as IconColor)}
+                                    >
+
+                                        <MenuItem value={'Black'}>Black</MenuItem>
+                                        <MenuItem value={'White'}>White</MenuItem>
+                                        {!selectedIcon.isMaterial && <MenuItem value={'Blue'}>Blue</MenuItem>}
+                                        {!selectedIcon.isMaterial && <MenuItem value={'Gray'}>Gray</MenuItem>}
+
+                                    </Select>
                                 </FormControl>
                             </div>
                             <div>
@@ -248,15 +226,6 @@ export const IconDrawer: React.FC = () => {
                                 >
                                     PNG
                                 </Button>
-                                {!selectedIcon.isMaterial && (
-                                    <Typography
-                                        display={'block'}
-                                        variant={'caption'}
-                                        style={{ marginTop: theme.spacing(0.5) }}
-                                    >
-                                        Icon file will open in a new window — right click it and Save As to download.
-                                    </Typography>
-                                )}
                             </div>
                         </div>
                         <Divider />
