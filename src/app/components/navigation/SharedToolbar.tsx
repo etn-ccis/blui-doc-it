@@ -102,11 +102,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                 explosionMaxHeight: 0.9,
                 explosionChance: 0.02,
             });
-            const fireworksToggle = localStorage.getItem('fireworks') || 'off';
-
-            if (fireworksToggle === 'on') {
-                fireworks.start();
-            }
+            fireworks.start();
         }
     }, []);
 

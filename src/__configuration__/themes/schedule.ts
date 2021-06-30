@@ -60,12 +60,6 @@ export const getScheduledSiteConfig = (): SiteConfig => {
         // if did not wrap to the next year
         if (duration.end.getFullYear() === 1900) {
             if (duration.start <= currentDate && currentDate <= duration.end) {
-                if (duration.config.className === 'independence-day') {
-                    localStorage.setItem('fireworks', 'on');
-                } else {
-                    localStorage.setItem('fireworks', 'off');
-                }
-
                 return duration.config;
             }
         }
@@ -75,17 +69,10 @@ export const getScheduledSiteConfig = (): SiteConfig => {
             const endTemp = new Date(duration.end.getTime());
             endTemp.setFullYear(1900);
             if (duration.start <= currentDate || currentDate <= endTemp) {
-                if (duration.config.className === 'independence-day') {
-                    localStorage.setItem('fireworks', 'on');
-                } else {
-                    localStorage.setItem('fireworks', 'off');
-                }
-
                 return duration.config;
             }
         }
     }
     // didn't find a holiday theme, fall back to the default blue theme
-    localStorage.setItem('fireworks', 'off');
     return defaultTheme;
 };

@@ -64,6 +64,6 @@ export const IndependenceDaySchedule: Schedule = {
             backgroundSize: '600px',
             backgroundPosition: 'left 25%',
         },
-        landingPageTagline: 'Happy Independence Day!',
+        landingPageTagline: 'Happy 4th!',
     },
 };
