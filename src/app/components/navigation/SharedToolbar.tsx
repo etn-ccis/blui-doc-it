@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
     Typography,
@@ -24,6 +24,7 @@ import Search from '@material-ui/icons/Search';
 import { SearchBar } from '../../pages';
 import { PADDING } from '../../shared';
 import { getScheduledSiteConfig } from '../../../__configuration__/themes';
+import FireworksCanvas from 'fireworks-canvas';
 
 export type SharedToolbarProps = AppBarProps & {
     title?: string;
@@ -60,6 +61,15 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const sm = useMediaQuery(theme.breakpoints.down('sm'));
     const dispatch = useDispatch();
     const appBarBackground = getScheduledSiteConfig().appBarBackground;
+    const getIsFireworkHoliday = (): boolean => {
+        const holidayClassName = getScheduledSiteConfig().className || '';
+        const fireworkHolidays = ['independence-day'];
+
+        if (fireworkHolidays.includes(holidayClassName)) {
+            return true;
+        }
+        return false;
+    };
 
     const getNavigationIcon = useCallback(
         () => (
@@ -78,6 +88,27 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
         ),
         [navigationIcon]
     );
+
+    useEffect(() => {
+        if (getIsFireworkHoliday()) {
+            const fireworksContainer: HTMLElement =
+                document.getElementById('fireworks') || document.createElement('div');
+            fireworksContainer.innerHTML = '';
+            const fireworks = new FireworksCanvas(fireworksContainer, {
+                maxRockets: 3,
+                rocketSpawnInterval: 600,
+                numParticles: 150,
+                explosionMinHeight: 0.2,
+                explosionMaxHeight: 0.9,
+                explosionChance: 0.02,
+            });
+            const fireworksToggle = localStorage.getItem('fireworks') || 'off';
+
+            if (fireworksToggle === 'on') {
+                fireworks.start();
+            }
+        }
+    }, []);
 
     // TODO: Revisit this when the DrawerLayout is fixed - this is going to be goofy on the pages with multiple appbars
     // useEffect(() => {
@@ -109,6 +140,19 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                 }}
                 {...other}
             >
+                {getIsFireworkHoliday() && (
+                    <div
+                        id="fireworks"
+                        style={{
+                            position: 'fixed',
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            height: sm ? 56 : 64,
+                            overflow: 'hidden',
+                        }}
+                    ></div>
+                )}
                 <Toolbar className={classes.toolbar}>
                     {getNavigationIcon()}
                     {props.title ? (

@@ -119,3 +119,7 @@ p.MuiTypography-h5.MuiTypography-paragraph {
 .new-years.ph-item .ph-row > div > * {
     background-color: #2b353a;
 }
+
+#fireworks > canvas {
+    height: 64px;
+}
