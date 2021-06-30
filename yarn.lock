@@ -7302,6 +7302,11 @@ find-up@^5.0.0:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
 
+fireworks-canvas@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/fireworks-canvas/-/fireworks-canvas-2.6.0.tgz#95775e94766cfdd44fff601ce26277eecdd0ba75"
+  integrity sha512-VnEhPfG75REXUtWbmocbdRtNtPk3jtEvDQuFE3w4fFXarIWvz35mWK/x9GbGVp5yz9iAv/Y/A+oSsvPGtP4sxg==
+
 flat-cache@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/flat-cache/-/flat-cache-3.0.4.tgz#61b0338302b2fe9f957dcc32fc2a87f1c3048b11"
