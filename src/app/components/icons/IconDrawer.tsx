@@ -93,8 +93,12 @@ export const IconDrawer: React.FC = () => {
 
     useEffect(() => {
         if (previousSelectedIcon && previousSelectedIcon.isMaterial !== selectedIcon.isMaterial) {
-            setIconSize(24 as IconSize);
-            setIconColor('black' as IconColor);
+            if (![24, 48].includes(iconSize)) {
+                setIconSize(24 as IconSize);
+            }
+            if (!['black', 'white'].includes(iconColor)) {
+                setIconColor('black' as IconColor);
+            }
         }
     }, [selectedIcon]);
 
