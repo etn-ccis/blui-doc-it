@@ -121,5 +121,6 @@ p.MuiTypography-h5.MuiTypography-paragraph {
 }
 
 #fireworks > canvas {
-    height: 64px;
+    height: 100% !important;
+    width: 100% !important;
 }

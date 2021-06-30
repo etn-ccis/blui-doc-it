@@ -144,11 +144,11 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                     <div
                         id="fireworks"
                         style={{
-                            position: 'fixed',
+                            position: 'absolute',
                             top: 0,
                             left: 0,
                             right: 0,
-                            height: sm ? 56 : 64,
+                            bottom: 0,
                             overflow: 'hidden',
                         }}
                     ></div>
