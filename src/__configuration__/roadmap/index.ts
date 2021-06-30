@@ -8,6 +8,11 @@ export const AVAILABLE_RELEASES: Array<{
     quarter: Quarter;
 }> = [
     {
+        name: 'R22',
+        year: 2021,
+        quarter: 'Q4',
+    },
+    {
         name: 'R21',
         year: 2021,
         quarter: 'Q3',

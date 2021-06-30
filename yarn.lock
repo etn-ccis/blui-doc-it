@@ -2143,7 +2143,7 @@
     react-is "^16.8.0 || ^17.0.0"
     react-transition-group "^4.4.0"
 
-"@material-ui/icons@^4.9.1":
+"@material-ui/icons@^4.11.2":
   version "4.11.2"
   resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-4.11.2.tgz#b3a7353266519cd743b6461ae9fdfcb1b25eb4c5"
   integrity sha512-fQNsKX2TxBmqIGJCSi3tGTO/gZ+eJgWmMJkgDiOfyNaunNaxcklJQFaFogYcFl0qFuaEz1qaXYXboa/bUXVSOQ==
@@ -7301,6 +7301,11 @@ find-up@^5.0.0:
   dependencies:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
+
+fireworks-canvas@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/fireworks-canvas/-/fireworks-canvas-2.6.0.tgz#95775e94766cfdd44fff601ce26277eecdd0ba75"
+  integrity sha512-VnEhPfG75REXUtWbmocbdRtNtPk3jtEvDQuFE3w4fFXarIWvz35mWK/x9GbGVp5yz9iAv/Y/A+oSsvPGtP4sxg==
 
 flat-cache@^3.0.4:
   version "3.0.4"
