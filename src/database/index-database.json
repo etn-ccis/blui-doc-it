@@ -3393,7 +3393,7 @@
         ],
         "entails": [{ "/get-started/new-project": 2 }],
         "app": [
-            { "/patterns/appbar": 23 },
+            { "/patterns/appbar": 25 },
             { "/development/frameworks-mobile/intro": 12 },
             { "/get-started/new-project": 4 },
             { "/get-started/mobile": 3 },
@@ -8630,8 +8630,8 @@
         "div": [{ "/development/testing": 4 }],
         "header": [
             { "/patterns/account-menu": 4 },
+            { "/patterns/appbar": 3 },
             { "/development/testing": 2 },
-            { "/patterns/appbar": 2 },
             { "/patterns/navigation": 2 },
             { "/patterns/lists": 1 },
             { "/style/typography": 1 }
@@ -8862,6 +8862,7 @@
         "layout": [
             { "/design/websites": 2 },
             { "/design/intro": 1 },
+            { "/patterns/appbar": 1 },
             { "/patterns/forms": 1 },
             { "/patterns/internationalization": 1 }
         ],
@@ -10051,7 +10052,7 @@
         ],
         "contents": [{ "/patterns/account-menu": 3 }, { "/patterns/navigation": 1 }, { "/patterns/overlay": 1 }],
         "bar": [
-            { "/patterns/appbar": 21 },
+            { "/patterns/appbar": 23 },
             { "/patterns/account-menu": 3 },
             { "/patterns/navigation": 3 },
             { "/patterns/loading": 2 },
@@ -10128,7 +10129,7 @@
         "nav": [{ "/patterns/navigation": 2 }, { "/patterns/account-menu": 1 }],
         "appbar": [{ "/patterns/appbar": 3 }, { "/patterns/lists": 1 }],
         "collapse": [{ "/patterns/appbar": 1 }],
-        "collapsible": [{ "/patterns/appbar": 5 }],
+        "collapsible": [{ "/patterns/appbar": 6 }],
         "extend": [{ "/patterns/appbar": 1 }, { "/style/illustrations": 1 }, { "/community/faq": 1 }],
         "prominent": [{ "/patterns/appbar": 2 }, { "/patterns/navigation": 1 }],
         "toolbar": [{ "/patterns/appbar": 7 }],
