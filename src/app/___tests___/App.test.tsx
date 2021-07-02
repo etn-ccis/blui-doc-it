@@ -7,6 +7,8 @@ import { MainRouter } from '../router';
 import { Reducer } from '../redux/reducers';
 const store = createStore(Reducer());
 
+global.scrollTo = jest.fn();
+
 it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
