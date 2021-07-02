@@ -215,7 +215,10 @@
             "jest-watch-typeahead/filename",
             "jest-watch-typeahead/testname"
         ],
-        "resetMocks": true
+        "resetMocks": true,
+        "globals": {
+            "window": {}
+        }
     },
     "babel": {
         "presets": [
