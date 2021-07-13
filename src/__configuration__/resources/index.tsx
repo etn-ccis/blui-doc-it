@@ -72,7 +72,7 @@ export const resources: ResourceBucket[] = [
                 name: '@pxblue/symbols',
                 description: 'SVG versions of PX Blue oneline symbols',
                 package: '@pxblue/symbols',
-                repository: 'icons',
+                repository: 'symbols',
                 bugLabels: ['symbols'],
             },
             {
