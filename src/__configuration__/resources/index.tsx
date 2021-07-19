@@ -125,7 +125,6 @@ export const resources: ResourceBucket[] = [
                 package: '@pxblue/angular-themes',
                 repository: 'angular-themes',
                 applies: ['angular'],
-                bugLabels: ['angular-themes'],
             },
             {
                 name: '@pxblue/react-themes',
@@ -133,7 +132,6 @@ export const resources: ResourceBucket[] = [
                 package: '@pxblue/react-themes',
                 repository: 'react-themes',
                 applies: ['react'],
-                bugLabels: ['react-themes'],
             },
             {
                 name: '@pxblue/react-native-themes',
@@ -141,14 +139,12 @@ export const resources: ResourceBucket[] = [
                 package: '@pxblue/react-native-themes',
                 repository: 'react-native-themes',
                 applies: ['react-native'],
-                bugLabels: ['react-native-themes'],
             },
             {
                 name: '@pxblue/storybook-themes',
                 description: 'PX Blue themes for Storybook applications',
                 package: '@pxblue/storybook-themes',
                 repository: 'storybook-themes',
-                bugLabels: ['storybook-themes'],
             },
         ],
     },
