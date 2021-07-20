@@ -43,7 +43,7 @@ export const cardData = [
         title: 'Development Resources',
         description: `Have a look at all of the code examples and packages available from PX Blue. We're constantly updating and adding new materials.`,
         image: resources,
-        path: '/resources',
+        path: '/resources/developer',
     },
     {
         title: 'GitHub',
