@@ -26,6 +26,7 @@ import NavigationBottomImg from '../../app/assets/design-patterns/navigation/nav
 import NavigationBottomWithDrawerImg from '../../app/assets/design-patterns/navigation/navigation-bottom-with-drawer.png';
 import DividerGroupImage from '../../app/assets/design-patterns/navigation/drawer-divider.png';
 import DividerImage from '../../app/assets/design-patterns/navigation/divider.png';
+import SafeAreaImage from '../../app/assets/design-patterns/navigation/safe-area.png';
 
 <!-- KEYWORDS: design pattern navigation drawer menu tab tabs navigate nav -->
 
@@ -242,8 +243,14 @@ Divider lines can be used between navigation items in the drawer. They are most 
             '2. Avoid using divider lines between every navigation item. These can make the drawer appear busy.',
         ]}
     />
-    <Divider />
 </React.Fragment>
+
+## Safe Area
+
+When designing for mobile screens, in particular for a iPhone X model, ensure that your contents lay inside the safe area.
+
+<ImageGrid images={[SafeAreaImage]} caption={['Contents must be inside the safe area.']} regularWidth />
+<Divider />
 
 # Design Specifications
 

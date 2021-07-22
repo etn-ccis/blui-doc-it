@@ -9,6 +9,7 @@ import CollapsibleAppBarDynamic from '../../app/assets/design-patterns/app-bar/c
 import CollapsibleAppBarSnap from '../../app/assets/design-patterns/app-bar/collapsible-app-bar-snap.gif';
 import CollapsibleAppBar1 from '../../app/assets/design-patterns/app-bar/collapsible-app-bar-1.png';
 import CollapsibleAppBar2 from '../../app/assets/design-patterns/app-bar/collapsible-app-bar-2.png';
+import SafeArea from '../../app/assets/design-patterns/app-bar/safe-area.png';
 import HideOnCollapse from '../../app/assets/design-patterns/app-bar/what-to-hide-on-collapse.png';
 import AutoVariants from '../../app/assets/design-patterns/app-bar/search-bar/auto-complete-variants.png';
 import BasicBars from '../../app/assets/design-patterns/app-bar/basic-app-bars.png';
@@ -68,6 +69,18 @@ The basic app bar provides information about the current screen. Typically, this
 </React.Fragment>
 
 A special case of the basic app bar is the dropdown toolbar. This version transforms the simple text subtitle of the app bar into a dropdown menu that can be used to configure the page. For example, you may have a dropdown that allows users to switch between different physical locations on an overview screen.
+
+## Safe Area
+
+<ImageGrid
+    regularWidth
+    images={[SafeArea]}
+    caption={[
+        `When designing for mobile screens, make sure to take non-rectangular screens into account.`,
+        `1: An incorrect design. The content bleeds into the unsafe area, and the native OS's status bar does not reflect the blue theme.`,
+        `2: A correct design. All the contents are legible.`,
+    ]}
+/>
 
 <Divider />
 
