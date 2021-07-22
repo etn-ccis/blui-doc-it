@@ -10915,6 +10915,7 @@
         "schemes": [{ "/style/illustrations": 1 }],
         "intact": [{ "/style/illustrations": 1 }],
         "coblis": [{ "/style/illustrations": 1 }],
+        "animation": [{ "/style/illustrations": 1 }],
         "outline": [{ "/style/illustrations": 2 }],
         "stroke": [{ "/style/illustrations": 2 }],
         "convert": [{ "/style/illustrations": 1 }],
