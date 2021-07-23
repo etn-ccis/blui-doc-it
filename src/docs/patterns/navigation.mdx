@@ -27,6 +27,7 @@ import NavigationBottomWithDrawerImg from '../../app/assets/design-patterns/navi
 import DividerGroupImage from '../../app/assets/design-patterns/navigation/drawer-divider.png';
 import DividerImage from '../../app/assets/design-patterns/navigation/divider.png';
 import SafeAreaImage from '../../app/assets/design-patterns/navigation/safe-area.png';
+import PersistentDrawerPitfallImg from '../../app/assets/design-patterns/navigation/persistent-drawer-pitfall.gif';
 
 <!-- KEYWORDS: design pattern navigation drawer menu tab tabs navigate nav -->
 
@@ -130,6 +131,12 @@ A persistent drawer is an always-visible drawer that can be opened and closed (e
             'When the user hovers on the Navigation Rail, the side navigation will expand temporarily, revealing the text details of each navigation item; when the user moves their cursor away, the whole side navigation panel collapses.'
         }
         regularWidth
+    />
+    <ImageGrid
+        images={[PersistentDrawerPitfallImg]}
+        caption={
+            'Be careful when using persistent drawer with drawer item group headers (where it says "GROUP 1" and "GROUP 2" in the image), as they turn into blank spaces when the drawer collapses.'
+        }
     />
 </React.Fragment>
 
