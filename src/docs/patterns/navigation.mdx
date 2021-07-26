@@ -136,8 +136,8 @@ A persistent drawer is an always-visible drawer that can be opened and closed (e
     <ImageGrid
         images={[PersistentDrawerPitfallImg, CombinedDrawerImage]}
         caption={[
-            'Be careful when using persistent drawer with drawer item group headers (where it says "GROUP 1" and "GROUP 2" in the image), as they turn into blank spaces when the drawer collapses.',
-            `One way to get around this issue is to use different drawer variants at different view ports. For example, you can use a permanent drawer on desktop screens (#1) and switch to a persistent drawer without header text or a navigation rail on tablets (#2).`,
+            `When using a persistent drawer with navigation group titles (where it says "GROUP 1" and "GROUP 2" in the image), the titles become blank spaces by default when the drawer collapses.`,
+            `If you prefer a look without these spaces, you can conditionally hide the title when the drawer collapses or use different drawer variants at different view ports. For example, you can use a permanent drawer on desktop screens (#1) and switch to a persistent drawer without header text or a navigation rail on tablets (#2).`,
         ]}
     />
 </React.Fragment>
