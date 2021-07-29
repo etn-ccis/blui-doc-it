@@ -55,6 +55,14 @@ export const resources: ResourceBucket[] = [
                 bugLabels: ['font'],
             },
             {
+                name: '@pxblue/react-native-vector-icons',
+                description: 'Vector icons for React Native',
+                package: '@pxblue/react-native-vector-icons',
+                repository: 'icons',
+                applies: ['react-native'],
+                bugLabels: ['react-native'],
+            },
+            {
                 name: '@pxblue/icons-svg',
                 description: 'SVG versions of PX Blue custom icons',
                 package: '@pxblue/icons-svg',
@@ -65,7 +73,7 @@ export const resources: ResourceBucket[] = [
                 name: '@pxblue/icons-mui',
                 description: 'Material-UI icon components for PX Blue custom icons',
                 package: '@pxblue/icons-mui',
-                repository: 'icons-mui',
+                repository: 'icons',
                 applies: ['react'],
             },
             {
@@ -79,7 +87,7 @@ export const resources: ResourceBucket[] = [
                 name: '@pxblue/symbols-mui',
                 description: 'Material-UI icon components for PX Blue oneline symbols',
                 package: '@pxblue/symbols-mui',
-                repository: 'symbols-mui',
+                repository: 'symbols',
                 applies: ['react'],
             },
             {
@@ -97,6 +105,14 @@ export const resources: ResourceBucket[] = [
                 repository: 'progress-icons',
                 applies: ['react'],
                 bugLabels: ['progress', 'react'],
+            },
+            {
+                name: '@pxblue/react-native-progress-icons',
+                description: 'Dynamic progress icons for React Native',
+                package: '@pxblue/react-native-progress-icons',
+                repository: 'progress-icons',
+                applies: ['react-native'],
+                bugLabels: ['progress', 'react-native'],
             },
         ],
     },
