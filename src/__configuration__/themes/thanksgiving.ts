@@ -7,8 +7,8 @@ import AppBarTile from '../../app/assets/themes/thanksgiving/thanksgiving-appbar
 import { Schedule } from './types';
 
 export const ThanksgivingSchedule: Schedule = {
-    start: new Date(0, 10, 22), // Nov 22
-    end: new Date(0, 11, 1), // Nov 30
+    start: new Date(0, 10, 21), // Nov 21
+    end: new Date(0, 10, 28), // Nov 27
     config: {
         theme: {
             ...PXBThemes.blue,

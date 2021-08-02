@@ -18,16 +18,16 @@ import { IndependenceDaySchedule } from './independence-day';
  * Add more holiday themes here.
  *
  * Current schedules:
- * * Feb 11 - Feb 18: Spring Festival (changes each year)
+ * * Feb 1 - Feb 7 2022: Spring Festival (changes each year)  ** Jan 21 - Jan 27 2023 | Feb 9 - Feb 15 2024 **
  * * Mar 7 - Mar 9: Women's Day
  * * Mar 16 - Mar 18: St. Patrick's Day
  * * Apr 20 - Apr 24: Earth Day
  * * May 3 - May 5: May the Fourth Day
  * * July 2 - July 7: Independence Day
- * * Oct 14 - Nov 2: Halloween
- * * Nov 11 - Nov 17: Diwali (changes each year)
- * * Nov 22 - Nov 30: Thanksgiving (changes each year)
- * * Dec 10 - Dec 18: Hanukkah (changes each year)
+ * * Oct 14 - Nov 1: Halloween
+ * * Nov 2 - Nov 6 2021: Diwali (changes each year)  ** Oct 22 - Oct 26 2022 | November 10 - November 14 2023 **
+ * * Nov 21 - Nov 27: Thanksgiving (changes each year)  ** Nov 24 2022 | Nov 23 2023 **
+ * * Nov 28 - Dec 6: Hanukkah (changes each year)  ** Dec 18 - Dec 26 2022 | Dec 7 - Dec 15 2023 **
  * * Dec 23 - Dec 25: Christmas
  * * Dec 26 - Dec 30: Kwanzaa (Kwanzaa runs until Jan 1. Cutting this short to account for New Years.)
  * * Dec 31 - Jan 6: New Years

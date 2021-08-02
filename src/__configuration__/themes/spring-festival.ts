@@ -7,8 +7,8 @@ import AppBarTile from '../../app/assets/themes/spring-festival/tile.svg';
 import { Schedule } from './types';
 
 export const SpringFestivalSchedule: Schedule = {
-    start: new Date(0, 1, 11), // Feb 11
-    end: new Date(0, 1, 19), // Feb 18
+    start: new Date(0, 1, 1), // Feb 1
+    end: new Date(0, 1, 8), // Feb 7
     config: {
         theme: {
             ...PXBThemes.blue,
