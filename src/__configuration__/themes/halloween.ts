@@ -77,7 +77,7 @@ const HalloweenTheme: ThemeOptions = {
 };
 
 export const HalloweenSchedule: Schedule = {
-    start: new Date(0, 9, 14), // Oct 14
+    start: new Date(0, 9, 25), // Oct 25
     end: new Date(0, 10, 2), // Nov 1
     config: {
         theme: HalloweenTheme,

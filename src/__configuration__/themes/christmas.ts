@@ -6,7 +6,7 @@ import AppBarTile from '../../app/assets/themes/christmas/christmas-appbar-tile.
 import { Schedule } from './types';
 
 export const ChristmasSchedule: Schedule = {
-    start: new Date(0, 11, 23), // Dec 23
+    start: new Date(0, 11, 18), // Dec 18
     end: new Date(0, 11, 26), // Dec 25
     config: {
         theme: {
