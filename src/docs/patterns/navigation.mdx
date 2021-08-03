@@ -26,6 +26,9 @@ import NavigationBottomImg from '../../app/assets/design-patterns/navigation/nav
 import NavigationBottomWithDrawerImg from '../../app/assets/design-patterns/navigation/navigation-bottom-with-drawer.png';
 import DividerGroupImage from '../../app/assets/design-patterns/navigation/drawer-divider.png';
 import DividerImage from '../../app/assets/design-patterns/navigation/divider.png';
+import SafeAreaImage from '../../app/assets/design-patterns/navigation/safe-area.png';
+import CombinedDrawerImage from '../../app/assets/design-patterns/navigation/combined-drawer.png';
+import PersistentDrawerPitfallImg from '../../app/assets/design-patterns/navigation/persistent-drawer-pitfall.gif';
 
 <!-- KEYWORDS: design pattern navigation drawer menu tab tabs navigate nav -->
 
@@ -129,6 +132,13 @@ A persistent drawer is an always-visible drawer that can be opened and closed (e
             'When the user hovers on the Navigation Rail, the side navigation will expand temporarily, revealing the text details of each navigation item; when the user moves their cursor away, the whole side navigation panel collapses.'
         }
         regularWidth
+    />
+    <ImageGrid
+        images={[PersistentDrawerPitfallImg, CombinedDrawerImage]}
+        caption={[
+            `When using a persistent drawer with navigation group titles (where it says "GROUP 1" and "GROUP 2" in the image), the titles become blank spaces by default when the drawer collapses.`,
+            `If you prefer a look without these spaces, you can conditionally hide the title when the drawer collapses or use different drawer variants at different view ports. For example, you can use a permanent drawer on desktop screens (#1) and switch to a persistent drawer without header text or a navigation rail on tablets (#2).`,
+        ]}
     />
 </React.Fragment>
 
@@ -242,8 +252,14 @@ Divider lines can be used between navigation items in the drawer. They are most 
             '2. Avoid using divider lines between every navigation item. These can make the drawer appear busy.',
         ]}
     />
-    <Divider />
 </React.Fragment>
+
+## Safe Area
+
+When designing for mobile screens, in particular for a iPhone X model, ensure that your contents lay inside the safe area.
+
+<ImageGrid images={[SafeAreaImage]} caption={['Contents must be inside the safe area.']} regularWidth />
+<Divider />
 
 # Design Specifications
 

@@ -1,8 +1,9 @@
 import { MaterialDesignDescription, ImageGrid } from '../../app/components';
 import { PictureAsPdf as PDFIcon } from '@material-ui/icons';
-import LightThemeImage from '../../app/assets/design-patterns/illustrations/illustration-light-theme.svg';
-import DarkThemeImage from '../../app/assets/design-patterns/illustrations/illustration-dark-theme.svg';
-import BackgroundShapeImage from '../../app/assets/design-patterns/illustrations/illustration-background.png';
+import LightThemeImage from '../../app/assets/styles/illustrations/illustration-light-theme.svg';
+import DarkThemeImage from '../../app/assets/styles/illustrations/illustration-dark-theme.svg';
+import BackgroundShapeImage from '../../app/assets/styles/illustrations/illustration-background.png';
+import AnimationImage from '../../app/assets/styles/illustrations/animation.gif';
 
 <!-- KEYWORDS: design illustration graph onboarding -->
 
@@ -67,6 +68,12 @@ To maximize accessibility, use online tools (such as [Coblis](https://www.color-
     caption={'Illustration backgrounds can be either a fixed shape (left) or full-bleed (right).'}
     regularWidth
 />
+
+### Animation
+
+<ImageGrid images={[AnimationImage]} caption={'An animated empty state illustration.'} />
+
+Animations can draw attention to important parts of the graphic that are not easily conveyed with a static image. When combined with instructional text, they can provide a very interactive onboarding experience. You can use tools such as [Lottie](https://lottiefiles.com/) to implement and export your animation.
 
 ## Export
 

@@ -9,6 +9,7 @@ import CollapsibleAppBarDynamic from '../../app/assets/design-patterns/app-bar/c
 import CollapsibleAppBarSnap from '../../app/assets/design-patterns/app-bar/collapsible-app-bar-snap.gif';
 import CollapsibleAppBar1 from '../../app/assets/design-patterns/app-bar/collapsible-app-bar-1.png';
 import CollapsibleAppBar2 from '../../app/assets/design-patterns/app-bar/collapsible-app-bar-2.png';
+import SafeArea from '../../app/assets/design-patterns/app-bar/safe-area.png';
 import HideOnCollapse from '../../app/assets/design-patterns/app-bar/what-to-hide-on-collapse.png';
 import AutoVariants from '../../app/assets/design-patterns/app-bar/search-bar/auto-complete-variants.png';
 import BasicBars from '../../app/assets/design-patterns/app-bar/basic-app-bars.png';
@@ -69,6 +70,18 @@ The basic app bar provides information about the current screen. Typically, this
 
 A special case of the basic app bar is the dropdown toolbar. This version transforms the simple text subtitle of the app bar into a dropdown menu that can be used to configure the page. For example, you may have a dropdown that allows users to switch between different physical locations on an overview screen.
 
+## Safe Area
+
+<ImageGrid
+    regularWidth
+    images={[SafeArea]}
+    caption={[
+        `When designing for mobile screens, make sure to take non-rectangular screens into account.`,
+        `1: An incorrect design. The content bleeds into the unsafe area, and the native OS's status bar does not reflect the blue theme.`,
+        `2: A correct design. All the contents are legible.`,
+    ]}
+/>
+
 <Divider />
 
 # Collapsible App Bar
@@ -85,10 +98,8 @@ In some situations, you may want to present more than just a title and subtitle 
     />
     <DemoCard
         repository={'collapsible-appbar'}
-        angular={`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fcollapsible-app-bar%2Fcollapsible-app-bar.component.ts`}
-        react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/app-bar/collapsible-app-bar/index.tsx&initialpath=collapsible`}
-        ionic={`https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fcollapsible-app-bar%2Fcollapsible-app-bar.component.ts`}
-        reactNative
+        angular={`https://pxblue-components.github.io/angular/?path=/story/components-app-bar--with-full-config`}
+        react={`https://pxblue-components.github.io/react/?path=/story/components-app-bar--with-full-config`}
     />
 </React.Fragment>
 
@@ -191,6 +202,7 @@ Use the following components to implement this pattern:
 -   Angular Material
     -   [@angular/material/toolbar](https://material.angular.io/components/toolbar)
 -   @pxblue/angular-components
+    -   [App Bar](https://pxblue-components.github.io/angular/?path=/story/components-app-bar--with-full-config)
     -   [Dropdown Toolbar](https://pxblue-components.github.io/angular/?path=/info/components-dropdown-toolbar--readme)
 
 **React**:
@@ -199,9 +211,11 @@ Use the following components to implement this pattern:
     -   [AppBar](https://material-ui.com/api/app-bar/)
     -   [Toolbar](https://material-ui.com/api/toolbar/)
 -   @pxblue/react-components
+    -   [App Bar](https://pxblue-components.github.io/react/?path=/info/components-app-bar--get-read-me-story)
     -   [Dropdown Toolbar](https://pxblue-components.github.io/react/?path=/info/components-dropdown-toolbar--get-read-me-story)
 
 **React Native**:
 
 -   @pxblue/react-native-components
+    -   [Collapsible Header Layout](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--collapsible-header-layout)
     -   [Header](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--header)
