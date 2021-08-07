@@ -1,10 +1,20 @@
-import { ImageGrid, MaterialDesignDescription, TypographyTable } from '../../app/components';
+import { ImageGrid, MaterialDesignDescription, TypographyTable, TOC } from '../../app/components';
 import { Divider, Typography } from '@material-ui/core';
 import PxblueSmallAltIcon from '@pxblue/icons-mui/PxblueSmallAlt';
+
+<!-- Images -->
 
 import SimplifiedChineseImg from '../../app/assets/styles/typography/noto-sans-cjk-sc.png';
 import AppBar from '../../app/assets/styles/typography/subtitle-variations.png';
 import ScoreCard from '../../app/assets/styles/typography/scorecard-variations.png';
+import CompeteAttention1 from '../../app/assets/styles/typography/compete-attention-1.png';
+import CompeteAttention2 from '../../app/assets/styles/typography/compete-attention-2.png';
+import TextHierarchy1 from '../../app/assets/styles/typography/text-hierarchy-1.png';
+import TextHierarchy2 from '../../app/assets/styles/typography/text-hierarchy-2.png';
+import TextHierarchy3 from '../../app/assets/styles/typography/text-hierarchy-3.png';
+import TextHierarchy4 from '../../app/assets/styles/typography/text-hierarchy-4.png';
+import StatusColor1 from '../../app/assets/styles/typography/status-color-1.png';
+import StatusColor2 from '../../app/assets/styles/typography/status-color-2.png';
 
 <!-- KEYWORDS: design style typography text -->
 
@@ -20,14 +30,59 @@ PX Blue builds off of the Material Design system, so in general, you may refer t
 
 Unlike Material Design, the primary font for Power Xpert Blue is [Open Sans](https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans) (licensed under [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)). This version contains the complete 897 character set, which includes the standard ISO Latin 1, Latin CE, Greek and Cyrillic character sets. Open Sans was optimized for print, web, and mobile interfaces, and has excellent legibility characteristics in its letter forms.
 
-## Type Scale
+<TOC
+    anchors={[
+        { title: 'Introduction', hash: '#typography-guidelines' },
+        { title: 'Type Scale', hash: '#type-scale' },
+        { title: 'Principles', hash: '#principles' },
+        { title: 'Customization', hash: '#customization' },
+        { title: 'Internationalization', hash: '#internationalization' },
+    ]}
+/>
+<Divider />
+
+# Type Scale
 
 PX Blue provides a type scale that includes a range of styles to support the needs of your application. All styles and fonts are available in the design library. As PX Blue continues to grow, additional font patterns will be added.
 
-<React.Fragment>
-    <TypographyTable />
-    <Divider />
-</React.Fragment>
+<TypographyTable />
+
+# Principles
+
+Font variations can create a hierarchy in your information display that guides your user's attention. This involves changing the font's size, weight, and / or color.
+
+<ImageGrid
+    images={[TextHierarchy1, TextHierarchy2, TextHierarchy3, TextHierarchy4]}
+    caption={[
+        'You can manipulate many different aspects of your typography to indicate hierarchy.',
+        '1: Font size',
+        '2: Font weight',
+        '3: Font color',
+        '4: Combined',
+    ]}
+/>
+
+Before starting on your design, you should understand what contents are important from your user's perspective.
+
+<ImageGrid
+    images={[CompeteAttention1, CompeteAttention2]}
+    caption={[
+        '1: Do not rely solely on font weight changes to indicate an active state. Do not let auxiliary text (the circled numbers on the right) distract your user.',
+        '2: Use clues like background color and radio buttons to clearly communicate the state.',
+    ]}
+/>
+
+Be careful with font colors too, as they can raise [accessibility issues](/design/accessibility).
+
+<ImageGrid
+    images={[StatusColor1, StatusColor2]}
+    caption={[
+        '1: Be careful when using status color for a large body of text, as they have decreased legibility compared to those with neutral colors.',
+        '2: Shorter text, such as a list item tag, may be colored to reflect a certain status.',
+    ]}
+/>
+
+<Divider />
 
 # Customization
 
