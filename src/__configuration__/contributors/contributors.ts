@@ -9,6 +9,7 @@ import AndrewPuhalla from '../../app/assets/credits/andrew-puhalla.jpeg';
 import ChinnaGurrala from '../../app/assets/credits/chinna-gurrala.jpeg';
 import AnjaliPatodia from '../../app/assets/credits/anjali-patodia.png';
 import MarianaBela from '../../app/assets/credits/mariana-bela.jpg';
+import RenatoMartins from '../../app/assets/credits/renato-martins.jpg';
 
 import { Contributor } from '../../__types__';
 
@@ -99,5 +100,10 @@ export const contributors: Contributor[] = [
         name: 'Mariana Bela',
         description: 'Figma Design Pattern Library',
         image: MarianaBela,
+    },
+    {
+        name: 'Renato Martins',
+        description: 'Icons',
+        image: RenatoMartins,
     },
 ];
