@@ -10,6 +10,7 @@ import ChinnaGurrala from '../../app/assets/credits/chinna-gurrala.jpeg';
 import AnjaliPatodia from '../../app/assets/credits/anjali-patodia.png';
 import MarianaBela from '../../app/assets/credits/mariana-bela.jpg';
 import RenatoMartins from '../../app/assets/credits/renato-martins.jpg';
+import JosephBoyle from '../../app/assets/credits/joseph-boyle.png';
 
 import { Contributor } from '../../__types__';
 
@@ -60,7 +61,7 @@ export const contributors: Contributor[] = [
     },
     {
         name: 'Bertrand Karerangabo',
-        description: 'Initial website and CLI',
+        description: 'Initial website & CLI',
     },
     {
         name: 'Tyler Hoffman',
@@ -105,5 +106,16 @@ export const contributors: Contributor[] = [
         name: 'Renato Martins',
         description: 'Icons',
         image: RenatoMartins,
+    },
+
+    {
+        name: 'Joseph Boyle',
+        description: `Front-End Developer & Strategy`,
+        image: JosephBoyle,
+        info: `Forsaking all others, Joe has been with PX Blue since its inception. A double-threat with a background in computer science and user experience, he's not afraid to drop 100+ comments on your most recent PR. Befriend at your own risk.`,
+        contacts: {
+            github: 'https://github.com/joebochill',
+            linkedIn: 'https://www.linkedin.com/in/joebochill/',
+        },
     },
 ];

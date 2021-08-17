@@ -1,6 +1,5 @@
 import HuayunHuang from '../../app/assets/credits/huayun-huang.jpg';
 import EvanMcLaughlin from '../../app/assets/credits/evan-mclaughlin.jpeg';
-import JosephBoyle from '../../app/assets/credits/joseph-boyle.png';
 import JeffeyGreiner from '../../app/assets/credits/jeffery-greiner.jpeg';
 import ThomasDailey from '../../app/assets/credits/thomas-dailey.jpg';
 import EktaGhag from '../../app/assets/credits/ekta-ghag.jpg';
@@ -25,16 +24,6 @@ export const currentMaintainers: Contributor[] = [
         contacts: {
             github: 'https://github.com/emclaug2',
             linkedIn: 'https://www.linkedin.com/in/evan-mclaughlin-3a4b4089/',
-        },
-    },
-    {
-        name: 'Joseph Boyle',
-        description: `Team Lead`,
-        image: JosephBoyle,
-        info: `Forsaking all others, Joe has been with PX Blue since its inception. A double-threat with a background in computer science and user experience, he's not afraid to drop 100+ comments on your most recent PR. Befriend at your own risk.`,
-        contacts: {
-            github: 'https://github.com/joebochill',
-            linkedIn: 'https://www.linkedin.com/in/joebochill/',
         },
     },
     {

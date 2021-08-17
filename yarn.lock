@@ -2457,10 +2457,10 @@
   optionalDependencies:
     eslint-plugin-react "^7.16.0"
 
-"@pxblue/icons-mui@^2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/icons-mui/-/icons-mui-2.3.0.tgz#5398630529e5a89b2c93d13db7ccf86f14b8ab51"
-  integrity sha512-GzqkkSKFYgaSy1/LITheqI3BSxPthXE6UrCAz5Ubk1btwDajSvw0O5YR3/b4h7p9vfk/fIxSYgztW8H2/1i4Eg==
+"@pxblue/icons-mui@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@pxblue/icons-mui/-/icons-mui-2.5.0.tgz#7949feb83867a98f427dcbce4a6ba5497c6e3ab2"
+  integrity sha512-Yyj4legMXS2C2Gf47cxXsceWHr3U9z1L4JxBGdvtM4TqLz1vqX03ewYVC3bK9V0hx2RrERyqFMfATxjuXMjdAw==
 
 "@pxblue/prettier-config@^1.0.2":
   version "1.0.2"
