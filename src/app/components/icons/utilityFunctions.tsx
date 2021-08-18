@@ -111,7 +111,7 @@ export const downloadPng = (icon: IconType, color: IconColor, size: IconSize): v
 
 /* Functions for returning various code snippets for icons in each framework */
 
-export const getIconFontInstructions = (framework: Framework, icon: IconType): string => {
+export const getIconFontCopyText = (framework: Framework, icon: IconType): string => {
     switch (framework) {
         case 'react':
             if (icon.isMaterial) {
@@ -126,7 +126,7 @@ export const getIconFontInstructions = (framework: Framework, icon: IconType): s
     }
 };
 
-export const getIconFontExample = (framework: Framework, icon: IconType): JSX.Element => {
+export const getIconFontSnippet = (framework: Framework, icon: IconType): JSX.Element => {
     switch (framework) {
         case 'react':
             return (
@@ -149,7 +149,7 @@ export const getIconFontExample = (framework: Framework, icon: IconType): JSX.El
     }
 };
 
-export const getIconSvgInstructions = (framework: Framework, icon: IconType): string => {
+export const getIconSvgCopyText = (framework: Framework, icon: IconType): string => {
     switch (framework) {
         case 'react':
             if (icon.isMaterial) {
@@ -177,7 +177,7 @@ export const getIconSvgInstructions = (framework: Framework, icon: IconType): st
     }
 };
 
-export const getIconSvgExample = (framework: Framework, icon: IconType): JSX.Element => {
+export const getIconSvgSnippet = (framework: Framework, icon: IconType): JSX.Element => {
     switch (framework) {
         case 'react':
             return (
@@ -224,7 +224,7 @@ export const getIconSvgExample = (framework: Framework, icon: IconType): JSX.Ele
     }
 };
 
-export const getIconComponentInstructions = (framework: Framework, icon: IconType): string => {
+export const getIconComponentCopyText = (framework: Framework, icon: IconType): string => {
     switch (framework) {
         case 'react':
             return `import { ${icon.name} } from '${icon.isMaterial ? '@material-ui/icons' : '@pxblue/icons-mui'}';\n<${
@@ -235,7 +235,7 @@ export const getIconComponentInstructions = (framework: Framework, icon: IconTyp
     }
 };
 
-export const getIconComponentExample = (framework: Framework, icon: IconType): JSX.Element => {
+export const getIconComponentSnippet = (framework: Framework, icon: IconType): JSX.Element => {
     switch (framework) {
         case 'react':
             return (
