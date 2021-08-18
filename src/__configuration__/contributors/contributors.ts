@@ -112,10 +112,5 @@ export const contributors: Contributor[] = [
         name: 'Joseph Boyle',
         description: `Front-End Developer & Strategy`,
         image: JosephBoyle,
-        info: `Forsaking all others, Joe has been with PX Blue since its inception. A double-threat with a background in computer science and user experience, he's not afraid to drop 100+ comments on your most recent PR. Befriend at your own risk.`,
-        contacts: {
-            github: 'https://github.com/joebochill',
-            linkedIn: 'https://www.linkedin.com/in/joebochill/',
-        },
     },
 ];
