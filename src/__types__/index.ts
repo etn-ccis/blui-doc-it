@@ -61,7 +61,8 @@ export type Result = {
 /**
  * For current maintainers and contributors (present or past)
  */
-export type Contributor = {
+
+export type OtherContributor = {
     /**
      * Contributor Name
      */
@@ -70,18 +71,20 @@ export type Contributor = {
     /**
      * Short description on what they did
      */
-    description?: string;
+    role?: string;
 
     /**
      * An image to be used for their avatars
      */
     image?: string;
+};
 
+export type CurrentMaintainter = OtherContributor & {
     /**
      * A detailed description on the contributor role in the team
      * current maintainers only
      */
-    info?: string;
+    description?: string;
 
     /**
      * Contact info, social medias

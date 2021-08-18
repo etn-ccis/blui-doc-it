@@ -1,10 +1,10 @@
 import React, { HTMLAttributes } from 'react';
 import { ContributorsCard } from './';
-import { Contributor } from '../../../__types__';
+import { CurrentMaintainter } from '../../../__types__';
 import { Grid, Typography, useTheme } from '@material-ui/core';
 
 type ContributorListProps = HTMLAttributes<HTMLDivElement> & {
-    contributors: Contributor[];
+    contributors: CurrentMaintainter[];
     title?: string;
 };
 
