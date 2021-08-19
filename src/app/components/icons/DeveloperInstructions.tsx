@@ -21,8 +21,6 @@ import { emptyIcon } from '.';
 import {
     getIconComponentSnippet,
     getIconComponentCopyText,
-    getIconFamilyCopyText,
-    getIconFamilySnippet,
     getIconFontSnippet,
     getIconFontCopyText,
     getIconSvgSnippet,
@@ -137,19 +135,6 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
                             />
                         </div>
                         <pre className={classes.codeSnippet}>{getIconComponentSnippet(framework, icon)}</pre>
-                    </>
-                )}
-                {/* ICON FAMILY */}
-                {framework === 'react-native' && (
-                    <>
-                        <div className={classes.codeSnippetTitle}>
-                            <Typography variant={'overline'}>Icon Family</Typography>
-                            <CopyToClipboard
-                                copyText={getIconFamilyCopyText(framework, icon)}
-                                copiedPosition={'left'}
-                            />
-                        </div>
-                        <pre className={classes.codeSnippet}>{getIconFamilySnippet(framework, icon)}</pre>
                     </>
                 )}
             </AccordionDetails>
