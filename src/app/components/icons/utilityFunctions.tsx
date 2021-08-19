@@ -6,6 +6,9 @@ import * as Colors from '@pxblue/colors';
 
 export type Framework = 'angular' | 'react' | 'react-native';
 
+type GetSnippetFn = (framework: Framework, icon: IconType) => JSX.Element;
+type GetCopyTextFn = (framework: Framework, icon: IconType) => string;
+
 export const getMuiIconName = (filename: string): string => {
     let muiName = filename
         .replace(/\.svg/, '')
@@ -111,7 +114,7 @@ export const downloadPng = (icon: IconType, color: IconColor, size: IconSize): v
 
 /* Functions for returning various code snippets for icons in each framework */
 
-export const getIconFontInstructions = (framework: Framework, icon: IconType): string => {
+export const getIconFontCopyText: GetCopyTextFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             if (icon.isMaterial) {
@@ -126,7 +129,7 @@ export const getIconFontInstructions = (framework: Framework, icon: IconType): s
     }
 };
 
-export const getIconFontExample = (framework: Framework, icon: IconType): JSX.Element => {
+export const getIconFontSnippet: GetSnippetFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             return (
@@ -149,7 +152,7 @@ export const getIconFontExample = (framework: Framework, icon: IconType): JSX.El
     }
 };
 
-export const getIconSvgInstructions = (framework: Framework, icon: IconType): string => {
+export const getIconSvgCopyText: GetCopyTextFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             if (icon.isMaterial) {
@@ -169,15 +172,15 @@ export const getIconSvgInstructions = (framework: Framework, icon: IconType): st
                     icon.iconFontKey
                 )}"/>;`;
             }
-            return `import ${icon.name} from '@pxblue/icons-svg/${getSnakeCase(icon.name)}.svg';\n<${
+            return `import PXBIcon from '@pxblue/react-native-vector-icons';\n<PXBIcon name="${getSnakeCase(
                 icon.name
-            } width={24} height={24} fill={'black'} />`;
+            )}"/>;`;
         default:
             return '';
     }
 };
 
-export const getIconSvgExample = (framework: Framework, icon: IconType): JSX.Element => {
+export const getIconSvgSnippet: GetSnippetFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             return (
@@ -212,9 +215,9 @@ export const getIconSvgExample = (framework: Framework, icon: IconType): JSX.Ele
                     )}
                     {!icon.isMaterial && (
                         <>
-                            {`import ${icon.name} from '@pxblue/icons-svg/${getSnakeCase(icon.name)}.svg';`}
+                            {`import PXBIcon from '@pxblue/react-native-vector-icons';`}
                             <br />
-                            {`<${icon.name} width={24} height={24} fill={'black'} />`}
+                            {`<PXBIcon name="${getSnakeCase(icon.name)}"/>`}
                         </>
                     )}
                 </>
@@ -224,7 +227,7 @@ export const getIconSvgExample = (framework: Framework, icon: IconType): JSX.Ele
     }
 };
 
-export const getIconComponentInstructions = (framework: Framework, icon: IconType): string => {
+export const getIconComponentCopyText: GetCopyTextFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             return `import { ${icon.name} } from '${icon.isMaterial ? '@material-ui/icons' : '@pxblue/icons-mui'}';\n<${
@@ -235,7 +238,7 @@ export const getIconComponentInstructions = (framework: Framework, icon: IconTyp
     }
 };
 
-export const getIconComponentExample = (framework: Framework, icon: IconType): JSX.Element => {
+export const getIconComponentSnippet: GetSnippetFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             return (
