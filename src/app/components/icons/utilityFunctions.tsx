@@ -258,7 +258,7 @@ export const getIconFamilyCopyText = (framework: Framework, icon: IconType): str
                     icon.iconFontKey
                 )}' };`;
             }
-            return `import { IconFamily } from '@pxblue/react-native-components';\n{ family: 'material', name: '${snakeToKebabCase(
+            return `import { IconFamily } from '@pxblue/react-native-components';\n{ family: 'pxblue', name: '${snakeToKebabCase(
                 icon.iconFontKey
             )}' };`;
         default:

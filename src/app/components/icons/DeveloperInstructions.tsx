@@ -18,7 +18,6 @@ import { ArrowDropDown } from '@material-ui/icons';
 import { titleCase } from '../../shared';
 import { emptyIcon } from '.';
 
-import * as Colors from '@pxblue/colors';
 import {
     getIconComponentSnippet,
     getIconComponentCopyText,
@@ -46,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         whiteSpace: 'normal',
     },
     expandIcon: {
-        color: Colors.gray[500],
+        color: theme.palette.text.secondary,
     },
     expanded: {},
 }));
