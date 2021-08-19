@@ -6,6 +6,9 @@ import * as Colors from '@pxblue/colors';
 
 export type Framework = 'angular' | 'react' | 'react-native';
 
+type GetSnippetFn = (framework: Framework, icon: IconType) => JSX.Element;
+type GetCopyTextFn = (framework: Framework, icon: IconType) => string;
+
 export const getMuiIconName = (filename: string): string => {
     let muiName = filename
         .replace(/\.svg/, '')
@@ -111,7 +114,7 @@ export const downloadPng = (icon: IconType, color: IconColor, size: IconSize): v
 
 /* Functions for returning various code snippets for icons in each framework */
 
-export const getIconFontCopyText = (framework: Framework, icon: IconType): string => {
+export const getIconFontCopyText: GetCopyTextFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             if (icon.isMaterial) {
@@ -126,7 +129,7 @@ export const getIconFontCopyText = (framework: Framework, icon: IconType): strin
     }
 };
 
-export const getIconFontSnippet = (framework: Framework, icon: IconType): JSX.Element => {
+export const getIconFontSnippet: GetSnippetFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             return (
@@ -149,7 +152,7 @@ export const getIconFontSnippet = (framework: Framework, icon: IconType): JSX.El
     }
 };
 
-export const getIconSvgCopyText = (framework: Framework, icon: IconType): string => {
+export const getIconSvgCopyText: GetCopyTextFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             if (icon.isMaterial) {
@@ -177,7 +180,7 @@ export const getIconSvgCopyText = (framework: Framework, icon: IconType): string
     }
 };
 
-export const getIconSvgSnippet = (framework: Framework, icon: IconType): JSX.Element => {
+export const getIconSvgSnippet: GetSnippetFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             return (
@@ -224,7 +227,7 @@ export const getIconSvgSnippet = (framework: Framework, icon: IconType): JSX.Ele
     }
 };
 
-export const getIconComponentCopyText = (framework: Framework, icon: IconType): string => {
+export const getIconComponentCopyText: GetCopyTextFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             return `import { ${icon.name} } from '${icon.isMaterial ? '@material-ui/icons' : '@pxblue/icons-mui'}';\n<${
@@ -235,7 +238,7 @@ export const getIconComponentCopyText = (framework: Framework, icon: IconType): 
     }
 };
 
-export const getIconComponentSnippet = (framework: Framework, icon: IconType): JSX.Element => {
+export const getIconComponentSnippet: GetSnippetFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             return (
@@ -250,7 +253,7 @@ export const getIconComponentSnippet = (framework: Framework, icon: IconType): J
     }
 };
 
-export const getIconFamilyCopyText = (framework: Framework, icon: IconType): string => {
+export const getIconFamilyCopyText: GetCopyTextFn = (framework, icon) => {
     switch (framework) {
         case 'react-native':
             if (icon.isMaterial) {
@@ -266,7 +269,7 @@ export const getIconFamilyCopyText = (framework: Framework, icon: IconType): str
     }
 };
 
-export const getIconFamilySnippet = (framework: Framework, icon: IconType): JSX.Element => {
+export const getIconFamilySnippet: GetSnippetFn = (framework, icon) => {
     switch (framework) {
         case 'react-native':
             if (icon.isMaterial) {
