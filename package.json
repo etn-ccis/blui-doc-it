@@ -31,7 +31,7 @@
         "@material-ui/lab": "^4.0.0-alpha.56",
         "@pxblue/colors": "^3.0.0",
         "@pxblue/colors-branding": "^3.0.0",
-        "@pxblue/icons-mui": "^2.3.0",
+        "@pxblue/icons-mui": "^2.5.0",
         "@pxblue/react-components": "^5.1.1",
         "@pxblue/react-progress-icons": "^2.1.0",
         "@pxblue/react-themes": "^6.0.0",

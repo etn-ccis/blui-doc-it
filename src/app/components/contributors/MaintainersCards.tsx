@@ -97,7 +97,7 @@ export const MaintainersCards: React.FC = () => {
                                 {contributor.name}
                             </Typography>
                             <Typography color={'textPrimary'} variant={'body2'}>
-                                {contributor.info}
+                                {contributor.description}
                             </Typography>
                             {contributor.contacts && (
                                 <div>
