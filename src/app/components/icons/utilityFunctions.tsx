@@ -169,9 +169,9 @@ export const getIconSvgCopyText = (framework: Framework, icon: IconType): string
                     icon.iconFontKey
                 )}"/>;`;
             }
-            return `import ${icon.name} from '@pxblue/icons-svg/${getSnakeCase(icon.name)}.svg';\n<${
-                icon.name
-            } width={24} height={24} fill={'black'} />`;
+            return `import PXBIcon from '@pxblue/react-native-vector-icons';\n<PXBIcon name="${snakeToKebabCase(
+                icon.iconFontKey
+            )}"/>;`;
         default:
             return '';
     }
@@ -212,9 +212,9 @@ export const getIconSvgSnippet = (framework: Framework, icon: IconType): JSX.Ele
                     )}
                     {!icon.isMaterial && (
                         <>
-                            {`import ${icon.name} from '@pxblue/icons-svg/${getSnakeCase(icon.name)}.svg';`}
+                            {`import MatIcon from '@pxblue/react-native-vector-icons';`}
                             <br />
-                            {`<${icon.name} width={24} height={24} fill={'black'} />`}
+                            {`<PXBIcon name="${snakeToKebabCase(icon.iconFontKey)}"/>`}
                         </>
                     )}
                 </>
@@ -243,6 +243,46 @@ export const getIconComponentSnippet = (framework: Framework, icon: IconType): J
                     {`import { ${icon.name} } from '${icon.isMaterial ? '@material-ui/icons' : '@pxblue/icons-mui'}';`}
                     <br />
                     {`<${icon.name} />`}
+                </>
+            );
+        default:
+            return <></>;
+    }
+};
+
+export const getIconFamilyCopyText = (framework: Framework, icon: IconType): string => {
+    switch (framework) {
+        case 'react-native':
+            if (icon.isMaterial) {
+                return `import { IconFamily } from '@pxblue/react-native-components';\n{ family: 'material', name: '${snakeToKebabCase(
+                    icon.iconFontKey
+                )}' };`;
+            }
+            return `import { IconFamily } from '@pxblue/react-native-components';\n{ family: 'material', name: '${snakeToKebabCase(
+                icon.iconFontKey
+            )}' };`;
+        default:
+            return '';
+    }
+};
+
+export const getIconFamilySnippet = (framework: Framework, icon: IconType): JSX.Element => {
+    switch (framework) {
+        case 'react-native':
+            if (icon.isMaterial) {
+                return (
+                    <>
+                        {`import { IconFamily } from '@pxblue/react-native-components';`}
+                        <br />
+                        {`{ family: 'material', name: '${snakeToKebabCase(icon.iconFontKey)}' };`}
+                    </>
+                );
+            }
+            return (
+                <>
+                    {`import { IconFamily } from '@pxblue/react-native-components';`}
+                    <br />
+                    {`{ family: 'pxblue', name: '${snakeToKebabCase(icon.iconFontKey)}' };`}
                 </>
             );
         default:
