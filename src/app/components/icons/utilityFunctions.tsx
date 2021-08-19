@@ -172,8 +172,8 @@ export const getIconSvgCopyText: GetCopyTextFn = (framework, icon) => {
                     icon.iconFontKey
                 )}"/>;`;
             }
-            return `import PXBIcon from '@pxblue/react-native-vector-icons';\n<PXBIcon name="${snakeToKebabCase(
-                icon.iconFontKey
+            return `import PXBIcon from '@pxblue/react-native-vector-icons';\n<PXBIcon name="${getSnakeCase(
+                icon.name
             )}"/>;`;
         default:
             return '';
@@ -217,7 +217,7 @@ export const getIconSvgSnippet: GetSnippetFn = (framework, icon) => {
                         <>
                             {`import MatIcon from '@pxblue/react-native-vector-icons';`}
                             <br />
-                            {`<PXBIcon name="${snakeToKebabCase(icon.iconFontKey)}"/>`}
+                            {`<PXBIcon name="${getSnakeCase(icon.name)}"/>`}
                         </>
                     )}
                 </>
@@ -261,8 +261,8 @@ export const getIconFamilyCopyText: GetCopyTextFn = (framework, icon) => {
                     icon.iconFontKey
                 )}' };`;
             }
-            return `import { IconFamily } from '@pxblue/react-native-components';\n{ family: 'pxblue', name: '${snakeToKebabCase(
-                icon.iconFontKey
+            return `import { IconFamily } from '@pxblue/react-native-components';\n{ family: 'pxblue', name: '${getSnakeCase(
+                icon.name
             )}' };`;
         default:
             return '';
@@ -285,7 +285,7 @@ export const getIconFamilySnippet: GetSnippetFn = (framework, icon) => {
                 <>
                     {`import { IconFamily } from '@pxblue/react-native-components';`}
                     <br />
-                    {`{ family: 'pxblue', name: '${snakeToKebabCase(icon.iconFontKey)}' };`}
+                    {`{ family: 'pxblue', name: '${getSnakeCase(icon.name)}' };`}
                 </>
             );
         default:
