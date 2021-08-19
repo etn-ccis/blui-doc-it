@@ -215,7 +215,7 @@ export const getIconSvgSnippet: GetSnippetFn = (framework, icon) => {
                     )}
                     {!icon.isMaterial && (
                         <>
-                            {`import MatIcon from '@pxblue/react-native-vector-icons';`}
+                            {`import PXBIcon from '@pxblue/react-native-vector-icons';`}
                             <br />
                             {`<PXBIcon name="${getSnakeCase(icon.name)}"/>`}
                         </>
