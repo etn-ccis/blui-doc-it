@@ -13,6 +13,7 @@ import { SpringFestivalSchedule } from './spring-festival';
 import { StPatricksDaySchedule } from './st-patricks-day';
 import { EarthDaySchedule } from './earth-day';
 import { IndependenceDaySchedule } from './independence-day';
+import { MidAutumnSchedule } from './mid-autumn-festival';
 
 /**
  * Add more holiday themes here.
@@ -24,6 +25,7 @@ import { IndependenceDaySchedule } from './independence-day';
  * * Apr 20 - Apr 24: Earth Day
  * * May 3 - May 5: May the Fourth Day
  * * July 2 - July 7: Independence Day
+ * * Sept 20 - Sept 27: Mid Autumn Festival (changes each year)
  * * Oct 25 - Nov 1: Halloween
  * * Nov 2 - Nov 6 2021: Diwali (changes each year)  ** Oct 22 - Oct 26 2022 | November 10 - November 14 2023 **
  * * Nov 21 - Nov 27: Thanksgiving (changes each year)  ** Nov 24 2022 | Nov 23 2023 **
@@ -46,6 +48,7 @@ export const schedule: Schedule[] = [
     StPatricksDaySchedule,
     EarthDaySchedule,
     IndependenceDaySchedule,
+    MidAutumnSchedule,
 ];
 
 /**

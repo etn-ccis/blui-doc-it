@@ -47,7 +47,7 @@ export const ContributorsCard: React.FC<ContributorsCardProps> = (props) => {
                 <Typography noWrap variant={'subtitle2'} className={classes.title}>
                     {name}
                 </Typography>
-                <Typography noWrap={false} variant={'caption'}>
+                <Typography noWrap={false} variant={'caption'} color={'textSecondary'}>
                     {role}
                 </Typography>
             </span>
