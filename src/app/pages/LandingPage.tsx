@@ -118,11 +118,11 @@ export const LandingPage: React.FC = (): JSX.Element => {
                 </Grid>
             </LandingSection>
             <LandingSection title={'Latest Updates'} align={'center'} maxWidth={750} background={'dark'}>
-                <Typography style={{ marginTop: theme.spacing(2), color: Colors.gray[500] }}>
+                <Typography style={{ marginTop: theme.spacing(2), color: theme.palette.text.secondary }}>
                     Get the latest updates on guidelines, components, and documentation across platforms.
                 </Typography>
                 {LatestReleases.slice(0, 2).map((item: ReleaseInfo) => (
-                    <div key={item.title} style={{ color: Colors.gray[500], textAlign: 'left' }}>
+                    <div key={item.title} style={{ color: theme.palette.text.secondary, textAlign: 'left' }}>
                         <div style={{ marginTop: theme.spacing(2), display: 'flex' }}>
                             <Typography variant={'h6'} color={'primary'}>
                                 {item.title}
