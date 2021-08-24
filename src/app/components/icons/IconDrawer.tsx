@@ -31,12 +31,14 @@ import { downloadPng, downloadSvg } from './utilityFunctions';
 import * as Colors from '@pxblue/colors';
 import { DeveloperInstructionsPanel } from './DeveloperInstructions';
 import { useSelectedIcon } from '../../contexts/selectedIconContextProvider';
+import { getScheduledSiteConfig } from '../../../__configuration__/themes';
 import { useDispatch, useSelector } from 'react-redux';
 import { TOGGLE_SIDEBAR } from '../../redux/actions';
 import { AppState } from '../../redux/reducers';
 import { CopyToClipboard } from './CopyToClipboardButton';
 import { IconSize, IconColor } from '../../../__types__';
 import { usePrevious } from '../../hooks/usePrevious';
+import clsx from 'clsx';
 
 const useStyles = makeStyles((theme: Theme) => ({
     drawer: {
@@ -45,11 +47,15 @@ const useStyles = makeStyles((theme: Theme) => ({
         display: 'flex',
         flexDirection: 'column',
         zIndex: 900,
+        backgroundColor: theme.palette.background.paper,
     },
     appBar: {
         backgroundColor: Colors.black[500],
         paddingLeft: theme.spacing(2),
         paddingRight: theme.spacing(0.5),
+        '&.mid-autumn-festival': {
+            color: Colors.black[50],
+        },
     },
     appBarCloseButton: {
         color: Colors.white[50],
@@ -85,6 +91,7 @@ export const IconDrawer: React.FC = () => {
     const [iconColor, setIconColor] = React.useState<IconColor>('black');
     const drawerOpen = useSelector((state: AppState) => state.app.sidebarOpen);
     const sm = useMediaQuery(theme.breakpoints.down('sm'));
+    const themeConfig = getScheduledSiteConfig();
 
     const closeDrawer = (): void => {
         history.replace(`${location.pathname}`);
@@ -111,7 +118,7 @@ export const IconDrawer: React.FC = () => {
             classes={{ paper: classes.drawer }}
         >
             <AppBar position="static" color="primary">
-                <Toolbar className={classes.appBar}>
+                <Toolbar className={clsx([classes.appBar, themeConfig.className])}>
                     <Typography variant="h6" color="inherit" noWrap>
                         Selected Icon
                     </Typography>
