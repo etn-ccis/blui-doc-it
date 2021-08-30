@@ -18,14 +18,13 @@ import { ArrowDropDown } from '@material-ui/icons';
 import { titleCase } from '../../shared';
 import { emptyIcon } from '.';
 
-import * as Colors from '@pxblue/colors';
 import {
-    getIconComponentExample,
-    getIconComponentInstructions,
-    getIconFontExample,
-    getIconFontInstructions,
-    getIconSvgExample,
-    getIconSvgInstructions,
+    getIconComponentSnippet,
+    getIconComponentCopyText,
+    getIconFontSnippet,
+    getIconFontCopyText,
+    getIconSvgSnippet,
+    getIconSvgCopyText,
 } from './utilityFunctions';
 import { useSelectedIcon } from '../../contexts/selectedIconContextProvider';
 import { CopyToClipboard } from './CopyToClipboardButton';
@@ -44,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         whiteSpace: 'normal',
     },
     expandIcon: {
-        color: Colors.gray[500],
+        color: theme.palette.text.secondary,
     },
     expanded: {},
 }));
@@ -106,12 +105,9 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
                     <>
                         <div className={classes.codeSnippetTitle}>
                             <Typography variant={'overline'}>Icon Font</Typography>
-                            <CopyToClipboard
-                                copyText={getIconFontInstructions(framework, icon)}
-                                copiedPosition={'left'}
-                            />
+                            <CopyToClipboard copyText={getIconFontCopyText(framework, icon)} copiedPosition={'left'} />
                         </div>
-                        <pre className={classes.codeSnippet}>{getIconFontExample(framework, icon)}</pre>
+                        <pre className={classes.codeSnippet}>{getIconFontSnippet(framework, icon)}</pre>
                     </>
                 )}
 
@@ -122,12 +118,9 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
                     <>
                         <div className={classes.codeSnippetTitle}>
                             <Typography variant={'overline'}>SVG</Typography>
-                            <CopyToClipboard
-                                copyText={getIconSvgInstructions(framework, icon)}
-                                copiedPosition={'left'}
-                            />
+                            <CopyToClipboard copyText={getIconSvgCopyText(framework, icon)} copiedPosition={'left'} />
                         </div>
-                        <pre className={classes.codeSnippet}>{getIconSvgExample(framework, icon)}</pre>
+                        <pre className={classes.codeSnippet}>{getIconSvgSnippet(framework, icon)}</pre>
                     </>
                 )}
 
@@ -137,11 +130,11 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
                         <div className={classes.codeSnippetTitle}>
                             <Typography variant={'overline'}>Icon Components</Typography>
                             <CopyToClipboard
-                                copyText={getIconComponentInstructions(framework, icon)}
+                                copyText={getIconComponentCopyText(framework, icon)}
                                 copiedPosition={'left'}
                             />
                         </div>
-                        <pre className={classes.codeSnippet}>{getIconComponentExample(framework, icon)}</pre>
+                        <pre className={classes.codeSnippet}>{getIconComponentSnippet(framework, icon)}</pre>
                     </>
                 )}
             </AccordionDetails>
@@ -160,18 +153,18 @@ export const DeveloperInstructionsPanel: React.FC = (): JSX.Element => {
             <Typography display={'block'} variant={'overline'} style={{ padding: theme.spacing(2) }}>
                 Developer Usage
             </Typography>
-            <Divider />
             {frameworks.map((framework) => (
                 <React.Fragment key={`instructions_${framework}`}>
+                    <Divider style={{ marginLeft: theme.spacing(2) }} />
                     <DeveloperInstructionAccordion
                         framework={framework}
                         icon={icon}
                         expanded={activeFramework === framework}
                         onChange={(): void => setActiveFramework(activeFramework === framework ? undefined : framework)}
                     />
-                    <Divider />
                 </React.Fragment>
             ))}
+            <Divider />
         </>
     );
 };

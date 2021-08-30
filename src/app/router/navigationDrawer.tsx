@@ -86,6 +86,7 @@ export const NavigationDrawer = (): JSX.Element => {
             itemFontColor={theme.palette.text.primary}
             divider={false}
             activeItem={activeRoute}
+            activeItemFontColor={theme.palette.primary.main}
             hidePadding
             activeItemBackgroundShape={'round'}
         >

@@ -2,7 +2,7 @@ export const getSnakeCase = (str: string): string => str.replace(/[A-Z]/g, '_$&'
 
 export const getKebabCase = (str: string): string => str.replace(/[A-Z]/g, '-$&').toLowerCase().substr(1);
 
-export const snakeToKebabCase = (str: string): string => str.replace('_', '-').toLowerCase();
+export const snakeToKebabCase = (str: string): string => str.replaceAll('_', '-').toLowerCase();
 
 export const unCamelCase = (val: string): string =>
     val

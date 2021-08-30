@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Avatar, Typography, makeStyles, Theme, createStyles, useTheme } from '@material-ui/core';
-import { Contributor } from '../../../__types__';
+import { CurrentMaintainter } from '../../../__types__';
 import { Person } from '@material-ui/icons';
 import clsx from 'clsx';
 
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
         title: {
             textOverflow: 'ellipsis',
         },
-        noDescription: {},
+        noRole: {},
         colorDefault: {
             backgroundColor: theme.palette.type === 'light' ? theme.palette.primary.light : theme.palette.primary.dark,
             color: theme.palette.type === 'light' ? theme.palette.primary.main : theme.palette.primary.light,
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-type ContributorsCardProps = Contributor & {
+type ContributorsCardProps = CurrentMaintainter & {
     /**
      * Use this icon when no image is supplied
      * Default to `Person`
@@ -34,7 +34,7 @@ type ContributorsCardProps = Contributor & {
 };
 
 export const ContributorsCard: React.FC<ContributorsCardProps> = (props) => {
-    const { name, description, image, icon } = props;
+    const { name, role, image, icon } = props;
     const classes = useStyles(useTheme());
     return (
         <div style={{ display: 'flex', flexDirection: 'row' }}>
@@ -43,12 +43,12 @@ export const ContributorsCard: React.FC<ContributorsCardProps> = (props) => {
                     {icon || <Person />}
                 </Avatar>
             </div>
-            <span className={clsx(classes.textContainer, { [classes.noDescription]: !description })}>
+            <span className={clsx(classes.textContainer, { [classes.noRole]: !role })}>
                 <Typography noWrap variant={'subtitle2'} className={classes.title}>
                     {name}
                 </Typography>
-                <Typography noWrap={false} variant={'caption'}>
-                    {description}
+                <Typography noWrap={false} variant={'caption'} color={'textSecondary'}>
+                    {role}
                 </Typography>
             </span>
         </div>

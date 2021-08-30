@@ -2457,20 +2457,20 @@
   optionalDependencies:
     eslint-plugin-react "^7.16.0"
 
-"@pxblue/icons-mui@^2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/icons-mui/-/icons-mui-2.3.0.tgz#5398630529e5a89b2c93d13db7ccf86f14b8ab51"
-  integrity sha512-GzqkkSKFYgaSy1/LITheqI3BSxPthXE6UrCAz5Ubk1btwDajSvw0O5YR3/b4h7p9vfk/fIxSYgztW8H2/1i4Eg==
+"@pxblue/icons-mui@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@pxblue/icons-mui/-/icons-mui-2.5.0.tgz#7949feb83867a98f427dcbce4a6ba5497c6e3ab2"
+  integrity sha512-Yyj4legMXS2C2Gf47cxXsceWHr3U9z1L4JxBGdvtM4TqLz1vqX03ewYVC3bK9V0hx2RrERyqFMfATxjuXMjdAw==
 
 "@pxblue/prettier-config@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@pxblue/prettier-config/-/prettier-config-1.0.2.tgz#fb00503df6557b66c3d91d43c9101e614c35d2ec"
   integrity sha512-/3cLBoTjZs3kV1ATPA/Sp0tsL7XmlV/b8HW/qt0jqR/uP5+cdXL2YIhMXQngLRa7PhpSkEiRIYK5sl0rKsXTUg==
 
-"@pxblue/react-components@^5.1.1":
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/@pxblue/react-components/-/react-components-5.1.1.tgz#53b129acc3064ccebe51b70b2161353769e6f91a"
-  integrity sha512-WHE30yzgHUYHj8AOUvbvJOP4wmuX0u3WSyGV6IeekGVfbg/Spi4abUW+yFTFlxg54DwjT1TK7yj03ZyXXzU6Dg==
+"@pxblue/react-components@^5.3.1":
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@pxblue/react-components/-/react-components-5.3.1.tgz#d1ae8e413f78b63e5d6cfd9e066cc58ae77dddf8"
+  integrity sha512-hSsrL1peO9cm1jXzyDvvmotj02CTqeu/cFPWXh9whD7FEozsP/B86AtNux3bNqNxxRQK67ndCjm3iXWRNcfbXA==
   dependencies:
     "@pxblue/colors" "^3.0.0"
     color "^3.1.2"
@@ -2484,10 +2484,10 @@
     color "^3.1.2"
     react-jss "^10.4.0"
 
-"@pxblue/react-themes@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/react-themes/-/react-themes-6.0.0.tgz#35ce84165263d8721bde638ed594f820c408727c"
-  integrity sha512-KiDJjMK3Dg45VayemC+NNIPAXA0kX0ExrBcln4wYn/yVfzH9/fK5GZF1yya6i3LWgHJYQo40Z6dCluFgn0GzvQ==
+"@pxblue/react-themes@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@pxblue/react-themes/-/react-themes-6.1.0.tgz#c072e54433d05b10063ae5ca88a83461bc4d593e"
+  integrity sha512-IzTaE/4HgczK2DX8G2GseIimJCDsDpK3EhJrPrv+QUZQT4am7P+k83xfhwnltGp95faTM1Oj6buAXOHL3o7Xcw==
   dependencies:
     "@fontsource/open-sans" "^4.2.2"
     "@pxblue/colors" "^3.0.0"
