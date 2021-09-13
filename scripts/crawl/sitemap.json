@@ -136,7 +136,7 @@
                     "url": "/internationalization"
                 },
                 {
-                    "title": "Lists & Tables",
+                    "title": "Lists",
                     "url": "/lists"
                 },
                 {
@@ -155,6 +155,10 @@
                     "title": "Page Layout",
                     "url": "/layout",
                     "hidden": true
+                },
+                {
+                    "title": "Tables",
+                    "url": "/tables"
                 },
                 {
                     "title": "Steppers",

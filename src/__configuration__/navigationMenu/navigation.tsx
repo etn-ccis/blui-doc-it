@@ -203,9 +203,9 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Internationalization'} markdown={Docs.Patterns.I18N} />,
             },
             {
-                title: 'Lists & Tables',
+                title: 'Lists',
                 url: '/lists',
-                component: <MarkdownPage title={'Lists & Tables'} markdown={Docs.Patterns.Lists} />,
+                component: <MarkdownPage title={'Lists'} markdown={Docs.Patterns.Lists} />,
             },
             {
                 title: 'Loading & Waiting',
@@ -227,6 +227,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 url: '/layout',
                 component: <MarkdownPage title={'Page Layout'} markdown={Docs.Patterns.Layout} />,
                 hidden: true,
+            },
+            {
+                title: 'Tables',
+                url: '/tables',
+                component: <MarkdownPage title={'Tables'} markdown={Docs.Patterns.Tables} />,
             },
             {
                 title: 'Steppers',

@@ -50,11 +50,13 @@ type ImageGridProps = HTMLAttributes<HTMLDivElement> & {
     gridImageProps?: GridProps;
     images: Content[];
     regularWidth?: boolean;
+    captionsUnderImages?: string[];
 };
 export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
     const {
         images,
         caption,
+        captionsUnderImages,
         regularWidth: fullSize,
         gridContainerProps,
         gridImageProps,
@@ -74,7 +76,7 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
                 container
                 spacing={2}
                 justify={images.length < 3 ? 'center' : undefined}
-                alignItems={'center'}
+                alignItems={'flex-start'}
                 wrap={'wrap'}
                 style={{ marginBottom: theme.spacing(0.5) }}
                 {...gridContainerProps}
@@ -92,6 +94,11 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
                                     }
                                 }}
                             />
+                            {
+                                <Typography variant={'caption'}>
+                                    {captionsUnderImages && captionsUnderImages[index] && captionsUnderImages[index]}
+                                </Typography>
+                            }
                         </Grid>
                     ) : (
                         <Grid key={`content_${index}`} item xs={12} sm={6} {...gridComponentProps}>
