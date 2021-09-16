@@ -8,5 +8,18 @@ import * as Development from './development';
 import * as Community from './community';
 import * as Design from './design';
 import * as Resources from './resources';
+import * as Workflows from './workflows';
 
-export { Overview, NotFound, LatestReleases, Style, Patterns, GetStarted, Development, Community, Design, Resources };
+export {
+    Overview,
+    NotFound,
+    LatestReleases,
+    Style,
+    Patterns,
+    GetStarted,
+    Development,
+    Community,
+    Design,
+    Resources,
+    Workflows,
+};
