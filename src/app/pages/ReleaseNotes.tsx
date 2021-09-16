@@ -15,14 +15,14 @@ export const ReleaseNotes: React.FC = (): JSX.Element => {
         <PageContent backgroundColor={theme.palette.background.paper}>
             {LatestReleases.map((item: ReleaseInfo, index: number) => (
                 <div key={item.title} style={{ marginBottom: theme.spacing(16) }}>
-                    <Typography
-                        variant={'h4'}
-                        color={'primary'}
-                        style={{ marginTop: theme.spacing(4), display: 'flex' }}
-                    >
+                    <Typography variant={'h4'} color={'primary'} style={{ marginTop: theme.spacing(4) }}>
                         {item.date}
                     </Typography>
-                    <Typography color={'textSecondary'} variant={'h6'}>{`v${item.version} (${item.title})`}</Typography>
+                    <Typography
+                        color={'textSecondary'}
+                        variant={'h6'}
+                        style={{ marginBottom: theme.spacing() }}
+                    >{`v${item.version} (${item.title})`}</Typography>
                     {item.details}
                     {index !== LatestReleases.length - 1 && <Divider />}
                 </div>
