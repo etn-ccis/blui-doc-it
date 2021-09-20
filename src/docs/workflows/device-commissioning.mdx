@@ -78,11 +78,11 @@ On the other hand, computers have the advantage for larger jobs. Their greater c
 
 # Design Tricks
 
-## Do not force your users to make decisions on the first go.
+## Do not force your users to make decisions on the first go
 
 To minimize setup time, only require the user to provide information that is essential to getting the device connected and working. For example. if the user does not specify where a device is physically located, will that prevent your dashboard from working, or is it safe to list this device as "location unspecified" until a later time? Let the user know that they can skip these settings for now and come back in the future.
 
-## The person doing configuration may not be the final user.
+## The person doing configuration may not be the final user
 
 Often, users may invite experts to come to their home or company to set up the system for them or devices may come preconfigured from the factory. This may require some type of credential hand-off experience at the end of your workflow.
 
@@ -90,21 +90,21 @@ Often, users may invite experts to come to their home or company to set up the s
 
 Accounts are often used to control the device from anywhere (web, phone, device's HMI) or manage access for different people. However, not all of these functionalities are necessary during an initial device setup. You should only prompt your users to create the account when they actually need it, rather than adding yet another step to the commissioning process.
 
-## Devices can lose connection halfway through the process.
+## Devices can lose connection halfway through the process
 
 You should never assume that devices will stay connected through the entire process. If there is a network issue, how will your application recover? Will you wait and retry in the background, pause the process, or abort the entire workflow?
 
-## It can take a long time before a device responds.
+## It can take a long time before a device responds
 
 Data transmission between devices and applications can be slow. How do you communicate this to your user if they are expecting immediate results after clicking a button in your application?
 
-## When a device is installed, its firmware might already be outdated.
+## When a device is installed, its firmware might already be outdated
 
 There is usually a time gap between when a device is manufactured and packaged in the factory and when that device gets unboxed by your user. By the time the user plugs it in, your device's firmware might need a firmware upgrade.
 
 Tell your user how long the upgrade might take and whether this will impact the setup process. If the upgrade is non-interruptive, you can have the process running in the background while users are doing the configuration and return to it after they are finished with everything else.
 
-## Answer users' questions where they are asked.
+## Answer users' questions where they are asked
 
 Your users might encounter different problems while using your application. The application should be able to help them troubleshoot in the moment. For example, if the application says that an indicator light should be blinking but it isn't, how can you help the user proceed? Do they need to call your company right away, restart their router, or simply move the device closer to the WiFi connection? Often, this can be tackled with a simple "Having trouble?" button on the screen that can help the user self-diagnose common issues.
 
