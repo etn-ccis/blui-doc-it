@@ -2,9 +2,9 @@ import { Divider, TOC } from '../../app/components';
 
 # Device Commissioning Workflow
 
-Whether designing Internet of Things applications for a residential market or for a large-scale data center, you will always encounter the device commissioning workflow — the steps users need to take to connect their device to your system.
+When using an application that deals with physical devices and their data, one of the first challenges that a user will face is how to get those devices connected to the application and properly configured.
 
-The journey starts from unboxing, but we will focus on the digital experience from setting up the environment to the initial parameter configuration.
+Depending on the particular devices and the nature of your application, this process can vary significantly. This workflow describes some of the common steps and elements of connecting and configuring devices in order to create as much consistency as possible between different applications.
 
 <TOC
     anchors={[
@@ -21,96 +21,93 @@ The journey starts from unboxing, but we will focus on the digital experience fr
 
 ## Setting Up Devices One-by-One
 
-When setting up devices, your workflow is often composed of the following two phases:
+Setting up devices typically involves two phases: Device Discovery and Device Configuration.
 
--   **Device search**, from preparing the device to be searchable to confirm the targeted device
--   **Device configuration**, setting device parameters such as names, locations, etc.
+### Device Discovery
 
-### Device Search
+The search phase generally consists of the following steps (some steps may not be required for your application):
 
-The search phase consists of the following steps. Not all the steps are required — you may adjust these depending on your project need.
+-   **Prepare the device**: provide instructional text, [images, and animations](/style/illustrations) to the user so they can ensure that the device is discoverable. Some example instructions might include "move within range of the device," "turn off all other devices," "press the XYZ button on the device," "scan the code on the device using your camera," etc.
+-   **Select the device type**: if there could be multiple discoverable devices , you may wish to allow your user to narrow down the options prior to discovery. This is also an important step if different devices have different steps for connecting and / or configuring.
+-   **Identify the target device**: If multiple devices are discovered, provide the user a way to choose the target device from the list. To assist with identification (particularly if devices are not readily identifiable by their name or id), you can implement an indicator light to help the user locate the target device.
+-   **Confirm device selection**: have the user confirm that this is the device they are looking for. On this screen, you would show device details (serial number, address, model, etc.) for the user to double-check their selection.
+-   **Confirm device's functionality**: To verify that the device is working correctly before entering the configuration phase, you may wish to give the user the ability to test the functionality. For example, you could give them the option to turn on or off a light bulb, or allow them to press a button on the device and see some status change in the application.
 
--   Ready the device: contains instruction text, [images, and animations](/style/illustrations) to ensure that the device is discoverable. These instructions can be: move close, shut off other devices, look for a specific button to turn the device on, keep the device well lit so that it is easy to scan QR code, etc.
--   Select the device type: if multiple devices are discoverable but the user wants to narrow it down, or different device type has different instructions and communication protocols.
--   Choose from device list: choose a device from all the devices discovered under the criteria specified. If your user has multiple devices set to discoverable, you can use an indicator light to help the user locate the targeted device.
--   Confirm device selection: the user confirms that this is the device(s) they are looking for. On this screen, you would show device details (serial number, address, model, etc.) for the user to double-check their selection.
--   Confirm device's functionality: the user is concerned if the device is functional before entering any device parameters. Give them the option to turn on or off a light bulb, or allow them to press a button on the device and see it showing up on the screen.
+### Device Configuration
 
-### Configuration
+-   **Network configuration**: Many devices are initially connected via bluetooth but will ultimately be controlled over WiFi. In this step, users can configure the network connection.
+-   **Firmware check**: perform a device firmware version check in the background and prompt your user to upgrade the firmware if applicable.
+-   **Name the device**: give the device an identifiable name. You should always suggest a default name to minimize overtaxing the users during the configuration stage.
+-   **Configure additional device parameters**: change other device-specific parameters. In this step, a user would assign locations / groups, select an icon, assign a technician, enter device descriptions, etc. Try to keep the required configuration to a minimum — give them options to skip for now and provide ways to come back or do additional configuration later. You should communicate the setup progress to your users with a [stepper](/patterns/steppers) to inform them where they are in this flow and how many more steps are ahead.
+-   **Success or Failure Screen**: If configuration is completed successfully, a success screen should present users with options to add more devices or quit and view the device list / dashboard. This screen usually has a humorous and cheerful tone. If the configuration failed, you should inform the user why and what steps they need to perform to fix the error.
 
--   Network configuration: if you used Bluetooth to discover the device, and now you want to set it up on an intranet, you shall do it here.
--   Firmware check: perform a firmware version check in the background and prompt your user to upgrade firmware if applicable.
--   Name the device: give the device an identifiable name. You should always suggest a default name to minimize users' effort during the configuration stage.
--   Configure device parameters: change other device-specific parameters. In this step, a user would assign locations / groups, give the device a customized icon to make them more easily recognizable, assign a technician, enter device descriptions, etc. Not everything is a must — give them options to skip for now and provide ways to come back. You should communicate the setup progress to your users with a [stepper pattern](/patterns/steppers), such as where they are in this flow and how many more steps are ahead.
--   Device added successfully: A success screen with options to add more devices or quit and view the device list / dashboard. This screen usually has a humorous and cheerful tone.
+## Setting Up Multiple Devices at Once
 
-## Setting Up Devices in a Batch
+Configuring many devices simultaneously (batch configuration) requires advanced preparation and is usually handled by skilled personnel. Because of the advanced preparation, batch configuration requires fewer steps and instructions within your application. The workflow would consist of the following:
 
-Batch uploading is usually handled by skilled personnel and therefore requires a lot fewer steps and instructions. The workflow would consist of the following:
-
--   Intro: A screen to remind the user to ready their devices, with a button to upload the config file
--   Upload the config file: this is usually a CSV file with predefined parameters.
--   Scripts running in the background: Show which devices have been set up successfully and which ones are running into trouble. Show the progress and time estimate for the remaining configurations.
--   A success screen, with options to add more devices, finalize some details that the system cannot interpret, or go back to the dashboard or the device list.
+-   **Introduction**: A screen to remind the user to prepare their devices for discovery and a button to upload the configuration file.
+-   **Upload the configuration file**: this is usually a CSV file with predefined parameters that describe all of the target devices.
+-   **Progress Indicator**: Show which devices have been set up successfully and which ones are running into trouble. Show the progress and an estimate of the time remaining.
+-   **Success or Failure Screen**: Similar to the individual device workflow, you should show the user what has succeeded and what has failed. You may wish to provide the option to add more devices, finalize details that the system could not interpret from the configuration file, or go back to the dashboard or the device list.
 
 <Divider />
 
 # Design Variations
 
-The device commissioning workflow introduced above is a rough outline. In reality, the workflow may vary a lot due to a few factors.
+Multiple factors may require you to adjust or deviate from the general steps outlined above. The following are some items you may need to consider when designing the commissioning workflow for your application.
 
 ### Device Type
 
-Bluetooth devices certainly function differently from WiFi-based or plugged-in devices. Their connection protocol works differently, and some might even have access controls for different users (an admin who can write into the device or a user who can only view it).
+Connection protocols can vary by device — some may use Bluetooth or WiFi while others may require being hardwired via Ethernet. Some devices might also have different access controls for different users (an admin who can write to the device versus a user who can only read from it).
 
 ### Number of Devices Commissioned at Once
 
-Do you expect a residential user to unbox 16 devices at once? Maybe after 2 or 3 devices, they already remembered all the steps. Your application can remember their preferences so that they don't have to redo things repeatedly.
+Will your users be unboxing and configuring many devices at once? Perhaps after 2 or 3 devices, they are comfortable with all of the steps. Your application can remember their preferences so that they don't have to perform too much repeated data entry.
 
-Or maybe a technician is trying to set up an electricity management system for their client, and they try importing more than a thousand devices at a time? If the technician uses a batch configuration, should this process be run in the background while the technician is configuring something else?
+Or maybe a technician is configuring an entire facility for their client, and they need to import 1000+ devices at a time? If the technician uses a batch configuration, can this process run in the background while the technician configures something else?
 
 ### Expertise of Users
 
-The design should be tuned to fit the need of different personas. They can be non-technical users, operations / analysts, your client's engineers, your own company's engineers, or site managers. Consumer applications would demand more instructions (in texts, images, animations, or even AR) and more breaking down in the steps. At the same time, technicians generally desire more efficiency in the setup process.
+The design should be tuned to fit the need of different personas. They can be non-technical users, operations / analysts, your client's engineers, your own company's engineers, or site managers. Consumer applications should contain more instructions (in texts, images, animations, or even AR) and a wider breakdown of the steps, wheres and application for technicians should emphasize more efficiency in the setup process.
 
 ### Platform
 
-If a user is doing the device commissioning from mobile phones and tablets, they will have the advantage of a phone camera which can be helpful for scanning QR codes. Other technologies like "BlinkUp" allow device sensors to receive data via your phone's screen blinking. Mobile phones are easier to carry around and can make your physical location less messy, especially if users have instruction manuals and wires flying around everywhere.
+If a user is commissioning devices with a mobile phone or tablet, you can take advantage of the device camera to speed up configuration by scanning QR codes. Other technologies like "BlinkUp" [TODO: LINK] allow device sensors to receive data via a blinking pattern on the phone's screen. Mobile phones are easier to carry around and convenient if your devices are in crowded or hard to reach areas.
 
-On the other hand, computers are better for precise configuration and can process many device details simultaneously due to their superior computing power. The screen size is larger, meaning that you can fit more information and interactions in one screen.
+On the other hand, computers have the advantage for larger jobs. Their greater computing power and larger screens position them well for doing large batch configurations or jobs that require a lot of configuration details which would be difficult to fit on a mobile sized screen.
 
 # Design Tricks
 
 ## Do not force your users to make decisions on the first go.
 
-If your user does not specify where a device is physically located, will that stop your dashboard from working? Or is it safe to list this device as "locations unspecified" for a while, let the user know that they can skip these settings for now and come back in the future?
+To minimize setup time, only require the user to provide information that is essential to getting the device connected and working. For example. if the user does not specify where a device is physically located, will that prevent your dashboard from working, or is it safe to list this device as "location unspecified" until a later time? Let the user know that they can skip these settings for now and come back in the future.
 
-## The technician who set it up may not be the final user.
+## The person doing configuration may not be the final user.
 
-Often, users would invite technicians to come to their home or company and set up the system for them, and later on, the technician would pass the admin right to the user. Sometimes this necessitates a "handoff" experience at the end of your workflow.
+Often, users may invite experts to come to their home or company to set up the system for them or devices may come preconfigured from the factory. This may require some type of credential hand-off experience at the end of your workflow.
 
-## Do not force them to create an account until the need comes up.
+## Do not force them to create an account until needed
 
-Accounts are often used to control the device from anywhere (web, phone, device's HMI) or manage access for different people. However, not all of these functionalities are necessary during an initial device setup. You should only prompt your users to create the account when they actually need it, rather than making the onboarding process burdensome.
+Accounts are often used to control the device from anywhere (web, phone, device's HMI) or manage access for different people. However, not all of these functionalities are necessary during an initial device setup. You should only prompt your users to create the account when they actually need it, rather than adding yet another step to the commissioning process.
 
 ## Devices can lose connection halfway through the process.
 
-You should never take for granted your devices will stay connected through the entire process. If there is a network "hiccup," how do you vent users' frustration? Would your application wait & retry in the background, pause the process, or abort the entire workflow?
+You should never assume that devices will stay connected through the entire process. If there is a network issue, how will your application recover? Will you wait and retry in the background, pause the process, or abort the entire workflow?
 
 ## It can take a long time before a device responds.
 
-The transmission between IoT devices can take two minutes for jumping between nodes. When your user taps on a button but doesn't see their thermostats working, how would you communicate this latency?
+Data transmission between devices and applications can be slow. How do you communicate this to your user if they are expecting immediate results after clicking a button in your application?
 
 ## When a device is installed, its firmware might already be outdated.
 
-There is usually a time gap between when a device is boxed in the factory and when that device gets unboxed by your user. By the time the user plugs it in, your device's firmware might need a firmware upgrade.
+There is usually a time gap between when a device is manufactured and packaged in the factory and when that device gets unboxed by your user. By the time the user plugs it in, your device's firmware might need a firmware upgrade.
 
 Tell your user how long the upgrade might take and whether this will impact the setup process. If the upgrade is non-interruptive, you can have the process running in the background while users are doing the configuration and return to it after they are finished with everything else.
 
 ## Answer users' questions where they are asked.
 
-Your users might run into different problems while using the application, and your application should be able to help them troubleshoot before things get out of control. For example, the application expects that the internet connection indicator light is blinking, but your user doesn't see it happening, what can they do to rescue the situation? Do they need to call your company right away, restart their router, or simply move the device closer to the WiFi connection? Often, this can be tackled with a simple "Having trouble?" button on the screen that can help the user self-diagnose the issue.
+Your users might encounter different problems while using your application. The application should be able to help them troubleshoot in the moment. For example, if the application says that an indicator light should be blinking but it isn't, how can you help the user proceed? Do they need to call your company right away, restart their router, or simply move the device closer to the WiFi connection? Often, this can be tackled with a simple "Having trouble?" button on the screen that can help the user self-diagnose common issues.
 
-You should also include tooltips for technical jargon for non-technical or inexperienced users to help them with the basic concept. Your tooltips should not be longer than what a first-time user would need. You may include a link to an external documentation place if the more technical users would like to understand more technical details.
+You should also avoid using technical jargon whenever possible and provide tooltips for any terms that users may not understand. Your tooltips should not be longer than what a first-time user would need. You may include a link to external documentation if you think technical users could benefit from more detailed information.
 
 If your configuration includes multiple steps running in the background, articulate the step names would help your users troubleshoot.
