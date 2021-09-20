@@ -28,26 +28,26 @@ Setting up devices typically involves two phases: Device Discovery and Device Co
 The search phase generally consists of the following steps (some steps may not be required for your application):
 
 -   **Prepare the device**: provide instructional text, [images, and animations](/style/illustrations) to the user so they can ensure that the device is discoverable. Some example instructions might include "move within range of the device," "turn off all other devices," "press the XYZ button on the device," "scan the code on the device using your camera," etc.
--   **Select the device type**: if there could be multiple discoverable devices , you may wish to allow your user to narrow down the options prior to discovery. This is also an important step if different devices have different steps for connecting and / or configuring.
+-   **Select the device type**: if there could be multiple discoverable devices, you may wish to allow your user to narrow down the options prior to discovery. This is also an important step if different devices have different steps for connecting and / or configuring.
 -   **Identify the target device**: If multiple devices are discovered, provide the user a way to choose the target device from the list. To assist with identification (particularly if devices are not readily identifiable by their name or id), you can implement an indicator light to help the user locate the target device.
 -   **Confirm device selection**: have the user confirm that this is the device they are looking for. On this screen, you would show device details (serial number, address, model, etc.) for the user to double-check their selection.
--   **Confirm device's functionality**: To verify that the device is working correctly before entering the configuration phase, you may wish to give the user the ability to test the functionality. For example, you could give them the option to turn on or off a light bulb, or allow them to press a button on the device and see some status change in the application.
+-   **Confirm device's functionality**: To verify that the device is working correctly before entering the configuration phase, you may wish to give the user the ability to test the functionality. For example, you could give them the option to turn on or off a light bulb or allow them to press a button on the device and see some status change in the application.
 
 ### Device Configuration
 
--   **Network configuration**: Many devices are initially connected via bluetooth but will ultimately be controlled over WiFi. In this step, users can configure the network connection.
--   **Firmware check**: perform a device firmware version check in the background and prompt your user to upgrade the firmware if applicable.
+-   **Configure network**: Many devices are initially connected via Bluetooth but will ultimately be controlled over WiFi. In this step, users can configure the network connection.
+-   **Check firmware**: perform a device firmware version check in the background and prompt your user to upgrade the firmware if applicable.
 -   **Name the device**: give the device an identifiable name. You should always suggest a default name to minimize overtaxing the users during the configuration stage.
 -   **Configure additional device parameters**: change other device-specific parameters. In this step, a user would assign locations / groups, select an icon, assign a technician, enter device descriptions, etc. Try to keep the required configuration to a minimum — give them options to skip for now and provide ways to come back or do additional configuration later. You should communicate the setup progress to your users with a [stepper](/patterns/steppers) to inform them where they are in this flow and how many more steps are ahead.
--   **Success or Failure Screen**: If configuration is completed successfully, a success screen should present users with options to add more devices or quit and view the device list / dashboard. This screen usually has a humorous and cheerful tone. If the configuration failed, you should inform the user why and what steps they need to perform to fix the error.
+-   **Success or Failure Screen**: If the configuration is completed successfully, a success screen should present users with options to add more devices or quit and view the device list / dashboard. This screen usually has a humorous and cheerful tone. If the configuration fails, you should inform the user why and what steps they need to perform to fix the error.
 
 ## Setting Up Multiple Devices at Once
 
-Configuring many devices simultaneously (batch configuration) requires advanced preparation and is usually handled by skilled personnel. Because of the advanced preparation, batch configuration requires fewer steps and instructions within your application. The workflow would consist of the following:
+Configuring many devices simultaneously (batch configuration) requires advanced preparation and is usually handled by skilled personnel. Because of the advanced preparation, a batch configuration requires fewer steps and instructions within your application. The workflow would consist of the following:
 
--   **Introduction**: A screen to remind the user to prepare their devices for discovery and a button to upload the configuration file.
+-   **Prepare devices and configuration file**: A screen to remind the user to prepare their devices for discovery and a button to upload the configuration file.
 -   **Upload the configuration file**: this is usually a CSV file with predefined parameters that describe all of the target devices.
--   **Progress Indicator**: Show which devices have been set up successfully and which ones are running into trouble. Show the progress and an estimate of the time remaining.
+-   **Indicate current progress**: Show which devices have been set up successfully and which ones are running into trouble. Show the progress and an estimate of the time remaining.
 -   **Success or Failure Screen**: Similar to the individual device workflow, you should show the user what has succeeded and what has failed. You may wish to provide the option to add more devices, finalize details that the system could not interpret from the configuration file, or go back to the dashboard or the device list.
 
 <Divider />
@@ -75,6 +75,8 @@ The design should be tuned to fit the need of different personas. They can be no
 If a user is commissioning devices with a mobile phone or tablet, you can take advantage of the device camera to speed up configuration by scanning QR codes. Other technologies like "BlinkUp" [TODO: LINK] allow device sensors to receive data via a blinking pattern on the phone's screen. Mobile phones are easier to carry around and convenient if your devices are in crowded or hard to reach areas.
 
 On the other hand, computers have the advantage for larger jobs. Their greater computing power and larger screens position them well for doing large batch configurations or jobs that require a lot of configuration details which would be difficult to fit on a mobile sized screen.
+
+<Divider />
 
 # Design Tricks
 
