@@ -2,6 +2,9 @@ import { Divider, TOC } from '../../app/components';
 
 # Device Commissioning Workflow
 
+> This guide is currently a draft. It is under review and subject to changes in the future.
+> WIP: Include more images and screens
+
 When using an application that deals with physical devices and their data, one of the first challenges that a user will face is how to get those devices connected to the application and properly configured.
 
 Depending on the particular devices and the nature of your application, this process can vary significantly. This workflow describes some of the common steps and elements of connecting and configuring devices in order to create as much consistency as possible between different applications.
@@ -28,7 +31,7 @@ Setting up devices typically involves two phases: Device Discovery and Device Co
 The search phase generally consists of the following steps (some steps may not be required for your application):
 
 -   **Prepare the device**: provide instructional text, [images, and animations](/style/illustrations) to the user so they can ensure that the device is discoverable. Some example instructions might include "move within range of the device," "turn off all other devices," "press the XYZ button on the device," "scan the code on the device using your camera," etc.
--   **Select the device type**: if there could be multiple discoverable devices, you may wish to allow your user to narrow down the options prior to discovery. This is also an important step if different devices have different steps for connecting and / or configuring.
+-   **Select the device type**: if there could be multiple discoverable devices, you may wish to allow your user to narrow down the options prior to discovery. This is also an important step if different devices have different steps and protocols for connecting and / or configuring.
 -   **Identify the target device**: If multiple devices are discovered, provide the user a way to choose the target device from the list. To assist with identification (particularly if devices are not readily identifiable by their name or id), you can implement an indicator light to help the user locate the target device.
 -   **Confirm device selection**: have the user confirm that this is the device they are looking for. On this screen, you would show device details (serial number, address, model, etc.) for the user to double-check their selection.
 -   **Confirm device's functionality**: To verify that the device is working correctly before entering the configuration phase, you may wish to give the user the ability to test the functionality. For example, you could give them the option to turn on or off a light bulb or allow them to press a button on the device and see some status change in the application.
@@ -37,7 +40,7 @@ The search phase generally consists of the following steps (some steps may not b
 
 -   **Configure network**: Many devices are initially connected via Bluetooth but will ultimately be controlled over WiFi. In this step, users can configure the network connection.
 -   **Check firmware**: perform a device firmware version check in the background and prompt your user to upgrade the firmware if applicable.
--   **Name the device**: give the device an identifiable name. You should always suggest a default name to minimize overtaxing the users during the configuration stage.
+-   **Name the device**: give the device an identifiable name. You should always suggest a default name to avoid overtaxing the users during the configuration stage.
 -   **Configure additional device parameters**: change other device-specific parameters. In this step, a user would assign locations / groups, select an icon, assign a technician, enter device descriptions, etc. Try to keep the required configuration to a minimum — give them options to skip for now and provide ways to come back or do additional configuration later. You should communicate the setup progress to your users with a [stepper](/patterns/steppers) to inform them where they are in this flow and how many more steps are ahead.
 -   **Success or Failure Screen**: If the configuration is completed successfully, a success screen should present users with options to add more devices or quit and view the device list / dashboard. This screen usually has a humorous and cheerful tone. If the configuration fails, you should inform the user why and what steps they need to perform to fix the error.
 
@@ -68,13 +71,13 @@ Or maybe a technician is configuring an entire facility for their client, and th
 
 ### Expertise of Users
 
-The design should be tuned to fit the need of different personas. They can be non-technical users, operations / analysts, your client's engineers, your own company's engineers, or site managers. Consumer applications should contain more instructions (in texts, images, animations, or even AR) and a wider breakdown of the steps, wheres and application for technicians should emphasize more efficiency in the setup process.
+The design should be tuned to fit the need of different personas. They can be non-technical users, operations / analysts, your client's engineers, your own company's engineers, or site managers. Consumer applications should contain more instructions (in texts, images, animations, or even AR) and a wider breakdown of the steps, whereas an application for technicians should emphasize more efficiency in the setup process.
 
 ### Platform
 
-If a user is commissioning devices with a mobile phone or tablet, you can take advantage of the device camera to speed up configuration by scanning QR codes. Other technologies like "BlinkUp" [TODO: LINK] allow device sensors to receive data via a blinking pattern on the phone's screen. Mobile phones are easier to carry around and convenient if your devices are in crowded or hard to reach areas.
+If a user is commissioning devices with a mobile phone or tablet, you can take advantage of the device camera to speed up configuration by scanning QR codes. Other technologies like near-field communication (NFC) allow devices to quickly transmit small amount of data; and [BlinkUp](https://developer.electricimp.com/manufacturing/sdkdocs/whatisblinkup) allows device sensors to receive data via a blinking pattern on the phone's screen. Mobile phones are easier to carry around and convenient if your devices are in crowded or hard-to-reach areas.
 
-On the other hand, computers have the advantage for larger jobs. Their greater computing power and larger screens position them well for doing large batch configurations or jobs that require a lot of configuration details which would be difficult to fit on a mobile sized screen.
+On the other hand, computers have the advantage for larger jobs. Their greater computing power and larger screens position them well for doing large batch configurations or jobs that require a lot of configuration details which would be difficult to fit on a mobile-sized screen.
 
 <Divider />
 
@@ -82,11 +85,11 @@ On the other hand, computers have the advantage for larger jobs. Their greater c
 
 ## Do not force your users to make decisions on the first go
 
-To minimize setup time, only require the user to provide information that is essential to getting the device connected and working. For example. if the user does not specify where a device is physically located, will that prevent your dashboard from working, or is it safe to list this device as "location unspecified" until a later time? Let the user know that they can skip these settings for now and come back in the future.
+To minimize setup time, only require users to provide information that is essential to getting the device connected and working. For example, if the user does not specify where a device is physically located, will that prevent your dashboard from working, or is it safe to list this device as "location unspecified" until a later time? Let the user know that they can skip these settings for now and come back in the future.
 
 ## The person doing configuration may not be the final user
 
-Often, users may invite experts to come to their home or company to set up the system for them or devices may come preconfigured from the factory. This may require some type of credential hand-off experience at the end of your workflow.
+Often, users may invite experts to come to their home or company to set up the system for them, or devices may come preconfigured from the factory. This may require some type of credential hand-off experience at the end of your workflow.
 
 ## Do not force them to create an account until needed
 
