@@ -42,7 +42,7 @@ The search phase generally consists of the following steps (some steps may not b
 -   **Check firmware**: perform a device firmware version check in the background and prompt your user to upgrade the firmware if applicable.
 -   **Name the device**: give the device an identifiable name. You should always suggest a default name to avoid overtaxing the users during the configuration stage.
 -   **Configure additional device parameters**: change other device-specific parameters. In this step, a user would assign locations / groups, select an icon, assign a technician, enter device descriptions, etc. Try to keep the required configuration to a minimum — give them options to skip for now and provide ways to come back or do additional configuration later. You should communicate the setup progress to your users with a [stepper](/patterns/steppers) to inform them where they are in this flow and how many more steps are ahead.
--   **Success or Failure Screen**: If the configuration is completed successfully, a success screen should present users with options to add more devices or quit and view the device list / dashboard. This screen usually has a humorous and cheerful tone. If the configuration fails, you should inform the user why and what steps they need to perform to fix the error.
+-   **Success or failure screen**: If the configuration is completed successfully, a success screen should present users with options to add more devices or quit and view the device list / dashboard. This screen usually has a humorous and cheerful tone. If the configuration fails, you should inform the user why and what steps they need to perform to fix the error.
 
 ## Setting Up Multiple Devices at Once
 
@@ -51,7 +51,7 @@ Configuring many devices simultaneously (batch configuration) requires advanced 
 -   **Prepare devices and configuration file**: A screen to remind the user to prepare their devices for discovery and a button to upload the configuration file.
 -   **Upload the configuration file**: this is usually a CSV file with predefined parameters that describe all of the target devices.
 -   **Indicate current progress**: Show which devices have been set up successfully and which ones are running into trouble. Show the progress and an estimate of the time remaining.
--   **Success or Failure Screen**: Similar to the individual device workflow, you should show the user what has succeeded and what has failed. You may wish to provide the option to add more devices, finalize details that the system could not interpret from the configuration file, or go back to the dashboard or the device list.
+-   **Success or failure screen**: Similar to the individual device workflow, you should show the user what has succeeded and what has failed. You may wish to provide the option to add more devices, finalize details that the system could not interpret from the configuration file, or go back to the dashboard or the device list.
 
 <Divider />
 
