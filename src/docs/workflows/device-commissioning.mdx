@@ -75,7 +75,7 @@ The design should be tuned to fit the need of different personas. They can be no
 
 ### Platform
 
-If a user is commissioning devices with a mobile phone or tablet, you can take advantage of the device camera to speed up configuration by scanning QR codes. Other technologies like [near-field communication](https://en.wikipedia.org/wiki/Near-field_communication) (NFC) allow devices to quickly transmit small amount of data; and [BlinkUp](https://developer.electricimp.com/manufacturing/sdkdocs/whatisblinkup) allows device sensors to receive data via a blinking pattern on the phone's screen. Mobile phones are easier to carry around and convenient if your devices are in crowded or hard-to-reach areas.
+If a user is commissioning devices with a mobile phone or tablet, you can take advantage of the device camera to speed up configuration by scanning QR codes. Other technologies like [near-field communication](https://en.wikipedia.org/wiki/Near-field_communication) (NFC) allow devices to quickly transmit a small amount of data; [BlinkUp](https://developer.electricimp.com/manufacturing/sdkdocs/whatisblinkup) allows device sensors to receive data via a blinking pattern on the phone's screen. Mobile phones are easier to carry around and convenient if your devices are in crowded or hard-to-reach areas.
 
 On the other hand, computers have the advantage for larger jobs. Their greater computing power and larger screens position them well for doing large batch configurations or jobs that require a lot of configuration details which would be difficult to fit on a mobile-sized screen.
 
@@ -89,7 +89,7 @@ To minimize setup time, only require users to provide information that is essent
 
 ## The person doing configuration may not be the final user
 
-Often, users may invite experts to come to their home or company to set up the system for them, or devices may come preconfigured from the factory. This may require some type of credential hand-off experience at the end of your workflow.
+Often, users may invite experts to come to their homes or company to set up the system for them, or devices may come preconfigured from the factory. This may require some type of credential hand-off experience at the end of your workflow.
 
 ## Do not force them to create an account until needed
 
@@ -97,7 +97,7 @@ Accounts are often used to control the device from anywhere (web, phone, device'
 
 ## Devices can lose connection halfway through the process
 
-You should never assume that devices will stay connected through the entire process. If there is a network issue, how will your application recover? Will you wait and retry in the background, pause the process, or abort the entire workflow? The application shall also try to help users identify and fix the network problem, so that the same situation does not recur in the future.
+You should never assume that devices will stay connected through the entire process. If there is a network issue, how will your application recover? Will you wait and retry in the background, pause the process, or abort the entire workflow? The application shall also try to help users identify and fix the network problem so that the same situation does not recur in the future.
 
 ## Processing time can be long
 
