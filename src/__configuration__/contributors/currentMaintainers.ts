@@ -62,7 +62,7 @@ export const currentMaintainers: CurrentMaintainter[] = [
         name: 'Suraj Karambe',
         role: `Front-End Developer`,
         image: SurajKarambe,
-        description: `Suraj is a techie, who primarily works on the front-end technologies. He loves to trek and travel with the friends and has his roots in India. He is a big foodie and also likes to watch television serials and movies.`,
+        description: `Suraj is a techie, who primarily works on the front-end technologies. He loves to trek and travel with the friends and has his roots in India. He is a big foodie and also likes to watch television series and movies.`,
         contacts: {
             github: 'https://github.com/bkarambe',
             linkedIn: 'https://www.linkedin.com/in/surajkarambe/',
