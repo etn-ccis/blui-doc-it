@@ -27,6 +27,8 @@ import Filter1 from '../../app/assets/design-patterns/tables/filter-1.png';
 import Filter2 from '../../app/assets/design-patterns/tables/filter-2.png';
 import Filter3 from '../../app/assets/design-patterns/tables/filter-3.png';
 import Filter4 from '../../app/assets/design-patterns/tables/filter-4.png';
+import Drag1 from '../../app/assets/design-patterns/tables/drag-1.png';
+import Drag2 from '../../app/assets/design-patterns/tables/drag-2.png';
 
 <!-- Tables vs. Lists -->
 
@@ -107,6 +109,13 @@ Similar to lists, tables also have row actions. Common row actions inlcude edit,
     ]}
 />
 
+<ImageGrid
+    images={[Drag1, Drag2]}
+    caption={[
+        `Drag-and-drop actions are usually placed at the beginning of a row. If you have row numbers, you may choose to display the drag handle on hover.`,
+    ]}
+/>
+
 ## Batch Actions
 
 If your application allows users to perform batch actions to their data set, such as deleting 15 items at once, you can add a checkbox column on the left rim of the table.
@@ -141,7 +150,7 @@ When a table gets long, your users should not need to scroll back to the top to 
 
 ## Horizontal Scroll
 
-When your table overflows horizontally, you should allow your users to scroll horizontally to view more about the table. However, this interaction is less ergonomically convenient when users are not using a touch screen or a trackpad.
+When your table overflows horizontally, you should allow your users to scroll horizontally to view more about the table. However, this interaction is less ergonomically convenient when users are not using a touch screen or a trackpad. See also the [Responsive](#responsive) section below.
 
 The application may display a scroll bar to suggest that there are more contents to the right.
 
@@ -172,6 +181,8 @@ There are many different ways to perform searching and filtering with table data
         `A "saved filter" dropdown.`,
     ]}
 />
+
+> TALK ABOUT ADVANCED FILTERING LIKE CYME WEST!!
 
 <Divider />
 
