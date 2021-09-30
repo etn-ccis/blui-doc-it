@@ -175,6 +175,17 @@
             ]
         },
         {
+            "title": "Workflows",
+            "url": "/workflows",
+            "hidden": true,
+            "pages": [
+                {
+                    "title": "Device Commissioning",
+                    "url": "device-commissioning"
+                }
+            ]
+        },
+        {
             "title": "Style Guide",
             "url": "/style",
             "hasLandingPage": true,

@@ -251,6 +251,20 @@ export const pageDefinitions: SimpleNavItem[] = [
         ],
     },
     {
+        title: 'Workflows',
+        url: '/workflows',
+        hidden: true,
+        pages: [
+            {
+                title: 'Device Commissioning',
+                url: '/device-commissioning',
+                component: (
+                    <MarkdownPage title={'Device Commissioning'} markdown={Docs.Workflows.DeviceCommissioning} />
+                ),
+            },
+        ],
+    },
+    {
         title: 'Style Guide',
         url: '/style',
         component: <MarkdownPage title={'Style Guide'} markdown={Docs.Style.Home} />,
