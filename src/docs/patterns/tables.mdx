@@ -151,7 +151,7 @@ When a table gets long, your users should not need to scroll back to the top to 
 
 ## Horizontal Scroll
 
-When your table overflows horizontally, you should allow your users to scroll horizontally to view more about the table. However, this interaction is less ergonomically convenient when users are not using a touch screen or a trackpad. See also the [Responsive](#responsive) section below.
+When your table overflows horizontally, you should allow your users to scroll horizontally to view more about the table. However, this interaction is less ergonomically convenient when users are not using a touch screen or a trackpad. See the [Responsive](#responsive) section below.
 
 The application may display a scroll bar to suggest that there are more contents to the right.
 
@@ -215,7 +215,7 @@ on the other hand, group their content row-by-row.
     ]}
 />
 
-Because of this, tables tend to take up a lot of horizontal space, therefore they are almost always the only main content on a desktop application. You should not use tables in dashboards, where there are many widgets competing for room; you should also avoid using tables on mobile applications, where the viewport size is limited.
+Because of this, tables tend to take up a lot of horizontal space, therefore they are almost always the only main content on the page of a desktop application. You should not use tables in dashboards, where there are many widgets competing for room; you should also avoid using tables on mobile applications, where the viewport size is limited.
 
 <ImageGrid
     images={[DashboardTable, PageBodyTable]}
@@ -267,16 +267,38 @@ Avoid using tables in consumer-facing applications. Lists mentally match real-wo
 
 # Responsive
 
-We do not encourage tables on mobile platforms. Try rendering it as a list, stacking up everything and only leave the essential parameters for the user to decide which one to click into to view details.
+## Understand If Users Need A Table On Their Phone
 
+We do not encourage tables on mobile platforms. Do researches and see what their tasks are. Do they need to view all the details or only a few actions are needed.
+
+## Rendering them as lists
+
+Try rendering it as a list, stacking up everything and only leave the essential parameters for the user to decide which one to click into to view details.
+
+> An image of list stacking
+
+> Click inside to edit stuff
+
+## Pagination
+
+Pagination to reduce dev load
+
+> Add mobile example for inf scrolling. This reduces load per page
+
+> Add mobile example for pagination
+
+## Dupe stuff?
+
+(Both covered before)
 do not use tables with other stuff. Should be a list with a view details screen
 
+(Should be a section in app bar)
 On batch action, change app bar
 
 -   infinite selection
 -   limited selection
-
-Pagination to reduce dev load
+-   image 1: Select devices to continue
+-   image 2: 3 out of 4 selected
 
 <Divider />
 
@@ -284,7 +306,7 @@ Pagination to reduce dev load
 
 -   Alternating Grid
 -   checked row color
--   Row height for text field cells
+-   Row height for regular cells and text field cells
 
 <MaterialDesignDescription
     title={'Data Tables'}
