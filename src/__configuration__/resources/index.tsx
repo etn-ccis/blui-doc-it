@@ -324,7 +324,7 @@ export const resources: ResourceBucket[] = [
                 description: 'Web design patterns made using the Angular framework',
                 repository: 'angular-design-patterns',
                 applies: ['angular'],
-                demoUrl: 'https://stackblitz.com/github/pxblue/angular-design-patterns',
+                demoUrl: 'https://stackblitz.com/github/pxblue/angular-design-patterns/tree/master',
             },
             {
                 name: 'react-design-patterns',

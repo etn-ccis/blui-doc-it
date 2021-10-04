@@ -130,7 +130,8 @@ export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
                     <DemoButton repository={repository} framework={'react'} url={react === true ? undefined : react} />
                 )}
                 {ionic && (
-                    <DemoButton repository={repository} framework={'ionic'} url={ionic === true ? undefined : ionic} />
+                    <></>
+                    // <DemoButton repository={repository} framework={'ionic'} url={ionic === true ? undefined : ionic} />
                 )}
                 {reactNative && (
                     <></>
