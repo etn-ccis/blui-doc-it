@@ -24,14 +24,14 @@ export const patternLinks = [
 export const figmaCommunityFileLinks = [
     {
         title: 'PX Blue Component Stickersheet',
-        url: 'https://www.figma.com/community/file/852558784352181868',
+        url: 'https://www.figma.com/community/file/1024360297793425107',
         description: 'Pre-built Material and PX Blue Figma components',
         image: componentStickersheet,
         background: { position: 'center' },
     },
     {
         title: 'PX Blue Design Pattern Library',
-        url: 'https://www.figma.com/community/file/926189711301522231',
+        url: 'https://www.figma.com/community/file/1023327014725714313',
         description: 'A Figma design library that includes common patterns used across various PX Blue projects.',
         image: designPatternLibrary,
         background: { position: 'right' },

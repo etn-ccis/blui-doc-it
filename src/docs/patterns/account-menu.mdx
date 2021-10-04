@@ -68,6 +68,11 @@ This approach is most effective when there are relatively few account-related ac
 If you are using a navigation rail, you may place account settings links in the rail, but you will not be able to show specific details about the user. Consider using the [User Menu](#via-user-menu) in this situation or if you are using a primary navigation mechanism other than a drawer.
 
 <React.Fragment>
+    <DemoCard
+        repository={'Account Details in Drawers'}
+        angular={`https://stackblitz.com/github/pxblue/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Faccount-menu%2Fin-a-drawer%2Fmenu-in-a-drawer.component.html`}
+        react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/account-menu/in-a-drawer/index.tsx&initialpath=in-a-drawer`}
+    />
     <MaterialDesignDescription
         title={'Drawer Navigation'}
         url={'/patterns/navigation#drawer-navigation'}
@@ -93,6 +98,11 @@ Another way to present user information and actions is with the user menu. The u
 This approach is most effective if you have more than three account-related actions, or if you want to present more detailed information about a user since it avoids cluttering the primary navigation drawer.
 
 <React.Fragment>
+    <DemoCard
+        repository={'User Menus in App Bars'}
+        angular={`https://stackblitz.com/github/pxblue/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Faccount-menu%2Fin-an-app-bar%2Fin-an-app-bar.component.html`}
+        react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/account-menu/in-an-app-bar/index.tsx&initialpath=in-an-app-bar`}
+    />
     <MaterialDesignDescription
         title={'Bottom Sheet'}
         url={'/patterns/overlay#bottom-sheet'}
@@ -189,7 +199,7 @@ Use the following components to implement this pattern:
 **React**:
 
 -   Material UI
-    -   [Drawer](https://material-ui.com/components/drawers/)
+    -   [Drawer](https://mui.com/components/drawers/)
 -   @pxblue/react-components
     -   [Drawer](https://pxblue-components.github.io/react/?path=/info/components-drawer--get-read-me-story)
     -   [User Menu](https://pxblue-components.github.io/react/?path=/info/components-user-menu--get-read-me-story)

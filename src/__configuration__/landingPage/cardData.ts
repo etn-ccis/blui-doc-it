@@ -31,7 +31,7 @@ export const cardData = [
         title: 'Figma Sticker Sheet',
         description: `View our library of pre-built Material and PX Blue Figma components to jump start your project design process.`,
         image: figma,
-        path: 'https://www.figma.com/community/file/852558784352181868',
+        path: 'https://www.figma.com/community/file/1024360297793425107',
     },
     {
         title: 'Component APIs',

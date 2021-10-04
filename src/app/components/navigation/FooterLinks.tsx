@@ -98,7 +98,7 @@ export const FooterLinks: React.FC = (): JSX.Element => {
                         hoverColor={Colors.white[50]}
                     />
                     <NavLink
-                        to={'https://www.figma.com/community/file/852558784352181868'}
+                        to={'https://www.figma.com/community/file/1024360297793425107'}
                         title={'Figma Sticker Sheet'}
                         className={classes.navLink}
                         hoverColor={Colors.white[50]}

@@ -3,6 +3,7 @@ import EvanMcLaughlin from '../../app/assets/credits/evan-mclaughlin.jpeg';
 import JeffeyGreiner from '../../app/assets/credits/jeffery-greiner.jpeg';
 import ThomasDailey from '../../app/assets/credits/thomas-dailey.jpg';
 import EktaGhag from '../../app/assets/credits/ekta-ghag.jpg';
+import SurajKarambe from '../../app/assets/credits/suraj-karambe.png';
 import { CurrentMaintainter } from '../../__types__';
 
 export const currentMaintainers: CurrentMaintainter[] = [
@@ -55,6 +56,16 @@ export const currentMaintainers: CurrentMaintainter[] = [
         contacts: {
             github: 'https://github.com/ektasawant',
             linkedIn: 'https://www.linkedin.com/in/ekta-ghag-138120134/',
+        },
+    },
+    {
+        name: 'Suraj Karambe',
+        role: `Front-End Developer`,
+        image: SurajKarambe,
+        description: `Suraj is a techie, who primarily works on the front-end technologies. He loves to trek and travel with the friends and has his roots in India. He is a big foodie and also likes to watch television series and movies.`,
+        contacts: {
+            github: 'https://github.com/bkarambe',
+            linkedIn: 'https://www.linkedin.com/in/surajkarambe/',
         },
     },
 ];
