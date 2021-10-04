@@ -30,6 +30,8 @@ import Filter4 from '../../app/assets/design-patterns/tables/filter-4.png';
 import AdvancedTableFilter from '../../app/assets/design-patterns/tables/advanced-table-filter.gif';
 import Drag1 from '../../app/assets/design-patterns/tables/drag-1.png';
 import Drag2 from '../../app/assets/design-patterns/tables/drag-2.png';
+import AdditionAnimation from '../../app/assets/design-patterns/tables/addition-animation.gif';
+import SubstractionAnimation from '../../app/assets/design-patterns/tables/substraction-animation.gif';
 
 <!-- Tables vs. Lists -->
 
@@ -45,6 +47,12 @@ import ColumnOrder1 from '../../app/assets/design-patterns/tables/column-order-1
 import ColumnOrder2 from '../../app/assets/design-patterns/tables/column-order-2.png';
 import ImplicitValueTable from '../../app/assets/design-patterns/tables/implicit-value-table.png';
 import ImplicitValueList from '../../app/assets/design-patterns/tables/implicit-value-list.png';
+
+<!-- Responsive -->
+
+import TableOnMobile from '../../app/assets/design-patterns/tables/table-on-mobile.svg';
+import HomePagePreview from '../../app/assets/design-patterns/tables/home-page-preview.png';
+import TableStackedAsList from '../../app/assets/design-patterns/tables/table-stacked-as-list.png';
 
 # Tables
 
@@ -149,7 +157,7 @@ When a table gets long, your users should not need to scroll back to the top to 
     regularWidth
 />
 
-## Horizontal Scroll
+## Horizontal Scrolling
 
 When your table overflows horizontally, you should allow your users to scroll horizontally to view more about the table. However, this interaction is less ergonomically convenient when users are not using a touch screen or a trackpad. See the [Responsive](#responsive) section below.
 
@@ -176,8 +184,8 @@ There are many different ways to perform searching and filtering with table data
 <ImageGrid
     images={[Filter1, Filter2, Filter3, Filter4]}
     captionsUnderImages={[
-        `A simple search field embedded in the table.`,
-        `A search field outside the table.`,
+        `A simple search field embedded in a table.`,
+        `A search field outside a table.`,
         `Filter criteria listed as chips.`,
         `A "saved filter" dropdown.`,
     ]}
@@ -189,6 +197,18 @@ There are many different ways to perform searching and filtering with table data
         `You may combine multiple interactions (searching and filtering) and input methods (keyboard navigations, keyboard typing, mouse clicking) together for an "advanced search".`,
     ]}
     regularWidth
+/>
+
+## Transition Animation
+
+Often, table data look highly similar between rows and can disorient your users. You may consider using animations in your applications to help users understand certain transitions.
+
+<ImageGrid
+    images={[AdditionAnimation, SubstractionAnimation]}
+    captionsUnderImages={[
+        `Transition animation for adding a row to the table. Consider using a background color to temporarily highlight the newly-added row.`,
+        `Transition animation for removing a row from the table.`,
+    ]}
 />
 
 <Divider />
@@ -225,7 +245,7 @@ Because of this, tables tend to take up a lot of horizontal space, therefore the
     ]}
 />
 
-## How Tables and Lists Are Read
+## Eye Movement
 
 Tables facilitate users who wants to work across multiple different properties of a data point. Users often navigate down a column, find a desired value, jump to another column, navigating further down, before they exit their path. On the other hand, lists often have a primary property that the user would rely on for navigation. This can be icons, avatars, or primary list texts.
 
@@ -267,17 +287,29 @@ Avoid using tables in consumer-facing applications. Lists mentally match real-wo
 
 # Responsive
 
-## Understand If Users Need A Table On Their Phone
+In general, we do not encourage tables on mobile platforms, as table-related interactions tend to be complicated for small view ports, and mobile phones also often lack the computational power to process massive data set.
 
-We do not encourage tables on mobile platforms. Do researches and see what their tasks are. Do they need to view all the details or only a few actions are needed.
+<ImageGrid
+    images={[TableOnMobile]}
+    regularWidth
+    caption={`Users can only see a very small portion of the table through mobile devices.`}
+/>
 
-## Rendering them as lists
+## Understanding Users' Goal
 
-Try rendering it as a list, stacking up everything and only leave the essential parameters for the user to decide which one to click into to view details.
+Before you design a table structure for a mobile application, you should conduct user researches and have a clear understanding of users' intention. When they land on this page, Do they desire to do complicated cross-comparison between multiple rows and columns? Is a full table necessary?
 
-> An image of list stacking
+## Breaking Down Tables into Lists
 
-> Click inside to edit stuff
+If a user only need a few parameters to identify the correct data entry and make decisions, a list with a few selected data points would suffice.
+
+<ImageGrid
+    images={[HomePagePreview, TableStackedAsList]}
+    captionsUnderImages={[
+        `On a crowded page, show a small portion preview of the table content, with the option to view the full table in a dedicated page.`,
+        `Stacking each property into a list item, with the ability to click into a list item to view the full item details.`,
+    ]}
+/>
 
 ## Pagination
 
@@ -286,6 +318,10 @@ Pagination to reduce dev load
 > Add mobile example for inf scrolling. This reduces load per page
 
 > Add mobile example for pagination
+
+## Native Mobile Interactions
+
+> left swipe for actions
 
 ## Dupe stuff?
 
@@ -299,6 +335,8 @@ On batch action, change app bar
 -   limited selection
 -   image 1: Select devices to continue
 -   image 2: 3 out of 4 selected
+
+> TODO: in list, add the sticky checkbox micro interaction
 
 <Divider />
 

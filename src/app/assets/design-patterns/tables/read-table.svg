@@ -31,7 +31,7 @@
 <rect x="190" y="269" width="20" height="13" rx="6.5" fill="#B9BFC2"/>
 <rect x="190" y="202" width="30" height="13" rx="6.5" fill="#B9BFC2"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M65 21.5C60 21.5 55.73 24.61 54 29C55.73 33.39 60 36.5 65 36.5C70 36.5 74.27 33.39 76 29C74.27 24.61 70 21.5 65 21.5ZM65 34C62.24 34 60 31.76 60 29C60 26.24 62.24 24 65 24C67.76 24 70 26.24 70 29C70 31.76 67.76 34 65 34ZM62 29C62 27.34 63.34 26 65 26C66.66 26 68 27.34 68 29C68 30.66 66.66 32 65 32C63.34 32 62 30.66 62 29Z" fill="#0088F2"/>
-<path d="M65 35.5V89H145V209H102.5V241H199L102.5 250.5V276H262.5" stroke="#0088F2" stroke-width="2" stroke-linejoin="round"/>
+<path d="M65 45V89H145V209H102.5V241H199L102.5 250.5V276H262.5" stroke="#0088F2" stroke-width="2" stroke-linejoin="round"/>
 <circle cx="145" cy="89" r="4" fill="#0088F2"/>
 <circle cx="97" cy="89" r="4" fill="#0088F2"/>
 <circle cx="65" cy="89" r="4" fill="#0088F2"/>
