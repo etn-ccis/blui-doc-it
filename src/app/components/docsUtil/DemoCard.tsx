@@ -120,12 +120,11 @@ export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
             </div>
             <div style={{ textAlign: 'center' }}>
                 {angular && (
-                    <></>
-                    // <DemoButton
-                    //     repository={repository}
-                    //     framework={'angular'}
-                    //     url={angular === true ? undefined : angular}
-                    // />
+                    <DemoButton
+                        repository={repository}
+                        framework={'angular'}
+                        url={angular === true ? undefined : angular}
+                    />
                 )}
                 {react && (
                     <DemoButton repository={repository} framework={'react'} url={react === true ? undefined : react} />
