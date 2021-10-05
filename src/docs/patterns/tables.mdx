@@ -85,7 +85,7 @@ Similar to [lists](/lists), tables are used to display structured data. Tables a
 
 # Behaviors
 
-<ImageGrid images={[StandardTable]} caption={`A basic PX Blue table.`} regularWidth />
+<ImageGrid images={[StandardTable]} caption={`A basic table.`} regularWidth />
 
 ## Table Cell Contents
 
@@ -116,7 +116,7 @@ You should seek to make your tables both easy to navigate and effective to use.
 
 ## Row Actions
 
-Similar to lists, tables also have row actions. Common row actions inlcude edit, delete and view details. They are usually placed at the end of a table row.
+Similar to lists, tables also have row actions. Common row actions include edit, delete and view details. They are usually placed at the end of a table row.
 
 <ImageGrid
     images={[ActionAtRowEnd, ActionOnHover]}
@@ -141,7 +141,7 @@ If your application allows users to perform batch actions to their data set, suc
     images={[BatchAction1, BatchAction2]}
     captionsUnderImages={[
         `Buttons are disabled when no rows are checked.`,
-        `Buttons become enabled when rows are checked. Optionally, use theme color to highlight the selected row, and label the button with number of rows selected to account for pagination.`,
+        `Buttons become enabled when rows are checked. Optionally, use theme color to highlight the selected row, and label the button with the number of items selected to account for pagination.`,
     ]}
 />
 
@@ -181,7 +181,7 @@ The application may display a scroll bar to suggest that there are more contents
     images={[StickyCheckbox, StickyRowAction]}
     captionsUnderImages={[
         `The checkbox column should be sticky to the left as the user scrolls to the right.`,
-        `The action column, if designed to be always visible, should be sticky to the right. Do not include too many row actions that covers excessive table body area.`,
+        `The action column, if designed to be always visible, should be sticky to the right. Do not include too many row actions that cover excessive table body area.`,
     ]}
 />
 
@@ -228,7 +228,7 @@ Often, table data look highly similar between rows and can disorient your users.
     caption={['A same set of data may be presented in tables (#1) or lists (#2), depends on the use cases.']}
 />
 
-In most cases, we encourage you to organize your data into lists instead of tables. However, there is no clearly-defined boundary between lists and tables. Below are a few factors you should consider when evaluating how you want to present your data.
+In most cases, we encourage you to organize your data into lists instead of tables. However, there is no clearly defined boundary between lists and tables. Below are a few factors you should consider when evaluating how you want to present your data.
 
 ## Arrangement
 
@@ -243,7 +243,7 @@ on the other hand, group their content row-by-row.
     ]}
 />
 
-Because of this, tables tend to take up a lot of horizontal space, therefore they are almost always the only main content on the page of a desktop application. You should not use tables in dashboards, where there are many widgets competing for room; you should also avoid using tables on mobile applications, where the viewport size is limited.
+Because of this, tables tend to take up a lot of horizontal space, therefore they are almost always the only main content on the page of a desktop application. You should not use tables in dashboards, where there are many widgets competing for the space; you should also avoid using tables on mobile applications, where the viewport size is limited.
 
 <ImageGrid
     images={[DashboardTable, PageBodyTable]}
@@ -263,7 +263,7 @@ A "tabular list" that attempts to combine tables and lists together might result
 
 ## Eye Movement
 
-Tables facilitate users who wants to work across multiple different properties of a data point. Users often navigate down a column, find a desired value, jump to another column, navigating further down, before they exit their path. On the other hand, lists often have a primary property that the user would rely on for navigation. This can be icons, avatars, or primary list texts.
+Tables facilitate users who want to work across multiple different properties of a data point. Users often navigate down a column, find the desired value, jump to another column, navigating further down, before they exit their path. On the other hand, lists often have a primary property that the user would rely on for navigation. This can be icons, avatars, or primary list texts.
 
 <ImageGrid
     images={[ReadTable, ReadList]}
@@ -303,7 +303,7 @@ Avoid using tables in consumer-facing applications. Lists mentally match real-wo
 
 # Responsive
 
-In general, we do not encourage tables on mobile platforms, as table-related interactions tend to be complicated for small view ports, and mobile phones also often lack the computational power to process massive data set.
+In general, we do not encourage tables on mobile platforms, as table-related interactions tend to be complicated for small viewports, and mobile phones also often lack the computational power to process massive data set.
 
 <ImageGrid
     images={[TableOnMobile]}
@@ -313,11 +313,11 @@ In general, we do not encourage tables on mobile platforms, as table-related int
 
 ## Understanding Users' Goal
 
-Before you design a table structure for a mobile application, you should conduct user researches and have a clear understanding of users' intention. When they land on this page, Do they desire to do complicated cross-comparison between multiple rows and columns? Is a full table necessary?
+Before you design a table structure for a mobile application, you should conduct user researches and have a clear understanding of users' intentions. When they land on this page, Do they desire to do complicated cross-comparison between multiple rows and columns? Is a full table necessary?
 
 ## Breaking Down Tables into Lists
 
-If a user only need a few parameters to identify the correct data entry and make decisions, a list with a few selected data points would suffice.
+If a user only needs a few parameters to identify the correct data entry and make decisions, a list with a few selected data points would suffice.
 
 <ImageGrid
     images={[HomePagePreview, TableStackedAsList]}
@@ -338,6 +338,8 @@ Pagination is especially helpful on hand-held devices to reduce the load of both
     ]}
     gridContainerProps={{ style: { justifyContent: 'flex-start' } }}
 />
+
+> Be careful using pagination with multi-selection, as it is unclear whether the selection gets preserved when the page number changes.
 
 ## Native Mobile Gestures
 
