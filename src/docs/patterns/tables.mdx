@@ -47,12 +47,20 @@ import ColumnOrder1 from '../../app/assets/design-patterns/tables/column-order-1
 import ColumnOrder2 from '../../app/assets/design-patterns/tables/column-order-2.png';
 import ImplicitValueTable from '../../app/assets/design-patterns/tables/implicit-value-table.png';
 import ImplicitValueList from '../../app/assets/design-patterns/tables/implicit-value-list.png';
+import TabularList from '../../app/assets/design-patterns/tables/tabular-list.png';
 
 <!-- Responsive -->
 
 import TableOnMobile from '../../app/assets/design-patterns/tables/table-on-mobile.svg';
-import HomePagePreview from '../../app/assets/design-patterns/tables/home-page-preview.png';
-import TableStackedAsList from '../../app/assets/design-patterns/tables/table-stacked-as-list.png';
+import HomePagePreview from '../../app/assets/design-patterns/tables/home-page-preview.gif';
+import TableStackedAsList from '../../app/assets/design-patterns/tables/table-stacked-as-list.gif';
+import MobilePagination from '../../app/assets/design-patterns/tables/mobile-pagination.png';
+
+<!-- Specs -->
+
+import SpecSize from '../../app/assets/design-patterns/tables/spec-size.png';
+import SpecTypography from '../../app/assets/design-patterns/tables/spec-typography.png';
+import SpecPagination from '../../app/assets/design-patterns/tables/spec-pagination.png';
 
 # Tables
 
@@ -240,9 +248,17 @@ Because of this, tables tend to take up a lot of horizontal space, therefore the
 <ImageGrid
     images={[DashboardTable, PageBodyTable]}
     captionsUnderImages={[
-        'Do not use tables in dashboards. Use lists instead.',
+        'Avoid using tables in dashboards. Use lists instead.',
         'Tables are usually the only main content on a page.',
     ]}
+/>
+
+A "tabular list" that attempts to combine tables and lists together might result in a design that does not pick up the advantages of either pattern.
+
+<ImageGrid
+    images={[TabularList]}
+    captionsUnderImages={['Avoid combining tables and lists together, as this diminishes the value of both.']}
+    gridContainerProps={{ style: { justifyContent: 'flex-start' } }}
 />
 
 ## Eye Movement
@@ -313,38 +329,31 @@ If a user only need a few parameters to identify the correct data entry and make
 
 ## Pagination
 
-Pagination to reduce dev load
+Pagination is especially helpful on hand-held devices to reduce the load of both the server and the client-side render.
 
-> Add mobile example for inf scrolling. This reduces load per page
+<ImageGrid
+    images={[MobilePagination]}
+    captionsUnderImages={[
+        `Pagination is often used to reduce the page load. If not conflicting with other gestures, consider using left / right swipes to go to the previous / next page.`,
+    ]}
+    gridContainerProps={{ style: { justifyContent: 'flex-start' } }}
+/>
 
-> Add mobile example for pagination
+## Native Mobile Gestures
 
-## Native Mobile Interactions
+You may also consider embedding action gestures common for touch screens, such as long-press and swipe.
 
-> left swipe for actions
-
-## Dupe stuff?
-
-(Both covered before)
-do not use tables with other stuff. Should be a list with a view details screen
-
-(Should be a section in app bar)
-On batch action, change app bar
-
--   infinite selection
--   limited selection
--   image 1: Select devices to continue
--   image 2: 3 out of 4 selected
-
-> TODO: in list, add the sticky checkbox micro interaction
+<MaterialDesignDescription title={'Gestures'} url={`https://material.io/design/interaction/gestures.html`} />
 
 <Divider />
 
 # Design Specifications
 
--   Alternating Grid
--   checked row color
--   Row height for regular cells and text field cells
+<ImageGrid
+    images={[SpecSize, SpecTypography, SpecPagination]}
+    captionsUnderImages={[`Dimensions`, `Colors and typography`, `Pagination`]}
+    regularWidth
+/>
 
 <MaterialDesignDescription
     title={'Data Tables'}
