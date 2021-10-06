@@ -90,6 +90,7 @@ jobs:
                     git config --global user.name "$GH_NAME"
 
                     if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
+                        echo "Not publishing yet since org 'pxblue' has not changed name yet."
                      #  git clone $BLUI_MASTER_TARGET out
                     else
                       git clone $BLUI_DEV_TARGET out
