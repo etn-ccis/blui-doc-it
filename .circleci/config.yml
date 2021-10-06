@@ -90,7 +90,7 @@ jobs:
                       git config --global user.name "$GH_NAME"
 
                       if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
-                        git clone $BLUI_MASTER_TARGET out
+                       #  git clone $BLUI_MASTER_TARGET out
                       else
                         git clone $BLUI_DEV_TARGET out
                       fi
