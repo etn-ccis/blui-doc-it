@@ -91,12 +91,12 @@ jobs:
 
                     if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
                         echo "Not publishing yet since org 'pxblue' has not changed name yet."
-                     #  git clone $BLUI_MASTER_TARGET out
+                     #  git clone $BLUI_MASTER_TARGET out-blui
                     else
-                      git clone $BLUI_DEV_TARGET out
+                      git clone $BLUI_DEV_TARGET out-blui
                     fi
 
-                    cd out
+                    cd out-blui
                     git rm -rf .
                     cd ..
 
@@ -111,8 +111,8 @@ jobs:
 
                     yarn build
 
-                    cp -a build/. out/.
-                    cd out
+                    cp -a build/. out-blui/.
+                    cd out-blui
 
                     git add -A
                     git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
