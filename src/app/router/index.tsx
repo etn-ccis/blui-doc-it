@@ -1,15 +1,15 @@
-import React, {useEffect, useState} from 'react';
-import {BrowserRouter as Router, Redirect, Route, Switch, useLocation} from 'react-router-dom';
-import {LandingPage} from '../pages';
-import {DrawerLayout, Spacer} from '@pxblue/react-components';
-import {ContactFab, SharedToolbar} from '../components';
-import {NavigationDrawer} from './navigationDrawer';
-import {AppState} from '../redux/reducers';
-import {Close, Menu} from '@material-ui/icons';
-import {useSelector} from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import { LandingPage } from '../pages';
+import { DrawerLayout, Spacer } from '@pxblue/react-components';
+import { ContactFab, SharedToolbar } from '../components';
+import { NavigationDrawer } from './navigationDrawer';
+import { AppState } from '../redux/reducers';
+import { Close, Menu } from '@material-ui/icons';
+import { useSelector } from 'react-redux';
 
-import {pageDefinitions, pageRedirects, SimpleNavItem} from '../../__configuration__/navigationMenu/navigation';
-import {getScheduledSiteConfig} from '../../__configuration__/themes';
+import { pageDefinitions, pageRedirects, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
+import { getScheduledSiteConfig } from '../../__configuration__/themes';
 import {
     AppBar,
     createStyles,
@@ -94,32 +94,36 @@ export const MainRouter = (): JSX.Element => {
     const [showBlui, setShowBlui] = useState<boolean>(true);
     const [navigateBlui, setNavigateBlui] = useState(false);
 
-    const getBluiRebrandAppbar = (): JSX.Element =>
-        <AppBar
-            position="sticky"
-            color={'secondary'}
-            elevation={0}
-        >
+    const getBluiRebrandAppbar = (): JSX.Element => (
+        <AppBar position="sticky" color={'secondary'} elevation={0}>
             <Toolbar>
-                <div>We are rebranding to Brightlayer UI! Learn
-                    <a style={{ color: Colors.white[50], textDecoration: 'underline', cursor: 'pointer' }}
-                       onClick={(): any => {
+                <div>
+                    We are rebranding to Brightlayer UI! Learn
+                    <a
+                        style={{ color: Colors.white[50], textDecoration: 'underline', cursor: 'pointer' }}
+                        onClick={(): any => {
                             setShowBlui(false);
-                            setNavigateBlui(true)
-                     }}> how this will impact you</a>.</div>
+                            setNavigateBlui(true);
+                        }}
+                    >
+                        {' '}
+                        how this will impact you
+                    </a>
+                    .
+                </div>
                 <Spacer />
                 <IconButton
-                    style={{ marginRight: -theme.spacing(1)}}
+                    style={{ marginRight: -theme.spacing(1) }}
                     color={'inherit'}
                     onClick={(): void => {
-                        setShowBlui(false)
+                        setShowBlui(false);
                     }}
                 >
                     <Close />
                 </IconButton>
-
             </Toolbar>
         </AppBar>
+    );
 
     return (
         <Router>
