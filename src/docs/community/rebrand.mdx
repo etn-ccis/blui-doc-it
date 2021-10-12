@@ -4,13 +4,13 @@ import { Divider, FAQExpander } from '../../app/components';
 
 # PX Blue is Rebranding
 
-In Q4 of 2021, we will be rebranding our design system from PX Blue to Brightlayer UI. This rebranding effort will impact all resources that PX Blue currently provides, including:
+In Q4 of 2021, we will be rebranding our design system from Power Xpert Blue (PX Blue) to Brightlayer User Interface (Brightlayer UI). This rebranding effort will impact all resources that PX Blue currently provides, including:
 
 -   NPM Packages
 -   Github Repositories
 -   Figma Stickersheet
--   Documentation
--   This documentation site & URL
+-   Component Library Documentation
+-   This Documentation Site
 
 ## Steps Required to Update
 
@@ -18,10 +18,14 @@ In Q4 of 2021, we will be rebranding our design system from PX Blue to Brightlay
 
 All [`@pxblue` NPM packages](https://www.npmjs.com/~px-blue) packages will be renamed from `@pxblue/*` to `@brightlayer-ui/*`.
 
-Make sure to update to the latest version of each `@pxblue` package before the rebranding occurs to minimize the amount of work required when updating to `@brightlayer-ui`.
+Only the latest **2 major versions** of each `@pxblue` package will be migrated over to use the `@brightlayer-ui` namespace. If possible, make sure to update to the latest version of each `@pxblue` package before the rebranding occurs to minimize the amount of work required when updating to `@brightlayer-ui`.
 
-Only the latest **2 major versions** for each `@pxblue` package will be migrated over to using the `@brightlayer-ui` namespace.
+If you're already using the latest packages for `@pxblue`, migration be smoother. For example, if you currently have `@pxblue/colors@3.0.1` installed in your project, you should now be using `@brightlayer-ui/colors@3.0.1` instead. Some packages will require additional steps when migrating and will be documented in each package's CHANGELOG.
 
-The steps required to update will vary between packages.
+All of our current `@pxblue` packages will remain on NPM, but they will no longer be supported by the Brightlayer UI team, meaning no additional features will be released with limited support for resolving bugs.
 
-All of our current `@pxblue` packages will remain on NPM, but they will not longer be supported by the Brightlayer UI team, meaning no additional features will be released with limited support for resolving bugs.
+### For Designers
+
+For the most part, you won't notice any changes. All of our content, guidelines, and components will remain the same, only under a different name. All Figma resources will be renamed & no longer listed under the name "PX Blue".
+
+Details about these specific changes will be available in the coming weeks.
