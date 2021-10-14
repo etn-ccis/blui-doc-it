@@ -367,6 +367,12 @@ export const pageDefinitions: SimpleNavItem[] = [
         hidden: true,
         component: <MarkdownPage title={'Attributions'} markdown={Docs.Community.Attributions} />,
     },
+    {
+        title: 'Brightlayer UI ',
+        url: '/brightlayer-ui-rebrand',
+        hidden: true,
+        component: <MarkdownPage title={'Brightlayer UI Rebrand'} markdown={Docs.Community.Rebrand} />,
+    },
 ];
 
 export const pageRedirects: RedirectItem[] = [

@@ -1,24 +1,25 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { LandingPage } from '../pages';
-import { DrawerLayout } from '@pxblue/react-components';
-import { SharedToolbar, ContactFab } from '../components';
+import { DrawerLayout, Spacer } from '@pxblue/react-components';
+import { ContactFab, SharedToolbar } from '../components';
 import { NavigationDrawer } from './navigationDrawer';
 import { AppState } from '../redux/reducers';
-import { Menu } from '@material-ui/icons';
+import { Close, Menu } from '@material-ui/icons';
 import { useSelector } from 'react-redux';
 
-import { pageDefinitions, SimpleNavItem, pageRedirects } from '../../__configuration__/navigationMenu/navigation';
+import { pageDefinitions, pageRedirects, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
 import {
     AppBar,
+    createStyles,
+    IconButton,
+    makeStyles,
+    Theme,
     Toolbar,
     Typography,
-    makeStyles,
-    createStyles,
-    useTheme,
     useMediaQuery,
-    Theme,
+    useTheme,
 } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
 
@@ -90,11 +91,45 @@ export const MainRouter = (): JSX.Element => {
     const toolbarHeight = isMobile ? 104 : 112;
     const className = getScheduledSiteConfig().className;
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
+    const [showBlui, setShowBlui] = useState<boolean>(true);
+    const [navigateBlui, setNavigateBlui] = useState(false);
+
+    const getBluiRebrandAppbar = (): JSX.Element => (
+        <AppBar position="sticky" color={'secondary'} elevation={0}>
+            <Toolbar>
+                <div>
+                    We are changing our name to Brightlayer UI! Learn
+                    <a
+                        style={{ color: Colors.white[50], textDecoration: 'underline', cursor: 'pointer' }}
+                        onClick={(): any => {
+                            setShowBlui(false);
+                            setNavigateBlui(true);
+                        }}
+                    >
+                        {' '}
+                        how this will impact you
+                    </a>
+                    .
+                </div>
+                <Spacer />
+                <IconButton
+                    style={{ marginRight: -theme.spacing(1) }}
+                    color={'inherit'}
+                    onClick={(): void => {
+                        setShowBlui(false);
+                    }}
+                >
+                    <Close />
+                </IconButton>
+            </Toolbar>
+        </AppBar>
+    );
 
     return (
         <Router>
             <ScrollToTop />
-
+            {showBlui && getBluiRebrandAppbar()}
+            {navigateBlui && <Redirect to="/brightlayer-ui-rebrand" push />}
             <DrawerLayout drawer={<NavigationDrawer />} className={className}>
                 <Switch>
                     <Route exact path="/">
