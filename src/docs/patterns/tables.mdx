@@ -64,9 +64,11 @@ import SpecPagination from '../../app/assets/design-patterns/tables/spec-paginat
 
 # Tables
 
+> This page is currently in beta, and its content is subject to change. Please [send us your feedback](/community/contactus)! We'd love to hear what you think.
+
 <ImageGrid images={[BannerImage]} regularWidth />
 
-Similar to [lists](/lists), tables are used to display structured data. Tables are especially powerful in desktop applications, where users can easily compare and analyze a large set of data and navigate with sorting and filtering options.
+Similar to [lists](patterns/lists), tables are used to display structured data. Tables are especially powerful in desktop applications, where users can easily compare and analyze a large set of data and navigate with sorting and filtering options.
 
 <React.Fragment>
     <MaterialDesignDescription title={'Data Table'} url={`https://material.io/components/data-tables`} />
@@ -243,7 +245,7 @@ on the other hand, group their content row-by-row.
     ]}
 />
 
-Because of this, tables tend to take up a lot of horizontal space, therefore they are almost always the only main content on the page of a desktop application. You should not use tables in dashboards, where there are many widgets competing for the space; you should also avoid using tables on mobile applications, where the viewport size is limited.
+Because of this, tables tend to take up a lot of horizontal space, therefore they are almost always the only main content on the page of a desktop application. You should not use tables in dashboards, where many widgets are competing for the space; you should also avoid using tables on mobile applications, where the viewport size is limited.
 
 <ImageGrid
     images={[DashboardTable, PageBodyTable]}
@@ -268,7 +270,7 @@ Tables facilitate users who want to work across multiple different properties of
 <ImageGrid
     images={[ReadTable, ReadList]}
     caption={[
-        `If you do an eye tracing between when the user starts looking at their data set and when they make a decision to perform some actions, you would notice users' eye sights roam differently in these two structures.`,
+        `If you do an eye tracing between when the user starts looking at their data set and when they decide to perform some actions, you would notice users' eye sights roam differently in these two structures.`,
         '1: In a table, users can start from any column / property, and navigate horizontally or vertically to the targeted item.',
         '2: In a list, users rely heavily on a primary property to navigate.',
     ]}
@@ -343,9 +345,11 @@ Pagination is especially helpful on hand-held devices to reduce the load of both
 
 ## Native Mobile Gestures
 
-You may also consider embedding action gestures common for touch screens, such as long-press and swipe.
+In native mobile applications, you may also consider embedding action gestures common for touch screens, such as long-press and swipe.
 
 <MaterialDesignDescription title={'Gestures'} url={`https://material.io/design/interaction/gestures.html`} />
+
+However, these gestures should never be the only way to perform an action. For example, if your application is able to delete a table row, users may be able to either (1) left-swipe to bring up a contextual menu with a delete option, or (2) click into the target row, which opens a new page that contains a delete button.
 
 <Divider />
 
