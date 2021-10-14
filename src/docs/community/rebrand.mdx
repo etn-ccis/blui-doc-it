@@ -1,0 +1,33 @@
+import { Divider, FAQExpander } from '../../app/components';
+
+<!-- KEYWORDS: faq question answers -->
+
+# PX Blue is Rebranding
+
+In Q4 of 2021, we will be rebranding our design system from Power Xpert Blue (PX Blue) to Brightlayer User Interface (Brightlayer UI). This rebranding effort will impact all resources that PX Blue currently provides, including:
+
+-   NPM Packages
+-   Github Repositories
+-   Figma Stickersheet
+-   Component Library Documentation
+-   This Documentation Site
+
+The URL for this documentation site will be moving — we will provide the new URL when it is available and will automatically redirect from this site for a period of time.
+
+## Steps Required to Update
+
+### For Developers
+
+All [`@pxblue` NPM packages](https://www.npmjs.com/~px-blue) will be renamed from `@pxblue/*` to `@brightlayer-ui/*`.
+
+Only the latest **2 major versions** of each `@pxblue` package will be migrated over to use the `@brightlayer-ui` namespace. If possible, make sure to update to the latest version of each `@pxblue` package before the rebranding occurs to minimize the amount of work required when updating to `@brightlayer-ui`.
+
+If you're already using the latest packages for `@pxblue`, migration will be smoother. For example, if you currently have `@pxblue/colors@3.0.1` installed in your project, you should now be using `@brightlayer-ui/colors@3.0.1` instead. Some packages will require additional steps when migrating and will be documented in each package's dedicated migration guide.
+
+All of our current `@pxblue` packages will remain on NPM, but they will no longer be supported by the Brightlayer UI team, meaning no additional features will be released with limited support for resolving bugs.
+
+### For Designers
+
+For the most part, you won't notice any changes. All of our content, guidelines, and components will remain the same, only under a different name. All Figma resources will be renamed & no longer listed under the name "PX Blue".
+
+Details about these specific changes will be available in the coming weeks.

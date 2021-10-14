@@ -7,5 +7,6 @@ import Innersourcing from './innersourcing.mdx';
 import OurTeam from './our-team.mdx';
 import Home from './home.mdx';
 import Attributions from './attributions.mdx';
+import Rebrand from './rebrand.mdx';
 
-export { Bugs, Contact, FAQ, Features, License, Home, Innersourcing, OurTeam, Attributions };
+export { Bugs, Contact, FAQ, Features, License, Home, Innersourcing, OurTeam, Attributions, Rebrand };

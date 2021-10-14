@@ -14,6 +14,7 @@ import {
     Toolbar,
     Button,
     useTheme,
+    useMediaQuery,
 } from '@material-ui/core';
 
 import { PageContent, ExpansionHeader } from '../components';
@@ -115,6 +116,8 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const [roadmap, setRoadmap] = useState<RoadmapBucket[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
+    const showBanner = useSelector((state: AppState) => state.app.showBanner);
+    const sm = useMediaQuery(theme.breakpoints.down('sm'));
     const loadingGroups = [
         [1, 2, 3, 4],
         [1, 2, 3],
@@ -230,6 +233,13 @@ export const Roadmap: React.FC = (): JSX.Element => {
                 color={'secondary'}
                 className={classes.secondaryAppbar}
                 elevation={0}
+                style={
+                    showBanner
+                        ? {
+                              top: 2 * theme.spacing(sm ? 7 : 8),
+                          }
+                        : {}
+                }
             >
                 <Toolbar className={classes.secondaryToolbar}>
                     <Select
