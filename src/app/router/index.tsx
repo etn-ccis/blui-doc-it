@@ -6,7 +6,7 @@ import { ContactFab, SharedToolbar } from '../components';
 import { NavigationDrawer } from './navigationDrawer';
 import { AppState } from '../redux/reducers';
 import { Close, Menu } from '@material-ui/icons';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { pageDefinitions, pageRedirects, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
@@ -22,6 +22,7 @@ import {
     useTheme,
 } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
+import { HIDE_BANNER } from '../redux/actions';
 
 const buildRoutes = (routes: SimpleNavItem[], url: string): JSX.Element[] => {
     let ret: any[] = [];
@@ -91,8 +92,9 @@ export const MainRouter = (): JSX.Element => {
     const toolbarHeight = isMobile ? 104 : 112;
     const className = getScheduledSiteConfig().className;
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
-    const [showBlui, setShowBlui] = useState<boolean>(true);
     const [navigateBlui, setNavigateBlui] = useState(false);
+    const showBanner = useSelector((state: AppState) => state.app.showBanner);
+    const dispatch = useDispatch();
 
     const getBluiRebrandAppbar = (): JSX.Element => (
         <AppBar position="sticky" color={'secondary'} elevation={0}>
@@ -102,8 +104,8 @@ export const MainRouter = (): JSX.Element => {
                     <a
                         style={{ color: Colors.white[50], textDecoration: 'underline', cursor: 'pointer' }}
                         onClick={(): any => {
-                            setShowBlui(false);
                             setNavigateBlui(true);
+                            dispatch({ type: HIDE_BANNER });
                         }}
                     >
                         how this will impact you
@@ -115,7 +117,7 @@ export const MainRouter = (): JSX.Element => {
                     style={{ marginRight: -theme.spacing(1) }}
                     color={'inherit'}
                     onClick={(): void => {
-                        setShowBlui(false);
+                        dispatch({ type: HIDE_BANNER });
                     }}
                 >
                     <Close />
@@ -127,7 +129,7 @@ export const MainRouter = (): JSX.Element => {
     return (
         <Router>
             <ScrollToTop />
-            {showBlui && getBluiRebrandAppbar()}
+            {showBanner && getBluiRebrandAppbar()}
             {navigateBlui && <Redirect to="/brightlayer-ui-rebrand" push />}
             <DrawerLayout drawer={<NavigationDrawer />} className={className}>
                 <Switch>

@@ -6,6 +6,8 @@ import {
     TOGGLE_SEARCH,
     TOGGLE_SIDEBAR,
     TOGGLE_TOC,
+    SHOW_BANNER,
+    HIDE_BANNER,
 } from '../actions';
 
 export type AppState = {
@@ -18,6 +20,7 @@ export type CommonState = {
     searchActive: boolean;
     sidebarOpen: boolean;
     hasTOC: boolean;
+    showBanner: boolean;
 };
 const initialAppState: CommonState = {
     pageTitle: '',
@@ -26,6 +29,7 @@ const initialAppState: CommonState = {
     searchActive: false,
     sidebarOpen: false,
     hasTOC: false,
+    showBanner: true,
 };
 const appReducer = (state = initialAppState, action: any): CommonState => {
     switch (action.type) {
@@ -58,6 +62,16 @@ const appReducer = (state = initialAppState, action: any): CommonState => {
             return {
                 ...state,
                 hasTOC: action.payload,
+            };
+        case SHOW_BANNER:
+            return {
+                ...state,
+                showBanner: true,
+            };
+        case HIDE_BANNER:
+            return {
+                ...state,
+                showBanner: false,
             };
         default:
             return state;
