@@ -132,7 +132,11 @@ export const IconDrawer: React.FC = () => {
                         Selected Icon
                     </Typography>
                     <Spacer />
-                    <IconButton onClick={closeDrawer} className={classes.appBarCloseButton} style={showBanner && !sm ? {marginRight: 12} : {}}>
+                    <IconButton
+                        onClick={closeDrawer}
+                        className={classes.appBarCloseButton}
+                        style={showBanner && !sm ? { marginRight: theme.spacing(1.5) } : {}}
+                    >
                         <Close />
                     </IconButton>
                 </Toolbar>

@@ -226,7 +226,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                 className={clsx(classes.appBar, { [classes.showSearchBar]: searchActive })}
                 position={'sticky'}
                 {...props}
-                style={Object.assign({}, props.style, { top: showBanner ? (sm ? 56 : 64) : 0 })}
+                style={Object.assign({}, props.style, { top: showBanner ? theme.spacing(sm ? 7 : 8) : 0 })}
             >
                 <Toolbar style={{ display: 'flex' }} id={'search-bar'}>
                     {searchActive && ( // to allow autofocus
