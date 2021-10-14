@@ -98,7 +98,7 @@ export const MainRouter = (): JSX.Element => {
         <AppBar position="sticky" color={'secondary'} elevation={0}>
             <Toolbar>
                 <div>
-                    We are changing our name to Brightlayer UI! Learn
+                    {'We are changing our name to Brightlayer UI! Learn '}
                     <a
                         style={{ color: Colors.white[50], textDecoration: 'underline', cursor: 'pointer' }}
                         onClick={(): any => {
@@ -106,7 +106,6 @@ export const MainRouter = (): JSX.Element => {
                             setNavigateBlui(true);
                         }}
                     >
-                        {' '}
                         how this will impact you
                     </a>
                     .
