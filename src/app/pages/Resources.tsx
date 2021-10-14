@@ -11,6 +11,7 @@ import {
     AccordionDetails,
     Divider,
     useTheme,
+    useMediaQuery,
 } from '@material-ui/core';
 
 import { ResourceRow, PageContent, ExpansionHeader } from '../components';
@@ -38,6 +39,9 @@ export const DevResources: React.FC = (): JSX.Element => {
     const [filter, setFilter] = useState<FrameworkFilter>('all');
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
     const theme = useTheme();
+    const showBanner = useSelector((state: AppState) => state.app.showBanner);
+    const sm = useMediaQuery(theme.breakpoints.down('sm'));
+
     usePageTitle('Resources');
     useGoogleAnalyticsPageView();
     useBackgroundColor(theme.palette.background.default);
@@ -48,6 +52,13 @@ export const DevResources: React.FC = (): JSX.Element => {
                 color={'secondary'}
                 className={classes.tabs}
                 elevation={0}
+                style={
+                    showBanner
+                        ? {
+                              top: 2 * theme.spacing(sm ? 7 : 8),
+                          }
+                        : {}
+                }
             >
                 <Tabs variant={'scrollable'} value={filter}>
                     <Tab

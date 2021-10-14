@@ -92,6 +92,7 @@ export const IconDrawer: React.FC = () => {
     const drawerOpen = useSelector((state: AppState) => state.app.sidebarOpen);
     const sm = useMediaQuery(theme.breakpoints.down('sm'));
     const themeConfig = getScheduledSiteConfig();
+    const showBanner = useSelector((state: AppState) => state.app.showBanner);
 
     const closeDrawer = (): void => {
         history.replace(`${location.pathname}`);
@@ -116,6 +117,14 @@ export const IconDrawer: React.FC = () => {
             open={drawerOpen}
             onClose={closeDrawer}
             classes={{ paper: classes.drawer }}
+            PaperProps={{
+                style:
+                    showBanner && !sm
+                        ? {
+                              top: theme.spacing(8),
+                          }
+                        : {},
+            }}
         >
             <AppBar position="static" color="primary">
                 <Toolbar className={clsx([classes.appBar, themeConfig.className])}>
@@ -123,7 +132,7 @@ export const IconDrawer: React.FC = () => {
                         Selected Icon
                     </Typography>
                     <Spacer />
-                    <IconButton onClick={closeDrawer} className={classes.appBarCloseButton}>
+                    <IconButton onClick={closeDrawer} className={classes.appBarCloseButton} style={showBanner && !sm ? {marginRight: 12} : {}}>
                         <Close />
                     </IconButton>
                 </Toolbar>
