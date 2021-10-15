@@ -11,6 +11,8 @@ import {
     createStyles,
     Backdrop,
     Divider,
+    useMediaQuery,
+    useTheme,
 } from '@material-ui/core';
 import { TOGGLE_SEARCH } from '../redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
@@ -94,12 +96,15 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
     const dispatch = useDispatch();
     const location = useLocation();
+    const theme = useTheme();
     const deepQuery = useQueryString().search || '';
     const prevQuery = usePrevious(deepQuery);
     const [searchResults, setSearchResults] = useState<Result[]>([]);
     const [showSearchResult, setShowSearchResult] = useState(false);
     const [inputString, setInputString] = useState('');
     const history = useHistory();
+    const sm = useMediaQuery(theme.breakpoints.down('sm'));
+    const showBanner = useSelector((state: AppState) => state.app.showBanner);
 
     // Push a new value on the browser history stack (if needed)
     const pushHistory = useCallback(
@@ -221,6 +226,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                 className={clsx(classes.appBar, { [classes.showSearchBar]: searchActive })}
                 position={'sticky'}
                 {...props}
+                style={Object.assign({}, props.style, { top: showBanner ? theme.spacing(sm ? 7 : 8) : 0 })}
             >
                 <Toolbar style={{ display: 'flex' }} id={'search-bar'}>
                     {searchActive && ( // to allow autofocus
