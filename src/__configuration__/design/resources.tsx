@@ -8,14 +8,14 @@ export const patternLinks = [
     {
         title: 'Style Guides',
         url: '/style',
-        description: 'PX Blue style guidelines, including colors, themes, icons, typography, and more.',
+        description: 'Brightlayer UI style guidelines, including colors, themes, icons, typography, and more.',
         image: style,
         background: { position: 'center' },
     },
     {
         title: 'Design Patterns',
         url: '/patterns',
-        description: 'Common interactions and designs found in PX Blue applications.',
+        description: 'Common interactions and designs found in Brightlayer UI applications.',
         image: patterns,
         background: { position: 'right' },
     },
@@ -23,16 +23,16 @@ export const patternLinks = [
 
 export const figmaCommunityFileLinks = [
     {
-        title: 'PX Blue Component Stickersheet',
+        title: 'Brightlayer UI Component Stickersheet',
         url: 'https://www.figma.com/community/file/1024360297793425107',
-        description: 'Pre-built Material and PX Blue Figma components',
+        description: 'Pre-built Material and Brightlayer UI Figma components',
         image: componentStickersheet,
         background: { position: 'center' },
     },
     {
-        title: 'PX Blue Design Pattern Library',
+        title: 'Brightlayer UI Design Pattern Library',
         url: 'https://www.figma.com/community/file/1023327014725714313',
-        description: 'A Figma design library that includes common patterns used across various PX Blue projects.',
+        description: 'A Figma design library that includes common patterns used across various Brightlayer UI projects.',
         image: designPatternLibrary,
         background: { position: 'right' },
     },

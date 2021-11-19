@@ -8,11 +8,11 @@ jobs:
             - MASTER_BRANCH: master
             - DEV_BRANCH: dev
             - DEV_TARGET: https://github.com/px-blue/px-blue.github.io
-            - MASTER_TARGET: https://github.com/pxblue/pxblue.github.io
+            - MASTER_TARGET: https://github.com/brightlayer-ui/brightlayer-ui.github.io
             - BLUI_DEV_TARGET: https://github.com/brightlayer-ui-dev/brightlayer-ui-dev.github.io
             - BLUI_MASTER_TARGET: https://github.com/brightlayer-ui/brightlayer-ui.github.io
-            - GH_EMAIL: pxblue@eaton.com
-            - GH_NAME: PX Blue Agent
+            - GH_EMAIL: brightlayer-ui@eaton.com
+            - GH_NAME: Brightlayer UI Agent
         steps:
             - checkout
             - restore_cache:
@@ -22,7 +22,7 @@ jobs:
                   name: Install dependencies
                   command: |
                       yarn install
-                      yarn upgrade @pxblue/icons-mui
+                      yarn upgrade @brightlayer-ui/icons-mui
             - save_cache:
                   paths:
                       - node_modules
@@ -90,7 +90,7 @@ jobs:
                     git config --global user.name "$GH_NAME"
 
                     if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
-                        echo "Not publishing yet since org 'pxblue' has not changed name yet."
+                        echo "Not publishing yet since org 'brightlayer-ui' has not changed name yet."
                      #  git clone $BLUI_MASTER_TARGET out-blui
                     else
                       git clone $BLUI_DEV_TARGET out-blui

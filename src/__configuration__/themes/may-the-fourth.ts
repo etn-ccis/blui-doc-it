@@ -1,4 +1,4 @@
-import * as PXBThemes from '@pxblue/react-themes';
+import * as PXBThemes from '@brightlayer-ui/react-themes';
 import DeathStar from '../../app/assets/themes/may-the-fourth/death-star.svg';
 import AppbarTile from '../../app/assets/themes/may-the-fourth/may-the-4th-appbar-tile.svg';
 import LightSaber1 from '../../app/assets/themes/may-the-fourth/light-saber-1.png';
@@ -7,7 +7,7 @@ import LightSaber3 from '../../app/assets/themes/may-the-fourth/light-saber-3.pn
 import LightSaber4 from '../../app/assets/themes/may-the-fourth/light-saber-4.png';
 import LightSaber5 from '../../app/assets/themes/may-the-fourth/light-saber-5.png';
 import LightSaber6 from '../../app/assets/themes/may-the-fourth/light-saber-6.png';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import color from 'color';
 import { Schedule } from './types';
 

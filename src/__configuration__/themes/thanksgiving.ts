@@ -1,6 +1,6 @@
-import * as PXBThemes from '@pxblue/react-themes';
-import * as Colors from '@pxblue/colors';
-import * as BrandingColors from '@pxblue/colors-branding';
+import * as PXBThemes from '@brightlayer-ui/react-themes';
+import * as Colors from '@brightlayer-ui/colors';
+import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import Thanksgiving from '../../app/assets/themes/thanksgiving/thanksgiving-banner.jpg';
 import turkeyCursor from '../../app/assets/themes/thanksgiving/turkey-cursor.png';
 import AppBarTile from '../../app/assets/themes/thanksgiving/thanksgiving-appbar-tile.png';

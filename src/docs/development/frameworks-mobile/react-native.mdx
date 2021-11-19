@@ -4,7 +4,7 @@ import { Divider } from '../../../app/components';
 
 # Getting Started with React Native
 
-The following instructions will guide you through setting up your computer for React Native development and starting a new PX Blue project. Alternatively, you can start your project by downloading one of our code samples from [GitHub](https://github.com/pxblue) (the Login example is a good project to start from) once you configure your environment.
+The following instructions will guide you through setting up your computer for React Native development and starting a new Brightlayer UI project. Alternatively, you can start your project by downloading one of our code samples from [GitHub](https://github.com/brightlayer-ui) (the Login example is a good project to start from) once you configure your environment.
 
 <Divider />
 
@@ -18,45 +18,45 @@ You'll need to start by following the general instructions for setting up your d
 
 # Creating Your Application
 
-## Using the PX Blue CLI
+## Using the Brightlayer UI CLI
 
-The fastest way to start a new PX Blue project is to use the [PX Blue CLI](/development/cli). The CLI will automatically create a starter project for you (using either the [React Native Community CLI](https://github.com/react-native-community/cli) (recommended) or [Expo CLI](https://docs.expo.io/)) with all of the necessary PX Blue dependencies pre-configured. To start a React Native project:
+The fastest way to start a new Brightlayer UI project is to use the [Brightlayer UI CLI](/development/cli). The CLI will automatically create a starter project for you (using either the [React Native Community CLI](https://github.com/react-native-community/cli) (recommended) or [Expo CLI](https://docs.expo.io/)) with all of the necessary Brightlayer UI dependencies pre-configured. To start a React Native project:
 
 ```sh
-npx -p @pxblue/cli pxb new react-native
+npx -p @brightlayer-ui/cli blui new react-native
 ```
 
-You will be asked to provide a name for your project, select a CLI to use, choose whether you would like to use TypeScript or JavaScript, and for TypeScript projects, you'll be asked if you want to use the PX Blue eslint and prettier configurations files.
+You will be asked to provide a name for your project, select a CLI to use, choose whether you would like to use TypeScript or JavaScript, and for TypeScript projects, you'll be asked if you want to use the Brightlayer UI eslint and prettier configurations files.
 
-The PX Blue CLI will automatically include:
+The Brightlayer UI CLI will automatically include:
 
 -   React Native Paper Component Library ([react-native-paper](https://www.npmjs.com/package/react-native-paper))
--   PX Blue Component Library ([@pxblue/react-native-components](https://www.npmjs.com/package/@pxblue/react-native-components))
--   PX Blue Themes ([@pxblue/react-native-themes](https://www.npmjs.com/package/@pxblue/react-native-themes))
+-   Brightlayer UI Component Library ([@brightlayer-ui/react-native-components](https://www.npmjs.com/package/@brightlayer-ui/react-native-components))
+-   Brightlayer UI Themes ([@brightlayer-ui/react-native-themes](https://www.npmjs.com/package/@brightlayer-ui/react-native-themes))
 -   Material Icons ([react-native-vector-icons](https://www.npmjs.com/package/react-native-vector-icons))
--   PX Blue Icons ([@pxblue/icons-svg](https://www.npmjs.com/package/@pxblue/icons-svg))
--   PX Blue Colors ([@pxblue/colors](https://www.npmjs.com/package/@pxblue/colors))
+-   Brightlayer UI Icons ([@brightlayer-ui/icons-svg](https://www.npmjs.com/package/@brightlayer-ui/icons-svg))
+-   Brightlayer UI Colors ([@brightlayer-ui/colors](https://www.npmjs.com/package/@brightlayer-ui/colors))
 -   Open Sans font
--   PX Blue ESLint and Prettier configurations, if selected ([@pxblue/eslint-config](https://www.npmjs.com/package/@pxblue/eslint-config) / [@pxblue/prettier-config](https://www.npmjs.com/package/@pxblue/prettier-config))
+-   Brightlayer UI ESLint and Prettier configurations, if selected ([@brightlayer-ui/eslint-config](https://www.npmjs.com/package/@brightlayer-ui/eslint-config) / [@brightlayer-ui/prettier-config](https://www.npmjs.com/package/@brightlayer-ui/prettier-config))
 -   Testing libraries ([jest](https://www.npmjs.com/package/jest) / [react-test-renderer](https://www.npmjs.com/package/react-test-renderer))
 
-For detailed usage instructions, refer to the [PX Blue CLI documentation](https://www.npmjs.com/package/@pxblue/cli).
+For detailed usage instructions, refer to the [Brightlayer UI CLI documentation](https://www.npmjs.com/package/@brightlayer-ui/cli).
 
 ## Using an Existing Project
 
-If you have an existing project and would like to integrate PX Blue, you can follow the manual integration instructions below. If you have not already started your project, we recommend that you scaffold your project with the PX Blue CLI.
+If you have an existing project and would like to integrate Brightlayer UI, you can follow the manual integration instructions below. If you have not already started your project, we recommend that you scaffold your project with the Brightlayer UI CLI.
 
 <Divider />
 
-# Manual PX Blue Integration
+# Manual Brightlayer UI Integration
 
-Before taking the following steps, you'll want to make sure that you have an existing application. If you used the PX Blue CLI to start your project, these steps have already been done for you automatically.
+Before taking the following steps, you'll want to make sure that you have an existing application. If you used the Brightlayer UI CLI to start your project, these steps have already been done for you automatically.
 
 ## Including the Component Libraries
 
 ### Material Components
 
-React Native projects should make use of the [React-Native-Paper](https://callstack.github.io/react-native-paper/index.html) component library. Our PX Blue themes are designed to work with these components. You'll also want to install [react-native-vector-icons](https://www.npmjs.com/package/react-native-vector-icons) to access the Material icons.
+React Native projects should make use of the [React-Native-Paper](https://callstack.github.io/react-native-paper/index.html) component library. Our Brightlayer UI themes are designed to work with these components. You'll also want to install [react-native-vector-icons](https://www.npmjs.com/package/react-native-vector-icons) to access the Material icons.
 
 ```sh
 npm install --save react-native-paper react-native-vector-icons
@@ -64,27 +64,27 @@ npm install --save react-native-paper react-native-vector-icons
 yarn add react-native-paper react-native-vector-icons
 ```
 
-### PX Blue Components
+### Brightlayer UI Components
 
-We have a [supplemental library](https://github.com/pxblue/react-native-component-library/tree/dev) of components designed specifically for PX Blue applications. If you wish to use these components, you can install them by running:
-
-```sh
-npm install --save @pxblue/react-components
-// or
-yarn add @pxblue/react-native-components
-```
-
-## Adding PX Blue Themes
-
-If you are using the recommended component libraries, your application will be themed with the Google Material theme by default. To use the PX Blue theme, first install it:
+We have a [supplemental library](https://github.com/brightlayer-ui/react-native-component-library/tree/dev) of components designed specifically for Brightlayer UI applications. If you wish to use these components, you can install them by running:
 
 ```sh
-npm install --save @pxblue/react-native-themes
+npm install --save @brightlayer-ui/react-components
 // or
-yarn add @pxblue/react-native-themes
+yarn add @brightlayer-ui/react-native-components
 ```
 
-> Using the PX Blue React Native theme **requires** that you add the Open Sans font to your application. You can learn how to do this by reading the instructions for [Vanilla React Native](https://medium.com/react-native-training/react-native-custom-fonts-ccc9aacf9e5e) or [Expo](https://docs.expo.io/guides/using-custom-fonts/). You can find the fonts [here](https://github.com/pxblue/cli-helpers/tree/master/fonts).
+## Adding Brightlayer UI Themes
+
+If you are using the recommended component libraries, your application will be themed with the Google Material theme by default. To use the Brightlayer UI theme, first install it:
+
+```sh
+npm install --save @brightlayer-ui/react-native-themes
+// or
+yarn add @brightlayer-ui/react-native-themes
+```
+
+> Using the Brightlayer UI React Native theme **requires** that you add the Open Sans font to your application. You can learn how to do this by reading the instructions for [Vanilla React Native](https://medium.com/react-native-training/react-native-custom-fonts-ccc9aacf9e5e) or [Expo](https://docs.expo.io/guides/using-custom-fonts/). You can find the fonts [here](https://github.com/brightlayer-ui/cli-helpers/tree/master/fonts).
 
 > When using Expo, you will need to specify the name for each font weight you load using the format OpenSans-`<Weight>`, e.g., OpenSans-SemiBold. Refer to one of our React Native demos for reference.
 
@@ -94,7 +94,7 @@ Import the theme files and React Native Paper theme provider into your applicati
 
 ```tsx
 import { Provider as ThemeProvider } from 'react-native-paper';
-import * as PXBThemes from '@pxblue/react-native-themes';
+import * as PXBThemes from '@brightlayer-ui/react-native-themes';
 ...
 <ThemeProvider theme={PXBThemes.blue}>
     <App />
@@ -103,7 +103,7 @@ import * as PXBThemes from '@pxblue/react-native-themes';
 
 For detailed information about theming, refer to the react-native-paper [theming guide](https://callstack.github.io/react-native-paper/theming.html).
 
-> NOTE: This theme only applies to the components in the react-native-paper and @pxblue/react-native-components package. It will not theme the components from other third party libraries. If you wish to use our theme to style your own components, refer to the react-native-paper [theming guide](https://callstack.github.io/react-native-paper/theming.html#using-the-theme-in-your-own-components).
+> NOTE: This theme only applies to the components in the react-native-paper and @brightlayer-ui/react-native-components package. It will not theme the components from other third party libraries. If you wish to use our theme to style your own components, refer to the react-native-paper [theming guide](https://callstack.github.io/react-native-paper/theming.html#using-the-theme-in-your-own-components).
 
 ### Avoiding Repeated Styles
 
@@ -183,11 +183,11 @@ After ejecting from Expo, the process for creating a build is the same as for a 
 
 There are two popular approaches to starting a new React Native project. The first (recommended) is to use the [React Native Community CLI](https://github.com/react-native-community/cli) and the second is to use the [Expo CLI](https://docs.expo.io/workflow/expo-cli/). The Expo CLI is nice for spinning up quick projects and demos, but to use certain libraries/plugins you will need to eject to vanilla React Native. For this reason, we recommend most production applications start with the RNC CLI instead to avoid the complications of ejecting.
 
-> **NOTE:** PX Blue examples are written using the Expo CLI. The primary reason for this is because it provides the ability to share live-running code examples via [Snack](https://snack.expo.io/).
+> **NOTE:** Brightlayer UI examples are written using the Expo CLI. The primary reason for this is because it provides the ability to share live-running code examples via [Snack](https://snack.expo.io/).
 
 ## Code Formatting / Style
 
-PX Blue provides packages for code standards and style using ESLint and Prettier. These packages are used internally by the PX Blue team, but they can also be used in your projects. You can find instructions for adding these packages to your project on [GitHub](https://github.com/pxblue/code-standards).
+Brightlayer UI provides packages for code standards and style using ESLint and Prettier. These packages are used internally by the Brightlayer UI team, but they can also be used in your projects. You can find instructions for adding these packages to your project on [GitHub](https://github.com/brightlayer-ui/code-standards).
 
 > NOTE: the ESLint package is only available for TypeScript projects.
 

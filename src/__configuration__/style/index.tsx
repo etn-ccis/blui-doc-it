@@ -8,13 +8,13 @@ export const links = [
     {
         title: 'Color Palette',
         url: '/style/color',
-        description: 'Browse all of the UI, Status, and Charting colors available from PX Blue and when to use them.',
+        description: 'Browse all of the UI, Status, and Charting colors available from Brightlayer UI and when to use them.',
         image: palette,
     },
     {
         title: 'Iconography',
         url: '/style/iconography',
-        description: `Browse the library of icons available in PX Blue including Material icons as well as custom ones for PX Blue applications.`,
+        description: `Browse the library of icons available in Brightlayer UI including Material icons as well as custom ones for Brightlayer UI applications.`,
         image: icons,
         background: {
             position: 'center',
@@ -33,7 +33,7 @@ export const links = [
         title: 'Typography',
         url: '/style/typography',
         description:
-            'Learn more about the PX Blue type system and how to build an effective type hierarchy in your applications.',
+            'Learn more about the Brightlayer UI type system and how to build an effective type hierarchy in your applications.',
         image: typography,
         background: {
             position: 'center',
@@ -43,7 +43,7 @@ export const links = [
         title: 'Themes',
         url: '/style/themes',
         description:
-            'Learn more about PX Blue themes and how they can help you build applications that adhere to our design guidelines.',
+            'Learn more about Brightlayer UI themes and how they can help you build applications that adhere to our design guidelines.',
         image: themes,
         background: {
             position: 'center',

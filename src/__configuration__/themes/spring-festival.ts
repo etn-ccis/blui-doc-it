@@ -1,5 +1,5 @@
-import * as PXBThemes from '@pxblue/react-themes';
-import * as Colors from '@pxblue/colors';
+import * as PXBThemes from '@brightlayer-ui/react-themes';
+import * as Colors from '@brightlayer-ui/colors';
 import banner from '../../app/assets/themes/spring-festival/banner.svg';
 import cursor from '../../app/assets/themes/spring-festival/cursor.png';
 import titleBlock from '../../app/assets/themes/spring-festival/title-block.svg';

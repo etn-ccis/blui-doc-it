@@ -29,25 +29,25 @@ const getDetails = (repository: string, framework: string): Details => {
     switch (framework) {
         case 'angular':
             return {
-                url: `https://stackblitz.com/github/pxblue/${repository}/tree/angular`,
+                url: `https://stackblitz.com/github/brightlayer-ui/${repository}/tree/angular`,
                 displayName: 'Angular',
                 icon: <Angular style={{ backgroundColor: 'transparent' }} />,
             };
         case 'ionic':
             return {
-                url: `https://stackblitz.com/github/pxblue/${repository}/tree/ionic`,
+                url: `https://stackblitz.com/github/brightlayer-ui/${repository}/tree/ionic`,
                 displayName: 'Ionic',
                 icon: <Ionic style={{ backgroundColor: 'transparent' }} />,
             };
         case 'react':
             return {
-                url: `https://codesandbox.io/s/github/pxblue/${repository}/tree/react`,
+                url: `https://codesandbox.io/s/github/brightlayer-ui/${repository}/tree/react`,
                 displayName: 'React',
                 icon: <ReactBlue style={{ backgroundColor: 'transparent' }} />,
             };
         case 'react-native':
             return {
-                url: `https://snack.expo.io/@git/github.com/pxblue/${repository}@reactnative?preview=true&platform=ios`,
+                url: `https://snack.expo.io/@git/github.com/brightlayer-ui/${repository}@reactnative?preview=true&platform=ios`,
                 displayName: 'React Native',
                 icon: <ReactBlue style={{ backgroundColor: 'transparent' }} />,
             };

@@ -1,6 +1,6 @@
-import * as PXBThemes from '@pxblue/react-themes';
-import * as Colors from '@pxblue/colors';
-import * as BrandingColors from '@pxblue/colors-branding';
+import * as PXBThemes from '@brightlayer-ui/react-themes';
+import * as Colors from '@brightlayer-ui/colors';
+import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import IndependenceDay from '../../app/assets/themes/independence-day/independence-day-bg.png';
 import IndependenceDayCursor from '../../app/assets/themes/independence-day/flag-cursor.png';
 import AppBarTile from '../../app/assets/themes/independence-day/independence-day-appbar-tile.png';

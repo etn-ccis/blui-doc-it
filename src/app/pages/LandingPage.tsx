@@ -20,12 +20,12 @@ import {
     ContributorsList,
 } from '../components';
 import { LatestReleases } from '../../docs';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { useHistory } from 'react-router-dom';
 
 import { cardData } from '../../__configuration__/landingPage/cardData';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
-import { Spacer } from '@pxblue/react-components';
+import { Spacer } from '@brightlayer-ui/react-components';
 import { ReleaseInfo } from '../../docs/release-notes';
 import { currentMaintainers, contributors } from '../../__configuration__/contributors';
 
@@ -149,14 +149,14 @@ export const LandingPage: React.FC = (): JSX.Element => {
                 <CarouselCard
                     backgroundImage={designImage}
                     title={'Getting started as a designer'}
-                    description={'We offer many resources and assets for designers getting acquainted with PX Blue.'}
+                    description={'We offer many resources and assets for designers getting acquainted with Brightlayer UI.'}
                     icon={<DesignIcon fontSize={'large'} />}
                     onClick={(): void => history.push('/design/intro')}
                 />
                 <CarouselCard
                     backgroundImage={developImage}
                     title={'Getting started as a developer'}
-                    description={'We have numerous guides and resources to prepare you for working with PX Blue.'}
+                    description={'We have numerous guides and resources to prepare you for working with Brightlayer UI.'}
                     icon={<DeveloperMode fontSize={'large'} />}
                     onClick={(): void => history.push('/development/environment')}
                 />

@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, NavItem } from '@pxblue/react-components';
-import { PxblueSmall } from '@pxblue/icons-mui';
+import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, NavItem } from '@brightlayer-ui/react-components';
+import { PxblueSmall } from '@brightlayer-ui/icons-mui';
 import color from 'color';
 
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
@@ -115,7 +115,7 @@ export const NavigationDrawer = (): JSX.Element => {
                         }}
                     >
                         <Typography>
-                            Power Xpert <b>Blue</b>
+                            Brightlayer UI 
                         </Typography>
                     </div>
                 }

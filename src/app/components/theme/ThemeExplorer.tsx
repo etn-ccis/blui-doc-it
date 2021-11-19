@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Spacer } from '@pxblue/react-components';
-import { blue as lightTheme, blueDark as darkTheme } from '@pxblue/react-themes';
+import { Spacer } from '@brightlayer-ui/react-components';
+import { blue as lightTheme, blueDark as darkTheme } from '@brightlayer-ui/react-themes';
 import { makeStyles, ThemeProvider, useTheme, createMuiTheme } from '@material-ui/core/styles';
 import {
     Card,

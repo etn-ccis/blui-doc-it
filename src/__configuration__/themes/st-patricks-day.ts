@@ -1,5 +1,5 @@
-import * as PXBThemes from '@pxblue/react-themes';
-import * as Colors from '@pxblue/colors';
+import * as PXBThemes from '@brightlayer-ui/react-themes';
+import * as Colors from '@brightlayer-ui/colors';
 import StPatricksDay from '../../app/assets/themes/st-patricks-day/st-patricks-day-banner.png';
 import stPatricksDayCursor from '../../app/assets/themes/st-patricks-day/st-patricks-day-cursor.png';
 import AppBarTile from '../../app/assets/themes/st-patricks-day/st-patricks-day-appbar-tile.png';

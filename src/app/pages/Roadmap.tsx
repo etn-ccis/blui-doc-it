@@ -24,13 +24,13 @@ import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
 
-import { EmptyState, InfoListItem, ListItemTag, Spacer } from '@pxblue/react-components';
+import { EmptyState, InfoListItem, ListItemTag, Spacer } from '@brightlayer-ui/react-components';
 import { useSelector } from 'react-redux';
 import { AppState } from '../redux/reducers';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import color from 'color';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
-import { PXBlueColor } from '@pxblue/types';
+import { BLUIColor } from '@brightlayer-ui/types';
 import { getRoadmap } from '../api';
 import { ErrorOutline } from '@material-ui/icons';
 import clsx from 'clsx';
@@ -90,7 +90,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-const getStatusColor = (status: Status): PXBlueColor | undefined => {
+const getStatusColor = (status: Status): BLUIColor | undefined => {
     switch (status) {
         case 'finished':
             return Colors.green;
@@ -209,7 +209,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     />
                 );
             }
-            if (author !== undefined && author !== 'PX Blue') {
+            if (author !== undefined && author !== 'Brightlayer UI') {
                 statusTags.push(
                     <ListItemTag
                         key={`${item.name}_author`}

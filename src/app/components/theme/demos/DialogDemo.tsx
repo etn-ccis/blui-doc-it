@@ -3,7 +3,7 @@ import { Button, Paper, DialogActions, DialogContent, DialogContentText, DialogT
 
 export const DialogDemo: JSX.Element = (
     <Paper elevation={16} style={{ maxWidth: 320, margin: '64px 16px' }}>
-        <DialogTitle>Enjoy PX Blue so far?</DialogTitle>
+        <DialogTitle>Enjoy Brightlayer UI so far?</DialogTitle>
         <DialogContent>
             <DialogContentText>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.

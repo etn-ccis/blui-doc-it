@@ -6490,7 +6490,7 @@
             { "/development/frameworks-mobile/ionic": 1 },
             { "/development/frameworks-mobile/react-native": 1 }
         ],
-        "pxblue": [
+        "brightlayer-ui": [
             { "/development/frameworks-web/angular": 13 },
             { "/development/frameworks-web/react": 12 },
             { "/development/frameworks-mobile/react-native": 12 },
@@ -6508,7 +6508,7 @@
             { "/style/color": 2 },
             { "/community/contactus": 1 }
         ],
-        "pxb": [
+        "blui": [
             { "/development/testing": 2 },
             { "/style/themes": 2 },
             { "/development/cli": 1 },

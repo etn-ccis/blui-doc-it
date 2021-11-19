@@ -1,4 +1,4 @@
-import * as PXBThemes from '@pxblue/react-themes';
+import * as PXBThemes from '@brightlayer-ui/react-themes';
 import circles from '../../app/assets/themes/circles.svg';
 import { SiteConfig } from './types';
 
