@@ -2,7 +2,7 @@ import React from 'react';
 
 // Brightlayer UI Icons and Symbols
 import * as Progress from '@brightlayer-ui/react-progress-icons';
-import * as PXBColors from '@brightlayer-ui/colors';
+import * as BluiColors from '@brightlayer-ui/colors';
 
 // Material-UI Components
 import { Typography, AppBar, Paper, Toolbar, makeStyles, FormControlLabel, Checkbox } from '@material-ui/core';
@@ -12,7 +12,7 @@ const size = 48;
 type ColorPalette = {
     [key: string]: BLUIColor;
 };
-const colorSet: ColorPalette = PXBColors;
+const colorSet: ColorPalette = BluiColors;
 const colors = ['red', 'orange', 'gold', 'yellow', 'green', 'lightBlue', 'blue', 'purple', 'gray', 'black'];
 const weight = 300;
 
