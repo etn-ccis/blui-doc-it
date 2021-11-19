@@ -1,4 +1,4 @@
-import * as PXBThemes from '@brightlayer-ui/react-themes';
+import * as BluiThemes from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import IndependenceDay from '../../app/assets/themes/independence-day/independence-day-bg.png';
@@ -11,9 +11,9 @@ export const IndependenceDaySchedule: Schedule = {
     end: new Date(0, 6, 8), // July 7
     config: {
         theme: {
-            ...PXBThemes.blue,
+            ...BluiThemes.blue,
             palette: {
-                ...PXBThemes.blue.palette,
+                ...BluiThemes.blue.palette,
                 type: 'light',
                 primary: {
                     light: BrandingColors.blue[300],
@@ -27,9 +27,9 @@ export const IndependenceDaySchedule: Schedule = {
                 },
             },
             overrides: {
-                ...PXBThemes.blue.overrides,
+                ...BluiThemes.blue.overrides,
                 MuiAppBar: {
-                    ...PXBThemes.blue.overrides?.MuiAppBar,
+                    ...BluiThemes.blue.overrides?.MuiAppBar,
                     colorSecondary: {
                         color: Colors.white[50],
                         backgroundColor: BrandingColors.blue[500],
@@ -42,7 +42,7 @@ export const IndependenceDaySchedule: Schedule = {
                     },
                 },
                 MuiButton: {
-                    ...PXBThemes.blue.overrides?.MuiButton,
+                    ...BluiThemes.blue.overrides?.MuiButton,
                     outlined: {},
                     outlinedPrimary: {},
                 },

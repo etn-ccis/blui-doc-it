@@ -1,4 +1,4 @@
-import * as PXBThemes from '@brightlayer-ui/react-themes';
+import * as BluiThemes from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import StPatricksDay from '../../app/assets/themes/st-patricks-day/st-patricks-day-banner.png';
 import stPatricksDayCursor from '../../app/assets/themes/st-patricks-day/st-patricks-day-cursor.png';
@@ -10,9 +10,9 @@ export const StPatricksDaySchedule: Schedule = {
     end: new Date(0, 2, 19), // Mar 18
     config: {
         theme: {
-            ...PXBThemes.blue,
+            ...BluiThemes.blue,
             palette: {
-                ...PXBThemes.blue.palette,
+                ...BluiThemes.blue.palette,
                 type: 'light',
                 primary: {
                     light: Colors.green[300],
@@ -26,9 +26,9 @@ export const StPatricksDaySchedule: Schedule = {
                 },
             },
             overrides: {
-                ...PXBThemes.blue.overrides,
+                ...BluiThemes.blue.overrides,
                 MuiAppBar: {
-                    ...PXBThemes.blue.overrides?.MuiAppBar,
+                    ...BluiThemes.blue.overrides?.MuiAppBar,
                     colorSecondary: {
                         color: Colors.white[50],
                         backgroundColor: Colors.green[700],
@@ -41,7 +41,7 @@ export const StPatricksDaySchedule: Schedule = {
                     },
                 },
                 MuiButton: {
-                    ...PXBThemes.blue.overrides?.MuiButton,
+                    ...BluiThemes.blue.overrides?.MuiButton,
                     outlined: {},
                     outlinedPrimary: {},
                 },
