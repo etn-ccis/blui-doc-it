@@ -22,7 +22,7 @@ jobs:
                   name: Install dependencies
                   command: |
                       yarn install
-                      yarn upgrade @brightlayer-ui/icons-mui
+                      # yarn upgrade @brightlayer-ui/icons-mui
             - save_cache:
                   paths:
                       - node_modules
