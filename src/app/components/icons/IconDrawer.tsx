@@ -22,8 +22,7 @@ import Select from '@material-ui/core/Select';
 import { EmptyState, Spacer } from '@brightlayer-ui/react-components';
 
 import { GetApp, Close } from '@material-ui/icons';
-// change pxblue import
-import { Pxblue } from '@pxblue/icons-mui';
+import { Pxblue } from '@brightlayer-ui/icons-mui';
 
 import { unCamelCase } from '../../shared';
 import { emptyIcon } from '.';
