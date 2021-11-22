@@ -25,7 +25,7 @@ export const icons = axios.create({
     baseURL: 'https://fonts.gstatic.com/s/i/materialicons',
     timeout: 5000,
 });
-export const pxblueIcons = axios.create({
+export const bluiIcons = axios.create({
     baseURL: 'https://raw.githubusercontent.com/brightlayer-ui/icons/dev/svg/',
     timeout: 5000,
 });
@@ -110,7 +110,7 @@ export const getRoadmap = async (release: Release): Promise<RoadmapBucket[] | un
 export const getSvg = async (name: string, family: 'material' | 'brightlayer-ui'): Promise<string | undefined> => {
     try {
         const response =
-            family === 'brightlayer-ui' ? await pxblueIcons.get(`/${name}.svg`) : await icons.get(`/${name}/v6/24px.svg`);
+            family === 'brightlayer-ui' ? await bluiIcons.get(`/${name}.svg`) : await icons.get(`/${name}/v6/24px.svg`);
         if (response && response.status === 200) return response.data;
         return undefined;
     } catch (thrown) {
