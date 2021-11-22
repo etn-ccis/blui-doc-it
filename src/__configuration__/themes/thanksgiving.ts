@@ -1,4 +1,4 @@
-import * as BluiThemes from '@brightlayer-ui/react-themes';
+import * as BLUIThemes from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import Thanksgiving from '../../app/assets/themes/thanksgiving/thanksgiving-banner.jpg';
@@ -11,9 +11,9 @@ export const ThanksgivingSchedule: Schedule = {
     end: new Date(0, 10, 28), // Nov 27
     config: {
         theme: {
-            ...BluiThemes.blue,
+            ...BLUIThemes.blue,
             palette: {
-                ...BluiThemes.blue.palette,
+                ...BLUIThemes.blue.palette,
                 type: 'light',
                 primary: {
                     light: BrandingColors.rust[100],
@@ -27,9 +27,9 @@ export const ThanksgivingSchedule: Schedule = {
                 },
             },
             overrides: {
-                ...BluiThemes.blue.overrides,
+                ...BLUIThemes.blue.overrides,
                 MuiAppBar: {
-                    ...BluiThemes.blue.overrides?.MuiAppBar,
+                    ...BLUIThemes.blue.overrides?.MuiAppBar,
                     colorSecondary: {
                         color: Colors.white[50],
                         backgroundColor: BrandingColors.rust[500],
@@ -42,7 +42,7 @@ export const ThanksgivingSchedule: Schedule = {
                     },
                 },
                 MuiButton: {
-                    ...BluiThemes.blue.overrides?.MuiButton,
+                    ...BLUIThemes.blue.overrides?.MuiButton,
                     outlined: {},
                     outlinedPrimary: {},
                 },

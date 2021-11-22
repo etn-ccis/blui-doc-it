@@ -1,4 +1,4 @@
-import * as BluiThemes from '@brightlayer-ui/react-themes';
+import * as BLUIThemes from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import NewYears from '../../app/assets/themes/new-years/new-years-banner.png';
 import fireworkCursor from '../../app/assets/themes/new-years/firework-rocket-cursor.png';
@@ -10,9 +10,9 @@ export const NewYearsSchedule: Schedule = {
     end: new Date(1, 0, 7), // Jan 6 (Next Year)
     config: {
         theme: {
-            ...BluiThemes.blueDark,
+            ...BLUIThemes.blueDark,
             palette: {
-                ...BluiThemes.blueDark.palette,
+                ...BLUIThemes.blueDark.palette,
                 type: 'dark',
                 primary: {
                     light: Colors.yellow[300],
@@ -35,7 +35,7 @@ export const NewYearsSchedule: Schedule = {
                 },
             },
             overrides: {
-                ...BluiThemes.blueDark.overrides,
+                ...BLUIThemes.blueDark.overrides,
                 MuiAppBar: {
                     colorDefault: {
                         color: Colors.black[50],
@@ -56,7 +56,7 @@ export const NewYearsSchedule: Schedule = {
                     },
                 },
                 MuiButton: {
-                    ...BluiThemes.blueDark.overrides?.MuiButton,
+                    ...BLUIThemes.blueDark.overrides?.MuiButton,
                     outlined: {},
                     outlinedPrimary: {},
                 },

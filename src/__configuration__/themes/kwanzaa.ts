@@ -1,4 +1,4 @@
-import * as BluiThemes from '@brightlayer-ui/react-themes';
+import * as BLUIThemes from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 // import Kwanzaa from '../../app/assets/themes/kwanzaa/kwanzaa-banner.png';
@@ -12,9 +12,9 @@ export const KwanzaaSchedule: Schedule = {
     end: new Date(0, 11, 31), // Dec 30 - festival should run until Jan 1, but we cut this off on early to account for New Years theme
     config: {
         theme: {
-            ...BluiThemes.blue,
+            ...BLUIThemes.blue,
             palette: {
-                ...BluiThemes.blue.palette,
+                ...BLUIThemes.blue.palette,
                 type: 'light',
                 primary: {
                     light: Colors.red[100],
@@ -28,9 +28,9 @@ export const KwanzaaSchedule: Schedule = {
                 },
             },
             overrides: {
-                ...BluiThemes.blue.overrides,
+                ...BLUIThemes.blue.overrides,
                 MuiAppBar: {
-                    ...BluiThemes.blue.overrides?.MuiAppBar,
+                    ...BLUIThemes.blue.overrides?.MuiAppBar,
                     colorSecondary: {
                         color: Colors.white[50],
                         backgroundColor: Colors.red[900],
@@ -43,7 +43,7 @@ export const KwanzaaSchedule: Schedule = {
                     },
                 },
                 MuiButton: {
-                    ...BluiThemes.blue.overrides?.MuiButton,
+                    ...BLUIThemes.blue.overrides?.MuiButton,
                     outlined: {},
                     outlinedPrimary: {},
                 },

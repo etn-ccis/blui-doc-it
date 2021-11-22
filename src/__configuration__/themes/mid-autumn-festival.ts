@@ -1,4 +1,4 @@
-import * as BluiThemes from '@brightlayer-ui/react-themes';
+import * as BLUIThemes from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import banner from '../../app/assets/themes/mid-autumn-festival/banner.svg';
@@ -12,9 +12,9 @@ export const MidAutumnSchedule: Schedule = {
     end: new Date(0, 8, 28), // Sept 27
     config: {
         theme: {
-            ...BluiThemes.blueDark,
+            ...BLUIThemes.blueDark,
             palette: {
-                ...BluiThemes.blueDark.palette,
+                ...BLUIThemes.blueDark.palette,
                 type: 'dark',
                 primary: {
                     light: Colors.yellow[200],
@@ -26,9 +26,9 @@ export const MidAutumnSchedule: Schedule = {
                 },
             },
             overrides: {
-                ...BluiThemes.blueDark.overrides,
+                ...BLUIThemes.blueDark.overrides,
                 MuiAppBar: {
-                    ...BluiThemes.blueDark.overrides?.MuiAppBar,
+                    ...BLUIThemes.blueDark.overrides?.MuiAppBar,
                     colorPrimary: {
                         backgroundColor: BrandingColors.butter[500],
                         color: Colors.black[700],
