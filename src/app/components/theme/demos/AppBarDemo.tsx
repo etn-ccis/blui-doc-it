@@ -23,7 +23,9 @@ export const AppBarDemo: JSX.Element = (
                 title={'Primary'}
                 subtitle={'This is the App Bar pinned to the top'}
                 navigationIcon={<Menu />}
-                menuGroups={[{ items: [{ title: 'Brightlayer UI' }, { title: 'PX Rainbow' }, { title: 'PX Unicorn' }] }]}
+                menuGroups={[
+                    { items: [{ title: 'Brightlayer UI' }, { title: 'PX Rainbow' }, { title: 'PX Unicorn' }] },
+                ]}
             >
                 <Spacer />
                 <IconButton color={'inherit'}>

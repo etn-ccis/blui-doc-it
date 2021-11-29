@@ -1,6 +1,13 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, NavItem } from '@brightlayer-ui/react-components';
+import {
+    Drawer,
+    DrawerBody,
+    DrawerNavGroup,
+    DrawerFooter,
+    DrawerHeader,
+    NavItem,
+} from '@brightlayer-ui/react-components';
 import { PxblueSmall } from '@brightlayer-ui/icons-mui';
 import color from 'color';
 
@@ -114,9 +121,7 @@ export const NavigationDrawer = (): JSX.Element => {
                             dispatch({ type: TOGGLE_DRAWER, payload: false });
                         }}
                     >
-                        <Typography>
-                            Brightlayer UI 
-                        </Typography>
+                        <Typography>Brightlayer UI</Typography>
                     </div>
                 }
             />

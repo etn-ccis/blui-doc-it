@@ -273,11 +273,10 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         className={classes.select}
                     >
                         {AVAILABLE_RELEASES.map((release) => (
-                            <MenuItem key={release.name} value={release.name}>{`${
-                                release.name
-                            } (${release.quarter.split('').reverse().join('')}${release.year
-                                .toString()
-                                .substr(2)})`}</MenuItem>
+                            <MenuItem key={release.name} value={release.name}>{`${release.name} (${release.quarter
+                                .split('')
+                                .reverse()
+                                .join('')}${release.year.toString().substr(2)})`}</MenuItem>
                         ))}
                     </Select>
                     <Select

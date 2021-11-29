@@ -230,9 +230,9 @@ export const getIconSvgSnippet: GetSnippetFn = (framework, icon) => {
 export const getIconComponentCopyText: GetCopyTextFn = (framework, icon) => {
     switch (framework) {
         case 'react':
-            return `import { ${icon.name} } from '${icon.isMaterial ? '@material-ui/icons' : '@brightlayer-ui/icons-mui'}';\n<${
-                icon.name
-            } />`;
+            return `import { ${icon.name} } from '${
+                icon.isMaterial ? '@material-ui/icons' : '@brightlayer-ui/icons-mui'
+            }';\n<${icon.name} />`;
         default:
             return '';
     }
@@ -243,7 +243,9 @@ export const getIconComponentSnippet: GetSnippetFn = (framework, icon) => {
         case 'react':
             return (
                 <>
-                    {`import { ${icon.name} } from '${icon.isMaterial ? '@material-ui/icons' : '@brightlayer-ui/icons-mui'}';`}
+                    {`import { ${icon.name} } from '${
+                        icon.isMaterial ? '@material-ui/icons' : '@brightlayer-ui/icons-mui'
+                    }';`}
                     <br />
                     {`<${icon.name} />`}
                 </>

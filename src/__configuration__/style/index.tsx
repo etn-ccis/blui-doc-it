@@ -8,7 +8,8 @@ export const links = [
     {
         title: 'Color Palette',
         url: '/style/color',
-        description: 'Browse all of the UI, Status, and Charting colors available from Brightlayer UI and when to use them.',
+        description:
+            'Browse all of the UI, Status, and Charting colors available from Brightlayer UI and when to use them.',
         image: palette,
     },
     {

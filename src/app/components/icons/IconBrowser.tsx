@@ -284,7 +284,8 @@ export const IconBrowser: React.FC = (): JSX.Element => {
         for (const category of Object.keys(allIconsByCategory)) {
             filteredCategories[category] = allIconsByCategory[category].filter(
                 (icon) =>
-                    iconKeys.includes(`${icon.name}-${icon.isMaterial ? 'material' : 'blui'}`) && icon.type === iconClass
+                    iconKeys.includes(`${icon.name}-${icon.isMaterial ? 'material' : 'blui'}`) &&
+                    icon.type === iconClass
             );
         }
         return filteredCategories;

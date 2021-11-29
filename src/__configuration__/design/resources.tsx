@@ -32,7 +32,8 @@ export const figmaCommunityFileLinks = [
     {
         title: 'Brightlayer UI Design Pattern Library',
         url: 'https://www.figma.com/community/file/1023327014725714313',
-        description: 'A Figma design library that includes common patterns used across various Brightlayer UI projects.',
+        description:
+            'A Figma design library that includes common patterns used across various Brightlayer UI projects.',
         image: designPatternLibrary,
         background: { position: 'right' },
     },
