@@ -75,11 +75,18 @@ Similar to [lists](patterns/lists), tables are used to display structured data. 
     <TOC
         anchors={[
             { title: 'Introduction', hash: '#tables' },
-            { title: 'Behaviors', hash: '#behaviors' },
-            { title: 'Tables vs. Lists', hash: '#tables-vs.-lists' },
-            { title: 'Responsive', hash: '#responsive' },
-            { title: 'Design Specifications', hash: '#design-specifications' },
-            { title: 'Developers', hash: '#developers' },
+            { title: 'Behaviors' },
+            { title: 'Table Cell Contents', depth: 1 },
+            { title: 'Row Actions', depth: 1 },
+            { title: 'Batch Actions', depth: 1 },
+            { title: 'Sticky Header Row', depth: 1 },
+            { title: 'Horizontal Scrolling', depth: 1 },
+            { title: 'Searching and Filtering', depth: 1 },
+            { title: 'Transition Animation', depth: 1 },
+            { title: 'Tables vs. Lists' },
+            { title: 'Responsive' },
+            { title: 'Design Specifications' },
+            { title: 'Developers' },
         ]}
     />
     <Divider />
@@ -259,7 +266,7 @@ A "tabular list" that attempts to combine tables and lists together might result
 
 <ImageGrid
     images={[TabularList]}
-    captionsUnderImages={['Avoid combining tables and lists together, as this diminishes the value of both.']}
+    captionsUnderImages={['Be careful when combining tables and lists together, as this diminishes the value of both.']}
     gridContainerProps={{ style: { justifyContent: 'flex-start' } }}
 />
 
@@ -305,7 +312,7 @@ Avoid using tables in consumer-facing applications. Lists mentally match real-wo
 
 # Responsive
 
-In general, we do not encourage tables on mobile platforms, as table-related interactions tend to be complicated for small viewports, and mobile phones also often lack the computational power to process massive data set.
+In general, **we do not encourage tables on mobile platforms**, as table-related interactions tend to be complicated for small viewports, and mobile phones also often lack the computational power to process massive data set.
 
 <ImageGrid
     images={[TableOnMobile]}
@@ -317,6 +324,8 @@ In general, we do not encourage tables on mobile platforms, as table-related int
 
 Before you design a table structure for a mobile application, you should conduct user researches and have a clear understanding of users' intentions. When they land on this page, Do they desire to do complicated cross-comparison between multiple rows and columns? Is a full table necessary?
 
+For industrial applications, in many situations your users would be using a mobile app when they are out in the field. They are paying more attention to their surroundings, so keep the mobile app interaction minimal.
+
 ## Breaking Down Tables into Lists
 
 If a user only needs a few parameters to identify the correct data entry and make decisions, a list with a few selected data points would suffice.
@@ -325,7 +334,7 @@ If a user only needs a few parameters to identify the correct data entry and mak
     images={[HomePagePreview, TableStackedAsList]}
     captionsUnderImages={[
         `On a crowded page, show a small portion preview of the table content, with the option to view the full table in a dedicated page.`,
-        `Stacking each property into a list item, with the ability to click into a list item to view the full item details.`,
+        `Stack each property into a list item, with the ability to click into a list item to view the full item details.`,
     ]}
 />
 
@@ -336,7 +345,7 @@ Pagination is especially helpful on hand-held devices to reduce the load of both
 <ImageGrid
     images={[MobilePagination]}
     captionsUnderImages={[
-        `Pagination is often used to reduce the page load. If not conflicting with other gestures, consider using left / right swipes to go to the previous / next page.`,
+        `Pagination is often used to reduce the page load. If not conflicting with other gestures, consider also adding left / right swipes to go to the previous / next page.`,
     ]}
     gridContainerProps={{ style: { justifyContent: 'flex-start' } }}
 />
