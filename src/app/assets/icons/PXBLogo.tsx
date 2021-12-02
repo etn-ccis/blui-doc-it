@@ -38,7 +38,7 @@ export const PXBLogo: React.FC<PXBLogoProps> = ({ tagline, color }) => {
         <div style={{ textAlign: 'center', position: 'relative' }}>
             <PXBlueSVG className={'rotateMe'} size={82} color={color || theme.palette.primary.contrastText} />
             <Typography variant={'h3'} align={'center'} style={{ fontWeight: 300, marginBottom: theme.spacing() }}>
-                Brightlayer UI
+                Brightlayer <b>User Interface</b>
             </Typography>
             {tagline && (
                 <ListItemTag
