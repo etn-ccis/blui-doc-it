@@ -4,8 +4,8 @@ import FlexSearch from 'flexsearch';
 
 // Brightlayer UI Icons and Symbols
 import * as MuiIcons from '@material-ui/icons';
-import * as PXBIcons from '@brightlayer-ui/icons-mui';
-import pxbMetadata from '@brightlayer-ui/icons-mui/index.json';
+import * as BLUIIcons from '@brightlayer-ui/icons-mui';
+import bluiMetadata from '@brightlayer-ui/icons-mui/index.json';
 
 // Types
 import { DetailedIcon, IconType } from '../../../__types__';
@@ -53,10 +53,10 @@ const matMetaObject: { [key: string]: DetailedIcon } = {};
 for (const ico of materialMetadata.icons) {
     matMetaObject[getMuiIconName(ico.name)] = ico;
 }
-const pxbMetaObject: { [key: string]: DetailedIcon } = {};
-for (const ico of pxbMetadata.icons) {
+const bluiMetaObject: { [key: string]: DetailedIcon } = {};
+for (const ico of bluiMetadata.icons) {
     // @ts-ignore (our icon meta doesn't exactly match the material meta, but we never reference the missing props so it's ok)
-    pxbMetaObject[getMuiIconName(ico.filename)] = ico;
+    bluiMetaObject[getMuiIconName(ico.filename)] = ico;
 }
 
 const loadIcons = (): void => {
@@ -129,9 +129,9 @@ const loadIcons = (): void => {
         return icon;
     });
 
-    Object.keys(PXBIcons).map((iconKey) => {
+    Object.keys(BLUIIcons).map((iconKey) => {
         let searchableString = iconKey;
-        const iconDetails: DetailedIcon | undefined = pxbMetaObject[iconKey] || {
+        const iconDetails: DetailedIcon | undefined = bluiMetaObject[iconKey] || {
             name: '',
             filename: '',
             family: [],
@@ -156,7 +156,7 @@ const loadIcons = (): void => {
             tags: iconDetails.tags || [],
             categories: iconDetails.family || [],
             // @ts-ignore
-            Icon: PXBIcons[iconKey],
+            Icon: BLUIIcons[iconKey],
         };
 
         // add the icon details to the allIcons map
