@@ -164,7 +164,9 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                             secondary={subtitle}
                         />
                     ) : (
-                        <Typography>Brightlayer UI</Typography>
+                        <Typography>
+                            Brightlayer <b>User Interface</b>
+                        </Typography>
                     )}
                     <Spacer />
                     <IconButton
