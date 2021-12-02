@@ -94,6 +94,7 @@ export const MainRouter = (): JSX.Element => {
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
     const [navigateBlui, setNavigateBlui] = useState(false);
     const showBanner = useSelector((state: AppState) => state.app.showBanner);
+    const sessionStorage = window.sessionStorage;
     const dispatch = useDispatch();
 
     const getBluiRebrandAppbar = (): JSX.Element => (
@@ -102,10 +103,15 @@ export const MainRouter = (): JSX.Element => {
                 <div>
                     {'We are changing our name to Brightlayer UI! Learn '}
                     <a
-                        style={{ color: Colors.white[50], textDecoration: 'underline', cursor: 'pointer' }}
+                        style={{
+                            color: theme.palette.getContrastText(theme.palette.secondary.main),
+                            textDecoration: 'underline',
+                            cursor: 'pointer',
+                        }}
                         onClick={(): any => {
                             setNavigateBlui(true);
                             dispatch({ type: HIDE_BANNER });
+                            sessionStorage.setItem('banner-dismissed', 'true');
                         }}
                     >
                         how this will impact you
@@ -118,6 +124,7 @@ export const MainRouter = (): JSX.Element => {
                     color={'inherit'}
                     onClick={(): void => {
                         dispatch({ type: HIDE_BANNER });
+                        sessionStorage.setItem('banner-dismissed', 'true');
                     }}
                 >
                     <Close />

@@ -29,7 +29,7 @@ const initialAppState: CommonState = {
     searchActive: false,
     sidebarOpen: false,
     hasTOC: false,
-    showBanner: true,
+    showBanner: !window.sessionStorage.getItem('banner-dismissed'),
 };
 const appReducer = (state = initialAppState, action: any): CommonState => {
     switch (action.type) {
