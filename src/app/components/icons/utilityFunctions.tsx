@@ -172,7 +172,7 @@ export const getIconSvgCopyText: GetCopyTextFn = (framework, icon) => {
                     icon.iconFontKey
                 )}"/>;`;
             }
-            return `import PXBIcon from '@brightlayer-ui/react-native-vector-icons';\n<PXBIcon name="${getSnakeCase(
+            return `import BLUIIcon from '@brightlayer-ui/react-native-vector-icons';\n<BLUIIcon name="${getSnakeCase(
                 icon.name
             )}"/>;`;
         default:
@@ -215,9 +215,9 @@ export const getIconSvgSnippet: GetSnippetFn = (framework, icon) => {
                     )}
                     {!icon.isMaterial && (
                         <>
-                            {`import PXBIcon from '@brightlayer-ui/react-native-vector-icons';`}
+                            {`import BLUIIcon from '@brightlayer-ui/react-native-vector-icons';`}
                             <br />
-                            {`<PXBIcon name="${getSnakeCase(icon.name)}"/>`}
+                            {`<BLUIIcon name="${getSnakeCase(icon.name)}"/>`}
                         </>
                     )}
                 </>
