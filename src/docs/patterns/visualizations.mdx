@@ -1,5 +1,5 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
-import PxblueSmallAltIcon from '@pxblue/icons-mui/PxblueSmallAlt';
+import PxblueSmallAltIcon from '@brightlayer-ui/icons-mui/PxblueSmallAlt';
 
 import VisualizationBanner from '../../app/assets/design-patterns/visualizations/visualizations-banner.svg';
 import LineChart from '../../app/assets/design-patterns/visualizations/line-chart.png';
@@ -14,7 +14,7 @@ import DontUsePrimaryColor from '../../app/assets/design-patterns/visualizations
 
 <ImageGrid regularWidth images={[VisualizationBanner]} />
 
-Data is the foundation of most PX Blue applications, but many users are not interested in looking at the raw data. Visualizations allow you to present this data in a (visual) way that is easier to understand and allows users to draw conclusions and take actions based on the data. The most common visualizations in PX Blue applications are charts / graphs and maps.
+Data is the foundation of most Brightlayer UI applications, but many users are not interested in looking at the raw data. Visualizations allow you to present this data in a (visual) way that is easier to understand and allows users to draw conclusions and take actions based on the data. The most common visualizations in Brightlayer UI applications are charts / graphs and maps.
 
 <React.Fragment>
     <TOC
@@ -47,24 +47,24 @@ Charts and graphs come in [many different forms](https://material.io/design/comm
 
 <!--
 
-@TODO: update those examples with recommendations from the designers (PXBLUE-1613)
+@TODO: update those examples with recommendations from the designers (brightlayer-ui-1613)
 
 > The following examples merely serve to show how to bring the charting libraries into your application and adjust some of the common chart parameters. You will want to adjust these values to meet the design requirements of your application.
 
 <DemoCard
     repository={'highcharts'}
-    angular={`https://stackblitz.com/github/pxblue/highcharts/tree/master/angular-demo#`}
-    react={`https://codesandbox.io/s/github/pxblue/highcharts/tree/master/react-demo#`}
+    angular={`https://stackblitz.com/github/brightlayer-ui/highcharts/tree/master/angular-demo#`}
+    react={`https://codesandbox.io/s/github/brightlayer-ui/highcharts/tree/master/react-demo#`}
 />
 <DemoCard
     repository={'chartjs'}
-    angular={`https://stackblitz.com/github/pxblue/chartjs/tree/master/angular-demo#`}
-    react={`https://codesandbox.io/s/github/pxblue/chartjs/tree/master/react-demo#`}
+    angular={`https://stackblitz.com/github/brightlayer-ui/chartjs/tree/master/angular-demo#`}
+    react={`https://codesandbox.io/s/github/brightlayer-ui/chartjs/tree/master/react-demo#`}
 />
 
 -->
 
-To avoid interfering with other UI elements, charts should be built using the PX Blue [branding](/style/color#branding-colors) color palette.
+To avoid interfering with other UI elements, charts should be built using the Brightlayer UI [branding](/style/color#branding-colors) color palette.
 
 <React.Fragment>
     <ImageGrid
@@ -80,7 +80,7 @@ To avoid interfering with other UI elements, charts should be built using the PX
     <MaterialDesignDescription
         title={'Internationalization'}
         url={'/patterns/internationalization'}
-        description={`Follow PX Blue's guideline for mirroring UI contents.`}
+        description={`Follow Brightlayer UI's guideline for mirroring UI contents.`}
         avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
     />
     <Divider />
@@ -98,8 +98,8 @@ To avoid interfering with other UI elements, charts should be built using the PX
 />
 <DemoCard
     repository={'mapbox'}
-    angular={`https://stackblitz.com/github/pxblue/mapbox/tree/master/angular-demo#`}
-    react={`https://codesandbox.io/s/github/pxblue/mapbox/tree/master/react-demo#`}
+    angular={`https://stackblitz.com/github/brightlayer-ui/mapbox/tree/master/angular-demo#`}
+    react={`https://codesandbox.io/s/github/brightlayer-ui/mapbox/tree/master/react-demo#`}
 />
 
 Maps are used to represent spatial or geographical data. Typically they are used to plot sets of locations or facilities that a user is responsible for.
@@ -110,17 +110,17 @@ Maps are usually full-screen elements and are interactive via scrolling, panning
 
 # Developers
 
-There are many libraries and services for data visualizations. PX Blue currently provides themes / utilities for the following libraries:
+There are many libraries and services for data visualizations. Brightlayer UI currently provides themes / utilities for the following libraries:
 
 **Angular**, **React** and **Ionic**:
 
 -   Charts & Graphs
 
     -   [Highcharts](http://www.highcharts.com) ([Pricing](https://shop.highsoft.com/))
-    -   [@pxblue/highcharts](https://www.npmjs.com/package/@pxblue/highcharts)
+    -   [@brightlayer-ui/highcharts](https://www.npmjs.com/package/@brightlayer-ui/highcharts)
     -   [ChartJS](https://www.chartjs.org/) (Open Source)
-    -   [@pxblue/chartjs](https://www.npmjs.com/package/@pxblue/chartjs)
+    -   [@brightlayer-ui/chartjs](https://www.npmjs.com/package/@brightlayer-ui/chartjs)
 
 -   Maps
     -   [Mapbox](https://www.mapbox.com/) ([Pricing](https://www.mapbox.com/pricing/))
-    -   [@pxblue/mapbox](https://www.npmjs.com/package/@pxblue/mapbox)
+    -   [@brightlayer-ui/mapbox](https://www.npmjs.com/package/@brightlayer-ui/mapbox)

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Spacer } from '@pxblue/react-components';
-import { blue as lightTheme, blueDark as darkTheme } from '@pxblue/react-themes';
-import { makeStyles, ThemeProvider, useTheme, createMuiTheme } from '@material-ui/core/styles';
+import { Spacer } from '@brightlayer-ui/react-components';
+import { blue as lightTheme, blueDark as darkTheme } from '@brightlayer-ui/react-themes';
+import { makeStyles, ThemeProvider, useTheme, createTheme } from '@material-ui/core/styles';
 import {
     Card,
     Divider,
@@ -75,7 +75,7 @@ export const ThemeExplorer: React.FC = () => {
     const localBackground = localThemeDark ? darkTheme.palette?.background : lightTheme.palette?.background;
 
     return (
-        <ThemeProvider theme={createMuiTheme(localThemeDark ? darkTheme : lightTheme)}>
+        <ThemeProvider theme={createTheme(localThemeDark ? darkTheme : lightTheme)}>
             <Card className={classes.card} variant={globalTheme.palette.type === 'dark' ? 'outlined' : undefined}>
                 <Toolbar className={classes.toolbar}>
                     <Select

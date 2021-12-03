@@ -71,7 +71,7 @@ export const MaterialDesignDescription: React.FC<MaterialDesignDescriptionProps>
     const classes = useStyles();
     const {
         avatar = <MaterialDesign style={{ height: theme.spacing(6), width: theme.spacing(6) }} />,
-        description = `Learn about Material Design's description of this pattern. Follow their guidance unless PX Blue recommends specific changes.`,
+        description = `Learn about Material Design's description of this pattern. Follow their guidance unless Brightlayer UI recommends specific changes.`,
         icon = <OpenInNew style={{ color: theme.palette.text.hint }} />,
         title = `Material's Description`,
         url,

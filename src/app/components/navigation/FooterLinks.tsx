@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Theme, useTheme, useMediaQuery } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { NavLink } from './NavLink';
 import { Eaton } from '../../assets/icons';
 import { SmallPXBLogo } from '../../assets/icons/PXBLogo';
@@ -50,13 +50,13 @@ export const FooterLinks: React.FC = (): JSX.Element => {
     const padding = xxs ? theme.spacing(2) : singleColumn ? theme.spacing(4) : theme.spacing(8);
     return (
         <div className={classes.root} style={{ textAlign: singleColumn ? 'center' : 'left' }}>
-            {/* Section 1: PX Blue description */}
+            {/* Section 1: Brightlayer UI description */}
             <div style={{ flex: '1 1 0px', padding: padding, minWidth: xxs ? '100%' : '' }}>
                 <div style={{ minWidth: xxs ? '100%' : 300 }}>
                     <SmallPXBLogo />
                     <Typography variant={'caption'} display={'block'} style={{ marginTop: theme.spacing(2) }}>
-                        Power Xpert Blue is a complete design system for front-end development. This system will help
-                        your team build beautiful applications that adhere to our design guidelines while ensuring
+                        Brightlayer UI is a complete design system for front-end development. This system will help your
+                        team build beautiful applications that adhere to our design guidelines while ensuring
                         flexibility and code reusability.
                     </Typography>
                 </div>
@@ -69,7 +69,7 @@ export const FooterLinks: React.FC = (): JSX.Element => {
                 <div style={{ width: xxs ? '100%' : 550, columnCount: xxs ? 1 : 3, columnGap: padding }}>
                     <NavLink
                         to={'/overview'}
-                        title={'What is PX Blue?'}
+                        title={'What is Brightlayer UI?'}
                         className={classes.navLink}
                         hoverColor={Colors.white[50]}
                     />
@@ -92,7 +92,7 @@ export const FooterLinks: React.FC = (): JSX.Element => {
                         hoverColor={Colors.white[50]}
                     />
                     <NavLink
-                        to={'https://pxblue-components.github.io/'}
+                        to={'https://brightlayer-ui-components.github.io/'}
                         title={'Component Libraries'}
                         className={classes.navLink}
                         hoverColor={Colors.white[50]}
@@ -154,7 +154,7 @@ export const FooterLinks: React.FC = (): JSX.Element => {
                     <GitHub
                         className={classes.socialIcon}
                         onClick={(): void => {
-                            window.open('https://github.com/pxblue', '_blank');
+                            window.open('https://github.com/brightlayer-ui', '_blank');
                         }}
                     />
                     <NPM

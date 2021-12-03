@@ -11,7 +11,7 @@ import DarkThemeElevation from '../../app/assets/styles/themes/dark-theme-elevat
 
 # Themes
 
-One of the key benefits of PX Blue is the consistent look & feel between different applications. This is achieved primarily through the use of PX Blue themes. PX Blue offers two themes: a light theme (blue) and a dark theme (blueDark).
+One of the key benefits of Brightlayer UI is the consistent look & feel between different applications. This is achieved primarily through the use of Brightlayer UI themes. Brightlayer UI offers two themes: a light theme (blue) and a dark theme (blueDark).
 
 <MaterialDesignDescription
     title={'Material Theming Overview'}
@@ -25,7 +25,7 @@ One of the key benefits of PX Blue is the consistent look & feel between differe
     style={{ marginRight: 0 }}
 />
 
-Both themes inherit from Material Design's baseline theme and expand upon it with PX Blue specific styles. The major differences between PX Blue themes and the baseline Material theme are the color palettes and [typographies](/style/typography).
+Both themes inherit from Material Design's baseline theme and expand upon it with Brightlayer UI specific styles. The major differences between Brightlayer UI themes and the baseline Material theme are the color palettes and [typographies](/style/typography).
 
 <TOC
     anchors={[
@@ -38,7 +38,7 @@ Both themes inherit from Material Design's baseline theme and expand upon it wit
 
 ## Explore Our Themes
 
-Have a look at the component theme explorer below and learn how PX Blue themes work at a high level. Here we showcase some of the most representative components from Material Design and PX Blue, and how our themes affect them.
+Have a look at the component theme explorer below and learn how Brightlayer UI themes work at a high level. Here we showcase some of the most representative components from Material Design and Brightlayer UI, and how our themes affect them.
 
 <ThemeExplorer />
 
@@ -47,8 +47,8 @@ You are also encouraged to explore our more detailed theme examples where you ca
 <React.Fragment>
     <DemoCard
         repository={'showcase-demo'}
-        angular={`https://stackblitz.com/github/pxblue/angular-showcase-demo/tree/master`}
-        react={`https://codesandbox.io/s/github/pxblue/react-showcase-demo/tree/master`}
+        angular={`https://stackblitz.com/github/brightlayer-ui/angular-showcase-demo/tree/master`}
+        react={`https://codesandbox.io/s/github/brightlayer-ui/react-showcase-demo/tree/master`}
     />
     <Divider />
 </React.Fragment>
@@ -57,7 +57,7 @@ You are also encouraged to explore our more detailed theme examples where you ca
 
 <ImageGrid images={[LightThemeExample]} regularWidth caption={'An example of an application using the light theme.'} />
 
-The blue theme is the default theme for all PX Blue applications. With a clean color vibrance and high text legibility, it is well-suited for everyday use on a computer monitor, on-site facility inspection on a tablet, or on a mobile phone screen.
+The blue theme is the default theme for all Brightlayer UI applications. With a clean color vibrance and high text legibility, it is well-suited for everyday use on a computer monitor, on-site facility inspection on a tablet, or on a mobile phone screen.
 
 The light theme uses our iconic [Blue 500](/style/color) color (`#007bc1`) throughout the application, notably in toolbars, buttons, and icons. In some places, Light Blue 500 is applied as a secondary color on interactive UI elements such as form controls. The light theme's base background color is White 200, although the surface elements are often shaded in White 50 (pure white).
 
@@ -72,7 +72,7 @@ The dark theme is intended primarily for applications used in low-light conditio
 
 <ImageGrid images={[DarkThemeColors]} regularWidth />
 
-To accommodate for [accessibility requirements](/design/accessibility), PX Blue uses the 200 shade of colors when text is used on a dark background, such as in an outlined button and a text field label. For "contained" elements, such as in an elevated / contained button, the same style is used as in the light theme (500 shades).
+To accommodate for [accessibility requirements](/design/accessibility), Brightlayer UI uses the 200 shade of colors when text is used on a dark background, such as in an outlined button and a text field label. For "contained" elements, such as in an elevated / contained button, the same style is used as in the light theme (500 shades).
 
 <ImageGrid
     images={[OutlinedAndFlat]}
@@ -95,27 +95,27 @@ To accommodate for [accessibility requirements](/design/accessibility), PX Blue 
 
 ## Angular and Ionic
 
-Angular themes are available from our @pxblue/angular-themes package, which is a collection of SCSS stylesheets that are imported into your application and applied via classes (`pxb-blue` or `pxb-dark`) to both PX Blue components and Angular Material components.
+Angular themes are available from our @brightlayer-ui/angular-themes package, which is a collection of SCSS stylesheets that are imported into your application and applied via classes (`blui-blue` or `blui-dark`) to both Brightlayer UI components and Angular Material components.
 
--   @pxblue/angular-themes: [NPM](https://www.npmjs.com/package/@pxblue/angular-themes), [GitHub](https://github.com/pxblue/angular-themes/tree/master)
+-   @brightlayer-ui/angular-themes: [NPM](https://www.npmjs.com/package/@brightlayer-ui/angular-themes), [GitHub](https://github.com/brightlayer-ui/angular-themes/tree/master)
 -   [Theming Guide](https://material.angular.io/guide/theming) on Angular Material
 
 If you are using Ionic for hybrid application development, you can utilize our Angular themes as well. See [our Ionic getting started guide](/development/frameworks-mobile/ionic).
 
 ## React
 
-React themes are available from our @pxblue/react-themes package, which contains JSON objects that are consumed by the theme mechanism for Material UI components (`<ThemeProvider />`), including some specific styling rules defined in [JSS](https://mui.com/styles/advanced/#jss-plugins).
+React themes are available from our @brightlayer-ui/react-themes package, which contains JSON objects that are consumed by the theme mechanism for Material UI components (`<ThemeProvider />`), including some specific styling rules defined in [JSS](https://mui.com/styles/advanced/#jss-plugins).
 
--   @pxblue/react-themes: [NPM](https://www.npmjs.com/package/@pxblue/react-themes), [GitHub](https://github.com/pxblue/react-themes/tree/master)
+-   @brightlayer-ui/react-themes: [NPM](https://www.npmjs.com/package/@brightlayer-ui/react-themes), [GitHub](https://github.com/brightlayer-ui/react-themes/tree/master)
 -   [Theming Guide](https://mui.com/customization/theming/) on Material-UI
 
 ## React Native
 
-React Native themes are available from our @pxblue/react-themes package, which utilize React Native Paper's theming mechanism. This package contains two separate dark themes which must be applied to different components to achieve the correct appearance (see the package readme for details).
+React Native themes are available from our @brightlayer-ui/react-themes package, which utilize React Native Paper's theming mechanism. This package contains two separate dark themes which must be applied to different components to achieve the correct appearance (see the package readme for details).
 
--   @pxblue/react-native-themes: [NPM](https://www.npmjs.com/package/@pxblue/react-native-themes), [GitHub](https://github.com/pxblue/react-native-themes/tree/master)
+-   @brightlayer-ui/react-native-themes: [NPM](https://www.npmjs.com/package/@brightlayer-ui/react-native-themes), [GitHub](https://github.com/brightlayer-ui/react-native-themes/tree/master)
 -   [Theming Guide](https://callstack.github.io/react-native-paper/theming.html) on React Native Paper
 
 ## Color Palette
 
-All of the [PX Blue colors](/style/color) are available individually ([@pxblue/colors](https://www.npmjs.com/package/@pxblue/colors)) for use in your application. However, in most cases, you should use values from the themes to alter styles for better future-proofing.
+All of the [Brightlayer UI colors](/style/color) are available individually ([@brightlayer-ui/colors](https://www.npmjs.com/package/@brightlayer-ui/colors)) for use in your application. However, in most cases, you should use values from the themes to alter styles for better future-proofing.

@@ -232,7 +232,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                     {searchActive && ( // to allow autofocus
                         <TextField
                             className={classes.searchfield}
-                            placeholder={'Search on PX Blue...'}
+                            placeholder={'Search on Brightlayer UI...'}
                             InputProps={{ disableUnderline: true }}
                             value={inputString || ''}
                             onChange={(e): void => onChangeHandler(e.target.value)}

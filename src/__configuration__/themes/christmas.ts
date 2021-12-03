@@ -1,6 +1,6 @@
-import * as PXBThemes from '@pxblue/react-themes';
-import * as Colors from '@pxblue/colors';
-import * as BrandingColors from '@pxblue/colors-branding';
+import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import * as Colors from '@brightlayer-ui/colors';
+import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import ChristmasEve from '../../app/assets/themes/christmas/christmas-eve.png';
 import AppBarTile from '../../app/assets/themes/christmas/christmas-appbar-tile.png';
 import { Schedule } from './types';
@@ -10,11 +10,11 @@ export const ChristmasSchedule: Schedule = {
     end: new Date(0, 11, 26), // Dec 25
     config: {
         theme: {
-            ...PXBThemes.blue,
+            ...BLUIThemes.blue,
             overrides: {
-                ...PXBThemes.blue.overrides,
+                ...BLUIThemes.blue.overrides,
                 MuiAppBar: {
-                    ...PXBThemes.blue.overrides?.MuiAppBar,
+                    ...BLUIThemes.blue.overrides?.MuiAppBar,
                     root: {
                         borderBottom: `1px solid ${Colors.black[50]}`,
                     },

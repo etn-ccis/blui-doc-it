@@ -1,6 +1,6 @@
-import * as PXBThemes from '@pxblue/react-themes';
-import * as Colors from '@pxblue/colors';
-import * as BrandingColors from '@pxblue/colors-branding';
+import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import * as Colors from '@brightlayer-ui/colors';
+import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import Hanukkah from '../../app/assets/themes/hanukkah/hanukkah-banner.png';
 import dreidelCursor from '../../app/assets/themes/hanukkah/dreidel-cursor.png';
 import AppBarTile from '../../app/assets/themes/hanukkah/hanukkah-appbar-tile.png';
@@ -11,9 +11,9 @@ export const HanukkahSchedule: Schedule = {
     end: new Date(0, 11, 7), // Dec 6
     config: {
         theme: {
-            ...PXBThemes.blue,
+            ...BLUIThemes.blue,
             palette: {
-                ...PXBThemes.blue.palette,
+                ...BLUIThemes.blue.palette,
                 type: 'light',
                 primary: {
                     light: BrandingColors.blue[100],
@@ -27,9 +27,9 @@ export const HanukkahSchedule: Schedule = {
                 },
             },
             overrides: {
-                ...PXBThemes.blue.overrides,
+                ...BLUIThemes.blue.overrides,
                 MuiAppBar: {
-                    ...PXBThemes.blue.overrides?.MuiAppBar,
+                    ...BLUIThemes.blue.overrides?.MuiAppBar,
                     colorSecondary: {
                         color: Colors.white[50],
                         backgroundColor: BrandingColors.blue[500],
@@ -42,7 +42,7 @@ export const HanukkahSchedule: Schedule = {
                     },
                 },
                 MuiButton: {
-                    ...PXBThemes.blue.overrides?.MuiButton,
+                    ...BLUIThemes.blue.overrides?.MuiButton,
                     outlined: {},
                     outlinedPrimary: {},
                 },

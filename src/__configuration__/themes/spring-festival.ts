@@ -1,5 +1,5 @@
-import * as PXBThemes from '@pxblue/react-themes';
-import * as Colors from '@pxblue/colors';
+import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import * as Colors from '@brightlayer-ui/colors';
 import banner from '../../app/assets/themes/spring-festival/banner.svg';
 import cursor from '../../app/assets/themes/spring-festival/cursor.png';
 import titleBlock from '../../app/assets/themes/spring-festival/title-block.svg';
@@ -11,9 +11,9 @@ export const SpringFestivalSchedule: Schedule = {
     end: new Date(0, 1, 8), // Feb 7
     config: {
         theme: {
-            ...PXBThemes.blue,
+            ...BLUIThemes.blue,
             palette: {
-                ...PXBThemes.blue.palette,
+                ...BLUIThemes.blue.palette,
                 type: 'light',
                 primary: {
                     light: Colors.red[100],
@@ -25,9 +25,9 @@ export const SpringFestivalSchedule: Schedule = {
                 },
             },
             overrides: {
-                ...PXBThemes.blue.overrides,
+                ...BLUIThemes.blue.overrides,
                 MuiAppBar: {
-                    ...PXBThemes.blue.overrides?.MuiAppBar,
+                    ...BLUIThemes.blue.overrides?.MuiAppBar,
                     colorPrimary: {
                         backgroundColor: Colors.red[900],
                         color: Colors.white[50],
@@ -44,7 +44,7 @@ export const SpringFestivalSchedule: Schedule = {
                     },
                 },
                 MuiButton: {
-                    ...PXBThemes.blue.overrides?.MuiButton,
+                    ...BLUIThemes.blue.overrides?.MuiButton,
                     outlined: {},
                     outlinedPrimary: {},
                 },

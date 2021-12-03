@@ -2,10 +2,10 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import debounce from 'lodash/debounce';
 import FlexSearch from 'flexsearch';
 
-// PX Blue Icons and Symbols
+// Brightlayer UI Icons and Symbols
 import * as MuiIcons from '@material-ui/icons';
-import * as PXBIcons from '@pxblue/icons-mui';
-import pxbMetadata from '@pxblue/icons-mui/index.json';
+import * as BLUIIcons from '@brightlayer-ui/icons-mui';
+import bluiMetadata from '@brightlayer-ui/icons-mui/index.json';
 
 // Types
 import { DetailedIcon, IconType } from '../../../__types__';
@@ -22,7 +22,7 @@ import { Skeleton } from '@material-ui/lab';
 import { titleCase } from '../../shared';
 import { useDispatch } from 'react-redux';
 import { TOGGLE_SIDEBAR } from '../../redux/actions';
-import { EmptyState } from '@pxblue/react-components';
+import { EmptyState } from '@brightlayer-ui/react-components';
 
 type MaterialMeta = {
     icons: DetailedIcon[];
@@ -53,10 +53,10 @@ const matMetaObject: { [key: string]: DetailedIcon } = {};
 for (const ico of materialMetadata.icons) {
     matMetaObject[getMuiIconName(ico.name)] = ico;
 }
-const pxbMetaObject: { [key: string]: DetailedIcon } = {};
-for (const ico of pxbMetadata.icons) {
+const bluiMetaObject: { [key: string]: DetailedIcon } = {};
+for (const ico of bluiMetadata.icons) {
     // @ts-ignore (our icon meta doesn't exactly match the material meta, but we never reference the missing props so it's ok)
-    pxbMetaObject[getMuiIconName(ico.filename)] = ico;
+    bluiMetaObject[getMuiIconName(ico.filename)] = ico;
 }
 
 const loadIcons = (): void => {
@@ -129,9 +129,9 @@ const loadIcons = (): void => {
         return icon;
     });
 
-    Object.keys(PXBIcons).map((iconKey) => {
+    Object.keys(BLUIIcons).map((iconKey) => {
         let searchableString = iconKey;
-        const iconDetails: DetailedIcon | undefined = pxbMetaObject[iconKey] || {
+        const iconDetails: DetailedIcon | undefined = bluiMetaObject[iconKey] || {
             name: '',
             filename: '',
             family: [],
@@ -146,7 +146,7 @@ const loadIcons = (): void => {
         // add the name and tags to the search index
         searchableString += iconDetails.tags.join(' ');
         // @ts-ignore
-        searchIndex.add(`${iconKey}-pxb`, searchableString);
+        searchIndex.add(`${iconKey}-blui`, searchableString);
 
         const icon: IconType = {
             name: iconKey,
@@ -156,11 +156,11 @@ const loadIcons = (): void => {
             tags: iconDetails.tags || [],
             categories: iconDetails.family || [],
             // @ts-ignore
-            Icon: PXBIcons[iconKey],
+            Icon: BLUIIcons[iconKey],
         };
 
         // add the icon details to the allIcons map
-        allIconsMap[`${iconKey}-pxb`] = icon;
+        allIconsMap[`${iconKey}-blui`] = icon;
 
         // add the icon details to the categorized icon list
         for (let cat of iconDetails.family) {
@@ -217,12 +217,12 @@ export const IconBrowser: React.FC = (): JSX.Element => {
         setIconsLoading(false);
         // If loading from a query param, load the icon if it exists in the icon map.
         if (iconQuery) {
-            if (isMaterial !== undefined && allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'pxb'}`]) {
+            if (isMaterial !== undefined && allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'blui'}`]) {
                 dispatch({ type: TOGGLE_SIDEBAR, payload: true });
-                setSelectedIcon(allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'pxb'}`]);
+                setSelectedIcon(allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'blui'}`]);
             } else if (isMaterial === undefined) {
                 let newSelectedIcon;
-                if ((newSelectedIcon = allIconsMap[`${iconQuery}-material`] || allIconsMap[`${iconQuery}-pxb`])) {
+                if ((newSelectedIcon = allIconsMap[`${iconQuery}-material`] || allIconsMap[`${iconQuery}-blui`])) {
                     dispatch({ type: TOGGLE_SIDEBAR, payload: true });
                     setSelectedIcon(newSelectedIcon);
                 }
@@ -284,7 +284,8 @@ export const IconBrowser: React.FC = (): JSX.Element => {
         for (const category of Object.keys(allIconsByCategory)) {
             filteredCategories[category] = allIconsByCategory[category].filter(
                 (icon) =>
-                    iconKeys.includes(`${icon.name}-${icon.isMaterial ? 'material' : 'pxb'}`) && icon.type === iconClass
+                    iconKeys.includes(`${icon.name}-${icon.isMaterial ? 'material' : 'blui'}`) &&
+                    icon.type === iconClass
             );
         }
         return filteredCategories;

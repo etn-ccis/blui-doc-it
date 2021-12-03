@@ -1,5 +1,5 @@
-import * as PXBThemes from '@pxblue/react-themes';
-import * as Colors from '@pxblue/colors';
+import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import * as Colors from '@brightlayer-ui/colors';
 import NewYears from '../../app/assets/themes/new-years/new-years-banner.png';
 import fireworkCursor from '../../app/assets/themes/new-years/firework-rocket-cursor.png';
 import AppBarTile from '../../app/assets/themes/new-years/new-years-appbar-tile.png';
@@ -10,9 +10,9 @@ export const NewYearsSchedule: Schedule = {
     end: new Date(1, 0, 7), // Jan 6 (Next Year)
     config: {
         theme: {
-            ...PXBThemes.blueDark,
+            ...BLUIThemes.blueDark,
             palette: {
-                ...PXBThemes.blueDark.palette,
+                ...BLUIThemes.blueDark.palette,
                 type: 'dark',
                 primary: {
                     light: Colors.yellow[300],
@@ -35,7 +35,7 @@ export const NewYearsSchedule: Schedule = {
                 },
             },
             overrides: {
-                ...PXBThemes.blueDark.overrides,
+                ...BLUIThemes.blueDark.overrides,
                 MuiAppBar: {
                     colorDefault: {
                         color: Colors.black[50],
@@ -56,7 +56,7 @@ export const NewYearsSchedule: Schedule = {
                     },
                 },
                 MuiButton: {
-                    ...PXBThemes.blueDark.overrides?.MuiButton,
+                    ...BLUIThemes.blueDark.overrides?.MuiButton,
                     outlined: {},
                     outlinedPrimary: {},
                 },

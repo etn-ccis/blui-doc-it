@@ -1,7 +1,7 @@
 import React, { ComponentProps } from 'react';
 import { IconButton, Badge, makeStyles, createStyles, Theme, Typography } from '@material-ui/core';
 import clsx from 'clsx';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { Code } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) =>

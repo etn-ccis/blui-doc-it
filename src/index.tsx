@@ -11,10 +11,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { getScheduledSiteConfig } from './__configuration__/themes';
-import '@pxblue/react-themes/open-sans';
+import '@brightlayer-ui/react-themes/open-sans';
 import '@fontsource/roboto-mono/400.css';
 import '@fontsource/roboto-mono/600.css';
 import '@fontsource/roboto-mono/700.css';
@@ -34,7 +34,7 @@ import 'placeholder-loading/src/scss/placeholder-loading.scss';
 const store = createStore(Reducer());
 
 ReactDOM.render(
-    <MuiThemeProvider theme={createMuiTheme(getScheduledSiteConfig().theme)}>
+    <MuiThemeProvider theme={createTheme(getScheduledSiteConfig().theme)}>
         <CssBaseline />
         <Provider store={store}>
             <MDXProvider components={componentsMap}>

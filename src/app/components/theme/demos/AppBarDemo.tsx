@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppBar, Avatar, Tabs, Tab, IconButton, Badge } from '@material-ui/core';
-import { DropdownToolbar, Spacer } from '@pxblue/react-components';
+import { DropdownToolbar, Spacer } from '@brightlayer-ui/react-components';
 import { Menu, Notifications, Search } from '@material-ui/icons';
 
 /*
@@ -23,7 +23,9 @@ export const AppBarDemo: JSX.Element = (
                 title={'Primary'}
                 subtitle={'This is the App Bar pinned to the top'}
                 navigationIcon={<Menu />}
-                menuGroups={[{ items: [{ title: 'PX Blue' }, { title: 'PX Rainbow' }, { title: 'PX Unicorn' }] }]}
+                menuGroups={[
+                    { items: [{ title: 'Brightlayer UI' }, { title: 'PX Rainbow' }, { title: 'PX Unicorn' }] },
+                ]}
             >
                 <Spacer />
                 <IconButton color={'inherit'}>
