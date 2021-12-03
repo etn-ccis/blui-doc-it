@@ -11,6 +11,8 @@ import TableCellTextField from '../../app/assets/design-patterns/tables/table-ce
 import TableCellSwitch from '../../app/assets/design-patterns/tables/table-cell-switch.png';
 import TableCellStatus from '../../app/assets/design-patterns/tables/table-cell-status.png';
 import TableCellIcon from '../../app/assets/design-patterns/tables/table-cell-icon.png';
+import TableCellMultiSelect from '../../app/assets/design-patterns/tables/table-cell-multi-select.png';
+import TableCellStripe from '../../app/assets/design-patterns/tables/table-cell-stripe.png';
 import TableCellUnderlinedField from '../../app/assets/design-patterns/tables/table-cell-underlined-field.png';
 import TableCellImage from '../../app/assets/design-patterns/tables/table-cell-image.png';
 import ActionOnHover from '../../app/assets/design-patterns/tables/action-on-hover.png';
@@ -55,6 +57,9 @@ import TableOnMobile from '../../app/assets/design-patterns/tables/table-on-mobi
 import HomePagePreview from '../../app/assets/design-patterns/tables/home-page-preview.gif';
 import TableStackedAsList from '../../app/assets/design-patterns/tables/table-stacked-as-list.gif';
 import MobilePagination from '../../app/assets/design-patterns/tables/mobile-pagination.png';
+import LandscapeTable from '../../app/assets/design-patterns/tables/landscape-table.gif';
+import InviteToLandscapeX from '../../app/assets/design-patterns/tables/invite-to-landscape-x.png';
+import InviteToLandscapeCountdown from '../../app/assets/design-patterns/tables/invite-to-landscape-countdown.gif';
 
 <!-- Specs -->
 
@@ -101,14 +106,25 @@ Similar to [lists](patterns/lists), tables are used to display structured data. 
 Table cells may be dynamic and interactive.
 
 <ImageGrid
-    images={[TableCellText, TableCellNumber, TableCellTextField, TableCellSwitch, TableCellStatus, TableCellIcon]}
+    images={[
+        TableCellText,
+        TableCellNumber,
+        TableCellTextField,
+        TableCellSwitch,
+        TableCellStatus,
+        TableCellIcon,
+        TableCellMultiSelect,
+        TableCellStripe,
+    ]}
     captionsUnderImages={[
-        'Text content.',
+        'Text content. The alternating background color is optional.',
         'Numerical value. Note that both the header and the text cells are right-aligned.',
         'Text fields. Note that text fields are right-aligned as they are expecting numerical values. These rows are also taller than standard table rows.',
         'Switches and checkboxes.',
         'Icons and tags.',
         'Icon buttons at the end of the table row for touch screens.',
+        `Checkboxes to select rows.`,
+        `Status stripes for row items with special statuses.`,
     ]}
     gridImageProps={{ sm: 6, md: 4 }}
 />
@@ -324,7 +340,7 @@ In general, **we do not encourage tables on mobile platforms**, as table-related
 
 Before you design a table structure for a mobile application, you should conduct user researches and have a clear understanding of users' intentions. When they land on this page, Do they desire to do complicated cross-comparison between multiple rows and columns? Is a full table necessary?
 
-For industrial applications, in many situations your users would be using a mobile app when they are out in the field. They are paying more attention to their surroundings, so keep the mobile app interaction minimal.
+For industrial applications, your users would often be using a mobile app when they are out in the field. They are paying more attention to their surroundings, so keep the mobile app interaction minimal.
 
 ## Breaking Down Tables into Lists
 
@@ -359,6 +375,19 @@ In native mobile applications, you may also consider embedding action gestures c
 <MaterialDesignDescription title={'Gestures'} url={`https://material.io/design/interaction/gestures.html`} />
 
 However, these gestures should never be the only way to perform an action. For example, if your application is able to delete a table row, users may be able to either (1) left-swipe to bring up a contextual menu with a delete option, or (2) click into the target row, which opens a new page that contains a delete button.
+
+## Landscape Mode
+
+If a full table view is desired on mobile devices, consider offering a landscape view so that more columns would be visible at once.
+
+<ImageGrid images={[LandscapeTable]} caption={`Use the landscape mode for viewing the full table.`} regularWidth />
+
+However, most applications are meant to be used mainly on portrait mode. In this case, you need to call out the option.
+
+<ImageGrid
+    images={[InviteToLandscapeX, InviteToLandscapeCountdown]}
+    caption={`For example, you can use a chip button to "invite" users to the landscape view.`}
+/>
 
 <Divider />
 
