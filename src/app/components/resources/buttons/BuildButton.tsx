@@ -2,7 +2,7 @@ import React, { ComponentProps, useState, useEffect } from 'react';
 import { IconButton, makeStyles, createStyles, Theme } from '@material-ui/core';
 // import axios from 'axios';
 import { getBuildStatus } from '../../../api';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { CheckCircle, Cancel, RemoveCircle } from '@material-ui/icons';
 
 type FontSize = 'default' | 'small' | 'inherit' | 'large' | undefined;

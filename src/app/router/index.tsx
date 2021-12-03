@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { LandingPage } from '../pages';
-import { DrawerLayout, Spacer } from '@pxblue/react-components';
+import { DrawerLayout, Spacer } from '@brightlayer-ui/react-components';
 import { ContactFab, SharedToolbar } from '../components';
 import { NavigationDrawer } from './navigationDrawer';
 import { AppState } from '../redux/reducers';
@@ -21,7 +21,7 @@ import {
     useMediaQuery,
     useTheme,
 } from '@material-ui/core';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { HIDE_BANNER } from '../redux/actions';
 
 const buildRoutes = (routes: SimpleNavItem[], url: string): JSX.Element[] => {

@@ -1,5 +1,5 @@
-import { blueDark } from '@pxblue/react-themes';
-import * as Colors from '@pxblue/colors';
+import { blueDark } from '@brightlayer-ui/react-themes';
+import * as Colors from '@brightlayer-ui/colors';
 import { ThemeOptions } from '@material-ui/core';
 
 import castles from '../../app/assets/themes/halloween/castles.svg';

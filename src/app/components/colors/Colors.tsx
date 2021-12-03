@@ -1,11 +1,11 @@
 import React, { ComponentProps, useCallback, useState } from 'react';
 import { Typography, makeStyles, createStyles, Theme } from '@material-ui/core';
 import { Bookmark, Check } from '@material-ui/icons';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { AppState } from '../../redux/reducers';
 import { copyTextToClipboard } from '../../shared';
 import { useSelector } from 'react-redux';
-import { PXBlueColor } from '@pxblue/types';
+import { BLUIColor } from '@brightlayer-ui/types';
 import colorModule from 'color';
 
 const getColorLabel = (color: string, format: 'rgb' | 'hex'): JSX.Element | null => {
@@ -137,13 +137,13 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
 };
 
 type PaletteProps = {
-    palette: PXBlueColor;
+    palette: BLUIColor;
 };
 export const ColorPalette: React.FC<PaletteProps> = (props): JSX.Element => {
     const classes = useStyles();
     return (
         <div className={classes.paletteWrapper}>
-            {(Object.keys(props.palette) as Array<keyof PXBlueColor>)
+            {(Object.keys(props.palette) as Array<keyof BLUIColor>)
                 .filter((key) => parseInt(key as string, 10))
                 .map((key) => (
                     <ColorSwatch

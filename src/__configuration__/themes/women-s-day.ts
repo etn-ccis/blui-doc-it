@@ -1,5 +1,5 @@
-import * as PXBThemes from '@pxblue/react-themes';
-import * as Colors from '@pxblue/colors';
+import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import * as Colors from '@brightlayer-ui/colors';
 import Banner from '../../app/assets/themes/women-s-day/international-women-s-day-banner.svg';
 import AppBarTile from '../../app/assets/themes/women-s-day/international-women-s-day-appbar-tile.svg';
 import Cursor from '../../app/assets/themes/women-s-day/women-s-day-cursor.png';
@@ -15,9 +15,9 @@ export const WomenSDaySchedule: Schedule = {
     end: new Date(0, 2, 10), // Mar 9
     config: {
         theme: {
-            ...PXBThemes.blue,
+            ...BLUIThemes.blue,
             palette: {
-                ...PXBThemes.blue.palette,
+                ...BLUIThemes.blue.palette,
                 primary: {
                     light: LIGHT_COLOR,
                     main: MAIN_COLOR,
@@ -28,9 +28,9 @@ export const WomenSDaySchedule: Schedule = {
                 },
             },
             overrides: {
-                ...PXBThemes.blue.overrides,
+                ...BLUIThemes.blue.overrides,
                 MuiAppBar: {
-                    ...PXBThemes.blue.overrides?.MuiAppBar,
+                    ...BLUIThemes.blue.overrides?.MuiAppBar,
                     colorDefault: {
                         backgroundColor: MAIN_COLOR,
                     },
@@ -46,7 +46,7 @@ export const WomenSDaySchedule: Schedule = {
                     },
                 },
                 MuiButton: {
-                    ...PXBThemes.blue.overrides?.MuiButton,
+                    ...BLUIThemes.blue.overrides?.MuiButton,
                     outlined: {},
                     outlinedPrimary: {},
                 },
