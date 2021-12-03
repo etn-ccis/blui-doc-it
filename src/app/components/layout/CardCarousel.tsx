@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { IconButton, Typography, makeStyles, createStyles, useMediaQuery, Theme } from '@material-ui/core';
 import Carousel from '@brainhubeu/react-carousel';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
 import '@brainhubeu/react-carousel/lib/style.css';

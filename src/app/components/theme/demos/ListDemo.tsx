@@ -1,9 +1,9 @@
 import React from 'react';
 import { Badge, IconButton, List } from '@material-ui/core';
 import { AddBox, Assignment, Delete, DeviceHub, NotificationsActive } from '@material-ui/icons';
-import { InfoListItem, ListItemTag } from '@pxblue/react-components';
-import { GradeA } from '@pxblue/icons-mui';
-import * as Colors from '@pxblue/colors';
+import { InfoListItem, ListItemTag } from '@brightlayer-ui/react-components';
+import { GradeA } from '@brightlayer-ui/icons-mui';
+import * as Colors from '@brightlayer-ui/colors';
 
 export const ListDemo: JSX.Element = (
     <List style={{ width: '100%' }}>

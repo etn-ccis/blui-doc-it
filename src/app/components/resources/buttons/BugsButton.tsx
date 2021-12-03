@@ -2,7 +2,7 @@ import React, { ComponentProps, useState, useEffect } from 'react';
 import { IconButton, Badge, makeStyles, createStyles, Theme, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 import { getBugCount } from '../../../api';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { BugReport } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) =>

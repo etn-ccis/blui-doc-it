@@ -1,10 +1,10 @@
 {
-    "title": "Power Xpert Blue | Powering Teams to Make What Matters*",
+    "title": "Brightlayer UI | Powering Teams to Make What Matters*",
     "url": "",
     "hasLandingPage": true,
     "pages": [
         {
-            "title": "What is PX Blue?",
+            "title": "What is Brightlayer UI?",
             "url": "/overview"
         },
         {
@@ -26,7 +26,7 @@
             ]
         },
         {
-            "title": "Developing w/ PX Blue",
+            "title": "Developing w/ Brightlayer UI",
             "url": "/development",
             "pages": [
                 {
@@ -34,7 +34,7 @@
                     "url": "/environment"
                 },
                 {
-                    "title": "PX Blue CLI",
+                    "title": "Brightlayer UI CLI",
                     "url": "/cli"
                 },
                 {
@@ -85,7 +85,7 @@
             ]
         },
         {
-            "title": "Designing w/ PX Blue",
+            "title": "Designing w/ Brightlayer UI",
             "url": "/design",
             "pages": [
                 {

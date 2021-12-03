@@ -1,8 +1,8 @@
 import React from 'react';
 import { IconButton, makeStyles, createStyles, Theme } from '@material-ui/core';
 import { GitHub } from '../../assets/icons/github';
-import { Spacer } from '@pxblue/react-components';
-import * as Colors from '@pxblue/colors';
+import { Spacer } from '@brightlayer-ui/react-components';
+import * as Colors from '@brightlayer-ui/colors';
 import { DemoButton, BugsButton, BuildButton } from './buttons';
 import clsx from 'clsx';
 
@@ -43,9 +43,9 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
         : undefined;
 
     const bugString = (bugLabels ? [...bugLabels, 'bug'] : ['bug']).map((label) => `+label%3A${label}`).join('');
-    const bugLink = `https://github.com/pxblue/${repository}/issues?q=is%3Aissue+is%3Aopen${bugString}`;
-    const buildLink = `https://circleci.com/gh/pxblue/${repository}${branch ? `/tree/${branch}` : ''}`;
-    const repoLink = `https://github.com/pxblue/${repository}${branch ? `/tree/${branch}` : ''}`;
+    const bugLink = `https://github.com/brightlayer-ui/${repository}/issues?q=is%3Aissue+is%3Aopen${bugString}`;
+    const buildLink = `https://circleci.com/gh/brightlayer-ui/${repository}${branch ? `/tree/${branch}` : ''}`;
+    const repoLink = `https://github.com/brightlayer-ui/${repository}${branch ? `/tree/${branch}` : ''}`;
 
     return (
         <>

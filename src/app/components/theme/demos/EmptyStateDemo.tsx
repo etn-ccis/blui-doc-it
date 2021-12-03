@@ -1,5 +1,5 @@
 import React from 'react';
-import { EmptyState } from '@pxblue/react-components';
+import { EmptyState } from '@brightlayer-ui/react-components';
 import { Button } from '@material-ui/core';
 import { HelpOutline, Add } from '@material-ui/icons';
 

@@ -19,9 +19,9 @@ export type RedirectItem = {
 // Change scripts/crawl/sitemap.json after you make changes here.
 export const pageDefinitions: SimpleNavItem[] = [
     {
-        title: 'What is PX Blue?',
+        title: 'What is Brightlayer UI?',
         url: '/overview',
-        component: <MarkdownPage title={'What is PX Blue?'} markdown={Docs.Overview} />,
+        component: <MarkdownPage title={'What is Brightlayer UI?'} markdown={Docs.Overview} />,
     },
     {
         title: 'Starting a Project',
@@ -45,7 +45,7 @@ export const pageDefinitions: SimpleNavItem[] = [
         ],
     },
     {
-        title: 'Developing w/ PX Blue',
+        title: 'Developing w/ Brightlayer UI',
         url: '/development',
         pages: [
             {
@@ -56,9 +56,9 @@ export const pageDefinitions: SimpleNavItem[] = [
                 ),
             },
             {
-                title: 'PX Blue CLI',
+                title: 'Brightlayer UI CLI',
                 url: '/cli',
-                component: <MarkdownPage title={'PX Blue CLI'} markdown={Docs.Development.CLI} />,
+                component: <MarkdownPage title={'Brightlayer UI CLI'} markdown={Docs.Development.CLI} />,
             },
             {
                 title: 'Web Frameworks',
@@ -142,7 +142,7 @@ export const pageDefinitions: SimpleNavItem[] = [
         ],
     },
     {
-        title: 'Designing w/ PX Blue',
+        title: 'Designing w/ Brightlayer UI',
         url: '/design',
         pages: [
             {
@@ -301,7 +301,7 @@ export const pageDefinitions: SimpleNavItem[] = [
     {
         title: 'Community',
         url: '/community',
-        component: <MarkdownPage title={'PX Blue Community'} markdown={Docs.Community.Home} />,
+        component: <MarkdownPage title={'Brightlayer UI Community'} markdown={Docs.Community.Home} />,
         pages: [
             {
                 title: 'Licensing',
