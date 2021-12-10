@@ -248,7 +248,7 @@ Drag and drop is a special case for list sorting. It re-orders the items in a li
 ## Actions on Selected Items
 
 <React.Fragment>
-    <ImageGrid images={[MultiSelectImage]} regularWidth />
+    <ImageGrid images={[MultiSelectImage]} regularWidth caption={`A multi-select list on a mobile device.`} />
     <DemoCard
         repository={'multiselect-list'}
         angular={`https://stackblitz.com/github/pxblue/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Fmultiselect-list%2Fmultiselect-list.component.ts`}
@@ -278,6 +278,8 @@ You may want to take action on several list items at once, but not all. The easi
 If there are actions that you need to perform on individual list items, you may add icon buttons or an action menu. If you have three or fewer actions, they can be represented by individual icon buttons. If there are more than three, you should move them into an action menu.
 
 > If your entire list item is clickable, you should not include local list actions, as the two interactions can interfere with one another.
+
+### Actions on Hover
 
 On desktop applications, you may use hover events to display applicable list actions. Hover list actions can save space, leaving more room for displaying static information.
 
