@@ -36,6 +36,7 @@ import AdditionAnimation from '../../app/assets/design-patterns/tables/addition-
 import SubstractionAnimation from '../../app/assets/design-patterns/tables/substraction-animation.gif';
 import ExpandedRow from '../../app/assets/design-patterns/tables/expanded-row.gif';
 import ExpandedRowTooComplicated from '../../app/assets/design-patterns/tables/expanded-row-too-complicated.png';
+import ExpandedRowActions from '../../app/assets/design-patterns/tables/expanded-row-actions.png';
 
 <!-- Tables vs. Lists -->
 
@@ -148,7 +149,7 @@ Similar to lists, tables also have row actions. Common row actions include edit,
     images={[ActionAtRowEnd, ActionOnHover]}
     captionsUnderImages={[
         `Row actions can be placed at the end of the row.`,
-        `On desktop, you can choose to have row actions visible only when the mouse is hovering on the row. The buttons won't compete for rooms with the rest of the table.`,
+        `DO: On desktop, you can choose to have row actions visible only when the mouse is hovering on the row. The buttons won't compete for rooms with the rest of the table.`,
     ]}
 />
 
@@ -193,7 +194,7 @@ When a table gets long, your users should not need to scroll back to the top to 
 
 ## Expanded Row
 
-Sometimes you need to show
+Occasionally, table rows may expand to allow users _take a quick peek_ into small row details.
 
 <ImageGrid
     images={[ExpandedRow]}
@@ -202,11 +203,11 @@ Sometimes you need to show
 />
 
 <ImageGrid
-    images={[ExpandedRowTooComplicated]}
+    images={[ExpandedRowTooComplicated, ExpandedRowActions]}
     captionsUnderImages={[
-        `DONT: Do not put too many complicated contents in an expanded row, as this will break the efficiency of a table. In this case, you should design a dedicated page for the content.`,
+        `DONT: Do not include complicated contents in an expanded row, as this will break the efficiency of a table. In this case, you should design a dedicated page for the content.`,
+        `DONT: Do not surprise your users by hiding high priority actions in the expanded row space.`,
     ]}
-    gridContainerProps={{ style: { justifyContent: 'flex-start' } }}
 />
 
 ## Horizontal Scrolling
