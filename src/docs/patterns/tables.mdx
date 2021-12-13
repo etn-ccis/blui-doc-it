@@ -34,6 +34,8 @@ import Drag1 from '../../app/assets/design-patterns/tables/drag-1.png';
 import Drag2 from '../../app/assets/design-patterns/tables/drag-2.png';
 import AdditionAnimation from '../../app/assets/design-patterns/tables/addition-animation.gif';
 import SubstractionAnimation from '../../app/assets/design-patterns/tables/substraction-animation.gif';
+import ExpandedRow from '../../app/assets/design-patterns/tables/expanded-row.gif';
+import ExpandedRowTooComplicated from '../../app/assets/design-patterns/tables/expanded-row-too-complicated.png';
 
 <!-- Tables vs. Lists -->
 
@@ -83,6 +85,7 @@ Similar to [lists](patterns/lists), tables are used to display structured data. 
             { title: 'Row Actions', depth: 1 },
             { title: 'Batch Actions', depth: 1 },
             { title: 'Sticky Header Row', depth: 1 },
+            { title: 'Expanded Row', depth: 1 },
             { title: 'Horizontal Scrolling', depth: 1 },
             { title: 'Searching and Filtering', depth: 1 },
             { title: 'Transition Animation', depth: 1 },
@@ -132,8 +135,8 @@ You should seek to make your tables both easy to navigate and effective to use.
 <ImageGrid
     images={[TableCellUnderlinedField, TableCellImage]}
     captionsUnderImages={[
-        'Be careful when using underlined text fields in a table, as their understrokes compete with the line strokes between each table row.',
-        `Images can heighten table rows. Consider using a list instead.`,
+        'CAUTION: Be careful when using underlined text fields in a table, as their understrokes compete with the line strokes between each table row.',
+        `AVOID: Images can heighten table rows. Consider using a list instead.`,
     ]}
 />
 
@@ -186,6 +189,24 @@ When a table gets long, your users should not need to scroll back to the top to 
     images={[StickyHeader]}
     caption={[`Use sticky headers to help your users navigate through the table.`]}
     regularWidth
+/>
+
+## Expanded Row
+
+Sometimes you need to show
+
+<ImageGrid
+    images={[ExpandedRow]}
+    caption={[`Use sticky headers to help your users navigate through the table.`]}
+    regularWidth
+/>
+
+<ImageGrid
+    images={[ExpandedRowTooComplicated]}
+    captionsUnderImages={[
+        `DONT: Do not put too many complicated contents in an expanded row, as this will break the efficiency of a table. In this case, you should design a dedicated page for the content.`,
+    ]}
+    gridContainerProps={{ style: { justifyContent: 'flex-start' } }}
 />
 
 ## Horizontal Scrolling
@@ -270,8 +291,8 @@ Because of this, tables tend to take up a lot of horizontal space, therefore the
 <ImageGrid
     images={[DashboardTable, PageBodyTable]}
     captionsUnderImages={[
-        'Avoid using tables in dashboards. Use lists instead.',
-        'Tables are usually the only main content on a page.',
+        'AVOID: Avoid using tables in dashboards. Use lists instead.',
+        'DO: Tables are usually the only main content on a page.',
     ]}
 />
 
@@ -279,7 +300,9 @@ A "tabular list" or a structured list that attempts to combine tables and lists 
 
 <ImageGrid
     images={[TabularList]}
-    captionsUnderImages={['Be careful when combining tables and lists together, as this diminishes the value of both.']}
+    captionsUnderImages={[
+        'CAUTION: Be careful when combining tables and lists together, as this diminishes the value of both.',
+    ]}
     gridContainerProps={{ style: { justifyContent: 'flex-start' } }}
 />
 
@@ -303,6 +326,7 @@ If you expect your users to compare across multiple parameters before they can d
     caption={[
         `Users are more likely to find a user by their name or their role, not by their email address or phone number. Therefore, you should arrange the name and the role columns to the left, followed by phone number and email (#1). Email addresses and phone numbers should not show up before the role column (#2).`,
     ]}
+    captionsUnderImages={['', 'DONT:']}
 />
 
 ## Property Name
