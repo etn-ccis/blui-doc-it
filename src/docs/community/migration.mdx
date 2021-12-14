@@ -2,22 +2,83 @@ import { Divider } from '../../app/components';
 
 <!-- KEYWORDS: developer develop environment guide tutorial -->
 
-# Package Migration Notice
+# Package Migration Instructions
+
+This guide will walk you through the process of migrating your project from the old `@pxblue`-scoped packages to the new `@brightlayer-ui`-scoped packages. We have maintained the version numbers when migrating, so in most cases you will simply need to change the package name and update the import statements throughout your application. For most packages, we have migrated the latest two major versions. If you are using an older version, you will need to upgrade before changing to the packages in the new scope.
 
 ## @brightlayer-ui/angular-auth-workflow
 
--   `<pxb->` preface changed to `<blui->`.
--   Change Auth Module from `PxbAuthModule` to `BluiAuthModule`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change all `<pxb->` component prefixes to `<blui->`.
+-   Peer dependencies have changed to brightlayer-ui scoped packages.
+-   For e.g. follow the code snippet to use Auth Module in your angular application.
+
+    ```sh
+      // package.json
+
+      @pxblue/angular-auth-workflow => @brightlayer-ui/angular-auth-workflow
+    ```
+
+    To install the latest version of all of these peer dependencies, run the following command in your project root:
+
+    ```
+      npm install @brightlayer-ui/colors @brightlayer-ui/angular-components @angular/cdk @angular/material
+      // or
+      yarn add @brightlayer-ui/colors @brightlayer-ui/angular-components @angular/cdk @angular/material
+    ```
+
+    Add Module
+
+    ```
+    // app.module.ts
+
+    import { BluiAuthModule } from '@brightlayer-ui/angular-auth-workflow';
+    imports: [
+        BluiAuthModule
+    ]
+
+    // Angular component
+    <blui-auth [loginRef]="loginPage"></blui-auth>
+    ```
 
 ## @brightlayer-ui/angular-components
 
--   `<pxb->` preface changed to `<blui->`
--   For e.g. App Bar component name change from `<pxb-app-bar>` to `<blui-app-bar>`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change all `<pxb->` component prefixes to `<blui->`.
+-   Peer dependencies have changed to brightlayer-ui scoped packages.
+-   For e.g. follow the code snippet to use App Bar in your angular application.
+
+    ```sh
+      // package.json
+
+      @pxblue/angular-components => @brightlayer-ui/angular-components
+    ```
+
+    To install the latest version of all of these peer dependencies, run the following command in your project root:
+
+    ```
+      npm install @brightlayer-ui/colors @brightlayer-ui/angular-components @angular/cdk @angular/material
+      // or
+      yarn add @brightlayer-ui/colors @brightlayer-ui/angular-components @angular/cdk @angular/material
+    ```
+
+    Add Module
+
+    ```
+    // app.module.ts
+    import { AppBarModule } from '@brightlayer-ui/angular-components';
+    ...
+    imports: [ AppBarModule ]
+    ...
+
+    // Angular component
+    <blui-app-bar variant="snap"></blui-app-bar>
+    ```
 
 ## @brightlayer-ui/angular-template-authentication
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
--   You can use these templates with the Brightlayer UI CLI:
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+-   You can use these templates only with **brighlayer-ui** scoped version of the CLI:
 
 -   ```sh
       npx -p @brightlayer-ui/cli blui new angular --template=authentication
@@ -25,17 +86,17 @@ import { Divider } from '../../app/components';
 
 ## @brightlayer-ui/angular-template-blank
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
--   You can use Blank Template with the Brightlayer UI CLI with following command:
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+-   You can use these templates only with **brighlayer-ui** scoped version of the CLI:
 
 -   ```sh
-      npx -p @brightlayer-ui/cli blui new angular --template=blank
+    npx -p @brightlayer-ui/cli blui new angular --template=blank
     ```
 
 ## @brightlayer-ui/angular-template-routing
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
--   You can use Routing Template with the Brightlayer UI CLI with following command:
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+-   You can use these templates only with **brighlayer-ui** scoped version of the CLI:
 
 -   ```sh
       npx -p @brightlayer-ui/cli blui new angular --template=routing
@@ -43,123 +104,377 @@ import { Divider } from '../../app/components';
 
 ## @brightlayer-ui/angular-themes
 
--   `<pxb->` preface changed to `<blui->`.
--   Change Theme import from `@pxblue/angular-themes/theme.scss` to `@brightlayer-ui/angular-themes/theme.scss`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Code snippet for using theme in your angular application.
+
+    ```js
+    // Angular.json file "styles" entries (there is one under "build" and one under "test") to include the Brightlayer UI themes and Open Sans reference:
+
+    "styles": [
+        "src/styles.scss",
+        "./node_modules/@brightlayer-ui/angular-themes/theme.scss",
+        "./node_modules/@brightlayer-ui/angular-themes/open-sans.scss"
+    ],
+    ```
+
+    Alternatively, you can also import the theme file in your top-level SCSS file.
+
+    ```scss
+    // in styles.scss or your top-level scss file
+
+    import '~@brightlayer-ui/angular-themes/theme.scss'
+    import '~@brightlayer-ui/angular-themes/open-sans.scss'
+    ```
+
+    Change `pxb-` class name prefixes to `blui-` of your application's body element:
+
+    ```HTML
+    // Default Theme
+    <body class="pxb-blue"> => <body class="blui-blue">
+
+    // Dark Theme
+    <body class="pxb-blue-dark"> => <body class="blui-blue-dark">
+    ```
 
 ## @brightlayer-ui/chartjs
 
--   `pxb` preface changed to `blui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Follow the code snippet for adding chart in your application.
+
+    ```sh
+      // package.json
+
+      @pxblue/chartjs => @brightlayer-ui/chartjs
+    ```
+
+    To use this library, specify in your HTML where you want your graph to be rendered:
+
+    ```
+    <canvas id="graphId"></canvas>
+    ```
+
+    Import the chart generator functions from the package:
+
+    ```
+    import {
+        drawGraph,
+        createLineChartConfig,
+        createPieChartConfig,
+        createBarChartConfig,
+        createDonutChartConfig
+    } from '@brightlayer-ui/chartjs';
+    ```
+
+    and then use these functions to create Brightlayer UI themed chart configurations.
+
+    ```
+    // Component with default sample data to render a chart
+    import { createLineChartConfig, drawChart } from '@brightlayer-ui/chartjs'
+    ...
+    const lineChartConfig = createLineChartConfig();
+    drawChart(lineChartConfig, 'graphId');
+    ```
+
+    This will use default sample data to render a chart in your application.
 
 ## @brightlayer-ui/colors
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
-    Change Color import from `PXBlueColor` to `BLUIColor`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Follow the code snippet to update your angular application for using `@brightlayer-ui/colors` package
+
+    ```sh
+      // package.json
+
+      @pxblue/colors => @brightlayer-ui/colors
+    ```
+
+    ```
+      // Angular or Ionic
+
+      // in styles.scss or your top-level sass file
+      @import '~@brightlayer-ui/colors/palette.scss'
+      ...
+      // Change all `$pxb-` color definition prefixes to `$blui-`
+      background-color: map-get($blui-blue, 500)
+    ```
+
+    ```
+      // React or React Native
+
+      import * as Colors from '@brightlayer-ui/colors';
+      ...
+      <div style={{background: Colors.blue['500']}}/>
+    ```
 
 ## @brightlayer-ui/colors-branding
 
--   Incorporating BLUI colors into your project is handled differently depending on the framework that you are using.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Follow the code snippet to update your angular application for using `@brightlayer-ui/colors` package.
 
-Angular or Ionic
+    ```sh
+      // package.json
 
-```
-// in styles.scss or your top-level sass file
-@import '~@brightlayer-ui/colors/palette.scss'
-...
-background-color: map-get($blui-blue, 500)
-```
+      @pxblue/colors => @brightlayer-ui/colors
+    ```
 
-React or React Native
+    ```
+      // Angular or Ionic
 
-```
-import * as Colors from '@brightlayer-ui/colors';
-...
-<div style={{background: Colors.blue['500']}}/>
-```
+      // in styles.scss or your top-level sass file
+      @import '~@brightlayer-ui/colors/palette.scss'
+      ...
+      // Change all `$pxb-` color definition prefixes to `$blui-`
+      background-color: map-get($blui-blue, 500)
+    ```
+
+    ```
+      // React or React Native
+
+      import * as Colors from '@brightlayer-ui/colors';
+      ...
+      <div style={{background: Colors.blue['500']}}/>
+    ```
 
 ## @brightlayer-ui/cra-template-authentication
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
--   You can use these templates with the Brightlayer UI CLI:
-
--   ```sh
-      npx -p @brightlayer-ui/cli blui new react --template=authentication
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+-   This template can be used with Create React App:
+    ```sh
+    npx create-react-app myapp --template @brightlayer-ui/authentication
+    ```
+-   Using the Brightlayer UI CLI:
+    ```sh
+    npx -p @brightlayer-ui/cli blui new react --name=myapp --language=js --template=authentication
     ```
 
 ## @brightlayer-ui/cra-template-authentication-typescript
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
--   You can use these templates with the Brightlayer UI CLI:
-
--   ```sh
-      npx -p @brightlayer-ui/cli blui new react --template=authentication
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+-   This template can be used with Create React App:
+    ```sh
+    npx create-react-app myapp --template @brightlayer-ui/authentication-typescript
+    ```
+-   Using the Brightlayer UI CLI:
+    ```sh
+    npx -p @brightlayer-ui/cli blui new react --name=myapp --language=ts --template=authentication
     ```
 
 ## @brightlayer-ui/cra-template-blank
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+-   This template can be used with Create React App:
+    ```sh
+    npx create-react-app myapp --template @brightlayer-ui/blank
+    ```
+-   Using the Brightlayer UI CLI:
+    ```sh
+    npx -p @brightlayer-ui/cli blui new react --name=myapp --language=js --template=blank
+    ```
 
 ## @brightlayer-ui/cra-template-blank-typescript
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+-   This template can be used with Create React App:
+    ```sh
+    npx create-react-app myapp --template @brightlayer-ui/blank-typescript
+    ```
+-   Using the Brightlayer UI CLI:
+    ```sh
+    npx -p @brightlayer-ui/cli blui new react --name=myapp --language=ts --template=blank
+    ```
 
 ## @brightlayer-ui/cra-template-routing
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+-   This template can be used with Create React App:
+    ```sh
+    npx create-react-app myapp --template @brightlayer-ui/routing
+    ```
+-   Using the Brightlayer UI CLI:
+    ```sh
+    npx -p @brightlayer-ui/cli blui new react --name=myapp --language=js --template=routing
+    ```
 
 ## @brightlayer-ui/cra-template-routing-typescript
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+-   This template can be used with Create React App:
+    ```sh
+    npx create-react-app myapp --template @brightlayer-ui/routing-typescript
+    ```
+-   Using the Brightlayer UI CLI:
+    ```sh
+    npx -p @brightlayer-ui/cli blui new react --name=myapp --language=ts --template=routing
+    ```
 
 ## @brightlayer-ui/eslint-config
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+    ```sh
+      // package.json
+
+      @pxblue/eslint-config => @brightlayer-ui/eslint-config
+    ```
+    ```
+-   Update the following `.eslintrc.js` to the root of your project.
+    \\ .eslintrc.js
+    module.exports =  {
+        parser:  '@typescript-eslint/parser',
+        extends:  [ '@brightlayer-ui/eslint-config/ts' ],
+        parserOptions:  {
+            project: "./tsconfig.json",
+        },
+        env: {
+            browser: true
+        }
+    };
+    ```
 
 ## @brightlayer-ui/icons
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+    ```sh
+      // package.json
+
+      @pxblue/icons => @brightlayer-ui/icons
+    ```
+-   Code snippet to use icon font in angular application.
+    ```
+      // angular.json
+      "styles": [
+          "src/styles.scss",
+          "./node_modules/@brightlayer-ui/icons/iconfont/BrightlayerUIIcons.css"
+      ],
+    ```
+-   Code snippet to use icon font in React application.
+    ```
+      // index.js
+      require('@brightlayer-ui/icons/iconfont/BrightlayerUIIcons.css');
+    ```
+
+    ```
+-   Change all `pxb-` class name prefixes to `blui-`
+    // component
+    <i class="blui-ICONNAME"></i>
+    ```
 
 ## @brightlayer-ui/icons-mui
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+    ```sh
+      // package.json
+
+      @pxblue/icons-mui => @brightlayer-ui/icons-mui
+    ```
+-   Code snippet to use mui icon in React application.
+    ```
+      import myIcon from '@brightlayer-ui/icons-mui/MyIcon';
+      ...
+      <myIcon></myIcon>
+    ```
 
 ## @brightlayer-ui/icons-svg
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+    ```sh
+      // package.json
+
+      @pxblue/icons-svg => @brightlayer-ui/icons-svg
+    ```
+-   Code snippet to use svg icon in Angular application.
+    ```
+    // app.module.ts
+    import {MatIconModule} from '@angular/material/icon';
+    import {HttpClientModule} from '@angular/common/http';
+    ...
+    imports:[
+      MatIconModule,
+      HttpClientModule
+    ]
+    ```
+
+    The simplest way to use these SVGs in Angular is to register them with the matIconRegistry so they can be used with the ```<mat-icon>``` tag. You can register icons individually, or as the entire Brightlayer UI set:
+
+    ```
+    import { Component } from "@angular/core";
+    import { MatIconRegistry } from "@angular/material/icon";
+    import { DomSanitizer } from "@angular/platform-browser";
+
+    declare var require: any;
+    const icon = require("@brightlayer-ui/icons-svg/breaker.svg").default; // individual icon
+    const iconSet = require("@brightlayer-ui/icons-svg/icons.svg").default; // full set
+    ```
+
+    Then, in your constructor, register the icon or the icon set. It will then be available for use as a ```<mat-icon>```.
+
+    #### Individual Icon
+    ```
+    // app.component.ts
+    export class AppComponent {
+      constructor(
+        private matIconRegistry: MatIconRegistry,
+        private domSanitizer: DomSanitizer
+      ) {
+        this.matIconRegistry.addSvgIcon(
+          "breaker",
+          this.domSanitizer.bypassSecurityTrustResourceUrl(icon)
+        );
+      }
+    }
+    ```
+
+    ```
+    // app.component.html
+    <mat-icon svgIcon="breaker"></mat-icon>
+    ```
+
+    #### Entire Icon Set
+    ```
+    // app.component.ts
+    export class AppComponent {
+      constructor(
+        private matIconRegistry: MatIconRegistry,
+        private domSanitizer: DomSanitizer
+      ) {
+        this.matIconRegistry.addSvgIconSetInNamespace('px-icons', this.domSanitizer.bypassSecurityTrustResourceUrl(iconSet));
+      }
+    }
+    ```
 
 ## @brightlayer-ui/mapbox
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
 ## @brightlayer-ui/ng-progress-icons
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   `pxb` preface changed to `blui`.
 
 ## @brightlayer-ui/prettier-config
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
 ## @brightlayer-ui/publish
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
 ## @brightlayer-ui/react-auth-shared
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
 ## @brightlayer-ui/react-auth-workflow
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   `pxb` preface changed to `blui`.
 
 ## @brightlayer-ui/react-components
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   For using App Bar in app, you can use `import { AppBar } from '@brightlayer-ui/react-components';`
 
 ## @brightlayer-ui/react-native-progress-icons
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   `pxb` preface changed to `blui`.
 
 ## @brightlayer-ui/react-native-template-authentication
@@ -209,17 +524,17 @@ import * as Colors from '@brightlayer-ui/colors';
 
 ## @brightlayer-ui/react-progress-icons
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   `pxb` preface changed to `blui`.
 
 ## @brightlayer-ui/react-themes
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   Changed import themes from `PXBlueThemes` to `BLUIThemes`.
 
 ## @brightlayer-ui/storybook-rtl-addon
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
 ## @brightlayer-ui/storybook-themes
 
@@ -227,16 +542,16 @@ import * as Colors from '@brightlayer-ui/colors';
 
 ## @brightlayer-ui/symbols
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
 ## @brightlayer-ui/symbols-mui
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
 ## @brightlayer-ui/tag
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
 ## @brightlayer-ui/types
 
--   Changed package namespace from `@pxblue` to `@brightlayer-ui`.
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
