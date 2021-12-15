@@ -51,7 +51,8 @@ import ReadList from '../../app/assets/design-patterns/tables/read-list.svg';
 import ColumnOrder1 from '../../app/assets/design-patterns/tables/column-order-1.png';
 import ColumnOrder2 from '../../app/assets/design-patterns/tables/column-order-2.png';
 import ImplicitValueTable from '../../app/assets/design-patterns/tables/implicit-value-table.png';
-import ImplicitValueList from '../../app/assets/design-patterns/tables/implicit-value-list.png';
+import ImplicitValueList1 from '../../app/assets/design-patterns/tables/implicit-value-list-1.png';
+import ImplicitValueList2 from '../../app/assets/design-patterns/tables/implicit-value-list-2.png';
 import TabularList from '../../app/assets/design-patterns/tables/tabular-list.png';
 
 <!-- Responsive -->
@@ -76,34 +77,30 @@ import SpecPagination from '../../app/assets/design-patterns/tables/spec-paginat
 
 Similar to [lists](patterns/lists), tables are used to display structured data. Tables are especially powerful in desktop applications, where users can easily compare and analyze a large set of data and navigate with sorting and filtering options.
 
-<React.Fragment>
-    <MaterialDesignDescription title={'Data Table'} url={`https://material.io/components/data-tables`} />
-    <TOC
-        anchors={[
-            { title: 'Introduction', hash: '#tables' },
-            { title: 'Behaviors' },
-            { title: 'Table Cell Contents', depth: 1 },
-            { title: 'Row Actions', depth: 1 },
-            { title: 'Batch Actions', depth: 1 },
-            { title: 'Sticky Header Row', depth: 1 },
-            { title: 'Expanded Row', depth: 1 },
-            { title: 'Horizontal Scrolling', depth: 1 },
-            { title: 'Searching and Filtering', depth: 1 },
-            { title: 'Transition Animation', depth: 1 },
-            { title: 'Tables vs. Lists' },
-            { title: 'Responsive' },
-            { title: 'Design Specifications' },
-            { title: 'Developers' },
-        ]}
-    />
-    <Divider />
-</React.Fragment>
+<MaterialDesignDescription title={'Data Table'} url={`https://material.io/components/data-tables`} />
+<TOC
+    anchors={[
+        { title: 'Introduction', hash: '#tables' },
+        { title: 'Appearance' },
+        { title: 'Behaviors' },
+        { title: 'Row Actions', depth: 1 },
+        { title: 'Batch Actions', depth: 1 },
+        { title: 'Sticky Header Row', depth: 1 },
+        { title: 'Expanded Row', depth: 1 },
+        { title: 'Horizontal Scrolling', depth: 1 },
+        { title: 'Searching and Filtering', depth: 1 },
+        { title: 'Transition Animation', depth: 1 },
+        { title: 'Tables vs. Lists' },
+        { title: 'Responsive' },
+        { title: 'Design Specifications' },
+        { title: 'Developers' },
+    ]}
+/>
+<Divider />
 
-# Behaviors
+# Appearance
 
 <ImageGrid images={[StandardTable]} caption={`A basic table.`} regularWidth />
-
-## Table Cell Contents
 
 Table cells may be dynamic and interactive.
 
@@ -140,6 +137,8 @@ You should seek to make your tables both easy to navigate and effective to use.
         `AVOID: Images can heighten table rows. Consider using a list instead.`,
     ]}
 />
+
+# Behaviors
 
 ## Row Actions
 
@@ -194,11 +193,11 @@ When a table gets long, your users should not need to scroll back to the top to 
 
 ## Expanded Row
 
-Occasionally, table rows may expand to allow users _take a quick peek_ into small row details.
+Occasionally, table rows may expand to allow users _take a quick peek_ into a small amount of row details.
 
 <ImageGrid
     images={[ExpandedRow]}
-    caption={[`Use sticky headers to help your users navigate through the table.`]}
+    caption={[`Users can quickly glance into a small amount of row details.`]}
     regularWidth
 />
 
@@ -314,7 +313,7 @@ Tables facilitate users who want to work across multiple different properties of
 <ImageGrid
     images={[ReadTable, ReadList]}
     caption={[
-        `If you do an eye tracing between when the user starts looking at their data set and when they decide to perform some actions, you would notice users' eye sights roam differently in these two structures.`,
+        `Tables and lists are designed to guide users' attention in different ways. `,
         '1: In a table, users can start from any column / property, and navigate horizontally or vertically to the targeted item.',
         '2: In a list, users rely heavily on a primary property to navigate.',
     ]}
@@ -335,10 +334,15 @@ If you expect your users to compare across multiple parameters before they can d
 In tables, you would call out properties of each data entry only once in the header row. In lists, however, either the values are clear enough on their own without explanations, or property names have to be included in every list item.
 
 <ImageGrid
-    images={[ImplicitValueTable, ImplicitValueList]}
+    images={[ImplicitValueTable]}
+    captionsUnderImages={[`The values are explained by the table header row.`]}
+    gridContainerProps={{ style: { justifyContent: 'flex-start' } }}
+/>
+<ImageGrid
+    images={[ImplicitValueList1, ImplicitValueList2]}
     captionsUnderImages={[
-        `The values are explained by the table header row.`,
-        `1: It is not clear what those values in the subtitle mean.   2: Be careful when calling out property names in lists, as they weaken the scanability.`,
+        `DONT: It is not clear what those values in the subtitle mean.`,
+        `CAUTION: Be careful when calling out property names in lists, as they weaken the scanability.`,
     ]}
 />
 
