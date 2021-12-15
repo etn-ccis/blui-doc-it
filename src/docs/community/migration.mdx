@@ -38,7 +38,6 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
         PxbAuthModule
     ]
 
-
     // after
     import { BluiAuthModule } from '@brightlayer-ui/angular-auth-workflow';
     imports: [
@@ -173,12 +172,10 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
     ```HTML
     // Default Theme
 
-    <body class="pxb-blue"> =>
-    <body class="blui-blue">
+    <body class="pxb-blue"> => <body class="blui-blue">
 
     // Dark Theme
-    <body class="pxb-blue-dark"> =>
-    <body class="blui-blue-dark">
+    <body class="pxb-blue-dark"> => <body class="blui-blue-dark">
     ```
 
 ## @brightlayer-ui/chartjs
@@ -791,12 +788,12 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
     // before
     import i18n from 'i18next';
     ...
-    i18n.addResourceBundle('en', 'blui', { ACTIONS: { CREATE_ACCOUNT: 'Register now!' } }, true, true);
+    i18n.addResourceBundle('en', 'pxb', { ACTIONS: { CREATE_ACCOUNT: 'Register now!' } }, true, true);
 
     // after
     import i18n from 'i18next';
     ...
-    i18n.addResourceBundle('en', 'pxb', { ACTIONS: { CREATE_ACCOUNT: 'Register now!' } }, true, true);
+    i18n.addResourceBundle('en', 'blui', { ACTIONS: { CREATE_ACCOUNT: 'Register now!' } }, true, true);
     ```
 
 ## @brightlayer-ui/react-components
@@ -940,7 +937,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
     ```tsx
     // before
     import { Provider as ThemeProvider} from 'react-native-paper';
-    import * as PXBThemes from '@brightlayer-ui/react-native-themes';
+    import * as PXBThemes from '@pxblue/react-native-themes';
     ...
     // Default Theme
     <ThemeProvider theme={PXBThemes.blue}>
@@ -949,7 +946,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
     // after
     import { Provider as ThemeProvider} from 'react-native-paper';
-    import * as BLUIThemes from '@pxblue/react-native-themes';
+    import * as BLUIThemes from '@brightlayer-ui/react-native-themes';
     ...
     // Default Theme
     <ThemeProvider theme={BLUIThemes.blue}>
@@ -1060,17 +1057,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
     @pxblue/storybook-rtl-addon => @brightlayer-ui/storybook-rtl-addon
     ```
 
--   Replace `@pxblue` reference to `@brightlayer-ui` in import statement of angular application.
-
-    ```ts
-    // before
-    import { getDirection } from '@pxblue/storybook-rtl-addon';
-
-    // after
-    import { getDirection } from '@brightlayer-ui/storybook-rtl-addon';
-    ```
-
--   Replace `@pxblue` reference to `@brightlayer-ui` in import statement of react application.
+-   Replace `@pxblue` reference to `@brightlayer-ui` in import statement in your application.
 
     ```ts
     // before
