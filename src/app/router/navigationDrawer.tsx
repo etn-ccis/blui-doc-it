@@ -84,8 +84,10 @@ export const NavigationDrawer = (): JSX.Element => {
             open={drawerOpen}
             width={DRAWER_WIDTH}
             ModalProps={{
-                onBackdropClick: (): void => {
-                    dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                onClose: (event, reason): void => {
+                    if (reason === 'backdropClick') {
+                        dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                    }
                 },
             }}
             variant={isMobile || isLandingPage ? 'temporary' : 'permanent'}

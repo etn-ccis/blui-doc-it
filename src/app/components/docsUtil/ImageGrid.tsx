@@ -73,7 +73,7 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
             <Grid
                 container
                 spacing={2}
-                justify={images.length < 3 ? 'center' : undefined}
+                justifyContent={images.length < 3 ? 'center' : undefined}
                 alignItems={'center'}
                 wrap={'wrap'}
                 style={{ marginBottom: theme.spacing(0.5) }}
