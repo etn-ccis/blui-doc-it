@@ -237,10 +237,40 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
     This will use default sample data to render a chart in your application.
 
+## @brightlayer-ui/cli
+
+-   Change package namespace from `@pxblue` to `@brightlayer-ui`.
+
+    ```sh
+    // package.json
+
+    @pxblue/cli => @brightlayer-ui/cli
+    ```
+
+-   The below code snippets indicate the changes to be made for using Brightlayer UI CLI command.
+
+    ```
+    \\ before
+    npx -p @pxblue/cli pxb new
+    ```
+
+    ```
+    after
+    npx -p @brightlayer-ui/cli blui new
+    ```
+
+-   Change all `pxb` reference to `blui` from CLI command.
+
+    ```
+    pxb help` => `blui help`
+    pxb version` => `blui version`
+    pxb new => blui new
+    ```
+
 ## @brightlayer-ui/colors
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
--   The below code snippets indicate the changes to be made for using `@brightlayer-ui/colors` package
+-   The below code snippets indicate the changes to be made for using `@brightlayer-ui/colors` package.
 
     ```sh
     // package.json
@@ -284,7 +314,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 ## @brightlayer-ui/colors-branding
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
--   The below code snippets indicate the changes to be made for using `@brightlayer-ui/colors-branding` package
+-   The below code snippets indicate the changes to be made for using `@brightlayer-ui/colors-branding` package.
 
     ```sh
     // package.json
@@ -627,9 +657,14 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
         private matIconRegistry: MatIconRegistry,
         private domSanitizer: DomSanitizer
       ) {
-        this.matIconRegistry.addSvgIconSetInNamespace('px-icons', this.domSanitizer.bypassSecurityTrustResourceUrl(iconSet));
+        this.matIconRegistry.addSvgIconSetInNamespace('blui-icons', this.domSanitizer.bypassSecurityTrustResourceUrl(iconSet));
       }
     }
+    ```
+
+    ```
+    // app.component.ts
+    <mat-icon svgIcon="blui-icons:bearing"></mat-icon>
     ```
 
 ## @brightlayer-ui/mapbox
