@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme: Theme) =>
         textContainer: {
             marginLeft: theme.spacing(2),
             flex: 1,
-            '&$noDescription': {
+            '&$noRole': {
                 display: 'flex',
                 alignItems: 'center',
             },
