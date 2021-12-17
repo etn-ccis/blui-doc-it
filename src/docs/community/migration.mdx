@@ -1,6 +1,6 @@
 import { Divider } from '../../app/components';
 
-<!-- KEYWORDS: developer develop environment guide tutorial -->
+<!-- KEYWORDS: developer package migration guide -->
 
 # Package Migration Instructions
 
@@ -14,7 +14,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change all `<pxb->` component prefixes to `<blui->`.
 -   The below code snippets indicate the changes to be made for using Auth Module in your angular application.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/angular-auth-workflow => @brightlayer-ui/angular-auth-workflow
@@ -63,7 +63,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change all `<pxb->` component prefixes to `<blui->`.
 -   The below code snippets indicate the changes to be made for using App Bar in your angular application.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/angular-components => @brightlayer-ui/angular-components
@@ -96,7 +96,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   You can use these templates only with **brighlayer-ui** scoped version of the CLI:
 
-    ```sh
+    ```
     // before
     npx -p @pxblue/cli pxb new angular --template=authentication
 
@@ -109,7 +109,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   You can use these templates only with **brighlayer-ui** scoped version of the CLI:
 
-    ```sh
+    ```
     // before
     npx -p @pxblue/cli pxb new angular --template=blank
 
@@ -122,7 +122,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   You can use these templates only with **brighlayer-ui** scoped version of the CLI:
 
-    ```sh
+    ```
     // before
     npx -p @pxblue/cli pxb new angular --template=routing
 
@@ -183,7 +183,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   The below code snippets indicate the changes to be made for using @brightlayer-ui/chartjs package in your angular application.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/chartjs => @brightlayer-ui/chartjs
@@ -240,13 +240,6 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 ## @brightlayer-ui/cli
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
-
-    ```sh
-    // package.json
-
-    @pxblue/cli => @brightlayer-ui/cli
-    ```
-
 -   The below code snippets indicate the changes to be made for using Brightlayer UI CLI command.
 
     ```
@@ -272,7 +265,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   The below code snippets indicate the changes to be made for using `@brightlayer-ui/colors` package.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/colors => @brightlayer-ui/colors
@@ -316,7 +309,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   The below code snippets indicate the changes to be made for using `@brightlayer-ui/colors-branding` package.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/colors-branding => @brightlayer-ui/colors-branding
@@ -360,7 +353,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   This template can be used with Create React App.
 
-    ```sh
+    ```
     // before
     npx create-react-app myapp --template @pxblue-ui/authentication
 
@@ -370,7 +363,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Using the Brightlayer UI CLI:
 
-    ```sh
+    ```
     // before
     npx -p @pxblue/cli pxb new react --name=myapp --language=js --template=authentication
 
@@ -383,7 +376,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   This template can be used with Create React App:
 
-    ```sh
+    ```
     // before
     npx create-react-app myapp --template @pxblue/authentication-typescript
 
@@ -393,7 +386,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Using the Brightlayer UI CLI:
 
-    ```sh
+    ```
     // before
     npx -p @pxblue/cli pxb new react --name=myapp --language=ts --template=authentication
 
@@ -406,7 +399,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   This template can be used with Create React App:
 
-    ```sh
+    ```
     // before
     npx create-react-app myapp --template @pxblue/blank
 
@@ -416,7 +409,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Using the Brightlayer UI CLI:
 
-    ```sh
+    ```
     // before
     npx -p @pxblue/cli pxb new react --name=myapp --language=js --template=blank
 
@@ -429,7 +422,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   This template can be used with Create React App:
 
-    ```sh
+    ```
     // before
     npx create-react-app myapp --template @pxblue/blank-typescript
 
@@ -439,7 +432,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Using the Brightlayer UI CLI:
 
-    ```sh
+    ```
     // before
     npx -p @pxblue/cli pxb new react --name=myapp --language=ts --template=blank
 
@@ -452,7 +445,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   This template can be used with Create React App:
 
-    ```sh
+    ```
     // before
     npx create-react-app myapp --template @pxblue/routing
 
@@ -462,7 +455,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Using the Brightlayer UI CLI:
 
-    ```sh
+    ```
     // before
     npx -p @pxblue/cli pxb new react --name=myapp --language=js --template=routing
 
@@ -475,7 +468,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   This template can be used with Create React App:
 
-    ```sh
+    ```
     // before
     npx create-react-app myapp --template @pxblue/routing-typescript
 
@@ -485,7 +478,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Using the Brightlayer UI CLI:
 
-    ```sh
+    ```
     // before
     npx -p @pxblue/cli pxb new react --name=myapp --language=ts --template=routing
 
@@ -497,7 +490,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/eslint-config => @brightlayer-ui/eslint-config
@@ -523,7 +516,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/icons => @brightlayer-ui/icons
@@ -572,7 +565,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/icons-mui => @brightlayer-ui/icons-mui
@@ -593,7 +586,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/icons-svg => @brightlayer-ui/icons-svg
@@ -671,7 +664,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/mapbox => @brightlayer-ui/mapbox
@@ -735,7 +728,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   Code snippet to use progress icon in angular application.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/ng-progress-icons => @brightlayer-ui/ng-progress-icons
@@ -755,7 +748,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/prettier-config => @brightlayer-ui/prettier-config
@@ -789,7 +782,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 ## @brightlayer-ui/react-auth-shared
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
--   ```sh
+-   ```
     // package.json
 
     @pxblue/react-auth-shared => @brightlayer-ui/react-auth-shared
@@ -799,7 +792,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/react-auth-workflow => @brightlayer-ui/react-auth-workflow
@@ -836,7 +829,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   For e.g. follow the code snippet to use App Bar in your react application.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/react-components => @brightlayer-ui/react-components
@@ -864,7 +857,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   For e.g follow the code snippet for using progress icons in your application.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/react-native-progress-icons => @brightlayer-ui/react-native-progress-icons
@@ -888,7 +881,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   You can use these templates with the Brightlayer UI CLI:
--   ```sh
+-   ```
     // before
     npx -p @pxblue/cli pxb new react-native --name=myapp --cli=rnc --language=js --template=authentication
 
@@ -900,7 +893,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   You can use these templates with the Brightlayer UI CLI:
--   ```sh
+-   ```
     // before
     npx -p @pxblue/cli pxb new react-native --name=myapp --cli=rnc --language=ts --template=authentication
 
@@ -912,7 +905,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   You can use these templates with the Brightlayer UI CLI:
--   ```sh
+-   ```
     // before
     npx -p @pxblue/cli pxb new react-native --name=myapp --cli=rnc --language=js --template=blank
 
@@ -924,7 +917,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   You can use these templates with the Brightlayer UI CLI:
--   ```sh
+-   ```
     // before
     npx -p @pxblue/cli pxb new react-native --name=myapp --cli=rnc --language=ts --template=blank
 
@@ -936,7 +929,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   You can use these templates with the Brightlayer UI CLI:
--   ```sh
+-   ```
     // before
     npx -p @pxblue/cli pxb new react-native --name=myapp --cli=rnc --language=js --template=routing
 
@@ -948,7 +941,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   You can use these templates with the Brightlayer UI CLI:
--   ```sh
+-   ```
       // before
       npx -p @pxblue/cli pxb new react-native --name=myapp --cli=rnc --language=ts --template=routing
 
@@ -961,7 +954,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   Follow the code snippet for using `brightlayer-ui/react-native-themes` package.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/react-native-themes => @brightlayer-ui/react-native-themes
@@ -1006,7 +999,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
     After updating these files you will need to install the Pods and recompile your application:
 
-    ```sh
+    ```
     cd ios
     pod install
     ```
@@ -1031,7 +1024,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   For e.g follow the code snippet for using progress icons in your application.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/react-progress-icons => @brightlayer-ui/react-progress-icons
@@ -1056,7 +1049,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 -   Follow the code snippet for using `brightlayer-ui/react-themes` package.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/react-themes => @brightlayer-ui/react-themes
@@ -1086,7 +1079,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/storybook-rtl-addon => @brightlayer-ui/storybook-rtl-addon
@@ -1106,7 +1099,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/storybook-themes => @brightlayer-ui/storybook-themes
@@ -1140,7 +1133,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
-    ```sh
+    ```
       // package.json
 
       @pxblue/symbols => @brightlayer-ui/symbols
@@ -1150,7 +1143,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
-    ```sh
+    ```
       // package.json
 
       @pxblue/symbols-mui => @brightlayer-ui/symbols-mui
@@ -1169,7 +1162,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/tag => @brightlayer-ui/tag
@@ -1189,7 +1182,7 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
 
-    ```sh
+    ```
     // package.json
 
     @pxblue/types => @brightlayer-ui/types
