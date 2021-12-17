@@ -64,12 +64,15 @@ import MobilePagination from '../../app/assets/design-patterns/tables/mobile-pag
 import LandscapeTable from '../../app/assets/design-patterns/tables/landscape-table.gif';
 import InviteToLandscapeX from '../../app/assets/design-patterns/tables/invite-to-landscape-x.png';
 import InviteToLandscapeCountdown from '../../app/assets/design-patterns/tables/invite-to-landscape-countdown.gif';
+import UserInField from '../../app/assets/design-patterns/tables/user-in-field.jpg';
 
 <!-- Specs -->
 
 import SpecSize from '../../app/assets/design-patterns/tables/spec-size.png';
 import SpecTypography from '../../app/assets/design-patterns/tables/spec-typography.png';
 import SpecPagination from '../../app/assets/design-patterns/tables/spec-pagination.png';
+
+<!-- KEYWORDS: design pattern table list tabular data sort -->
 
 # Tables
 
@@ -210,7 +213,7 @@ Occasionally, table rows may expand to allow users _take a quick peek_ into a sm
     images={[ExpandedRowTooComplicated, ExpandedRowActions]}
     captionsUnderImages={[
         `DONT: Do not include complicated contents in an expanded row, as this will break the efficiency of a table. In this case, you should design a dedicated page for the content.`,
-        `DONT: Do not surprise your users by hiding high priority actions in the expanded row space.`,
+        `DONT: Do not surprise users by hiding high priority actions in the expanded row space.`,
     ]}
 />
 
@@ -313,14 +316,14 @@ A "tabular list" or a structured list that attempts to combine tables and lists 
 
 ## Eye Movement
 
-Tables facilitate users who want to work across multiple different properties of a data point. Users often navigate down a column, find the desired value, jump to another column, navigating further down, before they exit their path. On the other hand, lists often have a primary property that the user would rely on for navigation. This can be icons, avatars, or primary list texts.
+Tables facilitate users who want to work across multiple different properties of a data point. Users often navigate down a column, find the desired value, jump to another column, navigating further down, before they exit their path. This is called a [lawn mower pattern](https://www.nngroup.com/articles/lawn-mower-pattern/). On the other hand, lists often have a primary property — can be icons, avatars, or primary list texts — that the user would rely on for navigation, a scanning behavior known as the [layer cake pattern](https://www.nngroup.com/articles/layer-cake-pattern-scanning/).
 
 <ImageGrid
     images={[ReadTable, ReadList]}
     caption={[
-        `Tables and lists are designed to guide users' attention in different ways. `,
-        '1: In a table, users can start from any column / property, and navigate horizontally or vertically to the targeted item.',
-        '2: In a list, users rely heavily on a primary property to navigate.',
+        `If you do an eye tracking between when the user starts looking at their data set and when they decide to perform some actions, you would notice users' eye sights roam differently in these two structures.`,
+        '1: In a table, users can start from any column / property, and navigate horizontally or vertically to the targeted item (lawn mower pattern).',
+        '2: In a list, users rely heavily on a primary property to navigate (layer cake pattern).',
     ]}
 />
 
@@ -368,6 +371,8 @@ In general, **we do not encourage tables on mobile platforms**, as table-related
 />
 
 ## Understanding Users' Goal
+
+<ImageGrid images={[UserInField]} regularWidth caption={`While on foot, it is very hard to examine small details.`} />
 
 Before you design a table structure for a mobile application, you should conduct user researches and have a clear understanding of users' intentions. When they land on this page, Do they desire to do complicated cross-comparison between multiple rows and columns? Is a full table necessary?
 
