@@ -375,7 +375,7 @@ export const pageDefinitions: SimpleNavItem[] = [
     },
     {
         title: 'Brightlayer UI Package Migration',
-        url: '/brightlayer-ui-package-migration',
+        url: '/migration',
         hidden: true,
         component: <MarkdownPage title={'Brightlayer UI Package Migration'} markdown={Docs.Community.Migration} />,
     },
