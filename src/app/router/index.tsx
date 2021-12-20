@@ -101,10 +101,9 @@ export const MainRouter = (): JSX.Element => {
         <AppBar position="sticky" color={'secondary'} elevation={0}>
             <Toolbar>
                 <div>
-                    {'We are changing our name to Brightlayer UI! Learn '}
+                    {'We are now Brightlayer UI! Learn '}
                     <a
                         style={{
-                            color: theme.palette.getContrastText(theme.palette.secondary.main),
                             textDecoration: 'underline',
                             cursor: 'pointer',
                         }}
@@ -114,7 +113,7 @@ export const MainRouter = (): JSX.Element => {
                             sessionStorage.setItem('banner-dismissed', 'true');
                         }}
                     >
-                        how this will impact you
+                        how to migrate
                     </a>
                     .
                 </div>
@@ -137,7 +136,7 @@ export const MainRouter = (): JSX.Element => {
         <Router>
             <ScrollToTop />
             {showBanner && getBluiRebrandAppbar()}
-            {navigateBlui && <Redirect to="/brightlayer-ui-rebrand" push />}
+            {navigateBlui && <Redirect to="/brightlayer-ui-package-migration" push />}
             <DrawerLayout drawer={<NavigationDrawer />} className={className}>
                 <Switch>
                     <Route exact path="/">
