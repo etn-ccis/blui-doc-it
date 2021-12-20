@@ -3,7 +3,7 @@ import { FileCopy } from '@material-ui/icons';
 import React, { useState } from 'react';
 import { copyTextToClipboard } from '../../shared';
 import { isMobile } from 'react-device-detect';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 
 const useStyles = makeStyles(() => ({
     copyIcon: {

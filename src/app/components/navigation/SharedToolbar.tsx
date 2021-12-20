@@ -14,8 +14,8 @@ import {
     useTheme,
     useMediaQuery,
 } from '@material-ui/core';
-import { PxblueSmall } from '@pxblue/icons-mui';
-import { Spacer } from '@pxblue/react-components';
+import { PxblueSmall } from '@brightlayer-ui/icons-mui';
+import { Spacer } from '@brightlayer-ui/react-components';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { TOGGLE_DRAWER, TOGGLE_SEARCH } from '../../redux/actions';
@@ -165,7 +165,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                         />
                     ) : (
                         <Typography>
-                            Power Xpert <b>Blue</b>
+                            Brightlayer <b>User Interface</b>
                         </Typography>
                     )}
                     <Spacer />

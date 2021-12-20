@@ -1,5 +1,5 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
-import PxblueSmallAltIcon from '@pxblue/icons-mui/PxblueSmallAlt';
+import PxblueSmallAltIcon from '@brightlayer-ui/icons-mui/PxblueSmallAlt';
 import Banner from '../../app/assets/design-patterns/account-menu/account-menu-banner.png';
 import AccountSettingsPage from '../../app/assets/design-patterns/account-menu/account-settings-page.png';
 import DrawerDetails1 from '../../app/assets/design-patterns/account-menu/drawer-do-and-dont-1.png';
@@ -20,7 +20,7 @@ import Specs4 from '../../app/assets/design-patterns/account-menu/spec-avatar.pn
 
 <ImageGrid images={[Banner]} regularWidth />
 
-When applications implement a form of [User Authentication](/patterns/user-auth), they must include ways for users to view / update their personal or account information as well as take account-related actions, such as logging out of the application or changing a password. There are several ways to present this information to the user in a PX Blue application.
+When applications implement a form of [User Authentication](/patterns/user-auth), they must include ways for users to view / update their personal or account information as well as take account-related actions, such as logging out of the application or changing a password. There are several ways to present this information to the user in a Brightlayer UI application.
 
 <React.Fragment>
     <TOC
@@ -70,13 +70,13 @@ If you are using a navigation rail, you may place account settings links in the 
 <React.Fragment>
     <DemoCard
         repository={'Account Details in Drawers'}
-        angular={`https://stackblitz.com/github/pxblue/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Faccount-menu%2Fin-a-drawer%2Fmenu-in-a-drawer.component.html`}
-        react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/account-menu/in-a-drawer/index.tsx&initialpath=in-a-drawer`}
+        angular={`https://stackblitz.com/github/brightlayer-ui/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Faccount-menu%2Fin-a-drawer%2Fmenu-in-a-drawer.component.html`}
+        react={`https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master?file=/src/pages/account-menu/in-a-drawer/index.tsx&initialpath=/in-a-drawer`}
     />
     <MaterialDesignDescription
         title={'Drawer Navigation'}
         url={'/patterns/navigation#drawer-navigation'}
-        description={`Follow PX Blue's guideline for using a Drawer.`}
+        description={`Follow Brightlayer UI's guideline for using a Drawer.`}
         avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
     />
     <Divider />
@@ -100,13 +100,13 @@ This approach is most effective if you have more than three account-related acti
 <React.Fragment>
     <DemoCard
         repository={'User Menus in App Bars'}
-        angular={`https://stackblitz.com/github/pxblue/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Faccount-menu%2Fin-an-app-bar%2Fin-an-app-bar.component.html`}
-        react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/account-menu/in-an-app-bar/index.tsx&initialpath=in-an-app-bar`}
+        angular={`https://stackblitz.com/github/brightlayer-ui/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Faccount-menu%2Fin-an-app-bar%2Fin-an-app-bar.component.html`}
+        react={`https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master?file=/src/pages/account-menu/in-an-app-bar/index.tsx&initialpath=/in-an-app-bar`}
     />
     <MaterialDesignDescription
         title={'Bottom Sheet'}
         url={'/patterns/overlay#bottom-sheet'}
-        description={`Follow PX Blue's guideline for using a Bottom Sheet.`}
+        description={`Follow Brightlayer UI's guideline for using a Bottom Sheet.`}
         avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
     />
     <Divider />
@@ -192,20 +192,20 @@ Use the following components to implement this pattern:
 
 -   Angular Material
     -   [Side Nav](https://material.angular.io/components/sidenav/overview)
--   @pxblue/angular-components
-    -   [Drawer](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
-    -   [User Menu](https://pxblue-components.github.io/angular/?path=/info/components-user-menu--readme)
+-   @brightlayer-ui/angular-components
+    -   [Drawer](https://brightlayer-ui-components.github.io/angular/?path=/info/components-drawer--readme)
+    -   [User Menu](https://brightlayer-ui-components.github.io/angular/?path=/info/components-user-menu--readme)
 
 **React**:
 
 -   Material UI
     -   [Drawer](https://mui.com/components/drawers/)
--   @pxblue/react-components
-    -   [Drawer](https://pxblue-components.github.io/react/?path=/info/components-drawer--get-read-me-story)
-    -   [User Menu](https://pxblue-components.github.io/react/?path=/info/components-user-menu--get-read-me-story)
+-   @brightlayer-ui/react-components
+    -   [Drawer](https://brightlayer-ui-components.github.io/react/?path=/info/components-drawer--get-read-me-story)
+    -   [User Menu](https://brightlayer-ui-components.github.io/react/?path=/info/components-user-menu--get-read-me-story)
 
 **React Native**:
 
--   @pxblue/react-native-components
-    -   [Drawer](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--drawer)
-    -   [User Menu](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--user-menu)
+-   @brightlayer-ui/react-native-components
+    -   [Drawer](https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--drawer)
+    -   [User Menu](https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--user-menu)

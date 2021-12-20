@@ -232,11 +232,13 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                     {searchActive && ( // to allow autofocus
                         <TextField
                             className={classes.searchfield}
-                            placeholder={'Search on PX Blue...'}
+                            placeholder={'Search on Brightlayer UI...'}
                             InputProps={{ disableUnderline: true }}
                             value={inputString || ''}
                             onChange={(e): void => onChangeHandler(e.target.value)}
                             autoFocus
+                            inputMode={'search'}
+                            type={'search'}
                             onKeyPress={(e): void => {
                                 if (e.key === 'Enter') {
                                     if (inputString === '') {
@@ -244,6 +246,13 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                                         return;
                                     }
                                     pushHistory(inputString);
+
+                                    // to dismiss the mobile keyboard
+                                    const field = document.createElement('input');
+                                    field.setAttribute('type', 'text');
+                                    document.getElementById('search-bar')?.appendChild(field);
+                                    field.focus();
+                                    field.remove();
                                 }
                             }}
                         />

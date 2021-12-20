@@ -1,8 +1,8 @@
 import React, { HTMLAttributes } from 'react';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { useBackgroundColor } from '../../hooks/useBackgroundColor';
 import { PAGE_WIDTH, PADDING, TOC_WIDTH } from '../../shared';
-import { Spacer } from '@pxblue/react-components';
+import { Spacer } from '@brightlayer-ui/react-components';
 import { makeStyles, Theme, createStyles } from '@material-ui/core';
 import { AppState } from '../../redux/reducers';
 import { useSelector } from 'react-redux';

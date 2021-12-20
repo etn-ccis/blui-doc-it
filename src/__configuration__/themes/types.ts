@@ -20,7 +20,7 @@ export type SiteConfig = {
     } & CSSProperties;
 
     /*
-     * Configures the pxblue logo color on the landing page.
+     * Configures the brightlayer-ui logo color on the landing page.
      */
     logoColor?: string;
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Hero, InfoListItem, ScoreCard } from '@pxblue/react-components';
-import { Temp } from '@pxblue/icons-mui';
+import { Hero, InfoListItem, ScoreCard } from '@brightlayer-ui/react-components';
+import { Temp } from '@brightlayer-ui/icons-mui';
 import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import { CloudDone, Info, Notifications } from '@material-ui/icons';
 
@@ -11,7 +11,7 @@ import { CloudDone, Info, Notifications } from '@material-ui/icons';
 export const ScoreCardDemo: JSX.Element = (
     <ScoreCard
         headerTitle={'Score Card'}
-        headerSubtitle={'PX Blue'}
+        headerSubtitle={'Brightlayer UI'}
         headerInfo={'Used for summary of an asset'}
         style={{ width: 320, margin: '64px 16px', flex: '0 0 auto' }}
         badge={

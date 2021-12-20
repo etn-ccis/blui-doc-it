@@ -86,7 +86,7 @@ export const contributors: OtherContributor[] = [
     },
     {
         name: 'Bryan Elkus',
-        role: 'PX Blue Independent Audit',
+        role: 'Brightlayer UI Independent Audit',
     },
     {
         name: 'Kyle Harris',

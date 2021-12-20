@@ -19,16 +19,16 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-import { EmptyState, Spacer } from '@pxblue/react-components';
+import { EmptyState, Spacer } from '@brightlayer-ui/react-components';
 
 import { GetApp, Close } from '@material-ui/icons';
-import { Pxblue } from '@pxblue/icons-mui';
+import { Pxblue } from '@brightlayer-ui/icons-mui';
 
 import { unCamelCase } from '../../shared';
 import { emptyIcon } from '.';
 import { downloadPng, downloadSvg } from './utilityFunctions';
 
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { DeveloperInstructionsPanel } from './DeveloperInstructions';
 import { useSelectedIcon } from '../../contexts/selectedIconContextProvider';
 import { getScheduledSiteConfig } from '../../../__configuration__/themes';
@@ -164,7 +164,7 @@ export const IconDrawer: React.FC = () => {
                                     />
                                 </div>
                                 <Typography variant={'caption'}>
-                                    {selectedIcon.isMaterial ? 'Material Icon' : 'PX Blue Icon'}
+                                    {selectedIcon.isMaterial ? 'Material Icon' : 'Brightlayer UI Icon'}
                                 </Typography>
                             </div>
                         </div>
@@ -254,7 +254,7 @@ export const IconDrawer: React.FC = () => {
                         <div style={{ padding: 16 }}>
                             <Typography variant={'subtitle2'} align={'center'}>
                                 For detailed usage and installation instructions, visit our{' '}
-                                <Link href={'https://github.com/pxblue/icons'} target={'_blank'}>
+                                <Link href={'https://github.com/brightlayer-ui/icons'} target={'_blank'}>
                                     Github
                                 </Link>
                                 .

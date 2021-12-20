@@ -1,6 +1,6 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
 
-# Testing Your PX Blue Applications
+# Testing Your Brightlayer UI Applications
 
 <!-- KEYWORDS: testing test unit e2e tdd bdd integration cypress -->
 
@@ -76,7 +76,7 @@ yarn test
 
 This will run your tests and show the pass / fail output in the terminal.
 
-There are additional test utilities that complement Jest well. [Create React App](https://facebook.github.io/create-react-app/docs/running-tests) provides access to [React Testing Library](https://www.npmjs.com/package/@testing-library/react) through the `react-dom` dependency. The PX Blue team has also made use of [Enzyme](https://airbnb.io/enzyme/), a testing framework created by AirBnB, and [Test Renderer](https://reactjs.org/docs/test-renderer.html).
+There are additional test utilities that complement Jest well. [Create React App](https://facebook.github.io/create-react-app/docs/running-tests) provides access to [React Testing Library](https://www.npmjs.com/package/@testing-library/react) through the `react-dom` dependency. The Brightlayer UI team has also made use of [Enzyme](https://airbnb.io/enzyme/), a testing framework created by AirBnB, and [Test Renderer](https://reactjs.org/docs/test-renderer.html).
 
 ### React Native
 
@@ -106,8 +106,8 @@ Functional tests alone will not give you enough test coverage to avoid regressio
 End-to-end tests rely on the ability to find elements on the screen and interact with them in an automated way. This means that you need a reliable mechanism for selecting elements. Depending on your testing framework, there are different ways to select elements, including:
 
 -   **CSS Selectors**: find elements by using CSS classes or rules (e.g., `.your-class-name`)
--   **Element Selectors**: find elements inside the elements (e.g., `#\@\@pxb-drawerlayout-content > div > header > div > button`)
--   **xPath Selectors**: find selector within xPath (e.g., `//*[@id="@@pxb-drawerlayout-content"]/div/header/div/button`)
+-   **Element Selectors**: find elements inside the elements (e.g., `#\@\@blui-drawerlayout-content > div > header > div > button`)
+-   **xPath Selectors**: find selector within xPath (e.g., `//*[@id="@@blui-drawerlayout-content"]/div/header/div/button`)
 -   **ID Selectors**: find attribute id within elements (e.g., `#login-button`)
 
 > You can read more about different selector strategies on [browserstack](https://www.browserstack.com/guide/css-selectors-in-selenium) and [software testing help](https://www.guru99.com/find-element-selenium.html).

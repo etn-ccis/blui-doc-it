@@ -10,7 +10,7 @@ export const github = axios.create({
     },
 });
 export const circleci = axios.create({
-    baseURL: 'https://circleci.com/api/v1.1/project/github/pxblue/',
+    baseURL: 'https://circleci.com/api/v1.1/project/github/brightlayer-ui/',
     timeout: 5000,
 });
 export const npm = axios.create({
@@ -18,15 +18,15 @@ export const npm = axios.create({
     timeout: 5000,
 });
 export const roadmap = axios.create({
-    baseURL: 'https://raw.githubusercontent.com/pxblue/pxb-database/master/deployed/doc-it',
+    baseURL: 'https://raw.githubusercontent.com/brightlayer-ui/blui-database/master/deployed/doc-it',
     timeout: 5000,
 });
 export const icons = axios.create({
     baseURL: 'https://fonts.gstatic.com/s/i/materialicons',
     timeout: 5000,
 });
-export const pxblueIcons = axios.create({
-    baseURL: 'https://raw.githubusercontent.com/pxblue/icons/dev/svg/',
+export const bluiIcons = axios.create({
+    baseURL: 'https://raw.githubusercontent.com/brightlayer-ui/icons/dev/svg/',
     timeout: 5000,
 });
 
@@ -67,7 +67,7 @@ export const getBuildStatus = async (repository: string, branches: string[]): Pr
 export const getBugCount = async (repository: string, bugLabels: string[]): Promise<number | undefined> => {
     try {
         const labels = bugLabels.length > 0 ? [bugLabels, 'bug'].join(',') : 'bug';
-        const response = await github.get(`/repos/pxblue/${repository}/issues?labels=${labels}`);
+        const response = await github.get(`/repos/brightlayer-ui/${repository}/issues?labels=${labels}`);
         if (response && response.status === 200) return response.data.length;
         return undefined;
     } catch (thrown) {
@@ -107,10 +107,10 @@ export const getRoadmap = async (release: Release): Promise<RoadmapBucket[] | un
     }
 };
 
-export const getSvg = async (name: string, family: 'material' | 'pxblue'): Promise<string | undefined> => {
+export const getSvg = async (name: string, family: 'material' | 'brightlayer-ui'): Promise<string | undefined> => {
     try {
         const response =
-            family === 'pxblue' ? await pxblueIcons.get(`/${name}.svg`) : await icons.get(`/${name}/v6/24px.svg`);
+            family === 'brightlayer-ui' ? await bluiIcons.get(`/${name}.svg`) : await icons.get(`/${name}/v6/24px.svg`);
         if (response && response.status === 200) return response.data;
         return undefined;
     } catch (thrown) {

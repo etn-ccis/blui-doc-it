@@ -1,9 +1,9 @@
 {
-    "short_name": "PX Blue",
-    "name": "PX Blue Documentation",
+    "short_name": "Brightlayer UI",
+    "name": "Brightlayer UI Documentation",
     "icons": [
         {
-            "src": "pxblue.png",
+            "src": "brightlayer-ui.png",
             "sizes": "64x64 32x32 24x24 16x16",
             "type": "image/x-icon"
         },

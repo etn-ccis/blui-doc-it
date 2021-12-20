@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { LandingPage } from '../pages';
-import { DrawerLayout, Spacer } from '@pxblue/react-components';
+import { DrawerLayout, Spacer } from '@brightlayer-ui/react-components';
 import { ContactFab, SharedToolbar } from '../components';
 import { NavigationDrawer } from './navigationDrawer';
 import { AppState } from '../redux/reducers';
@@ -21,7 +21,7 @@ import {
     useMediaQuery,
     useTheme,
 } from '@material-ui/core';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { HIDE_BANNER } from '../redux/actions';
 
 const buildRoutes = (routes: SimpleNavItem[], url: string): JSX.Element[] => {
@@ -94,21 +94,26 @@ export const MainRouter = (): JSX.Element => {
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
     const [navigateBlui, setNavigateBlui] = useState(false);
     const showBanner = useSelector((state: AppState) => state.app.showBanner);
+    const sessionStorage = window.sessionStorage;
     const dispatch = useDispatch();
 
     const getBluiRebrandAppbar = (): JSX.Element => (
         <AppBar position="sticky" color={'secondary'} elevation={0}>
             <Toolbar>
                 <div>
-                    {'We are changing our name to Brightlayer UI! Learn '}
+                    {'We are now Brightlayer UI! Learn '}
                     <a
-                        style={{ color: Colors.white[50], textDecoration: 'underline', cursor: 'pointer' }}
+                        style={{
+                            textDecoration: 'underline',
+                            cursor: 'pointer',
+                        }}
                         onClick={(): any => {
                             setNavigateBlui(true);
                             dispatch({ type: HIDE_BANNER });
+                            sessionStorage.setItem('banner-dismissed', 'true');
                         }}
                     >
-                        how this will impact you
+                        how to migrate
                     </a>
                     .
                 </div>
@@ -118,6 +123,7 @@ export const MainRouter = (): JSX.Element => {
                     color={'inherit'}
                     onClick={(): void => {
                         dispatch({ type: HIDE_BANNER });
+                        sessionStorage.setItem('banner-dismissed', 'true');
                     }}
                 >
                     <Close />
@@ -130,7 +136,7 @@ export const MainRouter = (): JSX.Element => {
         <Router>
             <ScrollToTop />
             {showBanner && getBluiRebrandAppbar()}
-            {navigateBlui && <Redirect to="/brightlayer-ui-rebrand" push />}
+            {navigateBlui && <Redirect to="/migration" push />}
             <DrawerLayout drawer={<NavigationDrawer />} className={className}>
                 <Switch>
                     <Route exact path="/">

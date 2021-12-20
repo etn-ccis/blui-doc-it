@@ -1,7 +1,7 @@
 import React from 'react';
 import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
 import { Dashboard } from '@material-ui/icons';
-import { Device, MapMarkerThree } from '@pxblue/icons-mui';
+import { Device, MapMarkerThree } from '@brightlayer-ui/icons-mui';
 
 export const BottomNavigationDemo: JSX.Element = (
     <BottomNavigation value={0} showLabels style={{ maxWidth: 400, width: '100%', margin: 16 }}>

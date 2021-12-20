@@ -10,10 +10,10 @@ import {
     useTheme,
 } from '@material-ui/core';
 
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { getNpmVersion } from '../../api';
 import { ButtonRow } from './ButtonRow';
-import { InfoListItem } from '@pxblue/react-components';
+import { InfoListItem } from '@brightlayer-ui/react-components';
 import { GitHub } from '../../assets/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -53,7 +53,7 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
     const theme = useTheme();
 
     const [version, setVersion] = useState<string>();
-    const repositoryLink = `https://github.com/pxblue/${repository}`;
+    const repositoryLink = `https://github.com/brightlayer-ui/${repository}`;
     const small = useMediaQuery('(max-width:799px)');
     const xs = useMediaQuery('(max-width:499px)');
     const classes = useStyles();
@@ -91,7 +91,7 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
                 title={
                     <div className={classes.flex} style={{ width: small ? '100%' : 'auto' }}>
                         <Typography className={classes.title} noWrap>
-                            {packageName && xs ? packageName.replace('@pxblue/', '') : packageName}
+                            {packageName && xs ? packageName.replace('@brightlayer-ui/', '') : packageName}
                             {!packageName && name}
                         </Typography>
                         {version && (

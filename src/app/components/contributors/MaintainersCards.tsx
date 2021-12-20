@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Typography, makeStyles, Theme, createStyles, useTheme, Avatar, IconButton } from '@material-ui/core';
 import { GitHub, LinkedIn } from '@material-ui/icons';
-import * as BrandingColors from '@pxblue/colors-branding';
+import * as BrandingColors from '@brightlayer-ui/colors-branding';
 
 import { currentMaintainers } from '../../../__configuration__/contributors';
 import backgroundImage from '../../assets/themes/circles.svg';
