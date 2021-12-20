@@ -45,7 +45,7 @@ export const pageDefinitions: SimpleNavItem[] = [
         ],
     },
     {
-        title: 'Developing w/ Brightlayer UI',
+        title: 'Developing with BLUI',
         url: '/development',
         pages: [
             {
@@ -142,7 +142,7 @@ export const pageDefinitions: SimpleNavItem[] = [
         ],
     },
     {
-        title: 'Designing w/ Brightlayer UI',
+        title: 'Designing with BLUI',
         url: '/design',
         pages: [
             {
