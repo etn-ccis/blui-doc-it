@@ -221,7 +221,7 @@ Occasionally, table rows may expand to allow users to take a quick peek into add
 
 ## Horizontal Scrolling
 
-We strongly encourage you to design your application to only show as much data as is necessary. 
+We strongly encourage you to design your application to only show as much data as is necessary.
 
 When your table overflows horizontally, you should allow your users to scroll horizontally to view more about the table. However, this interaction is less ergonomically convenient when users are not using a touch screen or a trackpad. See the [Responsive](#responsive) section below.
 
@@ -229,7 +229,9 @@ The application may display a scroll bar to suggest that there are more contents
 
 <ImageGrid
     images={[HorizontalScrollBar]}
-    caption={[`CAUTION: Be careful not to place too many columns to overflow the table. If a horizontal scroll is necessary, place a horizontal scroll bar between rows and the footer / pagination area.`]}
+    caption={[
+        `CAUTION: Be careful not to place too many columns to overflow the table. If a horizontal scroll is necessary, place a horizontal scroll bar between rows and the footer / pagination area.`,
+    ]}
     regularWidth
 />
 
