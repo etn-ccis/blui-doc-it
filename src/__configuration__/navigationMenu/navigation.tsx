@@ -45,7 +45,7 @@ export const pageDefinitions: SimpleNavItem[] = [
         ],
     },
     {
-        title: 'Developing w/ Brightlayer UI',
+        title: 'Developing with BLUI',
         url: '/development',
         pages: [
             {
@@ -142,7 +142,7 @@ export const pageDefinitions: SimpleNavItem[] = [
         ],
     },
     {
-        title: 'Designing w/ Brightlayer UI',
+        title: 'Designing with BLUI',
         url: '/design',
         pages: [
             {
@@ -380,9 +380,9 @@ export const pageDefinitions: SimpleNavItem[] = [
     },
     {
         title: 'Brightlayer UI Package Migration',
-        url: '/brightlayer-ui-package-migration',
+        url: '/migration',
         hidden: true,
-        component: <MarkdownPage title={'Brightlayer UI Package Migration'} markdown={Docs.Community.Migration} />,
+        component: <MarkdownPage title={'Brightlayer UI Package Migration'} markdown={Docs.Migration} />,
     },
 ];
 

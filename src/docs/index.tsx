@@ -1,6 +1,7 @@
 import Overview from './overview.mdx';
 import NotFound from './notfound.mdx';
 import LatestReleases from './release-notes/index';
+import Migration from './migration.mdx';
 import * as Style from './style';
 import * as Patterns from './patterns';
 import * as GetStarted from './get-started';
@@ -13,6 +14,7 @@ import * as Workflows from './workflows';
 export {
     Overview,
     NotFound,
+    Migration,
     LatestReleases,
     Style,
     Patterns,

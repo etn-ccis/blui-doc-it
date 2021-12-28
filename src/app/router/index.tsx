@@ -136,7 +136,7 @@ export const MainRouter = (): JSX.Element => {
         <Router>
             <ScrollToTop />
             {showBanner && getBluiRebrandAppbar()}
-            {navigateBlui && <Redirect to="/brightlayer-ui-package-migration" push />}
+            {navigateBlui && <Redirect to="/migration" push />}
             <DrawerLayout drawer={<NavigationDrawer />} className={className}>
                 <Switch>
                     <Route exact path="/">
