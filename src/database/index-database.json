@@ -410,8 +410,8 @@
             { "/design/websites": 14 },
             { "/patterns/loading": 14 },
             { "/patterns/appbar": 13 },
+            { "/patterns/tables": 13 },
             { "/patterns/navigation": 12 },
-            { "/patterns/tables": 12 },
             { "/community/faq": 11 },
             { "/design/project-identity": 10 },
             { "/patterns/user-auth": 10 },
@@ -969,11 +969,11 @@
         "out": [
             { "/development/testing": 5 },
             { "/community/innersourcing": 4 },
-            { "/patterns/tables": 3 },
             { "/community/faq": 3 },
             { "/overview": 2 },
             { "/get-started/new-project": 2 },
             { "/patterns/account-menu": 2 },
+            { "/patterns/tables": 2 },
             { "/patterns/user-auth": 2 },
             { "/community/license": 2 },
             { "/get-started/web": 1 },
@@ -1158,8 +1158,8 @@
             { "/patterns/navigation": 15 },
             { "/patterns/internationalization": 13 },
             { "/patterns/overlay": 13 },
-            { "/patterns/tables": 13 },
             { "/patterns/loading": 12 },
+            { "/patterns/tables": 12 },
             { "/patterns/lists": 11 },
             { "/style/typography": 11 },
             { "/get-started/web": 10 },
@@ -1586,8 +1586,8 @@
             { "/resources/designer": 1 }
         ],
         "they": [
+            { "/patterns/tables": 11 },
             { "/design/websites": 10 },
-            { "/patterns/tables": 10 },
             { "/patterns/overlay": 9 },
             { "/development/testing": 8 },
             { "/patterns/user-auth": 8 },
@@ -1798,8 +1798,8 @@
             { "/development/testing": 23 },
             { "/development/frameworks-web/react": 22 },
             { "/development/frameworks-web/angular": 21 },
-            { "/patterns/tables": 18 },
             { "/patterns/loading": 17 },
+            { "/patterns/tables": 17 },
             { "/design/websites": 16 },
             { "/patterns/account-menu": 15 },
             { "/patterns/lists": 15 },
@@ -4860,10 +4860,10 @@
         "cons": [{ "/get-started/web": 1 }, { "/development/frameworks-web/intro": 1 }],
         "each": [
             { "/development/testing": 3 },
+            { "/patterns/tables": 3 },
             { "/design/anatomy": 2 },
             { "/patterns/forms": 2 },
             { "/patterns/navigation": 2 },
-            { "/patterns/tables": 2 },
             { "/get-started/web": 1 },
             { "/development/frameworks-web/intro": 1 },
             { "/development/frameworks-mobile/react-native": 1 },
@@ -5213,10 +5213,10 @@
         ],
         "barrier": [{ "/get-started/mobile": 1 }],
         "entry": [
-            { "/patterns/tables": 2 },
             { "/get-started/mobile": 1 },
             { "/development/environment": 1 },
-            { "/development/frameworks-mobile/ionic": 1 }
+            { "/development/frameworks-mobile/ionic": 1 },
+            { "/patterns/tables": 1 }
         ],
         "developers": [
             { "/development/frameworks-web/intro": 3 },
@@ -6584,6 +6584,7 @@
             { "/development/cli": 1 },
             { "/development/testing": 1 },
             { "/design/websites": 1 },
+            { "/patterns/tables": 1 },
             { "/style/typography": 1 },
             { "/community/faq": 1 }
         ],
@@ -6728,7 +6729,7 @@
         "comparable": [{ "/development/frameworks-web/intro": 1 }],
         "would": [
             { "/community/faq": 8 },
-            { "/patterns/tables": 5 },
+            { "/patterns/tables": 4 },
             { "/development/frameworks-web/react": 3 },
             { "/development/frameworks-mobile/ionic": 3 },
             { "/development/frameworks-mobile/react-native": 2 },
@@ -8252,8 +8253,7 @@
             { "/design/websites": 3 },
             { "/design/project-identity": 2 },
             { "/community/faq": 2 },
-            { "/development/testing": 1 },
-            { "/patterns/tables": 1 }
+            { "/development/testing": 1 }
         ],
         "piece": [{ "/development/testing": 1 }, { "/design/websites": 1 }],
         "verifies": [{ "/development/testing": 1 }],
@@ -8902,7 +8902,7 @@
         "identifying": [{ "/development/testing": 2 }],
         "locators": [{ "/development/testing": 1 }],
         "_without_": [{ "/development/testing": 1 }],
-        "property": [{ "/patterns/tables": 3 }, { "/development/testing": 1 }, { "/design/accessibility": 1 }],
+        "property": [{ "/patterns/tables": 2 }, { "/development/testing": 1 }, { "/design/accessibility": 1 }],
         "attributes": [{ "/development/testing": 2 }, { "/style/illustrations": 1 }],
         "brittle": [{ "/development/testing": 1 }],
         "subject": [
@@ -10288,7 +10288,12 @@
         "researched": [{ "/design/project-identity": 1 }],
         "exception": [{ "/design/project-identity": 1 }, { "/community/license": 1 }],
         "rule": [{ "/design/project-identity": 1 }],
-        "labeled": [{ "/design/project-identity": 1 }, { "/patterns/forms": 1 }, { "/community/faq": 1 }],
+        "labeled": [
+            { "/design/project-identity": 1 },
+            { "/patterns/forms": 1 },
+            { "/patterns/tables": 1 },
+            { "/community/faq": 1 }
+        ],
         "sold": [{ "/design/project-identity": 1 }, { "/community/faq": 1 }],
         "beneficial": [{ "/design/project-identity": 1 }],
         "align": [{ "/design/project-identity": 1 }, { "/patterns/lists": 1 }, { "/community/our-team": 1 }],
@@ -10577,9 +10582,9 @@
         "populated": [{ "/patterns/empty-states": 1 }],
         "call": [
             { "/patterns/forms": 2 },
-            { "/patterns/tables": 2 },
             { "/patterns/empty-states": 1 },
-            { "/patterns/loading": 1 }
+            { "/patterns/loading": 1 },
+            { "/patterns/tables": 1 }
         ],
         "indicator": [{ "/patterns/loading": 5 }, { "/patterns/empty-states": 2 }],
         "centered": [
@@ -10769,7 +10774,7 @@
         "cues": [{ "/patterns/internationalization": 1 }],
         "locate": [{ "/patterns/internationalization": 1 }],
         "selection": [{ "/patterns/tables": 3 }, { "/patterns/internationalization": 1 }],
-        "names": [{ "/patterns/internationalization": 2 }, { "/patterns/tables": 1 }, { "/community/license": 1 }],
+        "names": [{ "/patterns/internationalization": 2 }, { "/community/license": 1 }],
         "espa": [{ "/patterns/internationalization": 1 }],
         "ol": [{ "/patterns/internationalization": 1 }],
         "spanish": [{ "/patterns/internationalization": 2 }],
@@ -10841,7 +10846,7 @@
         "carefully": [{ "/patterns/internationalization": 1 }],
         "i18nmanager": [{ "/patterns/internationalization": 1 }],
         "sort": [{ "/patterns/lists": 1 }, { "/patterns/tables": 1 }],
-        "table": [{ "/patterns/tables": 20 }, { "/patterns/lists": 1 }],
+        "table": [{ "/patterns/tables": 21 }, { "/patterns/lists": 1 }],
         "drag": [{ "/patterns/lists": 5 }],
         "drop": [{ "/patterns/lists": 4 }],
         "groups": [{ "/patterns/lists": 1 }, { "/patterns/user-auth": 1 }],
@@ -10883,7 +10888,7 @@
         "accomplished": [{ "/patterns/lists": 1 }, { "/patterns/user-auth": 1 }],
         "handle": [{ "/patterns/lists": 1 }],
         "leftmost": [{ "/patterns/lists": 1 }],
-        "row": [{ "/patterns/tables": 13 }, { "/patterns/lists": 1 }, { "/style/color": 1 }],
+        "row": [{ "/patterns/tables": 12 }, { "/patterns/lists": 1 }, { "/style/color": 1 }],
         "pushing": [{ "/patterns/lists": 1 }],
         "locked": [{ "/patterns/lists": 1 }],
         "edit": [{ "/patterns/lists": 1 }, { "/patterns/overlay": 1 }, { "/patterns/tables": 1 }],
@@ -11103,7 +11108,7 @@
         "result": [{ "/patterns/tables": 1 }],
         "pick": [{ "/patterns/tables": 1 }],
         "movement": [{ "/patterns/tables": 1 }],
-        "properties": [{ "/patterns/tables": 2 }, { "/style/iconography": 1 }, { "/style/typography": 1 }],
+        "properties": [{ "/patterns/tables": 1 }, { "/style/iconography": 1 }, { "/style/typography": 1 }],
         "jump": [{ "/patterns/tables": 1 }],
         "exit": [{ "/patterns/tables": 1 }],
         "lawn": [{ "/patterns/tables": 1 }],
