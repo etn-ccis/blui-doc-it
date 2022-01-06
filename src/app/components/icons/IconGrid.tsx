@@ -3,7 +3,7 @@ import { Grid, makeStyles, Theme, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 import color from 'color';
 import { IconType } from '../../../__types__';
-import { unCamelCase } from '../../shared';
+import { snakeToTitleCase } from '../../shared';
 import { useSelectedIcon } from '../../contexts/selectedIconContextProvider';
 
 type IconGridProps = {
@@ -47,7 +47,7 @@ const Icons: React.FC<IconGridProps> = (props) => {
                 .map((icon) => {
                     const isSelected =
                         selected && selected.name === icon.name && selected.isMaterial === icon.isMaterial;
-                    const iconDisplayName = unCamelCase(icon.name);
+                    const iconDisplayName = snakeToTitleCase(icon.iconFontKey);
                     return (
                         <Grid
                             item

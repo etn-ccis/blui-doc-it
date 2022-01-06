@@ -1,6 +1,6 @@
-export const getSnakeCase = (str: string): string => str.replace(/[A-Z]/g, '_$&').toLowerCase().substr(1);
+export const getSnakeCase = (str: string): string => str.replace(/[A-Z]/g, '_$&').toLowerCase().slice(1);
 
-export const getKebabCase = (str: string): string => str.replace(/[A-Z]/g, '-$&').toLowerCase().substr(1);
+export const getKebabCase = (str: string): string => str.replace(/[A-Z]/g, '-$&').toLowerCase().slice(1);
 
 export const snakeToKebabCase = (str: string): string => str.replaceAll('_', '-').toLowerCase();
 
@@ -12,9 +12,12 @@ export const unCamelCase = (val: string): string =>
         .replace(/^./, (str) => str.toUpperCase());
 
 export const titleCase = (val: string): string =>
-    val.replace('-', ' ').replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+    val.replace('-', ' ').replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase());
 
-export const capitalize = (val: string): string => val.charAt(0).toUpperCase() + val.substr(1);
+export const snakeToTitleCase = (str: string): string =>
+    str.replaceAll('_', ' ').replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase());
+
+export const capitalize = (val: string): string => val.charAt(0).toUpperCase() + val.slice(1);
 
 // https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript
 function fallbackCopyTextToClipboard(text: string): void {
