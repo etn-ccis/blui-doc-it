@@ -46,22 +46,29 @@ import SpecTypographyImage from '../../app/assets/design-patterns/lists/spec-typ
 
 <!-- KEYWORDS: design pattern list status sort table drag drop action data -->
 
-# Lists & Tables
+# Lists
 
 <ImageGrid images={[ListBannerImage]} regularWidth />
 
-Lists and tables are frequently used throughout Brightlayer UI applications. They are intended to represent groups of similar logical items, such as a device, an alarm, or a setting. They can display data from simple name-value pairs up to complex timelines or device lists.
+Lists are frequently used throughout Brightlayer UI applications. They are intended to represent groups of similar logical items, such as a device, an alarm, or a setting. They can display data from simple name-value pairs up to complex timelines or device lists.
 
 <React.Fragment>
     <MaterialDesignDescription title={'Lists'} url={`https://material.io/components/lists/`} />
     <TOC
         anchors={[
-            { title: 'Introduction', hash: '#lists--tables' },
-            { title: 'Common Use Cases', hash: '#common-use-cases' },
-            { title: 'Variations', hash: '#variations' },
-            { title: 'Behaviors', hash: '#behaviors' },
-            { title: 'Design Specifications', hash: '#design-specifications' },
-            { title: 'Developers', hash: '#developers' },
+            { title: 'Introduction', hash: '#lists' },
+            { title: 'Common Use Cases' },
+            { title: 'Variations' },
+            { title: 'Basic Lists', depth: 1 },
+            { title: 'Lists with Status', depth: 1 },
+            { title: 'Timestamps', depth: 1 },
+            { title: 'Behaviors' },
+            { title: 'Global List Actions', depth: 1 },
+            { title: 'Actions on Selected Items', depth: 1 },
+            { title: 'Local List Item Actions', depth: 1 },
+            { title: 'Responsive Design', depth: 1 },
+            { title: 'Design Specifications' },
+            { title: 'Developers' },
         ]}
     />
     <Divider />
@@ -92,6 +99,8 @@ Lists should **NOT** be used where:
 
 -   Data represents different logical items (e.g., don't mix alarms and devices in a single list)
 
+For information about the differences between lists and tables, check out our [Tables](/patterns/tables#tables-vs.-lists) pattern.
+
 ## Supporting UI Elements
 
 Lists typically appear inside of a panel (mobile) or a card (desktop). Occasionally, an entire screen may use a single list as its main body content.
@@ -118,7 +127,7 @@ Lists typically appear inside of a panel (mobile) or a card (desktop). Occasiona
 
 <ImageGrid
     images={[SimpleListImage1, SimpleListImage2]}
-    caption={['1: A simple key-value list.', '2: A key-value list with icons and subtitle.']}
+    captionsUnderImages={['A simple key-value list.', 'A key-value list with icons and subtitle.']}
 />
 <DemoCard
     repository={'data-list'}
@@ -187,22 +196,7 @@ Depending on the data being displayed, you can add additional UI elements to the
     ]}
 />
 
-## Tables
-
-<!-- Might be enhanced when we go to do the "design a better table" story -->
-
-<DemoCard
-    repository={'responsive-table'}
-    angular={`https://stackblitz.com/github/brightlayer-ui/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Fresponsive-table%2Fresponsive-table.component.ts`}
-    react={`https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master?file=/src/pages/lists/responsive-table/index.tsx&initialpath=/responsive-table`}
-/>
-<MaterialDesignDescription title={'Data Tables'} url={`https://material.io/components/data-tables/`} />
-
-Lists emphasize individual items, while tables highlight a comparison between each data point. However, tables generally perform poorly on a mobile device. Do not structure the list as a table if you don't expect your users examining the data "vertically".
-
-<React.Fragment>
-    <Divider />
-</React.Fragment>
+<Divider />
 
 # Behaviors
 
@@ -251,6 +245,21 @@ Common global list actions include:
 
 Drag and drop is a special case for list sorting. It re-orders the items in a list manually. This should be accomplished by placing a drag handle as the leftmost element in the row, and pushing all the list item content to its right. In most cases, the ability to re-order the list should be locked behind an Edit Mode toggle mechanism.
 
+## Actions on Selected Items
+
+<React.Fragment>
+    <ImageGrid images={[MultiSelectImage]} regularWidth caption={`A multi-select list on a mobile device.`} />
+    <DemoCard
+        repository={'multiselect-list'}
+        angular={`https://stackblitz.com/github/pxblue/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Fmultiselect-list%2Fmultiselect-list.component.ts`}
+        react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/multiselect-list/index.tsx&initialpath=multiselect-list`}
+        ionic={`https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fmultiselect-list%2Fmultiselect-list.component.ts`}
+        reactNative
+    />
+</React.Fragment>
+
+You may want to take action on several list items at once, but not all. The easiest way to do this is through a multi-select list. You may optionally add a highlight color for the selected items.
+
 ## Local List Item Actions
 
 <ImageGrid
@@ -260,16 +269,17 @@ Drag and drop is a special case for list sorting. It re-orders the items in a li
         '2: A chevron, usually indicates the entire list item is clickable and opens up a new page with list item details.',
         '3: A few icons that serve as list action buttons.',
         '4: An inline checkbox to toggle a status.',
-        '5: An inline text field for data entry.',
-        '6: An inline toggle switch.',
-        '7: An inline dropdown field.',
-        '8: An inline radio button group.',
+        '5: An inline toggle switch.',
+        '6: An inline dropdown field.',
+        '7: An inline radio button group.',
     ]}
 />
 
 If there are actions that you need to perform on individual list items, you may add icon buttons or an action menu. If you have three or fewer actions, they can be represented by individual icon buttons. If there are more than three, you should move them into an action menu.
 
 > If your entire list item is clickable, you should not include local list actions, as the two interactions can interfere with one another.
+
+### Actions on Hover
 
 On desktop applications, you may use hover events to display applicable list actions. Hover list actions can save space, leaving more room for displaying static information.
 
@@ -290,21 +300,6 @@ On desktop applications, you may use hover events to display applicable list act
 
 Lists can be used to navigate a tree-like structure in an application. See [the navigation pattern](/patterns/navigation).
 
-### Actions on Selected Items
-
-<React.Fragment>
-    <ImageGrid images={[MultiSelectImage]} regularWidth />
-    <DemoCard
-        repository={'multiselect-list'}
-        angular={`https://stackblitz.com/github/brightlayer-ui/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Fmultiselect-list%2Fmultiselect-list.component.ts`}
-        react={`https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master?file=/src/pages/lists/multiselect-list/index.tsx&initialpath=/multiselect-list`}
-        ionic={`https://stackblitz.com/github/brightlayer-ui/ionic-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fmultiselect-list%2Fmultiselect-list.component.ts`}
-        reactNative
-    />
-</React.Fragment>
-
-You may want to take action on several list items at once, but not all. The easiest way to do this is through a multi-select list. You may optionally add a highlight color for the selected items.
-
 ## Responsive Design
 
 <ImageGrid
@@ -319,7 +314,6 @@ You may want to take action on several list items at once, but not all. The easi
 
 When it comes to responsive design and progressive disclosure, it can be tricky to fit all the information from a list onto a smaller screen. Here are some best practices on designing for mobile:
 
--   Avoid using tables if possible, or reduce the number of columns visible on mobile.
 -   Remove less critical information from lists on mobile.
 -   Use summary cards with a "view more" option to view the full data.
 -   Use gestures (e.g., long-press, swipe-left) that align with the target device's native behavior.
@@ -335,13 +329,8 @@ When it comes to responsive design and progressive disclosure, it can be tricky 
     />
     <MaterialDesignDescription
         title={'Lists'}
-        description={`For additional instructions, refer to Material Design's design specs`}
+        description={`For additional instructions, refer to Material Design's design specs.`}
         url={`https://material.io/components/lists#specs`}
-    />
-    <MaterialDesignDescription
-        title={'Data Tables'}
-        description={`For additional instructions, refer to Material Design's design specs`}
-        url={`https://material.io/components/data-tables#specs`}
     />
     <Divider />
 </React.Fragment>
@@ -354,8 +343,6 @@ Use the following components to implement this pattern:
 
 -   Angular Material
     -   [List](https://material.angular.io/components/list/overview)
-    -   [Table](https://material.angular.io/components/table/overview)
--   @brightlayer-ui/angular-components
     -   [Info List Item](https://brightlayer-ui-components.github.io/angular/?path=/info/components-info-list-item--readme)
     -   [List Item Tag](https://brightlayer-ui-components.github.io/angular/?path=/info/components-list-item-tag--readme)
 

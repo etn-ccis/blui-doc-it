@@ -8,6 +8,7 @@ import LoadingImage from '../../app/assets/design-patterns/loading-states/loadin
 import LoginBanner from '../../app/assets/design-patterns/user-authentication/login.svg';
 import NavigationtImg from '../../app/assets/design-patterns/navigation/navigation.svg';
 import OverlayBanner from '../../app/assets/design-patterns/overlays/overlay-banner.svg';
+import TableImg from '../../app/assets/design-patterns/tables/tables.svg';
 // import PageLayoutImg from '../../app/assets/design-patterns/page-layout/layout-banner.svg';
 import StepperImg from '../../app/assets/design-patterns/steppers/steppers-banner.svg';
 import VisualizationImage from '../../app/assets/design-patterns/visualizations/visualizations-banner.svg';
@@ -56,7 +57,7 @@ export const patterns = [
         },
     },
     {
-        title: 'Lists & Tables',
+        title: 'Lists',
         url: '/patterns/lists',
         description: 'Different lists for different kinds of data.',
         image: ListImg,
@@ -88,6 +89,15 @@ export const patterns = [
     //     description: 'Laying out elements on the screen.',
     //     image: PageLayoutImg,
     // },
+    {
+        title: 'Tables',
+        url: '/patterns/tables',
+        description: 'Render tables in a structured way.',
+        image: TableImg,
+        background: {
+            position: 'center',
+        },
+    },
     {
         title: 'Steppers',
         url: '/patterns/steppers',

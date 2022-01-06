@@ -41,3 +41,14 @@ export function copyTextToClipboard(text: string, onCopied?: () => void): void {
     void navigator.clipboard.writeText(text);
     if (onCopied) onCopied();
 }
+
+/**
+ * Get markdown title hash for markdown doc titles.
+ * @param str The title string to be hashed
+ * @returns The hashed string to be used in a URL, all lowercase
+ */
+export const getHash = (str: string): string =>
+    str
+        .replace(/ /g, '-')
+        .replace(/[#?/&]/g, '')
+        .toLowerCase();

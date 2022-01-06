@@ -1,0 +1,55 @@
+<svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<rect width="300" height="300" fill="#E2E5E5"/>
+<path d="M16 28C16 21.3726 21.3726 16 28 16C34.6274 16 40 21.3726 40 28C40 34.6274 34.6274 40 28 40C21.3726 40 16 34.6274 16 28Z" fill="#424E54"/>
+<path d="M29.5234 34H27.6875V26.625C27.6875 25.7448 27.7083 25.0469 27.75 24.5312C27.6302 24.6562 27.4818 24.7943 27.3047 24.9453C27.1328 25.0964 26.5495 25.5755 25.5547 26.3828L24.6328 25.2188L27.9922 22.5781H29.5234V34Z" fill="white"/>
+<rect x="32" y="70" width="212" height="260" rx="4" fill="#B9BFC2"/>
+<rect x="28.5" y="66.5" width="211" height="259" rx="3.5" fill="white" stroke="#727E84"/>
+<line x1="29" y1="110.5" x2="240" y2="110.5" stroke="#727E84"/>
+<rect x="39" y="82" width="37" height="13" fill="#B9BFC2"/>
+<rect x="39" y="132" width="28" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="39" y="234" width="37" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="89" y="132" width="36" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="89" y="234" width="36" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="39" y="167" width="33" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="39" y="269" width="33" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="89" y="167" width="30" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="89" y="269" width="30" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="39" y="202" width="19" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="89" y="202" width="23" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="89" y="82" width="36" height="13" fill="#B9BFC2"/>
+<rect x="138" y="82" width="37" height="13" fill="#B9BFC2"/>
+<rect x="138" y="132" width="21" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="138" y="234" width="37" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="138" y="167" width="37" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="138" y="269" width="37" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="138" y="202" width="33" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="190" y="82" width="36" height="13" fill="#B9BFC2"/>
+<rect x="190" y="132" width="36" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="190" y="234" width="36" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="190" y="167" width="20" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="190" y="269" width="20" height="13" rx="6.5" fill="#B9BFC2"/>
+<rect x="190" y="202" width="30" height="13" rx="6.5" fill="#B9BFC2"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M65 21.5C60 21.5 55.73 24.61 54 29C55.73 33.39 60 36.5 65 36.5C70 36.5 74.27 33.39 76 29C74.27 24.61 70 21.5 65 21.5ZM65 34C62.24 34 60 31.76 60 29C60 26.24 62.24 24 65 24C67.76 24 70 26.24 70 29C70 31.76 67.76 34 65 34ZM62 29C62 27.34 63.34 26 65 26C66.66 26 68 27.34 68 29C68 30.66 66.66 32 65 32C63.34 32 62 30.66 62 29Z" fill="#0088F2"/>
+<path d="M65 45V89H145V209H102.5V241H199L102.5 250.5V276H262.5" stroke="#0088F2" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="145" cy="89" r="4" fill="#0088F2"/>
+<circle cx="97" cy="89" r="4" fill="#0088F2"/>
+<circle cx="65" cy="89" r="4" fill="#0088F2"/>
+<circle cx="145" cy="139" r="4" fill="#0088F2"/>
+<circle cx="145" cy="174" r="4" fill="#0088F2"/>
+<circle cx="145" cy="209" r="4" fill="#0088F2"/>
+<circle cx="102" cy="209" r="4" fill="#0088F2"/>
+<circle cx="102" cy="241" r="4" fill="#0088F2"/>
+<circle cx="198" cy="241" r="4" fill="#0088F2"/>
+<circle cx="102" cy="276" r="4" fill="#0088F2"/>
+<circle cx="198" cy="276" r="4" fill="#0088F2"/>
+<path d="M60 57L65 62L70 57" stroke="#0088F2" stroke-width="2"/>
+<path d="M277.71 281.99C274.53 281.84 272 279.22 272 276C272 272.69 274.69 270 278 270C281.22 270 283.84 272.53 283.99 275.71L281.89 275.08C281.48 273.31 279.89 272 278 272C275.79 272 274 273.79 274 276C274 277.89 275.31 279.48 277.08 279.89L277.71 281.99ZM288 276C288 276.3 287.99 276.6 287.96 276.9L285.99 276.31C286 276.21 286 276.1 286 276C286 271.58 282.42 268 278 268C273.58 268 270 271.58 270 276C270 280.42 273.58 284 278 284C278.1 284 278.21 284 278.31 283.99L278.9 285.96C278.6 285.99 278.3 286 278 286C272.48 286 268 281.52 268 276C268 270.48 272.48 266 278 266C283.52 266 288 270.48 288 276ZM284.23 280.26L288 279L278 276L281 286L282.26 282.23L286.53 286.5L288.51 284.52L284.23 280.26Z" fill="#0088F2"/>
+<path d="M249 281L254 276L249 271" stroke="#0088F2" stroke-width="2"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="300" height="300" fill="white"/>
+</clipPath>
+</defs>
+</svg>

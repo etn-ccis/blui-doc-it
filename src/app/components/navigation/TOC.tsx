@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { makeStyles, createStyles, Theme, Typography } from '@material-ui/core';
+import { makeStyles, createStyles, Theme, Typography, useTheme, useMediaQuery } from '@material-ui/core';
 import { Link, useLocation } from 'react-router-dom';
-import { DRAWER_WIDTH, TOC_WIDTH, PAGE_WIDTH } from '../../shared';
+import { DRAWER_WIDTH, TOC_WIDTH, PAGE_WIDTH, getHash } from '../../shared';
 import clsx from 'clsx';
 import { useTOC } from '../../hooks/useTOC';
 
 type ToCProps = {
-    anchors: Array<{ title: string; hash: string }>;
+    anchors: Array<{ title: string; hash?: string; depth?: number }>;
 
     /**
      * Whether the first anchor passed in is pointing to the page top
@@ -71,6 +71,8 @@ const useStyles = makeStyles((theme: Theme) =>
 export const TOC: React.FC<ToCProps> = (props) => {
     const { anchors, isFirstAnchorIntro = true } = props;
     const classes = useStyles();
+    const theme = useTheme();
+    const isLgUp = useMediaQuery(theme.breakpoints.up('lg'));
     const { pathname, hash } = useLocation();
     const [activeSection, setActiveSection] = useState(0);
     const [sectionOffsetTop, setSectionOffsetTop] = useState<number[]>([]);
@@ -80,7 +82,8 @@ export const TOC: React.FC<ToCProps> = (props) => {
         // go through all the section anchors, read their offsetTop values
         const anchorTops: number[] = [];
         anchors.forEach((anchor) => {
-            const sectionAnchor = document.getElementById(anchor.hash.slice(1));
+            const anchorHash = anchor.hash?.slice(1) || getHash(anchor.title);
+            const sectionAnchor = document.getElementById(anchorHash);
             if (sectionAnchor) {
                 anchorTops.push(sectionAnchor.offsetTop - 200); // add a bit more scroll padding
             } else {
@@ -151,19 +154,23 @@ export const TOC: React.FC<ToCProps> = (props) => {
             <Typography className={classes.onThisPage} variant={'overline'} color={'textSecondary'}>
                 On This Page
             </Typography>
-            {anchors.map((anchor, index) => (
-                <Link
-                    key={index}
-                    to={anchor.hash}
-                    className={clsx(classes.link, {
-                        [classes.activeLink]: activeSection === index,
-                        [classes.hideIntro]: isFirstAnchorIntro && index === 0,
-                    })}
-                    replace
-                >
-                    {anchor.title}
-                </Link>
-            ))}
+            {anchors.map(
+                (anchor, index) =>
+                    (isLgUp || !anchor.depth) && (
+                        <Link
+                            key={index}
+                            to={anchor.hash || `#${getHash(anchor.title)}`}
+                            className={clsx(classes.link, {
+                                [classes.activeLink]: activeSection === index,
+                                [classes.hideIntro]: isFirstAnchorIntro && index === 0,
+                            })}
+                            style={{ paddingLeft: anchor.depth ? theme.spacing(anchor.depth * 2 + 2) : undefined }}
+                            replace
+                        >
+                            {anchor.title}
+                        </Link>
+                    )
+            )}
         </div>
     );
 };
