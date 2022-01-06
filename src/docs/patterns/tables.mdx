@@ -76,11 +76,11 @@ import SpecPagination from '../../app/assets/design-patterns/tables/spec-paginat
 
 # Tables
 
-> This page is still a work in progress for projects using React Native and is subject to change in the future. [Let us know](/community/contactus) what you think.
+> This page is still evolving and is subject to change in the future. We do not yet have coded examples for everything shown on this page. [Let us know](/community/contactus) what you think.
 
 <ImageGrid images={[BannerImage]} regularWidth />
 
-Similar to [lists](/patterns/lists), tables are used to display structured data. Tables are especially powerful in desktop applications, where users can easily compare and analyze a large set of data and navigate with sorting and filtering options.
+Similar to [lists](/patterns/lists), tables are used to display structured data. Tables are especially powerful in desktop applications, where users can easily compare and analyze a large set of data and find what they are looking for with sorting and filtering options.
 
 <MaterialDesignDescription title={'Data Table'} url={`https://material.io/components/data-tables`} />
 <TOC
@@ -139,7 +139,7 @@ You should seek to make your tables both easy to navigate and effective to use.
     images={[TableCellUnderlinedField, TableCellImage]}
     captionsUnderImages={[
         'CAUTION: Be careful when using underlined text fields in a table, as their understrokes compete with the line strokes between each table row.',
-        `AVOID: Images can heighten table rows. Consider using a list instead.`,
+        `AVOID: Images can make table rows excessively tall. Consider using a list instead.`,
     ]}
 />
 
@@ -230,7 +230,7 @@ The application may display a scroll bar to suggest that there are more contents
 <ImageGrid
     images={[HorizontalScrollBar]}
     caption={[
-        `CAUTION: Be careful not to place too many columns to overflow the table. If a horizontal scroll is necessary, place a horizontal scroll bar between rows and the footer / pagination area.`,
+        `CAUTION: Do not use so many columns that there is significant overflow in your tables. If a horizontal scroll is necessary, place a horizontal scroll bar between rows and the footer / pagination area.`,
     ]}
     regularWidth
 />
@@ -239,7 +239,7 @@ The application may display a scroll bar to suggest that there are more contents
     images={[StickyCheckbox, StickyRowAction]}
     captionsUnderImages={[
         `The checkbox column should be sticky to the left as the user scrolls to the right.`,
-        `The action column, if designed to be always visible, should be sticky to the right. Do not include too many row actions that cover excessive table body area.`,
+        `The action column, if designed to be always visible, should be sticky to the right. Do not include too many actions or they will consume a significant portion of your available space.`,
     ]}
 />
 
@@ -283,7 +283,7 @@ Table rows often look very similar and can be difficult for users to differentia
 
 <ImageGrid
     images={[ListVTableTable, ListVTableList]}
-    caption={['A same set of data may be presented in tables (#1) or lists (#2), depends on the use cases.']}
+    caption={['The same set of data may be presented in tables (#1) or lists (#2), depends on the use case.']}
 />
 
 In most cases, we encourage you to organize your data into lists instead of tables. However, the distinction between the two is not black and white. Below are a few factors you should consider when deciding how to present your data.
@@ -327,13 +327,13 @@ Tables facilitate users who want to work across multiple different properties of
 <ImageGrid
     images={[ReadTable, ReadList]}
     caption={[
-        `If you do an eye tracking between when the user starts looking at their data set and when they decide to perform some actions, you would notice users' eye sights roam differently in these two structures.`,
+        `If you conduct eye tracking as a users attempts to perform some action, you would notice users scan differently depending on the data structure.`,
         '1: In a table, users can start from any column / property, and navigate horizontally or vertically to the targeted item (lawn mower pattern).',
         '2: In a list, users rely heavily on a primary property to navigate (layer cake pattern).',
     ]}
 />
 
-If you expect your users to compare across multiple parameters before they can decide which row to interact with, you should use a table. If they mostly read your data row-by-row, you shall try structuring your data as a list.
+If you expect your users to compare across multiple parameters before deciding which row to interact with, you should use a table. If they primarily read your data row-by-row, you should try structuring your data as a list.
 
 <ImageGrid
     images={[ColumnOrder1, ColumnOrder2]}
@@ -373,16 +373,16 @@ In general, **we do not encourage tables on mobile platforms**, as table-related
 <ImageGrid
     images={[TableOnMobile]}
     regularWidth
-    caption={`Users can only see a very small portion of the table through mobile devices.`}
+    caption={`Users can only see a very small portion of the table on mobile devices.`}
 />
 
-## Understanding Users' Goal
+## Understanding Users' Goals
 
 <ImageGrid images={[UserInField]} regularWidth caption={`While on foot, it is very hard to examine small details.`} />
 
 Before you design a table structure for a mobile application, you should conduct user research and have a clear understanding of users' intentions. When they land on this page, do they need to do complicated cross-comparisons between multiple rows and columns? Is a full table necessary?
 
-For an industrial mobile application, users would often be on foot and out in the field when they interact with the app. They are paying more attention to their surroundings, so keep the mobile app interaction minimal.
+For applications where users will be on foot and out in the field while they interact with the app, keep the interactions minimal so users can pay sufficient attention to their surroundings.
 
 ## Breaking Down Tables into Lists
 
@@ -420,11 +420,11 @@ However, these gestures should never be the only way to perform an action. For e
 
 ## Landscape Mode
 
-If a full table view is desired on mobile devices, consider offering a landscape view so that more columns would be visible at once.
+If a full table view is desired on mobile devices, consider offering a landscape view so that more columns are visible at once.
 
 <ImageGrid images={[LandscapeTable]} caption={`Use the landscape mode for viewing the full table.`} regularWidth />
 
-However, most applications are meant to be used mainly on the portrait mode. In this case, you need to call out the option.
+However, many applications are meant to be used primarily in portrait mode. In this case, you need to call out the option.
 
 <ImageGrid
     images={[InviteToLandscapeX, InviteToLandscapeCountdown]}
@@ -462,6 +462,7 @@ Use the following components to implement this pattern:
 
 -   Material UI
     -   [Table](https://mui.com/components/tables/)
+    -   [Data Grid](https://mui.com/components/data-grid/)
 
 **React Native**:
 
