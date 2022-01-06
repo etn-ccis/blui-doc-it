@@ -48,8 +48,8 @@ const Releases: ReleaseInfo[] = [
         title: 'R22',
         date: 'Dec 2021',
         version: '3.0.0',
-        details: <R21 />,
-        summary: <R21Summary />,
+        details: <R22 />,
+        summary: <R22Summary />,
     },
     {
         title: 'R21',
