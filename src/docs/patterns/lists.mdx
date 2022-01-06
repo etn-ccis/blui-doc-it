@@ -15,7 +15,9 @@ import SimpleListImage2 from '../../app/assets/design-patterns/lists/simple-list
 import StatusListImage from '../../app/assets/design-patterns/lists/status-list.png';
 import ScorecardImage from '../../app/assets/design-patterns/lists/scorecard.png';
 import ContactsImage from '../../app/assets/design-patterns/lists/contacts.png';
-import IconAlignImage from '../../app/assets/design-patterns/lists/icon-align.png';
+import IconAlignImage1 from '../../app/assets/design-patterns/lists/icon-align-1.png';
+import IconAlignImage2 from '../../app/assets/design-patterns/lists/icon-align-2.png';
+import IconAlignImage3 from '../../app/assets/design-patterns/lists/icon-align-3.png';
 import NotificationBucketsImage1 from '../../app/assets/design-patterns/lists/notification-buckets-1.png';
 import NotificationBucketsImage2 from '../../app/assets/design-patterns/lists/notification-buckets-2.png';
 
@@ -157,11 +159,12 @@ The simplest type of list simply presents a single line (or multiple lines) of t
 Commonly in Brightlayer UI applications, list items also show a visual indication of an item's current status, such as online, offline, or an error condition. You can indicate this status by using avatars and status stripes with [Brightlayer UI's status color palette](/style/color#status-colors).
 
 <ImageGrid
-    images={[IconAlignImage]}
-    regularWidth
+    images={[IconAlignImage1, IconAlignImage2, IconAlignImage3]}
     caption={
         'When using a list that may contain both avatars and simple icons, all icons should be center-aligned. If you are using interactive elements like checkboxes and radio buttons, they should also be center-aligned to accommodate ripples. When using only simple icons, they should be left-aligned.'
     }
+    captionsUnderImages={['DO: ', 'DO: ', 'DONT: ']}
+    gridImageProps={{ sm: 6, md: 4 }}
 />
 
 If avatars and status stripes do not work well based on the context, such as in the body of a [scorecard component](https://brightlayer-ui-components.github.io/react/?path=/info/components-score-card--get-read-me-story), you can color-code your list item icons and labels to indicate status. However, for accessibility concerns, you should never rely _solely_ on the color to convey the message.
@@ -216,7 +219,7 @@ Global list actions are the actions that manipulate the entire list. The buttons
 
 <ImageGrid
     images={[GlobalActionAppBarImage, GlobalActionPanelHeaderImage, GlobalActionAsButtonImage]}
-    caption={[
+    captionsUnderImages={[
         `1: Global actions in the Appbar.`,
         '2: Global actions in the panel header.',
         '3: Global actions in its own button panel.',
@@ -295,7 +298,7 @@ On desktop applications, you may use hover events to display applicable list act
 
 <ImageGrid
     images={[NavigateListImage1, NavigateListImage2]}
-    caption={['1: A list used for separated pages.', '2: A list displaying a folder structure.']}
+    captionsUnderImages={['1: A list used for separated pages.', '2: A list displaying a folder structure.']}
 />
 
 Lists can be used to navigate a tree-like structure in an application. See [the navigation pattern](/patterns/navigation).

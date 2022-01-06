@@ -1,7 +1,8 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
 import { Link as LinkIcon } from '@material-ui/icons';
 import InternationalizationImage from '../../app/assets/design-patterns/internationalization/internationalization.svg';
-import IconsFlippedImage from '../../app/assets/design-patterns/internationalization/icons-flipped.png';
+import IconsFlippedOKImage from '../../app/assets/design-patterns/internationalization/icons-flipped-ok.png';
+import IconsFlippedErrorImage from '../../app/assets/design-patterns/internationalization/icons-flipped-error.png';
 import UIFlippedImage from '../../app/assets/design-patterns/internationalization/ui-flipped.png';
 import ButtonWidthImage from '../../app/assets/design-patterns/internationalization/button-width.png';
 import TextFieldWidthImage from '../../app/assets/design-patterns/internationalization/text-field-width.png';
@@ -104,16 +105,15 @@ Some languages, such as Arabic and Hebrew, are read from right to left. Applicat
     images={[UIFlippedImage]}
     regularWidth
     caption={[
-        '1: A Brightlayer UI user interface in right-to-left language (English).',
-        '2: The same Brightlayer UI user interface in left-to-right language (Arabic).',
+        '1: A user interface in right-to-left language (English).',
+        '2: The same user interface in left-to-right language (Arabic).',
     ]}
 />
 <ImageGrid
-    images={[IconsFlippedImage]}
-    regularWidth
-    caption={[
-        '1: Icons that indicate directions should be mirrored.',
-        '2: Icons with glyphs and symbols should never be mirrored.',
+    images={[IconsFlippedOKImage, IconsFlippedErrorImage]}
+    captionsUnderImages={[
+        'DO: Icons that indicate directions should be mirrored.',
+        'DONT: Icons with glyphs and symbols should never be mirrored.',
     ]}
 />
 <MaterialDesignDescription

@@ -4,8 +4,12 @@ import LightThemeColors from '../../app/assets/styles/themes/light-theme-colors.
 import DarkThemeColors from '../../app/assets/styles/themes/dark-theme-colors.png';
 import LightThemeExample from '../../app/assets/styles/themes/light-theme-example.png';
 import DarkThemeExample from '../../app/assets/styles/themes/dark-theme-example.png';
-import OutlinedAndFlat from '../../app/assets/styles/themes/outlined-and-flat.png';
-import DarkThemeElevation from '../../app/assets/styles/themes/dark-theme-elevation.png';
+import OutlinedAndFlat1 from '../../app/assets/styles/themes/outlined-and-flat-1.png';
+import OutlinedAndFlat2 from '../../app/assets/styles/themes/outlined-and-flat-2.png';
+import OutlinedAndFlat3 from '../../app/assets/styles/themes/outlined-and-flat-3.png';
+import DarkThemeElevation1 from '../../app/assets/styles/themes/dark-theme-elevation-1.png';
+import DarkThemeElevation2 from '../../app/assets/styles/themes/dark-theme-elevation-2.png';
+import DarkThemeElevation3 from '../../app/assets/styles/themes/dark-theme-elevation-3.png';
 
 <!-- KEYWORDS: design style theme light dark mode -->
 
@@ -75,19 +79,22 @@ The dark theme is intended primarily for applications used in low-light conditio
 To accommodate for [accessibility requirements](/design/accessibility), Brightlayer UI uses the 200 shade of colors when text is used on a dark background, such as in an outlined button and a text field label. For "contained" elements, such as in an elevated / contained button, the same style is used as in the light theme (500 shades).
 
 <ImageGrid
-    images={[OutlinedAndFlat]}
-    caption={`You may use the 200 shade of text colors on a dark background (#1) or White 50 on 500 shades (#2). However, the 200 shades should never be used as a background color (#3), as they can cause glare in a dark environment.`}
-    regularWidth
+    images={[OutlinedAndFlat1, OutlinedAndFlat2, OutlinedAndFlat3]}
+    captionsUnderImages={[
+        `You may use the 200 shade of text colors on a dark background.`,
+        `You may use White 50 on 500 shades.`,
+        `DONT: The 200 shades should never be used as a background color, as they can cause glare in a dark environment.`,
+    ]}
+    gridImageProps={{ sm: 6, md: 4 }}
 />
 <ImageGrid
-    images={[DarkThemeElevation]}
-    caption={[
-        'In dark theme, you can express surface elevation with:',
-        '1: A different surface color. (Optionally, you may apply a drop shadow to further define the edge.)',
-        '2: Use outlined component style.',
-        '3: However, you should never rely SOLELY on the drop shadow, no matter how dark it is.',
+    images={[DarkThemeElevation1, DarkThemeElevation2, DarkThemeElevation3]}
+    captionsUnderImages={[
+        'DO: Express elevation with A different surface color. (Optionally, you may apply a drop shadow to further define the edge.)',
+        'DO: Express elevation with an outlined component style.',
+        'DONT: You should never rely SOLELY on the drop shadow, no matter how dark it is.',
     ]}
-    regularWidth
+    gridImageProps={{ sm: 6, md: 4 }}
 />
 <Divider />
 

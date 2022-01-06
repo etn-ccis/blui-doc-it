@@ -25,8 +25,10 @@ import HoverImg from '../../app/assets/design-patterns/navigation/persistent-dra
 import NavigationBottomImg from '../../app/assets/design-patterns/navigation/navigation-bottom.png';
 import NavigationBottomWithDrawerImg from '../../app/assets/design-patterns/navigation/navigation-bottom-with-drawer.png';
 import DividerGroupImage from '../../app/assets/design-patterns/navigation/drawer-divider.png';
-import DividerImage from '../../app/assets/design-patterns/navigation/divider.png';
-import SafeAreaImage from '../../app/assets/design-patterns/navigation/safe-area.png';
+import DividerDoImage from '../../app/assets/design-patterns/navigation/divider-do.png';
+import DividerDontImage from '../../app/assets/design-patterns/navigation/divider-dont.png';
+import SafeArea1Image from '../../app/assets/design-patterns/navigation/safe-area-1.png';
+import SafeArea2Image from '../../app/assets/design-patterns/navigation/safe-area-2.png';
 import CombinedDrawerImage from '../../app/assets/design-patterns/navigation/combined-drawer.png';
 import PersistentDrawerPitfallImg from '../../app/assets/design-patterns/navigation/persistent-drawer-pitfall.gif';
 
@@ -253,11 +255,10 @@ Divider lines can be used between navigation items in the drawer. They are most 
         caption={['Dividers can be used to separate different sections of the drawer contents.']}
     />
     <ImageGrid
-        images={[DividerImage]}
-        regularWidth
-        caption={[
-            '1. Standard drawer navigation does not include dividers.',
-            '2. Avoid using divider lines between every navigation item. These can make the drawer appear busy.',
+        images={[DividerDoImage, DividerDontImage]}
+        captionsUnderImages={[
+            'DO: Standard drawer navigation does not include dividers.',
+            'DONT: Avoid using divider lines between every navigation item. These can make the drawer appear busy.',
         ]}
     />
 </React.Fragment>
@@ -266,7 +267,11 @@ Divider lines can be used between navigation items in the drawer. They are most 
 
 When designing for mobile screens, in particular for a iPhone X model, ensure that your contents lay inside the safe area.
 
-<ImageGrid images={[SafeAreaImage]} caption={['Contents must be inside the safe area.']} regularWidth />
+<ImageGrid
+    images={[SafeArea1Image, SafeArea2Image]}
+    caption={['Contents must be inside the safe area.']}
+    captionsUnderImages={['DONT: ', 'DO: ']}
+/>
 <Divider />
 
 # Design Specifications
