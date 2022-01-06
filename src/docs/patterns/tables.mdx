@@ -61,6 +61,7 @@ import TableOnMobile from '../../app/assets/design-patterns/tables/table-on-mobi
 import HomePagePreview from '../../app/assets/design-patterns/tables/home-page-preview.gif';
 import TableStackedAsList from '../../app/assets/design-patterns/tables/table-stacked-as-list.gif';
 import MobilePagination from '../../app/assets/design-patterns/tables/mobile-pagination.png';
+import MobileInfScroll from '../../app/assets/design-patterns/tables/mobile-inf-scroll.png';
 import LandscapeTable from '../../app/assets/design-patterns/tables/landscape-table.gif';
 import InviteToLandscapeX from '../../app/assets/design-patterns/tables/invite-to-landscape-x.png';
 import InviteToLandscapeCountdown from '../../app/assets/design-patterns/tables/invite-to-landscape-countdown.gif';
@@ -343,7 +344,7 @@ If you expect your users to compare across multiple parameters before deciding w
     captionsUnderImages={['', 'DONT:']}
 />
 
-## Property Name
+##  Data Labels
 
 In tables, each data point is labeled only once in the table header. In lists, however, the values are either clear enough on their own without explanations, or they have to be included in each list item.
 
@@ -396,14 +397,15 @@ If a user only needs a few parameters to identify the correct data entry and mak
     ]}
 />
 
-## Pagination
+## Infinite Scroll and Pagination
 
-If tables become necessary in your mobile application, pagination is especially helpful to reduce the load of both the server and the client-side render.
+If tables become necessary in your mobile application, infinite scroll and pagination are especially helpful to reduce the load of both the server and the client-side render.
 
 <ImageGrid
-    images={[MobilePagination]}
+    images={[MobileInfScroll, MobilePagination]}
     captionsUnderImages={[
-        `Pagination is often used to reduce the page load. If not conflicting with other gestures, consider also adding left / right swipes to go to the previous / next page.`,
+        `Infinite scroll`,
+        `Pagination`,
     ]}
     gridContainerProps={{ style: { justifyContent: 'flex-start' } }}
 />
