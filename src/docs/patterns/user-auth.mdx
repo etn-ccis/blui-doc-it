@@ -37,7 +37,9 @@ import ChangePasswordDesktop from '../../app/assets/design-patterns/user-authent
 import EmailCommunicationInvitation from '../../app/assets/design-patterns/user-authentication/email-communication-invitation.png';
 import EmailCommunicationVerification from '../../app/assets/design-patterns/user-authentication/email-communication-verification.png';
 import ExpiredCode from '../../app/assets/design-patterns/user-authentication/expired.png';
-import ErrorStates from '../../app/assets/design-patterns/user-authentication/error-states.png';
+import ErrorStates1 from '../../app/assets/design-patterns/user-authentication/error-states-1.png';
+import ErrorStates2 from '../../app/assets/design-patterns/user-authentication/error-states-2.png';
+import ErrorStates3 from '../../app/assets/design-patterns/user-authentication/error-states-3.png';
 
 <!-- KEYWORDS: design pattern login registration register password forget forgot account authentication auth join -->
 
@@ -306,11 +308,12 @@ When a user encounters an error — such as a password mismatch or the server is
 > Do **NOT** provide messages like "User does not exist," "Incorrect Password," etc.
 
 <ImageGrid
-    images={[ErrorStates]}
+    images={[ErrorStates1, ErrorStates2, ErrorStates3]}
     caption={
         'For security, you should not present more information than is necessary. For invalid credentials, you should highlight both fields and say "Invalid Credentials."'
     }
-    regularWidth
+    captionsUnderImages={['DONT: ', 'DONT: ', 'DO: ']}
+    gridImageProps={{ sm: 6, md: 4 }}
 />
 
 ### Exposing Credentials

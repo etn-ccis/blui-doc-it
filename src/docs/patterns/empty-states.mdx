@@ -37,11 +37,11 @@ At times, there may be areas of your application that do not have data available
     <TOC
         anchors={[
             { title: 'Introduction', hash: '#empty-states' },
-            { title: 'Common Use Cases', hash: '#common-use-cases' },
-            { title: 'Anatomy', hash: '#anatomy' },
-            { title: 'Behavior', hash: '#behavior' },
-            { title: 'Design Specifications', hash: '#design-specifications' },
-            { title: 'Developers', hash: '#developers' },
+            { title: 'Common Use Cases' },
+            { title: 'Anatomy' },
+            { title: 'Behavior' },
+            { title: 'Design Specifications' },
+            { title: 'Developers' },
         ]}
     />
     <Divider />
@@ -79,7 +79,7 @@ If the data is empty but could be populated by a user action (such as adding a d
 
 <ImageGrid
     images={[DesktopImage, ElementImage]}
-    caption={['1: A full-screen empty state.', '2: Empty state shown on an element (card).']}
+    captionsUnderImages={['A full-screen empty state.', 'Empty state shown on an element (card).']}
 />
 
 ### Full-screen
@@ -102,9 +102,10 @@ The empty state should clearly communicate to users:
 
 <ImageGrid
     images={[DontDistractImage, DoEncourageImage]}
-    caption={
-        'Do not display pagination when datasets are empty as they can be distracting to users. Instead, provide instructions to help your user out of the empty state situation, if so desired by your application.'
-    }
+    captionsUnderImages={[
+        'DONT: Do not display pagination when datasets are empty as they can be distracting to users.',
+        'DO: Instead, provide instructions to help your user out of the empty state situation, if so desired by your application.',
+    ]}
 />
 
 Empty states can also be a great place to express your project identity, especially if your application is designed to be consumer-facing. See [Project Identity](/design/project-identity#illustrations) for details.

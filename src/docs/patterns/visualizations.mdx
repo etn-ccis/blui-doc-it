@@ -6,7 +6,8 @@ import LineChart from '../../app/assets/design-patterns/visualizations/line-char
 import PieChart from '../../app/assets/design-patterns/visualizations/pie-chart.png';
 import ClockwisePie from '../../app/assets/design-patterns/visualizations/cw-ccw.png';
 import MapsImg from '../../app/assets/design-patterns/visualizations/map.png';
-import DontUsePrimaryColor from '../../app/assets/design-patterns/visualizations/use-primary-color.png';
+import UsePrimaryColorDo from '../../app/assets/design-patterns/visualizations/use-primary-color-do.png';
+import UsePrimaryColorDont from '../../app/assets/design-patterns/visualizations/use-primary-color-dont.png';
 
 <!-- KEYWORDS: design pattern visualization map chart graph highcharts chartjs mapbox -->
 
@@ -68,9 +69,11 @@ To avoid interfering with other UI elements, charts should be built using the Br
 
 <React.Fragment>
     <ImageGrid
-        images={[DontUsePrimaryColor]}
-        regularWidth
-        caption={'Never use the UI color palette for chart elements.'}
+        images={[UsePrimaryColorDo, UsePrimaryColorDont]}
+        captionsUnderImages={[
+            'DO: Use branding colors for charts.',
+            'DONT: Never use the UI color palette for charts.',
+        ]}
     />
     <ImageGrid
         images={[ClockwisePie]}
