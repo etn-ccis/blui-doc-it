@@ -150,7 +150,7 @@ const loadIcons = (): void => {
 
         const icon: IconType = {
             name: iconKey,
-            iconFontKey: iconDetails.name,
+            iconFontKey: iconDetails.filename.slice(0, -4),
             type: 'Filled',
             isMaterial: false,
             tags: iconDetails.tags || [],
