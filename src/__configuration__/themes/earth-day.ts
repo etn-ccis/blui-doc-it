@@ -6,7 +6,7 @@ import AppBarTile from '../../app/assets/themes/earth-day/tile.svg';
 import { Schedule } from './types';
 
 export const EarthDaySchedule: Schedule = {
-    start: new Date(0, 0, 20), // Apr 20
+    start: new Date(0, 3, 20), // Apr 20
     end: new Date(0, 3, 25), // Apr 24
     config: {
         theme: {
