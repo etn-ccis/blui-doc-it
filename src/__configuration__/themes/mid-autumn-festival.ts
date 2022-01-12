@@ -58,6 +58,12 @@ export const MidAutumnSchedule: Schedule = {
                         },
                     },
                 },
+                MuiFab: {
+                    primary: {
+                        backgroundColor: Colors.red[700],
+                        color: 'white',
+                    },
+                },
             },
         },
         landingPageBanner: {
@@ -77,6 +83,7 @@ export const MidAutumnSchedule: Schedule = {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
             height: '40vh',
+            width: 600,
         },
         appBarBackground: {
             backgroundImage: `url(${AppBarTile})`,
