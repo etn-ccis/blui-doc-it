@@ -1,6 +1,7 @@
 import React from 'react';
 
 // Full Release Notes
+import R22 from './R22/R22.mdx';
 import R21 from './R21/R21.mdx';
 import R20 from './R20/R20.mdx';
 import R19 from './R19/R19.mdx';
@@ -18,6 +19,7 @@ import R8 from './R8/R8.mdx';
 import R7 from './R7/R7.mdx';
 
 // Summaries (for Landing Page)
+import R22Summary from './R22/Summary.mdx';
 import R21Summary from './R21/Summary.mdx';
 import R20Summary from './R20/Summary.mdx';
 import R19Summary from './R19/Summary.mdx';
@@ -42,6 +44,13 @@ export type ReleaseInfo = {
     summary: JSX.Element;
 };
 const Releases: ReleaseInfo[] = [
+    {
+        title: 'R22',
+        date: 'Dec 2021',
+        version: '3.0.0',
+        details: <R22 />,
+        summary: <R22Summary />,
+    },
     {
         title: 'R21',
         date: 'Sept 2021',
