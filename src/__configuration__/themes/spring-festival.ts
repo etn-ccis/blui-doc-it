@@ -65,6 +65,7 @@ export const SpringFestivalSchedule: Schedule = {
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
+            width: 600,
         },
         drawerActiveBackgroundFade: 0.9,
         appBarBackground: {
