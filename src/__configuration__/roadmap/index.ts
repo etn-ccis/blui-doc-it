@@ -1,12 +1,17 @@
 import { Quarter, Release } from '../../__types__';
 
-export const CURRENT_RELEASE: Release = 'R22';
+export const CURRENT_RELEASE: Release = 'R23';
 
 export const AVAILABLE_RELEASES: Array<{
     name: Release;
     year: number;
     quarter: Quarter;
 }> = [
+    {
+        name: 'R24',
+        year: 2022,
+        quarter: 'Q2',
+    },
     {
         name: 'R23',
         year: 2022,
