@@ -31,6 +31,10 @@ import SafeArea1Image from '../../app/assets/design-patterns/navigation/safe-are
 import SafeArea2Image from '../../app/assets/design-patterns/navigation/safe-area-2.png';
 import CombinedDrawerImage from '../../app/assets/design-patterns/navigation/combined-drawer.png';
 import PersistentDrawerPitfallImg from '../../app/assets/design-patterns/navigation/persistent-drawer-pitfall.gif';
+import ActiveRegular from '../../app/assets/design-patterns/navigation/active-regular.png';
+import ActiveRound from '../../app/assets/design-patterns/navigation/active-round.png';
+import ActiveParent from '../../app/assets/design-patterns/navigation/active-parent.png';
+import ActiveSolid from '../../app/assets/design-patterns/navigation/active-solid.png';
 
 <!-- KEYWORDS: design pattern navigation drawer menu tab tabs navigate nav -->
 
@@ -58,6 +62,7 @@ Navigation refers to how users access the different areas of your application an
             { title: 'Behaviors' },
             { title: 'Nested Navigation', depth: 1 },
             { title: 'Content-Cover vs. Content-Resize', depth: 1 },
+            { title: 'Active State', depth: 1 },
             { title: 'Dividers', depth: 1 },
             { title: 'Safe Area', depth: 1 },
             { title: 'Design Specifications' },
@@ -240,6 +245,20 @@ With content-cover, the navigation panel appears on top of the main application 
         regularWidth
     />
 </React.Fragment>
+
+## Active State
+
+There are many different ways to indicate that a menu item is active / selected in a drawer.
+
+<ImageGrid
+    images={[ActiveRegular, ActiveRound, ActiveParent, ActiveSolid]}
+    captionsUnderImages={[
+        'DO: By default, an active item is indicated by a rectangular background shade.',
+        'Optionally, use a rounded background shade instead.',
+        'DO: When a child item is active, its parent item should have a bolder font weight.',
+        'Optionally, change an icon from "outlined" to "filled" when the menu item turns active.',
+    ]}
+/>
 
 ## Dividers
 
