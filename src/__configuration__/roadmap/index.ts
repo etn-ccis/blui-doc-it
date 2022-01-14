@@ -10,7 +10,7 @@ export const AVAILABLE_RELEASES: Array<{
     {
         name: 'R24',
         year: 2022,
-        quarter: 'Q1',
+        quarter: 'Q2',
     },
     {
         name: 'R23',
