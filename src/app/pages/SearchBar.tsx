@@ -260,6 +260,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                     <IconButton
                         onClick={(): void => {
                             dismissSearchBar();
+                            setInputString('');
                         }}
                         edge={'end'}
                     >
