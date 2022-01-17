@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) =>
             width: '100%',
         },
         searchfield: {
-            flex: 1,
+            width: '100%',
         },
         backdrop: {
             zIndex: theme.zIndex.modal,
@@ -230,32 +230,34 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
             >
                 <Toolbar style={{ display: 'flex' }} id={'search-bar'}>
                     {searchActive && ( // to allow autofocus
-                        <TextField
-                            className={classes.searchfield}
-                            placeholder={'Search on Brightlayer UI...'}
-                            InputProps={{ disableUnderline: true }}
-                            value={inputString || ''}
-                            onChange={(e): void => onChangeHandler(e.target.value)}
-                            autoFocus
-                            inputMode={'search'}
-                            type={'search'}
-                            onKeyPress={(e): void => {
-                                if (e.key === 'Enter') {
-                                    if (inputString === '') {
-                                        dismissSearchBar();
-                                        return;
-                                    }
-                                    pushHistory(inputString);
+                        <form style={{ flex: 1 }}>
+                            <TextField
+                                className={classes.searchfield}
+                                placeholder={'Search on Brightlayer UI...'}
+                                InputProps={{ disableUnderline: true }}
+                                value={inputString || ''}
+                                onChange={(e): void => onChangeHandler(e.target.value)}
+                                autoFocus
+                                inputMode={'search'}
+                                type={'search'}
+                                onKeyPress={(e): void => {
+                                    if (e.key === 'Enter') {
+                                        if (inputString === '') {
+                                            dismissSearchBar();
+                                            return;
+                                        }
+                                        pushHistory(inputString);
 
-                                    // to dismiss the mobile keyboard
-                                    const field = document.createElement('input');
-                                    field.setAttribute('type', 'text');
-                                    document.getElementById('search-bar')?.appendChild(field);
-                                    field.focus();
-                                    field.remove();
-                                }
-                            }}
-                        />
+                                        // to dismiss the mobile keyboard
+                                        const field = document.createElement('input');
+                                        field.setAttribute('type', 'text');
+                                        document.getElementById('search-bar')?.appendChild(field);
+                                        field.focus();
+                                        field.remove();
+                                    }
+                                }}
+                            />
+                        </form>
                     )}
                     <IconButton
                         onClick={(): void => {
