@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) =>
             width: '100%',
         },
         searchfield: {
-            width: '100%',
+            flex: 1,
         },
         backdrop: {
             zIndex: theme.zIndex.modal,
@@ -230,34 +230,32 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
             >
                 <Toolbar style={{ display: 'flex' }} id={'search-bar'}>
                     {searchActive && ( // to allow autofocus
-                        <form style={{ flex: 1 }}>
-                            <TextField
-                                className={classes.searchfield}
-                                placeholder={'Search on Brightlayer UI...'}
-                                InputProps={{ disableUnderline: true }}
-                                value={inputString || ''}
-                                onChange={(e): void => onChangeHandler(e.target.value)}
-                                autoFocus
-                                inputMode={'search'}
-                                type={'search'}
-                                onKeyPress={(e): void => {
-                                    if (e.key === 'Enter') {
-                                        if (inputString === '') {
-                                            dismissSearchBar();
-                                            return;
-                                        }
-                                        pushHistory(inputString);
-
-                                        // to dismiss the mobile keyboard
-                                        const field = document.createElement('input');
-                                        field.setAttribute('type', 'text');
-                                        document.getElementById('search-bar')?.appendChild(field);
-                                        field.focus();
-                                        field.remove();
+                        <TextField
+                            className={classes.searchfield}
+                            placeholder={'Search on Brightlayer UI...'}
+                            InputProps={{ disableUnderline: true }}
+                            value={inputString || ''}
+                            onChange={(e): void => onChangeHandler(e.target.value)}
+                            autoFocus
+                            inputMode={'search'}
+                            type={'search'}
+                            onKeyPress={(e): void => {
+                                if (e.key === 'Enter') {
+                                    if (inputString === '') {
+                                        dismissSearchBar();
+                                        return;
                                     }
-                                }}
-                            />
-                        </form>
+                                    pushHistory(inputString);
+
+                                    // to dismiss the mobile keyboard
+                                    const field = document.createElement('input');
+                                    field.setAttribute('type', 'text');
+                                    document.getElementById('search-bar')?.appendChild(field);
+                                    field.focus();
+                                    field.remove();
+                                }
+                            }}
+                        />
                     )}
                     <IconButton
                         onClick={(): void => {
