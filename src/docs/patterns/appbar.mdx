@@ -9,7 +9,8 @@ import CollapsibleAppBarDynamic from '../../app/assets/design-patterns/app-bar/c
 import CollapsibleAppBarSnap from '../../app/assets/design-patterns/app-bar/collapsible-app-bar-snap.gif';
 import CollapsibleAppBar1 from '../../app/assets/design-patterns/app-bar/collapsible-app-bar-1.png';
 import CollapsibleAppBar2 from '../../app/assets/design-patterns/app-bar/collapsible-app-bar-2.png';
-import SafeArea from '../../app/assets/design-patterns/app-bar/safe-area.png';
+import SafeAreaError from '../../app/assets/design-patterns/app-bar/safe-area-error.png';
+import SafeAreaOK from '../../app/assets/design-patterns/app-bar/safe-area-ok.png';
 import HideOnCollapse from '../../app/assets/design-patterns/app-bar/what-to-hide-on-collapse.png';
 import AutoVariants from '../../app/assets/design-patterns/app-bar/search-bar/auto-complete-variants.png';
 import BasicBars from '../../app/assets/design-patterns/app-bar/basic-app-bars.png';
@@ -74,12 +75,11 @@ A special case of the basic app bar is the dropdown toolbar. This version transf
 ## Safe Area
 
 <ImageGrid
-    regularWidth
-    images={[SafeArea]}
-    caption={[
-        `When designing for mobile screens, make sure to take non-rectangular screens into account.`,
-        `1: An incorrect design. The content bleeds into the unsafe area, and the native OS's status bar does not reflect the blue theme.`,
-        `2: A correct design. All the contents are legible.`,
+    images={[SafeAreaError, SafeAreaOK]}
+    caption={[`When designing for mobile screens, make sure to take non-rectangular screens into account.`]}
+    captionsUnderImages={[
+        `DONT: An incorrect design. The content bleeds into the unsafe area, and the native OS's status bar does not reflect the blue theme.`,
+        `DO: A correct design. All the contents are legible.`,
     ]}
 />
 
@@ -92,9 +92,9 @@ In some situations, you may want to present more than just a title and subtitle 
 <React.Fragment>
     <ImageGrid
         images={[CollapsibleAppBar1, CollapsibleAppBar2]}
-        caption={[
-            `1: A collapsible app bar using the default blue color.`,
-            `2: A collapsible app bar using a red background to indicate an alarmed status.`,
+        captionsUnderImages={[
+            `DO: A collapsible app bar using the default blue color.`,
+            `DO: A collapsible app bar using a red background to indicate an alarmed status.`,
         ]}
     />
     <DemoCard
@@ -130,7 +130,7 @@ The collapsible appbar should transition smoothly between the expanded and colla
 <React.Fragment>
     <ImageGrid
         images={[SiteSearch, PageSearch, ComponentSearch]}
-        caption={[
+        captionsUnderImages={[
             '1: Global (application-wide) search is always placed in the primary app bar.',
             '2: Page-wide search can be placed below the primary app bar when searching content on a single page or screen.',
             '3: Component-wide search allows the user to search for contents within individual components (e.g., cards, lists).',

@@ -2,7 +2,6 @@ import * as BLUIThemes from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import banner from '../../app/assets/themes/earth-day/earth.jpg';
 import cursor from '../../app/assets/themes/earth-day/cursor.svg';
-import titleBlock from '../../app/assets/themes/earth-day/title-block.gif';
 import AppBarTile from '../../app/assets/themes/earth-day/tile.svg';
 import { Schedule } from './types';
 
@@ -26,14 +25,9 @@ export const EarthDaySchedule: Schedule = {
             color: Colors.white[50],
         },
         className: 'earth-day',
-        customBannerText: {
-            backgroundImage: `url(${titleBlock})`,
-            backgroundSize: 'contain',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-        },
         appBarBackground: {
-            backgroundImage: `url(${AppBarTile})`,
+            background: `url(${AppBarTile}), linear-gradient(90deg, ${Colors.green[900]}, ${Colors.blue[700]})`,
+            backgroundPosition: 'center',
         },
     },
 };

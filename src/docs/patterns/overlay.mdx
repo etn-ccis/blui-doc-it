@@ -27,10 +27,13 @@ Overlays are content that appears on top of other content. They can be used to d
     <TOC
         anchors={[
             { title: 'Introduction', hash: '#overlays' },
-            { title: 'Common Use Cases', hash: '#common-use-cases' },
-            { title: 'Variations', hash: '#variations' },
-            { title: 'Design Specifications', hash: '#design-specifications' },
-            { title: 'Developers', hash: '#developers' },
+            { title: 'Common Use Cases' },
+            { title: 'Variations' },
+            { title: 'Modal Dialog', depth: 1 },
+            { title: 'Sidebar', depth: 1 },
+            { title: 'Bottom Sheet', depth: 1 },
+            { title: 'Design Specifications' },
+            { title: 'Developers' },
         ]}
     />
     <Divider />
@@ -136,9 +139,9 @@ There are three types of bottom sheet: **Standard**, **Modal**, and **Expandable
 <React.Fragment>
     <ImageGrid
         images={[ModalBottomSheetMobile, ModalBottomSheetDesktop]}
-        caption={[
-            '1. On mobile, the modal bottom sheet takes up the full width of the screen.',
-            '2. On desktop, bottom sheets can usually be replaced by a contextual menu instead.',
+        captionsUnderImages={[
+            'On mobile, the modal bottom sheet takes up the full width of the screen.',
+            'On desktop, bottom sheets can usually be replaced by a contextual menu instead.',
         ]}
     />
 </React.Fragment>

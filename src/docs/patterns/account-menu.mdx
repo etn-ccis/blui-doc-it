@@ -26,12 +26,12 @@ When applications implement a form of [User Authentication](/patterns/user-auth)
     <TOC
         anchors={[
             { title: 'Introduction', hash: '#account-menu' },
-            { title: 'Account Settings Page', hash: '#account-settings-page' },
-            { title: 'In a Navigation Drawer', hash: '#in-a-navigation-drawer' },
-            { title: 'In a User Menu', hash: '#in-a-user-menu' },
-            { title: 'Contents', hash: '#contents' },
-            { title: 'Design Specifications', hash: '#design-specifications' },
-            { title: 'Developers', hash: '#developers' },
+            { title: 'Account Settings Page' },
+            { title: 'In a Navigation Drawer' },
+            { title: 'In a User Menu' },
+            { title: 'Contents' },
+            { title: 'Design Specifications' },
+            { title: 'Developers' },
         ]}
     />
     <Divider />
@@ -47,9 +47,7 @@ When applications implement a form of [User Authentication](/patterns/user-auth)
 
 At a minimum, your application should implement a dedicated account settings page for viewing and editing a user's account details, preferences, settings, etc. This page should also include a way for users to take account-related actions. The style of this page should be consistent with other settings pages in your application, if applicable. If you have multiple settings pages in your application, the account settings should be easily accessible from the top level.
 
-<React.Fragment>
-    <Divider />
-</React.Fragment>
+<Divider />
 
 # In a Navigation Drawer
 
@@ -57,9 +55,9 @@ If your application is using [Drawer Navigation](/patterns/navigation#drawer-nav
 
 <ImageGrid
     images={[DrawerDetails1, DrawerDetails2]}
-    caption={[
-        `1. User avatar and basic information can be placed in the drawer header.`,
-        `2. Place the top account-related actions at the bottom of the drawer.`,
+    captionsUnderImages={[
+        `DO: User avatar and basic information can be placed in the drawer header.`,
+        `DO: Place the top account-related actions at the bottom of the drawer.`,
     ]}
 />
 
@@ -67,20 +65,18 @@ This approach is most effective when there are relatively few account-related ac
 
 If you are using a navigation rail, you may place account settings links in the rail, but you will not be able to show specific details about the user. Consider using the [User Menu](#via-user-menu) in this situation or if you are using a primary navigation mechanism other than a drawer.
 
-<React.Fragment>
-    <DemoCard
-        repository={'Account Details in Drawers'}
-        angular={`https://stackblitz.com/github/brightlayer-ui/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Faccount-menu%2Fin-a-drawer%2Fmenu-in-a-drawer.component.html`}
-        react={`https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master?file=/src/pages/account-menu/in-a-drawer/index.tsx&initialpath=/in-a-drawer`}
-    />
-    <MaterialDesignDescription
-        title={'Drawer Navigation'}
-        url={'/patterns/navigation#drawer-navigation'}
-        description={`Follow Brightlayer UI's guideline for using a Drawer.`}
-        avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
-    />
-    <Divider />
-</React.Fragment>
+<DemoCard
+    repository={'Account Details in Drawers'}
+    angular={`https://stackblitz.com/github/brightlayer-ui/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Faccount-menu%2Fin-a-drawer%2Fmenu-in-a-drawer.component.html`}
+    react={`https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master?file=/src/pages/account-menu/in-a-drawer/index.tsx&initialpath=/in-a-drawer`}
+/>
+<MaterialDesignDescription
+    title={'Drawer Navigation'}
+    url={'/patterns/navigation#drawer-navigation'}
+    description={`Follow Brightlayer UI's guideline for using a Drawer.`}
+    avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+/>
+<Divider />
 
 # In a User Menu
 
@@ -151,7 +147,7 @@ When using the user menu, you will likely have more room available if you wish t
 <React.Fragment>
     <ImageGrid
         images={[CrowdedDrawer, CrowdedUserMenu]}
-        caption={`Avoid overcrowding the drawer and the user menu by including too many user actions.`}
+        caption={`AVOID: Avoid overcrowding the drawer and the user menu by including too many user actions.`}
     />
     <Divider />
 </React.Fragment>

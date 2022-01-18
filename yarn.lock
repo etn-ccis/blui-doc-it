@@ -1462,10 +1462,10 @@
   optionalDependencies:
     eslint-plugin-react "^7.16.0"
 
-"@brightlayer-ui/icons-mui@^2.7.0":
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/icons-mui/-/icons-mui-2.7.0.tgz#8ac5b600bc236109524e2b7a969d8b884ffa90b6"
-  integrity sha512-xdfwrB7BTjTiK7npst6v2QfMpuB6FVuu32/O7w3TxylR4YLnBLWujW+q2MKYyx1rEXEjXD0YzZrXNjPW0eSgjg==
+"@brightlayer-ui/icons-mui@^2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/icons-mui/-/icons-mui-2.8.0.tgz#f8f8eb244822f0b3a9d8a8ff73b5b07b2e61a2d3"
+  integrity sha512-fUUZI2B9RSYkuD1yOEAk1jgF2XjeUTyFqGaribZuS7qcS5xG8GYKBygUlxqCN7W/eIHA0CuMv3bNay9Ml43m+Q==
 
 "@brightlayer-ui/prettier-config@^1.0.3":
   version "1.0.3"

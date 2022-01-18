@@ -12,6 +12,7 @@ import UserAuth from './user-auth.mdx';
 import Visualizations from './visualizations.mdx';
 import Home from './home.mdx';
 import AccountMenu from './account-menu.mdx';
+import Tables from './tables.mdx';
 
 export {
     AppBar,
@@ -28,4 +29,5 @@ export {
     Overlays,
     Steppers,
     Visualizations,
+    Tables,
 };

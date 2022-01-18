@@ -24,7 +24,7 @@ import { EmptyState, Spacer } from '@brightlayer-ui/react-components';
 import { GetApp, Close } from '@material-ui/icons';
 import { Pxblue } from '@brightlayer-ui/icons-mui';
 
-import { unCamelCase } from '../../shared';
+import { snakeToTitleCase } from '../../shared';
 import { emptyIcon } from '.';
 import { downloadPng, downloadSvg } from './utilityFunctions';
 
@@ -93,6 +93,7 @@ export const IconDrawer: React.FC = () => {
     const sm = useMediaQuery(theme.breakpoints.down('sm'));
     const themeConfig = getScheduledSiteConfig();
     const showBanner = useSelector((state: AppState) => state.app.showBanner);
+    const iconTitle = snakeToTitleCase(selectedIcon.iconFontKey);
 
     const closeDrawer = (): void => {
         history.replace(`${location.pathname}`);
@@ -156,10 +157,10 @@ export const IconDrawer: React.FC = () => {
                             <selectedIcon.Icon style={{ fontSize: 40 }} />
                             <div className={classes.iconNameRowDescription}>
                                 <div className={classes.iconNameWrapper}>
-                                    <Typography variant={'body1'}>{unCamelCase(selectedIcon.name)}</Typography>
+                                    <Typography variant={'body1'}>{iconTitle}</Typography>
                                     <CopyToClipboard
                                         title={'Copy Icon Name'}
-                                        copyText={unCamelCase(selectedIcon.name)}
+                                        copyText={iconTitle}
                                         style={{ marginLeft: theme.spacing(1) }}
                                     />
                                 </div>

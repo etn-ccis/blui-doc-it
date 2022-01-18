@@ -34,11 +34,19 @@ Forms are an integral part of many applications, particularly during the [user r
 <MaterialDesignDescription title={'Text Fields'} url={`https://material.io/components/text-fields/`} />
 <TOC
     anchors={[
-        { title: 'Introduction', hash: '#forms-and-validation' },
-        { title: 'Anatomy', hash: '#anatomy' },
-        { title: 'Behaviors', hash: '#behaviors' },
-        { title: 'Design Specifications', hash: '#design-specifications' },
-        { title: 'Developers', hash: '#developers' },
+        { title: 'Introduction', hash: 'forms-and-validation' },
+        { title: 'Anatomy' },
+        { title: 'Form Layout', depth: 1 },
+        { title: 'Field Requirements', depth: 1 },
+        { title: 'Error Messages', depth: 1 },
+        { title: 'Success Screens', depth: 1 },
+        { title: 'Mobile Keyboard', depth: 1 },
+        { title: 'Password Visibility', depth: 1 },
+        { title: 'Behaviors' },
+        { title: 'Verifying User Input', depth: 1 },
+        { title: 'Submitting the Form', depth: 1 },
+        { title: 'Design Specifications' },
+        { title: 'Developers' },
     ]}
 />
 <Divider />
@@ -242,9 +250,9 @@ If there are errors indicated on any of the form fields, the submit button shoul
     />
     <ImageGrid
         images={[dismissKeyboardErrorAutoscrollImage, dismissKeyboardErrorTextImage]}
-        caption={[
-            '1: The UI should auto-scroll to and focus on the first invalid field.',
-            '2: On login screens, form fields should not shift when errors appear.',
+        captionsUnderImages={[
+            'The UI should auto-scroll to and focus on the first invalid field.',
+            'On login screens, form fields should not shift when errors appear.',
         ]}
     />
 </React.Fragment>

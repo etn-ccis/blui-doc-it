@@ -48,6 +48,11 @@ export const SpringFestivalSchedule: Schedule = {
                     outlined: {},
                     outlinedPrimary: {},
                 },
+                MuiFab: {
+                    primary: {
+                        backgroundColor: Colors.yellow[900],
+                    },
+                },
             },
         },
         landingPageBanner: {
@@ -65,6 +70,7 @@ export const SpringFestivalSchedule: Schedule = {
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
+            width: 600,
         },
         drawerActiveBackgroundFade: 0.9,
         appBarBackground: {
