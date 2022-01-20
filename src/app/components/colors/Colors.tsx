@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React, { ComponentProps, useCallback, useEffect, useState } from 'react';
 import { Typography, makeStyles, createStyles, Theme, useTheme } from '@material-ui/core';
 import { Check } from '@material-ui/icons';
@@ -138,7 +136,7 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
                 return (
                     <ListItemTag
                         label={`${contrastRatio}:1`}
-                        backgroundColor={theme.palette.error.main}
+                        backgroundColor={Colors.red[500]}
                         title={
                             'WCAG requires a minimum 4.5:1 contrast ratio to pass the AA level accessibility standard.'
                         }
