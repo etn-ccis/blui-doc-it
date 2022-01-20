@@ -52,6 +52,7 @@ const useStyles = makeStyles((theme: Theme) =>
             },
             '&:hover': {
                 boxShadow: theme.shadows[4],
+                borderColor: theme.palette.type === 'dark' ? theme.palette.text.primary : undefined,
                 transition: theme.transitions.create('box-shadow', { duration: theme.transitions.duration.shortest }),
                 cursor: 'pointer',
             },
