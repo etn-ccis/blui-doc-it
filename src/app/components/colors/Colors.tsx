@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme: Theme) =>
             '&:hover': {
                 boxShadow: theme.shadows[4],
                 transition: theme.transitions.create('box-shadow', { duration: theme.transitions.duration.shortest }),
+                cursor: 'pointer',
             },
             '&$isSelected': {
                 border: `2px solid ${theme.palette.primary.main}`,
@@ -72,7 +73,6 @@ const useStyles = makeStyles((theme: Theme) =>
             position: 'relative',
             '&:hover $copyOnHoverButton': {
                 display: 'flex',
-                cursor: 'pointer',
             },
             '&$isSelected': {
                 color: theme.palette.primary.main,
