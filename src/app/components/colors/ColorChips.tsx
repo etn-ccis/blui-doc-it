@@ -18,6 +18,8 @@ type ColorChipsProps = {
     type: ColorType;
 };
 
+const COLOR_NOT_AVAILABLE = '--';
+
 const useStyles = makeStyles((theme: Theme) => ({
     root: { marginRight: theme.spacing(), marginBottom: theme.spacing(), position: 'relative' },
     content: { display: 'flex', alignItems: 'center' },
@@ -65,9 +67,9 @@ const getColorCode = (type: ColorType, hex: string): string => {
                 cmykColor.y
             )}, K: ${Math.round(cmykColor.k)}`;
         case 'PANTONE':
-            return pantoneColor ? pantoneColor.pantone : '--';
+            return pantoneColor ? pantoneColor.pantone : COLOR_NOT_AVAILABLE;
         default:
-            return '--';
+            return COLOR_NOT_AVAILABLE;
     }
 };
 
@@ -94,7 +96,7 @@ export const ColorChips: React.FC<ColorChipsProps> = (props) => {
                     <Typography variant={'caption'} color={'textPrimary'}>
                         {code}
                     </Typography>
-                    {code !== '--' && (
+                    {code !== COLOR_NOT_AVAILABLE && (
                         <FileCopy className={classes.copyIcon} htmlColor={theme.palette.text.secondary} />
                     )}
                 </div>
@@ -118,8 +120,8 @@ export const ColorChips: React.FC<ColorChipsProps> = (props) => {
     return (
         <Chip
             clickable
-            disabled={colorCode === '--'}
-            variant={colorCode === '--' ? 'outlined' : 'default'}
+            disabled={colorCode === COLOR_NOT_AVAILABLE}
+            variant={colorCode === COLOR_NOT_AVAILABLE ? 'outlined' : 'default'}
             onClick={(): void => {
                 copyTextToClipboard(colorCode, () => {
                     setTextCopied(true);
