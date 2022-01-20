@@ -65,7 +65,7 @@ const getColorCode = (type: ColorType, hex: string): string => {
                 cmykColor.y
             )}, K: ${Math.round(cmykColor.k)}`;
         case 'PANTONE':
-            return pantoneColor.pantone;
+            return pantoneColor ? pantoneColor.pantone : '--';
         default:
             return '--';
     }
@@ -94,7 +94,9 @@ export const ColorChips: React.FC<ColorChipsProps> = (props) => {
                     <Typography variant={'caption'} color={'textPrimary'}>
                         {code}
                     </Typography>
-                    <FileCopy className={classes.copyIcon} htmlColor={theme.palette.text.secondary} />
+                    {code !== '--' && (
+                        <FileCopy className={classes.copyIcon} htmlColor={theme.palette.text.secondary} />
+                    )}
                 </div>
             );
         },
@@ -116,6 +118,8 @@ export const ColorChips: React.FC<ColorChipsProps> = (props) => {
     return (
         <Chip
             clickable
+            disabled={colorCode === '--'}
+            variant={colorCode === '--' ? 'outlined' : 'default'}
             onClick={(): void => {
                 copyTextToClipboard(colorCode, () => {
                     setTextCopied(true);

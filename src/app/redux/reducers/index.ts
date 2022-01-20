@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { ColorType } from '../../../__types__';
 import {
     CHANGE_PAGE_TITLE,
     CHANGE_COLOR_FORMAT,
@@ -8,6 +9,7 @@ import {
     TOGGLE_TOC,
     SHOW_BANNER,
     HIDE_BANNER,
+    CHANGE_SELECTED_COLOR,
 } from '../actions';
 
 export type AppState = {
@@ -21,6 +23,7 @@ export type CommonState = {
     sidebarOpen: boolean;
     hasTOC: boolean;
     showBanner: boolean;
+    selectedColor: undefined | ColorType;
 };
 const initialAppState: CommonState = {
     pageTitle: '',
@@ -30,6 +33,7 @@ const initialAppState: CommonState = {
     sidebarOpen: false,
     hasTOC: false,
     showBanner: !window.sessionStorage.getItem('banner-dismissed'),
+    selectedColor: undefined,
 };
 const appReducer = (state = initialAppState, action: any): CommonState => {
     switch (action.type) {
@@ -72,6 +76,11 @@ const appReducer = (state = initialAppState, action: any): CommonState => {
             return {
                 ...state,
                 showBanner: false,
+            };
+        case CHANGE_SELECTED_COLOR:
+            return {
+                ...state,
+                selectedColor: action.payload,
             };
         default:
             return state;

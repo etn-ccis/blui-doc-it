@@ -19,9 +19,10 @@ import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import { Close } from '@material-ui/icons';
 import { ColorChips } from './ColorChips';
 import { DRAWER_WIDTH } from '../../shared';
-
-type ColorType = undefined | { category: 'ui' | 'branding'; name: string; code: number };
-const COLOR_SELECTED: ColorType = { category: 'branding', name: 'wine', code: 500 };
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from '../../redux/reducers';
+import { CHANGE_SELECTED_COLOR } from '../../redux/actions';
+import { useQueryString } from '../../hooks/useQueryString';
 
 const useStyles = makeStyles((theme: Theme) => ({
     paper: {
@@ -47,37 +48,51 @@ const useStyles = makeStyles((theme: Theme) => ({
 export const ColorBottomSheet: React.FC = () => {
     const theme = useTheme();
     const classes = useStyles(theme);
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const { category: queryCategory, name: queryName, weight: queryWeight } = useQueryString();
+    const selectedColor = useSelector((state: AppState) => state.app.selectedColor);
     const [hex, setHex] = useState<string | undefined>(undefined);
 
     useEffect(() => {
-        if (COLOR_SELECTED) {
-            if (COLOR_SELECTED.category === 'ui') {
+        if (queryCategory) {
+            dispatch({
+                type: CHANGE_SELECTED_COLOR,
+                payload: { category: queryCategory, name: queryName, weight: queryWeight },
+            });
+        }
+    }, []);
+
+    useEffect(() => {
+        if (selectedColor) {
+            if (selectedColor.category === 'ui') {
                 // @ts-expect-error
-                setHex(Colors[COLOR_SELECTED.name][COLOR_SELECTED.code]);
+                setHex(Colors[selectedColor.name][selectedColor.weight]);
             } else {
                 // @ts-expect-error
-                setHex(BrandingColors[COLOR_SELECTED.name][COLOR_SELECTED.code]);
+                setHex(BrandingColors[selectedColor.name][selectedColor.weight]);
             }
         } else {
             setHex(undefined);
         }
+    }, [selectedColor]);
+
+    const dismissBottomSheet = useCallback(() => {
+        history.replace(`${location.pathname}`);
+        dispatch({ type: CHANGE_SELECTED_COLOR, payload: false });
     }, []);
+
     return (
-        <Drawer
-            anchor={'bottom'}
-            open={COLOR_SELECTED !== undefined}
-            variant={'permanent'}
-            classes={{ paper: classes.paper }}
-        >
+        <Drawer anchor={'bottom'} variant={'persistent'} open={!!selectedColor} classes={{ paper: classes.paper }}>
             <InfoListItem
                 icon={<div className={classes.colorAvatar} style={hex ? { backgroundColor: hex } : undefined} />}
                 title={
                     <Typography variant={'h6'} display={'inline'}>
-                        {COLOR_SELECTED.name}[{COLOR_SELECTED.code}]
+                        {selectedColor?.name}[{selectedColor?.weight}]
                     </Typography>
                 }
                 className={classes.header}
-                subtitle={COLOR_SELECTED.category === 'ui' ? 'UI / Status Color' : 'Branding Color'}
+                subtitle={selectedColor?.category === 'ui' ? 'UI / Status Color' : 'Branding Color'}
                 rightComponent={
                     <>
                         <FormControlLabel
@@ -85,7 +100,7 @@ export const ColorBottomSheet: React.FC = () => {
                             label={'View Contrast'}
                             title={'View Contrast against Other Colors'}
                         />
-                        <IconButton edge={'end'}>
+                        <IconButton edge={'end'} onClick={dismissBottomSheet}>
                             <Close />
                         </IconButton>
                     </>
@@ -99,8 +114,8 @@ export const ColorBottomSheet: React.FC = () => {
                     <ColorChips type={'CMYK'} hex={hex} />
                     <ColorChips type={'PANTONE'} hex={hex} />
                     <Typography variant={'caption'} display={'block'}>
-                        * Our colors are stored in hex / RGB. When converting to HSL, CMYK or Pantone color spaces, some
-                        fidelity might be lost.
+                        * Our colors are managed in hex / RGB. When converting to HSL, CMYK or Pantone color spaces,
+                        some fidelity might be lost.
                     </Typography>
                 </div>
             )}
