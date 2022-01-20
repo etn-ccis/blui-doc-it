@@ -28,6 +28,8 @@ export type MatIconList = {
 export type IconSize = 18 | 24 | 36 | 48;
 export type IconColor = 'black' | 'blue' | 'gray' | 'white';
 
+export type ColorType = { category: 'ui' | 'branding'; name: string; weight: number };
+
 export type ItemTypeFilter = 'all' | 'design' | 'development';
 export type Status = 'backlog' | 'in-progress' | 'pre-release' | 'deferred' | 'finished';
 export type Quarter = 'Q1' | 'Q2' | 'Q3' | 'Q4';
