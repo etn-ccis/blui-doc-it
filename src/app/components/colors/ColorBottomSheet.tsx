@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
+    Divider,
     Drawer,
     FormControlLabel,
     IconButton,
@@ -135,6 +136,7 @@ export const ColorBottomSheet: React.FC = () => {
                         * Our colors are managed in hex / RGB. When converting to HSL or CMYK color spaces, some
                         fidelity might be lost.
                     </Typography>
+                    {xsDown && <Divider style={{ margin: `${theme.spacing()}px 0` }} />}
                     {xsDown && getColorContrastToggle()}
                 </div>
             )}

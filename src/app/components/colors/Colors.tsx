@@ -98,6 +98,10 @@ const useStyles = makeStyles((theme: Theme) =>
             background: colorModule(theme.palette.background.paper).alpha(0.9).string(),
         },
         isSelected: {},
+        tags: {
+            border: `1px solid ${theme.palette.divider}`,
+            boxSizing: 'content-box',
+        },
     })
 );
 
@@ -140,6 +144,7 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
                         title={
                             'WCAG requires a minimum 3:1 contrast ratio for icons and headline text to pass the AA level accessibility standard.'
                         }
+                        className={classes.tags}
                     />
                 );
             } else if (contrastRatio <= 4.5) {
@@ -150,6 +155,7 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
                         title={
                             'WCAG requires a minimum 4.5:1 contrast ratio for body text to pass the AA level accessibility standard.'
                         }
+                        className={classes.tags}
                     />
                 );
             }
@@ -188,7 +194,7 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
         >
             <div
                 className={classes.swatch}
-                style={{ background: color, color: colorModule(color).isLight() ? 'black' : 'white' }}
+                style={{ background: color, color: colorModule(color).isLight() ? '#000d' : 'white' }}
                 onClick={onSelectColor}
             >
                 {selectedColor !== undefined &&
