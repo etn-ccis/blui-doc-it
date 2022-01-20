@@ -60,6 +60,11 @@ export const ColorBottomSheet: React.FC = () => {
                 type: CHANGE_SELECTED_COLOR,
                 payload: { category: queryCategory, name: queryName, weight: queryWeight },
             });
+            const anchor = document.getElementById(`color-${queryCategory}-${queryName}-${queryWeight}`);
+            if (anchor) {
+                console.log(anchor.scrollTop);
+                window.scrollTo({ top: anchor.offsetTop - 200 });
+            }
         }
     }, []);
 

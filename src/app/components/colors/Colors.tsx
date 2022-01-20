@@ -74,7 +74,6 @@ const useStyles = makeStyles((theme: Theme) =>
                 cursor: 'pointer',
             },
             '&$isSelected': {
-                backgroundColor: colorModule(theme.palette.primary.main).fade(0.8).toString(),
                 color: theme.palette.primary.main,
             },
         },
@@ -139,7 +138,11 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
     }, [selectedColor]);
 
     return (
-        <div {...otherProps} className={clsx(classes.swatchWrapper, { [classes.isSelected]: isSelected })}>
+        <div
+            {...otherProps}
+            className={clsx(classes.swatchWrapper, { [classes.isSelected]: isSelected })}
+            id={`color-${category}-${name}-${weight}`}
+        >
             <div className={classes.swatch} style={{ background: color }} onClick={onSelectColor}>
                 {weight === 500 && <Bookmark className={classes.bookmark} />}
             </div>
