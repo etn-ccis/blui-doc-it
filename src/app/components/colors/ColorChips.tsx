@@ -1,17 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
-// @ts-ignore
-import Pantone from 'nearest-pantone';
+//@ts-ignore
+import simpleColorConverter from 'simple-color-converter';
 import { Check, FileCopy } from '@material-ui/icons';
 import { Typography, Chip, Theme, makeStyles, useTheme } from '@material-ui/core';
 import color from 'color';
 import { copyTextToClipboard } from '../../shared';
 import clsx from 'clsx';
 
-type Pantone = {
-    pantone: string;
-    name: string;
-    hex: string;
-};
 type ColorType = 'HEX' | 'RGB' | 'CMYK' | 'HSL' | 'PANTONE';
 type ColorChipsProps = {
     hex: string;
@@ -53,7 +48,10 @@ const useStyles = makeStyles((theme: Theme) => ({
 const getColorCode = (type: ColorType, hex: string): string => {
     const hslColor = color(hex).hsl().object();
     const cmykColor = color(hex).cmyk().object();
-    const pantoneColor = Pantone.getClosestColor(hex) as Pantone;
+    const pantoneColor = new simpleColorConverter({ hex: hex, to: 'pantone' });
+
+    /* eslint-disable */
+    // console.log(pantoneColor);
 
     switch (type) {
         case 'HEX':
@@ -67,7 +65,7 @@ const getColorCode = (type: ColorType, hex: string): string => {
                 cmykColor.y
             )}, K: ${Math.round(cmykColor.k)}`;
         case 'PANTONE':
-            return pantoneColor ? pantoneColor.pantone : COLOR_NOT_AVAILABLE;
+            return pantoneColor ? pantoneColor.color : COLOR_NOT_AVAILABLE;
         default:
             return COLOR_NOT_AVAILABLE;
     }

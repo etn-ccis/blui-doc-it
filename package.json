@@ -41,7 +41,6 @@
         "fireworks-canvas": "^2.6.0",
         "flexsearch": "^0.6.32",
         "lodash": "^4.17.20",
-        "nearest-pantone": "^1.0.1",
         "placeholder-loading": "^0.2.6",
         "prop-types": "^15.7.2",
         "react": "^17.0.2",
@@ -51,7 +50,8 @@
         "react-ga": "^3.0.0",
         "react-redux": "^7.2.0",
         "react-router-dom": "^5.1.2",
-        "redux": "^4.0.5"
+        "redux": "^4.0.5",
+        "simple-color-converter": "^2.1.13"
     },
     "devDependencies": {
         "@babel/core": "7.12.3",
