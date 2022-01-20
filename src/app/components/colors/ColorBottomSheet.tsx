@@ -3,7 +3,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
-    Chip,
     Drawer,
     FormControlLabel,
     IconButton,
@@ -63,19 +62,6 @@ export const ColorBottomSheet: React.FC = () => {
             setHex(undefined);
         }
     }, []);
-    const getHeaderTitle = useCallback(
-        () => (
-            <>
-                <Typography color="textSecondary" variant={'h6'} display={'inline'}>
-                    {COLOR_SELECTED.category === 'ui' ? 'UIColors.' : 'BrandingColors.'}
-                </Typography>
-                <Typography variant={'h6'} display={'inline'}>
-                    {COLOR_SELECTED.name}[{COLOR_SELECTED.code}]
-                </Typography>
-            </>
-        ),
-        []
-    );
     return (
         <Drawer
             anchor={'bottom'}
@@ -85,9 +71,13 @@ export const ColorBottomSheet: React.FC = () => {
         >
             <InfoListItem
                 icon={<div className={classes.colorAvatar} style={hex ? { backgroundColor: hex } : undefined} />}
-                title={getHeaderTitle()}
+                title={
+                    <Typography variant={'h6'} display={'inline'}>
+                        {COLOR_SELECTED.name}[{COLOR_SELECTED.code}]
+                    </Typography>
+                }
                 className={classes.header}
-                subtitle={'Used as: primary theme color'}
+                subtitle={COLOR_SELECTED.category === 'ui' ? 'UI / Status Color' : 'Branding Color'}
                 rightComponent={
                     <>
                         <FormControlLabel

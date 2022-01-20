@@ -1,9 +1,11 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 // @ts-ignore
 import Pantone from 'nearest-pantone';
-import { FileCopy } from '@material-ui/icons';
+import { Check, FileCopy } from '@material-ui/icons';
 import { Typography, Chip, Theme, makeStyles, useTheme } from '@material-ui/core';
 import color from 'color';
+import { copyTextToClipboard } from '../../shared';
+import clsx from 'clsx';
 
 type Pantone = {
     pantone: string;
@@ -17,10 +19,33 @@ type ColorChipsProps = {
 };
 
 const useStyles = makeStyles((theme: Theme) => ({
-    root: { marginRight: theme.spacing(), marginBottom: theme.spacing() },
+    root: { marginRight: theme.spacing(), marginBottom: theme.spacing(), position: 'relative' },
     content: { display: 'flex', alignItems: 'center' },
     divider: { color: theme.palette.divider, margin: `0 ${theme.spacing(0.5)}px` },
     copyIcon: { fontSize: 16, marginLeft: theme.spacing() },
+    copiedOverlay: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: '#000a',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'white',
+        borderRadius: 200,
+        visibility: 'visible',
+        opacity: 1,
+        '&$hidden': {
+            visibility: 'hidden',
+            transition: theme.transitions.create(['visibility', 'opacity'], {
+                duration: theme.transitions.duration.shorter,
+            }),
+            opacity: 0,
+        },
+    },
+    hidden: {},
 }));
 
 const getColorCode = (type: ColorType, hex: string): string => {
@@ -49,12 +74,18 @@ const getColorCode = (type: ColorType, hex: string): string => {
 export const ColorChips: React.FC<ColorChipsProps> = (props) => {
     const theme = useTheme();
     const classes = useStyles(theme);
+    const [textCopied, setTextCopied] = useState(false);
+    const colorCode = getColorCode(props.type, props.hex);
 
     const getChipContent = useCallback(
         (type: ColorType, code: string): React.ReactNode => {
             const starredType = ['HSL', 'CMYK', 'PANTONE'].includes(type);
             return (
-                <span className={classes.content}>
+                <div className={classes.content}>
+                    <div className={clsx(!textCopied && classes.hidden, classes.copiedOverlay)}>
+                        Copied
+                        <Check fontSize="inherit" />
+                    </div>
                     <Typography variant={'overline'} color={'textSecondary'}>
                         {type}
                         {starredType && '*'}
@@ -64,16 +95,34 @@ export const ColorChips: React.FC<ColorChipsProps> = (props) => {
                         {code}
                     </Typography>
                     <FileCopy className={classes.copyIcon} htmlColor={theme.palette.text.secondary} />
-                </span>
+                </div>
             );
         },
-        [theme]
+        [theme, textCopied]
     );
+
+    useEffect(() => {
+        let copyTextTimer: NodeJS.Timeout;
+        if (textCopied) {
+            copyTextTimer = setTimeout((): void => {
+                setTextCopied(false);
+            }, 3000);
+        }
+        return (): void => {
+            clearTimeout(copyTextTimer);
+        };
+    }, [textCopied]);
+
     return (
         <Chip
             clickable
+            onClick={(): void => {
+                copyTextToClipboard(colorCode, () => {
+                    setTextCopied(true);
+                });
+            }}
             className={classes.root}
-            label={getChipContent(props.type, getColorCode(props.type, props.hex))}
+            label={getChipContent(props.type, colorCode)}
         />
     );
 };
