@@ -131,10 +131,9 @@ export const ColorBottomSheet: React.FC = () => {
                     <ColorChips type={'RGB'} hex={hex} />
                     <ColorChips type={'HSL'} hex={hex} />
                     <ColorChips type={'CMYK'} hex={hex} />
-                    <ColorChips type={'PANTONE'} hex={hex} />
                     <Typography variant={'caption'} display={'block'}>
-                        * Our colors are managed in hex / RGB. When converting to HSL, CMYK or Pantone color spaces,
-                        some fidelity might be lost.
+                        * Our colors are managed in hex / RGB. When converting to HSL or CMYK color spaces, some
+                        fidelity might be lost.
                     </Typography>
                     {xsDown && getColorContrastToggle()}
                 </div>

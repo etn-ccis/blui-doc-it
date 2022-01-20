@@ -1,13 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
-//@ts-ignore
-import simpleColorConverter from 'simple-color-converter';
 import { Check, FileCopy } from '@material-ui/icons';
 import { Typography, Chip, Theme, makeStyles, useTheme } from '@material-ui/core';
 import color from 'color';
 import { copyTextToClipboard } from '../../shared';
 import clsx from 'clsx';
 
-type ColorType = 'HEX' | 'RGB' | 'CMYK' | 'HSL' | 'PANTONE';
+type ColorType = 'HEX' | 'RGB' | 'CMYK' | 'HSL';
 type ColorChipsProps = {
     hex: string;
     type: ColorType;
@@ -48,7 +46,6 @@ const useStyles = makeStyles((theme: Theme) => ({
 const getColorCode = (type: ColorType, hex: string): string => {
     const hslColor = color(hex).hsl().object();
     const cmykColor = color(hex).cmyk().object();
-    const pantoneColor = new simpleColorConverter({ hex: hex, to: 'pantone' });
 
     /* eslint-disable */
     // console.log(pantoneColor);
@@ -64,8 +61,6 @@ const getColorCode = (type: ColorType, hex: string): string => {
             return `C: ${Math.round(cmykColor.c)}, M: ${Math.round(cmykColor.m)}, Y: ${Math.round(
                 cmykColor.y
             )}, K: ${Math.round(cmykColor.k)}`;
-        case 'PANTONE':
-            return pantoneColor ? pantoneColor.color : COLOR_NOT_AVAILABLE;
         default:
             return COLOR_NOT_AVAILABLE;
     }
@@ -79,7 +74,7 @@ export const ColorChips: React.FC<ColorChipsProps> = (props) => {
 
     const getChipContent = useCallback(
         (type: ColorType, code: string): React.ReactNode => {
-            const starredType = ['HSL', 'CMYK', 'PANTONE'].includes(type);
+            const starredType = ['HSL', 'CMYK'].includes(type);
             return (
                 <div className={classes.content}>
                     <div className={clsx(!textCopied && classes.hidden, classes.copiedOverlay)}>
@@ -91,7 +86,7 @@ export const ColorChips: React.FC<ColorChipsProps> = (props) => {
                         {starredType && '*'}
                     </Typography>
                     <span className={classes.divider}>|</span>
-                    <Typography variant={'caption'} color={'textPrimary'}>
+                    <Typography variant={'caption'} color={'textPrimary'} style={{ fontFamily: 'Roboto Mono' }}>
                         {code}
                     </Typography>
                     {code !== COLOR_NOT_AVAILABLE && (

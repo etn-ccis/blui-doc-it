@@ -132,13 +132,23 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
 
     const getColorContrastTag = useCallback(
         (contrastRatio: number) => {
-            if (contrastRatio < 4.5) {
+            if (contrastRatio <= 3) {
                 return (
                     <ListItemTag
                         label={`${contrastRatio}:1`}
                         backgroundColor={Colors.red[500]}
                         title={
-                            'WCAG requires a minimum 4.5:1 contrast ratio to pass the AA level accessibility standard.'
+                            'WCAG requires a minimum 3:1 contrast ratio for icons and headline text to pass the AA level accessibility standard.'
+                        }
+                    />
+                );
+            } else if (contrastRatio <= 4.5) {
+                return (
+                    <ListItemTag
+                        label={`${contrastRatio}:1`}
+                        backgroundColor={Colors.yellow[500]}
+                        title={
+                            'WCAG requires a minimum 4.5:1 contrast ratio for body text to pass the AA level accessibility standard.'
                         }
                     />
                 );
