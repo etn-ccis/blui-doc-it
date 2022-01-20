@@ -10,6 +10,7 @@ import {
     SHOW_BANNER,
     HIDE_BANNER,
     CHANGE_SELECTED_COLOR,
+    TOGGLE_COLOR_CONTRAST,
 } from '../actions';
 
 export type AppState = {
@@ -24,6 +25,7 @@ export type CommonState = {
     hasTOC: boolean;
     showBanner: boolean;
     selectedColor: undefined | ColorType;
+    showColorContrast: boolean;
 };
 const initialAppState: CommonState = {
     pageTitle: '',
@@ -34,6 +36,7 @@ const initialAppState: CommonState = {
     hasTOC: false,
     showBanner: !window.sessionStorage.getItem('banner-dismissed'),
     selectedColor: undefined,
+    showColorContrast: false,
 };
 const appReducer = (state = initialAppState, action: any): CommonState => {
     switch (action.type) {
@@ -81,6 +84,11 @@ const appReducer = (state = initialAppState, action: any): CommonState => {
             return {
                 ...state,
                 selectedColor: action.payload,
+            };
+        case TOGGLE_COLOR_CONTRAST:
+            return {
+                ...state,
+                showColorContrast: action.payload,
             };
         default:
             return state;

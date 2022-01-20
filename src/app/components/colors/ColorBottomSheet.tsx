@@ -10,6 +10,7 @@ import {
     Switch,
     Theme,
     Typography,
+    useMediaQuery,
     useTheme,
 } from '@material-ui/core';
 import color from 'color';
@@ -21,7 +22,7 @@ import { ColorChips } from './ColorChips';
 import { DRAWER_WIDTH } from '../../shared';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../redux/reducers';
-import { CHANGE_SELECTED_COLOR } from '../../redux/actions';
+import { CHANGE_SELECTED_COLOR, TOGGLE_COLOR_CONTRAST } from '../../redux/actions';
 import { useQueryString } from '../../hooks/useQueryString';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -52,7 +53,9 @@ export const ColorBottomSheet: React.FC = () => {
     const history = useHistory();
     const { category: queryCategory, name: queryName, weight: queryWeight } = useQueryString();
     const selectedColor = useSelector((state: AppState) => state.app.selectedColor);
+    const showColorContrast = useSelector((state: AppState) => state.app.showColorContrast);
     const [hex, setHex] = useState<string | undefined>(undefined);
+    const xsDown = useMediaQuery(theme.breakpoints.down('xs'));
 
     useEffect(() => {
         if (queryCategory) {
@@ -62,7 +65,6 @@ export const ColorBottomSheet: React.FC = () => {
             });
             const anchor = document.getElementById(`color-${queryCategory}-${queryName}-${queryWeight}`);
             if (anchor) {
-                console.log(anchor.scrollTop);
                 window.scrollTo({ top: anchor.offsetTop - 200 });
             }
         }
@@ -82,10 +84,28 @@ export const ColorBottomSheet: React.FC = () => {
         }
     }, [selectedColor]);
 
+    const handleChangeContrastToggle = useCallback((e) => {
+        dispatch({ type: TOGGLE_COLOR_CONTRAST, payload: e.target.checked });
+    }, []);
+
     const dismissBottomSheet = useCallback(() => {
         history.replace(`${location.pathname}`);
         dispatch({ type: CHANGE_SELECTED_COLOR, payload: false });
-    }, []);
+        dispatch({ type: TOGGLE_COLOR_CONTRAST, payload: false });
+    }, [history]);
+
+    const getColorContrastToggle = useCallback(
+        () => (
+            <FormControlLabel
+                control={<Switch name={'contrast-switch'} color={'secondary'} />}
+                label={'View Color Contrast'}
+                title={'View Contrast against Other Colors'}
+                onChange={handleChangeContrastToggle}
+                checked={showColorContrast}
+            />
+        ),
+        [showColorContrast]
+    );
 
     return (
         <Drawer anchor={'bottom'} variant={'persistent'} open={!!selectedColor} classes={{ paper: classes.paper }}>
@@ -100,11 +120,7 @@ export const ColorBottomSheet: React.FC = () => {
                 subtitle={selectedColor?.category === 'ui' ? 'UI / Status Color' : 'Branding Color'}
                 rightComponent={
                     <>
-                        <FormControlLabel
-                            control={<Switch name={'contrast-switch'} color={'secondary'} />}
-                            label={'View Contrast'}
-                            title={'View Contrast against Other Colors'}
-                        />
+                        {!xsDown && getColorContrastToggle()}
                         <IconButton edge={'end'} onClick={dismissBottomSheet}>
                             <Close />
                         </IconButton>
@@ -122,6 +138,7 @@ export const ColorBottomSheet: React.FC = () => {
                         * Our colors are managed in hex / RGB. When converting to HSL, CMYK or Pantone color spaces,
                         some fidelity might be lost.
                     </Typography>
+                    {xsDown && getColorContrastToggle()}
                 </div>
             )}
         </Drawer>

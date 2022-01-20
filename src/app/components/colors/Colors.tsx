@@ -1,6 +1,8 @@
+/* eslint-disable */
+
 import React, { ComponentProps, useCallback, useEffect, useState } from 'react';
-import { Typography, makeStyles, createStyles, Theme } from '@material-ui/core';
-import { Bookmark, Check } from '@material-ui/icons';
+import { Typography, makeStyles, createStyles, Theme, useTheme } from '@material-ui/core';
+import { Check } from '@material-ui/icons';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import { AppState } from '../../redux/reducers';
@@ -11,6 +13,7 @@ import { BLUIColor } from '@brightlayer-ui/types';
 import colorModule from 'color';
 import { CHANGE_SELECTED_COLOR } from '../../redux/actions';
 import clsx from 'clsx';
+import { ListItemTag } from '@brightlayer-ui/react-components';
 
 const getColorLabel = (color: string, format: 'rgb' | 'hex'): JSX.Element | null => {
     if (format === 'hex') {
@@ -56,15 +59,13 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         swatch: {
-            paddingTop: '100%',
+            height: 60,
             color: Colors.white[50],
             background: theme.palette.background.paper,
             position: 'relative',
-        },
-        bookmark: {
-            top: theme.spacing(1),
-            left: theme.spacing(1),
-            position: 'absolute',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
         },
         label: {
             padding: theme.spacing(1),
@@ -102,15 +103,18 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
-    const classes = useStyles();
+    const theme = useTheme();
+    const classes = useStyles(theme);
     const { color, name, category, weight, ...otherProps } = props;
     const format = useSelector((state: AppState) => state.app.colorFormat);
+    const showColorContrast = useSelector((state: AppState) => state.app.showColorContrast);
     const history = useHistory();
     const location = useLocation();
     const dispatch = useDispatch();
     const [copied, setCopied] = useState(false);
     const [isSelected, setIsSelected] = useState(false);
     const selectedColor = useSelector((state: AppState) => state.app.selectedColor);
+    const [selectedColorHex, setSelectedColorHex] = useState('');
     const colorLabel = useCallback(() => getColorLabel(color, format), [color, format]);
 
     const copyColorToClipboard = useCallback(() => {
@@ -127,13 +131,43 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
         dispatch({ type: CHANGE_SELECTED_COLOR, payload: { category, name, weight } });
     }, []);
 
+    const getColorContrastTag = useCallback(
+        (contrastRatio: number) => {
+            if (contrastRatio < 4.5) {
+                return (
+                    <ListItemTag
+                        label={`${contrastRatio}:1`}
+                        backgroundColor={theme.palette.error.main}
+                        title={
+                            'WCAG requires a minimum 4.5:1 contrast ratio to pass the AA level accessibility standard.'
+                        }
+                    />
+                );
+            }
+            return <Typography variant={'overline'}>{contrastRatio}:1</Typography>;
+        },
+        [theme]
+    );
+
     useEffect(() => {
-        if (selectedColor === undefined) {
-            setIsSelected(false);
+        if (
+            selectedColor &&
+            selectedColor.category === category &&
+            selectedColor.name === name &&
+            selectedColor.weight === weight
+        ) {
+            setIsSelected(true);
         } else {
-            setIsSelected(
-                selectedColor.category === category && selectedColor.name === name && selectedColor.weight === weight
-            );
+            setIsSelected(false);
+        }
+        if (selectedColor) {
+            if (selectedColor.category === 'ui') {
+                // @ts-ignore
+                setSelectedColorHex(Colors[selectedColor.name][selectedColor.weight]);
+            } else {
+                // @ts-ignore
+                setSelectedColorHex(BrandingColors[selectedColor.name][selectedColor.weight]);
+            }
         }
     }, [selectedColor]);
 
@@ -143,8 +177,18 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
             className={clsx(classes.swatchWrapper, { [classes.isSelected]: isSelected })}
             id={`color-${category}-${name}-${weight}`}
         >
-            <div className={classes.swatch} style={{ background: color }} onClick={onSelectColor}>
-                {weight === 500 && <Bookmark className={classes.bookmark} />}
+            <div
+                className={classes.swatch}
+                style={{ background: color, color: colorModule(color).isLight() ? 'black' : 'white' }}
+                onClick={onSelectColor}
+            >
+                {selectedColor !== undefined &&
+                    selectedColorHex !== '' &&
+                    showColorContrast &&
+                    !isSelected &&
+                    getColorContrastTag(
+                        Math.round(colorModule(color).contrast(colorModule(selectedColorHex)) * 100) / 100
+                    )}
             </div>
             <div className={clsx(classes.label, { [classes.isSelected]: isSelected })}>
                 <div
