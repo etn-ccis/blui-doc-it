@@ -9,7 +9,7 @@ import LightSaber5 from '../../app/assets/themes/may-the-fourth/light-saber-5.pn
 import LightSaber6 from '../../app/assets/themes/may-the-fourth/light-saber-6.png';
 import * as Colors from '@brightlayer-ui/colors';
 import color from 'color';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 const lightSabers = [LightSaber1, LightSaber2, LightSaber3, LightSaber4, LightSaber5, LightSaber6];
 

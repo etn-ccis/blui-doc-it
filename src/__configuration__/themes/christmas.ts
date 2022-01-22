@@ -3,7 +3,7 @@ import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import ChristmasEve from '../../app/assets/themes/christmas/christmas-eve.png';
 import AppBarTile from '../../app/assets/themes/christmas/christmas-appbar-tile.png';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 export const ChristmasSchedule: Schedule = {
     start: new Date(0, 11, 18), // Dec 18

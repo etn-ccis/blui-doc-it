@@ -3,7 +3,7 @@ import * as Colors from '@brightlayer-ui/colors';
 import NewYears from '../../app/assets/themes/new-years/new-years-banner.png';
 import fireworkCursor from '../../app/assets/themes/new-years/firework-rocket-cursor.png';
 import AppBarTile from '../../app/assets/themes/new-years/new-years-appbar-tile.png';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 export const NewYearsSchedule: Schedule = {
     start: new Date(0, 11, 31), // Dec 31

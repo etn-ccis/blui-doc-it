@@ -4,7 +4,7 @@ import banner from '../../app/assets/themes/spring-festival/banner.svg';
 import cursor from '../../app/assets/themes/spring-festival/cursor.png';
 import titleBlock from '../../app/assets/themes/spring-festival/title-block.svg';
 import AppBarTile from '../../app/assets/themes/spring-festival/tile.svg';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 export const SpringFestivalSchedule: Schedule = {
     start: new Date(0, 1, 1), // Feb 1
