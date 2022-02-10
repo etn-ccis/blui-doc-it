@@ -4,7 +4,7 @@ import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import IndependenceDay from '../../app/assets/themes/independence-day/independence-day-bg.png';
 import IndependenceDayCursor from '../../app/assets/themes/independence-day/flag-cursor.png';
 import AppBarTile from '../../app/assets/themes/independence-day/independence-day-appbar-tile.png';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 export const IndependenceDaySchedule: Schedule = {
     start: new Date(0, 6, 2), // July 2

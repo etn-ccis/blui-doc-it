@@ -5,7 +5,7 @@ import banner from '../../app/assets/themes/mid-autumn-festival/banner.svg';
 import cursor from '../../app/assets/themes/mid-autumn-festival/cursor.png';
 import titleBlock from '../../app/assets/themes/mid-autumn-festival/title-block.png';
 import AppBarTile from '../../app/assets/themes/mid-autumn-festival/app-bar.png';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 export const MidAutumnSchedule: Schedule = {
     start: new Date(0, 8, 20), // Sept 20

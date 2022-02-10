@@ -5,7 +5,7 @@ import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import Kwanzaa from '../../app/assets/themes/kwanzaa/kwanzaa-banner.png';
 import flagCursor from '../../app/assets/themes/kwanzaa/flag-cursor.png';
 import AppBarTile from '../../app/assets/themes/kwanzaa/kwanzaa-appbar-tile.png';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 export const KwanzaaSchedule: Schedule = {
     start: new Date(0, 11, 26), // Dec 26

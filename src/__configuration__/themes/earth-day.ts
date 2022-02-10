@@ -3,7 +3,7 @@ import * as Colors from '@brightlayer-ui/colors';
 import banner from '../../app/assets/themes/earth-day/earth.jpg';
 import cursor from '../../app/assets/themes/earth-day/cursor.svg';
 import AppBarTile from '../../app/assets/themes/earth-day/tile.svg';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 export const EarthDaySchedule: Schedule = {
     start: new Date(0, 3, 20), // Apr 20
