@@ -3,17 +3,21 @@ import * as Colors from '@brightlayer-ui/colors';
 import TitleBlock from '../../app/assets/themes/april-fool-s-day/title-block.svg';
 import TitleBlockChromium from '../../app/assets/themes/april-fool-s-day/title-block-chromium.svg';
 import AppBarTile from '../../app/assets/themes/april-fool-s-day/app-bar-tile.png';
+import { defaultTheme } from './default';
 import { Schedule } from './_types';
+import { SiteConfig } from '.';
 
-const getOS = (): string => {
+type Platform = 'mac' | 'win' | 'other';
+
+const getOS = (): Platform => {
     const userAgent = window.navigator.userAgent;
     if (userAgent.includes('Mac')) return 'mac';
-    if (userAgent.includes('Win')) return 'pc';
-    // lucky you, no tricks this time
+    if (userAgent.includes('Win')) return 'win';
     return 'other';
 };
 
 const winPrank = {
+    theme: BLUIThemes.blue,
     landingPageBanner: {
         backgroundImage: '',
         backgroundColor: Colors.blue[500],
@@ -29,6 +33,7 @@ const winPrank = {
 };
 
 const macPrank = {
+    theme: BLUIThemes.blue,
     landingPageBanner: {
         backgroundImage: '',
         backgroundColor: '#fbfbfb',
@@ -49,7 +54,7 @@ const macPrank = {
     },
 };
 
-const prankTheme = (): any => {
+const prankTheme = (): SiteConfig => {
     const currentOS = getOS();
     switch (currentOS) {
         case 'mac':
@@ -57,15 +62,13 @@ const prankTheme = (): any => {
         case 'win':
             return winPrank;
         default:
-            return undefined;
+            // lucky you, no tricks this time
+            return defaultTheme;
     }
 };
 
 export const AprilFoolsDaySchedule: Schedule = {
     start: new Date(0, 3, 1), // April 1
     end: new Date(0, 3, 2), // April 1
-    config: {
-        theme: BLUIThemes.blue,
-        ...prankTheme(),
-    },
+    config: prankTheme(),
 };
