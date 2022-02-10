@@ -4,7 +4,7 @@ import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import Thanksgiving from '../../app/assets/themes/thanksgiving/thanksgiving-banner.jpg';
 import turkeyCursor from '../../app/assets/themes/thanksgiving/turkey-cursor.png';
 import AppBarTile from '../../app/assets/themes/thanksgiving/thanksgiving-appbar-tile.png';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 export const ThanksgivingSchedule: Schedule = {
     start: new Date(0, 10, 21), // Nov 21

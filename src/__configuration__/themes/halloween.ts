@@ -5,7 +5,7 @@ import { ThemeOptions } from '@material-ui/core';
 import castles from '../../app/assets/themes/halloween/castles.svg';
 import ghosts from '../../app/assets/themes/halloween/halloween-appbar-tile.svg';
 import witch from '../../app/assets/themes/halloween/witch.png';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 const HalloweenTheme: ThemeOptions = {
     palette: {

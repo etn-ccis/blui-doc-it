@@ -1,7 +1,7 @@
 {
     "name": "doc-it",
     "author": "Brightlayer UI <brightlayer-ui@eaton.com>",
-    "version": "2.4.2",
+    "version": "3.0.0",
     "private": true,
     "scripts": {
         "start": "node scripts/start.js",

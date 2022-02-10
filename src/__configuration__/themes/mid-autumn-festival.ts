@@ -5,7 +5,7 @@ import banner from '../../app/assets/themes/mid-autumn-festival/banner.svg';
 import cursor from '../../app/assets/themes/mid-autumn-festival/cursor.png';
 import titleBlock from '../../app/assets/themes/mid-autumn-festival/title-block.png';
 import AppBarTile from '../../app/assets/themes/mid-autumn-festival/app-bar.png';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 export const MidAutumnSchedule: Schedule = {
     start: new Date(0, 8, 20), // Sept 20
@@ -58,6 +58,12 @@ export const MidAutumnSchedule: Schedule = {
                         },
                     },
                 },
+                MuiFab: {
+                    primary: {
+                        backgroundColor: Colors.red[700],
+                        color: 'white',
+                    },
+                },
             },
         },
         landingPageBanner: {
@@ -77,6 +83,7 @@ export const MidAutumnSchedule: Schedule = {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
             height: '40vh',
+            width: 600,
         },
         appBarBackground: {
             backgroundImage: `url(${AppBarTile})`,
