@@ -255,11 +255,13 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                                     field.remove();
                                 }
                             }}
+                            inputProps={{ style: { height: theme.spacing(7) } }}
                         />
                     )}
                     <IconButton
                         onClick={(): void => {
                             dismissSearchBar();
+                            setInputString('');
                         }}
                         edge={'end'}
                     >

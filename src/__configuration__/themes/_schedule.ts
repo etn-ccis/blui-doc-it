@@ -2,7 +2,7 @@ import { HalloweenSchedule } from './halloween';
 import { MayTheFourthSchedule } from './may-the-fourth';
 import { ChristmasSchedule } from './christmas';
 import { defaultTheme } from './default';
-import { Schedule, SiteConfig } from './types';
+import { Schedule, SiteConfig } from './_types';
 import { DiwaliSchedule } from './diwali';
 import { WomenSDaySchedule } from './women-s-day';
 import { ThanksgivingSchedule } from './thanksgiving';
@@ -14,6 +14,7 @@ import { StPatricksDaySchedule } from './st-patricks-day';
 import { EarthDaySchedule } from './earth-day';
 import { IndependenceDaySchedule } from './independence-day';
 import { MidAutumnSchedule } from './mid-autumn-festival';
+import { AprilFoolsDaySchedule } from './april-fools-day';
 
 /**
  * Add more holiday themes here.
@@ -22,6 +23,7 @@ import { MidAutumnSchedule } from './mid-autumn-festival';
  * * Feb 1 - Feb 7 2022: Spring Festival (changes each year)  ** Jan 21 - Jan 27 2023 | Feb 9 - Feb 15 2024 **
  * * Mar 7 - Mar 9: Women's Day
  * * Mar 16 - Mar 18: St. Patrick's Day
+ * * Apr 1: April Fool's Day
  * * Apr 20 - Apr 24: Earth Day
  * * May 3 - May 5: May the Fourth Day
  * * July 2 - July 7: Independence Day
@@ -40,6 +42,7 @@ export const schedule: Schedule[] = [
     DiwaliSchedule,
     ChristmasSchedule,
     HalloweenSchedule,
+    AprilFoolsDaySchedule,
     MayTheFourthSchedule,
     HanukkahSchedule,
     KwanzaaSchedule,

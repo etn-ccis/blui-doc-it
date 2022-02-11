@@ -15,9 +15,7 @@ export type SiteConfig = {
     /**
      * Configuration around the banner image in the landing page
      */
-    landingPageBanner: {
-        backgroundImage: string;
-    } & CSSProperties;
+    landingPageBanner?: CSSProperties;
 
     /*
      * Configures the brightlayer-ui logo color on the landing page.

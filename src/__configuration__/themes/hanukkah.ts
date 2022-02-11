@@ -4,7 +4,7 @@ import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import Hanukkah from '../../app/assets/themes/hanukkah/hanukkah-banner.png';
 import dreidelCursor from '../../app/assets/themes/hanukkah/dreidel-cursor.png';
 import AppBarTile from '../../app/assets/themes/hanukkah/hanukkah-appbar-tile.png';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 export const HanukkahSchedule: Schedule = {
     start: new Date(0, 10, 28), // Nov 28

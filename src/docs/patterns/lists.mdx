@@ -107,21 +107,19 @@ For information about the differences between lists and tables, check out our [T
 
 Lists typically appear inside of a panel (mobile) or a card (desktop). Occasionally, an entire screen may use a single list as its main body content.
 
-<React.Fragment>
-    <ImageGrid
-        images={[AnatomyImage]}
-        regularWidth
-        caption={[
-            'An example of a list embedded inside a panel.',
-            '1: Panel header and footer.',
-            '2: A global list action sits inside the panel header.',
-            '3: Additional panel content supporting the list.',
-            '4: A list item.',
-            '5: A local list action.',
-        ]}
-    />
-    <Divider />
-</React.Fragment>
+<ImageGrid
+    images={[AnatomyImage]}
+    regularWidth
+    caption={[
+        'An example of a list embedded inside a panel.',
+        '1: Panel header and footer.',
+        '2: A global list action sits inside the panel header.',
+        '3: Additional panel content supporting the list.',
+        '4: A list item.',
+        '5: A local list action.',
+    ]}
+/>
+<Divider />
 
 # Variations
 
@@ -132,10 +130,9 @@ Lists typically appear inside of a panel (mobile) or a card (desktop). Occasiona
     captionsUnderImages={['A simple key-value list.', 'A key-value list with icons and subtitle.']}
 />
 <DemoCard
-    repository={'data-list'}
+    repository={'Data List'}
     angular={`https://stackblitz.com/github/brightlayer-ui/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Fdata-list%2Fdata-list.component.ts`}
     react={`https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master?file=/src/pages/lists/data-list/index.tsx&initialpath=/data-list`}
-    ionic={`https://stackblitz.com/github/brightlayer-ui/ionic-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fsearch-bar%2Fsearch-bar.component.ts`}
     reactNative
 />
 
@@ -149,10 +146,9 @@ The simplest type of list simply presents a single line (or multiple lines) of t
     caption={`Use an icon avatar and / or a status stripe to catch people's attention.`}
 />
 <DemoCard
-    repository={'status-list'}
-    angular={`https://stackblitz.com/github/brightlayer-ui/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Fstatus-list%2Fstatus-list.component.ts`}
+    repository={'Status List'}
+    angular={`https://stackblitz.com/github/brightlayer-ui/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Fstatus-list%2Fstatus-list.component.html`}
     react={`https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master?file=/src/pages/lists/status-list/index.tsx&initialpath=/status-list`}
-    ionic={`https://stackblitz.com/github/brightlayer-ui/ionic-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fstatus-list%2Fstatus-list.component.ts`}
     reactNative
 />
 
@@ -206,10 +202,9 @@ Depending on the data being displayed, you can add additional UI elements to the
 Lists can be interactive. In general, there are two types of actions: global list actions and local list item actions.
 
 <DemoCard
-    repository={'action-list'}
+    repository={'Action List'}
     angular={`https://stackblitz.com/github/brightlayer-ui/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Faction-list%2Faction-list.component.ts`}
     react={`https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master?file=/src/pages/lists/action-list/index.tsx&initialpath=/action-list`}
-    ionic={`https://stackblitz.com/github/brightlayer-ui/ionic-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Faction-list%2Faction-list.component.ts`}
     reactNative
 />
 
@@ -233,15 +228,27 @@ Common global list actions include:
 -   Toggling a different view, such as a grid view
 -   Exporting or downloading the list data
 
+<DemoCard
+    repository={'Global Action List In Button Panel'}
+    angular={`https://stackblitz.com/github/brightlayer-ui/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Finline-button-panel%2Finline-button-panel.component.html`}
+    react={`https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master?file=/src/pages/lists/action-list/action-list-button-panel/index.tsx&initialpath=/action-list-button-panel`}
+    reactNative
+/>
+<DemoCard
+    repository={'Global Action List In Panel Header'}
+    angular={`https://stackblitz.com/github/brightlayer-ui/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Fin-panel-header%2Fin-panel-header.component.html`}
+    react={`https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master?file=/src/pages/lists/action-list/action-list-panel-header/index.tsx&initialpath=/action-list-panel-header`}
+    reactNative
+/>
+
 ### Drag and Drop
 
 <React.Fragment>
     <ImageGrid images={[SortableListImage]} regularWidth />
     <DemoCard
-        repository={'sortable-list'}
+        repository={'Sortable List'}
         angular={`https://stackblitz.com/github/brightlayer-ui/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Fsortable-list%2Fsortable-list.component.ts`}
         react={`https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master?file=/src/pages/lists/sortable-list/index.tsx&initialpath=/sortable-list`}
-        ionic={`https://stackblitz.com/github/brightlayer-ui/ionic-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fsortable-list%2Fsortable-list.component.ts`}
         reactNative
     />
 </React.Fragment>
@@ -253,10 +260,9 @@ Drag and drop is a special case for list sorting. It re-orders the items in a li
 <React.Fragment>
     <ImageGrid images={[MultiSelectImage]} regularWidth caption={`A multi-select list on a mobile device.`} />
     <DemoCard
-        repository={'multiselect-list'}
+        repository={'Multi-select List'}
         angular={`https://stackblitz.com/github/pxblue/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Fmultiselect-list%2Fmultiselect-list.component.ts`}
         react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/multiselect-list/index.tsx&initialpath=multiselect-list`}
-        ionic={`https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fmultiselect-list%2Fmultiselect-list.component.ts`}
         reactNative
     />
 </React.Fragment>
@@ -276,6 +282,20 @@ You may want to take action on several list items at once, but not all. The easi
         '6: An inline dropdown field.',
         '7: An inline radio button group.',
     ]}
+/>
+
+<DemoCard
+    repository={'Inline Actions'}
+    angular={`https://stackblitz.com/github/brightlayer-ui/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Finline-actions%2Finline-actions.component.html`}
+    react={`https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master?file=/src/pages/lists/action-list/action-list-inline/index.tsx&initialpath=/action-list-inline`}
+    reactNative
+/>
+
+<DemoCard
+    repository={'Local Actions'}
+    angular={`https://stackblitz.com/github/brightlayer-ui/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Finline-local-actions%2Finline-local-actions.component.html`}
+    react={`https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master?file=/src/pages/lists/action-list/action-list-local-actions/index.tsx&initialpath=/action-list-local-actions`}
+    reactNative
 />
 
 If there are actions that you need to perform on individual list items, you may add icon buttons or an action menu. If you have three or fewer actions, they can be represented by individual icon buttons. If there are more than three, you should move them into an action menu.
@@ -299,6 +319,13 @@ On desktop applications, you may use hover events to display applicable list act
 <ImageGrid
     images={[NavigateListImage1, NavigateListImage2]}
     captionsUnderImages={['1: A list used for separated pages.', '2: A list displaying a folder structure.']}
+/>
+
+<DemoCard
+    repository={'List as a Tree Structure'}
+    angular={`https://stackblitz.com/github/brightlayer-ui/angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Ftree%2Ftree.component.html`}
+    react={`https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master?file=/src/pages/lists/tree-structure-list/index.tsx&initialpath=/tree-structure-list`}
+    reactNative
 />
 
 Lists can be used to navigate a tree-like structure in an application. See [the navigation pattern](/patterns/navigation).
@@ -325,24 +352,19 @@ When it comes to responsive design and progressive disclosure, it can be tricky 
 
 # Design Specifications
 
-<React.Fragment>
-    <ImageGrid
-        images={[Spec1Image, Spec2Image, Spec3Image, Spec4Image, Spec5Image, SpecTypographyImage]}
-        regularWidth
-    />
-    <MaterialDesignDescription
-        title={'Lists'}
-        description={`For additional instructions, refer to Material Design's design specs.`}
-        url={`https://material.io/components/lists#specs`}
-    />
-    <Divider />
-</React.Fragment>
+<ImageGrid images={[Spec1Image, Spec2Image, Spec3Image, Spec4Image, Spec5Image, SpecTypographyImage]} regularWidth />
+<MaterialDesignDescription
+    title={'Lists'}
+    description={`For additional instructions, refer to Material Design's design specs.`}
+    url={`https://material.io/components/lists#specs`}
+/>
+<Divider />
 
 # Developers
 
 Use the following components to implement this pattern:
 
-**Angular** and **Ionic**:
+**Angular**:
 
 -   Angular Material
     -   [List](https://material.angular.io/components/list/overview)

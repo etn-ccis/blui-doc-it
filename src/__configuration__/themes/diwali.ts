@@ -4,7 +4,7 @@ import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import Diwali from '../../app/assets/themes/diwali/diwali-banner.jpg';
 import diwaliCursor from '../../app/assets/themes/diwali/diwali-cursor.png';
 import AppBarTile from '../../app/assets/themes/diwali/diwali-appbar-tile.png';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 export const DiwaliSchedule: Schedule = {
     start: new Date(0, 10, 2), // Nov 2
