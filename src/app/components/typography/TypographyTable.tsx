@@ -109,18 +109,16 @@ export const TypographyTable = (): JSX.Element => {
         [theme]
     );
 
-    const formatName = useCallback(
-        (variant: TypographyVariant): string => {
-            if (variant.startsWith('h')) {
-                const num = variant.charAt(1);
-                if (num === '1') {
-                    return `HeadL1`;
-                }
-                return `Headline${num}`;
+    const formatName = useCallback((variant: TypographyVariant): string => {
+        if (variant.startsWith('h')) {
+            const num = variant.charAt(1);
+            if (num === '1') {
+                return `HeadL1`;
             }
-            return variant.charAt(0).toUpperCase() + variant.slice(1)
+            return `Headline${num}`;
         }
-    , []);
+        return variant.charAt(0).toUpperCase() + variant.slice(1);
+    }, []);
 
     const createRow = useCallback(
         (row: TypographyInfo): JSX.Element => {
