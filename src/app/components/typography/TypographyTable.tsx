@@ -113,7 +113,7 @@ export const TypographyTable = (): JSX.Element => {
         if (variant.startsWith('h')) {
             const num = variant.charAt(1);
             if (num === '1') {
-                return `HeadL1`;
+                return `H1`;
             }
             return `Headline${num}`;
         }
