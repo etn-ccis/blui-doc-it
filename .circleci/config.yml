@@ -1,8 +1,10 @@
-version: 2
+version: 2.1
+orbs:
+    browser-tools: circleci/browser-tools@1.2.4
 jobs:
     build:
         docker:
-            - image: circleci/node:12.13.0-browsers
+            - image: cimg/node:14.19.0-browsers
         working_directory: ~/doc-it-dev
         environment:
             - MASTER_BRANCH: master
@@ -13,6 +15,7 @@ jobs:
             - GH_NAME: Brightlayer UI Agent
         steps:
             - checkout
+            - browser-tools/install-browser-tools
             - restore_cache:
                   keys:
                       - v3-dependencies-{{ checksum "package.json" }}
