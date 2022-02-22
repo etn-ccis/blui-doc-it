@@ -112,9 +112,6 @@ export const TypographyTable = (): JSX.Element => {
     const formatName = useCallback((variant: TypographyVariant): string => {
         if (variant.startsWith('h')) {
             const num = variant.charAt(1);
-            if (num === '1') {
-                return `H1`;
-            }
             return `Headline ${num}`;
         }
         return variant.charAt(0).toUpperCase() + variant.slice(1);
@@ -129,7 +126,6 @@ export const TypographyTable = (): JSX.Element => {
                     <TableCell>
                         <Typography variant={variant}>{formatName(variant)}</Typography>
                     </TableCell>
-                    <TableCell>Open Sans</TableCell>
                     <TableCell>{fontWeight}</TableCell>
                     <TableCell>{size || `${rowInfo.fontSize.PX}dp / ${rowInfo.fontSize.REM}rem`}</TableCell>
                     <TableCell>{lineHeight || `${rowInfo.lineHeight.PX}dp / ${rowInfo.lineHeight.EM}em`}</TableCell>
@@ -145,7 +141,6 @@ export const TypographyTable = (): JSX.Element => {
                 <TableHead>
                     <TableRow>
                         <TableCell>Name</TableCell>
-                        <TableCell>Typeface</TableCell>
                         <TableCell>Font Weight</TableCell>
                         <TableCell>Size</TableCell>
                         <TableCell>Line Height</TableCell>
