@@ -115,7 +115,6 @@ export const TypographyTable = (): JSX.Element => {
             if (num === '1') {
                 return `H1`;
             }
-            return `Headline${num}`;
         }
         return variant.charAt(0).toUpperCase() + variant.slice(1);
     }, []);
