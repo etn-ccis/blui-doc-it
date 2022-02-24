@@ -112,7 +112,7 @@ export const TypographyTable = (): JSX.Element => {
     const formatName = useCallback((variant: TypographyVariant): string => {
         if (variant.startsWith('h')) {
             const num = variant.charAt(1);
-            return `Headline ${num}`;
+            return `Headline${num}`;
         }
         return variant.charAt(0).toUpperCase() + variant.slice(1);
     }, []);
