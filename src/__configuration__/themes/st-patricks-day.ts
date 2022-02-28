@@ -3,7 +3,7 @@ import * as Colors from '@brightlayer-ui/colors';
 import StPatricksDay from '../../app/assets/themes/st-patricks-day/st-patricks-day-banner.png';
 import stPatricksDayCursor from '../../app/assets/themes/st-patricks-day/st-patricks-day-cursor.png';
 import AppBarTile from '../../app/assets/themes/st-patricks-day/st-patricks-day-appbar-tile.png';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 export const StPatricksDaySchedule: Schedule = {
     start: new Date(0, 2, 16), // Mar 16

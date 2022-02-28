@@ -164,9 +164,11 @@ const loadIcons = (): void => {
 
         // add the icon details to the categorized icon list
         for (let cat of iconDetails.family) {
-            cat = cat.toLocaleLowerCase();
-            if (allIconsByCategory[cat]) allIconsByCategory[cat].push(icon);
-            else allIconsByCategory[cat] = [icon];
+            if (!iconDetails.filename.toLocaleLowerCase().includes('eaton')) {
+                cat = cat.toLocaleLowerCase();
+                if (allIconsByCategory[cat]) allIconsByCategory[cat].push(icon);
+                else allIconsByCategory[cat] = [icon];
+            }
         }
 
         // return the icon

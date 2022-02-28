@@ -109,6 +109,14 @@ export const TypographyTable = (): JSX.Element => {
         [theme]
     );
 
+    const formatName = useCallback((variant: TypographyVariant): string => {
+        if (variant.startsWith('h')) {
+            const num = variant.charAt(1);
+            return `Headline${num}`;
+        }
+        return variant.charAt(0).toUpperCase() + variant.slice(1);
+    }, []);
+
     const createRow = useCallback(
         (row: TypographyInfo): JSX.Element => {
             const { variant, fontWeight, lineHeight, fontSize: size } = row;
@@ -116,9 +124,8 @@ export const TypographyTable = (): JSX.Element => {
             return (
                 <TableRow key={variant}>
                     <TableCell>
-                        <Typography variant={variant}>{variant.charAt(0).toUpperCase() + variant.slice(1)}</Typography>
+                        <Typography variant={variant}>{formatName(variant)}</Typography>
                     </TableCell>
-                    <TableCell>Open Sans</TableCell>
                     <TableCell>{fontWeight}</TableCell>
                     <TableCell>{size || `${rowInfo.fontSize.PX}dp / ${rowInfo.fontSize.REM}rem`}</TableCell>
                     <TableCell>{lineHeight || `${rowInfo.lineHeight.PX}dp / ${rowInfo.lineHeight.EM}em`}</TableCell>
@@ -134,7 +141,6 @@ export const TypographyTable = (): JSX.Element => {
                 <TableHead>
                     <TableRow>
                         <TableCell>Name</TableCell>
-                        <TableCell>Typeface</TableCell>
                         <TableCell>Font Weight</TableCell>
                         <TableCell>Size</TableCell>
                         <TableCell>Line Height</TableCell>
