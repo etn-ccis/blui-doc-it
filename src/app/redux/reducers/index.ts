@@ -34,7 +34,8 @@ const initialAppState: CommonState = {
     searchActive: false,
     sidebarOpen: false,
     hasTOC: false,
-    showBanner: !window.sessionStorage.getItem('banner-dismissed'),
+    // showBanner: !window.sessionStorage.getItem('banner-dismissed'),
+    showBanner: false,
     selectedColor: undefined,
     showColorContrast: false,
 };
