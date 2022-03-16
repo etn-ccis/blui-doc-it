@@ -69,10 +69,6 @@
                             "url": "/cordova"
                         },
                         {
-                            "title": "Ionic Guide",
-                            "url": "/ionic"
-                        },
-                        {
                             "title": "React Native Guide",
                             "url": "/react-native"
                         }
