@@ -81,12 +81,6 @@ export const DevResources: React.FC = (): JSX.Element => {
                     />
                     <Tab
                         style={{ minWidth: 'auto' }}
-                        label="Ionic"
-                        value={'ionic'}
-                        onClick={(): void => setFilter('ionic')}
-                    />
-                    <Tab
-                        style={{ minWidth: 'auto' }}
                         label="React Native"
                         value={'react-native'}
                         onClick={(): void => setFilter('react-native')}

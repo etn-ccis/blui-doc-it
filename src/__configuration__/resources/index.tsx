@@ -24,7 +24,7 @@ export const resources: ResourceBucket[] = [
                 description: 'Components for Angular applications',
                 package: '@brightlayer-ui/angular-components',
                 repository: 'angular-component-library',
-                applies: ['angular', 'ionic'],
+                applies: ['angular'],
             },
             {
                 name: '@brightlayer-ui/react-components',
@@ -332,12 +332,6 @@ export const resources: ResourceBucket[] = [
                 repository: 'react-design-patterns',
                 applies: ['react'],
                 demoUrl: 'https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master',
-            },
-            {
-                name: 'ionic-design-patterns',
-                description: 'Mobile design patterns made using the Ionic framework',
-                repository: 'ionic-design-patterns',
-                applies: ['ionic'],
             },
             {
                 name: 'react-native-design-patterns',

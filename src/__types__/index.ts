@@ -1,7 +1,7 @@
 import { SvgIconProps } from '@material-ui/core';
 
 export type TODOFIXME = any;
-export type FrameworkFilter = 'all' | 'angular' | 'react' | 'ionic' | 'react-native';
+export type FrameworkFilter = 'all' | 'angular' | 'react' | 'react-native';
 export type DetailedIcon = {
     name: string;
     filename: string;
