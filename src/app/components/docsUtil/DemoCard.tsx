@@ -39,11 +39,6 @@ const getDetails = (repository: string, framework: string): Details => {
                 icon: <ReactBlue style={{ backgroundColor: 'transparent' }} />,
             };
         case 'react-native':
-            return {
-                url: `https://snack.expo.io/@git/github.com/brightlayer-ui/${repository}@reactnative?preview=true&platform=ios`,
-                displayName: 'React Native',
-                icon: <ReactBlue style={{ backgroundColor: 'transparent' }} />,
-            };
         default:
             return {
                 url: '',
