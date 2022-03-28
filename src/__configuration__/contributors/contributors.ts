@@ -99,7 +99,7 @@ export const contributors: OtherContributor[] = [
     },
     {
         name: 'Mariana Bela',
-        role: 'Figma Design Pattern Library',
+        role: 'Figma Components and Design Patterns',
         image: MarianaBela,
     },
     {
