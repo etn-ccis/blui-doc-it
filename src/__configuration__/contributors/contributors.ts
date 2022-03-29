@@ -11,7 +11,7 @@ import AnjaliPatodia from '../../app/assets/credits/anjali-patodia.png';
 import MarianaBela from '../../app/assets/credits/mariana-bela.jpg';
 import RenatoMartins from '../../app/assets/credits/renato-martins.jpg';
 import JosephBoyle from '../../app/assets/credits/joseph-boyle.png';
-import JoaoMota from '../../app/assets/credits/joao-mota.jpeg';
+import JoaoMota from '../../app/assets/credits/joao-mota.jpg';
 
 import { OtherContributor } from '../../__types__';
 
