@@ -11,6 +11,7 @@ import AnjaliPatodia from '../../app/assets/credits/anjali-patodia.png';
 import MarianaBela from '../../app/assets/credits/mariana-bela.jpg';
 import RenatoMartins from '../../app/assets/credits/renato-martins.jpg';
 import JosephBoyle from '../../app/assets/credits/joseph-boyle.png';
+import JoaoMota from '../../app/assets/credits/joao-mota.jpg';
 
 import { OtherContributor } from '../../__types__';
 
@@ -99,7 +100,7 @@ export const contributors: OtherContributor[] = [
     },
     {
         name: 'Mariana Bela',
-        role: 'Figma Design Pattern Library',
+        role: 'Figma Components and Design Patterns',
         image: MarianaBela,
     },
     {
@@ -107,10 +108,14 @@ export const contributors: OtherContributor[] = [
         role: 'Icons',
         image: RenatoMartins,
     },
-
     {
         name: 'Joseph Boyle',
         role: `Front-End Developer & Strategy`,
         image: JosephBoyle,
+    },
+    {
+        name: 'João Mota',
+        role: `UI Designer`,
+        image: JoaoMota,
     },
 ];

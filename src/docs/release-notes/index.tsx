@@ -1,24 +1,26 @@
 import React from 'react';
 
 // Full Release Notes
-import R22 from './R22/R22.mdx';
-import R21 from './R21/R21.mdx';
-import R20 from './R20/R20.mdx';
-import R19 from './R19/R19.mdx';
-import R18 from './R18/R18.mdx';
-import R17 from './R17/R17.mdx';
-import R16 from './R16/R16.mdx';
-import R15 from './R15/R15.mdx';
-import R14 from './R14/R14.mdx';
-import R13 from './R13/R13.mdx';
-import R12 from './R12/R12.mdx';
-import R11 from './R11/R11.mdx';
-import R10 from './R10/R10.mdx';
-import R9 from './R9/R9.mdx';
-import R8 from './R8/R8.mdx';
-import R7 from './R7/R7.mdx';
+import R23 from './R23/FullNotes.mdx';
+import R22 from './R22/FullNotes.mdx';
+import R21 from './R21/FullNotes.mdx';
+import R20 from './R20/FullNotes.mdx';
+import R19 from './R19/FullNotes.mdx';
+import R18 from './R18/FullNotes.mdx';
+import R17 from './R17/FullNotes.mdx';
+import R16 from './R16/FullNotes.mdx';
+import R15 from './R15/FullNotes.mdx';
+import R14 from './R14/FullNotes.mdx';
+import R13 from './R13/FullNotes.mdx';
+import R12 from './R12/FullNotes.mdx';
+import R11 from './R11/FullNotes.mdx';
+import R10 from './R10/FullNotes.mdx';
+import R9 from './R9/FullNotes.mdx';
+import R8 from './R8/FullNotes.mdx';
+import R7 from './R7/FullNotes.mdx';
 
 // Summaries (for Landing Page)
+import R23Summary from './R23/Summary.mdx';
 import R22Summary from './R22/Summary.mdx';
 import R21Summary from './R21/Summary.mdx';
 import R20Summary from './R20/Summary.mdx';
@@ -44,6 +46,13 @@ export type ReleaseInfo = {
     summary: JSX.Element;
 };
 const Releases: ReleaseInfo[] = [
+    {
+        title: 'R23',
+        date: 'Mar 2022',
+        version: '3.0.1',
+        details: <R23 />,
+        summary: <R23Summary />,
+    },
     {
         title: 'R22',
         date: 'Dec 2021',
