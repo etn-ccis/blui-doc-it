@@ -54,6 +54,7 @@
     },
     "devDependencies": {
         "@babel/core": "7.12.3",
+        "@babel/plugin-proposal-private-property-in-object": "^7.16.7",
         "@brightlayer-ui/eslint-config": "^2.0.5",
         "@brightlayer-ui/prettier-config": "^1.0.3",
         "@mdx-js/loader": "^1.5.5",
