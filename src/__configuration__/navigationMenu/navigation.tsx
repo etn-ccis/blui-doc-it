@@ -116,6 +116,7 @@ export const pageDefinitions: SimpleNavItem[] = [
                         ),
                     },
                     {
+                        hidden: true,
                         title: 'Ionic Guide',
                         url: '/ionic',
                         component: (

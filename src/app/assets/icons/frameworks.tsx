@@ -28,19 +28,3 @@ export const ReactBlue = (props: SvgIconProps): JSX.Element => (
         <circle cx="79.97" cy="80.01" r="12.67" fill="#61dafb" />
     </SvgIcon>
 );
-
-export const Ionic = (props: SvgIconProps): JSX.Element => (
-    <SvgIcon viewBox={'0 0 147 147'} {...props}>
-        <path
-            fill="#478aff"
-            d="M107.75,222.5a33.5,33.5,0,1,0,33.5,33.5A33.54,33.54,0,0,0,107.75,222.5Z"
-            transform="translate(-34.25 -182.5)"
-        />
-        <circle fill="#478aff" cx="121.6" cy="27.71" r="15.26" />
-        <path
-            fill="#478aff"
-            d="M174.64,225.55l-.64-1.4-1,1.16a23,23,0,0,1-9.21,6.34l-1,.36.4,1a60.09,60.09,0,1,1-29.71-31.21l.94.45.41-1a23,23,0,0,1,6.78-8.89l1.2-1-1.37-.71a72.68,72.68,0,0,0-33.7-8.19,73.51,73.51,0,1,0,66.89,43Z"
-            transform="translate(-34.25 -182.5)"
-        />
-    </SvgIcon>
-);

@@ -10,9 +10,7 @@ The following instructions will guide you through setting up your computer for R
 
 # Setting Up Your Environment
 
-You'll need to start by following the general instructions for setting up your development environment for mobile found in our [Environment Guide](/development/environment). In addition to the base requirements, you may also want the following:
-
--   [Expo Client](https://expo.io/learn) (project creation / setup tool for React Native apps)(optional, for Expo projects)
+You'll need to start by following the general instructions for setting up your development environment for mobile found in our [Environment Guide](/development/environment).
 
 <Divider />
 
@@ -20,13 +18,13 @@ You'll need to start by following the general instructions for setting up your d
 
 ## Using the Brightlayer UI CLI
 
-The fastest way to start a new Brightlayer UI project is to use the [Brightlayer UI CLI](/development/cli). The CLI will automatically create a starter project for you (using either the [React Native Community CLI](https://github.com/react-native-community/cli) (recommended) or [Expo CLI](https://docs.expo.io/)) with all of the necessary Brightlayer UI dependencies pre-configured. To start a React Native project:
+The fastest way to start a new Brightlayer UI project is to use the [Brightlayer UI CLI](/development/cli). The CLI will automatically create a starter project for you using the [React Native Community CLI](https://github.com/react-native-community/cli) with all of the necessary Brightlayer UI dependencies pre-configured. To start a React Native project:
 
 ```sh
 npx -p @brightlayer-ui/cli blui new react-native
 ```
 
-You will be asked to provide a name for your project, select a CLI to use, choose whether you would like to use TypeScript or JavaScript, and for TypeScript projects, you'll be asked if you want to use the Brightlayer UI eslint and prettier configurations files.
+You will be asked to provide a name for your project, choose whether you would like to use TypeScript or JavaScript, and for TypeScript projects, you'll be asked if you want to use the Brightlayer UI eslint and prettier configurations files.
 
 The Brightlayer UI CLI will automatically include:
 
@@ -84,9 +82,7 @@ npm install --save @brightlayer-ui/react-native-themes
 yarn add @brightlayer-ui/react-native-themes
 ```
 
-> Using the Brightlayer UI React Native theme **requires** that you add the Open Sans font to your application. You can learn how to do this by reading the instructions for [Vanilla React Native](https://medium.com/react-native-training/react-native-custom-fonts-ccc9aacf9e5e) or [Expo](https://docs.expo.io/guides/using-custom-fonts/). You can find the fonts [here](https://github.com/brightlayer-ui/cli-helpers/tree/master/fonts).
-
-> When using Expo, you will need to specify the name for each font weight you load using the format OpenSans-`<Weight>`, e.g., OpenSans-SemiBold. Refer to one of our React Native demos for reference.
+> Using the Brightlayer UI React Native theme **requires** that you add the Open Sans font to your application. You can learn how to do this by reading the instructions for [Vanilla React Native](https://medium.com/react-native-training/react-native-custom-fonts-ccc9aacf9e5e). You can find the fonts [here](https://github.com/brightlayer-ui/react-native-cli-templates/tree/master/blank/fonts).
 
 ## Applying the Theme
 
@@ -136,15 +132,9 @@ After you've created your application with a CLI, it can be run from the command
 ```sh
 cd YourAppName
 
-// RNC CLI
 npm run <ios|android>
 // or
 yarn <ios|android>
-
-// Expo CLI (follow the on-screen instructions or use the web interface to open the app on a device)
-npm run start
-// or
-yarn start
 ```
 
 When you make changes to the source code, the application will automatically rebuild and update on the device.
@@ -153,37 +143,13 @@ When you make changes to the source code, the application will automatically reb
 
 > On a Mac, you may be prompted to install watchman (`brew install watchman`) or update a few settings to run the application.
 
-## Ejecting from Expo
-
-If you use Expo to create your project, there will come a time in your development when it becomes necessary to eject from Expo. The most common reason for this are for adding native libraries to your project.
-
-To eject your app, run the following and follow the on-screen prompts (WARNING: Ejecting from Expo cannot be undone. Make sure you know what you are doing and have your project in source control before proceeding):
-
-```sh
-npm run eject
-// or
-yarn eject
-```
-
-> -   At the first prompt, select 'Bare (first option)'
-> -   At the second prompt, accept the default value (press Enter). Changing this can cause issues running your project.
-> -   At the third prompt, enter a name for the solution folder.
-
-For more information, read about [ejecting from Expo](https://docs.expo.io/workflow/customizing/).
-
 ## Final Build
 
-After ejecting from Expo, the process for creating a build is the same as for a standard native application. You can open the project folders in xCode (/ios/projectName.xcodeproj) or Android Studio (/android) and perform builds from the IDE. There are also npm scripts added to your package.json file during ejection that will allow you to perform builds from the command line. Depending on the version of React Native you are using, you may have to [manually bundle your JS code](https://stackoverflow.com/questions/44446523/unable-to-load-script-from-assets-index-android-bundle-on-windows) for Android.
+Now, you can open the project folders in xCode (/ios/projectName.xcodeproj) or Android Studio (/android) and perform builds from the IDE. Depending on the version of React Native you are using, you may have to [manually bundle your JS code](https://stackoverflow.com/questions/44446523/unable-to-load-script-from-assets-index-android-bundle-on-windows) for Android.
 
 <Divider />
 
 # Additional Information
-
-## RNC CLI vs. Expo CLI
-
-There are two popular approaches to starting a new React Native project. The first (recommended) is to use the [React Native Community CLI](https://github.com/react-native-community/cli) and the second is to use the [Expo CLI](https://docs.expo.io/workflow/expo-cli/). The Expo CLI is nice for spinning up quick projects and demos, but to use certain libraries/plugins you will need to eject to vanilla React Native. For this reason, we recommend most production applications start with the RNC CLI instead to avoid the complications of ejecting.
-
-> **NOTE:** Brightlayer UI examples are written using the Expo CLI. The primary reason for this is because it provides the ability to share live-running code examples via [Snack](https://snack.expo.io/).
 
 ## Code Formatting / Style
 

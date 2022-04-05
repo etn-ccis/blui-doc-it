@@ -1,15 +1,14 @@
 import React from 'react';
 import { makeStyles, createStyles, Theme, Card, Typography, CardProps, Chip, useTheme } from '@material-ui/core';
-import { Angular, ReactBlue, Ionic } from '../../assets/icons';
+import { Angular, ReactBlue } from '../../assets/icons';
 import { CTA_BUTTON } from '../../shared';
 import clsx from 'clsx';
 
-type Framework = 'angular' | 'react' | 'ionic' | 'react-native';
+type Framework = 'angular' | 'react' | 'react-native';
 type DemoCardProps = CardProps & {
     repository: string;
     angular?: true | string;
     react?: true | string;
-    ionic?: true | string;
     reactNative?: true | string;
     float?: 'right' | 'left';
 };
@@ -33,12 +32,6 @@ const getDetails = (repository: string, framework: string): Details => {
                 displayName: 'Angular',
                 icon: <Angular style={{ backgroundColor: 'transparent' }} />,
             };
-        case 'ionic':
-            return {
-                url: `https://stackblitz.com/github/brightlayer-ui/${repository}/tree/ionic`,
-                displayName: 'Ionic',
-                icon: <Ionic style={{ backgroundColor: 'transparent' }} />,
-            };
         case 'react':
             return {
                 url: `https://codesandbox.io/s/github/brightlayer-ui/${repository}/tree/react`,
@@ -46,11 +39,6 @@ const getDetails = (repository: string, framework: string): Details => {
                 icon: <ReactBlue style={{ backgroundColor: 'transparent' }} />,
             };
         case 'react-native':
-            return {
-                url: `https://snack.expo.io/@git/github.com/brightlayer-ui/${repository}@reactnative?preview=true&platform=ios`,
-                displayName: 'React Native',
-                icon: <ReactBlue style={{ backgroundColor: 'transparent' }} />,
-            };
         default:
             return {
                 url: '',
@@ -103,7 +91,7 @@ const DemoButton: React.FC<DemoButtonProps> = (props): JSX.Element => {
 };
 
 export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
-    const { repository, angular, react, ionic, reactNative, ...cardProps } = props;
+    const { repository, angular, react, reactNative, ...cardProps } = props;
     const classes = useStyles();
     const theme = useTheme();
     return (
@@ -128,10 +116,6 @@ export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
                 )}
                 {react && (
                     <DemoButton repository={repository} framework={'react'} url={react === true ? undefined : react} />
-                )}
-                {ionic && (
-                    <></>
-                    // <DemoButton repository={repository} framework={'ionic'} url={ionic === true ? undefined : ionic} />
                 )}
                 {reactNative && (
                     <></>

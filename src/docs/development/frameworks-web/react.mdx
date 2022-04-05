@@ -18,7 +18,7 @@ You will be asked to provide a name for your project, choose whether you would l
 
 The Brightlayer UI CLI will automatically include:
 
--   Material-UI Component Library and Icons ([@material-ui/core](https://www.npmjs.com/package/@material-ui/core) / [@material-ui/icons](https://www.npmjs.com/package/@material-ui/icons))
+-   MUI Component Library and Icons ([@mui/material](https://www.npmjs.com/package/@mui/material) / [@mui/icons-material](https://www.npmjs.com/package/@mui/icons-material))
 -   Brightlayer UI Component Library ([@brightlayer-ui/react-components](https://www.npmjs.com/package/@brightlayer-ui/react-components))
 -   Brightlayer UI Themes ([@brightlayer-ui/react-themes](https://www.npmjs.com/package/@brightlayer-ui/react-themes))
 -   Brightlayer UI Icons ([@brightlayer-ui/icons-mui](https://www.npmjs.com/package/@brightlayer-ui/icons-mui))
@@ -43,19 +43,19 @@ Before taking the following steps, you'll want to make sure that you have an exi
 
 ### Material UI
 
-React projects should make use of the [Material-UI](https://mui.com/) component library. Our Brightlayer UI themes are designed to work with these components. You'll also want to install the icons.
+React projects should make use of the [MUI](https://mui.com/) component library. Our Brightlayer UI themes are designed to work with these components. You'll also want to install the icons.
 
 ```sh
-npm install --save @material-ui/core @material-ui/icons
+npm install --save @mui/material @mui/icons-material @emotion/react @emotion/styled
 // or
-yarn add @material-ui/core @material-ui/icons
+yarn add @mui/material @mui/icons-material @emotion/react @emotion/styled
 ```
 
-For detailed documentation about the various components available in Material UI, as well as sample code and API reference, refer to the [Material UI Documentation](https://mui.com/).
+For detailed documentation about the various components available in Material UI, as well as sample code and API reference, refer to the [MUI Documentation](https://mui.com/).
 
 ### Brightlayer UI Components
 
-Additionally, we have a [supplemental library](https://github.com/brightlayer-ui/react-component-library/tree/dev) of components designed specifically for Brightlayer UI applications. If you wish to use these components, you can install them by running:
+Additionally, we have a [supplemental library](https://github.com/brightlayer-ui/react-component-library/tree/master) of components designed specifically for Brightlayer UI applications. If you wish to use these components, you can install them by running:
 
 ```sh
 npm install --save @brightlayer-ui/react-components
@@ -77,11 +77,11 @@ Installing the theme package will automatically include the Open Sans web font p
 
 ### Applying the Theme
 
-Import the theme files, Material UI theme provider, and **Open Sans** font into your application, e.g. in App.js:
+Import the theme files, MUI theme provider, and **Open Sans** font into your application, e.g. in App.js:
 
 ```tsx
-import { ThemeProvider, createTheme } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider, createTheme } from '@mui/material';
+import CssBaseline from '@mui/material/CssBaseline';
 import * as BLUIThemes from '@brightlayer-ui/react-themes';
 import '@brightlayer-ui/react-themes/open-sans';
 ```
@@ -112,7 +112,7 @@ Brightlayer UI provides packages for code standards and style using ESLint and P
 Brightlayer UI supports the same browsers as React and Material UI. For specifics, please check out their support pages:
 
 -   [React](https://facebook.github.io/create-react-app/docs/supported-browsers-features)
--   [Material UI](https://mui.com/getting-started/supported-platforms/)
+-   [MUI](https://mui.com/getting-started/supported-platforms/)
 
 > With the end-of-life of Internet Explorer 11, Brightlayer UI will no longer be supporting IE11 as of 2021.
 

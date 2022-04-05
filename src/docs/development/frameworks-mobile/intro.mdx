@@ -4,19 +4,7 @@ import { Divider } from '../../../app/components';
 
 # Brightlayer UI Mobile (Hybrid) Frameworks
 
-Brightlayer UI supports hybrid mobile application development using Ionic and React Native. Both are capable frameworks, but there are some significant differences between them, outlined below.
-
-## Ionic
-
--   Built with web technology (framework agnostic)
-    -   Brightlayer UI only supports Ionic with Angular
--   Runs in a WebView
--   Is the fastest way to have a mobile app (if you already have a web app)
--   Requires your web app to be optimized for mobile
--   Has lots of available plugins to access hardware / native functionality
--   Learn more on the [Ionic Website](https://ionicframework.com/)
-
-## React Native
+Brightlayer UI supports hybrid mobile application development using React Native. Some of the key considerations when using React Native are:
 
 -   Renders native UI elements (not a WebView)
 -   Can re-use application logic code (React)
@@ -28,25 +16,9 @@ Brightlayer UI supports hybrid mobile application development using Ionic and Re
 
 <Divider style={{}} />
 
-# Which framework should I use?
-
-This is entirely up to you. If time is your biggest concern, Ionic may be the best approach since it simply wraps an existing application and requires no additional code.
-
-However, if you want more control over the look and performance of your application, it may be better to use React Native. If you have a React application, you'd be able to re-use most of your application logic, but you have to write custom / dedicated UI views for mobile.
-
-In general, if your development team is more familiar with Angular, we recommended using Ionic. If your team is more familiar with React, you won't go wrong by choosing React Native.
-
-<Divider style={{}} />
-
 # Building your application
 
-Follow the guidelines for app development using your chosen framework:
-
--   [Ionic](/development/frameworks-mobile/ionic)
-    <!-- -   [Apache Cordova](/development/frameworks-mobile/cordova) -->
--   [React Native](/development/frameworks-mobile/react-native)
-
-These guides will walk you through the process of developing your application and ultimately creating a final binary to distribute (either to your testers or your final customers).
+Follow our [React Native](/development/frameworks-mobile/react-native) guide for information on developing using this framework. This guide will walk you through the process of developing your application and ultimately creating a final binary to distribute (either to your testers or your final customers).
 
 ## Deploying your application
 
@@ -54,8 +26,27 @@ Once you have built your application into a distributable binary, there are two 
 
 ### Visual Studio App Center (formerly HockeyApp)
 
-Visual Studio App Center gives you a way to test your app with users before you are ready for final distribution. This service allows you to upload app binaries and create lists of people with whom to share them. These people will be notified via email when new versions of the app are available, and they will be prompted to download and install them directly onto their device. You will need to request access to Visual Studio App Center from IT.
+Visual Studio App Center gives you a way to test your app with users before you are ready for final distribution. This service allows you to upload app binaries and create lists of people with whom to share them. These people will be notified via email when new versions of the app are available, and they will be prompted to download and install them directly onto their devices. You will need to request access to Visual Studio App Center from IT.
 
 ### App Store / Play Store
 
-For final distribution of your application, you will need to utilize App Store Connect and / or Google Play Console.
+For the final distribution of your application, you will need to utilize App Store Connect and / or Google Play Console.
+
+# What about other mobile frameworks?
+
+There is a wide variety of different technologies on the market for developing mobile apps, including native (Objective C / Swift, Kotlin / Java) and hybrid frameworks (Flutter, Ionic, Cordova, Xamarin, React Native, etc.).
+
+We recommend and support development using React Native for these key reasons:
+
+-   Maintaining a single code base that can deploy to iOS or Android saves time over building two separate native apps.
+-   React Native gives a truer native experience than other "web wrapper" frameworks, which tend to present a clunkier user experience.
+-   React Native has a well-supported open-source implementation of Material Design.
+-   Business logic code can be shared with existing web applications built using React.
+-   Supporting one framework allows us to concentrate our resources on building more features rather than having a smaller feature set across multiple technologies.
+-   Encouraging teams to use the same technology stack maximizes the potential for code sharing between different teams.
+
+There may be circumstances where a different technology makes more sense for your project. For example, if you have an existing web app built using Angular, you may not want to start from scratch and learn React in order to use React Native. In this case, you may be better off using a technology like Ionic to wrap your existing application in a wrapper for mobile.
+
+When selecting a technology for your project, you will need to weigh the pros and cons to determine which approach is best.
+
+<Divider style={{}} />
