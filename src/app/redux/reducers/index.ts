@@ -34,8 +34,8 @@ const initialAppState: CommonState = {
     searchActive: false,
     sidebarOpen: false,
     hasTOC: false,
-    // showBanner: !window.sessionStorage.getItem('banner-dismissed'),
-    showBanner: false,
+    showBanner: !window.sessionStorage.getItem('banner-dismissed'),
+    // showBanner: false,
     selectedColor: undefined,
     showColorContrast: false,
 };
@@ -74,7 +74,7 @@ const appReducer = (state = initialAppState, action: any): CommonState => {
         case SHOW_BANNER:
             return {
                 ...state,
-                showBanner: true,
+                showBanner: action.payload,
             };
         case HIDE_BANNER:
             return {
