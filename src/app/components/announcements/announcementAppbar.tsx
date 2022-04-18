@@ -24,43 +24,51 @@ export const AnnouncementAppbar: React.FC = () => {
             const to = new Date('2022/04/24');
             const check = new Date(currentDate);
             const show = check > from && check < to;
-            dispatch({ type: SHOW_BANNER, payload: show });
+            if (announcementDetails) {
+                dispatch({ type: SHOW_BANNER, payload: show });
+            } else {
+                dispatch({ type: SHOW_BANNER, payload: false });
+            }
         };
         void loadAnnoncement();
     }, []);
     return (
-        <AppBar position="sticky" color={'secondary'} elevation={0}>
-            <Toolbar>
-                {navigateBlui && <Redirect to="/migration" push />}
-                <div>
-                    {announcementDetails?.content}
-                    <a
-                        style={{
-                            textDecoration: 'underline',
-                            cursor: 'pointer',
-                        }}
-                        onClick={(): any => {
-                            setNavigateBlui(true);
-                            dispatch({ type: HIDE_BANNER });
-                            sessionStorage.setItem('banner-dismissed', 'true');
-                        }}
-                    >
-                        {announcementDetails?.linkContent}
-                    </a>
-                    .
-                </div>
-                <Spacer />
-                <IconButton
-                    style={{ marginRight: -theme.spacing(1) }}
-                    color={'inherit'}
-                    onClick={(): void => {
-                        dispatch({ type: HIDE_BANNER });
-                        sessionStorage.setItem('banner-dismissed', 'true');
-                    }}
-                >
-                    <Close />
-                </IconButton>
-            </Toolbar>
-        </AppBar>
+        <div>
+            {announcementDetails && (
+                <AppBar position="sticky" color={'secondary'} elevation={0}>
+                    <Toolbar>
+                        {navigateBlui && <Redirect to="/migration" push />}
+                        <div>
+                            {announcementDetails?.content}
+                            <a
+                                style={{
+                                    textDecoration: 'underline',
+                                    cursor: 'pointer',
+                                }}
+                                onClick={(): any => {
+                                    setNavigateBlui(true);
+                                    dispatch({ type: HIDE_BANNER });
+                                    sessionStorage.setItem('banner-dismissed', 'true');
+                                }}
+                            >
+                                {announcementDetails?.linkContent}
+                            </a>
+                            .
+                        </div>
+                        <Spacer />
+                        <IconButton
+                            style={{ marginRight: -theme.spacing(1) }}
+                            color={'inherit'}
+                            onClick={(): void => {
+                                dispatch({ type: HIDE_BANNER });
+                                sessionStorage.setItem('banner-dismissed', 'true');
+                            }}
+                        >
+                            <Close />
+                        </IconButton>
+                    </Toolbar>
+                </AppBar>
+            )}
+        </div>
     );
 };
