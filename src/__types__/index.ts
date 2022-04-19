@@ -54,8 +54,7 @@ export type RoadmapBucket = {
 };
 
 export type AnnouncementData = {
-    content: string;
-    linkContent: string;
+    bannerContent: string;
     startDate: Date;
     endDate: Date;
 };

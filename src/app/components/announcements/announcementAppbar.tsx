@@ -1,17 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { AppBar, Toolbar, IconButton, useTheme } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, useTheme, makeStyles, createStyles } from '@material-ui/core';
 import { Close } from '@material-ui/icons';
 import { Spacer } from '@brightlayer-ui/react-components';
 import { getAnnouncementDetails } from '../../api';
 import { AnnouncementData } from '../../../__types__';
 import { HIDE_BANNER, SHOW_BANNER } from '../../redux/actions';
 import { useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import * as Colors from '@brightlayer-ui/colors';
+// import dompurify from 'dompurify';
 
+const useStyles = makeStyles(() =>
+    createStyles({
+        bannerContainer: {
+            '& > a': {
+                textDecoration: 'underline',
+                cursor: 'pointer',
+                color: Colors.white[50],
+            }
+        } 
+    })
+);
 export const AnnouncementAppbar: React.FC = () => {
     const [announcementDetails, setAnnouncementDetails] = useState<AnnouncementData>();
-    const [navigateBlui, setNavigateBlui] = useState(false);
     const theme = useTheme();
+    const classes = useStyles();
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -24,7 +36,7 @@ export const AnnouncementAppbar: React.FC = () => {
             const to = new Date('2022/04/24');
             const check = new Date(currentDate);
             const show = check > from && check < to;
-            if (announcementDetails) {
+            if (data) {
                 dispatch({ type: SHOW_BANNER, payload: show });
             } else {
                 dispatch({ type: SHOW_BANNER, payload: false });
@@ -32,29 +44,18 @@ export const AnnouncementAppbar: React.FC = () => {
         };
         void loadAnnoncement();
     }, []);
+
     return (
         <div>
             {announcementDetails && (
                 <AppBar position="sticky" color={'secondary'} elevation={0}>
                     <Toolbar>
-                        {navigateBlui && <Redirect to="/migration" push />}
-                        <div>
-                            {announcementDetails?.content}
-                            <a
-                                style={{
-                                    textDecoration: 'underline',
-                                    cursor: 'pointer',
-                                }}
-                                onClick={(): any => {
-                                    setNavigateBlui(true);
-                                    dispatch({ type: HIDE_BANNER });
-                                    sessionStorage.setItem('banner-dismissed', 'true');
-                                }}
-                            >
-                                {announcementDetails?.linkContent}
-                            </a>
-                            .
-                        </div>
+                        <div
+                            className={classes.bannerContainer}
+                            // eslint-disable-next-line @typescript-eslint/naming-convention
+                            dangerouslySetInnerHTML={{__html: announcementDetails?.bannerContent}}
+                            // dangerouslySetInnerHTML={sanitizedData(announcementDetails?.bannerContent)}
+                        />
                         <Spacer />
                         <IconButton
                             style={{ marginRight: -theme.spacing(1) }}
