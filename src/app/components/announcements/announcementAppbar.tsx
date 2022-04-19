@@ -29,17 +29,20 @@ export const AnnouncementAppbar: React.FC = () => {
     useEffect(() => {
         const loadAnnoncement = async (): Promise<void> => {
             const data = await getAnnouncementDetails();
+            
+            if(data === undefined) {
+                dispatch({ type: SHOW_BANNER, payload: false });
+                return
+            }
             setAnnouncementDetails(data);
 
             const currentDate = new Date().toJSON().slice(0, 10);
-            const from = new Date('2022/04/14');
-            const to = new Date('2022/04/24');
+            const from = new Date(data?.startDate);
+            const to = new Date(data?.endDate);
             const check = new Date(currentDate);
             const show = check > from && check < to;
             if (data) {
                 dispatch({ type: SHOW_BANNER, payload: show });
-            } else {
-                dispatch({ type: SHOW_BANNER, payload: false });
             }
         };
         void loadAnnoncement();
@@ -54,7 +57,6 @@ export const AnnouncementAppbar: React.FC = () => {
                             className={classes.bannerContainer}
                             // eslint-disable-next-line @typescript-eslint/naming-convention
                             dangerouslySetInnerHTML={{__html: announcementDetails?.bannerContent}}
-                            // dangerouslySetInnerHTML={sanitizedData(announcementDetails?.bannerContent)}
                         />
                         <Spacer />
                         <IconButton
