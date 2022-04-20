@@ -9,8 +9,8 @@ import { useDispatch } from 'react-redux';
 import * as Colors from '@brightlayer-ui/colors';
 
 type BannerData = {
-    bannerDismissed: boolean,
-    id: number,
+    bannerDismissed: boolean;
+    id: number;
 };
 const useStyles = makeStyles(() =>
     createStyles({
@@ -19,8 +19,8 @@ const useStyles = makeStyles(() =>
                 textDecoration: 'underline',
                 cursor: 'pointer',
                 color: Colors.white[50],
-            }
-        } 
+            },
+        },
     })
 );
 
@@ -31,19 +31,19 @@ export const AnnouncementAppbar: React.FC = () => {
     const theme = useTheme();
     const classes = useStyles();
     const dispatch = useDispatch();
-    
+
     const banner = (): BannerData => {
         const announcementBannerData = window.sessionStorage.getItem('announcement_banner_data');
         const announcementBannerDetails = announcementBannerData ? JSON.parse(announcementBannerData) : undefined;
         return announcementBannerDetails;
-    }
-   
+    };
+
     useEffect(() => {
         const loadAnnoncement = async (): Promise<void> => {
             const data = await getAnnouncementDetails();
-            if(data === undefined) {
+            if (data === undefined) {
                 dispatch({ type: SHOW_BANNER, payload: false });
-                return
+                return;
             }
             setAnnouncementDetails(data);
 
@@ -55,40 +55,39 @@ export const AnnouncementAppbar: React.FC = () => {
             if (data) {
                 dispatch({ type: SHOW_BANNER, payload: show });
             }
-            
-            if(banner() === undefined) {
+
+            if (banner() === undefined) {
                 const announcementBannerData = {
                     'banner-dismissed': false,
-                    'id': data.id,
-                }
+                    id: data.id,
+                };
                 sessionStorage.setItem('announcement_banner_data', JSON.stringify(announcementBannerData));
             } else {
-                if(banner().id !== data.id) {
+                if (banner().id !== data.id) {
                     const announcementBannerData = {
                         'banner-dismissed': false,
-                        'id': data.id,
-                    }
+                        id: data.id,
+                    };
                     sessionStorage.setItem('announcement_banner_data', JSON.stringify(announcementBannerData));
                 }
             }
 
-            if(data.devOnly && environment === 'production') {
-                setShowBanner(false)
+            if (data.devOnly && environment === 'production') {
+                setShowBanner(false);
             }
-            
         };
         void loadAnnoncement();
     }, []);
 
     return (
         <div>
-            {(announcementDetails && showBanner) && (
+            {announcementDetails && showBanner && (
                 <AppBar position="sticky" color={'secondary'} elevation={0}>
                     <Toolbar>
                         <div
                             className={classes.bannerContainer}
                             // eslint-disable-next-line @typescript-eslint/naming-convention
-                            dangerouslySetInnerHTML={{__html: announcementDetails?.bannerContent}}
+                            dangerouslySetInnerHTML={{ __html: announcementDetails?.bannerContent }}
                         />
                         <Spacer />
                         <IconButton
@@ -96,8 +95,10 @@ export const AnnouncementAppbar: React.FC = () => {
                             color={'inherit'}
                             onClick={(): void => {
                                 dispatch({ type: HIDE_BANNER });
-                                sessionStorage.setItem('announcement_banner_data', JSON.stringify({'banner-dismissed': true,
-                                'id': announcementDetails.id}));
+                                sessionStorage.setItem(
+                                    'announcement_banner_data',
+                                    JSON.stringify({ 'banner-dismissed': true, id: announcementDetails.id })
+                                );
                             }}
                         >
                             <Close />

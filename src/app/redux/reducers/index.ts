@@ -31,7 +31,7 @@ const banner = (): boolean => {
     const announcementBannerData = window.sessionStorage.getItem('announcement_banner_data');
     const announcementBannerDetails = announcementBannerData ? JSON.parse(announcementBannerData) : false;
     return !announcementBannerDetails['banner-dismissed'];
-}
+};
 
 const initialAppState: CommonState = {
     pageTitle: '',
@@ -40,7 +40,7 @@ const initialAppState: CommonState = {
     searchActive: false,
     sidebarOpen: false,
     hasTOC: false,
-    showBanner: banner(),//!window.sessionStorage.getItem('banner-dismissed'),
+    showBanner: banner(), //!window.sessionStorage.getItem('banner-dismissed'),
     // showBanner: false,
     selectedColor: undefined,
     showColorContrast: false,
