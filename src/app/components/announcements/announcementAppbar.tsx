@@ -7,8 +7,11 @@ import { AnnouncementData } from '../../../__types__';
 import { HIDE_BANNER, SHOW_BANNER } from '../../redux/actions';
 import { useDispatch } from 'react-redux';
 import * as Colors from '@brightlayer-ui/colors';
-// import dompurify from 'dompurify';
 
+type BannerData = {
+    bannerDismissed: boolean,
+    id: number,
+};
 const useStyles = makeStyles(() =>
     createStyles({
         bannerContainer: {
@@ -20,16 +23,24 @@ const useStyles = makeStyles(() =>
         } 
     })
 );
+
 export const AnnouncementAppbar: React.FC = () => {
     const [announcementDetails, setAnnouncementDetails] = useState<AnnouncementData>();
+    const environment = process.env.NODE_ENV;
+    const [showBanner, setShowBanner] = useState(true);
     const theme = useTheme();
     const classes = useStyles();
     const dispatch = useDispatch();
-
+    
+    const banner = (): BannerData => {
+        const announcementBannerData = window.sessionStorage.getItem('announcement_banner_data');
+        const announcementBannerDetails = announcementBannerData ? JSON.parse(announcementBannerData) : undefined;
+        return announcementBannerDetails;
+    }
+   
     useEffect(() => {
         const loadAnnoncement = async (): Promise<void> => {
             const data = await getAnnouncementDetails();
-            
             if(data === undefined) {
                 dispatch({ type: SHOW_BANNER, payload: false });
                 return
@@ -44,13 +55,34 @@ export const AnnouncementAppbar: React.FC = () => {
             if (data) {
                 dispatch({ type: SHOW_BANNER, payload: show });
             }
+            
+            if(banner() === undefined) {
+                const announcementBannerData = {
+                    'banner-dismissed': false,
+                    'id': data.id,
+                }
+                sessionStorage.setItem('announcement_banner_data', JSON.stringify(announcementBannerData));
+            } else {
+                if(banner().id !== data.id) {
+                    const announcementBannerData = {
+                        'banner-dismissed': false,
+                        'id': data.id,
+                    }
+                    sessionStorage.setItem('announcement_banner_data', JSON.stringify(announcementBannerData));
+                }
+            }
+
+            if(data.devOnly && environment === 'production') {
+                setShowBanner(false)
+            }
+            
         };
         void loadAnnoncement();
     }, []);
 
     return (
         <div>
-            {announcementDetails && (
+            {(announcementDetails && showBanner) && (
                 <AppBar position="sticky" color={'secondary'} elevation={0}>
                     <Toolbar>
                         <div
@@ -64,7 +96,8 @@ export const AnnouncementAppbar: React.FC = () => {
                             color={'inherit'}
                             onClick={(): void => {
                                 dispatch({ type: HIDE_BANNER });
-                                sessionStorage.setItem('banner-dismissed', 'true');
+                                sessionStorage.setItem('announcement_banner_data', JSON.stringify({'banner-dismissed': true,
+                                'id': announcementDetails.id}));
                             }}
                         >
                             <Close />
