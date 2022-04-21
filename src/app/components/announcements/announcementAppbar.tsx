@@ -80,7 +80,7 @@ export const AnnouncementAppbar: React.FC = () => {
     }, []);
 
     return (
-        <div>
+        <>
             {announcementDetails && showBanner && (
                 <AppBar position="sticky" color={'secondary'} elevation={0}>
                     <Toolbar>
@@ -106,6 +106,6 @@ export const AnnouncementAppbar: React.FC = () => {
                     </Toolbar>
                 </AppBar>
             )}
-        </div>
+        </>
     );
 };
