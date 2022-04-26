@@ -38,6 +38,14 @@ export const AnnouncementAppbar: React.FC = () => {
         return announcementBannerDetails;
     };
 
+    const checkDateRange = (data: AnnouncementData): boolean => {
+        const currentDate = new Date().toJSON().slice(0, 10);
+        const from = new Date(data?.startDate);
+        const to = new Date(data?.endDate);
+        const check = new Date(currentDate);
+        return check >= from && check <= to;
+    };
+
     useEffect(() => {
         const loadAnnoncement = async (): Promise<void> => {
             const data = await getAnnouncementDetails();
@@ -46,12 +54,8 @@ export const AnnouncementAppbar: React.FC = () => {
                 return;
             }
             setAnnouncementDetails(data);
+            const showData = checkDateRange(data);
 
-            const currentDate = new Date().toJSON().slice(0, 10);
-            const from = new Date(data?.startDate);
-            const to = new Date(data?.endDate);
-            const check = new Date(currentDate);
-            const showData = check > from && check < to;
             if (data && showData) {
                 dispatch({ type: SHOW_BANNER, payload: showData ? true : false });
             } else {
