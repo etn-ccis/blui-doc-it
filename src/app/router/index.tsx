@@ -91,12 +91,11 @@ export const MainRouter = (): JSX.Element => {
     const toolbarHeight = isMobile ? 104 : 112;
     const className = getScheduledSiteConfig().className;
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
-    const showBanner = useSelector((state: AppState) => state.app.showBanner);
 
     return (
         <Router>
             <ScrollToTop />
-            {showBanner && <AnnouncementAppbar />}
+            <AnnouncementAppbar />
             <DrawerLayout drawer={<NavigationDrawer />} className={className}>
                 <Switch>
                     <Route exact path="/">

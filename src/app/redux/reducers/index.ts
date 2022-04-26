@@ -30,7 +30,7 @@ export type CommonState = {
 const banner = (): boolean => {
     const announcementBannerData = window.sessionStorage.getItem('announcement_banner_data');
     const announcementBannerDetails = announcementBannerData ? JSON.parse(announcementBannerData) : false;
-    return !announcementBannerDetails['banner-dismissed'];
+    return !announcementBannerDetails.bannerDismissed;
 };
 
 const initialAppState: CommonState = {
@@ -40,8 +40,7 @@ const initialAppState: CommonState = {
     searchActive: false,
     sidebarOpen: false,
     hasTOC: false,
-    showBanner: banner(), //!window.sessionStorage.getItem('banner-dismissed'),
-    // showBanner: false,
+    showBanner: banner(),
     selectedColor: undefined,
     showColorContrast: false,
 };

@@ -51,24 +51,31 @@ export const AnnouncementAppbar: React.FC = () => {
             const from = new Date(data?.startDate);
             const to = new Date(data?.endDate);
             const check = new Date(currentDate);
-            const show = check > from && check < to;
-            if (data) {
-                dispatch({ type: SHOW_BANNER, payload: show });
+            const showData = check > from && check < to;
+            if (data && showData) {
+                dispatch({ type: SHOW_BANNER, payload: showData ? true : false });
+            } else {
+                dispatch({ type: SHOW_BANNER, payload: false });
+                setShowBanner(false);
+                return;
             }
 
             if (banner() === undefined) {
                 const announcementBannerData = {
-                    'banner-dismissed': false,
+                    bannerDismissed: false,
                     id: data.id,
                 };
                 sessionStorage.setItem('announcement_banner_data', JSON.stringify(announcementBannerData));
             } else {
                 if (banner().id !== data.id) {
                     const announcementBannerData = {
-                        'banner-dismissed': false,
+                        bannerDismissed: false,
                         id: data.id,
                     };
                     sessionStorage.setItem('announcement_banner_data', JSON.stringify(announcementBannerData));
+                } else if (banner().bannerDismissed) {
+                    dispatch({ type: HIDE_BANNER });
+                    setShowBanner(false);
                 }
             }
 
@@ -95,9 +102,10 @@ export const AnnouncementAppbar: React.FC = () => {
                             color={'inherit'}
                             onClick={(): void => {
                                 dispatch({ type: HIDE_BANNER });
+                                setShowBanner(false);
                                 sessionStorage.setItem(
                                     'announcement_banner_data',
-                                    JSON.stringify({ 'banner-dismissed': true, id: announcementDetails.id })
+                                    JSON.stringify({ bannerDismissed: true, id: announcementDetails.id })
                                 );
                             }}
                         >
