@@ -27,12 +27,6 @@ export type CommonState = {
     selectedColor: undefined | ColorType;
     showColorContrast: boolean;
 };
-const banner = (): boolean => {
-    const announcementBannerData = window.sessionStorage.getItem('announcement_banner_data');
-    const announcementBannerDetails = announcementBannerData ? JSON.parse(announcementBannerData) : false;
-    return !announcementBannerDetails.bannerDismissed;
-};
-
 const initialAppState: CommonState = {
     pageTitle: '',
     colorFormat: 'hex',
@@ -40,7 +34,7 @@ const initialAppState: CommonState = {
     searchActive: false,
     sidebarOpen: false,
     hasTOC: false,
-    showBanner: banner(),
+    showBanner: false,
     selectedColor: undefined,
     showColorContrast: false,
 };

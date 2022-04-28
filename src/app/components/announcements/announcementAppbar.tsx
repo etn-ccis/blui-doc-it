@@ -32,7 +32,7 @@ export const AnnouncementAppbar: React.FC = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
 
-    const banner = (): BannerData => {
+    const getPreviousBanner = (): BannerData => {
         const announcementBannerData = window.sessionStorage.getItem('announcement_banner_data');
         const announcementBannerDetails = announcementBannerData ? JSON.parse(announcementBannerData) : undefined;
         return announcementBannerDetails;
@@ -47,7 +47,7 @@ export const AnnouncementAppbar: React.FC = () => {
     };
 
     useEffect(() => {
-        const loadAnnoncement = async (): Promise<void> => {
+        const loadAnnouncement = async (): Promise<void> => {
             const data = await getAnnouncementDetails();
             if (data === undefined) {
                 dispatch({ type: SHOW_BANNER, payload: false });
@@ -57,37 +57,42 @@ export const AnnouncementAppbar: React.FC = () => {
             const showData = checkDateRange(data);
 
             if (data && showData) {
-                dispatch({ type: SHOW_BANNER, payload: showData ? true : false });
+                dispatch({ type: SHOW_BANNER, payload: true });
             } else {
                 dispatch({ type: SHOW_BANNER, payload: false });
                 setShowBanner(false);
                 return;
             }
 
-            if (banner() === undefined) {
+            const previousBanner = getPreviousBanner();
+
+            // If banner details are not set in session storage first time load
+            if (previousBanner === undefined) {
                 const announcementBannerData = {
                     bannerDismissed: false,
                     id: data.id,
                 };
                 sessionStorage.setItem('announcement_banner_data', JSON.stringify(announcementBannerData));
             } else {
-                if (banner().id !== data.id) {
+                // Show banner again even if it is dismissed by user since data has been updated in database.
+                if (previousBanner.id !== data.id) {
                     const announcementBannerData = {
                         bannerDismissed: false,
                         id: data.id,
                     };
                     sessionStorage.setItem('announcement_banner_data', JSON.stringify(announcementBannerData));
-                } else if (banner().bannerDismissed) {
+                } else if (previousBanner.bannerDismissed) {
+                    // If user dissmissed banner do not show on page
                     dispatch({ type: HIDE_BANNER });
                     setShowBanner(false);
                 }
             }
-
+            // If devOnly flag is true, banner will not display in production environment
             if (data.devOnly && environment === 'production') {
                 setShowBanner(false);
             }
         };
-        void loadAnnoncement();
+        void loadAnnouncement();
     }, []);
 
     return (
