@@ -53,6 +53,14 @@ export type RoadmapBucket = {
     items: RoadmapItem[];
 };
 
+export type AnnouncementData = {
+    id: number;
+    bannerContent: string;
+    startDate: Date;
+    endDate: Date;
+    devOnly: boolean;
+};
+
 export type Result = {
     url: string;
     title: string;
