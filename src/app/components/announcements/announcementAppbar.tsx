@@ -82,7 +82,7 @@ export const AnnouncementAppbar: React.FC = () => {
                     };
                     sessionStorage.setItem('announcement_banner_data', JSON.stringify(announcementBannerData));
                 } else if (previousBanner.bannerDismissed) {
-                    // If user dissmissed banner do not show on page
+                    // If user dissmissed banner, it will not display on page
                     dispatch({ type: HIDE_BANNER });
                     setShowBanner(false);
                 }
