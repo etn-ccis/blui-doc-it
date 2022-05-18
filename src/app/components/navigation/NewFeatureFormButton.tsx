@@ -1,4 +1,4 @@
-import { Button } from '@material-ui/core';
+import { InDocButton } from './InDocButton';
 import React from 'react';
 
 type NewFeatureFormButtonProps = {
@@ -8,17 +8,11 @@ type NewFeatureFormButtonProps = {
 export const NewFeatureFormButton: React.FC<NewFeatureFormButtonProps> = (props) => {
     const { title } = props;
     return (
-        <Button
+        <InDocButton
             href={
                 'https://docs.google.com/forms/d/e/1FAIpQLScfsDVH0bSZYqqKhLZTYZA0KnSrMsp0pmXZCDjJeHG4kaDXJg/viewform?usp=sf_link'
             }
-            target={'_blank'}
-            variant={'contained'}
-            disableElevation
-            color={'primary'}
-            style={{ marginBottom: 16 }}
-        >
-            {title || 'Request New Features'}
-        </Button>
+            title={title || 'Request New Features'}
+        />
     );
 };
