@@ -129,7 +129,7 @@ export const getSvg = async (name: string, family: 'material' | 'brightlayer-ui'
 export const getAnnouncementDetails = async (): Promise<AnnouncementData | undefined> => {
     try {
         const response = await announcementDetail.get(`/Announcement.json`);
-        if (response && response.status === 200) return response.data;
+        if (response && response.status === 200) return response.data.announcement;
         return undefined;
     } catch (thrown) {
         if (axios.isCancel(thrown)) {
