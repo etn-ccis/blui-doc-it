@@ -4,6 +4,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { DRAWER_WIDTH, TOC_WIDTH, PAGE_WIDTH, getHash } from '../../shared';
 import clsx from 'clsx';
 import { useTOC } from '../../hooks/useTOC';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../redux/reducers';
 
 type ToCProps = {
     anchors: Array<{ title: string; hash?: string; depth?: number }>;
@@ -30,6 +32,11 @@ const useStyles = makeStyles((theme: Theme) =>
                 position: 'fixed',
                 top: theme.spacing(8),
                 left: `calc(50% + ${DRAWER_WIDTH}px*0.5 - ${TOC_WIDTH}px*0.5 - ${PAGE_WIDTH.REGULAR}px*0.5)`,
+            },
+        },
+        rootWithBanner: {
+            [theme.breakpoints.up('lg')]: {
+                top: theme.spacing(16),
             },
         },
         onThisPage: {
@@ -76,6 +83,7 @@ export const TOC: React.FC<ToCProps> = (props) => {
     const { pathname, hash } = useLocation();
     const [activeSection, setActiveSection] = useState(0);
     const [sectionOffsetTop, setSectionOffsetTop] = useState<number[]>([]);
+    const showBanner = useSelector((state: AppState) => state.app.showBanner);
     useTOC(true);
 
     const initializeSectionOffsetTop = useCallback(() => {
@@ -150,7 +158,7 @@ export const TOC: React.FC<ToCProps> = (props) => {
     }, [sectionOffsetTop]);
 
     return (
-        <div className={classes.root}>
+        <div className={clsx([classes.root, showBanner ? classes.rootWithBanner : undefined])}>
             <Typography className={classes.onThisPage} variant={'overline'} color={'textSecondary'}>
                 On This Page
             </Typography>

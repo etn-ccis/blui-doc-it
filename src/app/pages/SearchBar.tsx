@@ -64,6 +64,12 @@ const useStyles = makeStyles((theme: Theme) =>
                 marginTop: theme.spacing(7),
             },
         },
+        searchResultsOverlayBanner: {
+            marginTop: theme.spacing(16),
+            [theme.breakpoints.down('xs')]: {
+                marginTop: theme.spacing(14),
+            },
+        },
         searchResultsContainer: {
             maxWidth: 644,
             margin: '0 auto',
@@ -197,7 +203,12 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
             />
 
             {showSearchResult && (
-                <div className={classes.searchResultsOverlay}>
+                <div
+                    className={clsx([
+                        classes.searchResultsOverlay,
+                        showBanner ? classes.searchResultsOverlayBanner : undefined,
+                    ])}
+                >
                     <div className={classes.searchResultsContainer}>
                         <Typography variant={'body1'} className={classes.searchResultCount}>
                             {getSearchResultCountText()}

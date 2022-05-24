@@ -58,6 +58,12 @@ const useStyles = makeStyles((theme: Theme) =>
             transform: 'inherit',
             transition: theme.transitions.create('width'),
         },
+        drawerHeight: {
+            height: `calc(100% - ${theme.spacing(8)}px)`,
+            [theme.breakpoints.down('xs')]: {
+                height: `calc(100% - ${theme.spacing(7)}px)`,
+            },
+        },
     })
 );
 
@@ -96,7 +102,11 @@ export const MainRouter = (): JSX.Element => {
         <Router>
             <ScrollToTop />
             <AnnouncementAppbar />
-            <DrawerLayout drawer={<NavigationDrawer />} className={className}>
+            <DrawerLayout
+                drawer={<NavigationDrawer />}
+                className={className}
+                classes={{ drawer: classes.drawerHeight }}
+            >
                 <Switch>
                     <Route exact path="/">
                         <LandingPage />
