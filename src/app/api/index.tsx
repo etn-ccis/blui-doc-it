@@ -30,7 +30,7 @@ export const bluiIcons = axios.create({
     timeout: 5000,
 });
 export const announcementDetail = axios.create({
-    baseURL: 'http://localhost:3001',
+    baseURL: 'https://raw.githubusercontent.com/brightlayer-ui/blui-database/master/deployed/doc-it/',
     timeout: 5000,
 });
 
@@ -128,8 +128,8 @@ export const getSvg = async (name: string, family: 'material' | 'brightlayer-ui'
 
 export const getAnnouncementDetails = async (): Promise<AnnouncementData | undefined> => {
     try {
-        const response = await announcementDetail.get(`/announcement`);
-        if (response && response.status === 200) return response.data;
+        const response = await announcementDetail.get(`/Announcement.json`);
+        if (response && response.status === 200) return response.data.announcement;
         return undefined;
     } catch (thrown) {
         if (axios.isCancel(thrown)) {

@@ -7,6 +7,7 @@ import { AnnouncementData } from '../../../__types__';
 import { HIDE_BANNER, SHOW_BANNER } from '../../redux/actions';
 import { useDispatch } from 'react-redux';
 import * as Colors from '@brightlayer-ui/colors';
+import DOMPurify from 'dompurify';
 
 type BannerData = {
     bannerDismissed: boolean;
@@ -103,7 +104,7 @@ export const AnnouncementAppbar: React.FC = () => {
                         <div
                             className={classes.bannerContainer}
                             // eslint-disable-next-line @typescript-eslint/naming-convention
-                            dangerouslySetInnerHTML={{ __html: announcementDetails?.bannerContent }}
+                            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(announcementDetails?.bannerContent) }}
                         />
                         <Spacer />
                         <IconButton
