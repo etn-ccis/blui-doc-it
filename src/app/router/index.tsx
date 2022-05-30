@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme: Theme) =>
             transform: 'inherit',
             transition: theme.transitions.create('width'),
         },
-        drawerHeight: {
+        drawerHeightWithBanner: {
             height: `calc(100% - ${theme.spacing(8)}px)`,
             [theme.breakpoints.down('xs')]: {
                 height: `calc(100% - ${theme.spacing(7)}px)`,
@@ -97,7 +97,7 @@ export const MainRouter = (): JSX.Element => {
     const toolbarHeight = isMobile ? 104 : 112;
     const className = getScheduledSiteConfig().className;
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
-
+    const showBanner = useSelector((state: AppState) => state.app.showBanner);
     return (
         <Router>
             <ScrollToTop />
@@ -105,7 +105,7 @@ export const MainRouter = (): JSX.Element => {
             <DrawerLayout
                 drawer={<NavigationDrawer />}
                 className={className}
-                classes={{ drawer: classes.drawerHeight }}
+                classes={{ drawer: showBanner ? classes.drawerHeightWithBanner : undefined }}
             >
                 <Switch>
                     <Route exact path="/">
