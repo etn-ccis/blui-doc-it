@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Release, RoadmapBucket } from '../../__types__';
+import { AnnouncementData, Release, RoadmapBucket } from '../../__types__';
 
 export const github = axios.create({
     baseURL: 'https://api.github.com/',
@@ -27,6 +27,10 @@ export const icons = axios.create({
 });
 export const bluiIcons = axios.create({
     baseURL: 'https://raw.githubusercontent.com/brightlayer-ui/icons/dev/svg/',
+    timeout: 5000,
+});
+export const announcementDetail = axios.create({
+    baseURL: 'https://raw.githubusercontent.com/brightlayer-ui/blui-database/master/deployed/doc-it/',
     timeout: 5000,
 });
 
@@ -112,6 +116,20 @@ export const getSvg = async (name: string, family: 'material' | 'brightlayer-ui'
         const response =
             family === 'brightlayer-ui' ? await bluiIcons.get(`/${name}.svg`) : await icons.get(`/${name}/v6/24px.svg`);
         if (response && response.status === 200) return response.data;
+        return undefined;
+    } catch (thrown) {
+        if (axios.isCancel(thrown)) {
+            // request canceled
+            return undefined;
+        }
+        return undefined;
+    }
+};
+
+export const getAnnouncementDetails = async (): Promise<AnnouncementData | undefined> => {
+    try {
+        const response = await announcementDetail.get(`/Announcement.json`);
+        if (response && response.status === 200) return response.data.announcement;
         return undefined;
     } catch (thrown) {
         if (axios.isCancel(thrown)) {
