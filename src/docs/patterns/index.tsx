@@ -13,6 +13,7 @@ import Visualizations from './visualizations.mdx';
 import Home from './home.mdx';
 import AccountMenu from './account-menu.mdx';
 import Tables from './tables.mdx';
+import Icons from './icons.mdx';
 
 export {
     AppBar,
@@ -30,4 +31,5 @@ export {
     Steppers,
     Visualizations,
     Tables,
+    Icons,
 };

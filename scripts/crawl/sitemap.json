@@ -128,6 +128,11 @@
                     "url": "/forms"
                 },
                 {
+                    "title": "Icons",
+                    "url": "/Icons",
+                    "hidden": true
+                },
+                {
                     "title": "Internationalization",
                     "url": "/internationalization"
                 },

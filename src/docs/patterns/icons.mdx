@@ -1,0 +1,172 @@
+import { MaterialDesignDescription, Divider, TOC } from '../../app/components';
+import PxblueSmallAltIcon from '@brightlayer-ui/icons-mui/PxblueSmallAlt';
+import LinkIcon from '@material-ui/icons/Link';
+
+# Icons
+
+Icons are great visual aids to the contents of your application. However, if they are not designed carefully, icons can be misleading as well.
+
+<MaterialDesignDescription
+    title={'Iconography'}
+    url={`/style/iconography`}
+    description={`Icon assets from Brightlayer UI`}
+    avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+/>
+
+# Icons, Pictograms, and Logos
+
+-   [Image of examples of icons, pictograms, and logos.]
+
+This guideline talks about the design of icons, which symbolizes common actions, objects, or ideas used to aid users. The term “icon” should not be confused with other glyphs such as pictograms and logos.
+
+> Note: if you try to logos from other companies, make sure that you are compliant with their branding guidelines.
+
+# Icon Usage
+
+## Text labels and Icons
+
+If it is possible to add text labels or use text as an alternative, do not use icons alone. In many situations, texts are better suited to deliver a message accurately, while icons take a lot of guess works. To introduce new icons is like forcing your users to learn a new language. If your application is a mission-critical system, users might even be too afraid to press a button if they do not understand its meaning.
+
+<MaterialDesignDescription
+    title={'Icon Usability'}
+    url={`https://www.nngroup.com/articles/icon-usability/`}
+    description={`Best usability practices for icons`}
+    avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+/>
+
+-   [image 1: DON'T: do not use icon buttons when there's plenty of room]
+
+-   [Image 2: DON'T: do not use icon buttons when their meanings are ambiguous (show monthly test, daily test in a list, where monthly = calendar, daily = clock)]
+
+## Icon Buttons
+
+Icon buttons are standalone icons that invite users to click. They are usually **sized at 24x24dp** to be recognizable and interactable. On desktop applications, you should always consider using a tooltip for a hover interaction (unless it is a universal icon, see below). On mobile, they are discouraged unless it is one of the universal icons.
+
+-   [image 1: hover; image 2: DO: click to show the tooltip]
+
+Icon buttons are primarily used where space is limited, such app bars and lists / tables.
+
+-   [Image 1: App bar with icon buttons]
+
+-   [Image 2: list item with icon buttons, remember to show the "more vert" icon]
+
+-   [Image 3: Text field, showing visibility toggle]
+
+-   [Image 4: a “circle question mark” tooltip, with tooltip explanation of something]
+
+## Inactive Icons inside a component
+
+Inactive Icons are frequently used in components, either as a decorative visual aid to help guide users' attention or to clarify a situation.
+
+-   [Image 1: Successfully created an organization. Show the business logo success state]
+
+-   [Image 2: Icon in a list item. An account preference page where users familiar with the design language but do not understand English can relatively quickly figure out which item corresponds to language change.]
+
+-   [Image 3: A slider, with min and max brightness.]
+
+-   [Image 4: Hero components with icons showing a mix of device parameters]
+
+## Common Universal Icons
+
+A few icons are so widely used these days that they are considered “universal” icons, meaning that they carry the same meaning no matter which application they are used in.
+
+-   Hamburger, three-dot, chevron, full screens, waterfall, settings, close, back, search, edit
+-   Each uses their own images
+
+There are also a few icons commonly seen among Brightlayer UI applications, but less frequently seen elsewhere.
+
+-   Show a few other less obvious ones but still commonly used at Eaton
+    -   Logs, warning, error, star (favorite locations), device (assets), all apps 9 dots thing for software suite, toggle visibility of something (pwd), locations
+    -   A list, click to expand?
+    -   Maybe an option to "edit list on GitHub" for this list
+
+One should never use a universal icon in a distorted way that mismatches its original meaning.
+
+-   [Image 1: a confusing use of hamburger and waterfall icon.]
+
+-   [Image 2: a confusing use of settings and “service” / “repair”]
+
+## Common device icons
+
+Brightlayer UI offers a wide variety of icons for industrial equipment-related icons. Some of them are designed based on their function, while others are designed based on how the device itself looks. We also offer symbols commonly used in one-line diagrams (link to the two NPM packages; Do we want to call those out?).
+
+While we try our best to add new icons as soon as we identify a need, we noticed that many concepts are very closely related to each other, and it is often unwise to use icons for every single parameter in every single device, while expecting users to distinguish them immediately.
+
+-   [Image 1: AVOID: a list of devices, with a new icon for every single device]
+
+-   [Image 2: use the same icon for the same type of device]
+    Icon Variations
+    Multi-Colored Icons
+
+WCAG 2.2 AA level requires that non-textual contents of the webpage must achieve a minimum color contrast of 3:1. However, yellow icons are used for warnings and often have a contrast ratio of less than 2:1, therefore failing this requirement. A secondary color would make this icon more legible.
+
+-   [Image: show a warning icon, with a background in yellow and foreground in brown]
+
+## Filled and Outlined Icons
+
+Brightlayer UI applications may choose from two styles of icons: filled and outlined. You must ensure your icon style stays consistent through the application
+
+-   [Show an example of a dashboard list. All icons in a list should be either all filled or all outlined.]
+
+You also have the option to use filled and outlined icons to indicate state. In this case, a filled icon indicates that the item is active, while an outlined icon indicates that the item is inactive.
+
+-   [Show an example of a hero banner, with different statuses. If the count is 0, make it inactive; if it is a positive number, make it active]
+
+## Progress Icons
+
+Progress icons are used as a mini data visualization to display percentages over a whole. It can be the remaining device's health, battery life percentage, etc.
+
+-   [Show examples of percentage icons used in a real application]
+
+Brightlayer currently offers the following progress icons to its designers and developers:
+
+-   [the progress icon browser]
+
+## Internationalization
+
+In right-to-left languages, icons with directionalities must be mirrored. Read more about it on our [internationalization pattern page](</patterns/internationalization#bidirectionality--right-to-left-(rtl)-support>).
+
+# Design your own icons
+
+Brightlayer UI welcomes new suggestions to our existing icon repositories. However, before you start designing, there are a few things that you shall keep in mind.
+
+## No Single-Purpose Icons
+
+If you find yourself struggling for more than 30 seconds to design an icon, your users are likely going to be perplexed.
+
+Icons designed for a very specific purpose, such as “transfer admin rights” instead of “transfer”, tend to be so complicated that the icon no longer serves as an easy-to-recognize symbol, because it is impractical to pack so much information in a confined 24x24 space.
+
+Similarly, avoid inventing an icon for a very specific device model, unless this device stands out and is iconic in the industry (example: Dyson fans). If an average user cannot easily tell devices apart from each other in real life from a glance, a 24x24 dp icon usually contains fewer details and more abstractions, and will not bring a positive user experience.
+
+## Existing Icon Repositories
+
+Before you are committed to your artwork, make sure to check existing icon resources. In addition to Material Design's official icon set and BLUI icon set, materialdesignicons.com is a community-driven icon repository that follows Material Design's icon guidelines.
+
+You are welcome to take design inspirations from other sources like Font Awesome or follow regulation documents such as those from ANSI and ISO. You are also encouraged to refer to your competitors and see if they have any established conventions. However, you should follow the style guide, as explained below.
+
+## Follow the Style Guide
+
+<MaterialDesignDescription
+    title={'System icons'}
+    url={'https://material.io/design/iconography/system-icons.html#'}
+    description={`Material Design's guidelines on creating your own icons.`}
+/>
+
+You must follow the existing Material Design style guide when creating your own icons. You may get inspired from other sources, but you are required to alter the style so that they fit with existing BLUI icons.
+
+-   [Image: icon template, showing keylines; tell people that this is available via Figma]
+
+## Test the Icon
+
+You must test your new icons through user testing, either by asking testers questions (“what do you think this icon represents”) or by observing them completing a task using the icon.
+
+<MaterialDesignDescription
+    title={'Icon Testing'}
+    url={`https://www.nngroup.com/articles/icon-testing/`}
+    description={`Guides on how to test your new and existing icons`}
+    avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+/>
+
+## Inner-source into Brightlayer UI
+
+We welcome icon suggestions. Please follow [the guideline for exporting SVG icons](https://github.com/brightlayer-ui/icons/blob/master/design/README.md) before [contacting us](/community/contactus).

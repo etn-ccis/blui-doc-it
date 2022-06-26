@@ -199,6 +199,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Forms and Validation'} markdown={Docs.Patterns.Forms} />,
             },
             {
+                title: 'Icons',
+                url: '/Icons',
+                component: <MarkdownPage title={'Icons'} markdown={Docs.Patterns.Icons} />,
+            },
+            {
                 title: 'Internationalization',
                 url: '/internationalization',
                 component: <MarkdownPage title={'Internationalization'} markdown={Docs.Patterns.I18N} />,
