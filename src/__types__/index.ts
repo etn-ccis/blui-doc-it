@@ -33,7 +33,7 @@ export type ColorType = { category: 'ui' | 'branding'; name: string; weight: num
 export type ItemTypeFilter = 'all' | 'design' | 'development';
 export type Status = 'backlog' | 'in-progress' | 'pre-release' | 'deferred' | 'finished';
 export type Quarter = 'Q1' | 'Q2' | 'Q3' | 'Q4';
-export type Release = 'R16' | 'R17' | 'R18' | 'R19' | 'R20' | 'R21' | 'R22' | 'R23' | 'R24' | 'R25';
+export type Release = 'R16' | 'R17' | 'R18' | 'R19' | 'R20' | 'R21' | 'R22' | 'R23' | 'R24' | 'R25' | 'R26';
 
 export type RoadmapItem = {
     name: string;
