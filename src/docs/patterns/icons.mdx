@@ -4,7 +4,7 @@ import LinkIcon from '@material-ui/icons/Link';
 
 # Icons
 
-Icons are great visual aids to the contents of your application. However, if they are not designed carefully, icons can be misleading as well.
+Icons can be a great visual aid to enhance the usability of your application. However, if they are not designed carefully, icons can be misleading as well.
 
 <MaterialDesignDescription
     title={'Iconography'}
@@ -17,15 +17,15 @@ Icons are great visual aids to the contents of your application. However, if the
 
 -   [Image of examples of icons, pictograms, and logos.]
 
-This guideline talks about the design of icons, which symbolizes common actions, objects, or ideas used to aid users. The term “icon” should not be confused with other glyphs such as pictograms and logos.
+This guide talks specifically about the design of icons, which should not be confused with other glyphs, such as pictograms and logos. Icons symbolize common actions, objects, or ideas used to aid users. Pictograms are... Logos are... [This could be represented well with a 3-column image with captions]
 
-> Note: if you try to use logos from other companies, make sure that you are compliant with their branding guidelines.
+> Note: if you need to use logos from other companies — such as a payment processor — make sure that you are compliant with their branding guidelines.
 
 # Icon Usage
 
 ## Text labels and Icons
 
-If it is possible to add text labels or use text as an alternative, do not use icons alone. In many situations, texts are better suited to deliver a message accurately, while icons take a lot of guess works. To introduce new icons is like forcing your users to learn a new language. If your application is a mission-critical system, users might even be too afraid to press a button if they do not understand its meaning.
+Where possible, you should avoid using icons in isolation. In many situations, text labels convey the message more accurately, while icons may require a lot of guess work. Introducing new icons / meanings is like forcing your users to learn a new language. If your application is a mission-critical system, users might even be reluctant to press a button if they do not understand its meaning.
 
 <MaterialDesignDescription
     title={'Icon Usability'}
@@ -40,7 +40,7 @@ If it is possible to add text labels or use text as an alternative, do not use i
 
 ## Icon Buttons
 
-Icon buttons are standalone icons that invite users to click. They are usually **sized at 24x24dp** to be recognizable and interactable. On desktop applications, you should always consider using a tooltip for a hover interaction (unless it is a universal icon, see below). On mobile, they are discouraged unless it is one of the universal icons.
+Icon buttons are standalone icons that are clickable. They are usually sized  at **24x24dp** to ensure that they are easily recognized and accessible. On desktop applications, you should always use a tooltip on hover (unless it is a universal icon — see below). On mobile, icon buttons are generally discouraged unless they are one of the universal icons.
 
 -   [image 1: hover; image 2: DO: click to show the tooltip]
 
@@ -80,7 +80,7 @@ There are also a few icons commonly seen among Brightlayer UI applications, but 
     -   A list, click to expand?
     -   Maybe an option to "edit list on GitHub" for this list
 
-One should never use a universal icon in a distorted way that mismatches its original meaning.
+You should never use a universal icon in a distorted way that mismatches its original meaning.
 
 -   [Image 1: a confusing use of hamburger and waterfall icon.]
 
@@ -90,7 +90,7 @@ One should never use a universal icon in a distorted way that mismatches its ori
 
 Brightlayer UI offers a wide variety of icons for industrial equipment-related icons. Some of them are designed based on their function, while others are designed based on how the device itself looks. We also offer symbols commonly used in one-line diagrams (link to the two NPM packages; Do we want to call those out?).
 
-While we try our best to add new icons as soon as we identify a need, we noticed that many concepts are very closely related to each other, and it is often unwise to use icons for every single parameter in every single device, while expecting users to distinguish them immediately.
+We try our best to add new icons as soon as we identify a need, but we often see requests for very specific icons that are very similar to others. Icons are meant to be simple — it is unwise to try to use icons to convey very specific or very technical concepts. For example, it's a losing battle to try to define an icon for every single parameter in every single device — users will not be able to remember  / distinguish what all of these icons mean. It's better to use a more general icon that can refer to categories of devices or parameters.
 
 -   [Image 1: AVOID: a list of devices, with a new icon for every single device]
 
@@ -98,7 +98,7 @@ While we try our best to add new icons as soon as we identify a need, we noticed
     Icon Variations
     Multi-Colored Icons
 
-WCAG 2.2 AA level requires that non-textual contents of the webpage must achieve a minimum color contrast of 3:1. However, yellow icons are used for warnings and often have a contrast ratio of less than 2:1, therefore failing this requirement. A secondary color would make this icon more legible.
+WCAG 2.2 AA level requires that non-textual contents of the webpage must achieve a minimum color contrast of 3:1. However, yellow icons are used for warnings and often have a contrast ratio of less than 2:1. In this situation, using two colors can make these icons more legible.
 
 -   [Image: show a warning icon, with a background in yellow and foreground in brown]
 
@@ -124,15 +124,15 @@ Brightlayer currently offers the following progress icons to its designers and d
 
 ## Internationalization
 
-In right-to-left languages, icons with directionalities must be mirrored. Read more about it on our [internationalization pattern page](</patterns/internationalization#bidirectionality--right-to-left-(rtl)-support>).
+In right-to-left languages, icons with directionality must be mirrored. Read more about it on our [internationalization pattern page](</patterns/internationalization#bidirectionality--right-to-left-(rtl)-support>).
 
 # Design your own icons
 
-Brightlayer UI welcomes new suggestions to our existing icon repositories. However, before you start designing, there are a few things that you shall keep in mind.
+Brightlayer UI welcomes new suggestions to our existing icon repositories. However, before you start designing, there are a few things you should keep in mind.
 
 ## No Single-Purpose Icons
 
-If you find yourself struggling for more than 30 seconds to design an icon, your users are likely going to be perplexed.
+If you find yourself struggling for more than 30 seconds to design an icon concept, it' probably too complicated and your users won't understand it anyway.
 
 Icons designed for a very specific purpose, such as “transfer admin rights” instead of “transfer”, tend to be so complicated that the icon no longer serves as an easy-to-recognize symbol, because it is impractical to pack so much information in a confined 24x24 space.
 
@@ -140,7 +140,7 @@ Similarly, avoid inventing an icon for a very specific device model, unless this
 
 ## Existing Icon Repositories
 
-Before you are committed to your artwork, make sure to check existing icon resources. In addition to Material Design's official icon set and BLUI icon set, materialdesignicons.com is a community-driven icon repository that follows Material Design's icon guidelines.
+Before going down the path of defining new icons, make sure to check existing icon resources. In addition to Material Design's official icon set and BLUI icon set, materialdesignicons.com [link] is a community-driven icon repository that follows Material Design's icon guidelines.
 
 You are welcome to take design inspirations from other sources like Font Awesome or follow regulation documents such as those from ANSI and ISO. You are also encouraged to refer to your competitors and see if they have any established conventions. However, you should follow the style guide, as explained below.
 
@@ -152,7 +152,7 @@ You are welcome to take design inspirations from other sources like Font Awesome
     description={`Material Design's guidelines on creating your own icons.`}
 />
 
-You must follow the existing Material Design style guide when creating your own icons. You may get inspired from other sources, but you are required to alter the style so that they fit with existing BLUI icons.
+You must follow the existing Material Design style guide when creating your own icons. You may take inspiration from other sources, but you must update the style so that they fit with existing BLUI icons.
 
 -   [Image: icon template, showing keylines; tell people that this is available via Figma]
 
