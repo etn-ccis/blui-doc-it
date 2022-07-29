@@ -3,6 +3,6 @@ import circles from '../../app/assets/themes/circles.svg';
 import { SiteConfig } from './_types';
 
 export const defaultTheme: SiteConfig = {
-    theme: BLUIThemes.blue,
+    theme: BLUIThemes.blueDark,
     landingPageBanner: { backgroundImage: `url(${circles})`, backgroundSize: 1200 },
 };
