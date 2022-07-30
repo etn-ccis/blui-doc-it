@@ -65,7 +65,7 @@ Icons can be a great visual aid to enhance the usability of your application. If
         { title: 'Icon Usage' },
         { title: 'Text Labels and Icons', depth: 1 },
         { title: 'Icon Buttons', depth: 1 },
-        { title: 'Inactive Icons Inside a Component', depth: 1 },
+        { title: 'Decorative Icons Inside a Component', depth: 1 },
         { title: 'Common Universal Icons', depth: 1 },
         { title: 'Common Device Icons', depth: 1 },
         { title: 'Icon Variations' },
@@ -136,7 +136,7 @@ Icon buttons are primarily used where space is limited, such app bars and lists 
     ]}
 />
 
-## Inactive Icons Inside a Component
+## Decorative Icons Inside a Component
 
 Inactive Icons are frequently used in components, either as a decorative visual aid to help guide users' attention or to clarify a situation.
 
@@ -175,14 +175,14 @@ You should never use a universal icon in a distorted way that mismatches its ori
 
 ## Common Device Icons
 
-Brightlayer UI offers a wide variety of icons for industrial equipment-related icons. Some of them are designed based on their function, while others are designed based on how the device itself looks. We also offer symbols commonly used in one-line diagrams (link to the two NPM packages; Do we want to call those out?).
+Brightlayer UI offers a wide variety of icons for industrial equipment-related icons. Some of them are designed based on their function, while others are designed based on how the device itself looks. We also offer symbols commonly used in one-line diagrams ([@brightlayer-ui/symbols](https://www.npmjs.com/package/@brightlayer-ui/symbols) and [@brightlayer-ui/symbols-mui](https://www.npmjs.com/package/@brightlayer-ui/symbols-mui)).
 
-We try our best to add new icons as soon as we identify a need, but we often see requests for very specific icons that are very similar to others. Icons are meant to be simple — it is unwise to try to use icons to convey very specific or very technical concepts. For example, it's a losing battle to try to define an icon for every single parameter in every single device — users will not be able to remember / distinguish what all of these icons mean. It's better to use a more general icon that can refer to categories of devices or parameters.
+Icons are meant to be simple — it is unwise to try to use icons to convey very specific or very technical concepts. For example, it's a losing battle to try to define an icon for every single parameter in every single device — users will not be able to remember / distinguish what all of these icons mean. It's better to use a more general icon that can refer to categories of devices or parameters. You may read more about this in the "[No 'Single-Purpose Icons'](#no-"single-purpose-icons")" section below.
 
 <ImageGrid
     images={[DeviceIcon1, DeviceIcon2]}
     captionsUnderImages={[
-        `AVOID: Avoid designing a separate icon for each device model. You are expecting users to distinguish between a highly similar set of icons and remember it for their next use.`,
+        `AVOID: Avoid assigning a separate icon for each device model. You are expecting users to distinguish between a highly similar set of icons and remember it for their next use.`,
         `Use the same icon for the same type of devices`,
     ]}
 />
@@ -245,7 +245,7 @@ In right-to-left languages, icons with directionality must be mirrored. Read mor
 
 Brightlayer UI welcomes new suggestions to our existing icon repositories. However, before you start designing, there are a few things you should keep in mind.
 
-## No Single-Purpose Icons
+## No "Single-Purpose Icons"
 
 If you find yourself struggling for more than 30 seconds to design an icon concept, it' probably too complicated and your users won't understand it anyway.
 
@@ -255,9 +255,9 @@ Similarly, avoid inventing an icon for a very specific device model, unless this
 
 ## Existing Icon Repositories
 
-Before going down the path of defining new icons, make sure to check existing icon resources. In addition to Material Design's official icon set and BLUI icon set, materialdesignicons.com [link] is a community-driven icon repository that follows Material Design's icon guidelines.
+Before going down the path of defining new icons, make sure to check existing icon resources. In addition to [Material Design's official icon set](https://fonts.google.com/icons?icon.set=Material+Icons) and [BLUI icon set](/style/iconography), [materialdesignicons.com](https://materialdesignicons.com/) is a community-driven icon repository that follows Material Design's icon guidelines.
 
-You are welcome to take design inspirations from other sources like Font Awesome or follow regulation documents such as those from ANSI and ISO. You are also encouraged to refer to your competitors and see if they have any established conventions. However, you should follow the style guide, as explained below.
+You are welcome to take design inspirations from other sources like [Font Awesome](https://fontawesome.com/) or follow regulation documents such as those from ANSI and ISO. You are also encouraged to refer to your competitors and see if they have any established conventions. However, you should follow the style guide, as explained below.
 
 ## Follow the Style Guide
 
@@ -267,7 +267,7 @@ You are welcome to take design inspirations from other sources like Font Awesome
     description={`Material Design's guidelines on creating your own icons.`}
 />
 
-You must follow the existing Material Design style guide when creating your own icons. You may take inspiration from other sources, but you must update the style so that they fit with existing BLUI icons.
+You **must** follow the existing Material Design style guide when creating your own icons. You may take inspiration from other sources, but you must update the style so that they fit with existing BLUI icons.
 
 <ImageGrid
     images={[DesignTemplate, DesignTemplateOutline, DesignTemplateFinished]}
