@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React from 'react';
 import { iconList } from '../../../__configuration__/patterns';
 
