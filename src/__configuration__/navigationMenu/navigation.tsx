@@ -277,7 +277,7 @@ export const pageDefinitions: SimpleNavItem[] = [
             },
             {
                 title: 'Icon Guideline',
-                url: '/Icons',
+                url: '/icon-guideline',
                 component: <MarkdownPage title={'Icon Guideline'} markdown={Docs.Style.IconGuideline} />,
             },
             {

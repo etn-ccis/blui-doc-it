@@ -90,13 +90,16 @@ export const UniversalIconBrowser: React.FC = () => {
                     key={index}
                     rightComponent={
                         icon.bluiOnly ? (
-                            <ListItemTag
-                                label={`Primarily BLUI Apps`}
-                                backgroundColor={'transparent'}
-                                fontColor={theme.palette.text.primary}
-                                style={{ border: `1px solid ${theme.palette.text.secondary}` }}
-                                title={`Icons commonly seen among Brightlayer UI applications, but less frequently seen elsewhere.`}
-                            />
+                            <Tooltip
+                                title={`These are icons commonly seen among Brightlayer UI applications, but less frequently seen elsewhere.`}
+                            >
+                                <ListItemTag
+                                    label={`Primarily BLUI Apps`}
+                                    backgroundColor={'transparent'}
+                                    fontColor={theme.palette.text.primary}
+                                    style={{ border: `1px solid ${theme.palette.text.secondary}` }}
+                                />
+                            </Tooltip>
                         ) : undefined
                     }
                 />

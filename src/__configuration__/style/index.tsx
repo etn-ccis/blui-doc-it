@@ -2,6 +2,7 @@ import themes from '../../app/assets/card-images/themes.png';
 import palette from '../../app/assets/card-images/palette.png';
 import illustrations from '../../app/assets/card-images/illustrations.png';
 import icons from '../../app/assets/card-images/icons.png';
+import iconGuideline from '../../app/assets/card-images/icon-guideline.svg';
 import typography from '../../app/assets/card-images/typography-square.png';
 
 export * from './univeralIcons';
@@ -13,6 +14,15 @@ export const links = [
         description:
             'Browse all of the UI, Status, and Charting colors available from Brightlayer UI and when to use them.',
         image: palette,
+    },
+    {
+        title: 'Icon Guideline',
+        url: '/style/icon-guideline',
+        description: `Learn about when and how to use icons effectively.`,
+        image: iconGuideline,
+        background: {
+            position: 'center',
+        },
     },
     {
         title: 'Icon Library',

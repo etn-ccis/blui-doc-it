@@ -34,7 +34,7 @@ const iconListUnsorted: UniversalIcon[] = [
     },
     {
         name: 'Arrow Back',
-        usage: 'Go back to the previous screen. Can only be placed in the top left corner of a dialog box or an app bar.',
+        usage: 'Go back to a previous screen in the current workflow or a parent screen in the current hierarchy. Can only be placed in the top left corner of a dialog box or an app bar.',
         icon: <MaterialIcons.ArrowBack />,
     },
     {
@@ -59,19 +59,19 @@ const iconListUnsorted: UniversalIcon[] = [
     },
     {
         name: 'Notifications',
-        usage: 'A collection of faults/notifications/alerts/alarms, typically used in drawers.',
+        usage: 'A collection of faults/notifications/alerts, typically used in drawers, dashboards, and app bars.',
         icon: <MaterialIcons.Notifications />,
         bluiOnly: true,
     },
     {
         name: 'Notifications Active',
-        usage: 'The highest priority faults/notifications/alerts/alarms, usually correspond to the "red" level in a "traffic light" alert system.',
+        usage: 'The highest priority faults/notifications/alerts, usually correspond to the "red" level in a "traffic light" alert system.',
         icon: <MaterialIcons.NotificationsActive />,
         bluiOnly: true,
     },
     {
         name: 'Warning',
-        usage: 'The medium priority faults/notifications/alerts/alarms, usually correspond to the "yellow/amber" level in a "traffic light" alert system.',
+        usage: 'The medium priority faults/notifications/alerts, usually correspond to the "yellow/amber" level in a "traffic light" alert system.',
         icon: <MaterialIcons.Warning />,
         bluiOnly: true,
     },

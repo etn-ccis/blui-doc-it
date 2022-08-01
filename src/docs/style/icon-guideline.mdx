@@ -20,6 +20,8 @@ import IconButtonOnTable2 from '../../app/assets/design-patterns/icons/icon-butt
 import AmbiguousIconToggleGroup from '../../app/assets/design-patterns/icons/ambiguous-icon-toggle-group.png';
 import AmbiguousIconToggleGroup2 from '../../app/assets/design-patterns/icons/ambiguous-icon-toggle-group-2.png';
 import IconButtonMicroInteraction from '../../app/assets/design-patterns/icons/icon-button-micro-interaction.svg';
+import IconButtonRegular from '../../app/assets/design-patterns/icons/icon-button-regular.svg';
+import IconButtonDense from '../../app/assets/design-patterns/icons/icon-button-dense.svg';
 import IconButtonAppBar from '../../app/assets/design-patterns/icons/icon-button-app-bar.png';
 import IconButtonList from '../../app/assets/design-patterns/icons/icon-button-list.png';
 import IconButtonTextField from '../../app/assets/design-patterns/icons/icon-button-text-field.png';
@@ -45,16 +47,16 @@ import DesignTemplate from '../../app/assets/design-patterns/icons/design-templa
 import DesignTemplateOutline from '../../app/assets/design-patterns/icons/design-template-outline.svg';
 import DesignTemplateFinished from '../../app/assets/design-patterns/icons/design-template-finished.svg';
 
-<!-- KEYWORDS: icon icons guideline -->
+<!-- KEYWORDS: icon icons guideline logo -->
 
-# Icons
+# Icon Guideline
 
 Icons can be a great visual aid to enhance the usability of your application. If designed carefully, icons are fast to recognize, save up screen space and require no translations. However, if icons are not properly used, they can be misleading as well.
 
 <MaterialDesignDescription
-    title={'Iconography'}
+    title={'Brightlayer UI Icon Library'}
     url={`/style/icon-library`}
-    description={`Icon assets from Brightlayer UI`}
+    description={`All available icons from Brightlayer UI and Material Design`}
     avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
 />
 
@@ -77,6 +79,8 @@ Icons can be a great visual aid to enhance the usability of your application. If
     ]}
 />
 
+<Divider />
+
 # Icons, Pictograms, and Logos
 
 <ImageGrid
@@ -88,6 +92,8 @@ Icons can be a great visual aid to enhance the usability of your application. If
 This guide talks specifically about the design of icons, which should not be confused with other glyphs, such as pictograms and logos. Icons symbolize common actions, objects, or ideas used to aid users. Pictograms are typically used on websites for decorative purposes only. Logos are symbols of products and organizations, usually protected under trademark laws.
 
 > Note: if you need to use logos from other companies — such as a payment processor — make sure that you are compliant with their branding guidelines.
+
+<Divider />
 
 # Icon Usage
 
@@ -114,13 +120,13 @@ Where possible, you should avoid using icons in isolation. In many situations, t
 
 ## Icon Buttons
 
-Icon buttons are standalone icons that are clickable. They are usually sized at **24x24dp** to ensure that they are easily recognized and accessible. On desktop applications, you should always use a tooltip on hover (unless it is a universal icon — see below). On mobile, icon buttons are generally discouraged unless they are one of the universal icons.
+Icon buttons are standalone icons that are clickable. On desktop applications, you should always use a tooltip on hover (unless it is a universal icon — see [below](#common-universal-icons)). On mobile, icon buttons are generally discouraged unless they are one of the universal icons.
 
 <ImageGrid
     images={[IconButtonMicroInteraction]}
     regularWidth
     captionsUnderImages={[
-        `On desktop, icon buttons should trigger a tooltip on hover, unless they are "universal icons".`,
+        `DO: On desktop, icon buttons should trigger a tooltip on hover, unless they are "universal icons".`,
     ]}
 />
 
@@ -136,9 +142,21 @@ Icon buttons are primarily used where space is limited, such app bars and lists 
     ]}
 />
 
+Icon buttons are usually displayed at **24x24dp** to ensure that they are easily recognized, while their touch areas are sized at least **40x40dp** to ensure that they are accessible.
+
+<ImageGrid
+    images={[IconButtonRegular, IconButtonDense]}
+    caption={[
+        `In icon buttons, icons are sized at 24x24dp.`,
+        `Spacing between two icon buttons is 24dp (regular) or 16dp (dense, where space is limited).`,
+        `Distance between an icon and its parent container's edge is 16dp.`,
+        `The minimum touch area size of an icon button is 40x40dp. Note that this is also the "ripple size".`,
+    ]}
+/>
+
 ## Decorative Icons Inside a Component
 
-Inactive Icons are frequently used in components, either as a decorative visual aid to help guide users' attention or to clarify a situation.
+Inactive icons are frequently used in components, either as a decorative visual aid to help guide users' attention or to clarify a situation.
 
 <ImageGrid
     images={[InactiveIconSuccess, InactiveIconUserPref, InactiveIconVolume, InactiveIconHeroes]}
@@ -186,6 +204,8 @@ Icons are meant to be simple — it is unwise to try to use icons to convey very
         `Use the same icon for the same type of devices`,
     ]}
 />
+
+<Divider />
 
 # Icon Variations
 
@@ -241,6 +261,8 @@ Brightlayer currently offers the following progress icons to its designers and d
 
 In right-to-left languages, icons with directionality must be mirrored. Read more about it on our [internationalization pattern page](</patterns/internationalization#bidirectionality--right-to-left-(rtl)-support>).
 
+<Divider />
+
 # Design Your Own Icons
 
 Brightlayer UI welcomes new suggestions to our existing icon repositories. However, before you start designing, there are a few things you should keep in mind.
@@ -255,7 +277,7 @@ Similarly, avoid inventing an icon for a very specific device model, unless this
 
 ## Existing Icon Repositories
 
-Before going down the path of defining new icons, make sure to check existing icon resources. In addition to [Material Design's official icon set](https://fonts.google.com/icons?icon.set=Material+Icons) and [BLUI icon set](/style/iconography), [materialdesignicons.com](https://materialdesignicons.com/) is a community-driven icon repository that follows Material Design's icon guidelines.
+Before going down the path of defining new icons, make sure to check existing icon resources. In addition to Material Design's [official icon set](https://fonts.google.com/icons?icon.set=Material+Icons) and Brightlayer UI's [icon set](/style/icon-library), you may also check out [materialdesignicons.com](https://materialdesignicons.com/), a community-driven icon repository that follows Material Design's icon guidelines.
 
 You are welcome to take design inspirations from other sources like [Font Awesome](https://fontawesome.com/) or follow regulation documents such as those from ANSI and ISO. You are also encouraged to refer to your competitors and see if they have any established conventions. However, you should follow the style guide, as explained below.
 
@@ -267,7 +289,7 @@ You are welcome to take design inspirations from other sources like [Font Awesom
     description={`Material Design's guidelines on creating your own icons.`}
 />
 
-You **must** follow the existing Material Design style guide when creating your own icons. You may take inspiration from other sources, but you must update the style so that they fit with existing BLUI icons.
+You **must** follow the existing Material Design style guide when creating your own icons. You may take inspiration from other sources, but you must update the style so that they fit with existing Brightlayer UI icons.
 
 <ImageGrid
     images={[DesignTemplate, DesignTemplateOutline, DesignTemplateFinished]}
@@ -288,22 +310,8 @@ You must test your new icons through user testing, either by asking testers ques
 
 ## Inner-source into Brightlayer UI
 
-We welcome icon suggestions. Please follow [the guideline for exporting SVG icons](https://github.com/brightlayer-ui/icons/blob/master/design/README.md) before [contacting us](/community/contactus).
+We welcome icon suggestions. If you would like to request your icon design to be added to our icon repository or request us to design an icon for you, please [contact us](/community/contactus). The UX team will review your request and provide a recommendation within 48 hours for whether to introduce a new icon or use an existing icon instead.
 
-# Still can't find what you need?
+If you are requesting us to add your icon design, please follow [the guideline for exporting SVG icons](https://github.com/brightlayer-ui/icons/blob/master/design/README.md). You shall also provide us (1) the icon author we can publicly attribute to, (2) a brief description of what the intended use is, and (3) if possible a picture of where it will live in the context of your application.
 
-If you decide that an icon is appropriate and there are no suitable options available, you can
-[Contact Us](/community/contactus) to request a new icon. Please include a brief description of what the intended use is, and if possible a
-picture of where it will live in the context of your application. The UX team will review your request
-and provide a recommendation within 48 hours as to whether a new icon should be created or if an
-existing icon is available for you to use.
-
-If you are looking for the Brightlayer UI 1.0 symbols, please refer to our [Github](https://github.com/brightlayer-ui/symbols/tree/master).
-
-If you have your own design resources who are able to create icons, you can build these on your own,
-following the [Material Icon Guidelines](https://material.io/design/iconography/system-icons.html)
-to maintain a common look and feel. If you do not have your own designers, we can work with you to build
-the icon you need. We can either build the icon in house or recommend external resources that you can
-use. Please note that going this route may take extra time, so try to get requests in as early as
-possible. If you are making your own icons, please consider contributing these back into the Brightlayer UI
-icon library (subject to review).
+If you are requesting us to design an icon for you instead, please provide us a brief description of what the intended use is along with your request. Please note that going this route may take extra time, so try to get requests in as early as possible.
