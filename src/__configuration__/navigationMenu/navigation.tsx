@@ -199,12 +199,6 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Forms and Validation'} markdown={Docs.Patterns.Forms} />,
             },
             {
-                title: 'Icons',
-                url: '/Icons',
-                component: <MarkdownPage title={'Icons'} markdown={Docs.Patterns.Icons} />,
-                hidden: true,
-            },
-            {
                 title: 'Internationalization',
                 url: '/internationalization',
                 component: <MarkdownPage title={'Internationalization'} markdown={Docs.Patterns.I18N} />,
@@ -282,10 +276,20 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Color Palette'} markdown={Docs.Style.Color} />,
             },
             {
-                title: 'Iconography',
-                url: '/iconography',
+                title: 'Icon Guideline',
+                url: '/Icons',
+                component: <MarkdownPage title={'Icon Guideline'} markdown={Docs.Style.IconGuideline} />,
+            },
+            {
+                title: 'Icon Library',
+                url: '/icon-library',
                 component: (
-                    <MarkdownPage title={'Iconography'} markdown={Docs.Style.Iconography} background={'dark'} sidebar />
+                    <MarkdownPage
+                        title={'Icon Library'}
+                        markdown={Docs.Style.IconLibrary}
+                        background={'dark'}
+                        sidebar
+                    />
                 ),
             },
             {
@@ -402,5 +406,9 @@ export const pageRedirects: RedirectItem[] = [
     {
         oldUrl: '/resources',
         newUrl: '/resources/developer',
+    },
+    {
+        oldUrl: '/style/iconography',
+        newUrl: '/style/icon-library',
     },
 ];

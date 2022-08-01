@@ -128,11 +128,6 @@
                     "url": "/forms"
                 },
                 {
-                    "title": "Icons",
-                    "url": "/Icons",
-                    "hidden": true
-                },
-                {
                     "title": "Internationalization",
                     "url": "/internationalization"
                 },
@@ -196,8 +191,12 @@
                     "url": "/color"
                 },
                 {
-                    "title": "Iconography",
-                    "url": "/iconography"
+                    "title": "Icon Guideline",
+                    "url": "/icon-guideline"
+                },
+                {
+                    "title": "Icon Library",
+                    "url": "/icon-library"
                 },
                 {
                     "title": "Illustrations",

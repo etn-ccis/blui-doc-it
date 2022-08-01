@@ -13,8 +13,8 @@ export const links = [
         image: palette,
     },
     {
-        title: 'Iconography',
-        url: '/style/iconography',
+        title: 'Icon Library',
+        url: '/style/icon-library',
         description: `Browse the library of icons available in Brightlayer UI including Material icons as well as custom ones for Brightlayer UI applications.`,
         image: icons,
         background: {
