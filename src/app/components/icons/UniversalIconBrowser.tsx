@@ -58,11 +58,11 @@ export const UniversalIconBrowser: React.FC = () => {
                 <Tooltip title={'Edit list on GitHub'}>
                     <IconButton
                         style={{ margin: -12 }}
-                        onClick={() =>
+                        onClick={(): void => {
                             window.open(
                                 `https://github.com/brightlayer-ui/doc-it/blob/dev/src/__configuration__/patterns/universalIcons.tsx`
-                            )
-                        }
+                            );
+                        }}
                     >
                         <Edit />
                     </IconButton>
@@ -78,7 +78,7 @@ export const UniversalIconBrowser: React.FC = () => {
                     divider={index === iconList.length - 1 ? 'full' : 'partial'}
                     onClick={
                         expanded
-                            ? () => {
+                            ? (): void => {
                                   window.open(
                                       `/style/iconography?icon=${icon.name.replaceAll(' ', '')}&isMaterial=${
                                           icon.isMaterial === undefined || icon.isMaterial === true ? 'true' : 'false'
@@ -106,7 +106,7 @@ export const UniversalIconBrowser: React.FC = () => {
                     classes.cardAction,
                     { [classes.cardActionCollapsed]: !expanded, [classes.cardActionExpanded]: expanded },
                 ])}
-                onClick={() => {
+                onClick={(): void => {
                     setExpanded(!expanded);
                 }}
             >
