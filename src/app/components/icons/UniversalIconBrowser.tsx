@@ -80,7 +80,7 @@ export const UniversalIconBrowser: React.FC = () => {
                         expanded
                             ? (): void => {
                                   window.open(
-                                      `/style/iconography?icon=${icon.name.replaceAll(' ', '')}&isMaterial=${
+                                      `/style/icon-library?icon=${icon.name.replaceAll(' ', '')}&isMaterial=${
                                           icon.isMaterial === undefined || icon.isMaterial === true ? 'true' : 'false'
                                       }`
                                   );
