@@ -1,5 +1,5 @@
 import React from 'react';
-import { iconList } from '../../../__configuration__/patterns';
+import { iconList } from '../../../__configuration__/style';
 
 import {
     Typography,
@@ -60,7 +60,7 @@ export const UniversalIconBrowser: React.FC = () => {
                         style={{ margin: -12 }}
                         onClick={(): void => {
                             window.open(
-                                `https://github.com/brightlayer-ui/doc-it/blob/dev/src/__configuration__/patterns/universalIcons.tsx`
+                                `https://github.com/brightlayer-ui/doc-it/blob/dev/src/__configuration__/style/universalIcons.tsx`
                             );
                         }}
                     >

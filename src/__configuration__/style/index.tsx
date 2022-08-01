@@ -4,6 +4,8 @@ import illustrations from '../../app/assets/card-images/illustrations.png';
 import icons from '../../app/assets/card-images/icons.png';
 import typography from '../../app/assets/card-images/typography-square.png';
 
+export * from './univeralIcons';
+
 export const links = [
     {
         title: 'Color Palette',

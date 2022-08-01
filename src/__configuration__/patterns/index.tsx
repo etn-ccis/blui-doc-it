@@ -13,8 +13,6 @@ import TableImg from '../../app/assets/design-patterns/tables/tables.svg';
 import StepperImg from '../../app/assets/design-patterns/steppers/steppers-banner.svg';
 import VisualizationImage from '../../app/assets/design-patterns/visualizations/visualizations-banner.svg';
 
-export * from './univeralIcons';
-
 export const patterns = [
     {
         title: 'Account Menu',
