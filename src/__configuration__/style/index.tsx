@@ -2,7 +2,7 @@ import themes from '../../app/assets/card-images/themes.png';
 import palette from '../../app/assets/card-images/palette.png';
 import illustrations from '../../app/assets/card-images/illustrations.png';
 import icons from '../../app/assets/card-images/icons.png';
-import iconGuideline from '../../app/assets/card-images/icon-guideline.svg';
+import iconGuidelines from '../../app/assets/card-images/icon-guidelines.svg';
 import typography from '../../app/assets/card-images/typography-square.png';
 
 export * from './univeralIcons';
@@ -16,10 +16,10 @@ export const links = [
         image: palette,
     },
     {
-        title: 'Icon Guideline',
-        url: '/style/icon-guideline',
+        title: 'Icon Guidelines',
+        url: '/style/icon-guidelines',
         description: `Learn about when and how to use icons effectively.`,
-        image: iconGuideline,
+        image: iconGuidelines,
         background: {
             position: 'center',
         },
