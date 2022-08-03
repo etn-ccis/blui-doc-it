@@ -276,10 +276,20 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Color Palette'} markdown={Docs.Style.Color} />,
             },
             {
-                title: 'Iconography',
-                url: '/iconography',
+                title: 'Icon Guidelines',
+                url: '/icon-guidelines',
+                component: <MarkdownPage title={'Icon Guideline'} markdown={Docs.Style.IconGuidelines} />,
+            },
+            {
+                title: 'Icon Library',
+                url: '/icon-library',
                 component: (
-                    <MarkdownPage title={'Iconography'} markdown={Docs.Style.Iconography} background={'dark'} sidebar />
+                    <MarkdownPage
+                        title={'Icon Library'}
+                        markdown={Docs.Style.IconLibrary}
+                        background={'dark'}
+                        sidebar
+                    />
                 ),
             },
             {
@@ -396,5 +406,9 @@ export const pageRedirects: RedirectItem[] = [
     {
         oldUrl: '/resources',
         newUrl: '/resources/developer',
+    },
+    {
+        oldUrl: '/style/iconography',
+        newUrl: '/style/icon-library',
     },
 ];

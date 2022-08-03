@@ -1,0 +1,317 @@
+import {
+    MaterialDesignDescription,
+    ImageGrid,
+    Divider,
+    TOC,
+    ProgressIconCard,
+    regularWidth,
+    UniversalIconBrowser,
+} from '../../app/components';
+import PxblueSmallAltIcon from '@brightlayer-ui/icons-mui/PxblueSmallAlt';
+import LinkIcon from '@material-ui/icons/Link';
+
+<!-- Images -->
+
+import ExampleOfIcon from '../../app/assets/styles/icon-guidelines/example-of-icon.png';
+import ExampleOfLogo from '../../app/assets/styles/icon-guidelines/example-of-logo.png';
+import ExampleOfPictogram from '../../app/assets/styles/icon-guidelines/example-of-pictogram.png';
+import IconButtonOnTable from '../../app/assets/styles/icon-guidelines/icon-button-on-table.png';
+import IconButtonOnTable2 from '../../app/assets/styles/icon-guidelines/icon-button-on-table-2.png';
+import AmbiguousIconToggleGroup from '../../app/assets/styles/icon-guidelines/ambiguous-icon-toggle-group.png';
+import AmbiguousIconToggleGroup2 from '../../app/assets/styles/icon-guidelines/ambiguous-icon-toggle-group-2.png';
+import IconButtonMicroInteraction from '../../app/assets/styles/icon-guidelines/icon-button-micro-interaction.svg';
+import IconButtonRegular from '../../app/assets/styles/icon-guidelines/icon-button-regular.svg';
+import IconButtonDense from '../../app/assets/styles/icon-guidelines/icon-button-dense.svg';
+import IconButtonAppBar from '../../app/assets/styles/icon-guidelines/icon-button-app-bar.png';
+import IconButtonList from '../../app/assets/styles/icon-guidelines/icon-button-list.png';
+import IconButtonTextField from '../../app/assets/styles/icon-guidelines/icon-button-text-field.png';
+import IconButtonQuestionMark from '../../app/assets/styles/icon-guidelines/icon-button-question-mark.png';
+import InactiveIconSuccess from '../../app/assets/styles/icon-guidelines/inactive-icon-success.png';
+import InactiveIconUserPref from '../../app/assets/styles/icon-guidelines/inactive-icon-user-pref.png';
+import InactiveIconVolume from '../../app/assets/styles/icon-guidelines/inactive-icon-volume.png';
+import InactiveIconHeroes from '../../app/assets/styles/icon-guidelines/inactive-icon-heroes.png';
+import InactiveIconMeaningless from '../../app/assets/styles/icon-guidelines/inactive-icon-meaningless.png';
+import ConfusedHamburger from '../../app/assets/styles/icon-guidelines/confused-hamburger.png';
+import ConfusedSettings from '../../app/assets/styles/icon-guidelines/confused-settings.png';
+import DeviceIcon1 from '../../app/assets/styles/icon-guidelines/device-icon-1.png';
+import DeviceIcon2 from '../../app/assets/styles/icon-guidelines/device-icon-2.png';
+import WarningTwoColorLight from '../../app/assets/styles/icon-guidelines/warning-two-color-light.svg';
+import WarningTwoColorDark from '../../app/assets/styles/icon-guidelines/warning-two-color-dark.svg';
+import FilledIcon from '../../app/assets/styles/icon-guidelines/filled-icon.png';
+import OutlinedIcon from '../../app/assets/styles/icon-guidelines/outlined-icon.png';
+import IconVariation from '../../app/assets/styles/icon-guidelines/icon-variation.png';
+import IconVariation2 from '../../app/assets/styles/icon-guidelines/icon-variation-2.png';
+import ProgressIcon1 from '../../app/assets/styles/icon-guidelines/progress-icon-1.png';
+import ProgressIcon2 from '../../app/assets/styles/icon-guidelines/progress-icon-2.png';
+import DesignTemplate from '../../app/assets/styles/icon-guidelines/design-template.svg';
+import DesignTemplateOutline from '../../app/assets/styles/icon-guidelines/design-template-outline.svg';
+import DesignTemplateFinished from '../../app/assets/styles/icon-guidelines/design-template-finished.svg';
+
+<!-- KEYWORDS: icon icons guideline logo -->
+
+# Icon Guidelines
+
+Icons can be a great visual aid to enhance the usability of your application. If designed carefully, icons are fast to recognize, save up screen space and require no translations. However, if icons are not properly used, they can be misleading as well.
+
+<MaterialDesignDescription
+    title={'Brightlayer UI Icon Library'}
+    url={`/style/icon-library`}
+    description={`All available icons from Brightlayer UI and Material Design`}
+    avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+/>
+
+<TOC
+    anchors={[
+        { title: 'Introduction', hash: '#icons' },
+        { title: 'Icons, Pictograms, and Logos' },
+        { title: 'Icon Usage' },
+        { title: 'Text Labels and Icons', depth: 1 },
+        { title: 'Icon Buttons', depth: 1 },
+        { title: 'Decorative Icons Inside a Component', depth: 1 },
+        { title: 'Common Universal Icons', depth: 1 },
+        { title: 'Common Device Icons', depth: 1 },
+        { title: 'Icon Variations' },
+        { title: 'Multi-Colored Icons', depth: 1 },
+        { title: 'Filled and Outlined Icons', depth: 1 },
+        { title: 'Progress Icons', depth: 1 },
+        { title: 'Internationalization', depth: 1 },
+        { title: 'Design Your Own Icons' },
+    ]}
+/>
+
+<Divider />
+
+# Icons, Pictograms, and Logos
+
+<ImageGrid
+    images={[ExampleOfIcon, ExampleOfPictogram, ExampleOfLogo]}
+    captionsUnderImages={[`An icon in a button`, `A pictogram on a webpage`, `The logo of an app`]}
+    gridImageProps={{ sm: 6, md: 4 }}
+/>
+
+This guide talks specifically about the design of icons, which should not be confused with other glyphs, such as pictograms and logos. Icons symbolize common actions, objects, or ideas used to aid users. Pictograms are typically used on websites for decorative purposes only. Logos are symbols of products and organizations, usually protected under trademark laws.
+
+> Note: if you need to use logos from other companies — such as a payment processor — make sure that you are compliant with their branding guidelines.
+
+<Divider />
+
+# Icon Usage
+
+## Text Labels and Icons
+
+Where possible, you should avoid using icons in isolation. In many situations, text labels convey the message more accurately, while icons may require a lot of guess work. Introducing new icons / meanings is like forcing your users to learn a new language. If your application is a mission-critical system, users might even be reluctant to press a button if they do not understand its meaning.
+
+<MaterialDesignDescription
+    title={'Icon Usability'}
+    url={`https://www.nngroup.com/articles/icon-usability/`}
+    description={`Best usability practices for icons`}
+    avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+/>
+
+<ImageGrid
+    images={[IconButtonOnTable, IconButtonOnTable2, AmbiguousIconToggleGroup, AmbiguousIconToggleGroup2]}
+    captionsUnderImages={[
+        `DONT: Do not use icon buttons when there is plenty of room.`,
+        `DO: Use button labels to call out the action.`,
+        `DONT: Do not use icons when their meanings are ambiguous.`,
+        `DO: Use text to avoid ambiguity.`,
+    ]}
+/>
+
+## Icon Buttons
+
+Icon buttons are standalone icons that are clickable. On desktop applications, you should always use a tooltip on hover (unless it is a universal icon — see [below](#common-universal-icons)). On mobile, icon buttons are generally discouraged unless they are one of the universal icons.
+
+<ImageGrid
+    images={[IconButtonMicroInteraction]}
+    regularWidth
+    captionsUnderImages={[
+        `DO: On desktop, icon buttons should trigger a tooltip on hover, unless they are "universal icons".`,
+    ]}
+/>
+
+Icon buttons are primarily used where space is limited, such app bars and lists / tables.
+
+<ImageGrid
+    images={[IconButtonAppBar, IconButtonList, IconButtonTextField, IconButtonQuestionMark]}
+    captionsUnderImages={[
+        `App bar with icon buttons.`,
+        `List item showing icon buttons on hover with overflowing list actions.`,
+        `Text field using a visibility toggle icon.`,
+        `A question mark icon leading to a tooltip with explanations to the context.`,
+    ]}
+/>
+
+Icon buttons are usually displayed at **24x24dp** to ensure that they are easily recognized, while their touch areas are sized at least **40x40dp** to ensure that they are accessible.
+
+<ImageGrid
+    images={[IconButtonRegular, IconButtonDense]}
+    caption={[
+        `In icon buttons, icons are sized at 24x24dp.`,
+        `Spacing between two icon buttons is 24dp (regular) or 16dp (dense, where space is limited).`,
+        `Distance between an icon and its parent container's edge is 16dp.`,
+        `The minimum touch area size of an icon button is 40x40dp. Note that this is also the "ripple size".`,
+    ]}
+/>
+
+## Decorative Icons Inside a Component
+
+Inactive icons are frequently used in components, either as a decorative visual aid to help guide users' attention or to clarify a situation.
+
+<ImageGrid
+    images={[InactiveIconSuccess, InactiveIconUserPref, InactiveIconVolume, InactiveIconHeroes]}
+    captionsUnderImages={[
+        `Use decorative icons to make your interface more friendly.`,
+        `Icons help non-native speakers understand the user interface better.`,
+        `Icons explicitly pointing out what's "implied" by the directionality.`,
+        `Hero components showing different parameters.`,
+    ]}
+/>
+
+Note that not everything needs an icon to decorate it. If an icon does not help users quickly recognize something at a glance, it will only distract them.
+
+<ImageGrid
+    images={[InactiveIconMeaningless]}
+    captionsUnderImages={[`DONT: Do not use meaningless icons to distract users.`]}
+/>
+
+## Common Universal Icons
+
+A few icons are so widely used these days that they are considered “universal” icons — they carry the same meaning no matter which application they are used in.
+
+<UniversalIconBrowser />
+
+You should never use a universal icon in a distorted way that mismatches its original meaning.
+
+<ImageGrid
+    images={[ConfusedHamburger, ConfusedSettings]}
+    captionsUnderImages={[
+        `DONT: Do not use the "hamburger" menu icon for anything else other than controlling drawer to open / close.`,
+        `DONT: "Cog" icon and "wrench" icon can both mean "configuration", but the connotation of "wrench" focuses more on the "service" or "repair" of a physical equipment. A "cog" settings icon should be used here instead.`,
+    ]}
+/>
+
+## Common Device Icons
+
+Brightlayer UI offers a wide variety of icons for industrial equipment-related icons. Some of them are designed based on their function, while others are designed based on how the device itself looks. We also offer symbols commonly used in one-line diagrams ([@brightlayer-ui/symbols](https://www.npmjs.com/package/@brightlayer-ui/symbols) and [@brightlayer-ui/symbols-mui](https://www.npmjs.com/package/@brightlayer-ui/symbols-mui)).
+
+Icons are meant to be simple — it is unwise to try to use icons to convey very specific or very technical concepts. For example, it's a losing battle to try to define an icon for every single parameter in every single device — users will not be able to remember / distinguish what all of these icons mean. It's better to use a more general icon that can refer to categories of devices or parameters. You may read more about this in the "[No 'Single-Purpose Icons'](#no-"single-purpose-icons")" section below.
+
+<ImageGrid
+    images={[DeviceIcon1, DeviceIcon2]}
+    captionsUnderImages={[
+        `AVOID: Avoid assigning a separate icon for each device model. You are expecting users to distinguish between a highly similar set of icons and remember it for their next use.`,
+        `Use the same icon for the same type of devices`,
+    ]}
+/>
+
+<Divider />
+
+# Icon Variations
+
+## Multi-Colored Icons
+
+[WCAG 2.2 AA level requires](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) that non-textual contents of a webpage, including icons, must achieve a minimum color contrast ratio of 3:1. However, yellow icons are used for warnings and often have a contrast ratio of less than 2:1. In this situation, using two colors can make these icons more legible.
+
+<ImageGrid
+    images={[WarningTwoColorLight, WarningTwoColorDark]}
+    captionsUnderImages={[
+        `A "Warning" icon, using yellow for the background and dark brown for the foreground.`,
+        `This accessibility issue is less concerning in a dark theme.`,
+    ]}
+    gridImageProps={{ sm: 6, md: 4 }}
+/>
+
+## Filled and Outlined Icons
+
+Material Design offers icons in both filled and outlined styles. Brightlayer UI applications typically use the filled style, as it provides better legibility at a small scale. If you choose to use outlined styles instead, however, you must ensure your icon style stays consistent through the application.
+
+<ImageGrid
+    images={[FilledIcon, OutlinedIcon]}
+    captionsUnderImages={[
+        `DO: A list with only filled-styled icons. This is the default style for Brightlayer UI applications.`,
+        `A list with only outlined-styled icons.`,
+    ]}
+/>
+
+You also have the option to use filled and outlined icons to indicate state. In this case, a filled icon indicates that the item is active, while an outlined icon indicates that the item is inactive.
+
+<ImageGrid
+    images={[IconVariation, IconVariation2]}
+    captionsUnderImages={[
+        `When a status count is positive, consider using a colored and filled icon style.`,
+        `As a status count drops to zero, its icon grays out and changes from the filled style to the outlined style.`,
+    ]}
+/>
+
+## Progress Icons
+
+Progress icons are used as a mini data visualization to display percentages over a whole. It can be the remaining device's health, battery life percentage, etc.
+
+<ImageGrid
+    images={[ProgressIcon1, ProgressIcon2]}
+    caption={`Applications with dashboards often use progress icons as a way to visualize data in a non-intrusive way.`}
+/>
+
+Brightlayer currently offers the following progress icons to its designers and developers:
+
+<ProgressIconCard />
+
+## Internationalization
+
+In right-to-left languages, icons with directionality must be mirrored. Read more about it on our [internationalization pattern page](</patterns/internationalization#bidirectionality--right-to-left-(rtl)-support>).
+
+<Divider />
+
+# Design Your Own Icons
+
+Brightlayer UI welcomes new suggestions to our existing icon repositories. However, before you start designing, there are a few things you should keep in mind.
+
+## No "Single-Purpose Icons"
+
+If you find yourself struggling for more than 30 seconds to design an icon concept, it' probably too complicated and your users won't understand it anyway.
+
+Icons designed for a very specific purpose, such as “transfer admin rights” instead of “transfer”, tend to be so complicated that the icon no longer serves as an easy-to-recognize symbol, because it is impractical to pack so much information in a confined 24x24 space.
+
+Similarly, avoid inventing an icon for a very specific device model, unless this device stands out and is iconic in the industry (example: Dyson fans). If an average user cannot easily tell devices apart from each other in real life from a glance, a 24x24 dp icon usually contains fewer details and more abstractions, and will not bring a positive user experience.
+
+## Existing Icon Repositories
+
+Before going down the path of defining new icons, make sure to check existing icon resources. In addition to Material Design's [official icon set](https://fonts.google.com/icons?icon.set=Material+Icons) and Brightlayer UI's [icon set](/style/icon-library), you may also check out [materialdesignicons.com](https://materialdesignicons.com/), a community-driven icon repository that follows Material Design's icon guidelines.
+
+You are welcome to take design inspirations from other sources like [Font Awesome](https://fontawesome.com/) or follow regulation documents such as those from ANSI and ISO. You are also encouraged to refer to your competitors and see if they have any established conventions. However, you should follow the style guide, as explained below.
+
+## Follow the Style Guide
+
+<MaterialDesignDescription
+    title={'System icons'}
+    url={'https://material.io/design/iconography/system-icons.html#'}
+    description={`Material Design's guidelines on creating your own icons.`}
+/>
+
+You **must** follow the existing Material Design style guide when creating your own icons. You may take inspiration from other sources, but you must update the style so that they fit with existing Brightlayer UI icons.
+
+<ImageGrid
+    images={[DesignTemplate, DesignTemplateOutline, DesignTemplateFinished]}
+    captionsUnderImages={[`A blank icon design template, also available through our Figma component sticker sheet.`]}
+    gridImageProps={{ sm: 6, md: 4 }}
+/>
+
+## Test the Icon
+
+You must test your new icons through user testing, either by asking testers questions (“what do you think this icon represents”) or by observing them completing a task using the icon.
+
+<MaterialDesignDescription
+    title={'Icon Testing'}
+    url={`https://www.nngroup.com/articles/icon-testing/`}
+    description={`Guides on how to test your new and existing icons`}
+    avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+/>
+
+## Inner-source into Brightlayer UI
+
+We welcome icon suggestions. If you would like to request your icon design to be added to our icon repository or request us to design an icon for you, please [contact us](/community/contactus). The UX team will review your request and provide a recommendation within 48 hours for whether to introduce a new icon or use an existing icon instead.
+
+If you are requesting us to add your icon design, please follow [the guideline for exporting SVG icons](https://github.com/brightlayer-ui/icons/blob/master/design/README.md). You shall also provide us (1) the icon author we can publicly attribute to, (2) a brief description of what the intended use is, and (3) if possible a picture of where it will live in the context of your application.
+
+If you are requesting us to design an icon for you instead, please provide us a brief description of what the intended use is along with your request. Please note that going this route may take extra time, so try to get requests in as early as possible.

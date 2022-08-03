@@ -47,9 +47,6 @@ const getColorCode = (type: ColorType, hex: string): string => {
     const hslColor = color(hex).hsl().object();
     const cmykColor = color(hex).cmyk().object();
 
-    /* eslint-disable */
-    // console.log(pantoneColor);
-
     switch (type) {
         case 'HEX':
             return hex;

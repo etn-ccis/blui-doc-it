@@ -5,6 +5,7 @@ export * from './IconGrid';
 export * from './IconSearchBar';
 export * from './IconDrawer';
 export * from './ProgressIconCard';
+export * from './UniversalIconBrowser';
 
 export const emptyIcon: IconType = { name: '', iconFontKey: '', isMaterial: true, tags: [], categories: [] };
 export const emptyIconDetails: DetailedIcon = {

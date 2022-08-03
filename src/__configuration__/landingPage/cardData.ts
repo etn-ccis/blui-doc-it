@@ -19,7 +19,7 @@ export const cardData = [
         title: 'Icons',
         description: `Browse the library of icons available in Brightlayer UI including Material icons as well as custom ones for Brightlayer UI applications.`,
         image: icons,
-        path: '/style/iconography',
+        path: '/style/icon-library',
     },
     {
         title: 'Design Patterns',
