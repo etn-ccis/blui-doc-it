@@ -23,6 +23,11 @@ const iconListUnsorted: UniversalIcon[] = [
         icon: <MaterialIcons.MoreVert />,
     },
     {
+        name: 'Add',
+        usage: 'Add something to the current collection.',
+        icon: <MaterialIcons.Add />,
+    },
+    {
         name: 'Settings',
         usage: 'Anything related to "settings", such as account preferences, organization settings.',
         icon: <MaterialIcons.Settings />,
