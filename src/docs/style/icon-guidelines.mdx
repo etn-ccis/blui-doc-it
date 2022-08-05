@@ -8,6 +8,7 @@ import {
     UniversalIconBrowser,
 } from '../../app/components';
 import PxblueSmallAltIcon from '@brightlayer-ui/icons-mui/PxblueSmallAlt';
+import FilePdf from '@brightlayer-ui/icons-mui/FilePdf';
 import LinkIcon from '@material-ui/icons/Link';
 
 <!-- Images -->
@@ -30,6 +31,7 @@ import InactiveIconSuccess from '../../app/assets/styles/icon-guidelines/inactiv
 import InactiveIconUserPref from '../../app/assets/styles/icon-guidelines/inactive-icon-user-pref.png';
 import InactiveIconVolume from '../../app/assets/styles/icon-guidelines/inactive-icon-volume.png';
 import InactiveIconHeroes from '../../app/assets/styles/icon-guidelines/inactive-icon-heroes.png';
+import InactiveIconInsideButtons from '../../app/assets/styles/icon-guidelines/inactive-icon-inside-buttons.png';
 import InactiveIconMeaningless from '../../app/assets/styles/icon-guidelines/inactive-icon-meaningless.png';
 import ConfusedHamburger from '../../app/assets/styles/icon-guidelines/confused-hamburger.png';
 import ConfusedSettings from '../../app/assets/styles/icon-guidelines/confused-settings.png';
@@ -41,11 +43,15 @@ import FilledIcon from '../../app/assets/styles/icon-guidelines/filled-icon.png'
 import OutlinedIcon from '../../app/assets/styles/icon-guidelines/outlined-icon.png';
 import IconVariation from '../../app/assets/styles/icon-guidelines/icon-variation.png';
 import IconVariation2 from '../../app/assets/styles/icon-guidelines/icon-variation-2.png';
+import IconNavItem1 from '../../app/assets/styles/icon-guidelines/icon-variation-nav-item-1.png';
+import IconNavItem2 from '../../app/assets/styles/icon-guidelines/icon-variation-nav-item-2.png';
 import ProgressIcon1 from '../../app/assets/styles/icon-guidelines/progress-icon-1.png';
 import ProgressIcon2 from '../../app/assets/styles/icon-guidelines/progress-icon-2.png';
 import DesignTemplate from '../../app/assets/styles/icon-guidelines/design-template.svg';
 import DesignTemplateOutline from '../../app/assets/styles/icon-guidelines/design-template-outline.svg';
 import DesignTemplateFinished from '../../app/assets/styles/icon-guidelines/design-template-finished.svg';
+
+import IconSketchPDF from '../../app/assets/styles/icon-guidelines/IconSketch.pdf';
 
 <!-- KEYWORDS: icon icons guideline logo -->
 
@@ -99,7 +105,7 @@ This guide talks specifically about the design of icons, which should not be con
 
 ## Text Labels and Icons
 
-Where possible, you should avoid using icons in isolation. In many situations, text labels convey the message more accurately, while icons may require a lot of guess work. Introducing new icons / meanings is like forcing your users to learn a new language. If your application is a mission-critical system, users might even be reluctant to press a button if they do not understand its meaning.
+Where possible, you should avoid using icons in isolation. In many situations, text labels convey the message more accurately, while icons may require a lot of guesswork. Introducing new icons / meanings is like forcing your users to learn a new language. If your application is a mission-critical system, users might even be reluctant to press a button if they do not understand its meaning.
 
 <MaterialDesignDescription
     title={'Icon Usability'}
@@ -150,7 +156,7 @@ Icon buttons are usually displayed at **24x24dp** to ensure that they are easily
         `In icon buttons, icons are sized at 24x24dp.`,
         `Spacing between two icon buttons is 24dp (regular) or 16dp (dense, where space is limited).`,
         `Distance between an icon and its parent container's edge is 16dp.`,
-        `The minimum touch area size of an icon button is 40x40dp. Note that this is also the "ripple size".`,
+        `The minimum touch area size of an icon button is 40x40dp, as noted by the red dashed lines. Note that this is also the "ripple size".`,
     ]}
 />
 
@@ -159,12 +165,19 @@ Icon buttons are usually displayed at **24x24dp** to ensure that they are easily
 Inactive icons are frequently used in components, either as a decorative visual aid to help guide users' attention or to clarify a situation.
 
 <ImageGrid
-    images={[InactiveIconSuccess, InactiveIconUserPref, InactiveIconVolume, InactiveIconHeroes]}
+    images={[
+        InactiveIconSuccess,
+        InactiveIconUserPref,
+        InactiveIconVolume,
+        InactiveIconInsideButtons,
+        InactiveIconHeroes,
+    ]}
     captionsUnderImages={[
         `Use decorative icons to make your interface more friendly.`,
-        `Icons help non-native speakers understand the user interface better.`,
+        `Icons increase the scanability and help non-native speakers understand the user interface better.`,
         `Icons explicitly pointing out what's "implied" by the directionality.`,
-        `Hero components showing different parameters.`,
+        `Buttons with "prefixed" icons.`,
+        `Hero components showing different parameters, where icons attract visual interests from users.`,
     ]}
 />
 
@@ -172,7 +185,7 @@ Note that not everything needs an icon to decorate it. If an icon does not help 
 
 <ImageGrid
     images={[InactiveIconMeaningless]}
-    captionsUnderImages={[`DONT: Do not use meaningless icons to distract users.`]}
+    captionsUnderImages={[`AVOID: Avoid using meaningless icons to distract users.`]}
 />
 
 ## Common Universal Icons
@@ -187,7 +200,7 @@ You should never use a universal icon in a distorted way that mismatches its ori
     images={[ConfusedHamburger, ConfusedSettings]}
     captionsUnderImages={[
         `DONT: Do not use the "hamburger" menu icon for anything else other than controlling drawer to open / close.`,
-        `DONT: "Cog" icon and "wrench" icon can both mean "configuration", but the connotation of "wrench" focuses more on the "service" or "repair" of a physical equipment. A "cog" settings icon should be used here instead.`,
+        `DONT: "Cog" icon and "wrench" icon can both mean "configuration", but the connotation of "wrench" focuses more on the "service" or "repair" of physical equipment. A "cog" settings icon should be used here instead.`,
     ]}
 />
 
@@ -201,7 +214,7 @@ Icons are meant to be simple — it is unwise to try to use icons to convey very
     images={[DeviceIcon1, DeviceIcon2]}
     captionsUnderImages={[
         `AVOID: Avoid assigning a separate icon for each device model. You are expecting users to distinguish between a highly similar set of icons and remember it for their next use.`,
-        `Use the same icon for the same type of devices`,
+        `Use icons and symbols to represent device categories when they follow industry standards.`,
     ]}
 />
 
@@ -244,6 +257,11 @@ You also have the option to use filled and outlined icons to indicate state. In 
     ]}
 />
 
+<ImageGrid
+    images={[IconNavItem1, IconNavItem2]}
+    caption={`You may also choose to use outlined icons for inactive navigation items, and filled icons for the current active one.`}
+/>
+
 ## Progress Icons
 
 Progress icons are used as a mini data visualization to display percentages over a whole. It can be the remaining device's health, battery life percentage, etc.
@@ -269,7 +287,7 @@ Brightlayer UI welcomes new suggestions to our existing icon repositories. Howev
 
 ## No "Single-Purpose Icons"
 
-If you find yourself struggling for more than 30 seconds to design an icon concept, it' probably too complicated and your users won't understand it anyway.
+If you find yourself struggling for more than 30 seconds to design an icon concept, it's probably too complicated and your users won't understand it anyway.
 
 Icons designed for a very specific purpose, such as “transfer admin rights” instead of “transfer”, tend to be so complicated that the icon no longer serves as an easy-to-recognize symbol, because it is impractical to pack so much information in a confined 24x24 space.
 
@@ -280,6 +298,8 @@ Similarly, avoid inventing an icon for a very specific device model, unless this
 Before going down the path of defining new icons, make sure to check existing icon resources. In addition to Material Design's [official icon set](https://fonts.google.com/icons?icon.set=Material+Icons) and Brightlayer UI's [icon set](/style/icon-library), you may also check out [materialdesignicons.com](https://materialdesignicons.com/), a community-driven icon repository that follows Material Design's icon guidelines.
 
 You are welcome to take design inspirations from other sources like [Font Awesome](https://fontawesome.com/) or follow regulation documents such as those from ANSI and ISO. You are also encouraged to refer to your competitors and see if they have any established conventions. However, you should follow the style guide, as explained below.
+
+> Note: just because an icon exist in an icon repository does not mean you have to use it. Before taking design inspirations, make sure that you first evaluate if an icon is appropriate in your app design.
 
 ## Follow the Style Guide
 
@@ -297,9 +317,24 @@ You **must** follow the existing Material Design style guide when creating your 
     gridImageProps={{ sm: 6, md: 4 }}
 />
 
+<MaterialDesignDescription
+    title={'Brightlayer UI Figma Component Sticker Sheet'}
+    url={`https://www.figma.com/community/file/1024360297793425107`}
+    description={`The component sticker sheet includes Material Design icons, Brightlayer UI icons, and the icon template above.`}
+    avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+/>
+<MaterialDesignDescription
+    title={'Printable icon sketch template'}
+    url={IconSketchPDF}
+    description={`Download templates, print it, and design on a paper.`}
+    avatar={<FilePdf style={{ width: 48, height: 48 }} />}
+/>
+
 ## Test the Icon
 
-You must test your new icons through user testing, either by asking testers questions (“what do you think this icon represents”) or by observing them completing a task using the icon.
+You must test your new icons through usability testing, either by asking participants questions (“what do you think this icon represents”) or by observing them completing a task using the icon. We also encourage you to test the icon next to other visually-similar icons.
+
+For icons that are meant to be used inside buttons — usually icons representing an action, you are required to test them at 16x16dp to ensure that they are still recognizable at a smaller scale.
 
 <MaterialDesignDescription
     title={'Icon Testing'}
@@ -310,7 +345,7 @@ You must test your new icons through user testing, either by asking testers ques
 
 ## Inner-source into Brightlayer UI
 
-We welcome icon suggestions. If you would like to request your icon design to be added to our icon repository or request us to design an icon for you, please [contact us](/community/contactus). The UX team will review your request and provide a recommendation within 48 hours for whether to introduce a new icon or use an existing icon instead.
+We welcome icon suggestions. If you would like to request your icon design to be added to our icon repository or request us to design an icon for you, please [contact us](/community/contactus). The UX team will review your request and provide a recommendation within 48 hours on whether to introduce a new icon or use an existing icon instead.
 
 If you are requesting us to add your icon design, please follow [the guideline for exporting SVG icons](https://github.com/brightlayer-ui/icons/blob/master/design/README.md). You shall also provide us (1) the icon author we can publicly attribute to, (2) a brief description of what the intended use is, and (3) if possible a picture of where it will live in the context of your application.
 

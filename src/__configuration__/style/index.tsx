@@ -5,7 +5,7 @@ import icons from '../../app/assets/card-images/icons.png';
 import iconGuidelines from '../../app/assets/card-images/icon-guidelines.svg';
 import typography from '../../app/assets/card-images/typography-square.png';
 
-export * from './univeralIcons';
+export * from './universalIcons';
 
 export const links = [
     {
