@@ -24,7 +24,7 @@ export const patternLinks = [
 
 export const figmaCommunityFileLinks = [
     {
-        title: 'Brightlayer UI Component Stickersheet',
+        title: 'Brightlayer UI Component Sticker Sheet',
         url: 'https://www.figma.com/community/file/1024360297793425107',
         description: 'Pre-built Material and Brightlayer UI Figma components',
         image: componentStickersheet,

@@ -2,7 +2,10 @@ import themes from '../../app/assets/card-images/themes.png';
 import palette from '../../app/assets/card-images/palette.png';
 import illustrations from '../../app/assets/card-images/illustrations.png';
 import icons from '../../app/assets/card-images/icons.png';
+import iconGuidelines from '../../app/assets/card-images/icon-guidelines.svg';
 import typography from '../../app/assets/card-images/typography-square.png';
+
+export * from './universalIcons';
 
 export const links = [
     {
@@ -13,8 +16,17 @@ export const links = [
         image: palette,
     },
     {
-        title: 'Iconography',
-        url: '/style/iconography',
+        title: 'Icon Guidelines',
+        url: '/style/icon-guidelines',
+        description: `Learn about when and how to use icons effectively.`,
+        image: iconGuidelines,
+        background: {
+            position: 'center',
+        },
+    },
+    {
+        title: 'Icon Library',
+        url: '/style/icon-library',
         description: `Browse the library of icons available in Brightlayer UI including Material icons as well as custom ones for Brightlayer UI applications.`,
         image: icons,
         background: {
