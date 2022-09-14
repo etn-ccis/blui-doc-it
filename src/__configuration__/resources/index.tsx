@@ -13,6 +13,8 @@ type ResourceBucket = Omit<Resource, 'repository'> & {
     items: Resource[];
 };
 
+export * from './ComponentCatalogLinks';
+
 export const resources: ResourceBucket[] = [
     {
         name: 'Component Libraries',

@@ -77,6 +77,10 @@
                 {
                     "title": "Testing",
                     "url": "/testing"
+                },
+                {
+                    "title": "Components",
+                    "url": "/components"
                 }
             ]
         },
