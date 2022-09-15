@@ -98,7 +98,7 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
     {
         title: 'Mobile Stepper',
         angular: `https://brightlayer-ui-components.github.io/angular/?path=/info/components-mobile-stepper--readme`,
-        react: `Offered MUI's Stepper component`,
+        react: `Offered by MUI's Stepper component`,
         reactNative: `https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--mobile-stepper`,
         image: MobileStepper,
     },
