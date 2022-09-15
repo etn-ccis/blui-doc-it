@@ -37,7 +37,7 @@ export const cardData = [
         title: 'Component APIs',
         description: `Check out our libraries of pre-built JavaScript components that accelerate your application development.`,
         image: components,
-        path: 'https://brightlayer-ui-components.github.io',
+        path: '/development/components',
     },
     {
         title: 'Development Resources',
