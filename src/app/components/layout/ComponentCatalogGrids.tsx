@@ -14,7 +14,8 @@ const useStyles = makeStyles((theme: Theme) =>
         descriptionContent: {
             display: 'flex',
             flexDirection: 'row',
-            gap: theme.spacing(2),
+            flexWrap: 'wrap',
+            gap: theme.spacing(),
         },
     })
 );
