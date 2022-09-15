@@ -1,7 +1,8 @@
 import React from 'react';
-import { createStyles, Grid, makeStyles, Theme, Tooltip, Typography } from '@material-ui/core';
+import { createStyles, Grid, makeStyles, Theme, Tooltip, Chip } from '@material-ui/core';
 import { InfoCard } from '..';
 import { componentCatalogLinks } from '../../../__configuration__/resources';
+import { Angular, ReactBlue } from '../../assets/icons';
 
 type CatalogStorybookLinkProp = {
     name: 'Angular' | 'React' | 'React Native';
@@ -10,14 +11,6 @@ type CatalogStorybookLinkProp = {
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        enabledLinks: {
-            textDecoration: 'underline',
-            color: theme.palette.text.primary,
-        },
-        disabledLinks: {
-            color: theme.palette.text.disabled,
-            textDecoration: `line-through ${theme.palette.text.disabled}`,
-        },
         descriptionContent: {
             display: 'flex',
             flexDirection: 'row',
@@ -28,17 +21,39 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const CatalogStorybookLink: React.FC<CatalogStorybookLinkProp> = (props) => {
     const { name, content } = props;
-    const classes = useStyles();
     if (content.startsWith('http')) {
         return (
-            <a href={content}>
-                <Typography className={classes.enabledLinks}>{name}</Typography>
-            </a>
+            <Chip
+                label={name}
+                avatar={
+                    name === 'Angular' ? (
+                        <Angular style={{ backgroundColor: 'transparent' }} />
+                    ) : (
+                        <ReactBlue style={{ backgroundColor: 'transparent' }} />
+                    )
+                }
+                onClick={(): void => {
+                    window.open(content, '_blank');
+                }}
+            />
         );
     }
     return (
-        <Tooltip title={content}>
-            <Typography className={classes.disabledLinks}>{name}</Typography>
+        <Tooltip title={content} placement={'top'} arrow>
+            <div>
+                <Chip
+                    disabled
+                    label={name}
+                    variant={'outlined'}
+                    avatar={
+                        name === 'Angular' ? (
+                            <Angular style={{ backgroundColor: 'transparent', filter: 'grayscale(100%)' }} />
+                        ) : (
+                            <ReactBlue style={{ backgroundColor: 'transparent', filter: 'grayscale(100%)' }} />
+                        )
+                    }
+                />
+            </div>
         </Tooltip>
     );
 };
