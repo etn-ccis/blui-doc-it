@@ -23,6 +23,7 @@ type InfoCardProps = {
     aspectRatio?: AspectRatio;
     title: string;
     description: string;
+    descriptionContent?: React.ReactNode;
     spacing: number;
     background?: {
         size?: string;
@@ -96,6 +97,7 @@ export const InfoCard: React.FC<InfoCardProps> = (props): JSX.Element => {
             <Typography variant={'body2'} style={{ color: theme.palette.text.secondary, marginTop: theme.spacing(1) }}>
                 {props.description}
             </Typography>
+            <div>{props.descriptionContent}</div>
         </div>
     );
 };
