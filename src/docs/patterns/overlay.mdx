@@ -1,17 +1,23 @@
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
+import PxblueSmallAltIcon from '@brightlayer-ui/icons-mui/PxblueSmallAlt';
+
 import Banner from '../../app/assets/design-patterns/overlays/overlay-banner.svg';
 import SimpleDialog from '../../app/assets/design-patterns/overlays/simple-dialog.png';
+import DialogText1 from '../../app/assets/design-patterns/overlays/dialog-box-1.svg';
+import DialogText2 from '../../app/assets/design-patterns/overlays/dialog-box-2.svg';
+import DialogText3 from '../../app/assets/design-patterns/overlays/dialog-box-3.svg';
+import DialogText4 from '../../app/assets/design-patterns/overlays/dialog-box-4.svg';
+import DialogText5 from '../../app/assets/design-patterns/overlays/dialog-box-5.svg';
+import DialogText6 from '../../app/assets/design-patterns/overlays/dialog-box-6.svg';
 import DialogTask from '../../app/assets/design-patterns/overlays/dialog-task.png';
 import ModalBottomSheetMobile from '../../app/assets/design-patterns/overlays/modal-bottom-sheet-mobile.png';
 import ModalBottomSheetDesktop from '../../app/assets/design-patterns/overlays/modal-bottom-sheet-desktop.png';
 import Maps from '../../app/assets/design-patterns/overlays/bottomsheet-styles.png';
 import SidePanel from '../../app/assets/design-patterns/overlays/desktop-user-details.png';
 import TrendLegend from '../../app/assets/design-patterns/overlays/desktop-trend-legend.png';
-import PxblueSmallAltIcon from '@brightlayer-ui/icons-mui/PxblueSmallAlt';
 
 import Specs1 from '../../app/assets/design-patterns/overlays/specs-dialog-1.png';
 import Specs2 from '../../app/assets/design-patterns/overlays/specs-dialog-2.png';
-
 import Specs3 from '../../app/assets/design-patterns/overlays/spec-bottomsheet-size.png';
 import Specs4 from '../../app/assets/design-patterns/overlays/spec-bottomsheet-typography.png';
 
@@ -71,25 +77,35 @@ The modal dialog appears in the center of the screen in front of the primary con
 
 Simple modals should have a title, a descriptive message, and action buttons for users to respond to the prompt or dismiss the dialog. These modals should be no larger than is necessary to contain their contents.
 
+<ImageGrid
+    images={[DialogText1, DialogText2, DialogText3, DialogText4, DialogText5, DialogText6]}
+    captionsUnderImages={[
+        'DONT: Do not arrange button so that your users are more likely to click the destructive option.',
+        'DONT: Do not leave important details in the body text / description. Put them in the dialog title instead.',
+        'DONT: “Alert!” does not match with “Yes” or “No”. You must make dialog options match the question being asked.',
+        'AVOID: Your message should be concise. Avoid using wordy languages like “are you sure you want to” or “execute delete operation”.',
+        'DO: Keep your message concise and easy to read.',
+        'DO: If possible, offer people non-destructive options.',
+    ]}
+/>
+
 Modals are also great for presenting single-screen tasks to user, such as changing a password.
 
-<React.Fragment>
-    <ImageGrid
-        regularWidth
-        images={[DialogTask]}
-        caption={[
-            'A modal dialog can present a single-screen workflow, such as changing a password.',
-            '1. On desktop, this can be presented as a modal.',
-            '2. In mobile applications, modal dialogs should be used primarily for notifications and confirmations. Single-screen tasks or workflows are better presented as separate screens or full-screen bottom sheets.',
-        ]}
-    />
-    <MaterialDesignDescription
-        title={'Forms'}
-        url={'/patterns/forms'}
-        description={`When using form content in an overlay, be sure to follow Brightlayer UI's guidelines for forms.`}
-        avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
-    />
-</React.Fragment>
+<ImageGrid
+    regularWidth
+    images={[DialogTask]}
+    caption={[
+        'A modal dialog can present a single-screen workflow, such as changing a password.',
+        '1. On desktop, this can be presented as a modal.',
+        '2. In mobile applications, modal dialogs should be used primarily for notifications and confirmations. Single-screen tasks or workflows are better presented as separate screens or full-screen bottom sheets.',
+    ]}
+/>
+<MaterialDesignDescription
+    title={'Forms'}
+    url={'/patterns/forms'}
+    description={`When using form content in an overlay, be sure to follow Brightlayer UI's guidelines for forms.`}
+    avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+/>
 
 Modal dialogs are always blocking — they must be dismissed before the user can interact with the rest of the application content, typically by clicking a dismiss / close button or by clicking elsewhere on the screen.
 
