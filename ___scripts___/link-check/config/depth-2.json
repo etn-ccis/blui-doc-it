@@ -3,7 +3,10 @@
         { "pattern": "/resources" },
         { "pattern": "/roadmap" },
         { "pattern": "/release-notes" },
-        { "pattern": "^../images" }
+        { "pattern": "^../images" },
+        {
+            "pattern": "^https://brightlayer-ui-components.github.io/"
+        }
     ],
     "replacementPatterns": [
         {
