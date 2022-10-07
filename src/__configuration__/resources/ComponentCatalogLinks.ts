@@ -14,6 +14,8 @@ import ToolbarMenu from '../../app/assets/component-catalog/toolbar-menu.png';
 import Typography from '../../app/assets/component-catalog/typography.png';
 import UserMenu from '../../app/assets/component-catalog/user-menu.png';
 
+const branchSuffix = window.location.hostname === 'brightlayer-ui.github.io' ? '' : '-dev';
+
 type ComponentCatalogType = {
     title: string;
     /**
@@ -34,15 +36,15 @@ type ComponentCatalogType = {
 export const componentCatalogLinks: ComponentCatalogType[] = [
     {
         title: 'App Bar / Header',
-        angular: `https://brightlayer-ui-components.github.io/angular/?path=/info/components-app-bar--readme`,
-        react: `https://brightlayer-ui-components.github.io/react/?path=/info/components-app-bar--get-read-me-story`,
+        angular: `https://brightlayer-ui-components.github.io/angular${branchSuffix}/components/app-bar/examples`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/app-bar/examples`,
         reactNative: `https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--header`,
         image: AppBar,
     },
     {
         title: 'Channel Value',
-        angular: `https://brightlayer-ui-components.github.io/angular/?path=/info/components-channel-value--readme`,
-        react: `https://brightlayer-ui-components.github.io/react/?path=/info/components-channel-value--get-read-me-story`,
+        angular: `https://brightlayer-ui-components.github.io/angular${branchSuffix}/components/channel-value/examples`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/channel-value/examples`,
         reactNative: `https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--channel-value`,
         image: ChannelValue,
     },
@@ -55,22 +57,22 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
     },
     {
         title: 'Drawer',
-        angular: `https://brightlayer-ui-components.github.io/angular/?path=/info/components-dropdown-toolbar--readme`,
-        react: `https://brightlayer-ui-components.github.io/react/?path=/info/components-drawer--get-read-me-story`,
+        angular: `https://brightlayer-ui-components.github.io/angular${branchSuffix}/components/drawer/examples`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/drawer/examples`,
         reactNative: `https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--drawer`,
         image: Drawer,
     },
     {
         title: 'Empty State',
-        angular: `https://brightlayer-ui-components.github.io/angular/?path=/info/components-empty-state--readme`,
-        react: `https://brightlayer-ui-components.github.io/react/?path=/info/components-empty-state--get-read-me-story`,
+        angular: `https://brightlayer-ui-components.github.io/angular${branchSuffix}/components/empty-state/examples`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/empty-state/examples`,
         reactNative: `https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--empty-state`,
         image: EmptyState,
     },
     {
         title: 'Hero',
-        angular: `https://brightlayer-ui-components.github.io/angular/?path=/info/components-hero--readme`,
-        react: `https://brightlayer-ui-components.github.io/react/?path=/info/components-hero--get-read-me-story`,
+        angular: `https://brightlayer-ui-components.github.io/angular${branchSuffix}/components/hero/examples`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/hero/examples`,
         reactNative: `https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--hero`,
         image: Hero,
     },
@@ -83,43 +85,43 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
     },
     {
         title: 'Info List Item',
-        angular: `https://brightlayer-ui-components.github.io/angular/?path=/info/components-info-list-item--readme`,
-        react: `https://brightlayer-ui-components.github.io/react/?path=/info/components-info-list-item--get-read-me-story`,
+        angular: `https://brightlayer-ui-components.github.io/angular${branchSuffix}/components/info-list-item/examples`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/info-list-item/examples`,
         reactNative: `https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--info-list-item`,
         image: InfoListItem,
     },
     {
         title: 'List Item Tag',
-        angular: `https://brightlayer-ui-components.github.io/angular/?path=/info/components-list-item-tag--readme`,
-        react: `https://brightlayer-ui-components.github.io/react/?path=/info/components-list-item-tag--get-read-me-story`,
+        angular: `https://brightlayer-ui-components.github.io/angular${branchSuffix}/components/list-item-tag/examples`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/list-item-tag/examples`,
         reactNative: `https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--list-item-tag`,
         image: ListItemTag,
     },
     {
         title: 'Mobile Stepper',
-        angular: `https://brightlayer-ui-components.github.io/angular/?path=/info/components-mobile-stepper--readme`,
+        angular: `https://brightlayer-ui-components.github.io/angular${branchSuffix}/components/mobile-stepper/examples`,
         react: `Offered by MUI's Stepper component`,
         reactNative: `https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--mobile-stepper`,
         image: MobileStepper,
     },
     {
         title: 'Scorecard',
-        angular: `https://brightlayer-ui-components.github.io/angular/?path=/info/components-score-card--readme`,
-        react: `https://brightlayer-ui-components.github.io/react/?path=/info/components-score-card--get-read-me-story`,
+        angular: `https://brightlayer-ui-components.github.io/angular${branchSuffix}/components/score-card/examples`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/score-card/examples`,
         reactNative: `https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--score-card`,
         image: Scorecard,
     },
     {
         title: 'Three Liner',
-        angular: `https://brightlayer-ui-components.github.io/angular/?path=/info/components-three-liner--readme`,
-        react: `https://brightlayer-ui-components.github.io/react/?path=/info/components-three-liner--get-read-me-story`,
+        angular: `https://brightlayer-ui-components.github.io/angular${branchSuffix}/components/three-liner/examples`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/three-liner/examples`,
         reactNative: `Not Available`,
         image: ThreeLiner,
     },
     {
         title: 'Toolbar Menu',
-        angular: `https://brightlayer-ui-components.github.io/angular/?path=/info/components-toolbar-menu--readme`,
-        react: `https://brightlayer-ui-components.github.io/react/?path=/info/components-toolbar-menu--get-read-me-story`,
+        angular: `https://brightlayer-ui-components.github.io/angular${branchSuffix}/components/toolbar-menu/examples`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/toolbar-menu/examples`,
         reactNative: `Not Available`,
         image: ToolbarMenu,
     },
@@ -132,8 +134,8 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
     },
     {
         title: 'User Menu',
-        angular: `https://brightlayer-ui-components.github.io/angular/?path=/info/components-user-menu--readme`,
-        react: `https://brightlayer-ui-components.github.io/react/?path=/info/components-user-menu--get-read-me-story`,
+        angular: `https://brightlayer-ui-components.github.io/angular${branchSuffix}/components/user-menu/examples`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/user-menu/examples`,
         reactNative: `https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--user-menu`,
         image: UserMenu,
     },
