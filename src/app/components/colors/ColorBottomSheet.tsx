@@ -71,10 +71,23 @@ export const ColorBottomSheet: React.FC = () => {
 
     useEffect(() => {
         if (selectedColor) {
-            if (selectedColor.category === 'ui') {
+            // in case the URL parameter gives a non-existent color name
+            if (
+                selectedColor.category === 'ui' &&
+                // @ts-ignore
+                Colors[selectedColor.name] &&
+                // @ts-ignore
+                Colors[selectedColor.name][selectedColor.weight]
+            ) {
                 // @ts-expect-error
                 setHex(Colors[selectedColor.name][selectedColor.weight]);
-            } else {
+            } else if (
+                selectedColor.category === 'branding' &&
+                // @ts-ignore
+                Colors[selectedColor.name] &&
+                // @ts-ignore
+                Colors[selectedColor.name][selectedColor.weight]
+            ) {
                 // @ts-expect-error
                 setHex(BrandingColors[selectedColor.name][selectedColor.weight]);
             }
