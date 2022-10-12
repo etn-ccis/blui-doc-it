@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         margin: theme.spacing(1),
         background: `url("${Transparency}")`,
     },
-    colorPatchTextWrapper: { display: 'flex', flex: 1, flexDirection: 'column' },
+    colorPatchTextWrapper: { display: 'flex', flex: 1, flexDirection: 'column', alignItems: 'flex-start' },
     colorCode: {
         fontFamily: 'roboto-mono, monospace',
     },
@@ -47,6 +47,7 @@ const ThemeColorPatch: React.FC<ThemeColorPatchType> = (props) => {
             <div className={classes.colorPatchTextWrapper}>
                 <Typography variant={'subtitle1'}>{props.name}</Typography>
                 <Typography variant={'body2'}>{props.description}</Typography>
+                {props.tag}
                 <Typography variant={'caption'} className={classes.colorCode} color={'textSecondary'}>
                     {props.code}
                 </Typography>
@@ -60,10 +61,9 @@ const ThemeColorPatch: React.FC<ThemeColorPatchType> = (props) => {
 
 export const ThemeColorPalettes: React.FC = () => {
     const classes = useStyles();
-
     const [showLightTheme, setShowLightTheme] = React.useState(true);
     return (
-        <div>
+        <div style={{ marginBottom: 48 }}>
             <ToggleButtonGroup
                 value={showLightTheme ? 'light' : 'dark'}
                 onChange={(): void => {
@@ -95,6 +95,7 @@ export const ThemeColorPalettes: React.FC = () => {
                         color={themeColor.color}
                         name={themeColor.name}
                         code={themeColor.code}
+                        tag={themeColor.tag}
                         description={themeColor.description}
                         key={index}
                     />
