@@ -282,6 +282,11 @@ export const pageDefinitions: SimpleNavItem[] = [
         component: <MarkdownPage title={'Style Guide'} markdown={Docs.Style.Home} />,
         pages: [
             {
+                title: 'Themes Overview',
+                url: '/themes',
+                component: <MarkdownPage title={'Themes Overview'} markdown={Docs.Style.Themes} />,
+            },
+            {
                 title: 'Color Palette',
                 url: '/color',
                 component: <MarkdownPage title={'Color Palette'} markdown={Docs.Style.Color} />,
@@ -307,11 +312,6 @@ export const pageDefinitions: SimpleNavItem[] = [
                 title: 'Illustrations',
                 url: '/illustrations',
                 component: <MarkdownPage title={'Illustrations'} markdown={Docs.Style.Illustrations} />,
-            },
-            {
-                title: 'Themes Overview',
-                url: '/themes',
-                component: <MarkdownPage title={'Themes Overview'} markdown={Docs.Style.Themes} />,
             },
             {
                 title: 'Typography',
