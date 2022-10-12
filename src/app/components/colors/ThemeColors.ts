@@ -162,6 +162,57 @@ export const LightThemeStatusColors: ThemeColorPatchType[] = [
 
 export const DarkThemeGrayColors: ThemeColorPatchType[] = [
     {
+        name: 'Text - Primary',
+        color: blueDark.palette.text.primary,
+        description: 'Text that should receive the most attention from users',
+        code: 'white[400]',
+    },
+    {
+        name: 'Text - Secondary',
+        color: blueDark.palette.text.secondary,
+        description: 'Secondary text (ex. second line in a list item)',
+        code: 'white[900]',
+    },
+    {
+        name: 'Disabled / Hint',
+        color: blueDark.palette.action.disabled,
+        description: 'For disabled buttons / icons or placeholder text in a text field',
+        code: 'white[400] 25%',
+    },
+    {
+        name: 'Disabled Background',
+        color: blueDark.palette.action.disabledBackground,
+        description: 'Background color of disabled & filled buttons / chips',
+        code: 'white[400] 10%',
+    },
+    {
+        name: 'Divider',
+        color: blueDark.palette.divider,
+        description: 'Line stroke splitting list items; border line around flat cards and panels',
+        code: 'white[400] 15%',
+    },
+    {
+        name: 'Action / Hover',
+        color: blueDark.palette.action.hover,
+        description: 'Highlight color when mouse cursor hovers on a button / list item',
+        code: 'white[400] 5%',
+    },
+    {
+        name: 'Background - Card',
+        color: blueDark.palette.background.paper,
+        description: 'Background color for cards, navigation drawers, dialog boxes, etc',
+        code: 'black[600]',
+    },
+    {
+        name: 'Background - Default',
+        color: blueDark.palette.background.default,
+        description: 'Main application body background',
+        code: 'black[800]',
+    },
+];
+
+export const DarkThemeStatusColors: ThemeColorPatchType[] = [
+    {
         name: 'Primary - Light',
         color: blueDark.palette.primary.light,
         description: 'Main UI accent color for textual content',
@@ -179,6 +230,85 @@ export const DarkThemeGrayColors: ThemeColorPatchType[] = [
         description: 'Active / selected state background color',
         code: 'blue[900]',
     },
+    {
+        name: 'Error - Light',
+        color: blueDark.palette.error.light,
+        code: 'red[200]',
+    },
+    {
+        name: 'Error - Main',
+        color: blueDark.palette.error.main,
+        description: 'Alarm / error status',
+        code: 'red[400]',
+    },
+    {
+        name: 'Error - Dark',
+        color: blueDark.palette.error.dark,
+        code: 'red[900]',
+    },
+    {
+        name: 'Orange - Light',
+        color: Colors.orange[200],
+        code: 'orange[200]',
+    },
+    {
+        name: 'Orange - Main',
+        color: Colors.orange[400],
+        description: 'Intermediate priority level between "Error" and "Warning" colors',
+        code: 'orange[400]',
+    },
+    {
+        name: 'Orange - Dark',
+        color: Colors.orange[900],
+        code: 'orange[900]',
+    },
+    {
+        name: 'Warning - Light',
+        color: blueDark.palette.warning.light,
+        description: 'TODO: CALL OUT A11Y CONCERNs & LINK TO A11Y PAGE',
+        code: 'yellow[200]',
+    },
+    {
+        name: 'Warning - Main',
+        color: blueDark.palette.warning.main,
+        description: 'Tripped status for electrical devices, or low-level alerts',
+        code: 'yellow[400]',
+    },
+    {
+        name: 'Warning - Dark',
+        color: blueDark.palette.warning.dark,
+        code: 'yellow[900]',
+    },
+    {
+        name: 'Success - Light',
+        color: blueDark.palette.success.light,
+        code: 'green[200]',
+    },
+    {
+        name: 'Success - Main',
+        color: blueDark.palette.success.main,
+        description: '"Safety", "good", "success", or other positive statuses',
+        code: 'green[400]',
+    },
+    {
+        name: 'Success - Dark',
+        color: blueDark.palette.success.dark,
+        code: 'green[900]',
+    },
+    {
+        name: 'Purple - Light',
+        color: Colors.purple[200],
+        code: 'purple[200]',
+    },
+    {
+        name: 'Purple - Main',
+        color: Colors.purple[400],
+        description: '"Offline" or "disarmed" statuses',
+        code: 'purple[400]',
+    },
+    {
+        name: 'Purple - Dark',
+        color: Colors.purple[900],
+        code: 'purple[900]',
+    },
 ];
-
-export const DarkThemeStatusColors: ThemeColorPatchType[] = [];
