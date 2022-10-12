@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, useTheme, Typography, makeStyles, Theme } from '@material-ui/core';
+import { Grid, Typography, makeStyles, Theme } from '@material-ui/core';
 import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
 import {
     ThemeColorPatchType,

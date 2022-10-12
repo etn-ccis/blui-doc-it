@@ -11,7 +11,7 @@ export const LightThemeGrayColors: ThemeColorPatchType[] = [
     {
         name: 'Text - Primary',
         color: blue.palette.text.primary,
-        description: 'Text that seeks the most attention from users',
+        description: 'Text that should receive the most attention from users',
         code: 'black[700]',
     },
     {
@@ -29,7 +29,7 @@ export const LightThemeGrayColors: ThemeColorPatchType[] = [
     {
         name: 'Disabled Background',
         color: 'rgba(95, 107, 113, 0.15)', // will be blue.palette.disabledBackground
-        description: 'Background color of disabled&filled buttons / chips',
+        description: 'Background color of disabled & filled buttons / chips',
         code: 'black[700] 15%',
     },
     {
@@ -46,7 +46,7 @@ export const LightThemeGrayColors: ThemeColorPatchType[] = [
         code: 'black[700] 5%',
     },
     {
-        name: 'Background - Paper',
+        name: 'Background - Card',
         color: blue.palette.background.paper,
         description: 'Background color for cards, navigation drawers, dialog boxes, etc',
         code: 'white[50]',
@@ -54,7 +54,7 @@ export const LightThemeGrayColors: ThemeColorPatchType[] = [
     {
         name: 'Background - Default',
         color: blue.palette.background.default,
-        description: 'Background color to help cards look more distinguished',
+        description: 'Main application body background',
         code: 'white[200]',
     },
 ];
@@ -62,7 +62,7 @@ export const LightThemeStatusColors: ThemeColorPatchType[] = [
     {
         name: 'Primary - Light',
         color: blue.palette.primary.light,
-        description: 'background color when foreground is "Primary - Main"',
+        description: 'Active / selected state background color',
         code: 'blue[50]',
     },
     {
@@ -74,13 +74,12 @@ export const LightThemeStatusColors: ThemeColorPatchType[] = [
     {
         name: 'Primary - Dark',
         color: blue.palette.primary.dark,
-        description: 'Only used in secondary app bars (ex. tab bar under a primary app bar)',
+        description: 'Background color of secondary app bars (ex. tab bar under a primary app bar)',
         code: 'blue[700]',
     },
     {
         name: 'Error - Light',
         color: blue.palette.error.light,
-        description: 'Background color when foreground is "Error - Main"',
         code: 'red[50]',
     },
     {
@@ -92,13 +91,11 @@ export const LightThemeStatusColors: ThemeColorPatchType[] = [
     {
         name: 'Error - Dark',
         color: blue.palette.error.dark,
-        description: 'Only used in secondary app bars',
         code: 'red[700]',
     },
     {
         name: 'Orange - Light',
         color: Colors.orange[50],
-        description: 'Background color against "Orange - Main"',
         code: 'orange[50]',
     },
     {
@@ -110,13 +107,12 @@ export const LightThemeStatusColors: ThemeColorPatchType[] = [
     {
         name: 'Orange - Dark',
         color: Colors.orange[700],
-        description: 'Only used in secondary app bars',
         code: 'orange[700]',
     },
     {
         name: 'Warning - Light',
         color: blue.palette.warning.light,
-        description: 'Background color against "Warning - Dark" (icons) or "Text - Primary" (text)',
+        description: 'TODO: CALL OUT A11Y CONCERNs & LINK TO A11Y PAGE',
         code: 'yellow[50]',
     },
     {
@@ -128,13 +124,11 @@ export const LightThemeStatusColors: ThemeColorPatchType[] = [
     {
         name: 'Warning - Dark',
         color: blue.palette.warning.dark,
-        description: 'Only used in secondary app bars',
         code: 'yellow[700]',
     },
     {
         name: 'Success - Light',
         color: blue.palette.success.light,
-        description: 'Background color against "Success - Main"',
         code: 'green[50]',
     },
     {
@@ -146,43 +140,22 @@ export const LightThemeStatusColors: ThemeColorPatchType[] = [
     {
         name: 'Success - Dark',
         color: blue.palette.success.dark,
-        description: 'Only used in secondary app bars',
         code: 'green[700]',
-    },
-    {
-        name: 'Info - Light',
-        color: blue.palette.info.light,
-        description: 'Background color against "Info - Main"',
-        code: 'lightBlue[50]',
-    },
-    {
-        name: 'Info - Main',
-        color: blue.palette.info.main,
-        description: 'Only for statuses not handled by "Primary - Main"',
-        code: 'lightBlue[500]',
-    },
-    {
-        name: 'Info - Dark',
-        color: blue.palette.info.dark,
-        description: 'Only used in secondary app bars',
-        code: 'lightBlue[700]',
     },
     {
         name: 'Purple - Light',
         color: Colors.purple[50],
-        description: 'Background color against "Purple - Main"',
         code: 'purple[50]',
     },
     {
         name: 'Purple - Main',
         color: Colors.purple[500],
-        description: '"Offline" Status',
+        description: '"Offline" or "disarmed" statuses',
         code: 'purple[500]',
     },
     {
         name: 'Purple - Dark',
         color: Colors.purple[700],
-        description: 'Only used in secondary app bars',
         code: 'purple[700]',
     },
 ];
@@ -191,20 +164,20 @@ export const DarkThemeGrayColors: ThemeColorPatchType[] = [
     {
         name: 'Primary - Light',
         color: blueDark.palette.primary.light,
-        description: 'Not actively used in dark themes',
-        code: 'blue[50]',
+        description: 'Main UI accent color for textual content',
+        code: 'blue[200]',
     },
     {
         name: 'Primary - Main',
         color: blueDark.palette.primary.main,
-        description: 'Main UI branding for non-textual content',
-        code: 'blue[200]',
+        description: 'Main UI accent color for non-textual content',
+        code: 'blue[400]',
     },
     {
         name: 'Primary - Dark',
         color: blueDark.palette.primary.dark,
-        description: 'Main UI branding color for non-textual content',
-        code: 'blue[500]',
+        description: 'Active / selected state background color',
+        code: 'blue[900]',
     },
 ];
 

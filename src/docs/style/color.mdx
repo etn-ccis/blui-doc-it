@@ -6,7 +6,7 @@ import {
     Divider,
     TOC,
 } from '../../app/components';
-import { Typography } from '@material-ui/core';
+import PxblueSmallAltIcon from '@brightlayer-ui/icons-mui/PxblueSmallAlt';
 
 <!-- KEYWORDS: design style color palette branding -->
 
@@ -23,7 +23,7 @@ Brightlayer UI offers a variety of different colors for use in your applications
 <TOC
     anchors={[
         { title: 'Introduction', hash: '#color-palette' },
-        { title: 'Theme Color Tokens' },
+        { title: 'Color Tokens' },
         { title: 'Full Color Palette' },
         { title: 'UI Colors', depth: 1 },
         { title: 'Status Colors', depth: 1 },
@@ -31,9 +31,16 @@ Brightlayer UI offers a variety of different colors for use in your applications
     ]}
 />
 
-# Theme Color Tokens
+# Color Tokens
 
-Brightlayer UI follows a tokenized color approach similar to [MUI's default theme structure](https://mui.com/material-ui/customization/palette/).
+Brightlayer UI follows a tokenized color approach similar to [MUI's default theme structure](https://mui.com/material-ui/customization/palette/). For each of our two themes, we use a different set of color tokens, as outlined below.
+
+<MaterialDesignDescription
+    title={'Theme Overview'}
+    url={`/style/themes`}
+    description={`Learn more about how theming works in Brightlayer UI`}
+    avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+/>
 
 <ThemeColorPalettes />
 
