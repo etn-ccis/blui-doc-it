@@ -1,4 +1,6 @@
+import React, { ReactNode } from 'react';
 import { blue, blueDark } from '@brightlayer-ui/react-themes';
+import { CautionAccessibility } from './CautionAccessibility';
 import * as Colors from '@brightlayer-ui/colors';
 
 export type ThemeColorPatchType = {
@@ -6,6 +8,7 @@ export type ThemeColorPatchType = {
     name: string;
     code: string;
     description?: string;
+    tag?: ReactNode;
 };
 export const LightThemeGrayColors: ThemeColorPatchType[] = [
     {
@@ -96,34 +99,39 @@ export const LightThemeStatusColors: ThemeColorPatchType[] = [
     {
         name: 'Orange - Light',
         color: Colors.orange[50],
+        tag: <CautionAccessibility />,
         code: 'orange[50]',
     },
     {
         name: 'Orange - Main',
         color: Colors.orange[500],
         description: 'Intermediate priority level between "Error" and "Warning" colors',
+        tag: <CautionAccessibility />,
         code: 'orange[500]',
     },
     {
         name: 'Orange - Dark',
         color: Colors.orange[700],
+        tag: <CautionAccessibility />,
         code: 'orange[700]',
     },
     {
         name: 'Warning - Light',
         color: blue.palette.warning.light,
-        description: 'TODO: CALL OUT A11Y CONCERNs & LINK TO A11Y PAGE',
+        tag: <CautionAccessibility />,
         code: 'yellow[50]',
     },
     {
         name: 'Warning - Main',
         color: blue.palette.warning.main,
         description: 'Tripped status for electrical devices, or low-level alerts',
+        tag: <CautionAccessibility />,
         code: 'yellow[500]',
     },
     {
         name: 'Warning - Dark',
         color: blue.palette.warning.dark,
+        tag: <CautionAccessibility />,
         code: 'yellow[700]',
     },
     {
@@ -249,34 +257,39 @@ export const DarkThemeStatusColors: ThemeColorPatchType[] = [
     {
         name: 'Orange - Light',
         color: Colors.orange[200],
+        tag: <CautionAccessibility />,
         code: 'orange[200]',
     },
     {
         name: 'Orange - Main',
         color: Colors.orange[400],
         description: 'Intermediate priority level between "Error" and "Warning" colors',
+        tag: <CautionAccessibility />,
         code: 'orange[400]',
     },
     {
         name: 'Orange - Dark',
         color: Colors.orange[900],
+        tag: <CautionAccessibility />,
         code: 'orange[900]',
     },
     {
         name: 'Warning - Light',
         color: blueDark.palette.warning.light,
-        description: 'TODO: CALL OUT A11Y CONCERNs & LINK TO A11Y PAGE',
+        tag: <CautionAccessibility />,
         code: 'yellow[200]',
     },
     {
         name: 'Warning - Main',
         color: blueDark.palette.warning.main,
         description: 'Tripped status for electrical devices, or low-level alerts',
+        tag: <CautionAccessibility />,
         code: 'yellow[400]',
     },
     {
         name: 'Warning - Dark',
         color: blueDark.palette.warning.dark,
+        tag: <CautionAccessibility />,
         code: 'yellow[900]',
     },
     {

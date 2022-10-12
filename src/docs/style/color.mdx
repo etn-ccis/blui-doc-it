@@ -43,6 +43,9 @@ Brightlayer UI follows a tokenized color approach similar to [MUI's default them
 
 <ThemeColorPalettes />
 
+> **Caution**: Orange and warning colors have some additional accessibility restrictions. Read about it in our
+> [accessibility guide](/design/accessibility).
+
 <Divider />
 
 # Full Color Palette
@@ -75,25 +78,19 @@ Status colors should be used to reinforce a status or state throughout an interf
 
 ### Red
 
-Red is used to denote Alarms and Errors. Avoid using it for any other purpose.
+Red is used to denote alarms and errors. Avoid using it for any other purpose.
 
 <ColorPalette name={'red'} category={'ui'} />
 
 ### Orange
 
-Orange is used to denote warnings, loss of communication, and other types of alerts. Avoid using it for any states that do not require attention.
+Orange is used to denote an event with intermediate priority level between "error" and "warning" colors. Avoid using it for any states that do not require attention.
 
 <ColorPalette name={'orange'} category={'ui'} />
 
-### Gold
-
-Gold can be used to give additional variety to your alerts in combination with Red and Orange.
-
-<ColorPalette name={'gold'} category={'ui'} />
-
 ### Yellow
 
-Yellow can be used to indicate tripped status for electrical devices, or low-level alerts.
+Yellow can be used to denote low-level warnings or tripped status for electrical devices.
 
 <ColorPalette name={'yellow'} category={'ui'} />
 
@@ -105,13 +102,13 @@ Green can be used to indicate "safety", "good", "success", or other positive sta
 
 ### Light Blue
 
-Light Blue should not be confused with the UI Blue. This can be used to indicate a variety of statuses, including Maintenance Mode, device disabled, etc.
+Light Blue should not be confused with the UI Blue. This can be used to indicate a variety of statuses such as maintenance ,ode.
 
 <ColorPalette name={'lightBlue'} category={'ui'} />
 
 ### Purple
 
-Purple is used to denote a device is disarmed. Avoid using it for any states that do not require attention.
+Purple is used to denote a device is disarmed or offline. Avoid using it for any states that do not require attention.
 
 <ColorPalette name={'purple'} category={'ui'} />
 <Divider />
