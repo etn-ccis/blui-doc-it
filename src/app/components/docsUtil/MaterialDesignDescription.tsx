@@ -13,10 +13,11 @@ import {
     useTheme,
     CardActionAreaProps,
 } from '@material-ui/core';
+import PxblueSmallAltIcon from '@brightlayer-ui/icons-mui/PxblueSmallAlt';
 
 type MaterialDesignDescriptionProps = {
     // The icon used on the left
-    avatar?: JSX.Element;
+    avatar?: JSX.Element | 'blui';
 
     // Secondary description text
     description?: string;
@@ -93,7 +94,7 @@ export const MaterialDesignDescription: React.FC<MaterialDesignDescriptionProps>
                 {...props.CardActionAreaProps}
             >
                 <div className={classes.contentArea} style={{ minHeight: minCardHeight || CTA_BUTTON.HEIGHT }}>
-                    {avatar}
+                    {avatar === 'blui' ? <PxblueSmallAltIcon style={{ width: 48, height: 48 }} /> : avatar}
                     <div className={classes.textArea}>
                         <Typography variant={'body2'} className={classes.title}>
                             {title}

@@ -9,6 +9,16 @@ export * from './universalIcons';
 
 export const links = [
     {
+        title: 'Themes',
+        url: '/style/themes',
+        description:
+            'Learn more about Brightlayer UI themes and how they can help you build applications that adhere to our design guidelines.',
+        image: themes,
+        background: {
+            position: 'center',
+        },
+    },
+    {
         title: 'Color Palette',
         url: '/style/color',
         description:
@@ -48,16 +58,6 @@ export const links = [
         description:
             'Learn more about the Brightlayer UI type system and how to build an effective type hierarchy in your applications.',
         image: typography,
-        background: {
-            position: 'center',
-        },
-    },
-    {
-        title: 'Themes',
-        url: '/style/themes',
-        description:
-            'Learn more about Brightlayer UI themes and how they can help you build applications that adhere to our design guidelines.',
-        image: themes,
         background: {
             position: 'center',
         },

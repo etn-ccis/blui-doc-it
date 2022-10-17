@@ -1,17 +1,17 @@
 import {
     ColorPalette,
-    HeadlineWithToggle,
+    ThemeColorPalettes,
     MaterialDesignDescription,
     ColorBottomSheet,
     Divider,
+    TOC,
 } from '../../app/components';
-import { Typography } from '@material-ui/core';
 
 <!-- KEYWORDS: design style color palette branding -->
 
-<HeadlineWithToggle />
+# Color Palette
 
-Brightlayer UI offers a variety of different colors for use in your applications. Our color palettes utilize a weighted approach to give designers and developers a versatile set of colors for solving common color-related issues (e.g., [accessibility](/design/accessibility)).
+Brightlayer UI offers a variety of different colors for use in your applications.
 
 <MaterialDesignDescription
     title={'The Color System'}
@@ -19,13 +19,42 @@ Brightlayer UI offers a variety of different colors for use in your applications
     description={`Material's color principles. You should adhere to Brightlayer UI's color theme unless you are creating your own components.`}
 />
 
-Our color sets are divided into sections as outlined below. User Interface and Status colors are available in a single package ([@brightlayer-ui/colors](https://www.npmjs.com/package/@brightlayer-ui/colors)). Branding (Charts and Graphs) colors are available as an additional package ([@brightlayer-ui/colors-branding](https://www.npmjs.com/package/@brightlayer-ui/colors-branding)).
+<TOC
+    anchors={[
+        { title: 'Introduction', hash: '#color-palette' },
+        { title: 'Color Tokens' },
+        { title: 'Full Color Palette' },
+        { title: 'UI Colors', depth: 1 },
+        { title: 'Status Colors', depth: 1 },
+        { title: 'Branding Colors', depth: 1 },
+    ]}
+/>
+
+# Color Tokens
+
+Brightlayer UI follows a tokenized color approach similar to [MUI's default theme structure](https://mui.com/material-ui/customization/palette/). For each of our two themes, we use a different set of color tokens, as outlined below.
+
+<MaterialDesignDescription
+    title={'Theme Overview'}
+    url={`/style/themes`}
+    description={`Learn more about how theming works in Brightlayer UI`}
+    avatar={'blui'}
+/>
+
+<ThemeColorPalettes />
+
+> **Caution**: Orange and warning colors have some additional accessibility restrictions. Read about it in our
+> [accessibility guide](/design/accessibility).
 
 <Divider />
 
-# User Interface Colors
+# Full Color Palette
 
-User Interface colors are designed to be the main colors used in the application. Use them in elements such as app bars, toolbars, page backgrounds, buttons, text, etc. These colors may also be used in branding or marketing of products and services.
+The full color palette are divided into three sections: UI colors, status colors and branding colors. All colors are available through Figma Component Sticker Sheet for designers, and NPM packages for developers. UI and status colors are available in a single package ([@brightlayer-ui/colors](https://www.npmjs.com/package/@brightlayer-ui/colors)). Branding colors are available as an additional package ([@brightlayer-ui/colors-branding](https://www.npmjs.com/package/@brightlayer-ui/colors-branding)).
+
+## UI Colors
+
+UI colors are designed to be the main colors used in the application.
 
 ### Blue
 
@@ -35,48 +64,33 @@ User Interface colors are designed to be the main colors used in the application
 
 <ColorPalette name={'white'} category={'ui'} />
 
-### Gray
-
-<ColorPalette name={'gray'} category={'ui'} />
-
 ### Black
-
-Avoid the use of pure black (**#000000**) in a UI, except in instances where you have a Dark Mode display on an OLED screen.
 
 <ColorPalette name={'black'} category={'ui'} />
 
-### Dark Black
-
-These colors are only for [dark themes](/style/themes#dark-theme--blue-dark-theme).
-
-<ColorPalette name={'darkBlack'} category={'ui'} />
 <Divider />
 
-# Status Colors
+## Status Colors
 
-Status colors have a special meaning in the context of Brightlayer UI applications. They are used to communicate information such as Alarms, Warnings, Successes, Running or Energized status, etc. These colors should **_never_** be used purely as marketing colors and **_never_** used without a clear purpose. Status colors should be used to reinforce a status or state throughout an interface. For example, an alarm row in a list may use a red colored bell icon, paired with red text and a red border stripe. When navigating to details for that alarm, the app bar may be colored red. This will solidify the association that red = alarm = bell and make it easier for a user to find alarms at a glance in an application.
+Status colors have a special meaning in the context of Brightlayer UI applications. They are used to communicate information such as Alarms, Warnings, Successes, Running or Energized status, etc. These colors should **_never_** be used purely as marketing colors and **_never_** used without a clear purpose.
+
+Status colors should be used to reinforce a status or state throughout an interface. For example, an alarm row in a list may use a red colored bell icon, paired with red text and a red border stripe. When navigating to details for that alarm, the app bar may be colored red. This will solidify the association that red = alarm = bell and make it easier for a user to find alarms at a glance in an application.
 
 ### Red
 
-Red is used to denote Alarms and Errors. Avoid using it for any other purpose.
+Red is used to denote alarms and errors. Avoid using it for any other purpose.
 
 <ColorPalette name={'red'} category={'ui'} />
 
 ### Orange
 
-Orange is used to denote warnings, loss of communication, and other types of alerts. Avoid using it for any states that do not require attention.
+Orange is used to denote an event with intermediate priority level between "error" and "warning" colors. Avoid using it for any states that do not require attention.
 
 <ColorPalette name={'orange'} category={'ui'} />
 
-### Gold
-
-Gold can be used to give additional variety to your alerts in combination with Red and Orange.
-
-<ColorPalette name={'gold'} category={'ui'} />
-
 ### Yellow
 
-Yellow can be used to indicate tripped status for electrical devices, or low-level alerts.
+Yellow can be used to denote low-level warnings or tripped status for electrical devices.
 
 <ColorPalette name={'yellow'} category={'ui'} />
 
@@ -88,20 +102,20 @@ Green can be used to indicate "safety", "good", "success", or other positive sta
 
 ### Light Blue
 
-Light Blue should not be confused with the UI Blue. This can be used to indicate a variety of statuses, including Maintenance Mode, device disabled, etc.
+Light Blue should not be confused with the UI Blue. This can be used to indicate a variety of statuses such as maintenance ,ode.
 
 <ColorPalette name={'lightBlue'} category={'ui'} />
 
 ### Purple
 
-Purple is used to denote a device is disarmed. Avoid using it for any states that do not require attention.
+Purple is used to denote a device is disarmed or offline. Avoid using it for any states that do not require attention.
 
 <ColorPalette name={'purple'} category={'ui'} />
 <Divider />
 
-# Branding Colors
+## Branding Colors
 
-This expanded version of the color palette contains colors to be used for marketing, product identity, [data visualization](/patterns/visualizations) (non-status), etc. Brightlayer UI uses these colors as the palette for charting and graphing.
+This expanded version of the color palette contains colors to be used for marketing, product identity, [data visualization](/patterns/visualizations), etc. Brightlayer UI uses these colors exclusively as the palette for charting and graphing.
 
 ### Blue
 

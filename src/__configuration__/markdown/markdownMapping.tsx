@@ -26,31 +26,34 @@ const useStyles = makeStyles((theme: Theme) =>
                 bottom: theme.spacing(12),
             },
         },
+        links: {
+            fontWeight: 400,
+            textDecorationColor: color(
+                theme.palette.type === 'light' ? theme.palette.primary.main : theme.palette.primary.dark
+            )
+                .fade(0.5)
+                .toString(),
+            color: theme.palette.primary.main,
+        },
     })
 );
 
 export const ExternalLink = (tProps: TypographyProps<'a'>): JSX.Element => {
-    const theme = useTheme();
+    const classes = useStyles();
     return (
         <Typography
             component={'a'}
             target={'_blank'}
             rel={'noopener noreferrer'}
-            style={{ fontWeight: 400, textDecoration: 'none', color: theme.palette.primary.main }}
+            className={classes.links}
             {...tProps}
         />
     );
 };
 
 export const InternalLink = (props: LinkProps): JSX.Element => {
-    const theme = useTheme();
-    return (
-        <Link
-            rel={'noopener noreferrer'}
-            style={{ fontWeight: 400, textDecoration: 'none', color: theme.palette.primary.main }}
-            {...props}
-        />
-    );
+    const classes = useStyles();
+    return <Link rel={'noopener noreferrer'} className={classes.links} {...props} />;
 };
 
 type Headline = HTMLAttributes<HTMLDivElement> & {
