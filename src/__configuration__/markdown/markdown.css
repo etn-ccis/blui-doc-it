@@ -1,7 +1,7 @@
 .markdownH1:first-child {
     margin-top: 32px;
 }
-.markdownH1:first-child .MuiSvgIcon-root {
+.markdownH1:first-child .MuiIconButton-root {
     display: none;
 }
 .markdownH1:not(:first-child) {

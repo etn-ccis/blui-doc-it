@@ -136,6 +136,17 @@ export const pageDefinitions: SimpleNavItem[] = [
                 ],
             },
             {
+                title: 'Components',
+                url: '/components',
+                component: (
+                    <MarkdownPage
+                        title={'Brightlayer UI Components'}
+                        markdown={Docs.Development.Components}
+                        wideLayout
+                    />
+                ),
+            },
+            {
                 title: 'Testing',
                 url: '/testing',
                 component: <MarkdownPage title={'Testing'} markdown={Docs.Development.Testing} />,

@@ -5,3 +5,4 @@ export * from './PageContent';
 export * from './RegularWidth';
 export * from './Section';
 export * from './LinkGrid';
+export * from './ComponentCatalogGrids';
