@@ -29,9 +29,8 @@ echo "Checking Design Pattern Links... "
 find src/docs/patterns -maxdepth 1 -name \*.mdx -exec markdown-link-check {} -q -v -c ./___scripts___/link-check/config/depth-1.json \;
 
 # Release Notes Links
-# We are not supposed to "rewrite the history". Keep the links around even if they are no longer valid.
-# echo "Checking Release Notes Links... "
-# find src/docs/release-notes -maxdepth 2 -name \*.mdx -exec markdown-link-check {} -q -v -c ./___scripts___/link-check/config/depth-2.json \;
+echo "Checking Release Notes Links... "
+find src/docs/release-notes -maxdepth 2 -name \*.mdx -exec markdown-link-check {} -q -v -c ./___scripts___/link-check/config/depth-2.json \;
 
 # Style Links
 echo "Checking Style Links... "
