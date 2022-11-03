@@ -7,7 +7,7 @@ import { Schedule } from './_types';
 
 export const ChristmasSchedule: Schedule = {
     start: new Date(0, 11, 23), // Dec 23
-    end: new Date(0, 11, 28), // Dec 28
+    end: new Date(0, 11, 26), // Dec 26
     config: {
         theme: {
             ...BLUIThemes.blue,
