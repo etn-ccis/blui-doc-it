@@ -7,8 +7,8 @@ import AppBarTile from '../../app/assets/themes/hanukkah/hanukkah-appbar-tile.pn
 import { Schedule } from './_types';
 
 export const HanukkahSchedule: Schedule = {
-    start: new Date(0, 10, 28), // Nov 28
-    end: new Date(0, 11, 7), // Dec 6
+    start: new Date(0, 11, 18), // Dec 18
+    end: new Date(0, 11, 23), // Dec 23
     config: {
         theme: {
             ...BLUIThemes.blue,
