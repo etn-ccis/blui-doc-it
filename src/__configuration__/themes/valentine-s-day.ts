@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import * as BLUIThemes from '@brightlayer-ui/react-themes';
 import Left from '../../app/assets/themes/valentine-s-day/left.svg';
 import Right from '../../app/assets/themes/valentine-s-day/right.svg';
@@ -11,7 +9,7 @@ import { Schedule } from './_types';
 
 export const ValentineSchedule: Schedule = {
     start: new Date(0, 1, 12), // Feb 12
-    end: new Date(1, 1, 15), // Feb 14
+    end: new Date(0, 1, 15), // Feb 14
     config: {
         theme: {
             ...BLUIThemes.blue,
