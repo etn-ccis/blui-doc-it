@@ -80,7 +80,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
     usePageTitle('');
     useGoogleAnalyticsPageView();
 
-    if (isMobile) {
+    if (isMobile && themeConfig.landingPageBannerMobile) {
         landingPageBanner = themeConfig.landingPageBannerMobile;
     }
 

@@ -4,6 +4,8 @@ import Right from '../../app/assets/themes/valentine-s-day/right.svg';
 import HelperText from '../../app/assets/themes/valentine-s-day/helper-text.svg';
 import Together from '../../app/assets/themes/valentine-s-day/together.svg';
 import AppbarTile from '../../app/assets/themes/valentine-s-day/appbar-tile.svg';
+import Cursor from '../../app/assets/themes/valentine-s-day/cursor.svg';
+import Cursor2 from '../../app/assets/themes/valentine-s-day/cursor-2.svg';
 import * as Colors from '@brightlayer-ui/colors';
 import { Schedule } from './_types';
 
@@ -46,11 +48,13 @@ export const ValentineSchedule: Schedule = {
         landingPageBanner: {
             background: `no-repeat 0 center url("${Left}"), no-repeat 100% center url("${Right}"), no-repeat center 100% url("${HelperText}"), #000`,
             color: 'white',
+            cursor: `url("${Cursor2}"), auto`,
         },
         landingPageBannerMobile: {
             background: `no-repeat center url("${Together}")`,
             backgroundSize: 'cover',
             color: 'black',
+            cursor: `url("${Cursor}"), auto`,
         },
         logoColor: `#EF5482`,
         appBarBackground: {
