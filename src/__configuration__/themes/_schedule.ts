@@ -20,7 +20,7 @@ import { AprilFoolsDaySchedule } from './april-fools-day';
  * Add more holiday themes here.
  *
  * Current schedules:
- * * Feb 1 - Feb 7 2022: Spring Festival (changes each year)  ** Jan 21 - Jan 27 2023 | Feb 9 - Feb 15 2024 **
+ * * Jan 21 - Jan 27 2023: Spring Festival (changes each year)  ** Feb 9 - Feb 15 2024 **
  * * Mar 7 - Mar 9: Women's Day
  * * Mar 16 - Mar 18: St. Patrick's Day
  * * Apr 1: April Fool's Day
