@@ -29,10 +29,10 @@ import { AprilFoolsDaySchedule } from './april-fools-day';
  * * July 2 - July 7: Independence Day
  * * Sept 20 - Sept 27: Mid Autumn Festival (changes each year)
  * * Oct 25 - Nov 1: Halloween
- * * Nov 2 - Nov 6 2021: Diwali (changes each year)  ** Oct 22 - Oct 26 2022 | November 10 - November 14 2023 **
- * * Nov 21 - Nov 27: Thanksgiving (changes each year)  ** Nov 24 2022 | Nov 23 2023 **
- * * Nov 28 - Dec 6: Hanukkah (changes each year)  ** Dec 18 - Dec 26 2022 | Dec 7 - Dec 15 2023 **
- * * Dec 18 - Dec 25: Christmas
+ * * Nov 2 - Nov 6 2021: Diwali (changes each year)  ** November 10 - November 14 2023 **
+ * * Nov 21 - Nov 27: Thanksgiving (changes each year)  ** Nov 23 2023 **
+ * * Dec 18 - Dec 23: Hanukkah (changes each year)  ** Dec 7 - Dec 15 2023 **
+ * * Dec 23 - Dec 26: Christmas
  * * Dec 26 - Dec 30: Kwanzaa (Kwanzaa runs until Jan 1. Cutting this short to account for New Years.)
  * * Dec 31 - Jan 6: New Years
  */
