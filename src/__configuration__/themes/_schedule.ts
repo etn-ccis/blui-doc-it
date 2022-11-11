@@ -15,12 +15,14 @@ import { EarthDaySchedule } from './earth-day';
 import { IndependenceDaySchedule } from './independence-day';
 import { MidAutumnSchedule } from './mid-autumn-festival';
 import { AprilFoolsDaySchedule } from './april-fools-day';
+import { ValentineSchedule } from './valentine-s-day';
 
 /**
  * Add more holiday themes here.
  *
  * Current schedules:
- * * Jan 21 - Jan 27 2023: Spring Festival (changes each year)  ** Feb 9 - Feb 15 2024 **
+ * * Feb 1 - Feb 7 2022: Spring Festival (changes each year)  ** Jan 21 - Jan 27 2023 | Feb 9 - Feb 15 2024 **
+ * * Feb 12 - Feb 14: Valentine's Day
  * * Mar 7 - Mar 9: Women's Day
  * * Mar 16 - Mar 18: St. Patrick's Day
  * * Apr 1: April Fool's Day
@@ -52,6 +54,7 @@ export const schedule: Schedule[] = [
     EarthDaySchedule,
     IndependenceDaySchedule,
     MidAutumnSchedule,
+    ValentineSchedule,
 ];
 
 /**
