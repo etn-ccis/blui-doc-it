@@ -9,6 +9,7 @@ import {
     useTheme,
     createStyles,
     makeStyles,
+    useMediaQuery,
 } from '@material-ui/core';
 import {
     InfoCard,
@@ -71,12 +72,17 @@ export const LandingPage: React.FC = (): JSX.Element => {
     const theme = useTheme();
     const classes = useStyles();
     const themeConfig = getScheduledSiteConfig();
-    const landingPageBanner = themeConfig.landingPageBanner;
+    let landingPageBanner = themeConfig.landingPageBanner;
     const logoColor = themeConfig.logoColor;
     const tagline = themeConfig.landingPageTagline;
     const customBannerText = themeConfig.customBannerText;
+    const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
     usePageTitle('');
     useGoogleAnalyticsPageView();
+
+    if (isMobile && themeConfig.landingPageBannerMobile) {
+        landingPageBanner = themeConfig.landingPageBannerMobile;
+    }
 
     return (
         <>
