@@ -200,6 +200,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'App Bars'} markdown={Docs.Patterns.AppBar} />,
             },
             {
+                title: 'Buttons',
+                url: '/buttons',
+                component: <MarkdownPage title={'Buttons'} markdown={Docs.Patterns.Buttons} />,
+            },
+            {
                 title: 'Empty States',
                 url: '/empty-states',
                 component: <MarkdownPage title={'Empty States'} markdown={Docs.Patterns.EmptyStates} />,
