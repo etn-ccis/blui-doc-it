@@ -1,5 +1,6 @@
 import AccountDetailsBanner from '../../app/assets/design-patterns/account-menu/account-menu-banner.png';
 import AppBarsImg from '../../app/assets/design-patterns/app-bar/appbar-banner.png';
+import ButtonsImg from '../../app/assets/design-patterns/buttons/banner.svg';
 import EmptyStatesImg from '../../app/assets/design-patterns/empty-states/empty-state-banner.svg';
 import FormValidationImg from '../../app/assets/design-patterns/form-validation/form-validation.svg';
 import InternationalizationImg from '../../app/assets/design-patterns/internationalization/internationalization.svg';
@@ -28,6 +29,15 @@ export const patterns = [
         url: '/patterns/appbar',
         description: 'Common interactions in the header of an application.',
         image: AppBarsImg,
+    },
+    {
+        title: 'Buttons',
+        url: '/patterns/buttons',
+        description: 'One of the primary ways for users to take actions.',
+        image: ButtonsImg,
+        background: {
+            position: 'center',
+        },
     },
     {
         title: 'Empty States',

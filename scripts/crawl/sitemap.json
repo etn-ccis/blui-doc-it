@@ -124,6 +124,10 @@
                     "url": "/appbar"
                 },
                 {
+                    "title": "Buttons",
+                    "url": "/buttons"
+                },
+                {
                     "title": "Empty States",
                     "url": "/empty-states"
                 },

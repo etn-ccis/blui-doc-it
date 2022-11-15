@@ -1,4 +1,5 @@
 import AppBar from './appbar.mdx';
+import Buttons from './buttons.mdx';
 import EmptyStates from './empty-states.mdx';
 import Forms from './forms.mdx';
 import I18N from './internationalization.mdx';
@@ -16,6 +17,7 @@ import Tables from './tables.mdx';
 
 export {
     AppBar,
+    Buttons,
     EmptyStates,
     Forms,
     Home,
