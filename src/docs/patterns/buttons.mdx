@@ -16,6 +16,8 @@ import EmphasisUnnoticed2 from '../../app/assets/design-patterns/buttons/emphasi
 import IconPrefix from '../../app/assets/design-patterns/buttons/icon-prefix.png';
 import IconSuffix from '../../app/assets/design-patterns/buttons/icon-suffix.png';
 import IconDual from '../../app/assets/design-patterns/buttons/icon-dual.png';
+import IconButtonMicroInteraction from '../../app/assets/styles/icon-guidelines/icon-button-micro-interaction.svg';
+import IconButtonList from '../../app/assets/styles/icon-guidelines/icon-button-list.png';
 import FABMobile1 from '../../app/assets/design-patterns/buttons/fab-mobile-1.png';
 import FABMobile2 from '../../app/assets/design-patterns/buttons/fab-mobile-2.png';
 import FABDesktop from '../../app/assets/design-patterns/buttons/fab-desktop.png';
@@ -81,7 +83,7 @@ Buttons are one of the primary ways for users to take action.
         { title: 'Short Labels', depth: 1 },
         { title: 'Disabled Buttons', depth: 1 },
         { title: 'Dropdown', depth: 1 },
-        { title: 'Additional Actions', depth: 1 },
+        { title: 'Alternative Actions', depth: 1 },
         { title: 'Responsive' },
         { title: 'Design Specs' },
         { title: 'Developers' },
@@ -91,7 +93,7 @@ Buttons are one of the primary ways for users to take action.
 
 # Variations
 
-The appearance of a button depends on available space, the attention required from the user, and button actions.
+The appearance of a button depends on available space, the attention required from the user, and what action it triggers.
 
 ## Styles
 
@@ -109,7 +111,7 @@ Brightlayer UI supports five different button styles.
     gridImageProps={{ sm: 6, md: 4 }}
 />
 
-You should arrange your buttons so that users’ attention can be guided to encouraged or frequently used actions.
+You should arrange your buttons to guide users attention to encouraged or frequently used actions.
 
 <ImageGrid
     images={[
@@ -123,8 +125,8 @@ You should arrange your buttons so that users’ attention can be guided to enco
     captionsUnderImages={[
         'AVOID: Avoid using a high emphasis on all user actions.',
         'DO: Assign emphasis to only the most heavily used user actions.',
-        `DONT: Do not introduce unnecessary elevations, as exemplified by the shadow under buttons. These elevated buttons appear too prominently.`,
-        `DO: Use buttons styles to appropriately guide user's attention.`,
+        `DONT: Do not overuse elevation, as exemplified by the shadow under buttons. These elevated buttons appear too prominently.`,
+        `DO: Use buttons styles to appropriately guide users' attention.`,
         `DONT: Do not place a “text-only” button right next to a "filled" or an "elevated" button, as the text-only button can be neglected by users in a hurry.`,
         `DO: Use outlined buttons next to filled buttons.`,
     ]}
@@ -132,7 +134,7 @@ You should arrange your buttons so that users’ attention can be guided to enco
 
 ## Icons
 
-Buttons are often combined with icons to help manage users’ attention, especially if the user is not a native speaker.
+Buttons are often combined with icons to draw users’ attention. Icons also help reinforce the button actions, especially in multilingual applications.
 
 <ImageGrid
     images={[IconPrefix, IconSuffix]}
@@ -150,9 +152,17 @@ When there is not enough room to place a regular button, consider using an icon 
     avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
 />
 
+<ImageGrid
+    images={[IconButtonMicroInteraction, IconButtonList]}
+    captionsUnderImages={[
+        `An icon button is an interactive icon.`,
+        `Icon buttons can be used in lists when space is limited.`,
+    ]}
+/>
+
 ## Floating Action Buttons (FABs)
 
-Floating action buttons, commonly known as “FAB”, are occasionally used on mobile apps. They perform the primary, or most common, action on a screen. FABs are usually pinned to the bottom right corner of the screen so that users have constant access to these buttons no matter how far they have scrolled down the screen.
+Floating action buttons, commonly known as “FAB”, are occasionally used on mobile apps. They perform the primary or most common action on a screen. FABs are usually pinned to the bottom right corner of the screen so that users have constant access to these buttons no matter how far they have scrolled down the screen.
 
 <ImageGrid
     images={[FABMobile1, FABMobile2]}
@@ -174,13 +184,13 @@ Be careful when using FABs, as they can be visually disconnected from the user's
 
 ## Colors
 
-For actions that require special attention, such as halting and deleting, consider coloring the button to alert the user.
+By default, buttons should use the primary theme color. Consider coloring buttons with destructive actions in red to alert the user.
 
 <ImageGrid images={[RedButton]} captionsUnderImages={[`DO: Use red colors in buttons for destructive actions.`]} />
 
 ## Shapes
 
-The default shape of a Brightlayer UI application is square with rounded corners of radius 4dp. Alternatively, consumer-facing applications may also consider using round / pill-shaped buttons consistently throughout the entire product.
+The default shape of a Brightlayer UI button is a rectangle with rounded corners of radius 4dp. Alternatively, consumer-facing applications may also consider using round / pill-shaped buttons consistently throughout the entire product.
 
 <MaterialDesignDescription
     title={'Project Identity § Component Variants'}
@@ -199,7 +209,7 @@ The default shape of a Brightlayer UI application is square with rounded corners
 
 ## Toggle Button Groups
 
-Functionally related buttons may be grouped together. These buttons share a common container and behave like tab navigations and radio buttons where only one button is active at a time.
+Functionally-related buttons may be grouped together. These buttons share a common container and behave like tab navigations and radio buttons where only one button is active at a time.
 
 <ImageGrid
     images={[ToggleText, ToggleIcon]}
@@ -219,7 +229,7 @@ Buttons are often used within other components.
     images={[InsideEmptyState, InsideCard, InsideBanner, InsideSnackbar]}
     captionsUnderImages={[
         `A button inside an empty state encourages users to take action to make the screen less “empty.”`,
-        `Button on a dashboard.`,
+        `Buttons on a dashboard.`,
         `Two buttons inside a banner.`,
         `A button inside a snackbar for quick actions.`,
     ]}
@@ -227,7 +237,14 @@ Buttons are often used within other components.
 
 ## Placement
 
-People generally read from left to right and from top to bottom. You should place buttons in the order you want them to be read.
+You should place buttons in the order you want them to be read. Most languages are read from left to right and from top to bottom.
+
+<MaterialDesignDescription
+    title={'Internationalization § Bidirectionality / Right-to-Left (RTL) Support'}
+    url={'/patterns/internationalization#bidirectionality--right-to-left-(rtl)-support'}
+    description={`Learn about how to support languages read from left to right.`}
+    avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+/>
 
 <ImageGrid
     regularWidth
@@ -270,13 +287,13 @@ How you choose between Title Case and Sentence case depends on [your app's forma
 
 ## Short Labels
 
-Button text should be succinct enough and convey the correct message at the same time.
+Button text should be as succinct as possible to convey the correct message.
 
 <ImageGrid
     images={[ShortLabel1, ShortLabel2]}
     captionsUnderImages={[
-        `AVOID: avoid using long button labels when a shorter version is possible.`,
-        `DO: Use succinct button label.`,
+        `AVOID: Avoid using long button labels when a shorter version is possible.`,
+        `DO: Use succinct button labels.`,
     ]}
 />
 
@@ -310,9 +327,9 @@ Buttons may trigger dropdown menus. These buttons should always be suffixed by d
     gridImageProps={{ sm: 6, md: 4 }}
 />
 
-## Additional Actions
+## Alternative Actions
 
-When possible, consider offering options that take users to a frequent next step or as an alternative to the primary action.
+When possible, consider offering alternative actions. These could be frequent next steps or alternatives to destructive actions.
 
 <ImageGrid
     images={[AdditionalReport, AdditionalOption]}
@@ -324,17 +341,17 @@ When possible, consider offering options that take users to a frequent next step
 
 # Responsive
 
-There are some special considerations when designing for smaller-sized screens. For example, when buttons or [steppers](/patterns/steppers) are pinned to the bottom of the screen, the phone’s keyboard, when evoked, should push them up.
+There are some special considerations when designing for smaller-sized screens. For example, when buttons or [steppers](/patterns/steppers) are pinned to the bottom of the screen, the phone’s keyboard, when invoked, should push them up.
 
 <ImageGrid images={[ResponsiveFooterPushedUp]} captionsUnderImages={[`Mobile phone’s keyboard pushes buttons up.`]} />
 
-The button stack should stay above iPhone’s bottom slider.
+Buttons should stay within a device's safe area.
 
 <ImageGrid
     images={[ResponsiveBottomSlider1, ResponsiveBottomSlider2]}
     captionsUnderImages={[
-        `DONT: do not place the button stack behind or too close to iPhone’s bottom slider.`,
-        `DO: Place the button above iPhone’s bottom slider.`,
+        `DONT: Do not place buttons behind or too close to iPhone’s bottom slider.`,
+        `DO: Place buttons above iPhone’s bottom slider.`,
     ]}
 />
 
@@ -369,7 +386,7 @@ Use the following components to implement this pattern:
 
 -   MUI
     -   [Button](https://mui.com/material-ui/react-button/)
-    -   [Button Group](https://mui.com/material-ui/react-button-group/)
+    -   [Toggle Button](https://mui.com/material-ui/react-toggle-button/)
 
 **React Native**:
 
