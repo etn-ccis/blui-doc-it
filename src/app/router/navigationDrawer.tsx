@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
     Drawer,
     DrawerBody,
@@ -13,7 +13,7 @@ import color from 'color';
 
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { EatonTagline } from '../assets/icons';
-import { Typography, useTheme, useMediaQuery } from '@material-ui/core';
+import { Typography, useTheme, useMediaQuery } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../redux/reducers';
 import { TOGGLE_DRAWER } from '../redux/actions';
@@ -23,12 +23,12 @@ import { DRAWER_WIDTH } from '../shared';
 export const NavigationDrawer = (): JSX.Element => {
     const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
     const location = useLocation();
-    const history = useHistory();
+    const navigate = useNavigate();
     const [activeRoute, setActiveRoute] = useState(location.pathname);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const dispatch = useDispatch();
-    const isLandingPage = history.location.pathname === '/';
+    const isLandingPage = location.pathname === '/';
     const activeDrawerFade = getScheduledSiteConfig().drawerActiveBackgroundFade;
 
     const createNavItems = useCallback((navData: SimpleNavItem[], parentUrl: string, depth: number): NavItem[] => {
@@ -38,7 +38,7 @@ export const NavigationDrawer = (): JSX.Element => {
             if (item.hidden) {
                 continue;
             }
-            const fullURL = `${parentUrl}${item.url || ''}`;
+            const fullURL = `${parentUrl === '' ? '' : `${parentUrl}/`}${item.url || ''}`;
             convertedItems.push({
                 title: item.title,
                 icon: depth === 0 ? item.icon : undefined,
@@ -56,11 +56,17 @@ export const NavigationDrawer = (): JSX.Element => {
                 //     ),
                 onClick: item.component
                     ? (): void => {
-                          history.push(fullURL);
+                          navigate(fullURL);
                           dispatch({ type: TOGGLE_DRAWER, payload: false });
                       }
                     : undefined,
-                items: item.pages ? createNavItems(item.pages, `${parentUrl}${item.url || ''}`, depth + 1) : undefined,
+                items: item.pages
+                    ? createNavItems(
+                          item.pages,
+                          `${parentUrl === '' ? '' : `${parentUrl}/`}${item.url || ''}`,
+                          depth + 1
+                      )
+                    : undefined,
             });
         }
         return convertedItems;
@@ -105,7 +111,7 @@ export const NavigationDrawer = (): JSX.Element => {
                     if (isMobile) {
                         dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
                     } else {
-                        history.push('/');
+                        navigate('/');
                         dispatch({ type: TOGGLE_DRAWER, payload: false });
                     }
                 }}
@@ -119,7 +125,7 @@ export const NavigationDrawer = (): JSX.Element => {
                             cursor: 'pointer',
                         }}
                         onClick={(): void => {
-                            history.push('/');
+                            navigate('/');
                             dispatch({ type: TOGGLE_DRAWER, payload: false });
                         }}
                     >

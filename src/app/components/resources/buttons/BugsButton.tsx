@@ -1,33 +1,30 @@
 import React, { ComponentProps, useState, useEffect } from 'react';
-import { IconButton, Badge, makeStyles, createStyles, Theme, Typography } from '@material-ui/core';
-import clsx from 'clsx';
+import { IconButton, Badge, Theme, Typography, SxProps } from '@mui/material';
 import { getBugCount } from '../../../api';
 import * as Colors from '@brightlayer-ui/colors';
-import { BugReport } from '@material-ui/icons';
+import { BugReport } from '@mui/icons-material';
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        iconButton: {
-            color: Colors.gray[500],
-            padding: theme.spacing(1),
-            marginLeft: theme.spacing(1),
-        },
-        badge: {
-            fontWeight: 600,
-        },
-        bugs: {
-            '&:hover': {
-                color: Colors.yellow[900],
-                '& $color': {
-                    backgroundColor: Colors.red[500],
-                },
+const styles: { [key: string]: SxProps<Theme> } = {
+    iconButton: {
+        color: Colors.gray[500],
+        p: 1,
+        ml: 1,
+    },
+    badge: {
+        fontWeight: 600,
+    },
+    bugs: {
+        '&:hover': {
+            color: Colors.yellow[900],
+            '& $color': {
+                backgroundColor: Colors.red[500],
             },
         },
-        color: {
-            backgroundColor: Colors.gray[300],
-        },
-    })
-);
+    },
+    color: {
+        backgroundColor: Colors.gray[300],
+    },
+};
 
 type BugsCount = number | undefined;
 type BugsButtonProps = ComponentProps<'div'> & {
@@ -35,10 +32,10 @@ type BugsButtonProps = ComponentProps<'div'> & {
     link: string;
     repository: string;
     bugLabels?: string[];
+    sx?: SxProps<Theme>;
 };
 export const BugsButton: React.FC<BugsButtonProps> = (props) => {
     const { small, repository, bugLabels, link, style, ...other } = props;
-    const classes = useStyles();
     const [bugs, setBugs] = useState<BugsCount>();
 
     useEffect(() => {
@@ -69,7 +66,8 @@ export const BugsButton: React.FC<BugsButtonProps> = (props) => {
     return !small ? (
         <IconButton
             title={'Open Bugs'}
-            className={clsx(classes.iconButton, classes.bugs)}
+            // @ts-ignore TODO: Fix this style merge
+            sx={{ ...styles.iconButton, ...styles.bugs }}
             onClick={(): void => {
                 window.open(link, '_blank');
             }}
@@ -77,7 +75,11 @@ export const BugsButton: React.FC<BugsButtonProps> = (props) => {
             <Badge
                 badgeContent={bugs}
                 color={'error'}
-                classes={{ colorSecondary: classes.color, badge: classes.badge }}
+                // @ts-ignore TODO: Fix this style merge
+                sx={{
+                    '&.MuiBadge-colorSecondary': styles.color,
+                    '& .MuiBadge-badge': styles.badge,
+                }}
             >
                 <BugReport />
             </Badge>

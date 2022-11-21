@@ -8,19 +8,18 @@ import {
     AppBarProps,
     Hidden,
     IconButton,
-    makeStyles,
     Theme,
-    createStyles,
     useTheme,
     useMediaQuery,
-} from '@material-ui/core';
+    SxProps,
+} from '@mui/material';
 import { PxblueSmall } from '@brightlayer-ui/icons-mui';
 import { Spacer } from '@brightlayer-ui/react-components';
-import { useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { TOGGLE_DRAWER, TOGGLE_SEARCH } from '../../redux/actions';
 import { AppState } from '../../redux/reducers';
-import Search from '@material-ui/icons/Search';
+import Search from '@mui/icons-material/Search';
 import { SearchBar } from '../../pages';
 import { PADDING } from '../../shared';
 import { getScheduledSiteConfig } from '../../../__configuration__/themes';
@@ -33,29 +32,25 @@ export type SharedToolbarProps = AppBarProps & {
     navigationIcon?: JSX.Element;
 };
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        menuIconButton: {
-            display: 'flex',
-            alignItems: 'center',
-            marginRight: theme.spacing(0.5),
-        },
-        toolbar: {
-            display: 'flex',
-            [theme.breakpoints.up('sm')]: {
-                padding: `0 ${PADDING}px`,
-            },
-        },
-    })
-);
+const styles: { [key: string]: SxProps<Theme> } = {
+    menuIconButton: {
+        display: 'flex',
+        alignItems: 'center',
+        mr: 0.5,
+    },
+    toolbar: {
+        display: 'flex',
+        py: 0,
+        px: { xs: 0, sm: `${PADDING}px` },
+    },
+};
 
 export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const { title, color, subtitle, navigationIcon, ...other } = props;
-    const classes = useStyles();
     const icon = navigationIcon ? navigationIcon : <PxblueSmall />;
-    const history = useHistory();
+    const location = useLocation();
     const theme = useTheme();
-    const isLandingPage = history.location.pathname === '/';
+    const isLandingPage = location.pathname === '/';
     const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
     const showBanner = useSelector((state: AppState) => state.app.showBanner);
@@ -80,7 +75,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                     onClick={(): void => {
                         dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
                     }}
-                    className={classes.menuIconButton}
+                    sx={styles.menuIconButton}
                     edge={'start'}
                 >
                     {icon}
@@ -128,7 +123,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                 position="sticky"
                 color={color}
                 elevation={0}
-                style={{
+                sx={{
                     zIndex: 1000,
                     width: `calc(100% - ${sidebarOpen ? (sm ? 0 : 350) : 0}px)`,
                     right: sidebarOpen ? (sm ? 0 : 350) : 0,
@@ -151,7 +146,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                         }}
                     ></div>
                 )}
-                <Toolbar className={classes.toolbar}>
+                <Toolbar sx={styles.toolbar}>
                     {getNavigationIcon()}
                     {props.title ? (
                         <ListItemText

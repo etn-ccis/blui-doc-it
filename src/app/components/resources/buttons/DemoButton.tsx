@@ -1,40 +1,38 @@
 import React, { ComponentProps } from 'react';
-import { IconButton, Badge, makeStyles, createStyles, Theme, Typography } from '@material-ui/core';
-import clsx from 'clsx';
+import { IconButton, Badge, Theme, Typography, SxProps } from '@mui/material';
 import * as Colors from '@brightlayer-ui/colors';
-import { Code } from '@material-ui/icons';
+import { Code } from '@mui/icons-material';
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        iconButton: {
-            color: Colors.gray[500],
-            padding: theme.spacing(1),
-            marginLeft: theme.spacing(1),
+const styles: { [key: string]: SxProps<Theme> } = {
+    iconButton: {
+        color: Colors.gray[500],
+        p: 1,
+        ml: 1,
+    },
+    badge: {
+        fontWeight: 600,
+    },
+    demo: {
+        '&:hover': {
+            color: 'primary.main',
         },
-        badge: {
-            fontWeight: 600,
-        },
-        demo: {
-            '&:hover': {
-                color: theme.palette.primary.main,
-            },
-        },
-    })
-);
+    },
+};
 
 type DemoButtonProps = ComponentProps<'div'> & {
     small: boolean;
     link: string;
     count: number;
+    sx?: SxProps<Theme>;
 };
 export const DemoButton: React.FC<DemoButtonProps> = (props) => {
     const { small, count, link, style, ...other } = props;
-    const classes = useStyles();
 
     return !small ? (
         <IconButton
             title={'Live Example'}
-            className={clsx(classes.iconButton, classes.demo)}
+            // @ts-ignore TODO: Fix types
+            sx={{ ...styles.iconButton, ...styles.demo }}
             onClick={(): void => {
                 window.open(link, '_blank');
             }}
@@ -43,7 +41,8 @@ export const DemoButton: React.FC<DemoButtonProps> = (props) => {
                 style={{ fontWeight: 600 }}
                 badgeContent={count}
                 color={'default'}
-                classes={{ badge: classes.badge }}
+                // @ts-ignore TODO: Fix types
+                sx={{ '& MuiBadge-badge': styles.badge }}
             >
                 <Code />
             </Badge>

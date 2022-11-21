@@ -3,8 +3,6 @@ import {
     AppBar,
     Typography,
     Theme,
-    createStyles,
-    makeStyles,
     List,
     Accordion,
     AccordionDetails,
@@ -14,8 +12,9 @@ import {
     Toolbar,
     Button,
     useTheme,
-    useMediaQuery,
-} from '@material-ui/core';
+    SxProps,
+    Box,
+} from '@mui/material';
 
 import { PageContent, ExpansionHeader } from '../components';
 
@@ -32,63 +31,47 @@ import color from 'color';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
 import { BLUIColor } from '@brightlayer-ui/types';
 import { getRoadmap } from '../api';
-import { ErrorOutline } from '@material-ui/icons';
+import { ErrorOutline } from '@mui/icons-material';
 import clsx from 'clsx';
 import { AVAILABLE_RELEASES, CURRENT_RELEASE } from '../../__configuration__/roadmap';
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        secondaryAppbar: {
-            color: theme.palette.primary.contrastText,
-            top: theme.spacing(8),
-            height: theme.spacing(6),
-            [theme.breakpoints.down('xs')]: {
-                top: theme.spacing(7),
-            },
+const styles: { [key: string]: SxProps<Theme> } = {
+    secondaryAppbar: {
+        color: 'primary.contrastText',
+        top: { xs: 56, sm: 64 },
+        height: 48,
+    },
+    secondaryToolbar: {
+        minHeight: 48,
+        overflowX: { xs: 'auto', sm: 'unset' },
+    },
+    select: {
+        alignSelf: 'stretch',
+        '&:not(:first-child)': {
+            ml: 2,
         },
-        secondaryToolbar: {
-            minHeight: theme.spacing(6),
-            [theme.breakpoints.down('xs')]: {
-                overflowX: 'auto',
-            },
+    },
+    tagWrapper: {
+        alignItems: 'center',
+        flexDirection: { xs: 'column', md: 'row' },
+        display: { xs: 'none', sm: 'flex' },
+    },
+    tag: {
+        '&:not(:first-child)': {
+            ml: { xs: 0, md: 1 },
+            mt: { sm: 1 },
         },
-        select: {
-            alignSelf: 'stretch',
-            '&:not(:first-child)': {
-                marginLeft: theme.spacing(2),
-            },
-        },
-        tagWrapper: {
-            display: 'flex',
-            alignItems: 'center',
-            [theme.breakpoints.down('sm')]: {
-                flexDirection: 'column',
-                display: 'none',
-            },
-        },
-        tag: {
-            '&:not(:first-child)': {
-                marginLeft: theme.spacing(1),
-                [theme.breakpoints.down('sm')]: {
-                    marginLeft: 0,
-                    marginTop: theme.spacing(1),
-                },
-            },
-        },
-        title: {
-            fontWeight: 600,
-            lineHeight: 1.2,
-            fontSize: '0.875rem',
-        },
-        emptyStateWrapper: {
-            position: 'relative',
-            top: '28vh',
-            [theme.breakpoints.down('sm')]: {
-                top: '22vh',
-            },
-        },
-    })
-);
+    },
+    title: {
+        fontWeight: 600,
+        lineHeight: 1.2,
+        fontSize: '0.875rem',
+    },
+    emptyStateWrapper: {
+        position: 'relative',
+        top: { xs: '22vh', sm: '28vh' },
+    },
+};
 
 const getStatusColor = (status: Status): BLUIColor | undefined => {
     switch (status) {
@@ -108,7 +91,6 @@ const getStatusColor = (status: Status): BLUIColor | undefined => {
 
 export const Roadmap: React.FC = (): JSX.Element => {
     const theme = useTheme();
-    const classes = useStyles(theme);
     const [typeFilter, setTypeFilter] = useState<ItemTypeFilter>('all');
     const [statusFilter, setStatusFilter] = useState<Status | 'all'>('all');
     const [frameworkFilter, setFrameworkFilter] = useState<FrameworkFilter>('all');
@@ -117,7 +99,6 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const [loading, setLoading] = useState<boolean>(true);
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
     const showBanner = useSelector((state: AppState) => state.app.showBanner);
-    const sm = useMediaQuery(theme.breakpoints.down('sm'));
     const loadingGroups = [
         [1, 2, 3, 4],
         [1, 2, 3],
@@ -196,13 +177,13 @@ export const Roadmap: React.FC = (): JSX.Element => {
                 statusTags.push(
                     <ListItemTag
                         key={`${item.name}_status`}
-                        className={classes.tag}
+                        sx={styles.tag}
                         label={status}
-                        fontColor={statusColor ? statusColor[theme.palette.type === 'dark' ? 200 : 500] : undefined}
+                        fontColor={statusColor ? statusColor[theme.palette.mode === 'dark' ? 200 : 500] : undefined}
                         backgroundColor={
                             statusColor
                                 ? color(statusColor[500])
-                                      .fade(theme.palette.type === 'dark' ? 0.8 : 0.9)
+                                      .fade(theme.palette.mode === 'dark' ? 0.8 : 0.9)
                                       .string()
                                 : undefined
                         }
@@ -213,7 +194,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                 statusTags.push(
                     <ListItemTag
                         key={`${item.name}_author`}
-                        className={classes.tag}
+                        sx={styles.tag}
                         label={author}
                         backgroundColor={Colors.blue[500]}
                         fontColor={Colors.white[50]}
@@ -221,9 +202,9 @@ export const Roadmap: React.FC = (): JSX.Element => {
                 );
             }
             const result = authorTags.concat(statusTags);
-            return result.length ? <div className={classes.tagWrapper}>{result}</div> : undefined;
+            return result.length ? <Box sx={styles.tagWrapper}>{result}</Box> : undefined;
         },
-        [classes, roadmap]
+        [roadmap]
     );
 
     return (
@@ -231,22 +212,18 @@ export const Roadmap: React.FC = (): JSX.Element => {
             <AppBar
                 position={searchActive ? 'static' : 'sticky'} // to avoid the filter bar "pops out" when searching
                 color={'secondary'}
-                className={classes.secondaryAppbar}
+                sx={{
+                    ...styles.secondaryAppbar,
+                    ...(showBanner ? { top: { xs: 2 * 56, sm: 2 * 64 } } : {}),
+                }}
                 elevation={0}
-                style={
-                    showBanner
-                        ? {
-                              top: 2 * theme.spacing(sm ? 7 : 8),
-                          }
-                        : {}
-                }
             >
-                <Toolbar className={classes.secondaryToolbar}>
+                <Toolbar sx={styles.secondaryToolbar}>
                     <Select
                         value={typeFilter}
                         disableUnderline
                         onChange={(e): void => setTypeFilter(e.target.value as ItemTypeFilter | 'all')}
-                        className={classes.select}
+                        sx={styles.select}
                     >
                         <MenuItem value={'all'}>Any Type</MenuItem>
                         <MenuItem value={'design'}>Design</MenuItem>
@@ -257,7 +234,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                             value={frameworkFilter}
                             disableUnderline
                             onChange={(e): void => setFrameworkFilter(e.target.value as FrameworkFilter)}
-                            className={classes.select}
+                            sx={styles.select}
                         >
                             <MenuItem value={'all'}>Any Framework</MenuItem>
                             <MenuItem value={'angular'}>Angular</MenuItem>
@@ -270,7 +247,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         value={releaseFilter}
                         disableUnderline
                         onChange={(e): void => setReleaseFilter(e.target.value as Release)}
-                        className={classes.select}
+                        sx={styles.select}
                     >
                         {AVAILABLE_RELEASES.map((release) => (
                             <MenuItem key={release.name} value={release.name}>{`${release.name} (${release.quarter
@@ -283,7 +260,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         value={statusFilter}
                         disableUnderline
                         onChange={(e): void => setStatusFilter(e.target.value as Status | 'all')}
-                        className={classes.select}
+                        sx={styles.select}
                     >
                         <MenuItem value={'all'}>Any Status</MenuItem>
                         <MenuItem value={'backlog'}>Todo</MenuItem>
@@ -323,7 +300,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                 )}
 
                 {!loading && (roadmapBuckets.length === 0 || results < 1) && (
-                    <div className={classes.emptyStateWrapper}>
+                    <Box sx={styles.emptyStateWrapper}>
                         <EmptyState
                             icon={<ErrorOutline fontSize={'inherit'} style={{ marginBottom: '0' }} />}
                             title={'No Roadmap Items'}
@@ -334,7 +311,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                 </Button>
                             }
                         />
-                    </div>
+                    </Box>
                 )}
 
                 {!loading &&
@@ -353,9 +330,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                                     key={`roadmap_item_${index}`}
                                                     hidePadding
                                                     divider={index === bucket.items.length - 1 ? undefined : 'full'}
-                                                    title={
-                                                        <Typography className={classes.title}>{item.name}</Typography>
-                                                    }
+                                                    title={<Typography sx={styles.title}>{item.name}</Typography>}
                                                     subtitle={item.description}
                                                     statusColor={statusColor ? statusColor[500] : ''}
                                                     wrapSubtitle
@@ -364,7 +339,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                                             <Typography
                                                                 variant={'subtitle2'}
                                                                 align={'center'}
-                                                                style={{
+                                                                sx={{
                                                                     fontWeight: 600,
                                                                     lineHeight: 1,
                                                                     marginBottom: 4,
@@ -376,7 +351,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                                                 variant={'caption'}
                                                                 display={'block'}
                                                                 align={'center'}
-                                                                style={{ color: Colors.gray[500], lineHeight: 1 }}
+                                                                sx={{ color: Colors.gray[500], lineHeight: 1 }}
                                                             >
                                                                 {item.year}
                                                             </Typography>

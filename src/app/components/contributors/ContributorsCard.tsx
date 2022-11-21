@@ -1,29 +1,27 @@
 import React, { ReactNode } from 'react';
-import { Avatar, Typography, makeStyles, Theme, createStyles, useTheme } from '@material-ui/core';
+import { Avatar, Typography, Theme, SxProps, Box } from '@mui/material';
 import { CurrentMaintainter } from '../../../__types__';
-import { Person } from '@material-ui/icons';
-import clsx from 'clsx';
+import { Person } from '@mui/icons-material';
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        textContainer: {
-            marginLeft: theme.spacing(2),
-            flex: 1,
-            '&$noRole': {
-                display: 'flex',
-                alignItems: 'center',
-            },
+const styles: { [key: string]: SxProps<Theme> } = {
+    textContainer: {
+        ml: 2,
+        flex: 1,
+        // TODO: Fix this
+        '&$noRole': {
+            display: 'flex',
+            alignItems: 'center',
         },
-        title: {
-            textOverflow: 'ellipsis',
-        },
-        noRole: {},
-        colorDefault: {
-            backgroundColor: theme.palette.type === 'light' ? theme.palette.primary.light : theme.palette.primary.dark,
-            color: theme.palette.type === 'light' ? theme.palette.primary.main : theme.palette.primary.light,
-        },
-    })
-);
+    },
+    title: {
+        textOverflow: 'ellipsis',
+    },
+    noRole: {},
+    colorDefault: (theme) => ({
+        backgroundColor: theme.palette.mode === 'light' ? theme.palette.primary.light : theme.palette.primary.dark,
+        color: theme.palette.mode === 'light' ? theme.palette.primary.main : theme.palette.primary.light,
+    }),
+};
 
 type ContributorsCardProps = CurrentMaintainter & {
     /**
@@ -35,22 +33,29 @@ type ContributorsCardProps = CurrentMaintainter & {
 
 export const ContributorsCard: React.FC<ContributorsCardProps> = (props) => {
     const { name, role, image, icon } = props;
-    const classes = useStyles(useTheme());
+
     return (
         <div style={{ display: 'flex', flexDirection: 'row' }}>
             <div>
-                <Avatar src={image} classes={{ colorDefault: classes.colorDefault }}>
+                <Avatar src={image} sx={styles.colorDefault}>
                     {icon || <Person />}
                 </Avatar>
             </div>
-            <span className={clsx(classes.textContainer, { [classes.noRole]: !role })}>
-                <Typography noWrap variant={'subtitle2'} className={classes.title}>
+            <Box
+                component={'span'}
+                // @ts-ignore TODO: Fix this style combination
+                sx={{
+                    ...styles.textContainer,
+                    ...(!role ? styles.noRole : {}),
+                }}
+            >
+                <Typography noWrap variant={'subtitle2'} sx={styles.title}>
                     {name}
                 </Typography>
                 <Typography noWrap={false} variant={'caption'} color={'textSecondary'}>
                     {role}
                 </Typography>
-            </span>
+            </Box>
         </div>
     );
 };

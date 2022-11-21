@@ -1,6 +1,6 @@
 import React from 'react';
-import { Badge, IconButton, List } from '@material-ui/core';
-import { AddBox, Assignment, Delete, DeviceHub, NotificationsActive } from '@material-ui/icons';
+import { Badge, IconButton, List } from '@mui/material';
+import { AddBox, Assignment, Delete, DeviceHub, NotificationsActive } from '@mui/icons-material';
 import { InfoListItem, ListItemTag } from '@brightlayer-ui/react-components';
 import { GradeA } from '@brightlayer-ui/icons-mui';
 import * as Colors from '@brightlayer-ui/colors';

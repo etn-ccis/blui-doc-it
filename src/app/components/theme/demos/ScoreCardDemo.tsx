@@ -1,8 +1,8 @@
 import React from 'react';
 import { Hero, InfoListItem, ScoreCard } from '@brightlayer-ui/react-components';
 import { Temp } from '@brightlayer-ui/icons-mui';
-import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import { CloudDone, Info, Notifications } from '@material-ui/icons';
+import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { CloudDone, Info, Notifications } from '@mui/icons-material';
 
 /*
  * cannot iterate through variations due to the way MUI implemented text fields
@@ -20,8 +20,10 @@ export const ScoreCardDemo: JSX.Element = (
                 icon={<Temp fontSize={'inherit'} />}
                 label={'Temperature'}
                 iconSize={48}
-                value={98}
-                units={'°F'}
+                ChannelValueProps={{
+                    value: 98,
+                    units: '°F',
+                }}
                 fontSize={'normal'}
             />
         }

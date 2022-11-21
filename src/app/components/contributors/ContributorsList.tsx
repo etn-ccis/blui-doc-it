@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 import { ContributorsCard } from './';
 import { CurrentMaintainter } from '../../../__types__';
-import { Grid, Typography, useTheme } from '@material-ui/core';
+import { Grid, Typography, useTheme } from '@mui/material';
 
 type ContributorListProps = HTMLAttributes<HTMLDivElement> & {
     contributors: CurrentMaintainter[];

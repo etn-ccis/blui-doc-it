@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Paper, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
+import { Button, Paper, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 
 export const DialogDemo: JSX.Element = (
     <Paper elevation={16} style={{ maxWidth: 320, margin: '64px 16px' }}>

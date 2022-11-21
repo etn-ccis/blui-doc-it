@@ -1,5 +1,5 @@
 import React from 'react';
-import { Gavel, BugReport, EmojiObjects, QuestionAnswer, Group, Drafts, ImportExport } from '@material-ui/icons';
+import { Gavel, BugReport, EmojiObjects, QuestionAnswer, Group, Drafts, ImportExport } from '@mui/icons-material';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 

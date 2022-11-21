@@ -1,6 +1,6 @@
 import React from 'react';
-import { Typography, Divider, useTheme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/styles';
+import { Typography, Divider, useTheme } from '@mui/material';
+import { CSSProperties } from '@mui/styles';
 
 type SectionProps = {
     title: string;
@@ -8,6 +8,7 @@ type SectionProps = {
     maxWidth?: number;
     style?: CSSProperties;
     background?: 'light' | 'dark';
+    children?: React.ReactNode;
 };
 export const Section: React.FC<SectionProps> = (props) => {
     const theme = useTheme();

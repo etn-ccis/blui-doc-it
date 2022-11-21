@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useState, HTMLAttributes, useCallback } from 'react';
-import { Category, Search } from '@material-ui/icons';
+import { Category, Search } from '@mui/icons-material';
 import { useQueryString } from '../../hooks/useQueryString';
 // Material-UI Components
 import {
@@ -13,7 +13,7 @@ import {
     Select,
     TextField,
     useMediaQuery,
-} from '@material-ui/core';
+} from '@mui/material';
 import { titleCase } from '../../shared';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../redux/reducers';
@@ -86,7 +86,7 @@ export const IconSearchBar: React.FC<SearchBarProps> = (props): JSX.Element => {
                             PaperProps: { style: { maxHeight: 360 } },
                             anchorOrigin: { vertical: 'bottom', horizontal: 'left' },
                             transformOrigin: { vertical: 'top', horizontal: 'left' },
-                            getContentAnchorEl: null,
+                            // getContentAnchorEl: null,
                         }}
                         startAdornment={
                             <InputAdornment position={'start'}>

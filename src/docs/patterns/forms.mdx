@@ -1,3 +1,4 @@
+import React from 'react';
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
 import SummaryImage from '../../app/assets/design-patterns/form-validation/form-validation.svg';
 import Image4 from '../../app/assets/design-patterns/form-validation/form-validation-password-entering.png';
@@ -23,7 +24,7 @@ import Specs5Image from '../../app/assets/design-patterns/form-validation/specs-
 import dismissKeyboardErrorAutoscrollImage from '../../app/assets/design-patterns/form-validation/dismiss-keyboard-error-autoscroll.gif';
 import dismissKeyboardErrorTextImage from '../../app/assets/design-patterns/form-validation/dismiss-keyboard-error-text.gif';
 
-<!-- KEYWORDS: design pattern form verification validation error -->
+{/* KEYWORDS: design pattern form verification validation error  */}
 
 # Forms and Validation
 
@@ -83,11 +84,11 @@ Keep your forms short where possible, but make effective use of whitespace to av
     react={`https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master?file=/src/pages/form-validation/table/index.tsx&initialpath=/in-a-table`}
 />
 
-<!--
+{/*
 ## Input Controls
 
 When using multiple input controls, such as text fields, radio buttons, checkboxes, try to keep all of your inputs in a single column to preserve the sense of a linear progression. Inputs should be approximately as wide as their expected input values (or full width on mobile). Follow the Material Design [guidelines](https://material.io/components/selection-controls#specs) for when to use different selection controls.
- -->
+ */}
 
 ## Field Requirements
 
@@ -215,7 +216,7 @@ On mobile, if there are multiple input fields on the screen, the keyboard action
 
 For screens where there is a single field with a known required length (e.g., a verification code), the submit button can be omitted and the form submitted as soon as the required length is reached.
 
-<!-- TODO: A gif might handle the task better here -->
+{/* TODO: A gif might handle the task better here */}
 
 <ImageGrid
     images={[SubmitButtonAutoSubmitImage]}

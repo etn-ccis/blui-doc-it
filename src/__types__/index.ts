@@ -1,4 +1,4 @@
-import { SvgIconProps } from '@material-ui/core';
+import { SvgIconProps } from '@mui/material';
 
 export type TODOFIXME = any;
 export type FrameworkFilter = 'all' | 'angular' | 'react' | 'react-native';

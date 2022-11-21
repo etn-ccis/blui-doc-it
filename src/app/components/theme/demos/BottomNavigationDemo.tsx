@@ -1,6 +1,6 @@
 import React from 'react';
-import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
-import { Dashboard } from '@material-ui/icons';
+import { BottomNavigation, BottomNavigationAction } from '@mui/material';
+import { Dashboard } from '@mui/icons-material';
 import { Device, MapMarkerThree } from '@brightlayer-ui/icons-mui';
 
 export const BottomNavigationDemo: JSX.Element = (

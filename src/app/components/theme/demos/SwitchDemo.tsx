@@ -9,7 +9,7 @@ import {
     FormControlLabel,
     TableContainer,
     Typography,
-} from '@material-ui/core';
+} from '@mui/material';
 
 /*
  * cannot iterate through variations due to the way MUI implemented text fields

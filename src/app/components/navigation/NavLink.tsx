@@ -1,39 +1,30 @@
 import React from 'react';
 import { Link, LinkProps } from 'react-router-dom';
-import { Theme } from '@material-ui/core';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            fontWeight: 400,
-            textDecoration: 'none',
-            color: '#ffffff',
-            marginLeft: theme.spacing(2),
-            '&:hover': {
-                color: (props: NavLinkProps): string => props.hoverColor || '',
-            },
-        },
-    })
-);
+import { Box, SxProps, Theme } from '@mui/material';
 
 type NavLinkProps = LinkProps & {
     title: string;
     to: string;
     hoverColor?: string;
+    sx?: SxProps<Theme>;
 };
-export const NavLink: React.FC<NavLinkProps> = (props): JSX.Element => {
-    const classes = useStyles(props);
-    return (
-        <Link
-            style={props.style}
-            rel="noopener noreferrer"
-            className={clsx(classes.root, props.className)}
-            to={props.to}
-        >
-            {props.title}
-        </Link>
-    );
-};
+export const NavLink: React.FC<NavLinkProps> = (props): JSX.Element => (
+    <Box
+        component={Link}
+        sx={{
+            fontWeight: 400,
+            textDecoration: 'none',
+            color: '#ffffff',
+            ml: 2,
+            '&:hover': {
+                color: props.hoverColor || '',
+            },
+            ...props.sx,
+        }}
+        rel="noopener noreferrer"
+        to={props.to}
+    >
+        {props.title}
+    </Box>
+);
 NavLink.displayName = 'NavLink';

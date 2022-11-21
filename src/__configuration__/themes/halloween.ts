@@ -1,6 +1,6 @@
 import { blueDark } from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
-import { ThemeOptions } from '@material-ui/core';
+import { ThemeOptions } from '@mui/material';
 
 import castles from '../../app/assets/themes/halloween/castles.svg';
 import ghosts from '../../app/assets/themes/halloween/halloween-appbar-tile.svg';
@@ -27,49 +27,61 @@ const HalloweenTheme: ThemeOptions = {
         text: {
             primary: Colors.black[50],
             secondary: Colors.black[200],
-            hint: Colors.black[200],
+            // hint: Colors.black[200],
         },
     },
     typography: blueDark.typography,
-    overrides: {
+    components: {
         MuiAppBar: {
-            colorDefault: {
-                color: Colors.black[50],
-                backgroundColor: Colors.black[800],
-            },
-            colorPrimary: {
-                color: Colors.black[50],
-                backgroundColor: Colors.black[800],
-            },
-            colorSecondary: {
-                color: Colors.white[200],
-                backgroundColor: Colors.black[900],
+            styleOverrides: {
+                colorDefault: {
+                    color: Colors.black[50],
+                    backgroundColor: Colors.black[800],
+                },
+                colorPrimary: {
+                    color: Colors.black[50],
+                    backgroundColor: Colors.black[800],
+                },
+                colorSecondary: {
+                    color: Colors.white[200],
+                    backgroundColor: Colors.black[900],
+                },
             },
         },
         MuiBackdrop: {
-            root: {
-                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            styleOverrides: {
+                root: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                },
             },
         },
         MuiButton: {
-            outlined: {},
-            outlinedPrimary: {},
+            styleOverrides: {
+                outlined: {},
+                outlinedPrimary: {},
+            },
         },
         MuiDrawer: {
-            paper: {
-                backgroundColor: Colors.darkBlack[300],
+            styleOverrides: {
+                paper: {
+                    backgroundColor: Colors.darkBlack[300],
+                },
             },
         },
         MuiTabs: {
-            indicator: {
-                backgroundColor: Colors.orange[500],
+            styleOverrides: {
+                indicator: {
+                    backgroundColor: Colors.orange[500],
+                },
             },
         },
         MuiTab: {
-            selected: {},
-            textColorInherit: {
-                '&$selected': {
-                    color: Colors.orange[500],
+            styleOverrides: {
+                selected: {},
+                textColorInherit: {
+                    '&$selected': {
+                        color: Colors.orange[500],
+                    },
                 },
             },
         },

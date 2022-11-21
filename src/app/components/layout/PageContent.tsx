@@ -3,7 +3,6 @@ import * as Colors from '@brightlayer-ui/colors';
 import { useBackgroundColor } from '../../hooks/useBackgroundColor';
 import { PAGE_WIDTH, PADDING, TOC_WIDTH } from '../../shared';
 import { Spacer } from '@brightlayer-ui/react-components';
-import { makeStyles, Theme, createStyles } from '@material-ui/core';
 import { AppState } from '../../redux/reducers';
 import { useSelector } from 'react-redux';
 
@@ -13,26 +12,22 @@ export type PageContentProps = HTMLAttributes<HTMLDivElement> & {
     wideLayout?: boolean;
 };
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        spacer: {
-            display: 'none',
-            [theme.breakpoints.up('lg')]: {
-                display: 'block',
-            },
-        },
-    })
-);
-
 export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
     const { noPadding, children, style, backgroundColor, wideLayout, ...other } = props;
-    const classes = useStyles();
     const hasTOC = useSelector((state: AppState) => state.app.hasTOC);
     useBackgroundColor(backgroundColor);
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-            {hasTOC && <Spacer className={classes.spacer} flex={0} width={TOC_WIDTH} />}
+            {hasTOC && (
+                <Spacer
+                    sx={{
+                        display: { xs: 'none', lg: 'block' },
+                    }}
+                    flex={0}
+                    width={TOC_WIDTH}
+                />
+            )}
             <div
                 style={Object.assign(
                     {

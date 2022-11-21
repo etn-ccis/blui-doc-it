@@ -1,6 +1,6 @@
 import React from 'react';
-import { Avatar, Chip, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
-import { Check } from '@material-ui/icons';
+import { Avatar, Chip, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Check } from '@mui/icons-material';
 /*
  * cannot iterate through variations due to the way our chips are structured
  */

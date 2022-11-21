@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Spacer } from '@brightlayer-ui/react-components';
 import { blue as lightTheme, blueDark as darkTheme } from '@brightlayer-ui/react-themes';
-import { makeStyles, ThemeProvider, useTheme, createTheme } from '@material-ui/core/styles';
+import { ThemeProvider, useTheme, createTheme } from '@mui/material/styles';
 import {
     Card,
     Divider,
@@ -12,11 +12,12 @@ import {
     Switch,
     FormControlLabel,
     Typography,
-} from '@material-ui/core';
+    SxProps,
+    Box,
+} from '@mui/material';
 import { componentNameList, componentList } from './componentList';
-import clsx from 'clsx';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const styles: { [key: string]: SxProps<Theme> } = {
     themeControlContainer: {},
     componentContainer: {
         display: 'flex',
@@ -24,60 +25,59 @@ const useStyles = makeStyles((theme: Theme) => ({
         alignItems: 'center',
         flexDirection: 'column',
     },
-    toolbar: {
-        padding: `0 ${theme.spacing(2)}px`,
+    toolbar: (theme) => ({
+        py: 0,
+        px: 2,
         [theme.breakpoints.down('xs')]: {
             flexDirection: 'column',
-            paddingTop: theme.spacing(),
-            paddingBottom: theme.spacing(),
+            pt: 1,
+            pb: 1,
             alignItems: 'flex-end',
         },
-    },
+    }),
     selectControl: {
         backgroundColor: '#abb2',
-        borderRadius: theme.shape.borderRadius,
-        [theme.breakpoints.down('xs')]: {
-            width: '100%',
-        },
+        borderRadius: 1,
+        width: { xs: '100%', sm: undefined },
     },
     selectControlMenu: {
-        padding: `${theme.spacing(1.5)}px ${theme.spacing(5)}px ${theme.spacing(1.5)}px ${theme.spacing(2)}px`,
-        paddingRight: `${theme.spacing(5)}px !important`,
+        py: 1.5,
+        pr: 5,
+        pl: 2,
         '&:focus': {
-            borderRadius: theme.shape.borderRadius,
+            borderRadius: 1,
         },
     },
     selectControlIcon: {
-        marginRight: theme.spacing(),
+        mr: 1,
     },
     card: {
         '&:hover': {
-            boxShadow: theme.shadows[6],
+            boxShadow: 6,
         },
-        marginBottom: theme.spacing(4),
+        mb: 4,
         boxSizing: 'border-box',
     },
     footnote: {
-        padding: `${theme.spacing()}px ${theme.spacing(2)}px`,
+        py: 1,
+        px: 2,
     },
     noShowOnMobile: {
-        [theme.breakpoints.up('sm')]: {
-            display: 'none',
-        },
+        display: { xs: 'block', sm: 'none' },
     },
-}));
+};
 
 export const ThemeExplorer: React.FC = () => {
     const globalTheme = useTheme();
-    const [localThemeDark, setLocalThemeDark] = useState(globalTheme.palette.type === 'dark');
+    const [localThemeDark, setLocalThemeDark] = useState(globalTheme.palette.mode === 'dark');
     const [selectedComponent, setSelectedComponent] = useState(0);
-    const classes = useStyles(localThemeDark ? darkTheme : lightTheme);
+    // const classes = useStyles(localThemeDark ? darkTheme : lightTheme);
     const localBackground = localThemeDark ? darkTheme.palette?.background : lightTheme.palette?.background;
 
     return (
         <ThemeProvider theme={createTheme(localThemeDark ? darkTheme : lightTheme)}>
-            <Card className={classes.card} variant={globalTheme.palette.type === 'dark' ? 'outlined' : undefined}>
-                <Toolbar className={classes.toolbar}>
+            <Card sx={styles.card} variant={globalTheme.palette.mode === 'dark' ? 'outlined' : undefined}>
+                <Toolbar sx={styles.toolbar}>
                     <Select
                         value={selectedComponent}
                         onChange={(e): void => {
@@ -85,9 +85,14 @@ export const ThemeExplorer: React.FC = () => {
                             setSelectedComponent(e.target.value);
                         }}
                         color={'primary'}
-                        disableUnderline
-                        className={classes.selectControl}
-                        classes={{ icon: classes.selectControlIcon, select: classes.selectControlMenu }}
+                        // disableUnderline
+                        sx={{
+                            ...styles.selectControl,
+                            // @ts-ignore TODO: Fix this style merge
+                            '& .MuiSelect-icon': styles.selectControlIcon,
+                            // @ts-ignore TODO: Fix this style merge
+                            '& .MuiSelect-select': styles.selectControlMenu,
+                        }}
                     >
                         {componentNameList.map((componentName, index) => (
                             <MenuItem value={index} key={index}>
@@ -107,18 +112,19 @@ export const ThemeExplorer: React.FC = () => {
                     />
                 </Toolbar>
                 <Divider />
-                <div className={classes.componentContainer} style={{ backgroundColor: localBackground?.default }}>
+                <Box sx={styles.componentContainer} style={{ backgroundColor: localBackground?.default }}>
                     {componentList[selectedComponent]}
-                </div>
-                <Divider className={classes.noShowOnMobile} />
-                <div
-                    className={clsx(classes.footnote, classes.noShowOnMobile)}
+                </Box>
+                <Divider sx={styles.noShowOnMobile} />
+                <Box
+                    // @ts-ignore TODO: Fix this style merge
+                    sx={{ ...styles.footnote, ...styles.noShowOnMobile }}
                     style={{ backgroundColor: localBackground?.paper }}
                 >
                     <Typography variant={'caption'}>
                         You may not get the best theme preview experience on mobile.
                     </Typography>
-                </div>
+                </Box>
             </Card>
         </ThemeProvider>
     );

@@ -1,18 +1,5 @@
 import React, { useState } from 'react';
-import {
-    AppBar,
-    Tabs,
-    Tab,
-    Theme,
-    createStyles,
-    makeStyles,
-    List,
-    Accordion,
-    AccordionDetails,
-    Divider,
-    useTheme,
-    useMediaQuery,
-} from '@material-ui/core';
+import { AppBar, Tabs, Tab, List, Accordion, AccordionDetails, Divider, useTheme } from '@mui/material';
 
 import { ResourceRow, PageContent, ExpansionHeader } from '../components';
 import { resources } from '../../__configuration__/resources';
@@ -23,24 +10,11 @@ import { AppState } from '../redux/reducers';
 import { FrameworkFilter } from '../../__types__';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        tabs: {
-            top: theme.spacing(8),
-            [theme.breakpoints.down('xs')]: {
-                top: theme.spacing(7),
-            },
-        },
-    })
-);
-
 export const DevResources: React.FC = (): JSX.Element => {
-    const classes = useStyles();
     const [filter, setFilter] = useState<FrameworkFilter>('all');
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
     const theme = useTheme();
     const showBanner = useSelector((state: AppState) => state.app.showBanner);
-    const sm = useMediaQuery(theme.breakpoints.down('sm'));
 
     usePageTitle('Resources');
     useGoogleAnalyticsPageView();
@@ -50,15 +24,11 @@ export const DevResources: React.FC = (): JSX.Element => {
             <AppBar
                 position={searchActive ? 'static' : 'sticky'} // to avoid the filter bar "pops out" when searching
                 color={'secondary'}
-                className={classes.tabs}
+                sx={{
+                    // double the position if the banner is shown
+                    top: showBanner ? { xs: 2 * 56, sm: 2 * 64 } : { xs: 56, sm: 64 },
+                }}
                 elevation={0}
-                style={
-                    showBanner
-                        ? {
-                              top: 2 * theme.spacing(sm ? 7 : 8),
-                          }
-                        : {}
-                }
             >
                 <Tabs variant={'scrollable'} value={filter}>
                     <Tab

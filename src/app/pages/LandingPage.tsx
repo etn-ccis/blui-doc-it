@@ -1,20 +1,9 @@
 import React from 'react';
-import {
-    AppBar,
-    Toolbar,
-    Typography,
-    Button,
-    Grid,
-    Theme,
-    useTheme,
-    createStyles,
-    makeStyles,
-    useMediaQuery,
-} from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Button, Grid, Theme, useTheme, useMediaQuery, SxProps, Box } from '@mui/material';
 import {
     InfoCard,
     Section as LandingSection,
-    CardCarousel,
+    // CardCarousel,
     CarouselCard,
     FooterLinks,
     SharedToolbar,
@@ -22,7 +11,7 @@ import {
 } from '../components';
 import { LatestReleases } from '../../docs';
 import * as Colors from '@brightlayer-ui/colors';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { cardData } from '../../__configuration__/landingPage/cardData';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
@@ -37,40 +26,38 @@ import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
 import { PXBLogo } from '../assets/icons/PXBLogo';
-import { Menu, DeveloperMode } from '@material-ui/icons';
+import { Menu, DeveloperMode } from '@mui/icons-material';
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        banner: {
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            padding: `${theme.spacing(8)}px ${theme.spacing(4)}px`,
-            width: '100%',
-            color: theme.palette.primary.contrastText,
-            backgroundColor: theme.palette.primary.main,
-            backgroundSize: 'cover',
-            backgroundPosition: '-240px center',
-        },
-        customBannerText: {
-            maxWidth: '100%',
-            width: 400,
-            height: 250,
-            display: 'block',
-        },
-        footer: {
-            zIndex: 0,
-            backgroundColor: Colors.darkBlack[100],
-            color: Colors.white[50],
-            textAlign: 'center',
-        },
-    })
-);
+const styles: { [key: string]: SxProps<Theme> } = {
+    banner: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        py: 8,
+        px: 4,
+        width: '100%',
+        color: 'primary.contrastText',
+        backgroundColor: 'primary.main',
+        backgroundSize: 'cover',
+        backgroundPosition: '-240px center',
+    },
+    customBannerText: {
+        maxWidth: '100%',
+        width: 400,
+        height: 250,
+        display: 'block',
+    },
+    footer: {
+        zIndex: 0,
+        backgroundColor: Colors.darkBlack[100],
+        color: Colors.white[50],
+        textAlign: 'center',
+    },
+};
 
 export const LandingPage: React.FC = (): JSX.Element => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const theme = useTheme();
-    const classes = useStyles();
     const themeConfig = getScheduledSiteConfig();
     let landingPageBanner = themeConfig.landingPageBanner;
     const logoColor = themeConfig.logoColor;
@@ -87,23 +74,23 @@ export const LandingPage: React.FC = (): JSX.Element => {
     return (
         <>
             <SharedToolbar navigationIcon={<Menu />} />
-            <div className={classes.banner} style={landingPageBanner}>
+            <Box sx={styles.banner} style={landingPageBanner}>
                 {customBannerText ? (
-                    <div style={customBannerText} className={classes.customBannerText} />
+                    <Box style={customBannerText} sx={styles.customBannerText} />
                 ) : (
                     <PXBLogo color={logoColor} tagline={tagline} />
                 )}
                 <Button
                     variant={'outlined'}
                     color={'inherit'}
-                    style={{ minWidth: 150, fontWeight: 600, margin: `${theme.spacing(2)}px 0 0` }}
+                    sx={{ minWidth: 150, fontWeight: 600, mt: 2, mx: 0 }}
                     onClick={(): void => {
-                        history.push('overview');
+                        navigate('overview');
                     }}
                 >
                     GET STARTED
                 </Button>
-            </div>
+            </Box>
             <LandingSection title={'Design and Development'} align={'left'} background={'light'}>
                 <Grid container spacing={6} style={{ marginTop: theme.spacing(2) }}>
                     {cardData.map((item, ind) => (
@@ -115,7 +102,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                                 aspectRatio={'3x2'}
                                 description={item.description}
                                 onClick={(): void => {
-                                    if (item.path.startsWith('/')) history.push(item.path);
+                                    if (item.path.startsWith('/')) navigate(item.path);
                                     else window.open(item.path, '_blank');
                                 }}
                             />
@@ -144,33 +131,37 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     variant={'outlined'}
                     color={'primary'}
                     style={{ marginTop: theme.spacing(1) }}
-                    onClick={(): void => history.push('/release-notes')}
+                    onClick={(): void => navigate('/release-notes')}
                 >
                     VIEW ALL
                 </Button>
             </LandingSection>
 
             {/* Carousel Section */}
-            <CardCarousel>
-                <CarouselCard
-                    backgroundImage={designImage}
-                    title={'Getting started as a designer'}
-                    description={
-                        'We offer many resources and assets for designers getting acquainted with Brightlayer UI.'
-                    }
-                    icon={<DesignIcon fontSize={'large'} />}
-                    onClick={(): void => history.push('/design/intro')}
-                />
-                <CarouselCard
-                    backgroundImage={developImage}
-                    title={'Getting started as a developer'}
-                    description={
-                        'We have numerous guides and resources to prepare you for working with Brightlayer UI.'
-                    }
-                    icon={<DeveloperMode fontSize={'large'} />}
-                    onClick={(): void => history.push('/development/environment')}
-                />
-            </CardCarousel>
+            <Grid container>
+                <Grid item xs={12} sm={6}>
+                    <CarouselCard
+                        backgroundImage={designImage}
+                        title={'Getting started as a designer'}
+                        description={
+                            'We offer many resources and assets for designers getting acquainted with Brightlayer UI.'
+                        }
+                        icon={<DesignIcon fontSize={'large'} />}
+                        onClick={(): void => navigate('/design/intro')}
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <CarouselCard
+                        backgroundImage={developImage}
+                        title={'Getting started as a developer'}
+                        description={
+                            'We have numerous guides and resources to prepare you for working with Brightlayer UI.'
+                        }
+                        icon={<DeveloperMode fontSize={'large'} />}
+                        onClick={(): void => navigate('/development/environment')}
+                    />
+                </Grid>
+            </Grid>
 
             <LandingSection title={'Contributors'} background={'light'}>
                 <ContributorsList
@@ -188,7 +179,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                         variant={'outlined'}
                         color={'primary'}
                         style={{ marginTop: theme.spacing(1) }}
-                        onClick={(): void => history.push('/community/innersourcing')}
+                        onClick={(): void => navigate('/community/innersourcing')}
                     >
                         Become a Contributor!
                     </Button>
@@ -197,7 +188,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
 
             {/* Footer Section */}
             <FooterLinks />
-            <AppBar position={'static'} className={classes.footer} elevation={0}>
+            <AppBar position={'static'} sx={styles.footer} elevation={0}>
                 <Toolbar variant={'dense'}>
                     <Typography variant={'caption'} align={'center'} style={{ flex: '1 1 0px' }}>
                         Copyright {new Date().getFullYear()} Eaton. Licensed under BSD-3-Clause.

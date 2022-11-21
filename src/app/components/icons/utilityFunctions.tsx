@@ -117,7 +117,7 @@ export const getIconFontCopyText: GetCopyTextFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             if (icon.isMaterial) {
-                return `import Icon from '@material-ui/core/Icon';\n<Icon>${icon.iconFontKey}</Icon>`;
+                return `import Icon from '@mui/material/Icon';\n<Icon>${icon.iconFontKey}</Icon>`;
             }
             return `<i className="blui-${icon.iconFontKey}"></i>`;
         case 'angular':
@@ -135,7 +135,7 @@ export const getIconFontSnippet: GetSnippetFn = (framework, icon) => {
                 <>
                     {icon.isMaterial && (
                         <>
-                            {`import Icon from '@material-ui/core/Icon';`}
+                            {`import Icon from '@mui/material/Icon';`}
                             <br />
                             {`<Icon>${icon.iconFontKey}</Icon>`}
                         </>
@@ -155,7 +155,7 @@ export const getIconSvgCopyText: GetCopyTextFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             if (icon.isMaterial) {
-                return `import ${icon.name}Icon from '@material-ui/icons/${icon.name}';\n<${icon.name}Icon></${icon.name}Icon>`;
+                return `import ${icon.name}Icon from '@mui/icons-material/${icon.name}';\n<${icon.name}Icon></${icon.name}Icon>`;
             }
             return `import ${getMuiIconName(icon.name)} from '@brightlayer-ui/icons-svg/${
                 icon.iconFontKey
@@ -228,7 +228,7 @@ export const getIconComponentCopyText: GetCopyTextFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             return `import { ${icon.name} } from '${
-                icon.isMaterial ? '@material-ui/icons' : '@brightlayer-ui/icons-mui'
+                icon.isMaterial ? '@mui/icons-material' : '@brightlayer-ui/icons-mui'
             }';\n<${icon.name} />`;
         default:
             return '';
@@ -241,7 +241,7 @@ export const getIconComponentSnippet: GetSnippetFn = (framework, icon) => {
             return (
                 <>
                     {`import { ${icon.name} } from '${
-                        icon.isMaterial ? '@material-ui/icons' : '@brightlayer-ui/icons-mui'
+                        icon.isMaterial ? '@mui/icons-material' : '@brightlayer-ui/icons-mui'
                     }';`}
                     <br />
                     {`<${icon.name} />`}

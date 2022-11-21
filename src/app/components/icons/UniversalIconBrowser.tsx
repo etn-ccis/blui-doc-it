@@ -8,17 +8,16 @@ import {
     CardActions,
     Divider,
     useTheme,
-    makeStyles,
     Theme,
     IconButton,
     Tooltip,
-} from '@material-ui/core';
+    SxProps,
+} from '@mui/material';
 import { InfoListItem, ListItemTag } from '@brightlayer-ui/react-components';
-import { ExpandLess, ExpandMore, Edit } from '@material-ui/icons';
-import clsx from 'clsx';
+import { ExpandLess, ExpandMore, Edit } from '@mui/icons-material';
 
-const useClass = makeStyles((theme: Theme) => ({
-    cardRoot: { marginBottom: theme.spacing(6) },
+const styles: { [key: string]: SxProps<Theme> } = {
+    cardRoot: { mb: 6 },
     cardRootCollapsed: { height: 400, position: 'relative' },
     cardHeader: {
         display: 'flex',
@@ -26,13 +25,13 @@ const useClass = makeStyles((theme: Theme) => ({
         justifyContent: 'space-between',
         alignItems: 'center',
     },
-    cardAction: {
+    cardAction: (theme) => ({
         justifyContent: 'center',
         width: '100%',
         height: 72,
         background: `linear-gradient(180deg, transparent 0%, ${theme.palette.background.paper} 50%)`,
         cursor: 'pointer',
-    },
+    }),
     cardActionCollapsed: {
         bottom: 0,
         position: 'absolute',
@@ -40,18 +39,21 @@ const useClass = makeStyles((theme: Theme) => ({
     cardActionExpanded: {
         position: 'sticky',
     },
-}));
+};
 
 export const UniversalIconBrowser: React.FC = () => {
     const [expanded, setExpanded] = React.useState(false);
     const theme = useTheme();
-    const classes = useClass();
     return (
         <Card
-            variant={theme.palette.type === 'dark' ? 'outlined' : 'elevation'}
-            className={clsx([classes.cardRoot, { [classes.cardRootCollapsed]: !expanded }])}
+            variant={theme.palette.mode === 'dark' ? 'outlined' : 'elevation'}
+            // @ts-ignore TODO: Fix this style merge
+            sx={{
+                ...styles.cardRoot,
+                ...(!expanded ? styles.cardRootCollapsed : {}),
+            }}
         >
-            <CardContent className={classes.cardHeader}>
+            <CardContent sx={styles.cardHeader}>
                 <Typography variant={'subtitle1'} color={'primary'}>
                     Universal Icons
                 </Typography>
@@ -105,10 +107,11 @@ export const UniversalIconBrowser: React.FC = () => {
                 />
             ))}
             <CardActions
-                className={clsx([
-                    classes.cardAction,
-                    { [classes.cardActionCollapsed]: !expanded, [classes.cardActionExpanded]: expanded },
-                ])}
+                // @ts-ignore TODO: Fix this style merge
+                sx={{
+                    ...styles.cardAction,
+                    ...(!expanded ? styles.cardActionCollapsed : styles.cardActionExpanded),
+                }}
                 onClick={(): void => {
                     setExpanded(!expanded);
                 }}

@@ -1,16 +1,15 @@
 import React, { ComponentProps, useCallback, useEffect, useState } from 'react';
-import { Typography, makeStyles, createStyles, Theme, useTheme } from '@material-ui/core';
-import { Check } from '@material-ui/icons';
+import { Typography, Theme, useTheme, SxProps, Box } from '@mui/material';
+import { Check } from '@mui/icons-material';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import { AppState } from '../../redux/reducers';
 import { copyTextToClipboard } from '../../shared';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { BLUIColor } from '@brightlayer-ui/types';
 import colorModule from 'color';
 import { CHANGE_SELECTED_COLOR } from '../../redux/actions';
-import clsx from 'clsx';
 import { ListItemTag } from '@brightlayer-ui/react-components';
 
 const getColorLabel = (color: string, format: 'rgb' | 'hex'): JSX.Element | null => {
@@ -38,80 +37,78 @@ type SwatchProps = ComponentProps<'div'> &
         weight: number;
     };
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        swatchWrapper: {
-            border: `1px solid ${theme.palette.divider}`,
-            marginBottom: theme.spacing(1),
-            maxWidth: theme.spacing(8.5),
-            minWidth: theme.spacing(8.5),
-            [theme.breakpoints.down('sm')]: {
-                marginRight: theme.spacing(0.5),
-            },
-            '&:hover': {
-                boxShadow: theme.shadows[4],
-                borderColor: theme.palette.type === 'dark' ? theme.palette.text.primary : undefined,
-                transition: theme.transitions.create('box-shadow', { duration: theme.transitions.duration.shortest }),
-                cursor: 'pointer',
-            },
-            '&$isSelected': {
-                border: `2px solid ${theme.palette.primary.main}`,
-            },
+const styles: { [key: string]: SxProps<Theme> } = {
+    swatchWrapper: (theme) => ({
+        border: `1px solid ${theme.palette.divider}`,
+        mb: 1,
+        maxWidth: theme.spacing(8.5),
+        minWidth: theme.spacing(8.5),
+        [theme.breakpoints.down('sm')]: {
+            marginRight: theme.spacing(0.5),
         },
-        swatch: {
-            height: 60,
-            color: Colors.white[50],
-            background: theme.palette.background.paper,
-            position: 'relative',
+        '&:hover': {
+            boxShadow: theme.shadows[4],
+            borderColor: theme.palette.mode === 'dark' ? theme.palette.text.primary : undefined,
+            transition: theme.transitions.create('box-shadow', { duration: theme.transitions.duration.shortest }),
+            cursor: 'pointer',
+        },
+        // TODO: fix this style conversion
+        '&$isSelected': {
+            border: `2px solid ${theme.palette.primary.main}`,
+        },
+    }),
+    swatch: {
+        height: 60,
+        color: Colors.white[50],
+        background: 'background.paper',
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    label: {
+        p: 1,
+        position: 'relative',
+        '&:hover $copyOnHoverButton': {
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
         },
-        label: {
-            padding: theme.spacing(1),
-            position: 'relative',
-            '&:hover $copyOnHoverButton': {
-                display: 'flex',
-            },
-            '&$isSelected': {
-                color: theme.palette.primary.main,
-            },
+        '&$isSelected': {
+            color: 'primary.main',
         },
-        paletteWrapper: {
-            width: '100%',
-            display: 'flex',
-            flexWrap: 'wrap',
-            [theme.breakpoints.up('md')]: {
-                justifyContent: 'space-between',
-                WebkitJustifyContent: 'space-between',
-            },
+    },
+    paletteWrapper: (theme) => ({
+        width: '100%',
+        display: 'flex',
+        flexWrap: 'wrap',
+        [theme.breakpoints.up('md')]: {
+            justifyContent: 'space-between',
+            WebkitJustifyContent: 'space-between',
         },
-        copyOnHoverButton: {
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            display: 'none',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: colorModule(theme.palette.background.paper).alpha(0.9).string(),
-        },
-        isSelected: {},
-        tags: {
-            border: `1px solid ${theme.palette.divider}`,
-            boxSizing: 'content-box',
-        },
-    })
-);
+    }),
+    copyOnHoverButton: (theme) => ({
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        display: 'none',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: colorModule(theme.palette.background.paper).alpha(0.9).string(),
+    }),
+    isSelected: {},
+    tags: (theme) => ({
+        border: `1px solid ${theme.palette.divider}`,
+        boxSizing: 'content-box',
+    }),
+};
 
 export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
     const theme = useTheme();
-    const classes = useStyles(theme);
     const { color, name, category, weight, ...otherProps } = props;
     const format = useSelector((state: AppState) => state.app.colorFormat);
     const showColorContrast = useSelector((state: AppState) => state.app.showColorContrast);
-    const history = useHistory();
+    const navigate = useNavigate();
     const location = useLocation();
     const dispatch = useDispatch();
     const [copied, setCopied] = useState(false);
@@ -130,7 +127,7 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
     }, [color, format]);
 
     const onSelectColor = useCallback(() => {
-        history.replace(`${location.pathname}?category=${category}&name=${name}&weight=${weight}`);
+        navigate(`${location.pathname}?category=${category}&name=${name}&weight=${weight}`, { replace: true });
         dispatch({ type: CHANGE_SELECTED_COLOR, payload: { category, name, weight } });
     }, []);
 
@@ -144,7 +141,7 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
                         title={
                             'WCAG requires a minimum 3:1 contrast ratio for icons and headline text to pass the AA level accessibility standard.'
                         }
-                        className={classes.tags}
+                        sx={styles.tags}
                     />
                 );
             } else if (contrastRatio <= 4.5) {
@@ -155,7 +152,7 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
                         title={
                             'WCAG requires a minimum 4.5:1 contrast ratio for body text to pass the AA level accessibility standard.'
                         }
-                        className={classes.tags}
+                        sx={styles.tags}
                     />
                 );
             }
@@ -187,13 +184,17 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
     }, [selectedColor]);
 
     return (
-        <div
+        <Box
             {...otherProps}
-            className={clsx(classes.swatchWrapper, { [classes.isSelected]: isSelected })}
+            // @ts-ignore TODO: Fix this style combination
+            sx={{
+                ...styles.swatchWrapper,
+                ...(isSelected ? styles.selected : {}),
+            }}
             id={`color-${category}-${name}-${weight}`}
         >
-            <div
-                className={classes.swatch}
+            <Box
+                sx={styles.swatch}
                 style={{ background: color, color: colorModule(color).isLight() ? '#000d' : 'white' }}
                 onClick={onSelectColor}
             >
@@ -204,10 +205,16 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
                     getColorContrastTag(
                         Math.round(colorModule(color).contrast(colorModule(selectedColorHex)) * 100) / 100
                     )}
-            </div>
-            <div className={clsx(classes.label, { [classes.isSelected]: isSelected })}>
-                <div
-                    className={classes.copyOnHoverButton}
+            </Box>
+            <Box
+                // @ts-ignore TODO: Fix this style combination
+                sx={{
+                    ...styles.label,
+                    ...(isSelected ? styles.selected : {}),
+                }}
+            >
+                <Box
+                    sx={styles.copyOnHoverButton}
                     onClick={copyColorToClipboard}
                     onMouseLeave={(): void => {
                         setCopied(false);
@@ -227,23 +234,22 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
                             <Check fontSize={'inherit'} />
                         </Typography>
                     )}
-                </div>
+                </Box>
                 <Typography variant={'subtitle2'} style={{ fontWeight: 600 }}>{`${weight}:`}</Typography>
                 <Typography variant={'caption'} style={{ fontFamily: 'Roboto Mono' }}>
                     {colorLabel()}
                 </Typography>
-            </div>
-        </div>
+            </Box>
+        </Box>
     );
 };
 
 export const ColorPalette: React.FC<PaletteProps> = (props): JSX.Element => {
-    const classes = useStyles();
     const palette =
-        // @ts-ignore
+        // @ts-ignore TODO: sort out these types
         props.category === 'ui' ? (Colors[props.name] as BLUIColor) : (BrandingColors[props.name] as BLUIColor);
     return (
-        <div className={classes.paletteWrapper}>
+        <Box sx={styles.paletteWrapper}>
             {(Object.keys(palette) as Array<keyof BLUIColor>)
                 .filter((key) => parseInt(key as string, 10))
                 .map((key) => (
@@ -255,6 +261,6 @@ export const ColorPalette: React.FC<PaletteProps> = (props): JSX.Element => {
                         category={props.category}
                     />
                 ))}
-        </div>
+        </Box>
     );
 };

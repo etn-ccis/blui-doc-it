@@ -1,7 +1,7 @@
 import React from 'react';
-import { AppBar, Avatar, Tabs, Tab, IconButton, Badge } from '@material-ui/core';
-import { DropdownToolbar, Spacer } from '@brightlayer-ui/react-components';
-import { Menu, Notifications, Search } from '@material-ui/icons';
+import { AppBar, Avatar, Tabs, Tab, IconButton, Badge, ListItemText, Toolbar } from '@mui/material';
+import { Spacer } from '@brightlayer-ui/react-components';
+import { Menu, Notifications, Search } from '@mui/icons-material';
 
 /*
  * cannot iterate through variations due to the way MUI implemented text fields
@@ -19,14 +19,11 @@ export const AppBarDemo: JSX.Element = (
         }}
     >
         <AppBar position={'static'} key={'primary'} color={'primary'} style={{ zIndex: 0 }}>
-            <DropdownToolbar
-                title={'Primary'}
-                subtitle={'This is the App Bar pinned to the top'}
-                navigationIcon={<Menu />}
-                menuGroups={[
-                    { items: [{ title: 'Brightlayer UI' }, { title: 'PX Rainbow' }, { title: 'PX Unicorn' }] },
-                ]}
-            >
+            <Toolbar>
+                <IconButton>
+                    <Menu />
+                </IconButton>
+                <ListItemText primary={'Primary'} secondary={'This is the App Bar pinned to the top'} />
                 <Spacer />
                 <IconButton color={'inherit'}>
                     <Search />
@@ -37,7 +34,7 @@ export const AppBarDemo: JSX.Element = (
                     </Badge>
                 </IconButton>
                 <Avatar />
-            </DropdownToolbar>
+            </Toolbar>
         </AppBar>
 
         <AppBar position={'static'} key={'secondary'} color={'secondary'} style={{ zIndex: 0 }}>

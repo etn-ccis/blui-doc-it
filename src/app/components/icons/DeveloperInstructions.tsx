@@ -4,16 +4,16 @@ import {
     Theme,
     Typography,
     useTheme,
-    withStyles,
-    makeStyles,
-    Accordion as MuiAccordion,
-    AccordionSummary as MuiAccordionSummary,
-    AccordionDetails as MuiAccordionDetails,
+    Accordion,
+    AccordionSummary,
+    AccordionDetails,
     AccordionProps,
     Divider,
-} from '@material-ui/core';
+    SxProps,
+    Box,
+} from '@mui/material';
 
-import { ArrowDropDown } from '@material-ui/icons';
+import { ArrowDropDown } from '@mui/icons-material';
 
 import { titleCase } from '../../shared';
 import { emptyIcon } from '.';
@@ -31,57 +31,50 @@ import { CopyToClipboard } from './CopyToClipboardButton';
 
 type Framework = 'angular' | 'react' | 'react-native';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const styles: { [key: string]: SxProps<Theme> } = {
     codeSnippetTitle: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
     },
     codeSnippet: {
-        margin: `${theme.spacing(0.5)}px 0`,
-        marginBottom: theme.spacing(2),
+        mt: 0.5,
+        mx: 0,
+        mb: 2,
         whiteSpace: 'normal',
     },
     expandIcon: {
-        color: theme.palette.text.secondary,
+        color: 'text.secondary',
     },
     expanded: {},
-}));
-
-const Accordion = withStyles((theme: Theme) => ({
-    root: {
+    accordion: {
         boxShadow: 'none',
         transition: `border 0ms`,
+        // TODO: Fix this style
         '&$expanded': {
-            margin: 0,
-            borderLeft: `solid 6px ${theme.palette.primary.main}`,
+            m: 0,
+            borderLeft: `solid 6px`,
+            borderLeftColor: 'primary.main',
         },
         '&:before': {
             opacity: 0,
         },
     },
-    expanded: {},
-}))(MuiAccordion);
-
-const AccordionSummary = withStyles({
-    root: {
-        height: 48,
-        minHeight: '48px!important',
-        '&$expanded': {
-            paddingLeft: 10,
-        },
-    },
-    expanded: {},
-})(MuiAccordionSummary);
-
-const AccordionDetails = withStyles(() => ({
-    root: {
-        padding: '0 16px',
-        paddingLeft: 10,
+    accordionDetails: {
+        pr: 2,
+        pl: 1.25,
         display: 'flex',
         flexDirection: 'column',
     },
-}))(MuiAccordionDetails);
+    accordionSummary: {
+        height: 48,
+        minHeight: '48px!important',
+        // TODO: fix this style
+        '&$expanded': {
+            pl: 1.25,
+        },
+    },
+};
 
 export type DeveloperAccordionProps = Omit<AccordionProps, 'children'> & {
     framework: Framework;
@@ -89,25 +82,23 @@ export type DeveloperAccordionProps = Omit<AccordionProps, 'children'> & {
 };
 export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = (props) => {
     const { framework, icon } = props;
-    const classes = useStyles();
 
     return (
         <Accordion {...props}>
-            <AccordionSummary
-                expandIcon={<ArrowDropDown className={classes.expandIcon} />}
-                IconButtonProps={{ disableRipple: true }}
-            >
+            <AccordionSummary expandIcon={<ArrowDropDown sx={styles.expandIcon} />} disableRipple>
                 <Typography variant={props.expanded ? 'subtitle2' : 'body2'}>{titleCase(framework)}</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={styles.accordionDetails}>
                 {/* ICON FONT */}
                 {(framework === 'angular' || framework === 'react') && (
                     <>
-                        <div className={classes.codeSnippetTitle}>
+                        <Box sx={styles.codeSnippetTitle}>
                             <Typography variant={'overline'}>Icon Font</Typography>
                             <CopyToClipboard copyText={getIconFontCopyText(framework, icon)} copiedPosition={'left'} />
-                        </div>
-                        <pre className={classes.codeSnippet}>{getIconFontSnippet(framework, icon)}</pre>
+                        </Box>
+                        <Box component={'pre'} sx={styles.codeSnippet}>
+                            {getIconFontSnippet(framework, icon)}
+                        </Box>
                     </>
                 )}
 
@@ -116,25 +107,29 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
                     framework === 'react-native' ||
                     (framework === 'react' && !icon.isMaterial)) && (
                     <>
-                        <div className={classes.codeSnippetTitle}>
+                        <Box sx={styles.codeSnippetTitle}>
                             <Typography variant={'overline'}>SVG</Typography>
                             <CopyToClipboard copyText={getIconSvgCopyText(framework, icon)} copiedPosition={'left'} />
-                        </div>
-                        <pre className={classes.codeSnippet}>{getIconSvgSnippet(framework, icon)}</pre>
+                        </Box>
+                        <Box component={'pre'} sx={styles.codeSnippet}>
+                            {getIconSvgSnippet(framework, icon)}
+                        </Box>
                     </>
                 )}
 
                 {/* ICON COMPONENT */}
                 {framework === 'react' && (
                     <>
-                        <div className={classes.codeSnippetTitle}>
+                        <Box sx={styles.codeSnippetTitle}>
                             <Typography variant={'overline'}>Icon Components</Typography>
                             <CopyToClipboard
                                 copyText={getIconComponentCopyText(framework, icon)}
                                 copiedPosition={'left'}
                             />
-                        </div>
-                        <pre className={classes.codeSnippet}>{getIconComponentSnippet(framework, icon)}</pre>
+                        </Box>
+                        <Box component={'pre'} sx={styles.codeSnippet}>
+                            {getIconComponentSnippet(framework, icon)}
+                        </Box>
                     </>
                 )}
             </AccordionDetails>

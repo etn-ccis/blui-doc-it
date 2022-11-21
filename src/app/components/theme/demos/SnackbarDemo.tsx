@@ -1,6 +1,6 @@
 import React from 'react';
-import { IconButton, Snackbar } from '@material-ui/core';
-import { Delete } from '@material-ui/icons';
+import { IconButton, Snackbar } from '@mui/material';
+import { Delete } from '@mui/icons-material';
 
 export const SnackbarDemo: JSX.Element = (
     <div style={{ padding: 16 }}>

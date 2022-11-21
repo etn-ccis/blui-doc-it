@@ -1,32 +1,27 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
-import { Feedback } from '@material-ui/icons';
-import { makeStyles, createStyles, Fab, Theme } from '@material-ui/core';
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        fab: {
-            zIndex: 2,
-            position: 'fixed',
-            bottom: theme.spacing(3),
-            right: theme.spacing(3),
-            boxShadow: theme.shadows[10],
-        },
-    })
-);
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Feedback } from '@mui/icons-material';
+import { Fab, Theme } from '@mui/material';
+import { SystemStyleObject } from '@mui/system';
 
 export const ContactFab = (): JSX.Element | null => {
-    const classes = useStyles();
-    const history = useHistory();
-    const isContactPage = history.location.pathname === '/community/contactus';
+    const navigate = useNavigate();
+    const location = useLocation();
+    const isContactPage = location.pathname === '/community/contactus';
 
     return !isContactPage ? (
         <Fab
             color={'primary'}
             aria-label={'Contact Us'}
-            className={classes.fab}
+            sx={(theme): SystemStyleObject<Theme> => ({
+                zIndex: 2,
+                position: 'fixed',
+                bottom: 24,
+                right: 24,
+                boxShadow: theme.shadows[10],
+            })}
             onClick={(): void => {
-                history.push('/community/contactus');
+                navigate('/community/contactus');
             }}
         >
             <Feedback />

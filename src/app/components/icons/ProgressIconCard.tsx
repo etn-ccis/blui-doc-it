@@ -5,31 +5,24 @@ import * as Progress from '@brightlayer-ui/react-progress-icons';
 import * as BluiColors from '@brightlayer-ui/colors';
 
 // Material-UI Components
-import { Typography, AppBar, Paper, Toolbar, makeStyles, FormControlLabel, Checkbox } from '@material-ui/core';
+import { Typography, AppBar, Paper, Toolbar, FormControlLabel, Checkbox } from '@mui/material';
 import { BLUIColor } from '@brightlayer-ui/types';
 
 const size = 48;
 type ColorPalette = {
     [key: string]: BLUIColor;
 };
+// @ts-ignore TODO: Fix this type
 const colorSet: ColorPalette = BluiColors;
 const colors = ['red', 'orange', 'gold', 'yellow', 'green', 'lightBlue', 'blue', 'purple', 'gray', 'black'];
 const weight = 300;
 
-const useStyles = makeStyles(() => ({
-    header: {
-        boxShadow: 'none',
-    },
-}));
-
 export const ProgressIconCard: React.FC = (): JSX.Element => {
-    const classes = useStyles();
-
     const [isOutlined, setIsOutlined] = React.useState(false);
 
     return (
         <Paper elevation={4}>
-            <AppBar position="static" color="primary" classes={{ root: classes.header }}>
+            <AppBar position="static" color="primary" sx={{ boxShadow: 'none' }}>
                 <Toolbar>
                     <Typography variant="h6" color="inherit" noWrap>
                         Brightlayer UI Progress Icons

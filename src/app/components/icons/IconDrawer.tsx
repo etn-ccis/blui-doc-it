@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
     AppBar,
     Button,
@@ -11,17 +11,18 @@ import {
     Toolbar,
     Typography,
     useTheme,
-    makeStyles,
     useMediaQuery,
-} from '@material-ui/core';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+    SxProps,
+    Box,
+} from '@mui/material';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 import { EmptyState, Spacer } from '@brightlayer-ui/react-components';
 
-import { GetApp, Close } from '@material-ui/icons';
+import { GetApp, Close } from '@mui/icons-material';
 import { Pxblue } from '@brightlayer-ui/icons-mui';
 
 import { snakeToTitleCase } from '../../shared';
@@ -38,21 +39,20 @@ import { AppState } from '../../redux/reducers';
 import { CopyToClipboard } from './CopyToClipboardButton';
 import { IconSize, IconColor } from '../../../__types__';
 import { usePrevious } from '../../hooks/usePrevious';
-import clsx from 'clsx';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const styles: { [key: string]: SxProps<Theme> } = {
     drawer: {
         maxWidth: '80%',
         width: 350,
         display: 'flex',
         flexDirection: 'column',
         zIndex: 900,
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: 'background.paper',
     },
     appBar: {
         backgroundColor: Colors.black[500],
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(0.5),
+        pl: 2,
+        pr: 0.5,
         '&.mid-autumn-festival': {
             color: Colors.black[50],
         },
@@ -62,31 +62,30 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     iconNameRow: {
         display: 'flex',
-        padding: theme.spacing(2),
+        p: 2,
         alignItems: 'center',
     },
     iconNameRowDescription: {
-        marginLeft: theme.spacing(3),
+        ml: 3,
     },
     iconNameWrapper: {
         display: 'flex',
         alignItems: 'center',
     },
     formControl: {
-        paddingTop: theme.spacing(1),
-        paddingBottom: theme.spacing(2),
-        marginRight: theme.spacing(2),
+        pt: 1,
+        pb: 2,
+        mr: 2,
         minWidth: 120,
     },
-}));
+};
 
 export const IconDrawer: React.FC = () => {
     const { selectedIcon = emptyIcon } = useSelectedIcon();
     const previousSelectedIcon = usePrevious(selectedIcon);
     const theme = useTheme();
-    const history = useHistory();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
-    const classes = useStyles(theme);
     const [iconSize, setIconSize] = React.useState<IconSize>(24);
     const [iconColor, setIconColor] = React.useState<IconColor>('black');
     const drawerOpen = useSelector((state: AppState) => state.app.sidebarOpen);
@@ -96,7 +95,7 @@ export const IconDrawer: React.FC = () => {
     const iconTitle = snakeToTitleCase(selectedIcon.iconFontKey);
 
     const closeDrawer = (): void => {
-        history.replace(`${location.pathname}`);
+        navigate(`${location.pathname}`, { replace: true });
         dispatch({ type: TOGGLE_SIDEBAR, payload: false });
     };
 
@@ -117,8 +116,8 @@ export const IconDrawer: React.FC = () => {
             variant={sm ? 'temporary' : 'persistent'}
             open={drawerOpen}
             onClose={closeDrawer}
-            classes={{ paper: classes.drawer }}
             PaperProps={{
+                sx: styles.drawer,
                 style:
                     showBanner && !sm
                         ? {
@@ -128,14 +127,14 @@ export const IconDrawer: React.FC = () => {
             }}
         >
             <AppBar position="static" color="primary">
-                <Toolbar className={clsx([classes.appBar, themeConfig.className])}>
+                <Toolbar sx={styles.appBar} className={themeConfig.className}>
                     <Typography variant="h6" color="inherit" noWrap>
                         Selected Icon
                     </Typography>
                     <Spacer />
                     <IconButton
                         onClick={closeDrawer}
-                        className={classes.appBarCloseButton}
+                        sx={styles.appBarCloseButton}
                         style={showBanner && !sm ? { marginRight: theme.spacing(1.5) } : {}}
                     >
                         <Close />
@@ -153,51 +152,38 @@ export const IconDrawer: React.FC = () => {
                 )}
                 {selectedIcon.name !== '' && (
                     <>
-                        <div className={classes.iconNameRow}>
+                        <Box sx={styles.iconNameRow}>
                             <selectedIcon.Icon style={{ fontSize: 40 }} />
-                            <div className={classes.iconNameRowDescription}>
-                                <div className={classes.iconNameWrapper}>
+                            <Box sx={styles.iconNameRowDescription}>
+                                <Box sx={styles.iconNameWrapper}>
                                     <Typography variant={'body1'}>{iconTitle}</Typography>
-                                    <CopyToClipboard
-                                        title={'Copy Icon Name'}
-                                        copyText={iconTitle}
-                                        style={{ marginLeft: theme.spacing(1) }}
-                                    />
-                                </div>
+                                    <CopyToClipboard title={'Copy Icon Name'} copyText={iconTitle} sx={{ ml: 1 }} />
+                                </Box>
                                 <Typography variant={'caption'}>
                                     {selectedIcon.isMaterial ? 'Material Icon' : 'Brightlayer UI Icon'}
                                 </Typography>
-                            </div>
-                        </div>
+                            </Box>
+                        </Box>
                         <Divider />
                         {selectedIcon.tags.length > 0 && (
                             <>
-                                <div style={{ padding: theme.spacing(2) }}>
-                                    <Typography
-                                        display={'block'}
-                                        variant={'overline'}
-                                        style={{ marginBottom: theme.spacing(1) }}
-                                    >
+                                <Box sx={{ p: 2 }}>
+                                    <Typography display={'block'} variant={'overline'} sx={{ mb: 1 }}>
                                         TAGS / KEYWORDS
                                     </Typography>
-                                    <code style={{ display: 'block', whiteSpace: 'normal', padding: theme.spacing(1) }}>
+                                    <Box component={'code'} sx={{ display: 'block', whiteSpace: 'normal', p: 1 }}>
                                         {selectedIcon.tags.join(', ')}
-                                    </code>
-                                </div>
+                                    </Box>
+                                </Box>
                                 <Divider />
                             </>
                         )}
-                        <div style={{ padding: theme.spacing(2) }}>
-                            <Typography
-                                display={'block'}
-                                variant={'overline'}
-                                color={'primary'}
-                                style={{ marginBottom: theme.spacing(1) }}
-                            >
+                        <Box sx={{ p: 2 }}>
+                            <Typography display={'block'} variant={'overline'} color={'primary'} sx={{ mb: 1 }}>
                                 Download
                             </Typography>
-                            <div>
-                                <FormControl className={classes.formControl}>
+                            <Box>
+                                <FormControl sx={styles.formControl}>
                                     <InputLabel id="icon-size-select-label">Select a Size:</InputLabel>
                                     <Select
                                         labelId="icon-size-select-label"
@@ -211,7 +197,7 @@ export const IconDrawer: React.FC = () => {
                                         <MenuItem value={48}>48dp</MenuItem>
                                     </Select>
                                 </FormControl>
-                                <FormControl className={classes.formControl}>
+                                <FormControl sx={styles.formControl}>
                                     <InputLabel id="icon-color-select-label">Select a Color:</InputLabel>
                                     <Select
                                         labelId="icon-color-select-label"
@@ -225,12 +211,12 @@ export const IconDrawer: React.FC = () => {
                                         {!selectedIcon.isMaterial && <MenuItem value={'gray'}>Gray</MenuItem>}
                                     </Select>
                                 </FormControl>
-                            </div>
-                            <div>
+                            </Box>
+                            <Box>
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    style={{ marginRight: theme.spacing(1) }}
+                                    sx={{ mr: 1 }}
                                     startIcon={<GetApp />}
                                     onClick={(): void => {
                                         void downloadSvg(selectedIcon, iconColor, iconSize);
@@ -246,13 +232,13 @@ export const IconDrawer: React.FC = () => {
                                 >
                                     PNG
                                 </Button>
-                            </div>
-                        </div>
+                            </Box>
+                        </Box>
                         <Divider />
 
                         <DeveloperInstructionsPanel />
 
-                        <div style={{ padding: 16 }}>
+                        <Box sx={{ p: 2 }}>
                             <Typography variant={'subtitle2'} align={'center'}>
                                 For detailed usage and installation instructions, visit our{' '}
                                 <Link href={'https://github.com/brightlayer-ui/icons'} target={'_blank'}>
@@ -260,7 +246,7 @@ export const IconDrawer: React.FC = () => {
                                 </Link>
                                 .
                             </Typography>
-                        </div>
+                        </Box>
                     </>
                 )}
             </div>

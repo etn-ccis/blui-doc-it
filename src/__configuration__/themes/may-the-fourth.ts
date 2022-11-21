@@ -19,30 +19,34 @@ export const MayTheFourthSchedule: Schedule = {
     config: {
         theme: {
             ...BLUIThemes.blue,
-            overrides: {
-                ...BLUIThemes.blue.overrides,
+            components: {
+                ...BLUIThemes.blue.components,
                 MuiAppBar: {
-                    ...BLUIThemes.blue.overrides?.MuiAppBar,
-                    colorPrimary: {
-                        '& .MuiIconButton-colorInherit': {
-                            backgroundColor: color(Colors.darkBlack[100]).fade(0.3).toString(),
+                    styleOverrides: {
+                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
+                        colorPrimary: {
+                            '& .MuiIconButton-colorInherit': {
+                                backgroundColor: color(Colors.darkBlack[100]).fade(0.3).toString(),
+                            },
                         },
-                    },
-                    colorSecondary: {
-                        color: Colors.white[50],
-                        backgroundColor: Colors.darkBlack[300],
-                        '& .MuiInputBase-root': {
+                        colorSecondary: {
                             color: Colors.white[50],
-                        },
-                        '& .MuiSelect-icon': {
-                            color: Colors.white[50],
+                            backgroundColor: Colors.darkBlack[300],
+                            '& .MuiInputBase-root': {
+                                color: Colors.white[50],
+                            },
+                            '& .MuiSelect-icon': {
+                                color: Colors.white[50],
+                            },
                         },
                     },
                 },
                 MuiButton: {
-                    ...BLUIThemes.blue.overrides?.MuiButton,
-                    outlined: {},
-                    outlinedPrimary: {},
+                    styleOverrides: {
+                        ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                        outlined: {},
+                        outlinedPrimary: {},
+                    },
                 },
             },
         },

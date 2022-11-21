@@ -1,17 +1,16 @@
-import { makeStyles, Tooltip, TooltipProps } from '@material-ui/core';
-import { FileCopy } from '@material-ui/icons';
+import { SxProps, Theme, Tooltip, TooltipProps } from '@mui/material';
+import { FileCopy } from '@mui/icons-material';
 import React, { useState } from 'react';
 import { copyTextToClipboard } from '../../shared';
 import { isMobile } from 'react-device-detect';
-import * as Colors from '@brightlayer-ui/colors';
 
-const useStyles = makeStyles(() => ({
+const styles: { [key: string]: SxProps<Theme> } = {
     copyIcon: {
-        color: Colors.gray[500],
+        color: 'grey.500',
         fontSize: 16,
         cursor: 'pointer',
     },
-}));
+};
 
 type Position = 'bottom' | 'top' | 'left' | 'right';
 type CopyToClipboardProps = Omit<
@@ -35,7 +34,6 @@ export const CopyToClipboard: React.FC<CopyToClipboardProps> = (props) => {
         copyText,
         ...otherProps
     } = props;
-    const classes = useStyles();
     const [isCopied, setIsCopied] = useState(false);
     const [showTooltip, setShowTooltip] = useState(false);
 
@@ -47,7 +45,7 @@ export const CopyToClipboard: React.FC<CopyToClipboardProps> = (props) => {
             open={showTooltip}
         >
             <FileCopy
-                className={classes.copyIcon}
+                sx={styles.copyIcon}
                 onMouseEnter={(): void => {
                     if (!isCopied) setShowTooltip(true);
                 }}

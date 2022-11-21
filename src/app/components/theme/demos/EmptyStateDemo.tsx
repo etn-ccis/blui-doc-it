@@ -1,7 +1,7 @@
 import React from 'react';
 import { EmptyState } from '@brightlayer-ui/react-components';
-import { Button } from '@material-ui/core';
-import { HelpOutline, Add } from '@material-ui/icons';
+import { Button } from '@mui/material';
+import { HelpOutline, Add } from '@mui/icons-material';
 
 export const EmptyStateDemo: JSX.Element = (
     <div style={{ maxWidth: 400, padding: '40px 24px' }}>

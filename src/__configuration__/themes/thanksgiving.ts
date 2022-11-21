@@ -14,7 +14,7 @@ export const ThanksgivingSchedule: Schedule = {
             ...BLUIThemes.blue,
             palette: {
                 ...BLUIThemes.blue.palette,
-                type: 'light',
+                mode: 'light',
                 primary: {
                     light: BrandingColors.rust[100],
                     main: BrandingColors.rust[500],
@@ -26,25 +26,29 @@ export const ThanksgivingSchedule: Schedule = {
                     dark: BrandingColors.goldenrod[900],
                 },
             },
-            overrides: {
-                ...BLUIThemes.blue.overrides,
+            components: {
+                ...BLUIThemes.blue.components,
                 MuiAppBar: {
-                    ...BLUIThemes.blue.overrides?.MuiAppBar,
-                    colorSecondary: {
-                        color: Colors.white[50],
-                        backgroundColor: BrandingColors.rust[500],
-                        '& .MuiInputBase-root': {
+                    styleOverrides: {
+                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
+                        colorSecondary: {
                             color: Colors.white[50],
-                        },
-                        '& .MuiSelect-icon': {
-                            color: Colors.white[50],
+                            backgroundColor: BrandingColors.rust[500],
+                            '& .MuiInputBase-root': {
+                                color: Colors.white[50],
+                            },
+                            '& .MuiSelect-icon': {
+                                color: Colors.white[50],
+                            },
                         },
                     },
                 },
                 MuiButton: {
-                    ...BLUIThemes.blue.overrides?.MuiButton,
-                    outlined: {},
-                    outlinedPrimary: {},
+                    styleOverrides: {
+                        ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                        outlined: {},
+                        outlinedPrimary: {},
+                    },
                 },
             },
         },
