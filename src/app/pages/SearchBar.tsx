@@ -9,7 +9,6 @@ import {
     Theme,
     Backdrop,
     Divider,
-    SxProps,
     Box,
 } from '@mui/material';
 import { TOGGLE_SEARCH } from '../redux/actions';
@@ -25,25 +24,17 @@ import indexDatabase from '../../database/index-database.json';
 import { useQueryString } from '../hooks/useQueryString';
 import { usePrevious } from '../hooks/usePrevious';
 import ReactGA from 'react-ga';
+import { SystemStyleObject } from '@mui/system';
 
 export type SearchbarProps = AppBarProps;
 
-const styles: { [key: string]: SxProps<Theme> } = {
+const styles: { [key: string]: SystemStyleObject<Theme> } = {
     appBar: {
         backgroundColor: 'background.paper',
         width: 0,
         right: 0,
         transition: 'all 200ms ease-in-out',
         position: 'fixed',
-        zIndex: 'modal',
-    },
-    showSearchBar: {
-        width: '100%',
-    },
-    searchfield: {
-        flex: 1,
-    },
-    backdrop: {
         zIndex: 'modal',
     },
     searchResultsOverlay: {
@@ -66,26 +57,6 @@ const styles: { [key: string]: SxProps<Theme> } = {
         pt: 3,
         pb: '20vh',
         px: `${PADDING}px`,
-    },
-    searchResultCount: {
-        fontWeight: 600,
-        color: 'text.secondary',
-    },
-    searchResult: {
-        '&:hover': {
-            cursor: 'pointer',
-            color: 'text.secondary',
-        },
-        '& p, & h6': {
-            mb: 1,
-        },
-    },
-    searchResultPath: {
-        color: 'text.secondary',
-    },
-    searchResultDivider: {
-        my: 3,
-        mx: 0,
     },
 };
 
@@ -185,36 +156,34 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
             <Backdrop
                 open={searchActive}
                 transitionDuration={200}
-                sx={styles.backdrop}
+                sx={{ zIndex: 'modal' }}
                 onClick={(): void => {
                     dispatch({ type: TOGGLE_SEARCH, payload: false });
                 }}
             />
 
             {showSearchResult && (
-                <Box
-                    // @ts-ignore TODO: Fix this style merge
-                    sx={{
-                        ...styles.searchResultsOverlay,
-                        ...(showBanner ? styles.searchResultsOverlayBanner : {}),
-                    }}
-                >
+                <Box sx={[styles.searchResultsOverlay, ...(showBanner ? [styles.searchResultsOverlayBanner] : [])]}>
                     <Box sx={styles.searchResultsContainer}>
-                        <Typography variant={'body1'} sx={styles.searchResultCount}>
+                        <Typography variant={'body1'} sx={{ fontWeight: 600, color: 'text.secondary' }}>
                             {getSearchResultCountText()}
                         </Typography>
                         {searchResults.map((result: Result, index: number) => (
                             <Box
-                                sx={styles.searchResult}
+                                sx={{
+                                    cursor: 'pointer',
+                                    '&:hover': { color: 'text.secondary' },
+                                    '& p, & h6': { mb: 1 },
+                                }}
                                 key={index.toString()}
                                 onClick={(): void => {
                                     navigate(result.url);
                                 }}
                             >
-                                <Divider sx={styles.searchResultDivider} />
+                                <Divider sx={{ my: 3, mx: 0 }} />
                                 <Typography variant={'h6'}>{result.title}</Typography>
                                 <Typography variant={'body1'}>{result.text}</Typography>
-                                <Typography variant={'subtitle2'} sx={styles.searchResultPath}>
+                                <Typography variant={'subtitle2'} sx={{ color: 'text.secondary' }}>
                                     {result.url.replace(/\//g, ' / ')}
                                 </Typography>
                             </Box>
@@ -224,26 +193,21 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
             )}
 
             <AppBar
-                // @ts-ignore TODO: Fix this style merge
-                sx={{
-                    ...styles.appBar,
-                    ...(searchActive ? styles.showSearchBar : {}),
-                    top: showBanner ? { xs: 7, sm: 8 } : 0,
-                }}
+                sx={[styles.appBar, searchActive ? { width: '100%' } : {}, { top: showBanner ? { xs: 7, sm: 8 } : 0 }]}
                 position={'sticky'}
                 {...props}
             >
                 <Toolbar style={{ display: 'flex' }} id={'search-bar'}>
                     {searchActive && ( // to allow autofocus
                         <TextField
-                            sx={styles.searchfield}
-                            placeholder={'Search on Brightlayer UI...'}
-                            InputProps={{ disableUnderline: true }}
-                            value={inputString || ''}
-                            onChange={(e): void => onChangeHandler(e.target.value)}
+                            variant={'standard'}
                             autoFocus
                             inputMode={'search'}
                             type={'search'}
+                            placeholder={'Search on Brightlayer UI...'}
+                            value={inputString || ''}
+                            sx={{ flex: 1 }}
+                            onChange={(e): void => onChangeHandler(e.target.value)}
                             onKeyPress={(e): void => {
                                 if (e.key === 'Enter') {
                                     if (inputString === '') {
@@ -260,10 +224,12 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                                     field.remove();
                                 }
                             }}
+                            InputProps={{ disableUnderline: true }}
                             inputProps={{ sx: { height: 56 } }}
                         />
                     )}
                     <IconButton
+                        size={'large'}
                         onClick={(): void => {
                             dismissSearchBar();
                             setInputString('');

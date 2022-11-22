@@ -1,8 +1,7 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Feedback } from '@mui/icons-material';
-import { Fab, Theme } from '@mui/material';
-import { SystemStyleObject } from '@mui/system';
+import { Fab } from '@mui/material';
 
 export const ContactFab = (): JSX.Element | null => {
     const navigate = useNavigate();
@@ -13,13 +12,13 @@ export const ContactFab = (): JSX.Element | null => {
         <Fab
             color={'primary'}
             aria-label={'Contact Us'}
-            sx={(theme): SystemStyleObject<Theme> => ({
+            sx={{
                 zIndex: 2,
                 position: 'fixed',
                 bottom: 24,
                 right: 24,
-                boxShadow: theme.shadows[10],
-            })}
+                boxShadow: 10,
+            }}
             onClick={(): void => {
                 navigate('/community/contactus');
             }}

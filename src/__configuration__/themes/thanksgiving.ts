@@ -50,6 +50,7 @@ export const ThanksgivingSchedule: Schedule = {
                         outlinedPrimary: {},
                     },
                 },
+                MuiFab: {},
             },
         },
         landingPageBanner: {
