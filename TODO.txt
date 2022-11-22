@@ -1,0 +1,35 @@
+Landing Page
+    ✅ Theme Banner not styled correctly
+    FAB not theme styled
+    X-Overflow
+    Body content padding
+    Sections missing padding
+    Theme is not working for buttons / mdx styles
+    Contributor listitemtext looks off
+    Footer Styling is broken
+    Search Bar Style looks like crap
+Drawer
+    active route missing highlight
+MDX
+    missing theme Styling
+    search is below the Drawer
+    Header copy snackbar positioning
+    TOC styling is broken
+Components
+    Chip styles stacking wrong
+General
+    Eliminate the GA hook refer to devdocs
+    Check the search indexing and search
+Color Palette
+    Selected swatch styles broken
+Icon Gallery
+    Selected styles are broken
+    Sidebar styles are off
+Themes
+    Playground is broken
+Dec resources
+    Weird spacing on icon buttons
+Roadmap
+    Filters look broken
+    Time block styles are broken
+    

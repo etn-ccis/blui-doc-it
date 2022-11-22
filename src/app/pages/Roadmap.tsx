@@ -221,7 +221,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                 <Toolbar sx={styles.secondaryToolbar}>
                     <Select
                         value={typeFilter}
-                        disableUnderline
+                        // disableUnderline
                         onChange={(e): void => setTypeFilter(e.target.value as ItemTypeFilter | 'all')}
                         sx={styles.select}
                     >
@@ -232,7 +232,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     {(typeFilter === 'all' || typeFilter === 'development') && (
                         <Select
                             value={frameworkFilter}
-                            disableUnderline
+                            // disableUnderline
                             onChange={(e): void => setFrameworkFilter(e.target.value as FrameworkFilter)}
                             sx={styles.select}
                         >
@@ -245,7 +245,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     )}
                     <Select
                         value={releaseFilter}
-                        disableUnderline
+                        // disableUnderline
                         onChange={(e): void => setReleaseFilter(e.target.value as Release)}
                         sx={styles.select}
                     >
@@ -258,7 +258,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     </Select>
                     <Select
                         value={statusFilter}
-                        disableUnderline
+                        // disableUnderline
                         onChange={(e): void => setStatusFilter(e.target.value as Status | 'all')}
                         sx={styles.select}
                     >

@@ -14,6 +14,7 @@ export const NavLink: React.FC<NavLinkProps> = (props): JSX.Element => (
         sx={{
             fontWeight: 400,
             textDecoration: 'none',
+            fontSize: '0.875rem',
             color: '#ffffff',
             ml: 2,
             '&:hover': {

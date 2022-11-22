@@ -1,58 +1,50 @@
 import React from 'react';
-import { Typography, Divider, useTheme } from '@mui/material';
-import { CSSProperties } from '@mui/styles';
+import { Typography, Divider, BoxProps, Box } from '@mui/material';
 
-type SectionProps = {
+type SectionProps = BoxProps & {
     title: string;
     align?: 'left' | 'center';
     maxWidth?: number;
-    style?: CSSProperties;
     background?: 'light' | 'dark';
-    children?: React.ReactNode;
 };
 export const Section: React.FC<SectionProps> = (props) => {
-    const theme = useTheme();
+    const { title, align, maxWidth, background, sx, children, ...boxProps } = props;
     return (
-        <div
-            style={Object.assign(
+        <Box
+            {...boxProps}
+            sx={[
                 {
-                    backgroundColor:
-                        props.background === 'light'
-                            ? theme.palette.background.paper
-                            : theme.palette.background.default,
+                    backgroundColor: background === 'light' ? 'background.paper' : 'background.default',
                     width: '100%',
-                    padding: `${theme.spacing(6)}px 0`,
+                    py: 6,
                 },
-                props.style
-            )}
+                ...(Array.isArray(sx) ? sx : [sx]),
+            ]}
         >
-            <div
-                style={{
-                    margin: '0 auto',
-                    maxWidth: props.maxWidth,
-                    padding: `0 ${theme.spacing(6)}px`,
-                    textAlign: props.align,
+            <Box
+                sx={{
+                    my: 0,
+                    mx: 'auto',
+                    maxWidth,
+                    px: 6,
+                    textAlign: align,
                 }}
             >
-                <Typography
-                    variant={'h5'}
-                    align={props.align}
-                    style={{ fontWeight: 600, marginBottom: theme.spacing(2) }}
-                >
-                    {props.title}
+                <Typography variant={'h5'} align={align} sx={{ fontWeight: 600, mb: 2 }}>
+                    {title}
                 </Typography>
-                <Divider style={{ width: '100%', opacity: props.align === 'center' ? 0 : 1 }} />
+                <Divider sx={{ width: '100%', opacity: align === 'center' ? 0 : 1 }} />
                 <Divider
-                    style={{
-                        width: theme.spacing(8),
+                    sx={{
+                        width: 64,
                         height: 2,
-                        backgroundColor: theme.palette.primary.main,
-                        margin: props.align === 'center' ? '-1px auto 0' : '-1px 0 0 0',
+                        backgroundColor: 'primary.main',
+                        m: align === 'center' ? '-1px auto 0' : '-1px 0 0 0',
                     }}
                 />
-                {props.children}
-            </div>
-        </div>
+                {children}
+            </Box>
+        </Box>
     );
 };
 Section.displayName = 'PageSection';

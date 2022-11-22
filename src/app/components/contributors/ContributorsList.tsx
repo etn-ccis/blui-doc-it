@@ -1,24 +1,24 @@
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import { ContributorsCard } from './';
 import { CurrentMaintainter } from '../../../__types__';
-import { Grid, Typography, useTheme } from '@mui/material';
+import { Box, BoxProps, Grid, Typography } from '@mui/material';
 
-type ContributorListProps = HTMLAttributes<HTMLDivElement> & {
+type ContributorListProps = BoxProps & {
     contributors: CurrentMaintainter[];
     title?: string;
 };
 
 export const ContributorsList: React.FC<ContributorListProps> = (props) => {
-    const theme = useTheme();
+    const { contributors, title, ...boxProps } = props;
     return (
-        <div style={props.style}>
-            {props.title && (
-                <div style={{ marginBottom: theme.spacing(2) }}>
-                    <Typography variant={'overline'}>{props.title}</Typography>
-                </div>
+        <Box {...boxProps}>
+            {title && (
+                <Box sx={{ mb: 2 }}>
+                    <Typography variant={'overline'}>{title}</Typography>
+                </Box>
             )}
             <Grid container spacing={2}>
-                {props.contributors
+                {contributors
                     .sort((a, b) => (a.name.split(' ')[1] > b.name.split(' ')[1] ? 1 : -1)) // sort by lastname
                     .map((contributor, index) => (
                         <Grid item xs={12} sm={6} md={4} key={index}>
@@ -26,7 +26,7 @@ export const ContributorsList: React.FC<ContributorListProps> = (props) => {
                         </Grid>
                     ))}
             </Grid>
-        </div>
+        </Box>
     );
 };
 

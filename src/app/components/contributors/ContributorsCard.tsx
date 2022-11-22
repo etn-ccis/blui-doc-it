@@ -1,61 +1,42 @@
 import React, { ReactNode } from 'react';
-import { Avatar, Typography, Theme, SxProps, Box } from '@mui/material';
+import { Avatar, Box, Stack, StackProps, ListItemText } from '@mui/material';
 import { CurrentMaintainter } from '../../../__types__';
 import { Person } from '@mui/icons-material';
+import { SystemStyleObject } from '@mui/system';
 
-const styles: { [key: string]: SxProps<Theme> } = {
-    textContainer: {
-        ml: 2,
-        flex: 1,
-        // TODO: Fix this
-        '&$noRole': {
-            display: 'flex',
-            alignItems: 'center',
-        },
-    },
-    title: {
-        textOverflow: 'ellipsis',
-    },
-    noRole: {},
-    colorDefault: (theme) => ({
-        backgroundColor: theme.palette.mode === 'light' ? theme.palette.primary.light : theme.palette.primary.dark,
-        color: theme.palette.mode === 'light' ? theme.palette.primary.main : theme.palette.primary.light,
-    }),
-};
-
-type ContributorsCardProps = CurrentMaintainter & {
-    /**
-     * Use this icon when no image is supplied
-     * Default to `Person`
-     */
-    icon?: ReactNode;
-};
+type ContributorsCardProps = StackProps &
+    CurrentMaintainter & {
+        /**
+         * Use this icon when no image is supplied
+         * Default to `Person`
+         */
+        icon?: ReactNode;
+    };
 
 export const ContributorsCard: React.FC<ContributorsCardProps> = (props) => {
-    const { name, role, image, icon } = props;
+    const { name, role, image, icon, ...stackProps } = props;
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
-            <div>
-                <Avatar src={image} sx={styles.colorDefault}>
+        <Stack direction={'row'} alignItems={'center'} {...stackProps}>
+            <Box>
+                <Avatar
+                    src={image}
+                    sx={(theme): SystemStyleObject => ({
+                        backgroundColor: theme.palette.mode === 'light' ? 'primary.light' : 'primary.dark',
+                        color: theme.palette.mode === 'light' ? 'primary.main' : 'primary.light',
+                    })}
+                >
                     {icon || <Person />}
                 </Avatar>
-            </div>
-            <Box
-                component={'span'}
-                // @ts-ignore TODO: Fix this style combination
-                sx={{
-                    ...styles.textContainer,
-                    ...(!role ? styles.noRole : {}),
-                }}
-            >
-                <Typography noWrap variant={'subtitle2'} sx={styles.title}>
-                    {name}
-                </Typography>
-                <Typography noWrap={false} variant={'caption'} color={'textSecondary'}>
-                    {role}
-                </Typography>
             </Box>
-        </div>
+
+            <ListItemText
+                primary={name}
+                secondary={role}
+                primaryTypographyProps={{ variant: 'subtitle2', noWrap: true, sx: { textOverflow: 'sllipsis' } }}
+                secondaryTypographyProps={{ variant: 'caption', noWrap: false, color: 'textSecondary' }}
+                sx={{ ml: 2, flex: 1 }}
+            />
+        </Stack>
     );
 };

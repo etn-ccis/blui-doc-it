@@ -1,10 +1,6 @@
 import React from 'react';
 import { Typography, Theme, SxProps, Box } from '@mui/material';
-// import Carousel from '@brainhubeu/react-carousel';
 import * as Colors from '@brightlayer-ui/colors';
-
-// import { ChevronLeft, ChevronRight } from '@mui/icons-material';
-// import '@brainhubeu/react-carousel/lib/style.css';
 
 const styles: { [key: string]: SxProps<Theme> } = {
     cardWrapper: {
@@ -71,53 +67,3 @@ CarouselCard.displayName = 'CarouselCard';
 CarouselCard.defaultProps = {
     height: 450,
 };
-
-// type CardCarouselProps = {
-//     infinite?: boolean;
-//     slidesPerPage?: number;
-// };
-// export const CardCarousel: React.FC<CardCarouselProps> = (props): JSX.Element => {
-//     const xs = useMediaQuery('(max-width:599px)');
-//     const displayCount = xs ? 1 : props.slidesPerPage || 2;
-//     const isArray = Array.isArray(props.children);
-//     const showArrows = isArray ? (props.children as any[]).length > displayCount : false;
-
-//     useEffect(() => {
-//         // Hacky way to fix width bug when coming back from another page with a drawer
-//         const resizeEvent = window.document.createEvent('UIEvents');
-//         resizeEvent.initEvent('resize', true, false);
-//         window.dispatchEvent(resizeEvent);
-//     }, []);
-
-//     return xs ? (
-//         <>{props.children}</>
-//     ) : (
-//         <Carousel
-//             draggable={false}
-//             infinite={isArray && props.infinite}
-//             slidesPerPage={displayCount}
-//             arrowLeft={
-//                 showArrows ? (
-//                     <IconButton color={'inherit'}>
-//                         <ChevronLeft fontSize={'large'} />
-//                     </IconButton>
-//                 ) : undefined
-//             }
-//             arrowRight={
-//                 showArrows ? (
-//                     <IconButton color={'inherit'}>
-//                         <ChevronRight fontSize={'large'} />
-//                     </IconButton>
-//                 ) : undefined
-//             }
-//             addArrowClickHandler
-//         >
-//             {props.children}
-//         </Carousel>
-//     );
-// };
-// CardCarousel.displayName = 'CardCarousel';
-// CardCarousel.defaultProps = {
-//     infinite: true,
-//     slidesPerPage: 2,
-// };

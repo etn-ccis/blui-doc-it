@@ -20,7 +20,6 @@ import { gaID } from './ga.js';
 
 import { componentsMap } from './__configuration__/markdown/markdownMapping';
 
-import * as BLUIThemes from '@brightlayer-ui/react-themes';
 import '@brightlayer-ui/react-themes/open-sans';
 import '@fontsource/roboto-mono/400.css';
 import '@fontsource/roboto-mono/600.css';
@@ -28,6 +27,7 @@ import '@fontsource/roboto-mono/700.css';
 import 'placeholder-loading/src/scss/placeholder-loading.scss';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import { getScheduledSiteConfig } from './__configuration__/themes';
 
 if (gaID) {
     ReactGA.initialize(gaID);
@@ -41,7 +41,7 @@ const root = ReactDOMClient.createRoot(container);
 
 root.render(
     <StyledEngineProvider injectFirst>
-        <ThemeProvider theme={createTheme(BLUIThemes.blue)}>
+        <ThemeProvider theme={createTheme(createTheme(getScheduledSiteConfig().theme))}>
             <CssBaseline />
             <Provider store={store}>
                 <MDXProvider components={componentsMap}>
