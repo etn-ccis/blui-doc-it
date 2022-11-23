@@ -135,6 +135,7 @@ function transformToArray(str) {
         .replace(/<[\/]?[a-z].+?>/gim, ' ') // take out all the native tags <xxx> and </xxx>
         .replace(/<[a-z].+?[ ]?\/>/gim, ' ') // take out all the native tags <xxx/>
         .replace(/<!--[\s]*?((?!keywords:).)*?[\s]*?-->/gi, ' ') // omit the comments except for keywords
+        .replace(/{\/\*[\s]*?((?!keywords:).)*?[\s]*?\*\/}/gi, ' ') // omit the comments except for keywords
         // .replace(/<!--[\s]*?(keywords:)(.*?)[\s]*?-->/gi, '$2') // replace keyword comments
         .replace(/\[(.*?)\]\(.*?\)/g, '$1'); // replace all the markdown links [text](url) into text
     // .replace(/[!@\?#\$%\^&\*\(\)\-\\\|\[\]\+`~\.\,\?<>\{\}/":;]/gim, ' ') // replace any special characters
@@ -196,12 +197,13 @@ function main() {
         // add / update the data entry to keywordIndex
         // not all the entries have keywords
         if (sitemapDatabase[url].text) {
-            var keywords_string = sitemapDatabase[url].text.match(/<!--[\s]*?(keywords:)(.*?)[\s]*?-->/gi);
+            var keywords_string = sitemapDatabase[url].text.match(/{\/\*[\s]*?(keywords:)(.*?)[\s]*?\*\/}/gi);
+            
             if (!keywords_string || keywords_string.length === 0) {
                 return;
             }
 
-            keywords_string = keywords_string[0].replace(/<!--[\s]*?(keywords:)(.*?)[\s]*?-->/gi, '$2').trim();
+            keywords_string = keywords_string[0].replace(/{\/\*[\s]*?(keywords:)(.*?)[\s]*?\*\/}/gi, '$2').trim();
             var keywords_array = keywords_string.split(' ');
 
             keywords_array.forEach((keyword) => {
