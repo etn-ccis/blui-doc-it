@@ -7,8 +7,6 @@ import {
     FormControlLabel,
     IconButton,
     Switch,
-    SxProps,
-    Theme,
     Typography,
     useMediaQuery,
     useTheme,
@@ -24,27 +22,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../redux/reducers';
 import { CHANGE_SELECTED_COLOR, TOGGLE_COLOR_CONTRAST } from '../../redux/actions';
 import { useQueryString } from '../../hooks/useQueryString';
-
-const styles: { [key: string]: SxProps<Theme> } = {
-    paper: (theme) => ({
-        backgroundColor: color(theme.palette.background.paper).fade(0.05).string(),
-        backdropFilter: 'blur(4px)',
-        zIndex: theme.zIndex.drawer - 1,
-        [theme.breakpoints.up('md')]: {
-            left: DRAWER_WIDTH,
-        },
-    }),
-    header: {
-        backgroundColor: 'unset',
-    },
-    colorAvatar: (theme) => ({
-        width: theme.spacing(4),
-        height: theme.spacing(4),
-        borderRadius: '50%',
-        border: `1px dashed ${theme.palette.divider}`,
-    }),
-    body: { p: 2, paddingTop: 0 },
-};
+import { SystemStyleObject } from '@mui/system';
 
 export const ColorBottomSheet: React.FC = () => {
     const theme = useTheme();
@@ -108,15 +86,40 @@ export const ColorBottomSheet: React.FC = () => {
     );
 
     return (
-        <Drawer anchor={'bottom'} variant={'persistent'} open={!!selectedColor} PaperProps={{ sx: styles.paper }}>
+        <Drawer
+            anchor={'bottom'}
+            variant={'persistent'}
+            open={!!selectedColor}
+            PaperProps={{
+                sx: (t): SystemStyleObject => ({
+                    backgroundColor: color(t.palette.background.paper).fade(0.05).string(),
+                    backdropFilter: 'blur(4px)',
+                    zIndex: t.zIndex.drawer - 1,
+                    left: { md: DRAWER_WIDTH },
+                }),
+            }}
+        >
             <InfoListItem
-                icon={<Box sx={{ ...styles.colorAvatar, ...(hex ? { backgroundColor: hex } : {}) }} />}
+                icon={
+                    <Box
+                        sx={[
+                            {
+                                width: 32,
+                                height: 32,
+                                borderRadius: '50%',
+                                border: '1px dashed',
+                                borderColor: 'divider',
+                            },
+                            hex ? { backgroundColor: hex } : {},
+                        ]}
+                    />
+                }
                 title={
                     <Typography variant={'h6'} display={'inline'}>
                         {selectedColor?.name}[{selectedColor?.weight}]
                     </Typography>
                 }
-                sx={styles.header}
+                sx={{ backgroundColor: 'unset' }}
                 subtitle={selectedColor?.category === 'ui' ? 'UI / Status Color' : 'Branding Color'}
                 rightComponent={
                     <>
@@ -128,7 +131,7 @@ export const ColorBottomSheet: React.FC = () => {
                 }
             />
             {hex && (
-                <Box sx={styles.body}>
+                <Box sx={{ p: 2, pt: 0 }}>
                     <ColorChips type={'HEX'} hex={hex} />
                     <ColorChips type={'RGB'} hex={hex} />
                     <ColorChips type={'HSL'} hex={hex} />
@@ -137,7 +140,7 @@ export const ColorBottomSheet: React.FC = () => {
                         * Our colors are managed in hex / RGB. When converting to HSL or CMYK color spaces, some
                         fidelity might be lost.
                     </Typography>
-                    {xsDown && <Divider style={{ margin: `${theme.spacing()}px 0` }} />}
+                    {xsDown && <Divider sx={{ my: 1, mx: 0 }} />}
                     {xsDown && getColorContrastToggle()}
                 </Box>
             )}

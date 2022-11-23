@@ -140,6 +140,7 @@ export const IconDrawer: React.FC = () => {
                             <selectedIcon.Icon sx={{ fontSize: 40 }} />
                             <ListItemText
                                 sx={{ ml: 3, my: 0 }}
+                                disableTypography
                                 primary={
                                     <Stack direction={'row'} alignItems={'center'}>
                                         <Typography variant={'body1'}>{iconTitle}</Typography>

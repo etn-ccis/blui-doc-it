@@ -121,12 +121,13 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                     {getNavigationIcon()}
                     {props.title ? (
                         <ListItemText
+                            disableTypography
                             primary={
                                 <Typography variant={'h6'} sx={{ fontWeight: 600, lineHeight: 1 }}>
                                     {title}
                                 </Typography>
                             }
-                            secondary={subtitle}
+                            secondary={<Typography variant={'subtitle1'}>{subtitle}</Typography>}
                         />
                     ) : (
                         <Typography>
