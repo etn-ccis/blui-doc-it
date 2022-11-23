@@ -13,7 +13,7 @@ import color from 'color';
 
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { EatonTagline } from '../assets/icons';
-import { Typography, useTheme, useMediaQuery } from '@mui/material';
+import { Typography, useTheme, useMediaQuery, Stack } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../redux/reducers';
 import { TOGGLE_DRAWER } from '../redux/actions';
@@ -24,7 +24,7 @@ export const NavigationDrawer = (): JSX.Element => {
     const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
     const location = useLocation();
     const navigate = useNavigate();
-    const [activeRoute, setActiveRoute] = useState(location.pathname);
+    const [activeRoute, setActiveRoute] = useState(location.pathname.replace(/^\//, ''));
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const dispatch = useDispatch();
@@ -80,7 +80,7 @@ export const NavigationDrawer = (): JSX.Element => {
     }, [theme, activeDrawerFade]);
 
     useEffect(() => {
-        setActiveRoute(location.pathname);
+        setActiveRoute(location.pathname.replace(/^\//, ''));
     }, [location.pathname]);
 
     const [menuItems] = useState(createNavItems(pageDefinitions, '', 0));
@@ -116,41 +116,32 @@ export const NavigationDrawer = (): JSX.Element => {
                     }
                 }}
                 titleContent={
-                    <div
-                        style={{
-                            alignSelf: 'stretch',
-                            flex: '1 1 0px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            cursor: 'pointer',
-                        }}
+                    <Stack
+                        direction={'row'}
+                        alignItems={'center'}
+                        sx={{ alignSelf: 'stretch', flex: 1, cursor: 'pointer' }}
                         onClick={(): void => {
                             navigate('/');
                             dispatch({ type: TOGGLE_DRAWER, payload: false });
                         }}
                     >
                         <Typography>Brightlayer UI</Typography>
-                    </div>
+                    </Stack>
                 }
             />
             <DrawerBody>
                 <DrawerNavGroup items={menuItems} />
             </DrawerBody>
             <DrawerFooter>
-                <div
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        background: theme.palette.background.default,
-                        padding: 16,
-                        cursor: 'pointer',
-                    }}
+                <Stack
+                    alignItems={'center'}
+                    sx={{ backgroundColor: 'background.default', p: 2, cursor: 'pointer' }}
                     onClick={(): void => {
                         window.open('https://eaton.com', 'blank');
                     }}
                 >
-                    <EatonTagline style={{ fontSize: 150, height: 48 }} />
-                </div>
+                    <EatonTagline sx={{ fontSize: 150, height: 48 }} />
+                </Stack>
             </DrawerFooter>
         </Drawer>
     );

@@ -9,9 +9,10 @@ import { Menu } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
 import { pageDefinitions, pageRedirects, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
-import { AppBar, SxProps, Theme, Toolbar, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import * as Colors from '@brightlayer-ui/colors';
 import { AnnouncementAppbar } from '../components/announcements/announcementAppbar';
+import { SystemStyleObject } from '@mui/system';
 
 const buildRoutes = (routes: SimpleNavItem[], url: string): JSX.Element[] => {
     let ret: any[] = [];
@@ -44,24 +45,6 @@ const buildRedirects = (): JSX.Element[] => {
     return ret;
 };
 
-const styles: { [key: string]: SxProps<Theme> } = {
-    footer: (theme) => ({
-        zIndex: 0,
-        backgroundColor: Colors.black[900],
-        color: Colors.black[50],
-        textAlign: 'center',
-        marginTop: '50vh',
-        transform: 'inherit',
-        transition: theme.transitions.create('width'),
-    }),
-    drawerHeightWithBanner: (theme) => ({
-        height: `calc(100% - ${theme.spacing(8)}px)`,
-        [theme.breakpoints.down('xs')]: {
-            height: `calc(100% - ${theme.spacing(7)}px)`,
-        },
-    }),
-};
-
 const ScrollToTop = (): any => {
     const { pathname, hash } = useLocation();
     useEffect(() => {
@@ -86,9 +69,6 @@ const ScrollToTop = (): any => {
 
 export const MainRouter = (): JSX.Element => {
     const title = useSelector((state: AppState) => state.app.pageTitle);
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    const toolbarHeight = isMobile ? 104 : 112;
     const className = getScheduledSiteConfig().className;
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
     const showBanner = useSelector((state: AppState) => state.app.showBanner);
@@ -99,10 +79,15 @@ export const MainRouter = (): JSX.Element => {
             <DrawerLayout
                 drawer={<NavigationDrawer />}
                 className={className}
-                // @ts-ignore TODO: Fix types
-                sx={{
-                    '& .BluiDrawerLayout-drawer': showBanner ? styles.drawerHeightWithBanner : {},
-                }}
+                sx={(theme): SystemStyleObject => ({
+                    display: 'block',
+                    '& .BluiDrawerLayout-drawer': {
+                        height: showBanner
+                            ? { xs: `calc(100% - ${theme.spacing(7)}px)`, sm: `calc(100% - ${theme.spacing(8)}px)` }
+                            : undefined,
+                        zIndex: 'modal',
+                    },
+                })}
             >
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
@@ -112,13 +97,21 @@ export const MainRouter = (): JSX.Element => {
                         element={
                             <>
                                 <SharedToolbar title={title} navigationIcon={<Menu />} />
-                                <div style={{ minHeight: `calc(50vh - ${toolbarHeight}px)` }}>
+                                <Box sx={{ minHeight: { xs: `calc(50vh - ${104}px)`, sm: `calc(50vh - ${112}px)` } }}>
                                     <Outlet />
-                                </div>
+                                </Box>
                                 {/* Footer Section */}
                                 <AppBar
                                     position={'static'}
-                                    sx={styles.footer}
+                                    sx={(theme): SystemStyleObject => ({
+                                        zIndex: 0,
+                                        backgroundColor: Colors.black[900],
+                                        color: Colors.black[50],
+                                        textAlign: 'center',
+                                        mt: '50vh',
+                                        transform: 'inherit',
+                                        transition: theme.transitions.create('width'),
+                                    })}
                                     elevation={0}
                                     style={{ width: `calc(100% - ${sidebarOpen ? 350 : 0}px)` }}
                                 >
