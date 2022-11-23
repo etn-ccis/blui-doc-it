@@ -39,7 +39,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
     const showBanner = useSelector((state: AppState) => state.app.showBanner);
-    const sm = useMediaQuery(theme.breakpoints.down('sm'));
+    const sm = useMediaQuery(theme.breakpoints.down('md'));
     const dispatch = useDispatch();
     const appBarBackground = getScheduledSiteConfig().appBarBackground;
     const getIsFireworkHoliday = (): boolean => {

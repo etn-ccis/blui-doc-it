@@ -23,7 +23,7 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element =>
     useGoogleAnalyticsPageView();
     const theme = useTheme();
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
-    const sm = useMediaQuery(theme.breakpoints.down('sm'));
+    const sm = useMediaQuery(theme.breakpoints.down('md'));
 
     let backgroundColor = background;
     if (background === 'light') {

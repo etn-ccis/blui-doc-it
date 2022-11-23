@@ -54,7 +54,7 @@ export const ColorBottomSheet: React.FC = () => {
     const selectedColor = useSelector((state: AppState) => state.app.selectedColor);
     const showColorContrast = useSelector((state: AppState) => state.app.showColorContrast);
     const [hex, setHex] = useState<string | undefined>(undefined);
-    const xsDown = useMediaQuery(theme.breakpoints.down('xs'));
+    const xsDown = useMediaQuery(theme.breakpoints.down('sm'));
 
     useEffect(() => {
         if (queryCategory) {

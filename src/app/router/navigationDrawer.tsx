@@ -26,7 +26,7 @@ export const NavigationDrawer = (): JSX.Element => {
     const navigate = useNavigate();
     const [activeRoute, setActiveRoute] = useState(location.pathname.replace(/^\//, ''));
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const dispatch = useDispatch();
     const isLandingPage = location.pathname === '/';
     const activeDrawerFade = getScheduledSiteConfig().drawerActiveBackgroundFade;

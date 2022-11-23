@@ -74,7 +74,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
     const logoColor = themeConfig.logoColor;
     const tagline = themeConfig.landingPageTagline;
     const customBannerText = themeConfig.customBannerText;
-    const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     usePageTitle('');
     useGoogleAnalyticsPageView();
 

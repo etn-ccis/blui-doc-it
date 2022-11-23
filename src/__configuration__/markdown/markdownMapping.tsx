@@ -149,7 +149,6 @@ export const componentsMap: MDXComponents = {
     ),
     a: (props): JSX.Element => {
         let tProps;
-        // @ts-ignore TODO: clean up these types
         if (props.href && (props.href.match(/^http/gi) || props.href.match(/^mailto/gi))) {
             tProps = props as TypographyProps<'a'>;
             return <ExternalLink {...tProps} />;

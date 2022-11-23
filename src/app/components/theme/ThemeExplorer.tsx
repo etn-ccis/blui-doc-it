@@ -28,7 +28,7 @@ const styles: { [key: string]: SxProps<Theme> } = {
     toolbar: (theme) => ({
         py: 0,
         px: 2,
-        [theme.breakpoints.down('xs')]: {
+        [theme.breakpoints.down('sm')]: {
             flexDirection: 'column',
             pt: 1,
             pb: 1,

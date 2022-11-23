@@ -12,8 +12,9 @@ import {
     Typography,
     useTheme,
     useMediaQuery,
-    SxProps,
     Box,
+    Stack,
+    ListItemText,
 } from '@mui/material';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -39,8 +40,9 @@ import { AppState } from '../../redux/reducers';
 import { CopyToClipboard } from './CopyToClipboardButton';
 import { IconSize, IconColor } from '../../../__types__';
 import { usePrevious } from '../../hooks/usePrevious';
+import { SystemStyleObject } from '@mui/system';
 
-const styles: { [key: string]: SxProps<Theme> } = {
+const styles: { [key: string]: SystemStyleObject<Theme> } = {
     drawer: {
         maxWidth: '80%',
         width: 350,
@@ -51,26 +53,13 @@ const styles: { [key: string]: SxProps<Theme> } = {
     },
     appBar: {
         backgroundColor: Colors.black[500],
-        pl: 2,
-        pr: 0.5,
+        px: { xs: 2, sm: 2 },
         '&.mid-autumn-festival': {
             color: Colors.black[50],
         },
     },
     appBarCloseButton: {
         color: Colors.white[50],
-    },
-    iconNameRow: {
-        display: 'flex',
-        p: 2,
-        alignItems: 'center',
-    },
-    iconNameRowDescription: {
-        ml: 3,
-    },
-    iconNameWrapper: {
-        display: 'flex',
-        alignItems: 'center',
     },
     formControl: {
         pt: 1,
@@ -89,7 +78,7 @@ export const IconDrawer: React.FC = () => {
     const [iconSize, setIconSize] = React.useState<IconSize>(24);
     const [iconColor, setIconColor] = React.useState<IconColor>('black');
     const drawerOpen = useSelector((state: AppState) => state.app.sidebarOpen);
-    const sm = useMediaQuery(theme.breakpoints.down('sm'));
+    const sm = useMediaQuery(theme.breakpoints.down('md'));
     const themeConfig = getScheduledSiteConfig();
     const showBanner = useSelector((state: AppState) => state.app.showBanner);
     const iconTitle = snakeToTitleCase(selectedIcon.iconFontKey);
@@ -117,13 +106,7 @@ export const IconDrawer: React.FC = () => {
             open={drawerOpen}
             onClose={closeDrawer}
             PaperProps={{
-                sx: styles.drawer,
-                style:
-                    showBanner && !sm
-                        ? {
-                              top: theme.spacing(8),
-                          }
-                        : {},
+                sx: [styles.drawer, showBanner && !sm ? { top: 64 } : {}],
             }}
         >
             <AppBar position="static" color="primary">
@@ -133,37 +116,43 @@ export const IconDrawer: React.FC = () => {
                     </Typography>
                     <Spacer />
                     <IconButton
+                        size={'large'}
+                        edge={'end'}
                         onClick={closeDrawer}
-                        sx={styles.appBarCloseButton}
-                        style={showBanner && !sm ? { marginRight: theme.spacing(1.5) } : {}}
+                        sx={[{ color: 'common.white' }, showBanner && !sm ? { mr: 1.5 } : {}]}
                     >
                         <Close />
                     </IconButton>
                 </Toolbar>
             </AppBar>
-            <div style={{ flex: '1 1 0px', overflowY: 'auto' }}>
+            <Box sx={{ flex: '1 1 0px', overflowY: 'auto' }}>
                 {selectedIcon.name === '' && (
                     <EmptyState
                         icon={<Pxblue fontSize={'inherit'} />}
                         title={'No Icon Selected'}
                         description={'Select a icon on the left to download or view usage details'}
-                        style={{ padding: 24 }}
+                        sx={{ p: 3 }}
                     />
                 )}
                 {selectedIcon.name !== '' && (
                     <>
-                        <Box sx={styles.iconNameRow}>
-                            <selectedIcon.Icon style={{ fontSize: 40 }} />
-                            <Box sx={styles.iconNameRowDescription}>
-                                <Box sx={styles.iconNameWrapper}>
-                                    <Typography variant={'body1'}>{iconTitle}</Typography>
-                                    <CopyToClipboard title={'Copy Icon Name'} copyText={iconTitle} sx={{ ml: 1 }} />
-                                </Box>
-                                <Typography variant={'caption'}>
-                                    {selectedIcon.isMaterial ? 'Material Icon' : 'Brightlayer UI Icon'}
-                                </Typography>
-                            </Box>
-                        </Box>
+                        <Stack direction={'row'} alignItems={'center'} sx={{ p: 2 }}>
+                            <selectedIcon.Icon sx={{ fontSize: 40 }} />
+                            <ListItemText
+                                sx={{ ml: 3, my: 0 }}
+                                primary={
+                                    <Stack direction={'row'} alignItems={'center'}>
+                                        <Typography variant={'body1'}>{iconTitle}</Typography>
+                                        <CopyToClipboard title={'Copy Icon Name'} copyText={iconTitle} sx={{ ml: 1 }} />
+                                    </Stack>
+                                }
+                                secondary={
+                                    <Typography variant={'caption'}>
+                                        {selectedIcon.isMaterial ? 'Material Icon' : 'Brightlayer UI Icon'}
+                                    </Typography>
+                                }
+                            />
+                        </Stack>
                         <Divider />
                         {selectedIcon.tags.length > 0 && (
                             <>
@@ -184,10 +173,13 @@ export const IconDrawer: React.FC = () => {
                             </Typography>
                             <Box>
                                 <FormControl sx={styles.formControl}>
-                                    <InputLabel id="icon-size-select-label">Select a Size:</InputLabel>
+                                    <InputLabel variant={'standard'} id="icon-size-select-label">
+                                        Select a Size:
+                                    </InputLabel>
                                     <Select
                                         labelId="icon-size-select-label"
                                         id="icon-size-select"
+                                        variant={'standard'}
                                         value={iconSize}
                                         onChange={(e): void => setIconSize(e.target.value as IconSize)}
                                     >
@@ -198,10 +190,13 @@ export const IconDrawer: React.FC = () => {
                                     </Select>
                                 </FormControl>
                                 <FormControl sx={styles.formControl}>
-                                    <InputLabel id="icon-color-select-label">Select a Color:</InputLabel>
+                                    <InputLabel variant={'standard'} id="icon-color-select-label">
+                                        Select a Color:
+                                    </InputLabel>
                                     <Select
                                         labelId="icon-color-select-label"
                                         id="icon-color-select"
+                                        variant={'standard'}
                                         value={iconColor}
                                         onChange={(e): void => setIconColor(e.target.value as IconColor)}
                                     >
@@ -249,7 +244,7 @@ export const IconDrawer: React.FC = () => {
                         </Box>
                     </>
                 )}
-            </div>
+            </Box>
         </MuiDrawer>
     );
 };

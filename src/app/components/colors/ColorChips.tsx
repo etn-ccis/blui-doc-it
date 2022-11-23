@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Check, FileCopy } from '@mui/icons-material';
-import { Typography, Chip, useTheme, SxProps, Box, Theme } from '@mui/material';
+import { Typography, Chip, useTheme, Box, Theme } from '@mui/material';
 import color from 'color';
 import { copyTextToClipboard } from '../../shared';
 import { SystemStyleObject } from '@mui/system';
@@ -13,7 +13,7 @@ type ColorChipsProps = {
 
 const COLOR_NOT_AVAILABLE = '--';
 
-const styles: { [key: string]: SxProps<Theme> } = {
+const styles: { [key: string]: SystemStyleObject<Theme> } = {
     root: {
         mr: 1,
         mb: 1,
@@ -72,7 +72,6 @@ export const ColorChips: React.FC<ColorChipsProps> = (props) => {
                 <Box sx={styles.content}>
                     <Box
                         sx={[
-                            // @ts-ignore TODO: sort out the combining of SxProps with function defs
                             styles.copiedOverlay,
                             (_theme): SystemStyleObject<Theme> =>
                                 !textCopied

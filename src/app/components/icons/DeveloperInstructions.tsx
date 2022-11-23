@@ -11,6 +11,7 @@ import {
     Divider,
     SxProps,
     Box,
+    Stack,
 } from '@mui/material';
 
 import { ArrowDropDown } from '@mui/icons-material';
@@ -32,47 +33,32 @@ import { CopyToClipboard } from './CopyToClipboardButton';
 type Framework = 'angular' | 'react' | 'react-native';
 
 const styles: { [key: string]: SxProps<Theme> } = {
-    codeSnippetTitle: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    },
     codeSnippet: {
         mt: 0.5,
         mx: 0,
         mb: 2,
         whiteSpace: 'normal',
     },
-    expandIcon: {
-        color: 'text.secondary',
-    },
-    expanded: {},
     accordion: {
         boxShadow: 'none',
         transition: `border 0ms`,
-        // TODO: Fix this style
-        '&$expanded': {
+        borderLeft: '6px solid',
+        borderLeftColor: 'transparent',
+        '&.Mui-expanded': {
             m: 0,
-            borderLeft: `solid 6px`,
             borderLeftColor: 'primary.main',
+            '& .MuiAccordionSummary-root': {
+                pl: 1.25,
+            },
         },
         '&:before': {
             opacity: 0,
         },
     },
-    accordionDetails: {
-        pr: 2,
-        pl: 1.25,
-        display: 'flex',
-        flexDirection: 'column',
-    },
     accordionSummary: {
         height: 48,
         minHeight: '48px!important',
-        // TODO: fix this style
-        '&$expanded': {
-            pl: 1.25,
-        },
+        pl: 1.25,
     },
 };
 
@@ -84,18 +70,29 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
     const { framework, icon } = props;
 
     return (
-        <Accordion {...props}>
-            <AccordionSummary expandIcon={<ArrowDropDown sx={styles.expandIcon} />} disableRipple>
+        <Accordion square {...props} sx={[styles.accordion, ...(Array.isArray(props.sx) ? props.sx : [props.sx])]}>
+            <AccordionSummary
+                expandIcon={<ArrowDropDown sx={{ color: 'text.secondary' }} />}
+                disableRipple
+                sx={styles.accordionSummary}
+            >
                 <Typography variant={props.expanded ? 'subtitle2' : 'body2'}>{titleCase(framework)}</Typography>
             </AccordionSummary>
-            <AccordionDetails sx={styles.accordionDetails}>
+            <AccordionDetails
+                sx={{
+                    pr: 2,
+                    pl: 1.25,
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}
+            >
                 {/* ICON FONT */}
                 {(framework === 'angular' || framework === 'react') && (
                     <>
-                        <Box sx={styles.codeSnippetTitle}>
+                        <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
                             <Typography variant={'overline'}>Icon Font</Typography>
                             <CopyToClipboard copyText={getIconFontCopyText(framework, icon)} copiedPosition={'left'} />
-                        </Box>
+                        </Stack>
                         <Box component={'pre'} sx={styles.codeSnippet}>
                             {getIconFontSnippet(framework, icon)}
                         </Box>
@@ -107,10 +104,10 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
                     framework === 'react-native' ||
                     (framework === 'react' && !icon.isMaterial)) && (
                     <>
-                        <Box sx={styles.codeSnippetTitle}>
+                        <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
                             <Typography variant={'overline'}>SVG</Typography>
                             <CopyToClipboard copyText={getIconSvgCopyText(framework, icon)} copiedPosition={'left'} />
-                        </Box>
+                        </Stack>
                         <Box component={'pre'} sx={styles.codeSnippet}>
                             {getIconSvgSnippet(framework, icon)}
                         </Box>
@@ -120,13 +117,13 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
                 {/* ICON COMPONENT */}
                 {framework === 'react' && (
                     <>
-                        <Box sx={styles.codeSnippetTitle}>
+                        <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
                             <Typography variant={'overline'}>Icon Components</Typography>
                             <CopyToClipboard
                                 copyText={getIconComponentCopyText(framework, icon)}
                                 copiedPosition={'left'}
                             />
-                        </Box>
+                        </Stack>
                         <Box component={'pre'} sx={styles.codeSnippet}>
                             {getIconComponentSnippet(framework, icon)}
                         </Box>

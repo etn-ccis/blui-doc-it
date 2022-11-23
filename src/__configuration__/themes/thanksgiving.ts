@@ -43,13 +43,7 @@ export const ThanksgivingSchedule: Schedule = {
                         },
                     },
                 },
-                MuiButton: {
-                    styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
-                        outlined: {},
-                        outlinedPrimary: {},
-                    },
-                },
+                MuiButton: {},
                 MuiFab: {},
                 MuiSwitch: {},
             },
