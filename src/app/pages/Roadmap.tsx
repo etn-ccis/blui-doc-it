@@ -39,11 +39,12 @@ const styles: { [key: string]: SxProps<Theme> } = {
     secondaryAppbar: {
         color: 'primary.contrastText',
         top: { xs: 56, sm: 64 },
-        height: 48,
+        height: { xs: 48 },
     },
     secondaryToolbar: {
-        minHeight: 48,
-        overflowX: { xs: 'auto', sm: 'unset' },
+        minHeight: { xs: 48, sm: 48 },
+        height: 48,
+        overflowX: 'auto',
     },
     select: {
         alignSelf: 'stretch',
@@ -220,8 +221,9 @@ export const Roadmap: React.FC = (): JSX.Element => {
             >
                 <Toolbar sx={styles.secondaryToolbar}>
                     <Select
+                        variant={'standard'}
+                        disableUnderline
                         value={typeFilter}
-                        // disableUnderline
                         onChange={(e): void => setTypeFilter(e.target.value as ItemTypeFilter | 'all')}
                         sx={styles.select}
                     >
@@ -232,7 +234,8 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     {(typeFilter === 'all' || typeFilter === 'development') && (
                         <Select
                             value={frameworkFilter}
-                            // disableUnderline
+                            variant={'standard'}
+                            disableUnderline
                             onChange={(e): void => setFrameworkFilter(e.target.value as FrameworkFilter)}
                             sx={styles.select}
                         >
@@ -245,7 +248,8 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     )}
                     <Select
                         value={releaseFilter}
-                        // disableUnderline
+                        variant={'standard'}
+                        disableUnderline
                         onChange={(e): void => setReleaseFilter(e.target.value as Release)}
                         sx={styles.select}
                     >
@@ -258,7 +262,8 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     </Select>
                     <Select
                         value={statusFilter}
-                        // disableUnderline
+                        variant={'standard'}
+                        disableUnderline
                         onChange={(e): void => setStatusFilter(e.target.value as Status | 'all')}
                         sx={styles.select}
                     >
@@ -276,7 +281,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
 
             <PageContent>
                 {loading && (
-                    <div>
+                    <Box>
                         {loadingGroups.map((group, groupNumber) =>
                             group.map((item, i) => (
                                 <div
@@ -296,7 +301,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                 </div>
                             ))
                         )}
-                    </div>
+                    </Box>
                 )}
 
                 {!loading && (roadmapBuckets.length === 0 || results < 1) && (
@@ -335,14 +340,14 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                                     statusColor={statusColor ? statusColor[500] : ''}
                                                     wrapSubtitle
                                                     leftComponent={
-                                                        <div style={{ display: 'block' }}>
+                                                        <Box style={{ display: 'block' }}>
                                                             <Typography
                                                                 variant={'subtitle2'}
                                                                 align={'center'}
                                                                 sx={{
                                                                     fontWeight: 600,
                                                                     lineHeight: 1,
-                                                                    marginBottom: 4,
+                                                                    marginBottom: 0.5,
                                                                 }}
                                                             >
                                                                 {item.quarter}
@@ -355,7 +360,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                                             >
                                                                 {item.year}
                                                             </Typography>
-                                                        </div>
+                                                        </Box>
                                                     }
                                                     rightComponent={getTags(item)}
                                                 />
