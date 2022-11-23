@@ -1,5 +1,5 @@
-import React, { ComponentProps, useCallback, useEffect, useState } from 'react';
-import { Typography, Theme, useTheme, SxProps, Box } from '@mui/material';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Typography, Theme, Box, Stack, BoxProps } from '@mui/material';
 import { Check } from '@mui/icons-material';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
@@ -11,18 +11,25 @@ import { BLUIColor } from '@brightlayer-ui/types';
 import colorModule from 'color';
 import { CHANGE_SELECTED_COLOR } from '../../redux/actions';
 import { ListItemTag } from '@brightlayer-ui/react-components';
+import { SystemStyleObject } from '@mui/system';
 
 const getColorLabel = (color: string, format: 'rgb' | 'hex'): JSX.Element | null => {
     if (format === 'hex') {
-        return <span>{color}</span>;
+        return <Typography variant={'caption'}>{color}</Typography>;
     }
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
     return result ? (
-        <div style={{ lineHeight: 1 }}>
-            <div>R: {parseInt(result[1], 16)}</div>
-            <div>G: {parseInt(result[2], 16)}</div>
-            <div>B: {parseInt(result[3], 16)}</div>
-        </div>
+        <Stack style={{ lineHeight: 1 }}>
+            <Typography fontFamily={'inherit'} component={'span'} variant={'caption'} sx={{ lineHeight: 1 }}>
+                R: {parseInt(result[1], 16)}
+            </Typography>
+            <Typography fontFamily={'inherit'} component={'span'} variant={'caption'} sx={{ lineHeight: 1 }}>
+                G: {parseInt(result[2], 16)}
+            </Typography>
+            <Typography fontFamily={'inherit'} component={'span'} variant={'caption'} sx={{ lineHeight: 1 }}>
+                B: {parseInt(result[3], 16)}
+            </Typography>
+        </Stack>
     ) : null;
 };
 
@@ -31,80 +38,21 @@ type PaletteProps = {
     category: 'ui' | 'branding';
 };
 
-type SwatchProps = ComponentProps<'div'> &
+type SwatchProps = BoxProps &
     PaletteProps & {
         color: string;
         weight: number;
     };
 
-const styles: { [key: string]: SxProps<Theme> } = {
-    swatchWrapper: (theme) => ({
-        border: `1px solid ${theme.palette.divider}`,
-        mb: 1,
-        maxWidth: theme.spacing(8.5),
-        minWidth: theme.spacing(8.5),
-        [theme.breakpoints.down('sm')]: {
-            marginRight: theme.spacing(0.5),
-        },
-        '&:hover': {
-            boxShadow: theme.shadows[4],
-            borderColor: theme.palette.mode === 'dark' ? theme.palette.text.primary : undefined,
-            transition: theme.transitions.create('box-shadow', { duration: theme.transitions.duration.shortest }),
-            cursor: 'pointer',
-        },
-        // TODO: fix this style conversion
-        '&$isSelected': {
-            border: `2px solid ${theme.palette.primary.main}`,
-        },
-    }),
-    swatch: {
-        height: 60,
-        color: Colors.white[50],
-        background: 'background.paper',
-        position: 'relative',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    label: {
-        p: 1,
-        position: 'relative',
-        '&:hover $copyOnHoverButton': {
-            display: 'flex',
-        },
-        '&$isSelected': {
-            color: 'primary.main',
-        },
-    },
-    paletteWrapper: (theme) => ({
-        width: '100%',
-        display: 'flex',
-        flexWrap: 'wrap',
-        [theme.breakpoints.up('md')]: {
-            justifyContent: 'space-between',
-            WebkitJustifyContent: 'space-between',
-        },
-    }),
-    copyOnHoverButton: (theme) => ({
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        display: 'none',
-        alignItems: 'center',
-        justifyContent: 'center',
-        background: colorModule(theme.palette.background.paper).alpha(0.9).string(),
-    }),
-    isSelected: {},
-    tags: (theme) => ({
-        border: `1px solid ${theme.palette.divider}`,
+const styles: { [key: string]: SystemStyleObject<Theme> } = {
+    tags: {
         boxSizing: 'content-box',
-    }),
+        border: `1px solid`,
+        borderColor: 'divider',
+    },
 };
 
 export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
-    const theme = useTheme();
     const { color, name, category, weight, ...otherProps } = props;
     const format = useSelector((state: AppState) => state.app.colorFormat);
     const showColorContrast = useSelector((state: AppState) => state.app.showColorContrast);
@@ -131,35 +79,32 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
         dispatch({ type: CHANGE_SELECTED_COLOR, payload: { category, name, weight } });
     }, []);
 
-    const getColorContrastTag = useCallback(
-        (contrastRatio: number) => {
-            if (contrastRatio <= 3) {
-                return (
-                    <ListItemTag
-                        label={`${contrastRatio}:1`}
-                        backgroundColor={Colors.red[500]}
-                        title={
-                            'WCAG requires a minimum 3:1 contrast ratio for icons and headline text to pass the AA level accessibility standard.'
-                        }
-                        sx={styles.tags}
-                    />
-                );
-            } else if (contrastRatio <= 4.5) {
-                return (
-                    <ListItemTag
-                        label={`${contrastRatio}:1`}
-                        backgroundColor={Colors.yellow[500]}
-                        title={
-                            'WCAG requires a minimum 4.5:1 contrast ratio for body text to pass the AA level accessibility standard.'
-                        }
-                        sx={styles.tags}
-                    />
-                );
-            }
-            return <Typography variant={'overline'}>{contrastRatio}:1</Typography>;
-        },
-        [theme]
-    );
+    const getColorContrastTag = useCallback((contrastRatio: number) => {
+        if (contrastRatio <= 3) {
+            return (
+                <ListItemTag
+                    label={`${contrastRatio}:1`}
+                    backgroundColor={Colors.red[500]}
+                    title={
+                        'WCAG requires a minimum 3:1 contrast ratio for icons and headline text to pass the AA level accessibility standard.'
+                    }
+                    sx={styles.tags}
+                />
+            );
+        } else if (contrastRatio <= 4.5) {
+            return (
+                <ListItemTag
+                    label={`${contrastRatio}:1`}
+                    backgroundColor={Colors.yellow[500]}
+                    title={
+                        'WCAG requires a minimum 4.5:1 contrast ratio for body text to pass the AA level accessibility standard.'
+                    }
+                    sx={styles.tags}
+                />
+            );
+        }
+        return <Typography variant={'overline'}>{contrastRatio}:1</Typography>;
+    }, []);
 
     useEffect(() => {
         if (
@@ -186,16 +131,37 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
     return (
         <Box
             {...otherProps}
-            // @ts-ignore TODO: Fix this style combination
-            sx={{
-                ...styles.swatchWrapper,
-                ...(isSelected ? styles.selected : {}),
-            }}
+            sx={[
+                (theme): SystemStyleObject => ({
+                    border: `1px solid`,
+                    borderColor: 'divider',
+                    mb: 1,
+                    maxWidth: 68,
+                    minWidth: 68,
+                    mr: { xs: 0.5, md: 'unset' },
+                    '&:hover': {
+                        boxShadow: 4,
+                        borderColor: theme.palette.mode === 'dark' ? 'text.primary' : undefined,
+                        transition: theme.transitions.create('box-shadow', {
+                            duration: theme.transitions.duration.shortest,
+                        }),
+                        cursor: 'pointer',
+                    },
+                }),
+                isSelected ? { border: '2px solid', borderColor: 'primary.main' } : {},
+            ]}
             id={`color-${category}-${name}-${weight}`}
         >
-            <Box
-                sx={styles.swatch}
-                style={{ background: color, color: colorModule(color).isLight() ? '#000d' : 'white' }}
+            <Stack
+                direction={'row'}
+                alignItems={'center'}
+                justifyContent={'center'}
+                sx={{
+                    height: 60,
+                    position: 'relative',
+                    background: color || 'background.paper',
+                    color: colorModule(color).isLight() ? '#000d' : 'white',
+                }}
                 onClick={onSelectColor}
             >
                 {selectedColor !== undefined &&
@@ -205,16 +171,31 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
                     getColorContrastTag(
                         Math.round(colorModule(color).contrast(colorModule(selectedColorHex)) * 100) / 100
                     )}
-            </Box>
+            </Stack>
             <Box
-                // @ts-ignore TODO: Fix this style combination
-                sx={{
-                    ...styles.label,
-                    ...(isSelected ? styles.selected : {}),
-                }}
+                sx={[
+                    {
+                        p: 1,
+                        position: 'relative',
+                        '&:hover > .MuiBox-root': {
+                            display: 'flex',
+                        },
+                    },
+                    isSelected ? { color: 'primary.main' } : {},
+                ]}
             >
                 <Box
-                    sx={styles.copyOnHoverButton}
+                    sx={(theme): SystemStyleObject => ({
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        display: 'none',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        background: colorModule(theme.palette.background.paper).alpha(0.9).string(),
+                    })}
                     onClick={copyColorToClipboard}
                     onMouseLeave={(): void => {
                         setCopied(false);
@@ -228,15 +209,15 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
                         <Typography
                             variant={'caption'}
                             color={'textPrimary'}
-                            style={{ display: 'flex', alignItems: 'center' }}
+                            sx={{ display: 'flex', alignItems: 'center' }}
                         >
                             Copied
                             <Check fontSize={'inherit'} />
                         </Typography>
                     )}
                 </Box>
-                <Typography variant={'subtitle2'} style={{ fontWeight: 600 }}>{`${weight}:`}</Typography>
-                <Typography variant={'caption'} style={{ fontFamily: 'Roboto Mono' }}>
+                <Typography variant={'subtitle2'} sx={{ fontWeight: 600 }}>{`${weight}:`}</Typography>
+                <Typography variant={'caption'} sx={{ fontFamily: 'Roboto Mono' }}>
                     {colorLabel()}
                 </Typography>
             </Box>
@@ -249,7 +230,14 @@ export const ColorPalette: React.FC<PaletteProps> = (props): JSX.Element => {
         // @ts-ignore TODO: sort out these types
         props.category === 'ui' ? (Colors[props.name] as BLUIColor) : (BrandingColors[props.name] as BLUIColor);
     return (
-        <Box sx={styles.paletteWrapper}>
+        <Box
+            sx={{
+                width: '100%',
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: { md: 'space-between' },
+            }}
+        >
             {(Object.keys(palette) as Array<keyof BLUIColor>)
                 .filter((key) => parseInt(key as string, 10))
                 .map((key) => (

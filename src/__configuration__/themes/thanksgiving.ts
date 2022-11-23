@@ -51,6 +51,7 @@ export const ThanksgivingSchedule: Schedule = {
                     },
                 },
                 MuiFab: {},
+                MuiSwitch: {},
             },
         },
         landingPageBanner: {

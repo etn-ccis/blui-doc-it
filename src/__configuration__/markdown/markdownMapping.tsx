@@ -91,7 +91,8 @@ const Headline: React.FC<Headline> = ({
             {onCopy && (
                 <Snackbar
                     open={onCopy}
-                    sx={{ bottom: { xs: 96 } }}
+                    sx={{ bottom: { xs: 96, sm: 24 } }}
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
                     autoHideDuration={3000}
                     resumeHideDuration={1000}
                     onClose={(): void => setOnCopy(false)}

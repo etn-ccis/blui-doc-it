@@ -1,10 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Theme, Typography, useTheme, useMediaQuery, SxProps, Box } from '@mui/material';
+import { Typography, useTheme, useMediaQuery, Box } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
 import { DRAWER_WIDTH, TOC_WIDTH, PAGE_WIDTH, getHash } from '../../shared';
 import { useTOC } from '../../hooks/useTOC';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../redux/reducers';
+import { SystemStyleObject } from '@mui/system';
 
 type ToCProps = {
     anchors: Array<{ title: string; hash?: string; depth?: number }>;
@@ -15,52 +16,6 @@ type ToCProps = {
      * @default true
      */
     isFirstAnchorIntro?: boolean;
-};
-
-const styles: { [key: string]: SxProps<Theme> } = {
-    root: {
-        borderLeft: { xs: `2px solid`, lg: 'none' },
-        borderLeftColor: 'divider',
-        py: { xs: 0, lg: 5 },
-        px: { xs: 2, lg: 1 },
-        my: { xs: 2, lg: 0 },
-        mx: 0,
-        maxWidth: TOC_WIDTH,
-        position: { xs: undefined, lg: 'fixed' },
-        top: 64,
-        left: `calc(50% + ${DRAWER_WIDTH}px*0.5 - ${TOC_WIDTH}px*0.5 - ${PAGE_WIDTH.REGULAR}px*0.5)`,
-    },
-    rootWithBanner: {
-        top: { lg: 16 },
-    },
-    onThisPage: {
-        display: 'block',
-        mb: 2,
-        ml: { lg: 2 },
-    },
-    link: (theme) => ({
-        mb: 1,
-        textDecoration: 'none',
-        color: 'text.primary',
-        display: 'block',
-        '&:hover': {
-            color: 'primary.main',
-        },
-        borderLeft: { lg: `2px solid transparent` },
-        pl: { lg: 2 },
-        // TODO: Fix this style
-        '&$activeLink': {
-            color: 'primary.main',
-            fontWeight: 600,
-            borderLeft: `2px solid ${
-                theme.palette.mode === 'light' ? theme.palette.primary.light : theme.palette.primary.dark
-            }`,
-        },
-    }),
-    activeLink: {},
-    hideIntro: {
-        display: { xs: 'none', lg: 'block' },
-    },
 };
 
 export const TOC: React.FC<ToCProps> = (props) => {
@@ -145,15 +100,24 @@ export const TOC: React.FC<ToCProps> = (props) => {
     }, [sectionOffsetTop]);
 
     return (
-        // @ts-ignore TODO: fix this style merge
         <Box
-            // @ts-ignore TODO: fix this style merge
-            sx={{
-                ...styles.root,
-                ...(showBanner ? styles.rootWithBanner : {}),
-            }}
+            sx={[
+                {
+                    borderLeft: { xs: `2px solid`, lg: 'none' },
+                    borderLeftColor: 'divider',
+                    py: { xs: 0, lg: 5 },
+                    px: { xs: 2, lg: 1 },
+                    my: { xs: 2, lg: 0 },
+                    mx: 0,
+                    maxWidth: TOC_WIDTH,
+                    position: { lg: 'fixed' },
+                    top: 64,
+                    left: `calc(50% + ${DRAWER_WIDTH}px*0.5 - ${TOC_WIDTH}px*0.5 - ${PAGE_WIDTH.REGULAR}px*0.5)`,
+                },
+                showBanner ? { top: { lg: 16 } } : {},
+            ]}
         >
-            <Typography sx={styles.onThisPage} variant={'overline'} color={'textSecondary'}>
+            <Typography sx={{ display: 'block', mb: 2, ml: { lg: 2 } }} variant={'overline'} color={'textSecondary'}>
                 On This Page
             </Typography>
             {anchors.map(
@@ -162,15 +126,35 @@ export const TOC: React.FC<ToCProps> = (props) => {
                         <Box
                             component={Link}
                             key={index}
-                            to={anchor.hash || `#${getHash(anchor.title)}`}
-                            // @ts-ignore TODO: fix this style merge
-                            sx={{
-                                ...styles.link,
-                                ...(activeSection === index ? styles.activeLink : {}),
-                                ...(isFirstAnchorIntro && index === 0 ? styles.hideIntro : {}),
-                            }}
-                            style={{ paddingLeft: anchor.depth ? theme.spacing(anchor.depth * 2 + 2) : undefined }}
                             replace
+                            to={anchor.hash || `#${getHash(anchor.title)}`}
+                            sx={[
+                                {
+                                    mb: 1,
+                                    textDecoration: 'none',
+                                    color: 'text.primary',
+                                    display: 'block',
+                                    borderLeftWidth: { xs: 0, lg: 2 },
+                                    borderLeftStyle: 'solid',
+                                    borderLeftColor: 'transparent',
+                                    pl: { lg: 2 },
+                                    '&:hover': {
+                                        color: 'primary.main',
+                                    },
+                                },
+                                activeSection === index
+                                    ? (t): SystemStyleObject => ({
+                                          color: 'primary.main',
+                                          fontWeight: 600,
+                                          borderLeftColor:
+                                              t.palette.mode === 'light' ? 'primary.light' : 'primary.dark',
+                                      })
+                                    : {},
+                                isFirstAnchorIntro && index === 0 ? { display: { xs: 'none', lg: 'block' } } : {},
+                                {
+                                    pl: anchor.depth ? anchor.depth * 2 + 2 : undefined,
+                                },
+                            ]}
                         >
                             {anchor.title}
                         </Box>

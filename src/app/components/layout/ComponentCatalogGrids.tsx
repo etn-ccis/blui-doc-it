@@ -37,9 +37,9 @@ const CatalogStorybookLink: React.FC<CatalogStorybookLinkProp> = (props) => {
                     variant={'outlined'}
                     avatar={
                         name === 'Angular' ? (
-                            <Angular style={{ backgroundColor: 'transparent', filter: 'grayscale(100%)' }} />
+                            <Angular sx={{ backgroundColor: 'transparent', filter: 'grayscale(100%)' }} />
                         ) : (
-                            <ReactBlue style={{ backgroundColor: 'transparent', filter: 'grayscale(100%)' }} />
+                            <ReactBlue sx={{ backgroundColor: 'transparent', filter: 'grayscale(100%)' }} />
                         )
                     }
                 />
@@ -64,7 +64,7 @@ export const ComponentCatalogGrids: React.FC = () => (
                                 display: 'flex',
                                 flexDirection: 'row',
                                 flexWrap: 'wrap',
-                                gap: 8,
+                                gap: 1,
                             }}
                         >
                             <CatalogStorybookLink name="Angular" content={link.angular} />
