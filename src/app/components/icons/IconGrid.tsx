@@ -1,21 +1,21 @@
 import React from 'react';
-import { Box, Grid, SxProps, Theme, Typography } from '@mui/material';
+import { Box, Grid, Theme, Typography } from '@mui/material';
 import color from 'color';
 import { IconType } from '../../../__types__';
 import { snakeToTitleCase } from '../../shared';
 import { useSelectedIcon } from '../../contexts/selectedIconContextProvider';
+import { SystemStyleObject } from '@mui/system';
 
 type IconGridProps = {
     icons: IconType[];
     onIconSelected: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
-const iconGridStyles: { [key: string]: SxProps<Theme> } = {
+const iconGridStyles: { [key: string]: SystemStyleObject<Theme> } = {
     wrapper: {
         cursor: 'pointer',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        // justifyContent: 'center',
         py: 3,
         px: 1,
         color: 'text.primary',
@@ -23,11 +23,6 @@ const iconGridStyles: { [key: string]: SxProps<Theme> } = {
         maxWidth: 137,
         margin: 'auto',
     },
-    selected: (theme) => ({
-        background: color(theme.palette.primary.main).fade(0.9).string(),
-        border: `1px solid ${theme.palette.primary.main}`,
-        color: theme.palette.primary.main,
-    }),
     label: {
         width: '100%',
         textAlign: 'center',
@@ -60,14 +55,20 @@ const Icons: React.FC<IconGridProps> = (props) => {
                             data-iconid={`${icon.name}-${icon.isMaterial ? 'material' : 'blui'}`}
                         >
                             <Box
-                                // @ts-ignore TODO: fix this style merge
-                                sx={{
-                                    ...iconGridStyles.wrapper,
-                                    ...(isSelected ? iconGridStyles.selected : {}),
-                                }}
+                                sx={[
+                                    iconGridStyles.wrapper,
+                                    isSelected
+                                        ? (theme): SystemStyleObject => ({
+                                              background: color(theme.palette.primary.main).alpha(0.1).string(),
+                                              border: `1px solid`,
+                                              borderColor: 'primary.main',
+                                              color: 'primary.main',
+                                          })
+                                        : {},
+                                ]}
                             >
                                 <icon.Icon
-                                    style={{
+                                    sx={{
                                         fontSize: iconDisplayName.toLocaleLowerCase().includes('eaton') ? 24 : 36,
                                     }}
                                 />

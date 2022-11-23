@@ -17,8 +17,7 @@ import { IconDrawer } from './IconDrawer';
 import { SelectedIconContext } from '../../contexts/selectedIconContextProvider';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useQueryString } from '../../hooks/useQueryString';
-import { Grid, Typography, useTheme } from '@mui/material';
-import { Skeleton } from '@mui/lab';
+import { Grid, Skeleton, Typography, useTheme } from '@mui/material';
 import { titleCase } from '../../shared';
 import { useDispatch } from 'react-redux';
 import { TOGGLE_SIDEBAR } from '../../redux/actions';
@@ -319,12 +318,12 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                     {Array(24)
                         .fill('')
                         .map((item, ind) => (
-                            <Grid item xs={4} sm={4} md={3} lg={2} key={`${ind}`} style={{ minHeight: 137 }}>
+                            <Grid item xs={4} sm={4} md={3} lg={2} key={`${ind}`} sx={{ minHeight: 137 }}>
                                 <Skeleton
                                     variant={'rectangular'}
-                                    style={{ width: 48, height: 48, borderRadius: 24, margin: 'auto' }}
+                                    sx={{ width: 48, height: 48, borderRadius: 6, margin: 'auto' }}
                                 />
-                                <Skeleton variant={'text'} style={{ height: 32, maxWidth: 100, margin: 'auto' }} />
+                                <Skeleton variant={'text'} sx={{ height: 32, maxWidth: 100, margin: 'auto' }} />
                             </Grid>
                         ))}
                 </Grid>
@@ -337,10 +336,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                         iconsByCategory[category].length > 0 &&
                         (iconCategories === null || iconCategories.includes(category)) ? (
                             <React.Fragment key={`category_${category}`}>
-                                <Typography
-                                    variant={'h6'}
-                                    style={{ marginTop: theme.spacing(3), marginBottom: theme.spacing(3) }}
-                                >
+                                <Typography variant={'h6'} sx={{ my: 3 }}>
                                     {titleCase(category)}
                                 </Typography>
                                 <IconGrid icons={iconsByCategory[category]} onIconSelected={handleSelect} />
@@ -352,7 +348,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                     title={'0 Matches'}
                     description={'No icons matched your filters.'}
                     icon={<MuiIcons.Search fontSize={'inherit'} />}
-                    style={{ height: 300, minHeight: 300 }}
+                    sx={{ height: 300, minHeight: 300 }}
                 />
             )}
             <IconDrawer />
