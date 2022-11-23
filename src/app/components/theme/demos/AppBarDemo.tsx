@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Avatar, Tabs, Tab, IconButton, Badge, ListItemText, Toolbar } from '@mui/material';
+import { AppBar, Avatar, Tabs, Tab, IconButton, Badge, ListItemText, Toolbar, Stack } from '@mui/material';
 import { Spacer } from '@brightlayer-ui/react-components';
 import { Menu, Notifications, Search } from '@mui/icons-material';
 
@@ -8,27 +8,29 @@ import { Menu, Notifications, Search } from '@mui/icons-material';
  */
 
 export const AppBarDemo: JSX.Element = (
-    <div
-        style={{
-            padding: 16,
+    <Stack
+        justifyContent={'center'}
+        sx={{
+            p: 2,
             width: '100%',
             minHeight: 400,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
         }}
     >
-        <AppBar position={'static'} key={'primary'} color={'primary'} style={{ zIndex: 0 }}>
-            <Toolbar>
-                <IconButton>
+        <AppBar position={'static'} key={'primary'} color={'primary'} sx={{ zIndex: 0 }}>
+            <Toolbar sx={{ px: { xs: 2, sm: 2 } }}>
+                <IconButton size={'large'} edge={'start'} color={'inherit'} sx={{ mr: 2 }}>
                     <Menu />
                 </IconButton>
-                <ListItemText primary={'Primary'} secondary={'This is the App Bar pinned to the top'} />
+                <ListItemText
+                    primary={'Primary'}
+                    secondary={'This is the App Bar pinned to the top'}
+                    secondaryTypographyProps={{ sx: { color: 'inherit' } }}
+                />
                 <Spacer />
                 <IconButton color={'inherit'}>
                     <Search />
                 </IconButton>
-                <IconButton color={'inherit'} style={{ marginRight: 12 }}>
+                <IconButton color={'inherit'} sx={{ mr: 1.5 }}>
                     <Badge badgeContent={3} color={'error'}>
                         <Notifications />
                     </Badge>
@@ -37,12 +39,12 @@ export const AppBarDemo: JSX.Element = (
             </Toolbar>
         </AppBar>
 
-        <AppBar position={'static'} key={'secondary'} color={'secondary'} style={{ zIndex: 0 }}>
+        <AppBar position={'static'} key={'secondary'} color={'secondary'} sx={{ zIndex: 0 }}>
             <Tabs value={0}>
                 <Tab value={0} label={'Secondary'} />
                 <Tab value={1} label={'App Bar'} />
                 <Tab value={2} label={'with Tabs'} />
             </Tabs>
         </AppBar>
-    </div>
+    </Stack>
 );

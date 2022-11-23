@@ -1,9 +1,9 @@
 import React from 'react';
-import { IconButton, Snackbar } from '@mui/material';
+import { Box, IconButton, Snackbar } from '@mui/material';
 import { Delete } from '@mui/icons-material';
 
 export const SnackbarDemo: JSX.Element = (
-    <div style={{ padding: 16 }}>
+    <Box sx={{ p: 2 }}>
         <Snackbar
             open={true}
             message={'This is a snackbar, a.k.a. toast.'}
@@ -12,7 +12,7 @@ export const SnackbarDemo: JSX.Element = (
                     <Delete />
                 </IconButton>
             }
-            style={{ position: 'static', transform: 'none' }}
+            sx={{ position: 'static', transform: 'none' }}
         />
-    </div>
+    </Box>
 );

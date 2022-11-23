@@ -44,7 +44,7 @@ export const ChipDemo: JSX.Element = (
                             onDelete={(): void => {
                                 /* do nothing */
                             }}
-                            style={{ marginLeft: 8 }}
+                            sx={{ ml: 1 }}
                         />
                     </TableCell>
                 </TableRow>
@@ -77,7 +77,7 @@ export const ChipDemo: JSX.Element = (
                             onDelete={(): void => {
                                 /* do nothing */
                             }}
-                            style={{ marginLeft: 8 }}
+                            sx={{ ml: 1 }}
                         />
                     </TableCell>
                 </TableRow>
@@ -113,7 +113,7 @@ export const ChipDemo: JSX.Element = (
                             onDelete={(): void => {
                                 /* do nothing */
                             }}
-                            style={{ marginLeft: 8 }}
+                            sx={{ ml: 1 }}
                         />
                     </TableCell>
                 </TableRow>
@@ -149,7 +149,7 @@ export const ChipDemo: JSX.Element = (
                             onDelete={(): void => {
                                 /* do nothing */
                             }}
-                            style={{ marginLeft: 8 }}
+                            sx={{ ml: 1 }}
                         />
                     </TableCell>
                 </TableRow>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { EmptyState } from '@brightlayer-ui/react-components';
-import { Button } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { HelpOutline, Add } from '@mui/icons-material';
 
 export const EmptyStateDemo: JSX.Element = (
-    <div style={{ maxWidth: 400, padding: '40px 24px' }}>
+    <Box sx={{ maxWidth: 400, py: 5, px: 3 }}>
         <EmptyState
             icon={<HelpOutline fontSize={'inherit'} />}
             title={'No Folders Found'}
@@ -17,5 +17,5 @@ export const EmptyStateDemo: JSX.Element = (
                 </Button>
             }
         />
-    </div>
+    </Box>
 );
