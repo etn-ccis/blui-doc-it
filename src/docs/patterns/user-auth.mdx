@@ -42,7 +42,7 @@ import ErrorStates1 from '../../app/assets/design-patterns/user-authentication/e
 import ErrorStates2 from '../../app/assets/design-patterns/user-authentication/error-states-2.png';
 import ErrorStates3 from '../../app/assets/design-patterns/user-authentication/error-states-3.png';
 
-{/* KEYWORDS: design pattern login registration register password forget forgot account authentication auth join  */}
+{/* KEYWORDS: design pattern login registration register password forget forgot account authentication auth join */}
 
 # User Authentication & Registration
 
@@ -55,7 +55,13 @@ Most applications require some form of user authentication to keep unauthorized 
 @TODO switch login links over to the "Component Recommendations style" instead of an "Interactive Code example" once we have one designed.
 
 <React.Fragment>
-    <DemoCard repository={'login'} angular react={`https://codesandbox.io/s/github/brightlayer-ui/react-workflows/tree/master/login-workflow/example`} ionic reactNative />
+    <DemoCard
+        repository={'login'}
+        angular
+        react={`https://codesandbox.io/s/github/brightlayer-ui/react-workflows/tree/master/login-workflow/example`}
+        ionic
+        reactNative
+    />
     <Divider />
 </React.Fragment>
 
@@ -196,6 +202,7 @@ The majority of the joining-an-organization screens are the same regardless of t
 
 ## Login
 
+{/* prettier-ignore */}
 {/*
 An NFC login might either be documented here, or wait until we start adding in device registery / discovery pattern
 */}
