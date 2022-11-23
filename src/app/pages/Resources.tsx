@@ -31,26 +31,21 @@ export const DevResources: React.FC = (): JSX.Element => {
                 elevation={0}
             >
                 <Tabs variant={'scrollable'} value={filter}>
+                    <Tab sx={{ minWidth: 'auto' }} label="All" value={'all'} onClick={(): void => setFilter('all')} />
                     <Tab
-                        style={{ minWidth: 'auto' }}
-                        label="All"
-                        value={'all'}
-                        onClick={(): void => setFilter('all')}
-                    />
-                    <Tab
-                        style={{ minWidth: 'auto' }}
+                        sx={{ minWidth: 'auto' }}
                         label="Angular"
                         value={'angular'}
                         onClick={(): void => setFilter('angular')}
                     />
                     <Tab
-                        style={{ minWidth: 'auto' }}
+                        sx={{ minWidth: 'auto' }}
                         label="React"
                         value={'react'}
                         onClick={(): void => setFilter('react')}
                     />
                     <Tab
-                        style={{ minWidth: 'auto' }}
+                        sx={{ minWidth: 'auto' }}
                         label="React Native"
                         value={'react-native'}
                         onClick={(): void => setFilter('react-native')}
@@ -68,9 +63,9 @@ export const DevResources: React.FC = (): JSX.Element => {
                             filter === 'all') && (
                             <Accordion key={`${bucket.name}_${bIndex}`} defaultExpanded>
                                 <ExpansionHeader name={bucket.name} description={bucket.description} />
-                                <AccordionDetails style={{ display: 'block', padding: 0 }}>
+                                <AccordionDetails sx={{ display: 'block', p: 0 }}>
                                     <Divider />
-                                    <List style={{ padding: 0 }}>
+                                    <List sx={{ p: 0 }}>
                                         {bucket.items.map((item, index): JSX.Element | null =>
                                             item.applies === undefined ||
                                             item.applies.includes(filter) ||

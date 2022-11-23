@@ -325,9 +325,9 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         return (
                             <Accordion key={`${bucket.name}_${bIndex}`} defaultExpanded>
                                 <ExpansionHeader name={bucket.name} description={bucket.description} />
-                                <AccordionDetails style={{ display: 'block', padding: 0 }}>
+                                <AccordionDetails sx={{ display: 'block', padding: 0 }}>
                                     <Divider />
-                                    <List style={{ padding: 0 }}>
+                                    <List sx={{ padding: 0 }}>
                                         {bucket.items.map((item, index): JSX.Element | null => {
                                             const statusColor = getStatusColor(item.status);
                                             return (

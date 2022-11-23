@@ -1,5 +1,5 @@
-import React, { ComponentProps, useState, useEffect } from 'react';
-import { IconButton, Theme, SxProps } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { IconButton, BoxProps, Box } from '@mui/material';
 // import axios from 'axios';
 import { getBuildStatus } from '../../../api';
 import * as Colors from '@brightlayer-ui/colors';
@@ -7,12 +7,12 @@ import { CheckCircle, Cancel, RemoveCircle } from '@mui/icons-material';
 
 type FontSize = 'medium' | 'small' | 'inherit' | 'large' | undefined;
 type BuildPassedStatus = boolean | undefined;
-type BuildButtonProps = ComponentProps<'div'> & {
+type BuildButtonProps = BoxProps & {
     small: boolean;
     link: string;
     repository: string;
     branches?: string[];
-    sx?: SxProps<Theme>;
+    sx?: BoxProps['sx'];
 };
 
 const getBuildIcon = (
@@ -93,12 +93,14 @@ export const BuildButton: React.FC<BuildButtonProps> = (props) => {
     return !small ? (
         <IconButton
             title={'Build Status'}
-            sx={{
-                color: Colors.gray[500],
-                p: 1,
-                ml: 1,
-                ...sx,
-            }}
+            sx={[
+                {
+                    color: Colors.gray[500],
+                    p: 1,
+                    ml: 1,
+                },
+                ...(Array.isArray(sx) ? sx : [sx]),
+            ]}
             onClick={(): void => {
                 window.open(link, '_blank');
             }}
@@ -106,6 +108,15 @@ export const BuildButton: React.FC<BuildButtonProps> = (props) => {
             {getBuildIcon(repository, build, 'small')}
         </IconButton>
     ) : (
-        getBuildIcon(repository, build, 'small', link)
+        <Box
+            sx={[
+                {
+                    ml: 2,
+                },
+                ...(Array.isArray(sx) ? sx : [sx]),
+            ]}
+        >
+            {getBuildIcon(repository, build, 'small', link)}
+        </Box>
     );
 };

@@ -1,25 +1,9 @@
 import React from 'react';
-import { IconButton, Theme, SxProps } from '@mui/material';
+import { IconButton } from '@mui/material';
 import { GitHub } from '../../assets/icons/github';
 import { Spacer } from '@brightlayer-ui/react-components';
 import * as Colors from '@brightlayer-ui/colors';
 import { DemoButton, BugsButton, BuildButton } from './buttons';
-
-const styles: { [key: string]: SxProps<Theme> } = {
-    iconButton: {
-        color: Colors.gray[500],
-        p: 1,
-        ml: 1,
-    },
-    repo: {
-        '&:hover': {
-            color: 'primary.main',
-        },
-    },
-    miniIcon: {
-        mr: 2,
-    },
-};
 
 type ButtonRowProps = {
     repository: string;
@@ -50,7 +34,7 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
                 <DemoButton
                     small={small || false}
                     link={demoUrl}
-                    sx={styles.miniIcon}
+                    sx={{ mr: 0 }}
                     count={branches ? (branches.length > 1 ? branches.length : 0) : 0}
                 />
             )}
@@ -59,22 +43,26 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
                 link={bugLink}
                 repository={repository}
                 bugLabels={bugLabels}
-                sx={styles.miniIcon}
+                sx={{ mr: 0 }}
             />
             <BuildButton
                 small={small || false}
                 link={buildLink}
                 repository={repository}
                 branches={branches}
-                sx={styles.miniIcon}
+                sx={{ mr: 0 }}
             />
             {small && <Spacer flex={0} width={8} />}
 
             {!small && (
                 <IconButton
                     title={'View GitHub Repository'}
-                    // @ts-ignore TODO: Fix this style merge
-                    sx={{ ...styles.iconButton, ...styles.repo }}
+                    sx={{
+                        color: Colors.gray[500],
+                        p: 1,
+                        ml: 1,
+                        '&:hover': { color: 'primary.main' },
+                    }}
                     onClick={(): void => {
                         window.open(repoLink, '_blank');
                     }}

@@ -1,41 +1,18 @@
-import React, { ComponentProps, useState, useEffect } from 'react';
-import { IconButton, Badge, Theme, Typography, SxProps } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { IconButton, Badge, Typography, BoxProps, Box } from '@mui/material';
 import { getBugCount } from '../../../api';
 import * as Colors from '@brightlayer-ui/colors';
 import { BugReport } from '@mui/icons-material';
 
-const styles: { [key: string]: SxProps<Theme> } = {
-    iconButton: {
-        color: Colors.gray[500],
-        p: 1,
-        ml: 1,
-    },
-    badge: {
-        fontWeight: 600,
-    },
-    bugs: {
-        '&:hover': {
-            color: Colors.yellow[900],
-            '& $color': {
-                backgroundColor: Colors.red[500],
-            },
-        },
-    },
-    color: {
-        backgroundColor: Colors.gray[300],
-    },
-};
-
 type BugsCount = number | undefined;
-type BugsButtonProps = ComponentProps<'div'> & {
+type BugsButtonProps = BoxProps & {
     small: boolean;
     link: string;
     repository: string;
     bugLabels?: string[];
-    sx?: SxProps<Theme>;
 };
 export const BugsButton: React.FC<BugsButtonProps> = (props) => {
-    const { small, repository, bugLabels, link, style, ...other } = props;
+    const { small, repository, bugLabels, link, sx, ...other } = props;
     const [bugs, setBugs] = useState<BugsCount>();
 
     useEffect(() => {
@@ -66,8 +43,20 @@ export const BugsButton: React.FC<BugsButtonProps> = (props) => {
     return !small ? (
         <IconButton
             title={'Open Bugs'}
-            // @ts-ignore TODO: Fix this style merge
-            sx={{ ...styles.iconButton, ...styles.bugs }}
+            sx={[
+                {
+                    color: Colors.gray[500],
+                    p: 1,
+                    ml: 1,
+                    '&:hover': {
+                        color: Colors.yellow[900],
+                        '& $color': {
+                            backgroundColor: Colors.red[500],
+                        },
+                    },
+                },
+                ...(Array.isArray(sx) ? sx : [sx]),
+            ]}
             onClick={(): void => {
                 window.open(link, '_blank');
             }}
@@ -75,25 +64,24 @@ export const BugsButton: React.FC<BugsButtonProps> = (props) => {
             <Badge
                 badgeContent={bugs}
                 color={'error'}
-                // @ts-ignore TODO: Fix this style merge
                 sx={{
-                    '&.MuiBadge-colorSecondary': styles.color,
-                    '& .MuiBadge-badge': styles.badge,
+                    '&.MuiBadge-colorSecondary': { backgroundColor: Colors.gray[300] },
+                    '& .MuiBadge-badge': { fontWeight: 600 },
                 }}
             >
                 <BugReport />
             </Badge>
         </IconButton>
     ) : (
-        <div
-            style={Object.assign({ cursor: 'pointer', display: 'flex', alignItems: 'center' }, style)}
+        <Box
+            sx={[{ cursor: 'pointer', display: 'flex', alignItems: 'center' }, ...(Array.isArray(sx) ? sx : [sx])]}
             onClick={(): void => {
                 window.open(link, '_blank');
             }}
             {...other}
         >
             <BugReport fontSize={'small'} htmlColor={color} />
-            <Typography style={{ color: color, fontSize: 12 }}>{bugs}</Typography>
-        </div>
+            <Typography sx={{ color: color, fontSize: 12 }}>{bugs}</Typography>
+        </Box>
     );
 };
