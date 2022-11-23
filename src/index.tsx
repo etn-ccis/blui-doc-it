@@ -8,7 +8,7 @@
 import 'react-app-polyfill/stable';
 import React from 'react';
 import ReactDOMClient from 'react-dom/client';
-import { createTheme, ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
+import { StyledEngineProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -27,7 +27,7 @@ import '@fontsource/roboto-mono/700.css';
 import 'placeholder-loading/src/scss/placeholder-loading.scss';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { getScheduledSiteConfig } from './__configuration__/themes';
+import { ThemeWrapper } from './app/components/theme/ThemeWrapper';
 
 if (gaID) {
     ReactGA.initialize(gaID);
@@ -41,14 +41,14 @@ const root = ReactDOMClient.createRoot(container);
 
 root.render(
     <StyledEngineProvider injectFirst>
-        <ThemeProvider theme={createTheme(createTheme(getScheduledSiteConfig().theme))}>
-            <CssBaseline />
-            <Provider store={store}>
+        <Provider store={store}>
+            <ThemeWrapper>
+                <CssBaseline />
                 <MDXProvider components={componentsMap}>
                     <MainRouter />
                 </MDXProvider>
-            </Provider>
-        </ThemeProvider>
+            </ThemeWrapper>
+        </Provider>
     </StyledEngineProvider>
 );
 

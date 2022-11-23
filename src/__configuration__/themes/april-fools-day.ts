@@ -3,7 +3,7 @@ import * as Colors from '@brightlayer-ui/colors';
 import TitleBlock from '../../app/assets/themes/april-fool-s-day/title-block.svg';
 import TitleBlockChromium from '../../app/assets/themes/april-fool-s-day/title-block-chromium.svg';
 import AppBarTile from '../../app/assets/themes/april-fool-s-day/app-bar-tile.png';
-import { defaultTheme } from './default';
+import { blueTheme as defaultTheme } from './blue';
 import { Schedule } from './_types';
 import { SiteConfig } from '.';
 

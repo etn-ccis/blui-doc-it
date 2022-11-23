@@ -69,7 +69,8 @@ const ScrollToTop = (): any => {
 
 export const MainRouter = (): JSX.Element => {
     const title = useSelector((state: AppState) => state.app.pageTitle);
-    const className = getScheduledSiteConfig().className;
+    const selectedTheme = useSelector((state: AppState) => state.app.theme);
+    const className = getScheduledSiteConfig(selectedTheme).className;
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
     const showBanner = useSelector((state: AppState) => state.app.showBanner);
     return (

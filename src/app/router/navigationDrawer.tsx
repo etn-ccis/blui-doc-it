@@ -22,6 +22,7 @@ import { DRAWER_WIDTH } from '../shared';
 
 export const NavigationDrawer = (): JSX.Element => {
     const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
+    const selectedTheme = useSelector((state: AppState) => state.app.theme);
     const location = useLocation();
     const navigate = useNavigate();
     const [activeRoute, setActiveRoute] = useState(location.pathname.replace(/^\//, ''));
@@ -29,7 +30,7 @@ export const NavigationDrawer = (): JSX.Element => {
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const dispatch = useDispatch();
     const isLandingPage = location.pathname === '/';
-    const activeDrawerFade = getScheduledSiteConfig().drawerActiveBackgroundFade;
+    const activeDrawerFade = getScheduledSiteConfig(selectedTheme).drawerActiveBackgroundFade;
 
     const createNavItems = useCallback((navData: SimpleNavItem[], parentUrl: string, depth: number): NavItem[] => {
         const convertedItems: NavItem[] = [];

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
     Typography,
@@ -11,12 +11,19 @@ import {
     useTheme,
     useMediaQuery,
     Box,
+    Button,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogTitle,
+    TextField,
+    MenuItem,
 } from '@mui/material';
 import { PxblueSmall } from '@brightlayer-ui/icons-mui';
 import { Spacer } from '@brightlayer-ui/react-components';
 import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { TOGGLE_DRAWER, TOGGLE_SEARCH } from '../../redux/actions';
+import { CHANGE_THEME, TOGGLE_DRAWER, TOGGLE_SEARCH } from '../../redux/actions';
 import { AppState } from '../../redux/reducers';
 import Search from '@mui/icons-material/Search';
 import { SearchBar } from '../../pages';
@@ -30,20 +37,44 @@ export type SharedToolbarProps = AppBarProps & {
     navigationIcon?: JSX.Element;
 };
 
+const availableThemes = [
+    'thanksgiving',
+    'womens-day',
+    'diwali',
+    'christmas',
+    'halloween',
+    'april-fools',
+    'may-fourth',
+    'hanukkah',
+    'kwanzaa',
+    'new-years',
+    'spring-festival',
+    'st-patricks',
+    'earth-day',
+    'independence-day',
+    'mid-autumn-festival',
+    'valentines-day',
+    'dark',
+    'blue',
+    'default',
+];
+
 export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
-    const { title, color, subtitle, navigationIcon, ...other } = props;
+    const { title, color, subtitle, navigationIcon, onClick, ...other } = props;
     const icon = navigationIcon ? navigationIcon : <PxblueSmall />;
     const location = useLocation();
     const theme = useTheme();
     const isLandingPage = location.pathname === '/';
+    const [showThemePicker, setShowThemePicker] = useState(false);
     const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
     const showBanner = useSelector((state: AppState) => state.app.showBanner);
+    const selectedTheme = useSelector((state: AppState) => state.app.theme);
     const sm = useMediaQuery(theme.breakpoints.down('md'));
     const dispatch = useDispatch();
-    const appBarBackground = getScheduledSiteConfig().appBarBackground;
+    const appBarBackground = getScheduledSiteConfig(selectedTheme).appBarBackground;
     const getIsFireworkHoliday = (): boolean => {
-        const holidayClassName = getScheduledSiteConfig().className || '';
+        const holidayClassName = getScheduledSiteConfig(selectedTheme).className || '';
         const fireworkHolidays = ['independence-day'];
 
         if (fireworkHolidays.includes(holidayClassName)) {
@@ -88,6 +119,17 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
         }
     }, []);
 
+    const handleClick: React.MouseEventHandler<HTMLDivElement> = useCallback(
+        (e) => {
+            onClick?.(e);
+            if (e.detail === 3) {
+                // DEBUG MODE: CHOOSE A THEME
+                setShowThemePicker(true);
+            }
+        },
+        [onClick]
+    );
+
     return (
         <>
             <AppBar
@@ -102,6 +144,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                     top: showBanner ? theme.spacing(sm ? 7 : 8) : 0,
                     ...appBarBackground,
                 }}
+                onClick={handleClick}
                 {...other}
             >
                 {getIsFireworkHoliday() && (
@@ -148,6 +191,43 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                 </Toolbar>
             </AppBar>
             <SearchBar />
+            <Dialog
+                open={showThemePicker}
+                onClose={(): void => {
+                    setShowThemePicker(false);
+                }}
+            >
+                <DialogTitle>Choose Theme</DialogTitle>
+                <DialogContent>
+                    <TextField
+                        autoFocus
+                        select
+                        margin="dense"
+                        label="Theme"
+                        fullWidth
+                        variant="outlined"
+                        value={selectedTheme}
+                        onChange={(e): void => {
+                            dispatch({ type: CHANGE_THEME, payload: e.target.value });
+                        }}
+                    >
+                        {availableThemes.map((t) => (
+                            <MenuItem key={t} value={t}>
+                                {t}
+                            </MenuItem>
+                        ))}
+                    </TextField>
+                </DialogContent>
+                <DialogActions>
+                    <Button
+                        onClick={(): void => {
+                            setShowThemePicker(false);
+                        }}
+                    >
+                        Done
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </>
     );
 };

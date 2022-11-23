@@ -39,7 +39,7 @@
     "scripts": {
         "start": "craco start",
         "build": "yarn indexer && craco build",
-        "test": "craco test",
+        "test": "craco test --passWithNoTests",
         "eject": "craco eject",
         "check:links": "bash ./__scripts__/link-check/checklinks.sh",
         "check:links-ci": "bash ./__scripts__/link-check/checklinksCI.sh",

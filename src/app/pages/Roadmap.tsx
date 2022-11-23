@@ -100,12 +100,13 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const [loading, setLoading] = useState<boolean>(true);
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
     const showBanner = useSelector((state: AppState) => state.app.showBanner);
+    const selectedTheme = useSelector((state: AppState) => state.app.theme);
     const loadingGroups = [
         [1, 2, 3, 4],
         [1, 2, 3],
         [1, 2, 3],
     ];
-    const themedClassName = getScheduledSiteConfig().className;
+    const themedClassName = getScheduledSiteConfig(selectedTheme).className;
 
     usePageTitle('Roadmap');
     useGoogleAnalyticsPageView();

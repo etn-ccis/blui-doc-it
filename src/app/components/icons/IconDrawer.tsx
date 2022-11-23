@@ -78,8 +78,9 @@ export const IconDrawer: React.FC = () => {
     const [iconSize, setIconSize] = React.useState<IconSize>(24);
     const [iconColor, setIconColor] = React.useState<IconColor>('black');
     const drawerOpen = useSelector((state: AppState) => state.app.sidebarOpen);
+    const selectedTheme = useSelector((state: AppState) => state.app.theme);
     const sm = useMediaQuery(theme.breakpoints.down('md'));
-    const themeConfig = getScheduledSiteConfig();
+    const themeConfig = getScheduledSiteConfig(selectedTheme);
     const showBanner = useSelector((state: AppState) => state.app.showBanner);
     const iconTitle = snakeToTitleCase(selectedIcon.iconFontKey);
 
