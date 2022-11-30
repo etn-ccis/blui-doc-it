@@ -106,7 +106,7 @@ End-to-end tests rely on the ability to find elements on the screen and interact
 -   **xPath Selectors**: find selector within xPath (e.g., `//*[@id="@@blui-drawerlayout-content"]/div/header/div/button`)
 -   **ID Selectors**: find attribute id within elements (e.g., `#login-button`)
 
-> You can read more about different selector strategies on [browserstack](https://www.browserstack.com/guide/css-selectors-in-selenium) and [software testing help](https://www.browserstack.com/guide/findelement-in-selenium).
+> You can read more about different selector strategies on [Selenium Dev](https://www.selenium.dev/documentation/webdriver/elements/locators/) and <!-- markdown-link-check-disable -->[software testing help](https://www.softwaretestinghelp.com/using-selenium-xpath-and-other-locators-selenium-tutorial-5/)<!-- markdown-link-check-enable -->.
 
 Each of these methods has their own advantages and disadvantages. A common pain point in E2E test automation is that modern Javascript platforms are constantly changing, particularly in the open source community. Many of these frameworks automatically (and dynamically) generate IDs and classes for components resulting in a constantly moving target for automation tooling. Identifying elements by these values (i.e., using IDs, CSS, or xPath locators _without_ property attributes) makes your tests brittle because they are subject to change any time a new version comes out (or even any time the page is reloaded).
 

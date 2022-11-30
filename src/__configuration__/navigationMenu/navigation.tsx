@@ -182,6 +182,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 url: '/project-identity',
                 component: <MarkdownPage title={'Project Identity'} markdown={Docs.Design.ProjectIdentity} />,
             },
+            {
+                title: 'UI Design Audits',
+                url: '/design-audit',
+                component: <MarkdownPage title={'UI Design Audits'} markdown={Docs.Design.DesignAudit} />,
+            },
         ],
     },
     {
