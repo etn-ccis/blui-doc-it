@@ -97,7 +97,7 @@ export const bluiProjects: BluiProject[] = [
         website: `https://www.eaton.com/us/en-us/digital/brightlayer/brightlayer-data-centers-suite/remote-monitoring-and-predictive-service.html`,
         image: PredictPulse,
         imagePosition: '0 0',
-        market: 'Data Centers',
+        market: 'Data centers',
         devices: 'UPS',
         tags: [BluiProjectTag.REAL_TIME_MONITORING, BluiProjectTag.ALARMS, BluiProjectTag.PREDICTIONS],
     },
@@ -110,7 +110,7 @@ export const bluiProjects: BluiProject[] = [
         },
         website: `https://www.eaton.com/us/en-us/products/electrical-circuit-protection/circuit-breakers/connect-smart-breakers/smart-energy-manager-app.html`,
         image: SmartEnergyManager,
-        market: 'Residential & Commercial',
+        market: 'Residential & commercial',
         devices: 'Smart breakers',
         tags: [
             BluiProjectTag.REAL_TIME_MONITORING,
@@ -128,8 +128,8 @@ export const bluiProjects: BluiProject[] = [
         },
         website: `https://www.eaton.com/us/en-us/products/electrical-circuit-protection/circuit-breakers/connect-ev-smart-breaker-chargers/green-motion-ev-charger-manager-app.html`,
         image: EVChargerManager,
-        market: 'Residential & Commercial',
-        devices: 'EV Chargers & Smart breakers',
+        market: 'Residential & commercial',
+        devices: 'EV chargers & smart breakers',
         tags: [
             BluiProjectTag.REAL_TIME_MONITORING,
             BluiProjectTag.DEVICE_COMMISSIONING,
