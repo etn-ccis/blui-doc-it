@@ -341,6 +341,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Licensing'} markdown={Docs.Community.License} />,
             },
             {
+                title: 'Apps Using Brightlayer UI',
+                url: '/blui-projects',
+                component: <MarkdownPage title={'Apps Using Brightlayer UI'} markdown={Docs.Community.BLUIProjects} />,
+            },
+            {
                 title: 'Innersourcing',
                 url: '/innersourcing',
                 component: <MarkdownPage title={'Innersourcing'} markdown={Docs.Community.Innersourcing} />,

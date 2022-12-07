@@ -234,6 +234,10 @@
                     "url": "/license"
                 },
                 {
+                    "title": "Apps Using Brightlayer UI",
+                    "url": "/blui-projects"
+                },
+                {
                     "title": "Innersourcing",
                     "url": "/innersourcing"
                 },
