@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
             gap: theme.spacing(1.5),
             '& a': {
                 color: 'unset',
+                textDecorationColor: theme.palette.primary.main,
             },
         },
         chipsWrapper: {
@@ -47,6 +48,7 @@ const useStyles = makeStyles((theme: Theme) =>
             flexDirection: 'row',
             gap: `0 ${theme.spacing(4)}px`,
             flexWrap: 'wrap',
+            marginBottom: theme.spacing(),
         },
         sideImage: {
             width: theme.spacing(25),
@@ -66,21 +68,45 @@ export const BLUIProjectCatalog: React.FC = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
 
+    const getMarketDevicesInfo = React.useCallback(
+        (market?: string, devices?: string) => (
+            <div className={classes.infoWrapper}>
+                {market && (
+                    <span>
+                        <Typography variant={'subtitle2'} color={'textSecondary'} component="span">
+                            Market:{' '}
+                        </Typography>
+                        <Typography variant={'body2'} color={'textSecondary'} component="span">
+                            {market}
+                        </Typography>
+                    </span>
+                )}
+                {devices && (
+                    <span>
+                        <Typography variant={'subtitle2'} color={'textSecondary'} component="span">
+                            Devices:{' '}
+                        </Typography>
+                        <Typography variant={'body2'} color={'textSecondary'} component="span">
+                            {devices}
+                        </Typography>
+                    </span>
+                )}
+            </div>
+        ),
+        []
+    );
+
     const getPlatformLink = React.useCallback((displayText: string, url?: string) => {
         if (url === undefined) return;
         if (url === 'N/A')
             return (
                 <Tooltip title={`${displayText} app link not publicly accessible`}>
-                    <Typography color={'textSecondary'} variant={'body2'}>
-                        {displayText}
-                    </Typography>
+                    <Typography color={'textSecondary'}>{displayText}</Typography>
                 </Tooltip>
             );
         return (
-            <a href={url}>
-                <Typography color={'textPrimary'} variant={'body2'}>
-                    {displayText}
-                </Typography>
+            <a href={url} target={'_blank'} rel={'noreferrer'}>
+                <Typography color={'primary'}>{displayText}</Typography>
             </a>
         );
     }, []);
@@ -94,6 +120,7 @@ export const BLUIProjectCatalog: React.FC = () => {
                         {project.name}
                     </Typography>
                     <Typography gutterBottom>{project.description}</Typography>
+                    {getMarketDevicesInfo(project.market, project.devices)}
                     <div className={classes.headingWrapper}>
                         {getPlatformLink('About', project.website)}
                         {getPlatformLink('iOS', project.platformURLs.ios)}
@@ -120,24 +147,7 @@ export const BLUIProjectCatalog: React.FC = () => {
                         {getPlatformLink('Web', project.platformURLs.web)}
                     </div>
                     <Typography variant={'body1'}>{project.description}</Typography>
-                    <div className={classes.infoWrapper}>
-                        <span>
-                            <Typography variant={'subtitle2'} color={'textSecondary'} component="span">
-                                Market:{' '}
-                            </Typography>
-                            <Typography variant={'body2'} color={'textSecondary'} component="span">
-                                {project.market}
-                            </Typography>
-                        </span>
-                        <span>
-                            <Typography variant={'subtitle2'} color={'textSecondary'} component="span">
-                                Devices:{' '}
-                            </Typography>
-                            <Typography variant={'body2'} color={'textSecondary'} component="span">
-                                {project.devices}
-                            </Typography>
-                        </span>
-                    </div>
+                    {getMarketDevicesInfo(project.market, project.devices)}
                     <div className={classes.chipsWrapper}>
                         {project.tags.map((tag, index) => (
                             <Chip label={tag} key={index} />
