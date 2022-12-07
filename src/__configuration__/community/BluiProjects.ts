@@ -38,7 +38,7 @@ export const bluiProjects: BluiProject[] = [
         image: IPM,
         imagePosition: '0 center',
         market: 'Data centers',
-        devices: 'Power equipments (ex. UPS, PDU)',
+        devices: 'Power equipment (ex. UPS, PDU)',
         tags: [
             BluiProjectTag.REAL_TIME_MONITORING,
             BluiProjectTag.SCHEDULES,
@@ -48,9 +48,9 @@ export const bluiProjects: BluiProject[] = [
     },
     {
         name: 'CYME low-voltage design and analysis tool',
-        description: `CYME low-voltage design and analysis tool (LVDAT) is a web application that supports efficiency, accuracy and standardization of analysis work. As part of the Brightlayer Utilities suite, LVDAT extends the existing CYME engineering model for use across the distribution utility planning and estimation teams. `,
+        description: `CYME low-voltage design and analysis tool (LVDAT) is a web application that supports efficiency, accuracy and standardization of distribution utility circuit analysis work. As part of the Brightlayer Utilities suite, LVDAT extends the existing CYME engineering model for use across the distribution utility planning and estimation teams. `,
         platformURLs: {
-            web: 'N/A',
+            web: 'https://my.cyme.com/',
         },
         website: `https://www.eaton.com/us/en-us/digital/brightlayer/brightlayer-utilities-suite/low-voltage-design-and-analysis-tool.html`,
         image: CymeLvdat,
@@ -76,9 +76,9 @@ export const bluiProjects: BluiProject[] = [
     },
     {
         name: 'Brightlayer Industrial',
-        description: `A unified view of assets, processes and facilities remotely with data from electrical and manufacturing equipment.`,
+        description: `The app offers a unified view of assets, processes and facilities remotely with data from electrical and manufacturing equipment.`,
         platformURLs: {
-            web: 'N/A',
+            web: 'https://brightlayer-ind.eaton.com/',
             ios: `https://apps.apple.com/us/app/brightlayer-industrial/id1534956404`,
             android: `https://play.google.com/store/apps/details?id=com.eaton.brightlayerindustrial`,
         },
@@ -90,31 +90,16 @@ export const bluiProjects: BluiProject[] = [
     },
     {
         name: 'Predict Pulse',
-        description: `Using predictive analytics to know when an outage is coming so users can mitigate it or prevent it entirely.`,
+        description: `This web app uses predictive analytics to know when an outage is coming so users can mitigate it or prevent it entirely.`,
         platformURLs: {
-            web: 'N/A',
-            ios: `N/A`,
-            android: `N/A`,
+            web: 'https://predictpulseapp.eaton.com/',
         },
         website: `https://www.eaton.com/us/en-us/digital/brightlayer/brightlayer-data-centers-suite/remote-monitoring-and-predictive-service.html`,
         image: PredictPulse,
-        market: 'Data Centers',
+        imagePosition: '0 0',
+        market: 'Data centers',
         devices: 'UPS',
         tags: [BluiProjectTag.REAL_TIME_MONITORING, BluiProjectTag.ALARMS, BluiProjectTag.PREDICTIONS],
-    },
-    {
-        name: 'SecureConnect',
-        description: `A smart intruder solution that protects people and property. The smart security management system for residential and commercial buildings enables remote monitoring of the latest IP intruder alarm devices.`,
-        platformURLs: {
-            web: 'N/A',
-            ios: `https://apps.apple.com/us/app/eaton-secureconnect/id1203027063`,
-            android: `https://play.google.com/store/apps/details?id=com.eaton.ionSecurityConnectPanel`,
-        },
-        website: `https://www.eaton.com/us/en-us/digital/brightlayer/brightlayer-data-centers-suite/remote-monitoring-and-predictive-service.html`,
-        // image: PredictPulse,
-        market: 'Residential & Commercial',
-        devices: 'Security systems',
-        tags: [BluiProjectTag.REAL_TIME_MONITORING, BluiProjectTag.ALARMS],
     },
     {
         name: 'Smart Energy Manager',
@@ -125,7 +110,7 @@ export const bluiProjects: BluiProject[] = [
         },
         website: `https://www.eaton.com/us/en-us/products/electrical-circuit-protection/circuit-breakers/connect-smart-breakers/smart-energy-manager-app.html`,
         image: SmartEnergyManager,
-        market: 'Residential & Commercial',
+        market: 'Residential & commercial',
         devices: 'Smart breakers',
         tags: [
             BluiProjectTag.REAL_TIME_MONITORING,
@@ -143,8 +128,8 @@ export const bluiProjects: BluiProject[] = [
         },
         website: `https://www.eaton.com/us/en-us/products/electrical-circuit-protection/circuit-breakers/connect-ev-smart-breaker-chargers/green-motion-ev-charger-manager-app.html`,
         image: EVChargerManager,
-        market: 'Residential & Commercial',
-        devices: 'EV Chargers & Smart breakers',
+        market: 'Residential & commercial',
+        devices: 'EV chargers & smart breakers',
         tags: [
             BluiProjectTag.REAL_TIME_MONITORING,
             BluiProjectTag.DEVICE_COMMISSIONING,
