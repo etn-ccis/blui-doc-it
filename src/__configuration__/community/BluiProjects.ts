@@ -38,7 +38,7 @@ export const bluiProjects: BluiProject[] = [
         image: IPM,
         imagePosition: '0 center',
         market: 'Data centers',
-        devices: 'Power equipments (ex. UPS, PDU)',
+        devices: 'Power equipment (ex. UPS, PDU)',
         tags: [
             BluiProjectTag.REAL_TIME_MONITORING,
             BluiProjectTag.SCHEDULES,
@@ -48,7 +48,7 @@ export const bluiProjects: BluiProject[] = [
     },
     {
         name: 'CYME low-voltage design and analysis tool',
-        description: `CYME low-voltage design and analysis tool (LVDAT) is a web application that supports efficiency, accuracy and standardization of analysis work. As part of the Brightlayer Utilities suite, LVDAT extends the existing CYME engineering model for use across the distribution utility planning and estimation teams. `,
+        description: `CYME low-voltage design and analysis tool (LVDAT) is a web application that supports efficiency, accuracy and standardization of distribution utility circuit analysis work. As part of the Brightlayer Utilities suite, LVDAT extends the existing CYME engineering model for use across the distribution utility planning and estimation teams. `,
         platformURLs: {
             web: 'https://my.cyme.com/',
         },
@@ -76,7 +76,7 @@ export const bluiProjects: BluiProject[] = [
     },
     {
         name: 'Brightlayer Industrial',
-        description: `A unified view of assets, processes and facilities remotely with data from electrical and manufacturing equipment.`,
+        description: `The app offers a unified view of assets, processes and facilities remotely with data from electrical and manufacturing equipment.`,
         platformURLs: {
             web: 'https://brightlayer-ind.eaton.com/',
             ios: `https://apps.apple.com/us/app/brightlayer-industrial/id1534956404`,
@@ -90,7 +90,7 @@ export const bluiProjects: BluiProject[] = [
     },
     {
         name: 'Predict Pulse',
-        description: `Using predictive analytics to know when an outage is coming so users can mitigate it or prevent it entirely.`,
+        description: `This web app uses predictive analytics to know when an outage is coming so users can mitigate it or prevent it entirely.`,
         platformURLs: {
             web: 'https://predictpulseapp.eaton.com/',
         },
