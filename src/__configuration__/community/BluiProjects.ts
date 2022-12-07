@@ -102,20 +102,6 @@ export const bluiProjects: BluiProject[] = [
         tags: [BluiProjectTag.REAL_TIME_MONITORING, BluiProjectTag.ALARMS, BluiProjectTag.PREDICTIONS],
     },
     {
-        name: 'SecureConnect',
-        description: `A smart intruder solution that protects people and property. The smart security management system for residential and commercial buildings enables remote monitoring of the latest IP intruder alarm devices.`,
-        platformURLs: {
-            web: 'https://www.eatonsecureconnect.com/',
-            ios: `https://apps.apple.com/us/app/eaton-secureconnect/id1203027063`,
-            android: `https://play.google.com/store/apps/details?id=com.eaton.ionSecurityConnectPanel`,
-        },
-        website: `https://www.eaton.com/gb/en-gb/products/safety-security-emergency-communications/security-intruder-alarm-systems/secureconnect.html`,
-        // image: PredictPulse,
-        market: 'Residential & Commercial',
-        devices: 'Security systems',
-        tags: [BluiProjectTag.REAL_TIME_MONITORING, BluiProjectTag.ALARMS],
-    },
-    {
         name: 'Smart Energy Manager',
         description: `The Smart Energy Manager app provides an interface to Eaton’s Wi-Fi smart breakers which offer circuit protection, cloud connectivity, remote control and precise metering all packaged in a standard miniature breaker form factor.`,
         platformURLs: {
