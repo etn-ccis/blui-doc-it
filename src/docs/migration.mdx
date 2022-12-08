@@ -178,65 +178,6 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
     <body class="pxb-blue-dark"> => <body class="blui-blue-dark">
     ```
 
-## @brightlayer-ui/chartjs
-
--   Change package namespace from `@pxblue` to `@brightlayer-ui`.
--   The below code snippets indicate the changes to be made for using @brightlayer-ui/chartjs package in your angular application.
-
-    ```
-    // package.json
-
-    @pxblue/chartjs => @brightlayer-ui/chartjs
-    ```
-
-    To use this library, specify in your HTML where you want your graph to be rendered:
-
-    ```
-    <canvas id="graphId"></canvas>
-    ```
-
-    Update import statement to use `@brightlayer-ui/chartjs` package:
-
-    ```
-    // before
-    import {
-        drawGraph,
-        createLineChartConfig,
-        createPieChartConfig,
-        createBarChartConfig,
-        createDonutChartConfig
-    } from '@pxblue/chartjs';
-
-    // after
-    import {
-        drawGraph,
-        createLineChartConfig,
-        createPieChartConfig,
-        createBarChartConfig,
-        createDonutChartConfig
-    } from '@brightlayer-ui/chartjs';
-    ```
-
-    and then use these functions to create Brightlayer UI themed chart configurations.
-
-    ```
-    Replace `@pxblue/chartjs` to `@brightlayer-ui/chartjs` for loading default sample data to render a chart
-
-    // before
-    import { createLineChartConfig, drawChart } from '@pxblue/chartjs'
-    ...
-    const lineChartConfig = createLineChartConfig();
-    drawChart(lineChartConfig, 'graphId');
-
-    // after
-    import { createLineChartConfig, drawChart } from '@brightlayer-ui/chartjs'
-    ...
-    const lineChartConfig = createLineChartConfig();
-    drawChart(lineChartConfig, 'graphId');
-    ```
-
-    This will use default sample data to render a chart in your application.
-
 ## @brightlayer-ui/cli
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
@@ -348,75 +289,6 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
     <div style={{background: Colors.blue['500']}}/>
     ```
 
-## @brightlayer-ui/cra-template-authentication
-
--   Change package namespace from `@pxblue` to `@brightlayer-ui`.
--   This template can be used with Create React App.
-
-    ```
-    // before
-    npx create-react-app myapp --template @pxblue-ui/authentication
-
-    // after
-    npx create-react-app myapp --template @brightlayer-ui/authentication
-    ```
-
--   Using the Brightlayer UI CLI:
-
-    ```
-    // before
-    npx -p @pxblue/cli pxb new react --name=myapp --language=js --template=authentication
-
-    // after
-    npx -p @brightlayer-ui/cli blui new react --name=myapp --language=js --template=authentication
-    ```
-
-## @brightlayer-ui/cra-template-authentication-typescript
-
--   Change package namespace from `@pxblue` to `@brightlayer-ui`.
--   This template can be used with Create React App:
-
-    ```
-    // before
-    npx create-react-app myapp --template @pxblue/authentication-typescript
-
-    //after
-    npx create-react-app myapp --template @brightlayer-ui/authentication-typescript
-    ```
-
--   Using the Brightlayer UI CLI:
-
-    ```
-    // before
-    npx -p @pxblue/cli pxb new react --name=myapp --language=ts --template=authentication
-
-    // after
-    npx -p @brightlayer-ui/cli blui new react --name=myapp --language=ts --template=authentication
-    ```
-
-## @brightlayer-ui/cra-template-blank
-
--   Change package namespace from `@pxblue` to `@brightlayer-ui`.
--   This template can be used with Create React App:
-
-    ```
-    // before
-    npx create-react-app myapp --template @pxblue/blank
-
-    // after
-    npx create-react-app myapp --template @brightlayer-ui/blank
-    ```
-
--   Using the Brightlayer UI CLI:
-
-    ```
-    // before
-    npx -p @pxblue/cli pxb new react --name=myapp --language=js --template=blank
-
-    // after
-    npx -p @brightlayer-ui/cli blui new react --name=myapp --language=js --template=blank
-    ```
-
 ## @brightlayer-ui/cra-template-blank-typescript
 
 -   Change package namespace from `@pxblue` to `@brightlayer-ui`.
@@ -438,29 +310,6 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
 
     // after
     npx -p @brightlayer-ui/cli blui new react --name=myapp --language=ts --template=blank
-    ```
-
-## @brightlayer-ui/cra-template-routing
-
--   Change package namespace from `@pxblue` to `@brightlayer-ui`.
--   This template can be used with Create React App:
-
-    ```
-    // before
-    npx create-react-app myapp --template @pxblue/routing
-
-    // after
-    npx create-react-app myapp --template @brightlayer-ui/routing
-    ```
-
--   Using the Brightlayer UI CLI:
-
-    ```
-    // before
-    npx -p @pxblue/cli pxb new react --name=myapp --language=js --template=routing
-
-    // after
-    npx -p @brightlayer-ui/cli blui new react --name=myapp --language=js --template=routing
     ```
 
 ## @brightlayer-ui/cra-template-routing-typescript
@@ -658,69 +507,6 @@ Peer dependencies have changed to **Brightlayer UI** scoped packages. Update you
     ```
     // app.component.ts
     <mat-icon svgIcon="blui-icons:bearing"></mat-icon>
-    ```
-
-## @brightlayer-ui/mapbox
-
--   Change package namespace from `@pxblue` to `@brightlayer-ui`.
-
-    ```
-    // package.json
-
-    @pxblue/mapbox => @brightlayer-ui/mapbox
-    ```
-
--   Code snippet to use mapbox in Angular application.
-    Import the theme into your target typescript file:
-
-    ```
-    // app.component.ts
-
-    // before
-    declare var require;
-    const defaultTheme = require('@pxblue/mapbox/default.json');
-    const darkTheme = require('@pxblue/mapbox/dark.json');
-
-    // after
-    declare var require;
-    const defaultTheme = require('@brightlayer-ui/mapbox/default.json');
-    const darkTheme = require('@brightlayer-ui/mapbox/dark.json');
-    ```
-
-    Bind the theme to the style attribute of the `<mgl-map>`:
-
-    ```
-    // app.component.html
-    <mgl-map
-        [style]="theme" // bind to your theme variable here
-        [zoom]="[10]"
-        [center]="coordinates"
-    >
-    ```
-
--   Code snippet to use mapbox in React application.
-
-    ```
-    // App.js
-    // before
-    const defaultTheme = require('@pxblue/mapbox/default.json');
-    const darkTheme = require('@pxblue/mapbox/dark.json');
-
-    // after
-    const defaultTheme = require('@brightlayer-ui/mapbox/default.json');
-    const darkTheme = require('@brightlayer-ui/mapbox/dark.json');
-    ```
-
-    Apply the theme variable to the style parameter of the mapboxgl configuration:
-
-    ```
-    // App.js
-    const map = new mapboxgl.Map({
-        container: this.mapContainer,
-        style: darkTheme, // add the theme variable here
-        center: [lng, lat],
-        zoom
-    });
     ```
 
 ## @brightlayer-ui/ng-progress-icons
