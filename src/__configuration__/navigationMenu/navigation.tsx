@@ -319,6 +319,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Illustrations'} markdown={Docs.Style.Illustrations} />,
             },
             {
+                title: 'Logos',
+                url: '/logo',
+                component: <MarkdownPage title={'Logo Guidelines'} markdown={Docs.Style.Logo} />,
+            },
+            {
                 title: 'Themes',
                 url: '/themes',
                 component: <MarkdownPage title={'Themes'} markdown={Docs.Style.Themes} />,

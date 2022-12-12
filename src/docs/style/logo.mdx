@@ -1,0 +1,195 @@
+import { MaterialDesignDescription, ImageGrid } from '../../app/components';
+import ExampleOfIcon from '../../app/assets/styles/icon-guidelines/example-of-icon.png';
+import ExampleOfLogo from '../../app/assets/styles/icon-guidelines/example-of-logo.png';
+import ExampleOfPictogram from '../../app/assets/styles/icon-guidelines/example-of-pictogram.png';
+import ExistingEatonAppLogos from '../../app/assets/styles/logos/existing-eaton-app-logos.png';
+import Anatomy from '../../app/assets/styles/logos/anatomy.png';
+import BottomBadge1 from '../../app/assets/styles/logos/bottom-badge-1.png';
+import BottomBadge2 from '../../app/assets/styles/logos/bottom-badge-2.png';
+import BottomBadge3 from '../../app/assets/styles/logos/bottom-badge-3.png';
+import BottomBadge4 from '../../app/assets/styles/logos/bottom-badge-4.png';
+import BottomBadge5 from '../../app/assets/styles/logos/bottom-badge-5.png';
+import Background1 from '../../app/assets/styles/logos/background-1.png';
+import Background2 from '../../app/assets/styles/logos/background-2.png';
+import Background3 from '../../app/assets/styles/logos/background-3.png';
+import Background4 from '../../app/assets/styles/logos/background-4.png';
+import Glyph1 from '../../app/assets/styles/logos/glyph-1.png';
+import Glyph2 from '../../app/assets/styles/logos/glyph-2.png';
+import Glyph3 from '../../app/assets/styles/logos/glyph-3.png';
+import PolishGlyph1 from '../../app/assets/styles/logos/polish-glyph-1.png';
+import PolishGlyph2 from '../../app/assets/styles/logos/polish-glyph-2.png';
+import GlyphKeyline from '../../app/assets/styles/logos/glyph-keyline.svg';
+import Favicon from '../../app/assets/styles/logos/favicon.png';
+import Spec from '../../app/assets/styles/logos/spec.svg';
+
+# Logo Guidelines
+
+This guideline is meant for Eaton applications to follow.
+
+# Logos, Icons, and Pictograms
+
+<!-- This section is adapted directly from icon guidelines. If you change something here, you may need to change it in the other file. -->
+
+<ImageGrid
+    images={[ExampleOfLogo, ExampleOfIcon, ExampleOfPictogram]}
+    captionsUnderImages={[`The logo of an app`, `An icon in a button`, `A pictogram on a webpage`]}
+    gridImageProps={{ sm: 6, md: 4 }}
+/>
+
+This guide talks specifically about the design of logos, which should not be confused with other glyphs, such as icons and pictograms. Logos are symbols of products and organizations, usually protected under trademark laws. [Icons](/style/icon-guidelines) symbolize common actions, objects, or ideas used to aid users. Pictograms are typically used on websites for decorative purposes only.
+
+> Note: if you need to use logos from other companies — such as a payment processor — make sure that you are compliant with their branding guidelines.
+
+# Logo Examples
+
+Listed below are some existing logos used by Eaton apps. Copyright all rights reserved Eaton.
+
+<ImageGrid images={[ExistingEatonAppLogos]} caption={`Some logo examples from existing Eaton apps.`} regularWidth />
+
+# Anatomy
+
+A standard Eaton app logo consists of three parts:
+
+<ImageGrid images={[Anatomy]} caption={[`1: Background`, `2: Glyph`, `3: Bottom badge`]} />
+
+# Design Steps
+
+We recommend using Adobe Illustrator, a professional vector graphics design tool, to design your app logo. Other tools like Figma might also do the work but ??? (**ANYTHING ONLY POSSIBLE IN AI? OR CAN I DO IT IN FIGMA TOO?**). Do not use raster graphics tools such as Adobe Photoshop, because they can only export raster graphics that are not scalable.
+
+## Download the Logo Template
+
+**Will there be IP concerns if I release these AI files as they are?**
+
+-   An Adobe Illustrator link
+-   A PDF link
+-   pure SVGs (?)
+-   Mention that icon template is included in Figma component sticker sheet too (**REVIEW THIS!** and **DO I really want to include the niche ones like tvOS?**)
+
+## Bottom Badge
+
+The bottom badges are not meant to be modified. You are expected to leave the bottom badge as-it-is in the logo templates.
+
+<ImageGrid
+    images={[BottomBadge1, BottomBadge2, BottomBadge3, BottomBadge4, BottomBadge5]}
+    captionsUnderImages={[
+        `DO: Use the default badge as-it-is.`,
+        `DONT: Don't modify the badge color.`,
+        `DONT: Don't modify the badge logo color.`,
+        `DONT: Don't modify the badge size or the logo size.`,
+        `DONT: Don't modify the badge effects or add shadows.`,
+    ]}
+    gridImageProps={{ sm: 6, md: 4 }}
+/>
+
+## Background
+
+Most Eaton app logos use [the primary blue](/style/color?category=ui&name=blue&weight=500) as their background. Some also select the background color from one of the [branding colors](/style/color#branding-colors) to stay consistent with colors present in their product marketing.
+
+**Why predictpulse orange? When do we use other colors?**
+
+<ImageGrid
+    images={[Background1]}
+    captionsUnderImages={[`Use the primary blue or one of the branding colors as a foundation for the background.`]}
+    regularWidth
+/>
+
+<ImageGrid
+    images={[Background2, Background3]}
+    captionsUnderImages={[
+        `DONT: Do not use a photo in the logo.`,
+        `DONT: Do not use a screenshot or app UI in the logo.`,
+    ]}
+/>
+
+<ImageGrid
+    images={[Background4]}
+    caption={`In addition to a plain blue background (#1), you may also consider adding a subtle corner gradient (#2) or a subtle center gradient (#3).`}
+    regularWidth
+/>
+
+## Glyph
+
+A glyph is a simple shape representing an object, action, or idea. Your glyph must be simple, recognizable and scalable to ensure that your app can be easily identified on multiple devices with different resolution.
+
+We recommend you select your base glyph from our [icon library](/style/icon-library).
+
+<ImageGrid
+    images={[Glyph1, Glyph2]}
+    captionsUnderImages={[
+        `AVOID: Avoid the use of mnemonic logos or logotypes when possible. They are often not meaningful for first-time users.`,
+        `DO: Use a graphical way to represent an application or product.`,
+    ]}
+/>
+
+**what did PX Dashboard ended up using? Should I encourage people to design in the fancy PXD way?**
+
+Do not use the Eaton logo as a glyph — your app should not be presented as the "Eaton" app. It is not unusual for a customer to have multiple Eaton products and applications installed on their devices, and if every one of those apps used the Eaton logo it becomes very difficult for a user to tell, at a glance, which application they are looking for.
+
+<ImageGrid images={[Glyph3]} captionsUnderImages={[`DONT: Do not use the Eaton logo as glyphs.`]} />
+
+You should also verify that your product logo is distinguished enough from other existing Eaton product logos.
+
+Glyphs are usually aligned to the keyline (visible in the template) to avoid bleeding beyond the safe zone.
+
+<ImageGrid images={[GlyphKeyline]} captionsUnderImages={[`Align glyphs to the icon template keyline.`]} regularWidth />
+
+Once the base glyph is decided, you can be creative and add variations to the glyph to make it look more designed.
+
+<ImageGrid
+    images={[PolishGlyph1, PolishGlyph2]}
+    captionsUnderImages={[
+        `Eaton's Smart Energy Manager logo modified the logo shape to accomodate for a bolt glyph inside.`,
+        `Predict Pulse logo modified glyph size, opacity and image gradient.`,
+    ]}
+/>
+
+## Export
+
+When exporting to different platforms, ensure that your logo design is following the platform-specific requirement [as listed below](#logo-requirements-by-platforms).
+
+**"additional tools to use", from that ???**
+
+Rounded corners and shadows should never be exported.
+
+When exporting to specific resolutions it is sometimes helpful to tweak vector shapes so that they fall on exact pixels. This helps maintain a “crisp” look and avoids the blurriness that may occur when edges are in between pixels.
+
+# Logo Requirements by Platforms
+
+(show an image of same logo on different platforms)
+
+Different platforms have different product logo requirements — they often have different shapes, resolutions, safe areas, and parallax layers. Click on the links below to learn more about logo guidelines on each platform.
+
+-   [Apple (iOS, iPadOS, macOS, tvOS, watchOS)](https://developer.apple.com/design/human-interface-guidelines/foundations/app-icons/)
+-   Android
+    -   [Adaptive Icons](https://developer.android.com/develop/ui/views/launch/icon_design_adaptive)
+        -   [Image Asset Studio](https://developer.android.com/studio/write/image-asset-studio.html) in Android Studio
+        -   Adaptive Icon [Design Guide](https://medium.com/google-design/designing-adaptive-icons-515af294c783)
+    -   [Google Play](https://developer.android.com/distribute/google-play/resources/icon-design-specifications)
+-   [Windows](https://learn.microsoft.com/en-us/windows/apps/design/style/iconography/app-icon-design)
+-   [Alexa Skills Logos](https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2018/08/create-eye-catching-icons-for-your-alexa-skills-in-minutes1)
+
+## Favicons
+
+For web apps, we highly recommend redesign the logo specifically for the favicon.
+
+<ImageGrid
+    images={[Favicon]}
+    caption={[
+        `Favicon needs to be recognizable at a size as small as 32×32 pixel.`,
+        `1: The original product logo, with the bottom badge removed to allow more room for the glyph.`,
+        `2: The same logo, rendered at 32×32, a size widely used by most modern browsers.`,
+        `3: The favicon in a browser tab.`,
+    ]}
+    regularWidth
+/>
+
+-   Include background color so that it works against different browser size
+    -   **Should I do this? or should I recommend the glyph only part without background, to make the glyph more visible?**
+-   Glyphs might be thicker to bring more visibilities
+-   Favicon changes depending on the existing system status?
+
+# Design Specs
+
+The templates should already have everything you need. However if you want to do something fancy, here's the design spec for a default logo:
+
+<ImageGrid images={[Spec]} />
