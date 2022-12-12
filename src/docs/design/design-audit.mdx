@@ -1,5 +1,7 @@
 import { ImageGrid, RuleTable, TOC } from '../../app/components';
 import Banner from '../../app/assets/design/design-audit/banner.svg';
+import ExplainArchitecture from '../../app/assets/design/design-audit/explain-architecture.png';
+import ExplainJourney from '../../app/assets/design/design-audit/explain-journey.png';
 import TopSeverity from '../../app/assets/design/design-audit/top-severity.png';
 import HighSeverity from '../../app/assets/design/design-audit/high-severity.png';
 import MediumSeverity from '../../app/assets/design/design-audit/medium-severity.png';
@@ -14,7 +16,7 @@ import Educational2 from '../../app/assets/design/design-audit/educational-2.png
 
 # UI Design Audits
 
-A design audit is a great way to ensure that your user interface design meets Brightlayer UI’s design standard and lines up with other Brightlayer UI-based applications. This process examines not only branding elements, but also the usability of products.
+A design audit is a great way to ensure that your user interface design meets Brightlayer UI’s design standard and lines up with other Brightlayer UI-based applications.
 
 <ImageGrid
     images={[Banner]}
@@ -22,7 +24,11 @@ A design audit is a great way to ensure that your user interface design meets Br
     caption={'A typical UI audit will highlight problems and provide design recommendations.'}
 />
 
-Don't wait until a product is ready for release to request a design audit. Design audits are not just about the cosmetic alignments, but also focus on the overall usability side — this is especially important when your team does not have a professional UI/UX designer on staff. The design audit itself may take several weeks, depending on the scope, and implementing the recommended changes could take months.
+Design audits examine not only cosmetic and branding elements, but also the overall usability of products — this is especially important when the team does not have a professional UI/UX designer on staff.
+
+We recommend doing design audits incrementally, focusing on a few key workflows initially and gradually expanding to the rest of the application. We also encourage teams to work with their auditors to perform design audits periodically. We recommend frequent audits during the initial product release period and every time there's a major upgrade to the product's user interface design. Teams are expected to address most of the audit comments in between.
+
+Don't wait until a product is ready for release to request a design audit. The design audit itself may take several weeks, depending on the scope, and implementing the recommended changes could take months.
 
 This page outlines the process for audit requesters (“teams”) and auditors and should serve as a guideline for how UI design audits work.
 
@@ -32,8 +38,8 @@ This page outlines the process for audit requesters (“teams”) and auditors a
         { title: 'Prepare for an Audit' },
         { title: 'Request for a Design Audit' },
         { title: 'Issue Severity' },
-        { title: 'How to Conduct Design Audits (For Auditors)' },
         { title: 'Understand Audit Results' },
+        { title: 'How to Conduct Design Audits (For Auditors)' },
         { title: 'Design Audit Examples' },
     ]}
 />
@@ -46,7 +52,7 @@ Brightlayer UI sometimes makes style updates to components and themes through ou
 
 Please refer to our [developer resources page](/resources/developer) to learn about our latest package versions.
 
-We discourage custom component styling that overrides the Brightlayer UI theme — these can cause problems when updating to newer versions. If the team identifies any styling that should be included as part of the Brightlayer UI component theme, please [contact us](/community/contactus) or log an issue.
+We discourage custom component styling that overrides the Brightlayer UI theme — these can cause problems when updating to newer versions. If the product team identifies any styling that should be included as part of the Brightlayer UI component theme, please [contact us](/community/contactus) or log an issue.
 
 ## Read Through Our Website
 
@@ -70,7 +76,15 @@ Whenever possible, teams are encouraged to create a safe environment for the aud
 
 ## Communicate with User Journey
 
-User experience design is centered around users. Instead of talking about the technical nature of your infrastructure, teams should explain their product in terms of user journeys. Who will use the application? What do they care about the most? How will the application solve this user’s problem?
+User experience design is centered around users. Instead of talking about the technical nature of the infrastructure, teams should explain their product in terms of user journeys. Who will use the application? What do they care about the most? How will the application solve this user’s problem?
+
+<ImageGrid
+    images={[ExplainArchitecture, ExplainJourney]}
+    captionsUnderImages={[
+        `DONT: Do not explain the product with ONLY its technical architecture.`,
+        `DO: Explain the user journey to the auditor.`,
+    ]}
+/>
 
 ## Communicate the Limitations
 
@@ -109,6 +123,23 @@ In addition, auditors may suggest **features** as well. Features are good-to-hav
 Audit notes may also be tagged with an indicator of whether an issue is about usability or branding. This further helps product teams think about usability systematically.
 
 Auditors are recommended to color code their design audit notes based on severity.
+
+# Understand Audit Results
+
+## Prioritize Issues
+
+Teams must prioritize high-severity issues as they are blocking the application’s functions. These issues must be addressed before the next major release. Meanwhile, mid-severity issues can wait until the next major release, but should still be groomed into the backlog. Low-severity issues are typically considered technical debt.
+High-frequency issues — issues that may not be severe but are exposed to users — should also be prioritized.
+
+## Do Not Skip User Testing
+
+A design audit is not meant to replace user testing. While auditors can flag potential issues based on their experience in the design industry, they are not the end user. Teams should conduct user testing to drive major changes while using the design audit as a supplemental tool.
+
+## Schedule the Next Audit
+
+Typically, one design audit is enough to cover most issues in the current version of the user interface. Product teams may consider reaching out to another designer after the existing issues have been pointed out.
+
+Whenever there are major changes to the user interface, product teams should conduct a new design audit to ensure they are still on track.
 
 # How to Conduct Design Audits (For Auditors)
 
@@ -182,23 +213,6 @@ Before the end of their presentations, auditors should recommend the next steps 
 ## Improve Brightlayer UI
 
 During the audit, if auditors noticed anything worth componentizing or an area where the existing Brightlayer UI standard is too strict, please get in touch with us for a discussion. Many design guidelines in Brightlayer UI today came from real project design audits we performed.
-
-# Understand Audit Results
-
-## Prioritize Issues
-
-Teams must prioritize high-severity issues as they are blocking the application’s functions. These issues must be addressed before the next major release. Meanwhile, mid-severity issues can wait until the next major release, but should still be groomed into the backlog. Low-severity issues are typically considered technical debt.
-High-frequency issues — issues that may not be severe but are exposed to users — should also be prioritized.
-
-## Do Not Skip User Testing
-
-A design audit is not meant to replace user testing. While auditors can flag potential issues based on their experience in the design industry, they are not the end user. Teams should conduct user testing to drive major changes while using the design audit as a supplemental tool.
-
-## Schedule the Next Audit
-
-Typically, one design audit is enough to cover most issues in the current version of the user interface. Product teams may consider reaching out to another designer after the existing issues have been pointed out.
-
-Whenever there are major changes to the user interface, product teams should conduct a new design audit to ensure they are still on track.
 
 # Design Audit Examples
 
