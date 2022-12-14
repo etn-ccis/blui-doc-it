@@ -101,7 +101,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                         history.push('overview');
                     }}
                 >
-                    GET STARTED
+                    Get Started
                 </Button>
             </div>
             <LandingSection title={'Design and Development'} align={'left'} background={'light'}>
@@ -131,12 +131,12 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     <div key={item.title} style={{ color: theme.palette.text.secondary, textAlign: 'left' }}>
                         <div style={{ marginTop: theme.spacing(2), display: 'flex' }}>
                             <Typography variant={'h6'} color={'primary'}>
-                                {item.title}
+                                {item.date}
                             </Typography>
                             <Spacer />
-                            <Typography color={'inherit'}>{item.date}</Typography>
+                            <Typography color={'inherit'}>{`v${item.version}`}</Typography>
                         </div>
-                        <Typography variant={'subtitle2'}>{`v${item.version}`}</Typography>
+                        <Typography variant={'subtitle2'}>{item.title}</Typography>
                         {item.summary}
                     </div>
                 ))}
@@ -146,7 +146,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     style={{ marginTop: theme.spacing(1) }}
                     onClick={(): void => history.push('/release-notes')}
                 >
-                    VIEW ALL
+                    View All
                 </Button>
             </LandingSection>
 
