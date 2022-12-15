@@ -13,7 +13,7 @@ export const bluiProjects: BluiProject[] = [
     {
         name: 'Control Xpert Ag',
         description:
-            'The Control Xpert mobile app allows remote access to the remote monitoring and controlling of irrigation system. Users can start, stop, change speed, and reset fault on the drive directly from their mobile devices.',
+            'The Control Xpert mobile app allows remote access for monitoring and controlling irrigation systems. Users can start, stop, change speed, and reset faults on drives directly from their mobile devices.',
         platformURLs: {
             ios: `https://apps.apple.com/us/app/control-xpert-ag/id1494485593`,
             android: `https://play.google.com/store/apps/details?id=com.glacierpoint`,
@@ -21,7 +21,7 @@ export const bluiProjects: BluiProject[] = [
         website: `https://www.eaton.com/us/en-us/digital/brightlayer/brightlayer-industrial-suite/control-xpert-app.html`,
         image: ControlXpert,
         market: 'Agriculture',
-        devices: 'Irrigation system',
+        devices: 'Drives',
         tags: [
             BluiProjectTag.DEVICE_CONTROL_REMOTE,
             BluiProjectTag.DEVICE_COMMISSIONING,
@@ -103,7 +103,7 @@ export const bluiProjects: BluiProject[] = [
     },
     {
         name: 'Smart Energy Manager',
-        description: `The Smart Energy Manager app provides an interface to Eaton’s Wi-Fi smart breakers which offer circuit protection, cloud connectivity, remote control and precise metering all packaged in a standard miniature breaker form factor.`,
+        description: `The Smart Energy Manager app provides an interface to Eaton’s WiFi-enabled smart breakers which offer circuit protection, cloud connectivity, remote control and precise metering all packaged in a standard miniature breaker form factor.`,
         platformURLs: {
             ios: `https://apps.apple.com/us/app/eaton-smart-energy-manager/id1598965906`,
             android: `https://play.google.com/store/apps/details?id=com.eaton.smartenergymanager`,
