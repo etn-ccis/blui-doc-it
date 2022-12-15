@@ -1,4 +1,4 @@
-import { MaterialDesignDescription, ImageGrid } from '../../app/components';
+import { MaterialDesignDescription, ImageGrid, TOC } from '../../app/components';
 import ExampleOfIcon from '../../app/assets/styles/icon-guidelines/example-of-icon.png';
 import ExampleOfLogo from '../../app/assets/styles/icon-guidelines/example-of-logo.png';
 import ExampleOfPictogram from '../../app/assets/styles/icon-guidelines/example-of-pictogram.png';
@@ -19,14 +19,30 @@ import Glyph3 from '../../app/assets/styles/logos/glyph-3.png';
 import PolishGlyph1 from '../../app/assets/styles/logos/polish-glyph-1.png';
 import PolishGlyph2 from '../../app/assets/styles/logos/polish-glyph-2.png';
 import GlyphKeyline from '../../app/assets/styles/logos/glyph-keyline.svg';
+import LogosOnDifferentPlatforms from '../../app/assets/styles/logos/logos-on-different-platforms.png';
 import Favicon from '../../app/assets/styles/logos/favicon.png';
 import Spec from '../../app/assets/styles/logos/spec.svg';
+import SpecCircle from '../../app/assets/styles/logos/spec-circle.svg';
+import SpecColor from '../../app/assets/styles/logos/spec-color.svg';
 
-# Logo Guidelines
+# App Logos
 
-This guideline is meant for Eaton applications to follow.
+App logos are the primary way users identify an app or a product. Not only do they appear on user's app launcher screen, app logos are also present in app markets like App Store and Google Play, company's product page, browser tabs, emails, and the app itself. They serve a critical function in a product's identity.
 
-# Logos, Icons, and Pictograms
+The following guideline is our recommendation for Eaton product team to follow.
+
+<TOC
+    anchors={[
+        { title: 'App Logos, Icons, and Pictograms' },
+        { title: 'Examples' },
+        { title: 'Anatomy' },
+        { title: 'Design Steps' },
+        { title: 'Logo Requirements by Platforms' },
+        { title: 'Design Specs' },
+    ]}
+/>
+
+# App Logos, Icons, and Pictograms
 
 <!-- This section is adapted directly from icon guidelines. If you change something here, you may need to change it in the other file. -->
 
@@ -36,13 +52,13 @@ This guideline is meant for Eaton applications to follow.
     gridImageProps={{ sm: 6, md: 4 }}
 />
 
-This guide talks specifically about the design of logos, which should not be confused with other glyphs, such as icons and pictograms. Logos are symbols of products and organizations, usually protected under trademark laws. [Icons](/style/icon-guidelines) symbolize common actions, objects, or ideas used to aid users. Pictograms are typically used on websites for decorative purposes only.
+This guide talks specifically about the design of app logos, which should not be confused with other glyphs, such as icons and pictograms. App logos, sometimes referred to as "app icons", are symbols of products and apps, usually protected under trademark laws. [Icons](/style/icon-guidelines) symbolize common actions, objects, or ideas used to aid users. Pictograms are typically used on websites for decorative purposes only.
 
 > Note: if you need to use logos from other companies — such as a payment processor — make sure that you are compliant with their branding guidelines.
 
-# Logo Examples
+# Examples
 
-Listed below are some existing logos used by Eaton apps. Copyright all rights reserved Eaton.
+Listed below are some existing app logos used by Eaton apps. Copyright all rights reserved Eaton.
 
 <ImageGrid images={[ExistingEatonAppLogos]} caption={`Some logo examples from existing Eaton apps.`} regularWidth />
 
@@ -54,16 +70,23 @@ A standard Eaton app logo consists of three parts:
 
 # Design Steps
 
-We recommend using Adobe Illustrator, a professional vector graphics design tool, to design your app logo. Other tools like Figma might also do the work but ??? (**ANYTHING ONLY POSSIBLE IN AI? OR CAN I DO IT IN FIGMA TOO?**). Do not use raster graphics tools such as Adobe Photoshop, because they can only export raster graphics that are not scalable.
+## Tools
 
-## Download the Logo Template
+We recommend vector graphics design tools such as Adobe Illustrator and Figma to design your product logo. Raster graphic tools such as Adobe Photoshop might be useful for final touches like pixel hinting, but they are not designed for vector graphics. Do not use raster graphics tools such as Adobe Photoshop to design the foundation, because they are specialized in generating raster graphics that are not scalable.
 
-**Will there be IP concerns if I release these AI files as they are?**
+You can usually export image assets from these software at different resolutions to meet the need from different platforms. There are also online tools, such as [App Icon Generator](https://www.appicon.co/) to help with this process.
 
--   An Adobe Illustrator link
--   A PDF link
--   pure SVGs (?)
--   Mention that icon template is included in Figma component sticker sheet too (**REVIEW THIS!** and **DO I really want to include the niche ones like tvOS?**)
+Some platforms may have specialized tools to preview the app logo. Android, for example, encourages developers to create adaptive icons using [Android Studio's Image Asset Studio](https://developer.android.com/studio/write/image-asset-studio#create-adaptive). Amazon Alexa has a web tool,[Alexa Icon Builder](https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2018/08/create-eye-catching-icons-for-your-alexa-skills-in-minutes1), to allow users to generate Alexa Skill logos quickly.
+
+## Download the App Logo Template
+
+<!--
+-   Adobe Illustrator
+    - iOS
+-   [PDF (for printing)](https://raw.githubusercontent.com/brightlayer-ui/doc-it/master/src/app/assets/styles/logos/App%20Logos%20Printable.pdf)
+-   [SVG](https://github.com/brightlayer-ui/doc-it/tree/master/src/app/assets/styles/logos/templates/SVG)
+-   Mention that icon template is included in Figma component sticker sheet too
+-->
 
 ## Bottom Badge
 
@@ -84,8 +107,6 @@ The bottom badges are not meant to be modified. You are expected to leave the bo
 ## Background
 
 Most Eaton app logos use [the primary blue](/style/color?category=ui&name=blue&weight=500) as their background. Some also select the background color from one of the [branding colors](/style/color#branding-colors) to stay consistent with colors present in their product marketing.
-
-**Why predictpulse orange? When do we use other colors?**
 
 <ImageGrid
     images={[Background1]}
@@ -147,7 +168,7 @@ Once the base glyph is decided, you can be creative and add variations to the gl
 
 When exporting to different platforms, ensure that your logo design is following the platform-specific requirement [as listed below](#logo-requirements-by-platforms).
 
-**"additional tools to use", from that ???**
+TALK ABOUT PIXEL HINTING
 
 Rounded corners and shadows should never be exported.
 
@@ -155,7 +176,18 @@ When exporting to specific resolutions it is sometimes helpful to tweak vector s
 
 # Logo Requirements by Platforms
 
-(show an image of same logo on different platforms)
+<ImageGrid
+    images={[LogosOnDifferentPlatforms]}
+    caption={[
+        `App logos look different on different platforms.`,
+        `1: The original design`,
+        `2: iOS & iPadOS's rendering`,
+        `3. Favicon for web apps, previewed at a high resolution`,
+        `4: Amazon Alexa Skills' rendering`,
+        `5 — 8: Android's adaptive icon allows phone manufacturers to render app logos in different shapes.`,
+    ]}
+    regularWidth
+/>
 
 Different platforms have different product logo requirements — they often have different shapes, resolutions, safe areas, and parallax layers. Click on the links below to learn more about logo guidelines on each platform.
 
@@ -166,7 +198,6 @@ Different platforms have different product logo requirements — they often have
         -   Adaptive Icon [Design Guide](https://medium.com/google-design/designing-adaptive-icons-515af294c783)
     -   [Google Play](https://developer.android.com/distribute/google-play/resources/icon-design-specifications)
 -   [Windows](https://learn.microsoft.com/en-us/windows/apps/design/style/iconography/app-icon-design)
--   [Alexa Skills Logos](https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2018/08/create-eye-catching-icons-for-your-alexa-skills-in-minutes1)
 
 ## Favicons
 
@@ -192,4 +223,11 @@ For web apps, we highly recommend redesign the logo specifically for the favicon
 
 The templates should already have everything you need. However if you want to do something fancy, here's the design spec for a default logo:
 
-<ImageGrid images={[Spec]} />
+<ImageGrid
+    images={[Spec, SpecCircle, SpecColor]}
+    captionsUnderImages={[
+        `A regular app logo.`,
+        `For platforms using round app logo shapes, such as Android's adaptive icon and Amazon Alexa Skills, the badge is smaller to remain visible.`,
+        `The glyph should not be brighter than white[50] (pure white) at 90% to avoid it looking too glaring.`,
+    ]}
+/>

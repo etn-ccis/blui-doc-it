@@ -44,9 +44,9 @@ export const links = [
         },
     },
     {
-        title: 'Logos',
+        title: 'App Logos',
         url: '/style/logo',
-        description: 'Understand the rules for designing a product logo for App Store, Google Play, etc.',
+        description: 'Understand the rules for designing an app logo for App Store, Google Play, etc.',
         image: logo,
     },
     {
