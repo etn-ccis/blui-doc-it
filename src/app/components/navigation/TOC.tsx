@@ -104,7 +104,7 @@ export const TOC: React.FC<ToCProps> = (props) => {
             sx={[
                 {
                     borderLeft: { xs: `2px solid`, lg: 'none' },
-                    borderLeftColor: 'divider',
+                    color: 'divider',
                     py: { xs: 0, lg: 5 },
                     px: { xs: 2, lg: 1 },
                     my: { xs: 2, lg: 0 },
@@ -141,6 +141,8 @@ export const TOC: React.FC<ToCProps> = (props) => {
                                     '&:hover': {
                                         color: 'primary.main',
                                     },
+                                    fontSize: '14px',
+                                    lineHeight: '20px',
                                 },
                                 activeSection === index
                                     ? (t): SystemStyleObject => ({
