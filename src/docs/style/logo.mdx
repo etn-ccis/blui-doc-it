@@ -21,6 +21,9 @@ import Glyph3 from '../../app/assets/styles/logos/glyph-3.png';
 import PolishGlyph1 from '../../app/assets/styles/logos/polish-glyph-1.png';
 import PolishGlyph2 from '../../app/assets/styles/logos/polish-glyph-2.png';
 import GlyphKeyline from '../../app/assets/styles/logos/glyph-keyline.svg';
+import PixelHinting1 from '../../app/assets/styles/logos/pixel-hinting-1.png';
+import PixelHinting2 from '../../app/assets/styles/logos/pixel-hinting-2.png';
+import PixelHinting3 from '../../app/assets/styles/logos/pixel-hinting-3.png';
 import LogosOnDifferentPlatforms from '../../app/assets/styles/logos/logos-on-different-platforms.png';
 import Favicon from '../../app/assets/styles/logos/favicon.png';
 import Spec from '../../app/assets/styles/logos/spec.svg';
@@ -29,9 +32,9 @@ import SpecColor from '../../app/assets/styles/logos/spec-color.svg';
 
 # App Logos
 
-App logos are the primary way users identify an app or a product. Not only do they appear on users' app launcher screens, app logos are also present in app markets like App Store and Google Play, the company's product pages, browser tabs, emails, and the app itself. They serve a critical function in a product's identity.
+App logos are the primary way users identify an app or a product. Not only do they appear on users' app launcher screens, app logos are also present in app markets like App Store and Google Play, the company's product pages, browser tabs, browser home pages, emails, and the app itself. They serve a critical function in a product's identity.
 
-Eaton product teams are recommended to follow the following app logo guidelines.
+Eaton product teams should follow this app logo guideline to determine their app logo. For the most part, you should be utilizing app logo templates from Brightlayer UI (linked below) while keeping in mind requirements from different platforms. You should ensure that the final design is simple, recognizable, and scalable.
 
 <TOC
     anchors={[
@@ -41,9 +44,9 @@ Eaton product teams are recommended to follow the following app logo guidelines.
         { title: 'Design Steps' },
         { title: 'Tools', depth: 1 },
         { title: 'Download the App Logo Template', depth: 1 },
-        { title: 'Bottom Badge', depth: 1 },
-        { title: 'Background', depth: 1 },
         { title: 'Glyph', depth: 1 },
+        { title: 'Background', depth: 1 },
+        { title: 'Bottom Badge', depth: 1 },
         { title: 'Export', depth: 1 },
         { title: 'Logo Requirements by Platforms' },
         { title: 'Design Specifications' },
@@ -66,9 +69,13 @@ This guide talks specifically about the design of app logos, which should not be
 
 # Examples
 
-Below are some existing app logos used at Eaton. Copyright all rights reserved Eaton. **HELP, I want to emphasize that these logos are not licensed under BSD-3**
+Below are some existing app logos used at Eaton.
 
-<ImageGrid images={[ExistingEatonAppLogos]} caption={`Some logo examples from existing Eaton apps.`} regularWidth />
+<ImageGrid
+    images={[ExistingEatonAppLogos]}
+    caption={`Some logo examples from existing Eaton apps. Copyright © Eaton All Rights Reserved 2022.`}
+    regularWidth
+/>
 
 # Anatomy
 
@@ -80,9 +87,9 @@ A standard Eaton app logo consists of three parts:
 
 ## Tools
 
-We recommend vector graphics design tools such as Adobe Illustrator and Figma to design your product logo. Raster graphic tools such as Adobe Photoshop might be useful for final touches like pixel hinting, but they are not designed for vector graphics. Do not use raster graphics tools such as Adobe Photoshop to design the foundation, because they are specialized in generating raster graphics that are not scalable.
+We recommend vector graphics design tools such as Adobe Illustrator and Figma to design your product logo. Raster graphic tools such as Adobe Photoshop might occasionally be useful for final touches, but they are not designed for vector graphics. Do not use raster graphics tools such as Adobe Photoshop to design the foundation, because they are specialized in generating raster graphics that are not scalable.
 
-You are able to generate image assets at different resolutions to meet the need of different platforms. There are also online tools, such as [App Icon Generator](https://www.appicon.co/) to help with this process.
+You are able to generate image assets at different resolutions to meet the need of different platforms. There are also online tools, such as [App Icon Generator](https://www.appicon.co/), to help with this process.
 
 Some platforms may have specialized tools to preview the app logo. Android, for example, encourages developers to create adaptive icons using [Android Studio's Image Asset Studio](https://developer.android.com/studio/write/image-asset-studio#create-adaptive). Amazon Alexa has a web tool,[Alexa Icon Builder](https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2018/08/create-eye-catching-icons-for-your-alexa-skills-in-minutes1), to allow users to generate Alexa Skill logos quickly.
 
@@ -94,50 +101,6 @@ Some platforms may have specialized tools to preview the app logo. Android, for 
 -   [PDF (for printing)](https://raw.githubusercontent.com/brightlayer-ui/doc-it/master/src/app/assets/styles/logos/App%20Logos%20Printable.pdf)
 -   [SVG](https://github.com/brightlayer-ui/doc-it/tree/master/src/app/assets/styles/logos/templates/SVG)
 -   Our [Figma Component Sticker Sheet](https://www.figma.com/community/file/1024360297793425107) also includes a component called "App Logo Template"
-
-## Bottom Badge
-
-The bottom badges are not meant to be modified. You are expected to leave the bottom badge as it is in the logo templates.
-
-<ImageGrid
-    images={[BottomBadge1, BottomBadge2, BottomBadge3, BottomBadge4, BottomBadge5]}
-    captionsUnderImages={[
-        `DO: Use the default badge as it is.`,
-        `DONT: Don't modify the badge color.`,
-        `DONT: Don't modify the badge logo color.`,
-        `DONT: Don't modify the badge size or the logo size.`,
-        `DONT: Don't modify the badge effects or add shadows.`,
-    ]}
-    gridImageProps={{ sm: 6, md: 4 }}
-/>
-
-## Background
-
-Most Eaton app logos use [the primary blue](/style/color?category=ui&name=blue&weight=500) as the base background color. Some also select the background color from one of the [branding colors](/style/color#branding-colors) to stay consistent with colors in their product marketing.
-
-<ImageGrid
-    images={[Background1]}
-    captionsUnderImages={[`Use the primary blue or one of the branding colors as a foundation for the background.`]}
-    regularWidth
-/>
-
-<ImageGrid
-    images={[Background2, Background3]}
-    captionsUnderImages={[
-        `DONT: Do not use a photo in the logo.`,
-        `DONT: Do not use a screenshot or app UI in the logo.`,
-    ]}
-/>
-
-<ImageGrid
-    images={[BackgroundGradient1, BackgroundGradient2, BackgroundGradient3]}
-    captionsUnderImages={[
-        `DO: Most Eaton apps choose to add a subtle corner linear gradient to their app logo background.`,
-        `Apps may also consider using a centered radial gradient, especially when the glyph has a round shape.`,
-        `A monochromatic background is acceptable.`,
-    ]}
-    gridImageProps={{ sm: 6, md: 4 }}
-/>
 
 ## Glyph
 
@@ -173,11 +136,66 @@ Once the base glyph is decided, you can be creative and add variations to the gl
     ]}
 />
 
+## Background
+
+Most Eaton app logos use [the primary blue](/style/color?category=ui&name=blue&weight=500) as the base background color. Some also select the background color from one of the [branding colors](/style/color#branding-colors) to stay consistent with colors in their product marketing.
+
+<ImageGrid
+    images={[Background1]}
+    captionsUnderImages={[`Use the primary blue or one of the branding colors as a foundation for the background.`]}
+    regularWidth
+/>
+
+<ImageGrid
+    images={[Background2, Background3]}
+    captionsUnderImages={[
+        `DONT: Do not use a photo in the logo.`,
+        `DONT: Do not use a screenshot or app UI in the logo.`,
+    ]}
+/>
+
+<ImageGrid
+    images={[BackgroundGradient1, BackgroundGradient2, BackgroundGradient3]}
+    captionsUnderImages={[
+        `DO: Most Eaton apps choose to add a subtle corner linear gradient to their app logo background.`,
+        `Apps may also consider using a centered radial gradient, especially when the glyph has a round shape.`,
+        `A monochromatic background is acceptable.`,
+    ]}
+    gridImageProps={{ sm: 6, md: 4 }}
+/>
+
+## Bottom Badge
+
+The bottom badges are not meant to be modified. You are expected to leave the bottom badge as it is in the logo templates.
+
+<ImageGrid
+    images={[BottomBadge1, BottomBadge2, BottomBadge3, BottomBadge4, BottomBadge5]}
+    captionsUnderImages={[
+        `DO: Use the default badge as it is.`,
+        `DONT: Don't modify the badge color.`,
+        `DONT: Don't modify the badge logo color.`,
+        `DONT: Don't modify the badge size or the logo size.`,
+        `DONT: Don't modify the badge effects or add shadows.`,
+    ]}
+    gridImageProps={{ sm: 6, md: 4 }}
+/>
+
 ## Export
 
 When exporting to different platforms, ensure that your logo design is following the platform-specific requirement [as listed below](#logo-requirements-by-platforms).
 
 When exporting to specific resolutions it is sometimes helpful to tweak vector shapes so that they fall on exact pixels, a process also known as "pixel hinting". This helps maintain a “crisp” look and avoids the blurriness that may occur when edges are in between pixels.
+
+<ImageGrid
+    images={[PixelHinting1, PixelHinting2, PixelHinting3]}
+    captionsUnderImages={[
+        `The original app logo design.`,
+        `When this design is shrinked to a small size, the details become illegible.`,
+        `Pixel-hinting helps sharpening the app logo at low resolutions.`,
+    ]}
+    caption={`Pixel hinting is helpful for app logos at low resolutions.`}
+    gridImageProps={{ sm: 6, md: 4 }}
+/>
 
 Do not export rounded corners and drop shadows to your final design assets. You are encouraged to preview the logo design with these effects enabled, but your final exported assets should be square-shaped.
 
@@ -217,7 +235,7 @@ According to [Mailchimp](https://mailchimp.com/resources/favicon-size/), the opt
 -   Desktop shortcut icons - 96×96
 -   Apple touch icons - 180×180
 
-Developers should include multiple favicons for these different resolutions in the HTML head's meta tags to accommodate for different favicon usage.
+Developers should [include multiple favicons](https://blog.hubspot.com/website/what-is-a-favicon) for these different resolutions in the HTML head to accommodate for different favicon usage.
 
 Favicons used in browser tabs and taskbar shortcuts resemble the original product logo design, but with the badge removed. It always has the background color to ensure that the glyph can be seen clearly.
 
