@@ -5,6 +5,7 @@ import { PAGE_WIDTH, PADDING, TOC_WIDTH } from '../../shared';
 import { Spacer } from '@brightlayer-ui/react-components';
 import { AppState } from '../../redux/reducers';
 import { useSelector } from 'react-redux';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export type PageContentProps = HTMLAttributes<HTMLDivElement> & {
     noPadding?: boolean;
@@ -15,6 +16,7 @@ export type PageContentProps = HTMLAttributes<HTMLDivElement> & {
 export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
     const { noPadding, children, style, backgroundColor, wideLayout, ...other } = props;
     const hasTOC = useSelector((state: AppState) => state.app.hasTOC);
+    const showTOC = useMediaQuery('(min-width: 1280px)');
     useBackgroundColor(backgroundColor);
 
     return (
@@ -22,7 +24,7 @@ export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
             {hasTOC && (
                 <Spacer
                     sx={{
-                        display: { xs: 'none', lg: 'block' },
+                        display: showTOC ? 'block' : 'none',
                     }}
                     flex={0}
                     width={TOC_WIDTH}
