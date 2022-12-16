@@ -51,12 +51,17 @@ import AdditionalOption from '../../app/assets/design-patterns/overlays/dialog-b
 import ResponsiveFooterPushedUp from '../../app/assets/design-patterns/buttons/responsive-pushed-up-footer.gif';
 import ResponsiveBottomSlider1 from '../../app/assets/design-patterns/buttons/responsive-bottom-slider-1.png';
 import ResponsiveBottomSlider2 from '../../app/assets/design-patterns/buttons/responsive-bottom-slider-2.png';
+import ResponsiveStackedMobile from '../../app/assets/design-patterns/buttons/responsive-stacked-mobile.png';
+import ResponsiveStackedDesktop from '../../app/assets/design-patterns/buttons/responsive-stacked-desktop.png';
 import ResponsiveHMI from '../../app/assets/design-patterns/buttons/responsive-hmi.png';
 import SpecRegular1 from '../../app/assets/design-patterns/buttons/spec-regular-1.svg';
 import SpecRegular2 from '../../app/assets/design-patterns/buttons/spec-regular-2.svg';
 import SpecRegular3 from '../../app/assets/design-patterns/buttons/spec-regular-3.svg';
+import SpecRegularSpacing1 from '../../app/assets/design-patterns/buttons/spec-regular-spacing-1.svg';
+import SpecRegularSpacing2 from '../../app/assets/design-patterns/buttons/spec-regular-spacing-2.svg';
 import SpecFAB1 from '../../app/assets/design-patterns/buttons/spec-fab-1.svg';
 import SpecFAB2 from '../../app/assets/design-patterns/buttons/spec-fab-2.svg';
+import SpecTypography from '../../app/assets/design-patterns/buttons/spec-typography.svg';
 
 {/* KEYWORDS: design pattern buttons button click icon toggle */}
 
@@ -86,7 +91,7 @@ Buttons are one of the primary ways for users to take action.
         { title: 'Dropdown', depth: 1 },
         { title: 'Alternative Actions', depth: 1 },
         { title: 'Responsive' },
-        { title: 'Design Specs' },
+        { title: 'Design Specifications' },
         { title: 'Developers' },
     ]}
 />
@@ -356,6 +361,16 @@ Buttons should stay within a device's safe area.
     ]}
 />
 
+Mobile phones have limited horizontal screen space. If your app supports multiple languages, the length of button labels might be wider than the primary language you are designing for. As a result, you should always consider using stacked buttons on mobile.
+
+<ImageGrid
+    images={[ResponsiveStackedMobile, ResponsiveStackedDesktop]}
+    captionsUnderImages={[
+        `Use stacked buttons on mobile apps.`,
+        `Use side-by-side buttons on desktop or tablet apps, if there's enough horizontal space.`,
+    ]}
+/>
+
 HMIs (Human-Machine Interfaces) are tablets commonly mounted on machines, workstations, and walls. Users often find it hard to aim at buttons as precisely as with other screens, and to worsen the situation, they may be wearing gloves while interacting with the screen. As a result, buttons on HMIs are usually larger.
 
 <ImageGrid
@@ -364,14 +379,28 @@ HMIs (Human-Machine Interfaces) are tablets commonly mounted on machines, workst
     caption={`Buttons on HMIs (#1) are physically larger than buttons on mobile phones (#2).`}
 />
 
-# Design Specs
+# Design Specifications
+
+## Regular Buttons
 
 <ImageGrid
     images={[SpecRegular1, SpecRegular2, SpecRegular3]}
     captionsUnderImages={[`Regular button`, `Button with prefixed icon`, `Button with suffixed icon`]}
 />
 
+To prevent misclicks, the spacing between any two buttons is at least 16dp.
+
+<ImageGrid images={[SpecRegularSpacing1, SpecRegularSpacing2]} />
+
+## Floating Action Buttons
+
 <ImageGrid images={[SpecFAB1, SpecFAB2]} regularWidth />
+
+## Typography
+
+Buttons use a typographical style identical to "subtitle 2". Read more on the [typography page](/style/typography).
+
+<ImageGrid images={[SpecTypography]} />
 
 # Developers
 
