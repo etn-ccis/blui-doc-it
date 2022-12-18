@@ -44,8 +44,8 @@ Eaton applications should follow these guidelines to create their app logo. The 
         { title: 'Design Steps' },
         { title: 'Tools', depth: 1 },
         { title: 'Download the App Logo Template', depth: 1 },
-        { title: 'Glyph', depth: 1 },
         { title: 'Background', depth: 1 },
+        { title: 'Glyph', depth: 1 },
         { title: 'Bottom Badge', depth: 1 },
         { title: 'Export', depth: 1 },
         { title: 'Logo Requirements by Platforms' },
@@ -102,40 +102,6 @@ Some platforms may have specialized tools to preview the app logo. Android, for 
 -   [SVG](https://github.com/brightlayer-ui/doc-it/tree/master/src/app/assets/styles/logos/templates/SVG)
 -   Our [Figma Component Sticker Sheet](https://www.figma.com/community/file/1024360297793425107) also includes a component called "App Logo Template"
 
-## Glyph
-
-A glyph is a simple shape representing an object, action, or idea. Your glyph must be simple, recognizable, and scalable to ensure that your app can be easily identified on multiple devices with different resolutions.
-
-We recommend you select your base glyph from our [icon library](/style/icon-library).
-
-<ImageGrid
-    images={[Glyph1, Glyph2]}
-    captionsUnderImages={[
-        `AVOID: Avoid the use of mnemonic logos or logotypes when possible. They are often not meaningful for first-time users, and can be hard to see in small logo sizes.`,
-        `DO: Use a graphical way to represent an application or product.`,
-    ]}
-/>
-
-Do not use the Eaton logo as a glyph — your app should not be presented as the "Eaton" app. It is not unusual for a customer to have multiple Eaton products and applications installed on their devices — if every one of those apps used the Eaton logo it would be very difficult for a user to differentiate them.
-
-<ImageGrid images={[Glyph3]} captionsUnderImages={[`DONT: Do not use the Eaton logo as glyphs.`]} />
-
-You should also verify that your product logo is distinguished enough from other existing Eaton product logos.
-
-Glyphs are usually aligned to the keyline (visible in the template) to avoid bleeding beyond the safe zone.
-
-<ImageGrid images={[GlyphKeyline]} captionsUnderImages={[`Align glyphs to the icon template keyline.`]} regularWidth />
-
-Once you select the base glyph, you can be creative and add variations to the glyph to make it look more designed / stylized.
-
-<ImageGrid
-    images={[PolishGlyph1, PolishGlyph2]}
-    captionsUnderImages={[
-        `Smart Energy Manager modified the glyph shape to add a bolt glyph inside.`,
-        `Predict Pulse modified the glyph size, opacity, and image gradient.`,
-    ]}
-/>
-
 ## Background
 
 Most Eaton app logos use [the primary blue](/style/color?category=ui&name=blue&weight=500) as the base background color. Some also select the background color from one of the [branding colors](/style/color#branding-colors) to stay consistent with colors in their product marketing.
@@ -157,11 +123,45 @@ Most Eaton app logos use [the primary blue](/style/color?category=ui&name=blue&w
 <ImageGrid
     images={[BackgroundGradient1, BackgroundGradient2, BackgroundGradient3]}
     captionsUnderImages={[
-        `DO: Most Eaton apps choose to add a subtle corner linear gradient to their app logo background.`,
+        `DO: Most Eaton apps choose to add a subtle diagonal linear gradient to their app logo background.`,
         `Apps may also consider using a centered radial gradient, especially when the glyph has a round shape.`,
         `A monochromatic background is acceptable.`,
     ]}
     gridImageProps={{ sm: 6, md: 4 }}
+/>
+
+## Glyph
+
+A glyph is a simple shape representing an object, action, or idea. Your glyph must be simple, recognizable, and scalable to ensure that your app can be easily identified on multiple devices with different resolutions.
+
+We recommend you select your base glyph from our [icon library](/style/icon-library).
+
+<ImageGrid
+    images={[Glyph1, Glyph2]}
+    captionsUnderImages={[
+        `AVOID: Avoid the use of mnemonic logos or logotypes when possible. They are often not meaningful for first-time users, and can be hard to see in small logo sizes.`,
+        `DO: Use a graphical way to represent an application or product.`,
+    ]}
+/>
+
+Do not use the Eaton logo as a glyph — your app should not be presented as the "Eaton" app. It is not unusual for a customer to have multiple Eaton products and applications installed on their devices — if every one of those apps used the Eaton logo it would be very difficult for a user to differentiate them.
+
+<ImageGrid images={[Glyph3]} captionsUnderImages={[`DONT: Do not use the Eaton logo as glyphs.`]} />
+
+You should also verify that your product logo is distinguished enough from other existing Eaton product logos. [App Store](https://apps.apple.com/us/developer/eaton-corporation/id439590491) and [Google Play](https://play.google.com/store/apps/developer?id=Eaton) are good places to start, but keep in mind that not all logos in these two places are following our app logo guidelines.
+
+Glyphs are usually aligned to the keyline (visible in the template) to avoid bleeding beyond the safe zone.
+
+<ImageGrid images={[GlyphKeyline]} captionsUnderImages={[`Align glyphs to the icon template keyline.`]} regularWidth />
+
+Once you select the base glyph, you can be creative and add variations to the glyph to make it look more designed / stylized.
+
+<ImageGrid
+    images={[PolishGlyph1, PolishGlyph2]}
+    captionsUnderImages={[
+        `Smart Energy Manager modified the glyph shape to add a bolt glyph inside.`,
+        `Predict Pulse modified the glyph size, opacity, and image gradient.`,
+    ]}
 />
 
 ## Bottom Badge
@@ -171,7 +171,7 @@ The bottom badges are not meant to be modified. You are expected to leave the bo
 <ImageGrid
     images={[BottomBadge1, BottomBadge2, BottomBadge3, BottomBadge4, BottomBadge5]}
     captionsUnderImages={[
-        `DO: Use the default badge as it is.`,
+        `DO: Use the default badge as it is. Note that different platforms might have different requirements (see below).`,
         `DONT: Don't modify the badge color.`,
         `DONT: Don't modify the badge logo color.`,
         `DONT: Don't modify the badge size or the logo size.`,
@@ -218,10 +218,10 @@ Different platforms have different product logo requirements — they often have
 
 -   [Apple (iOS, iPadOS, macOS, tvOS, watchOS)](https://developer.apple.com/design/human-interface-guidelines/foundations/app-icons/)
 -   Android
-    -   [Adaptive Icons](https://developer.android.com/develop/ui/views/launch/icon_design_adaptive)
+    -   [Adaptive Icons](https://developer.android.com/develop/ui/views/launch/icon_design_adaptive), for generic Android app logos
         -   [Image Asset Studio](https://developer.android.com/studio/write/image-asset-studio.html) in Android Studio
         -   Adaptive Icon [Design Guide](https://medium.com/google-design/designing-adaptive-icons-515af294c783)
-    -   [Google Play](https://developer.android.com/distribute/google-play/resources/icon-design-specifications)
+    -   [Google Play](https://developer.android.com/distribute/google-play/resources/icon-design-specifications), for the app's download page on Google Play
 -   [Windows](https://learn.microsoft.com/en-us/windows/apps/design/style/iconography/app-icon-design)
 
 ## Favicons
