@@ -69,7 +69,7 @@ const getStyles = (theme: Theme): ProjectCatalogStyles => ({
 export const BLUIProjectCatalog: React.FC = () => {
     const theme = useTheme();
     const styles = getStyles(theme);
-    const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const getMarketDevicesInfo = React.useCallback(
         (market?: string, devices?: string) => (
