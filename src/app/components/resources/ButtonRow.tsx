@@ -50,7 +50,7 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
                 link={buildLink}
                 repository={repository}
                 branches={branches}
-                sx={{ mr: 0 }}
+                sx={{ display: 'flex', mr: 0 }}
             />
             {small && <Spacer flex={0} width={8} />}
 
