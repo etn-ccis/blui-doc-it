@@ -4,6 +4,7 @@ import { orange } from '@brightlayer-ui/colors';
 import RULES from './rules';
 import { PaletteColor, useTheme } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
+import Box from '@mui/material/Box';
 
 export type RuleType = `DON'T` | 'AVOID' | 'CAUTION' | 'DO';
 
@@ -42,17 +43,17 @@ const TaggedCaption: React.FC<TaggedCaptionProps> = (props) => {
     return (
         <>
             <Tooltip title={title} placement={'top'}>
-                <div>
-                    <div
-                        style={{
+                <Box>
+                    <Box
+                        sx={{
                             backgroundColor: palette[theme.palette.mode],
                             width: '100%',
                             height: 12,
-                            marginBottom: 8,
+                            mb: 1,
                         }}
-                    ></div>
+                    ></Box>
                     <ListItemTag label={tag} backgroundColor={palette.main} fontColor={palette.contrastText} />
-                </div>
+                </Box>
             </Tooltip>
             {captionText.trim()}
         </>

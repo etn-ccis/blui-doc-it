@@ -184,7 +184,7 @@ export const pageDefinitions: SimpleNavItem[] = [
             },
             {
                 title: 'UI Design Audits',
-                url: '/design-audit',
+                url: 'design-audit',
                 component: <MarkdownPage title={'UI Design Audits'} markdown={Docs.Design.DesignAudit} />,
             },
         ],
@@ -342,7 +342,7 @@ export const pageDefinitions: SimpleNavItem[] = [
             },
             {
                 title: 'Apps Using Brightlayer UI',
-                url: '/blui-projects',
+                url: 'blui-projects',
                 component: <MarkdownPage title={'Apps Using Brightlayer UI'} markdown={Docs.Community.BLUIProjects} />,
             },
             {

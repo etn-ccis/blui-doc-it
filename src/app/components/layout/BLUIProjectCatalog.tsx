@@ -50,7 +50,7 @@ const getStyles = (theme: Theme): ProjectCatalogStyles => ({
     infoWrapper: {
         display: 'flex',
         flexDirection: 'row',
-        gap: `0 ${theme.spacing(4)}px`,
+        gap: `0 ${theme.spacing(4)}`,
         flexWrap: 'wrap',
         marginBottom: theme.spacing(),
     },
@@ -79,7 +79,7 @@ export const BLUIProjectCatalog: React.FC = () => {
                         <Typography variant={'subtitle2'} color={'textSecondary'} component="span">
                             Market:{' '}
                         </Typography>
-                        <Typography variant={'body2'} color={'textSecondary'} component="span" sx={{ mr: 0.5 }}>
+                        <Typography variant={'body2'} color={'textSecondary'} component="span">
                             {market}
                         </Typography>
                     </span>
