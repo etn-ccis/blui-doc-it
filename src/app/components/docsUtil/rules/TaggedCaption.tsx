@@ -1,9 +1,9 @@
 import React from 'react';
 import { ListItemTag } from '@brightlayer-ui/react-components';
-import { PaletteColor } from '@material-ui/core/styles/createPalette';
-import { useTheme, Tooltip } from '@material-ui/core';
 import { orange } from '@brightlayer-ui/colors';
 import RULES from './rules';
+import { PaletteColor, useTheme } from '@mui/material/styles';
+import Tooltip from '@mui/material/Tooltip';
 
 export type RuleType = `DON'T` | 'AVOID' | 'CAUTION' | 'DO';
 
@@ -45,7 +45,7 @@ const TaggedCaption: React.FC<TaggedCaptionProps> = (props) => {
                 <div>
                     <div
                         style={{
-                            backgroundColor: palette[theme.palette.type],
+                            backgroundColor: palette[theme.palette.mode],
                             width: '100%',
                             height: 12,
                             marginBottom: 8,
