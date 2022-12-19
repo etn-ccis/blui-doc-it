@@ -167,31 +167,6 @@ export const resources: ResourceBucket[] = [
         ],
     },
     {
-        name: 'Visualizations',
-        description: 'Utilities for charting and mapping',
-        applies: ['all'],
-        items: [
-            {
-                name: '@brightlayer-ui/highcharts',
-                description: 'Utility library for creating HighCharts chart configurations',
-                package: '@brightlayer-ui/highcharts',
-                repository: 'highcharts',
-            },
-            {
-                name: '@brightlayer-ui/chartjs',
-                description: 'Utility library for creating ChartJS chart configurations',
-                package: '@brightlayer-ui/chartjs',
-                repository: 'chartjs',
-            },
-            {
-                name: '@brightlayer-ui/mapbox',
-                description: 'Theme files for MapBox',
-                package: '@brightlayer-ui/mapbox',
-                repository: 'mapbox',
-            },
-        ],
-    },
-    {
         name: 'Reusable Workflows',
         description: 'Multi-screen re-usable workflows',
         applies: ['angular', 'react', 'react-native'],
@@ -252,13 +227,6 @@ export const resources: ResourceBucket[] = [
         applies: ['react', 'angular'],
         items: [
             {
-                name: '@brightlayer-ui/cra-template-authentication',
-                description: 'Javascript template for authentication workflow',
-                package: '@brightlayer-ui/cra-template-authentication-typescript',
-                repository: 'react-cli-templates',
-                bugLabels: ['authentication'],
-            },
-            {
                 name: '@brightlayer-ui/cra-template-authentication-typescript',
                 description: 'Typescript template for authentication workflow',
                 package: '@brightlayer-ui/cra-template-authentication-typescript',
@@ -266,25 +234,11 @@ export const resources: ResourceBucket[] = [
                 bugLabels: ['authentication-ts'],
             },
             {
-                name: '@brightlayer-ui/cra-template-routing',
-                description: 'Javascript template for basic navigation',
-                package: '@brightlayer-ui/cra-template-routing',
-                repository: 'react-cli-templates',
-                bugLabels: ['routing'],
-            },
-            {
                 name: '@brightlayer-ui/cra-template-routing-typescript',
                 description: 'Typescript template for basic navigation',
                 package: '@brightlayer-ui/cra-template-routing-typescript',
                 repository: 'react-cli-templates',
                 bugLabels: ['routing-ts'],
-            },
-            {
-                name: '@brightlayer-ui/cra-template-blank',
-                description: 'Javascript template for basic app',
-                package: '@brightlayer-ui/cra-template-blank',
-                repository: 'react-cli-templates',
-                bugLabels: ['blank'],
             },
             {
                 name: '@brightlayer-ui/cra-template-blank-typescript',
