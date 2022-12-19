@@ -102,7 +102,7 @@ export const TOC: React.FC<ToCProps> = (props) => {
         <Box
             sx={[
                 {
-                    borderLeft: { xs: `2px solid`, lg: 'none' },
+                    borderLeft: isLgUp ? 'none' : `2px solid`,
                     color: 'divider',
                     py: { xs: 0, lg: 5 },
                     px: { xs: 2, lg: 1 },
@@ -133,7 +133,7 @@ export const TOC: React.FC<ToCProps> = (props) => {
                                     textDecoration: 'none',
                                     color: 'text.primary',
                                     display: 'block',
-                                    borderLeftWidth: { xs: 0, lg: 2 },
+                                    borderLeftWidth: isLgUp ? 2 : 0,
                                     borderLeftStyle: 'solid',
                                     borderLeftColor: 'transparent',
                                     '&:hover': {
