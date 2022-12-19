@@ -136,12 +136,12 @@ export const TOC: React.FC<ToCProps> = (props) => {
                                     borderLeftWidth: { xs: 0, lg: 2 },
                                     borderLeftStyle: 'solid',
                                     borderLeftColor: 'transparent',
-                                    pl: { lg: 2 },
                                     '&:hover': {
                                         color: 'primary.main',
                                     },
                                     fontSize: '14px',
                                     lineHeight: '20px',
+                                    pl: anchor.depth ? anchor.depth * 2 + 2 : 2,
                                 },
                                 activeSection === index
                                     ? (t): SystemStyleObject => ({
@@ -152,9 +152,7 @@ export const TOC: React.FC<ToCProps> = (props) => {
                                       })
                                     : {},
                                 isFirstAnchorIntro && index === 0 ? { display: { xs: 'none', lg: 'block' } } : {},
-                                {
-                                    pl: anchor.depth ? anchor.depth * 2 + 2 : undefined,
-                                },
+                                {},
                             ]}
                         >
                             {anchor.title}
