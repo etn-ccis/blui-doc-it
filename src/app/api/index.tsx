@@ -26,7 +26,7 @@ export const icons = axios.create({
     timeout: 5000,
 });
 export const bluiIcons = axios.create({
-    baseURL: 'https://raw.githubusercontent.com/brightlayer-ui/icons/dev/packages/svg/',
+    baseURL: 'https://raw.githubusercontent.com/brightlayer-ui/icons/master/packages/svg/',
     timeout: 5000,
 });
 export const announcementDetail = axios.create({
