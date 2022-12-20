@@ -187,6 +187,7 @@ export const componentsMap: MDXComponents = {
                 pr: 2,
                 mb: 1,
                 display: 'flex',
+                fontSize: 12,
                 backgroundColor:
                     theme.palette.mode === 'light' ? theme.palette.background.default : Colors.darkBlack[300],
                 ...REGULAR_WIDTH_STYLE,
@@ -202,7 +203,7 @@ export const componentsMap: MDXComponents = {
                 backgroundColor:
                     theme.palette.mode === 'light' ? theme.palette.background.default : Colors.darkBlack[300],
                 fontFamily: 'Roboto Mono, Monospaced',
-                fontSize: 12,
+                fontSize: 'inherit',
             })}
             {...(props as TypographyProps<'code'>)}
         />
