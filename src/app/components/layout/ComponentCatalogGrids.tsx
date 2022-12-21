@@ -17,9 +17,9 @@ const CatalogStorybookLink: React.FC<CatalogStorybookLinkProp> = (props) => {
                 label={name}
                 avatar={
                     name === 'Angular' ? (
-                        <Angular style={{ backgroundColor: 'transparent' }} />
+                        <Angular sx={{ backgroundColor: 'transparent !important' }} />
                     ) : (
-                        <ReactBlue style={{ backgroundColor: 'transparent' }} />
+                        <ReactBlue sx={{ backgroundColor: 'transparent !important' }} />
                     )
                 }
                 onClick={(): void => {
