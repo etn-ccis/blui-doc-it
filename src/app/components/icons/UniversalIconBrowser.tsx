@@ -1,63 +1,33 @@
 import React from 'react';
 import { iconList } from '../../../__configuration__/style';
 
-import {
-    Typography,
-    Card,
-    CardContent,
-    CardActions,
-    Divider,
-    useTheme,
-    makeStyles,
-    Theme,
-    IconButton,
-    Tooltip,
-} from '@material-ui/core';
+import { Typography, Card, CardContent, CardActions, Divider, useTheme, IconButton, Tooltip } from '@mui/material';
 import { InfoListItem, ListItemTag } from '@brightlayer-ui/react-components';
-import { ExpandLess, ExpandMore, Edit } from '@material-ui/icons';
-import clsx from 'clsx';
-
-const useClass = makeStyles((theme: Theme) => ({
-    cardRoot: { marginBottom: theme.spacing(6) },
-    cardRootCollapsed: { height: 400, position: 'relative' },
-    cardHeader: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
-    cardAction: {
-        justifyContent: 'center',
-        width: '100%',
-        height: 72,
-        background: `linear-gradient(180deg, transparent 0%, ${theme.palette.background.paper} 50%)`,
-        cursor: 'pointer',
-    },
-    cardActionCollapsed: {
-        bottom: 0,
-        position: 'absolute',
-    },
-    cardActionExpanded: {
-        position: 'sticky',
-    },
-}));
+import { ExpandLess, ExpandMore, Edit } from '@mui/icons-material';
+import { SystemStyleObject } from '@mui/system';
 
 export const UniversalIconBrowser: React.FC = () => {
     const [expanded, setExpanded] = React.useState(false);
     const theme = useTheme();
-    const classes = useClass();
     return (
         <Card
-            variant={theme.palette.type === 'dark' ? 'outlined' : 'elevation'}
-            className={clsx([classes.cardRoot, { [classes.cardRootCollapsed]: !expanded }])}
+            variant={theme.palette.mode === 'dark' ? 'outlined' : 'elevation'}
+            sx={[{ mb: 6 }, !expanded ? { height: 400, position: 'relative' } : {}]}
         >
-            <CardContent className={classes.cardHeader}>
+            <CardContent
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                }}
+            >
                 <Typography variant={'subtitle1'} color={'primary'}>
                     Universal Icons
                 </Typography>
                 <Tooltip title={'Edit list on GitHub'}>
                     <IconButton
-                        style={{ margin: -12 }}
+                        sx={{ m: -1.5 }}
                         onClick={(): void => {
                             window.open(
                                 `https://github.com/brightlayer-ui/doc-it/blob/dev/src/__configuration__/style/universalIcons.tsx`
@@ -97,7 +67,7 @@ export const UniversalIconBrowser: React.FC = () => {
                                     label={`Primarily BLUI Apps`}
                                     backgroundColor={'transparent'}
                                     fontColor={theme.palette.text.primary}
-                                    style={{ border: `1px solid ${theme.palette.text.secondary}` }}
+                                    sx={{ border: `1px solid`, borderColor: 'text.secondary' }}
                                 />
                             </Tooltip>
                         ) : undefined
@@ -105,10 +75,16 @@ export const UniversalIconBrowser: React.FC = () => {
                 />
             ))}
             <CardActions
-                className={clsx([
-                    classes.cardAction,
-                    { [classes.cardActionCollapsed]: !expanded, [classes.cardActionExpanded]: expanded },
-                ])}
+                sx={[
+                    (t): SystemStyleObject => ({
+                        justifyContent: 'center',
+                        width: '100%',
+                        height: 72,
+                        background: `linear-gradient(180deg, transparent 0%, ${t.palette.background.paper} 50%)`,
+                        cursor: 'pointer',
+                    }),
+                    !expanded ? { bottom: 0, position: 'absolute' } : { position: 'sticky' },
+                ]}
                 onClick={(): void => {
                     setExpanded(!expanded);
                 }}

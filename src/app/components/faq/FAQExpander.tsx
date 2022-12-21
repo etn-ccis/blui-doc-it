@@ -3,42 +3,39 @@ import {
     AccordionDetails,
     AccordionProps,
     AccordionSummary,
-    createStyles,
-    makeStyles,
     Typography,
     Theme,
-} from '@material-ui/core';
-import { ExpandMore } from '@material-ui/icons';
+    SxProps,
+} from '@mui/material';
+import { ExpandMore } from '@mui/icons-material';
 import React from 'react';
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        summary: {
-            padding: `0 ${theme.spacing(2)}px`,
-            margin: 0,
-        },
-        details: {
-            display: 'block',
-            padding: theme.spacing(2),
-        },
-    })
-);
+const styles: { [key: string]: SxProps<Theme> } = {
+    summary: {
+        py: 0,
+        px: 2,
+        m: 0,
+    },
+    details: {
+        display: 'block',
+        p: 2,
+    },
+};
 
 type FAQProps = AccordionProps & {
     question: string;
 };
 export const FAQExpander: React.FC<FAQProps> = (props) => {
     const { question, ...accordionProps } = props;
-    const classes = useStyles();
 
     return (
         <Accordion {...accordionProps}>
-            <AccordionSummary expandIcon={<ExpandMore color={'primary'} />} className={classes.summary}>
+            <AccordionSummary expandIcon={<ExpandMore color={'primary'} />} sx={styles.summary}>
                 <Typography variant={'body1'} color={'primary'} style={{ fontWeight: 600 }}>
                     {question}
                 </Typography>
             </AccordionSummary>
-            <AccordionDetails className={classes.details}>{props.children}</AccordionDetails>
+            <AccordionDetails sx={styles.details}>{props.children}</AccordionDetails>
         </Accordion>
     );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as MaterialIcons from '@material-ui/icons';
+import * as MaterialIcons from '@mui/icons-material';
 import * as BLUIIcons from '@brightlayer-ui/icons-mui';
 
 type UniversalIcon = {

@@ -11,37 +11,43 @@ export const ChristmasSchedule: Schedule = {
     config: {
         theme: {
             ...BLUIThemes.blue,
-            overrides: {
-                ...BLUIThemes.blue.overrides,
+            components: {
+                ...BLUIThemes.blue.components,
                 MuiAppBar: {
-                    ...BLUIThemes.blue.overrides?.MuiAppBar,
-                    root: {
-                        borderBottom: `1px solid ${Colors.black[50]}`,
-                    },
-                    colorDefault: {
-                        color: Colors.black[500],
-                        backgroundColor: Colors.white[50],
-                    },
-                    colorPrimary: {
-                        color: Colors.black[500],
-                        backgroundColor: Colors.white[50],
-                    },
-                    colorSecondary: {
-                        color: Colors.blue[500],
-                        backgroundColor: Colors.white[50],
+                    styleOverrides: {
+                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
+                        root: {
+                            borderBottom: `1px solid ${Colors.black[50]}`,
+                        },
+                        colorDefault: {
+                            color: Colors.black[500],
+                            backgroundColor: Colors.white[50],
+                        },
+                        colorPrimary: {
+                            color: Colors.black[500],
+                            backgroundColor: Colors.white[50],
+                        },
+                        colorSecondary: {
+                            color: Colors.blue[500],
+                            backgroundColor: Colors.white[50],
+                        },
                     },
                 },
                 MuiTabs: {
-                    indicator: {
-                        backgroundColor: Colors.blue[500],
+                    styleOverrides: {
+                        indicator: {
+                            backgroundColor: Colors.blue[500],
+                        },
                     },
                 },
                 MuiTab: {
-                    selected: {},
-                    textColorInherit: {
-                        color: Colors.black[500],
-                        '&$selected': {
-                            color: Colors.blue[500],
+                    styleOverrides: {
+                        selected: {},
+                        textColorInherit: {
+                            color: Colors.black[500],
+                            '&$selected': {
+                                color: Colors.blue[500],
+                            },
                         },
                     },
                 },

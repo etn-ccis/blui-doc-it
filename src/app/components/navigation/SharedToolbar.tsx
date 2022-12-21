@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
     Typography,
@@ -8,21 +8,25 @@ import {
     AppBarProps,
     Hidden,
     IconButton,
-    makeStyles,
-    Theme,
-    createStyles,
     useTheme,
     useMediaQuery,
-} from '@material-ui/core';
+    Box,
+    Button,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogTitle,
+    TextField,
+    MenuItem,
+} from '@mui/material';
 import { PxblueSmall } from '@brightlayer-ui/icons-mui';
 import { Spacer } from '@brightlayer-ui/react-components';
-import { useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { TOGGLE_DRAWER, TOGGLE_SEARCH } from '../../redux/actions';
+import { CHANGE_THEME, TOGGLE_DRAWER, TOGGLE_SEARCH } from '../../redux/actions';
 import { AppState } from '../../redux/reducers';
-import Search from '@material-ui/icons/Search';
+import Search from '@mui/icons-material/Search';
 import { SearchBar } from '../../pages';
-import { PADDING } from '../../shared';
 import { getScheduledSiteConfig } from '../../../__configuration__/themes';
 import FireworksCanvas from 'fireworks-canvas';
 
@@ -33,37 +37,44 @@ export type SharedToolbarProps = AppBarProps & {
     navigationIcon?: JSX.Element;
 };
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        menuIconButton: {
-            display: 'flex',
-            alignItems: 'center',
-            marginRight: theme.spacing(0.5),
-        },
-        toolbar: {
-            display: 'flex',
-            [theme.breakpoints.up('sm')]: {
-                padding: `0 ${PADDING}px`,
-            },
-        },
-    })
-);
+const availableThemes = [
+    'thanksgiving',
+    'womens-day',
+    'diwali',
+    'christmas',
+    'halloween',
+    'april-fools',
+    'may-fourth',
+    'hanukkah',
+    'kwanzaa',
+    'new-years',
+    'spring-festival',
+    'st-patricks',
+    'earth-day',
+    'independence-day',
+    'mid-autumn-festival',
+    'valentines-day',
+    'dark',
+    'blue',
+    'default',
+];
 
 export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
-    const { title, color, subtitle, navigationIcon, ...other } = props;
-    const classes = useStyles();
+    const { title, color, subtitle, navigationIcon, onClick, ...other } = props;
     const icon = navigationIcon ? navigationIcon : <PxblueSmall />;
-    const history = useHistory();
+    const location = useLocation();
     const theme = useTheme();
-    const isLandingPage = history.location.pathname === '/';
+    const isLandingPage = location.pathname === '/';
+    const [showThemePicker, setShowThemePicker] = useState(false);
     const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
     const showBanner = useSelector((state: AppState) => state.app.showBanner);
-    const sm = useMediaQuery(theme.breakpoints.down('sm'));
+    const selectedTheme = useSelector((state: AppState) => state.app.theme);
+    const sm = useMediaQuery(theme.breakpoints.down('md'));
     const dispatch = useDispatch();
-    const appBarBackground = getScheduledSiteConfig().appBarBackground;
+    const appBarBackground = getScheduledSiteConfig(selectedTheme).appBarBackground;
     const getIsFireworkHoliday = (): boolean => {
-        const holidayClassName = getScheduledSiteConfig().className || '';
+        const holidayClassName = getScheduledSiteConfig(selectedTheme).className || '';
         const fireworkHolidays = ['independence-day'];
 
         if (fireworkHolidays.includes(holidayClassName)) {
@@ -77,11 +88,12 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
             <Hidden mdUp={navigationIcon !== undefined && !isLandingPage}>
                 <IconButton
                     color={'inherit'}
+                    size={'large'}
+                    edge={'start'}
+                    sx={{ mr: 0.5 }}
                     onClick={(): void => {
                         dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
                     }}
-                    className={classes.menuIconButton}
-                    edge={'start'}
                 >
                     {icon}
                 </IconButton>
@@ -107,20 +119,16 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
         }
     }, []);
 
-    // TODO: Revisit this when the DrawerLayout is fixed - this is going to be goofy on the pages with multiple appbars
-    // useEffect(() => {
-    //     const updateShadow = (e: Event): void => {
-    //         if (e && matchesSM && window.scrollY > 20) {
-    //             setShadow(true);
-    //         } else {
-    //             setShadow(false);
-    //         }
-    //     };
-    //     window.addEventListener('scroll', updateShadow);
-    //     return (): void => {
-    //         window.removeEventListener('scroll', updateShadow);
-    //     };
-    // });
+    const handleClick: React.MouseEventHandler<HTMLDivElement> = useCallback(
+        (e) => {
+            onClick?.(e);
+            if (e.detail === 3) {
+                // DEBUG MODE: CHOOSE A THEME
+                setShowThemePicker(true);
+            }
+        },
+        [onClick]
+    );
 
     return (
         <>
@@ -128,20 +136,21 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                 position="sticky"
                 color={color}
                 elevation={0}
-                style={{
-                    zIndex: 1000,
+                sx={{
+                    zIndex: 'drawer',
                     width: `calc(100% - ${sidebarOpen ? (sm ? 0 : 350) : 0}px)`,
                     right: sidebarOpen ? (sm ? 0 : 350) : 0,
                     transition: `width ${theme.transitions.duration.standard} ${theme.transitions.easing.easeInOut}`,
                     top: showBanner ? theme.spacing(sm ? 7 : 8) : 0,
                     ...appBarBackground,
                 }}
+                onClick={handleClick}
                 {...other}
             >
                 {getIsFireworkHoliday() && (
-                    <div
+                    <Box
                         id="fireworks"
-                        style={{
+                        sx={{
                             position: 'absolute',
                             top: 0,
                             left: 0,
@@ -149,19 +158,19 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                             bottom: 0,
                             overflow: 'hidden',
                         }}
-                    ></div>
+                    />
                 )}
-                <Toolbar className={classes.toolbar}>
+                <Toolbar>
                     {getNavigationIcon()}
                     {props.title ? (
                         <ListItemText
-                            id={'dropdown-toolbar-text'}
+                            disableTypography
                             primary={
-                                <Typography variant={'h6'} style={{ fontWeight: 600, lineHeight: 1 }}>
+                                <Typography variant={'h6'} sx={{ fontWeight: 600, lineHeight: 1 }}>
                                     {title}
                                 </Typography>
                             }
-                            secondary={subtitle}
+                            secondary={<Typography variant={'subtitle1'}>{subtitle}</Typography>}
                         />
                     ) : (
                         <Typography>
@@ -171,16 +180,54 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                     <Spacer />
                     <IconButton
                         color={'inherit'}
+                        size={'large'}
+                        edge={'end'}
                         onClick={(): void => {
                             dispatch({ type: TOGGLE_SEARCH, payload: true });
                         }}
-                        edge={'end'}
                     >
                         <Search />
                     </IconButton>
                 </Toolbar>
             </AppBar>
             <SearchBar />
+            <Dialog
+                open={showThemePicker}
+                onClose={(): void => {
+                    setShowThemePicker(false);
+                }}
+            >
+                <DialogTitle>Choose Theme</DialogTitle>
+                <DialogContent>
+                    <TextField
+                        autoFocus
+                        select
+                        margin="dense"
+                        label="Theme"
+                        fullWidth
+                        variant="outlined"
+                        value={selectedTheme}
+                        onChange={(e): void => {
+                            dispatch({ type: CHANGE_THEME, payload: e.target.value });
+                        }}
+                    >
+                        {availableThemes.map((t) => (
+                            <MenuItem key={t} value={t}>
+                                {t}
+                            </MenuItem>
+                        ))}
+                    </TextField>
+                </DialogContent>
+                <DialogActions>
+                    <Button
+                        onClick={(): void => {
+                            setShowThemePicker(false);
+                        }}
+                    >
+                        Done
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </>
     );
 };

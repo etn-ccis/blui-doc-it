@@ -1,76 +1,79 @@
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Chip from '@mui/material/Chip';
+import { Theme, useTheme } from '@mui/material/styles';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import React from 'react';
-import {
-    Typography,
-    Chip,
-    createStyles,
-    makeStyles,
-    Theme,
-    Tooltip,
-    Card,
-    CardMedia,
-    CardContent,
-    useMediaQuery,
-    useTheme,
-} from '@material-ui/core';
-import { bluiProjects, BluiProject } from '../../../__configuration__/community';
+import { bluiProjects, BluiProject, BluiProjectStack } from '../../../__configuration__/community';
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            display: 'flex',
-            gap: theme.spacing(3),
-            paddingBottom: theme.spacing(5),
-            borderBottom: `1px solid ${theme.palette.divider}`,
-            marginBottom: theme.spacing(5),
+type ProjectCatalogStyles = {
+    root: any;
+    textWrapper: any;
+    headingWrapper: any;
+    chipsWrapper: any;
+    infoWrapper: any;
+    sideImage: any;
+};
+
+const getStyles = (theme: Theme): ProjectCatalogStyles => ({
+    root: {
+        display: 'flex',
+        gap: theme.spacing(3),
+        paddingBottom: theme.spacing(5),
+        borderBottom: `1px solid ${theme.palette.divider}`,
+        marginBottom: theme.spacing(5),
+    },
+    textWrapper: {
+        display: 'flex',
+        gap: theme.spacing(),
+        flexDirection: 'column',
+        flex: 1,
+    },
+    headingWrapper: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: theme.spacing(1.5),
+        '& a': {
+            color: 'unset',
+            textDecorationColor: theme.palette.primary.main,
         },
-        textWrapper: {
-            display: 'flex',
-            gap: theme.spacing(),
-            flexDirection: 'column',
-            flex: 1,
-        },
-        headingWrapper: {
-            display: 'flex',
-            alignItems: 'center',
-            gap: theme.spacing(1.5),
-            '& a': {
-                color: 'unset',
-                textDecorationColor: theme.palette.primary.main,
-            },
-        },
-        chipsWrapper: {
-            display: 'flex',
-            gap: theme.spacing(),
-            flexWrap: 'wrap',
-        },
-        infoWrapper: {
-            display: 'flex',
-            flexDirection: 'row',
-            gap: `0 ${theme.spacing(4)}px`,
-            flexWrap: 'wrap',
-            marginBottom: theme.spacing(),
-        },
-        sideImage: {
-            width: theme.spacing(25),
-            height: theme.spacing(25),
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            flex: '0 0 auto',
-            border: `1px solid ${theme.palette.divider}`,
-            borderRadius: theme.shape.borderRadius,
-        },
-    })
-);
+    },
+    chipsWrapper: {
+        display: 'flex',
+        gap: theme.spacing(),
+        flexWrap: 'wrap',
+    },
+    infoWrapper: {
+        display: 'flex',
+        flexDirection: 'row',
+        gap: `0 ${theme.spacing(4)}`,
+        flexWrap: 'wrap',
+        marginBottom: theme.spacing(),
+    },
+    sideImage: {
+        width: theme.spacing(25),
+        height: theme.spacing(25),
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        flex: '0 0 auto',
+        border: `1px solid ${theme.palette.divider}`,
+        borderRadius: theme.shape.borderRadius,
+    },
+});
 
 export const BLUIProjectCatalog: React.FC = () => {
-    const classes = useStyles();
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
+    const styles = getStyles(theme);
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const getMarketDevicesInfo = React.useCallback(
-        (market?: string, devices?: string) => (
-            <div className={classes.infoWrapper}>
+        (market?: string, devices?: string, stack?: BluiProjectStack[]) => (
+            <Box sx={styles.infoWrapper}>
                 {market && (
                     <span>
                         <Typography variant={'subtitle2'} color={'textSecondary'} component="span">
@@ -91,7 +94,24 @@ export const BLUIProjectCatalog: React.FC = () => {
                         </Typography>
                     </span>
                 )}
-            </div>
+                {stack && (
+                    <span>
+                        <Typography variant={'subtitle2'} color={'textSecondary'} component="span">
+                            Stack:{' '}
+                        </Typography>
+                        {stack.map((elt, stackIndex) => (
+                            <Typography
+                                key={`${stackIndex}-txt`}
+                                color={'textSecondary'}
+                                variant={'body2'}
+                                component="span"
+                            >
+                                {`${stackIndex !== 0 ? ', ' : ''}${elt}`}
+                            </Typography>
+                        ))}
+                    </span>
+                )}
+            </Box>
         ),
         []
     );
@@ -113,7 +133,7 @@ export const BLUIProjectCatalog: React.FC = () => {
 
     const getMobileProjectListItem = React.useCallback(
         (project: BluiProject, projIndex: number) => (
-            <Card key={projIndex} variant={'outlined'} style={{ marginBottom: theme.spacing(2) }}>
+            <Card key={projIndex} variant={'outlined'} sx={{ mb: 2 }}>
                 {project.image && <CardMedia image={project.image} style={{ height: 250 }} />}
                 <CardContent>
                     <Typography variant={'h6'} color={'primary'} gutterBottom>
@@ -121,12 +141,12 @@ export const BLUIProjectCatalog: React.FC = () => {
                     </Typography>
                     <Typography gutterBottom>{project.description}</Typography>
                     {getMarketDevicesInfo(project.market, project.devices)}
-                    <div className={classes.headingWrapper}>
+                    <Box sx={styles.headingWrapper}>
                         {getPlatformLink('About', project.website)}
                         {getPlatformLink('iOS', project.platformURLs.ios)}
                         {getPlatformLink('Android', project.platformURLs.android)}
                         {getPlatformLink('Web', project.platformURLs.web)}
-                    </div>
+                    </Box>
                 </CardContent>
             </Card>
         ),
@@ -135,43 +155,43 @@ export const BLUIProjectCatalog: React.FC = () => {
 
     const getProjectListItem = React.useCallback(
         (project: BluiProject, projIndex: number) => (
-            <div className={classes.root} key={projIndex}>
-                <div className={classes.textWrapper}>
-                    <div className={classes.headingWrapper}>
-                        <Typography variant={'h6'} color={'primary'} style={{ marginRight: theme.spacing(2) }}>
+            <Box sx={styles.root} key={projIndex}>
+                <Box sx={styles.textWrapper}>
+                    <Box sx={styles.headingWrapper}>
+                        <Typography variant={'h6'} color={'primary'} sx={{ mr: 2 }}>
                             {project.name}
                         </Typography>
                         {getPlatformLink('About', project.website)}
                         {getPlatformLink('iOS', project.platformURLs.ios)}
                         {getPlatformLink('Android', project.platformURLs.android)}
                         {getPlatformLink('Web', project.platformURLs.web)}
-                    </div>
+                    </Box>
                     <Typography variant={'body1'}>{project.description}</Typography>
-                    {getMarketDevicesInfo(project.market, project.devices)}
-                    <div className={classes.chipsWrapper}>
+                    {getMarketDevicesInfo(project.market, project.devices, project.stack)}
+                    <Box sx={styles.chipsWrapper}>
                         {project.tags.map((tag, index) => (
                             <Chip label={tag} key={index} />
                         ))}
-                    </div>
-                </div>
+                    </Box>
+                </Box>
                 {project.image && (
-                    <div
-                        className={classes.sideImage}
+                    <Box
+                        sx={styles.sideImage}
                         style={{
                             backgroundImage: `url('${project.image}')`,
                             backgroundPosition: project.imagePosition,
                         }}
-                    ></div>
+                    ></Box>
                 )}
-            </div>
+            </Box>
         ),
-        [classes]
+        [styles]
     );
     return (
-        <div style={{ marginTop: 64 }}>
+        <Box sx={{ mt: 8 }}>
             {bluiProjects.map((proj, index) =>
                 isMobile ? getMobileProjectListItem(proj, index) : getProjectListItem(proj, index)
             )}
-        </div>
+        </Box>
     );
 };

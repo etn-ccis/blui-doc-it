@@ -8,7 +8,7 @@ import {
     Drafts,
     ImportExport,
     Devices,
-} from '@material-ui/icons';
+} from '@mui/icons-material';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 

@@ -13,7 +13,7 @@ export const NewYearsSchedule: Schedule = {
             ...BLUIThemes.blueDark,
             palette: {
                 ...BLUIThemes.blueDark.palette,
-                type: 'dark',
+                mode: 'dark',
                 primary: {
                     light: Colors.yellow[300],
                     main: Colors.yellow[500],
@@ -31,50 +31,62 @@ export const NewYearsSchedule: Schedule = {
                 text: {
                     primary: Colors.black[50],
                     secondary: Colors.black[200],
-                    hint: Colors.black[200],
+                    // hint: Colors.black[200],
                 },
             },
-            overrides: {
-                ...BLUIThemes.blueDark.overrides,
+            components: {
+                ...BLUIThemes.blueDark.components,
                 MuiAppBar: {
-                    colorDefault: {
-                        color: Colors.black[50],
-                        backgroundColor: Colors.darkBlack[200],
-                    },
-                    colorPrimary: {
-                        color: Colors.black[50],
-                        backgroundColor: Colors.darkBlack[200],
-                    },
-                    colorSecondary: {
-                        color: Colors.white[200],
-                        backgroundColor: Colors.darkBlack[400],
+                    styleOverrides: {
+                        colorDefault: {
+                            color: Colors.black[50],
+                            backgroundColor: Colors.darkBlack[200],
+                        },
+                        colorPrimary: {
+                            color: Colors.black[50],
+                            backgroundColor: Colors.darkBlack[200],
+                        },
+                        colorSecondary: {
+                            color: Colors.white[200],
+                            backgroundColor: Colors.darkBlack[400],
+                        },
                     },
                 },
                 MuiBackdrop: {
-                    root: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                    styleOverrides: {
+                        root: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        },
                     },
                 },
                 MuiButton: {
-                    ...BLUIThemes.blueDark.overrides?.MuiButton,
-                    outlined: {},
-                    outlinedPrimary: {},
+                    styleOverrides: {
+                        ...BLUIThemes.blueDark.components?.MuiButton?.styleOverrides,
+                        outlined: {},
+                        outlinedPrimary: {},
+                    },
                 },
                 MuiDrawer: {
-                    paper: {
-                        backgroundColor: Colors.darkBlack[100],
+                    styleOverrides: {
+                        paper: {
+                            backgroundColor: Colors.darkBlack[100],
+                        },
                     },
                 },
                 MuiTabs: {
-                    indicator: {
-                        backgroundColor: Colors.yellow[500],
+                    styleOverrides: {
+                        indicator: {
+                            backgroundColor: Colors.yellow[500],
+                        },
                     },
                 },
                 MuiTab: {
-                    selected: {},
-                    textColorInherit: {
-                        '&$selected': {
-                            color: Colors.yellow[500],
+                    styleOverrides: {
+                        selected: {},
+                        textColorInherit: {
+                            '&.Mui-selected': {
+                                color: Colors.yellow[500],
+                            },
                         },
                     },
                 },

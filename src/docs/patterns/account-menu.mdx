@@ -1,3 +1,4 @@
+import React from 'react';
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
 import PxblueSmallAltIcon from '@brightlayer-ui/icons-mui/PxblueSmallAlt';
 import Banner from '../../app/assets/design-patterns/account-menu/account-menu-banner.png';
@@ -14,7 +15,7 @@ import Specs2 from '../../app/assets/design-patterns/account-menu/spec-typograph
 import Specs3 from '../../app/assets/design-patterns/account-menu/spec-drawer.png';
 import Specs4 from '../../app/assets/design-patterns/account-menu/spec-avatar.png';
 
-<!-- KEYWORDS: design pattern user account details settings menu avatar profile -->
+{/* KEYWORDS: design pattern user account details settings menu avatar profile */}
 
 # Account Menu
 
@@ -63,7 +64,7 @@ If your application is using [Drawer Navigation](/patterns/navigation#drawer-nav
 
 This approach is most effective when there are relatively few account-related actions and is also preferred on mobile where there is limited space in the app bar.
 
-If you are using a navigation rail, you may place account settings links in the rail, but you will not be able to show specific details about the user. Consider using the [User Menu](#via-user-menu) in this situation or if you are using a primary navigation mechanism other than a drawer.
+If you are using a navigation rail, you may place account settings links in the rail, but you will not be able to show specific details about the user. Consider using the {/* <!-- markdown-link-check-disable --> */}[User Menu](#via-user-menu){/* <!-- markdown-link-check-enable --> */} in this situation or if you are using a primary navigation mechanism other than a drawer.
 
 <DemoCard
     repository={'Account Details in Drawers'}

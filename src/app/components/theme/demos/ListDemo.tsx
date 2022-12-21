@@ -1,12 +1,12 @@
 import React from 'react';
-import { Badge, IconButton, List } from '@material-ui/core';
-import { AddBox, Assignment, Delete, DeviceHub, NotificationsActive } from '@material-ui/icons';
+import { Badge, IconButton, List, Stack } from '@mui/material';
+import { AddBox, Assignment, Delete, DeviceHub, NotificationsActive } from '@mui/icons-material';
 import { InfoListItem, ListItemTag } from '@brightlayer-ui/react-components';
 import { GradeA } from '@brightlayer-ui/icons-mui';
 import * as Colors from '@brightlayer-ui/colors';
 
 export const ListDemo: JSX.Element = (
-    <List style={{ width: '100%' }}>
+    <List sx={{ width: '100%' }}>
         <InfoListItem
             title={'Info List Item'}
             subtitle={'A Dynamic Rich Display of information'}
@@ -24,9 +24,9 @@ export const ListDemo: JSX.Element = (
             title={'An info list item with a tag'}
             icon={<NotificationsActive />}
             rightComponent={
-                <div style={{ display: 'flex' }}>
-                    <ListItemTag label={'active'} backgroundColor={Colors.red[500]} style={{ marginLeft: 16 }} />
-                </div>
+                <Stack direction={'row'}>
+                    <ListItemTag label={'active'} backgroundColor={Colors.red[500]} sx={{ ml: 2 }} />
+                </Stack>
             }
             divider={'partial'}
             onClick={(): void => {
@@ -38,7 +38,7 @@ export const ListDemo: JSX.Element = (
             title={'An info list item with list actions on the right'}
             icon={<DeviceHub />}
             rightComponent={
-                <div style={{ display: 'flex' }}>
+                <Stack direction={'row'}>
                     <IconButton>
                         <Delete />
                     </IconButton>
@@ -50,7 +50,7 @@ export const ListDemo: JSX.Element = (
                             <AddBox />
                         </Badge>
                     </IconButton>
-                </div>
+                </Stack>
             }
             iconAlign={'center'}
             divider={'partial'}
