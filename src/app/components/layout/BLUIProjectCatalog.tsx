@@ -8,7 +8,7 @@ import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import React from 'react';
-import { bluiProjects, BluiProject } from '../../../__configuration__/community';
+import { bluiProjects, BluiProject, BluiProjectStack } from '../../../__configuration__/community';
 
 type ProjectCatalogStyles = {
     root: any;
@@ -72,7 +72,7 @@ export const BLUIProjectCatalog: React.FC = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const getMarketDevicesInfo = React.useCallback(
-        (market?: string, devices?: string) => (
+        (market?: string, devices?: string, stack?: BluiProjectStack[]) => (
             <Box sx={styles.infoWrapper}>
                 {market && (
                     <span>
@@ -92,6 +92,23 @@ export const BLUIProjectCatalog: React.FC = () => {
                         <Typography variant={'body2'} color={'textSecondary'} component="span">
                             {devices}
                         </Typography>
+                    </span>
+                )}
+                {stack && (
+                    <span>
+                        <Typography variant={'subtitle2'} color={'textSecondary'} component="span">
+                            Stack:{' '}
+                        </Typography>
+                        {stack.map((elt, stackIndex) => (
+                            <Typography
+                                key={`${stackIndex}-txt`}
+                                color={'textSecondary'}
+                                variant={'body2'}
+                                component="span"
+                            >
+                                {`${stackIndex !== 0 ? ', ' : ''}${elt}`}
+                            </Typography>
+                        ))}
                     </span>
                 )}
             </Box>
@@ -150,7 +167,7 @@ export const BLUIProjectCatalog: React.FC = () => {
                         {getPlatformLink('Web', project.platformURLs.web)}
                     </Box>
                     <Typography variant={'body1'}>{project.description}</Typography>
-                    {getMarketDevicesInfo(project.market, project.devices)}
+                    {getMarketDevicesInfo(project.market, project.devices, project.stack)}
                     <Box sx={styles.chipsWrapper}>
                         {project.tags.map((tag, index) => (
                             <Chip label={tag} key={index} />

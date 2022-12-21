@@ -10,6 +10,13 @@ export enum BluiProjectTag {
     REAL_TIME_MONITORING = 'Real-time Monitoring',
     SCHEDULES = 'Schedules & Automation',
 }
+
+export enum BluiProjectStack {
+    ANGULAR = 'Angular',
+    REACT = 'React',
+    REACT_NATIVE = 'React Native',
+}
+
 /* eslint-enable */
 
 export type BluiProject = {
@@ -17,6 +24,7 @@ export type BluiProject = {
     description: string;
     market?: string;
     devices?: string;
+    stack?: BluiProjectStack[];
     platformURLs: {
         web?: string;
         ios?: string;
