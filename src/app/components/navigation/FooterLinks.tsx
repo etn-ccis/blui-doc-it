@@ -17,7 +17,7 @@ const styles: { [key: string]: SxProps<Theme> } = {
         color: Colors.gray[300],
         display: 'block',
         ml: 0,
-        '&:not(:first-child)': {
+        '&:not(:first-of-type)': {
             mt: 3,
         },
     },
