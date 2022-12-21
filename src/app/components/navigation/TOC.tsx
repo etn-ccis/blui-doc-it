@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Typography, useMediaQuery, Box } from '@mui/material';
+import { Typography, useMediaQuery, Box, useTheme } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
 import { DRAWER_WIDTH, TOC_WIDTH, PAGE_WIDTH, getHash } from '../../shared';
 import { useTOC } from '../../hooks/useTOC';
@@ -20,7 +20,8 @@ type ToCProps = {
 
 export const TOC: React.FC<ToCProps> = (props) => {
     const { anchors, isFirstAnchorIntro = true } = props;
-    const isLgUp = useMediaQuery('(min-width: 1280px)');
+    const theme = useTheme();
+    const isLgUp = useMediaQuery(theme.breakpoints.up('lg'));
     const { pathname, hash } = useLocation();
     const [activeSection, setActiveSection] = useState(0);
     const [sectionOffsetTop, setSectionOffsetTop] = useState<number[]>([]);
@@ -122,11 +123,12 @@ export const TOC: React.FC<ToCProps> = (props) => {
             {anchors.map(
                 (anchor, index) =>
                     (isLgUp || !anchor.depth) && (
-                        <Box
+                        <Typography
                             component={Link}
                             key={index}
                             replace
                             to={anchor.hash || `#${getHash(anchor.title)}`}
+                            variant={'body2'}
                             sx={[
                                 {
                                     mb: 1,
@@ -139,11 +141,10 @@ export const TOC: React.FC<ToCProps> = (props) => {
                                     '&:hover': {
                                         color: 'primary.main',
                                     },
-                                    fontSize: '14px',
                                     lineHeight: '20px',
-                                    pl: anchor.depth ? anchor.depth * 2 + 2 : 2,
+                                    pl: anchor.depth ? anchor.depth * 2 + 2 : isLgUp ? 2 : 0,
                                 },
-                                activeSection === index
+                                activeSection === index && isLgUp
                                     ? (t): SystemStyleObject => ({
                                           color: 'primary.main',
                                           fontWeight: 600,
@@ -156,7 +157,7 @@ export const TOC: React.FC<ToCProps> = (props) => {
                             ]}
                         >
                             {anchor.title}
-                        </Box>
+                        </Typography>
                     )
             )}
         </Box>

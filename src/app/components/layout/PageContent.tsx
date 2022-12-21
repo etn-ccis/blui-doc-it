@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, useMemo } from 'react';
 import * as Colors from '@brightlayer-ui/colors';
 import { useBackgroundColor } from '../../hooks/useBackgroundColor';
 import { PAGE_WIDTH, PADDING, TOC_WIDTH } from '../../shared';
@@ -6,6 +6,7 @@ import { Spacer } from '@brightlayer-ui/react-components';
 import { AppState } from '../../redux/reducers';
 import { useSelector } from 'react-redux';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material';
 
 export type PageContentProps = HTMLAttributes<HTMLDivElement> & {
     noPadding?: boolean;
@@ -15,8 +16,16 @@ export type PageContentProps = HTMLAttributes<HTMLDivElement> & {
 
 export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
     const { noPadding, children, style, backgroundColor, wideLayout, ...other } = props;
+    const theme = useTheme();
     const hasTOC = useSelector((state: AppState) => state.app.hasTOC);
-    const showTOC = useMediaQuery('(min-width: 1280px)');
+    const showFixedTOC = useMediaQuery(theme.breakpoints.up('lg'));
+    const pageBodyWidth = useMemo((): number => {
+        if (wideLayout) {
+            return PAGE_WIDTH.WIDE;
+        }
+        return PAGE_WIDTH.REGULAR;
+    }, [wideLayout]);
+
     useBackgroundColor(backgroundColor);
 
     return (
@@ -24,7 +33,7 @@ export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
             {hasTOC && (
                 <Spacer
                     sx={{
-                        display: showTOC ? 'block' : 'none',
+                        display: showFixedTOC ? 'block' : 'none',
                     }}
                     flex={0}
                     width={TOC_WIDTH}
@@ -35,7 +44,7 @@ export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
                     {
                         width: '100%',
                         padding: noPadding ? 0 : PADDING,
-                        maxWidth: wideLayout ? PAGE_WIDTH.WIDE : PAGE_WIDTH.REGULAR,
+                        maxWidth: pageBodyWidth,
                     },
                     style
                 )}
