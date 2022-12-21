@@ -10,7 +10,7 @@ import MapsImg from '../../app/assets/design-patterns/visualizations/map.png';
 import UsePrimaryColorDo from '../../app/assets/design-patterns/visualizations/use-primary-color-do.png';
 import UsePrimaryColorDont from '../../app/assets/design-patterns/visualizations/use-primary-color-dont.png';
 
-{/* KEYWORDS: design pattern visualization map chart graph highcharts chartjs mapbox */}
+{/* KEYWORDS: design pattern visualization */}
 
 # Visualizations
 
@@ -48,25 +48,6 @@ Charts and graphs come in [many different forms](https://material.io/design/comm
     url={`https://material.io/design/communication/data-visualization.html`}
 />
 
-{/*
-
-@TODO: update those examples with recommendations from the designers (brightlayer-ui-1613)
-
-> The following examples merely serve to show how to bring the charting libraries into your application and adjust some of the common chart parameters. You will want to adjust these values to meet the design requirements of your application.
-
-<DemoCard
-    repository={'highcharts'}
-    angular={`https://stackblitz.com/github/brightlayer-ui/highcharts/tree/master/angular-demo#`}
-    react={`https://codesandbox.io/s/github/brightlayer-ui/highcharts/tree/master/react-demo#`}
-/>
-<DemoCard
-    repository={'chartjs'}
-    angular={`https://stackblitz.com/github/brightlayer-ui/chartjs/tree/master/angular-demo#`}
-    react={`https://codesandbox.io/s/github/brightlayer-ui/chartjs/tree/master/react-demo#`}
-/>
-
-*/}
-
 To avoid interfering with other UI elements, charts should be built using the Brightlayer UI [branding](/style/color#branding-colors) color palette.
 
 <React.Fragment>
@@ -101,11 +82,6 @@ To avoid interfering with other UI elements, charts should be built using the Br
         'The embedded map is a screenshot from OpenStreetMap, licensed under CC-BY-SA 2.0.',
     ]}
 />
-<DemoCard
-    repository={'mapbox'}
-    angular={`https://stackblitz.com/github/brightlayer-ui/mapbox/tree/master/angular-demo#`}
-    react={`https://codesandbox.io/s/github/brightlayer-ui/mapbox/tree/master/react-demo#`}
-/>
 
 Maps are used to represent spatial or geographical data. Typically they are used to plot sets of locations or facilities that a user is responsible for.
 
@@ -121,20 +97,11 @@ There are not as many charting libraries available for React Native applications
 
 # Developers
 
-There are many libraries and services for data visualizations. Brightlayer UI currently provides themes / utilities for the following libraries:
+There are many libraries and services for data visualizations. Brightlayer UI currently recommends themes / utilities for the following libraries:
 
-**Angular** and **React**:
+**React**:
 
--   Charts & Graphs
-
-    -   [Highcharts](http://www.highcharts.com) ([Pricing](https://shop.highsoft.com/))
-    -   [@brightlayer-ui/highcharts](https://www.npmjs.com/package/@brightlayer-ui/highcharts)
-    -   [ChartJS](https://www.chartjs.org/) (Open Source)
-    -   [@brightlayer-ui/chartjs](https://www.npmjs.com/package/@brightlayer-ui/chartjs)
-
--   Maps
-    -   [Mapbox](https://www.mapbox.com/) ([Pricing](https://www.mapbox.com/pricing/))
-    -   [@brightlayer-ui/mapbox](https://www.npmjs.com/package/@brightlayer-ui/mapbox)
+-   [Brightlayer Charts](https://brightlayer-charts.azurewebsites.net/) ([Storybook](https://brightlayer-charts-storybook.azurewebsites.net/))
 
 **React Native**:
 

@@ -167,31 +167,6 @@ export const resources: ResourceBucket[] = [
         ],
     },
     {
-        name: 'Visualizations',
-        description: 'Utilities for charting and mapping',
-        applies: ['all'],
-        items: [
-            {
-                name: '@brightlayer-ui/highcharts',
-                description: 'Utility library for creating HighCharts chart configurations',
-                package: '@brightlayer-ui/highcharts',
-                repository: 'highcharts',
-            },
-            {
-                name: '@brightlayer-ui/chartjs',
-                description: 'Utility library for creating ChartJS chart configurations',
-                package: '@brightlayer-ui/chartjs',
-                repository: 'chartjs',
-            },
-            {
-                name: '@brightlayer-ui/mapbox',
-                description: 'Theme files for MapBox',
-                package: '@brightlayer-ui/mapbox',
-                repository: 'mapbox',
-            },
-        ],
-    },
-    {
         name: 'Reusable Workflows',
         description: 'Multi-screen re-usable workflows',
         applies: ['angular', 'react', 'react-native'],
