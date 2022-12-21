@@ -1,6 +1,7 @@
 import themes from '../../app/assets/card-images/themes.png';
 import palette from '../../app/assets/card-images/palette.png';
 import illustrations from '../../app/assets/card-images/illustrations.png';
+import logo from '../../app/assets/card-images/logo-guidelines.png';
 import icons from '../../app/assets/card-images/icons.png';
 import iconGuidelines from '../../app/assets/card-images/icon-guidelines.svg';
 import typography from '../../app/assets/card-images/typography-square.png';
@@ -43,14 +44,10 @@ export const links = [
         },
     },
     {
-        title: 'Typography',
-        url: '/style/typography',
-        description:
-            'Learn more about the Brightlayer UI type system and how to build an effective type hierarchy in your applications.',
-        image: typography,
-        background: {
-            position: 'center',
-        },
+        title: 'App Logos',
+        url: '/style/logo',
+        description: 'Understand the rules for designing an app logo for App Store, Google Play, etc.',
+        image: logo,
     },
     {
         title: 'Themes',
@@ -58,6 +55,16 @@ export const links = [
         description:
             'Learn more about Brightlayer UI themes and how they can help you build applications that adhere to our design guidelines.',
         image: themes,
+        background: {
+            position: 'center',
+        },
+    },
+    {
+        title: 'Typography',
+        url: '/style/typography',
+        description:
+            'Learn more about the Brightlayer UI type system and how to build an effective type hierarchy in your applications.',
+        image: typography,
         background: {
             position: 'center',
         },

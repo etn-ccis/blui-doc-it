@@ -199,6 +199,10 @@
             "hasLandingPage": true,
             "pages": [
                 {
+                    "title": "App Logos",
+                    "url": "/logo"
+                },
+                {
                     "title": "Color Palette",
                     "url": "/color"
                 },
