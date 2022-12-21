@@ -18,7 +18,7 @@ export const ValentineSchedule: Schedule = {
             palette: {
                 ...BLUIThemes.blue.palette,
                 primary: {
-                    light: '#FCB3C9',
+                    light: '#FCB3C8',
                     main: '#EF5482',
                     dark: '#DF3266',
                 },
