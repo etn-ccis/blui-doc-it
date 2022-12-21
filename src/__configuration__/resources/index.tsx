@@ -224,7 +224,7 @@ export const resources: ResourceBucket[] = [
     {
         name: 'CLI Templates',
         description: 'Starter Templates for use with the Brightlayer UI CLI',
-        applies: ['react', 'angular'],
+        applies: ['all'],
         items: [
             {
                 name: '@brightlayer-ui/cra-template-authentication-typescript',
@@ -267,6 +267,27 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/angular-template-authentication',
                 repository: 'angular-cli-templates',
                 bugLabels: ['authentication'],
+            },
+            {
+                name: '@brightlayer-ui/react-native-template-authentication-typescript',
+                description: 'Typescript template for authentication workflow',
+                package: '@brightlayer-ui/react-native-template-authentication-typescript',
+                repository: 'react-native-cli-templates',
+                bugLabels: ['authentication-ts'],
+            },
+            {
+                name: '@brightlayer-ui/react-native-template-routing-typescript',
+                description: 'Typescript template for basic navigation',
+                package: '@brightlayer-ui/react-native-template-routing-typescript',
+                repository: 'react-native-cli-templates',
+                bugLabels: ['routing-ts'],
+            },
+            {
+                name: '@brightlayer-ui/react-native-template-blank-typescript',
+                description: 'Typescript template for basic app',
+                package: '@brightlayer-ui/react-native-template-blank-typescript',
+                repository: 'react-native-cli-templates',
+                bugLabels: ['blank-ts'],
             },
         ],
     },

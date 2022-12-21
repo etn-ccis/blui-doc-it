@@ -31,8 +31,8 @@ export const IconSearchBar: React.FC<SearchBarProps> = (props): JSX.Element => {
 
     // Media Query adjustments to search spacing
     const small = useMediaQuery('(max-width:599px)');
-    const medium = useMediaQuery('(min-width:600px) and (max-width:959px');
-    const large = useMediaQuery('(min-width:960px) and (max-width:1099px');
+    const medium = useMediaQuery('(min-width:600px) and (max-width:899px');
+    const large = useMediaQuery('(min-width:900px) and (max-width:1099px');
 
     const searchSize = small ? 12 : medium ? 8 : large ? (sidebarOpen ? 12 : 8) : 8;
     const categorySize = small ? 12 : medium ? 4 : large ? (sidebarOpen ? 12 : 4) : 4;

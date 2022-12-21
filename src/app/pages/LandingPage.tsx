@@ -102,11 +102,11 @@ export const LandingPage: React.FC = (): JSX.Element => {
                         navigate('overview');
                     }}
                 >
-                    GET STARTED
+                    Get Started
                 </Button>
             </Box>
             <LandingSection title={'Design and Development'} align={'left'} background={'light'}>
-                <Grid container spacing={6} sx={{ mt: 2 }}>
+                <Grid container spacing={6} sx={{ mt: -1 }}>
                     {cardData.map((item, ind) => (
                         <Grid key={`grid${ind}`} item xs={12} sm={6} md={4}>
                             <InfoCard
@@ -132,12 +132,12 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     <Box key={item.title} sx={{ color: 'text.secondary', textAlign: 'left' }}>
                         <Stack direction={'row'} sx={{ mt: 2 }}>
                             <Typography variant={'h6'} color={'primary'}>
-                                {item.title}
+                                {item.date}
                             </Typography>
                             <Spacer />
-                            <Typography color={'inherit'}>{item.date}</Typography>
                         </Stack>
                         <Typography variant={'subtitle2'}>{`v${item.version}`}</Typography>
+                        <Typography variant={'subtitle2'}>{item.title}</Typography>
                         {item.summary}
                     </Box>
                 ))}
@@ -147,7 +147,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     sx={{ mt: 1 }}
                     onClick={(): void => navigate('/release-notes')}
                 >
-                    VIEW ALL
+                    View All
                 </Button>
             </LandingSection>
 

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Typography, useTheme, useMediaQuery, Box } from '@mui/material';
+import { Typography, useMediaQuery, Box } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
 import { DRAWER_WIDTH, TOC_WIDTH, PAGE_WIDTH, getHash } from '../../shared';
 import { useTOC } from '../../hooks/useTOC';
@@ -20,8 +20,7 @@ type ToCProps = {
 
 export const TOC: React.FC<ToCProps> = (props) => {
     const { anchors, isFirstAnchorIntro = true } = props;
-    const theme = useTheme();
-    const isLgUp = useMediaQuery(theme.breakpoints.up('lg'));
+    const isLgUp = useMediaQuery('(min-width: 1280px)');
     const { pathname, hash } = useLocation();
     const [activeSection, setActiveSection] = useState(0);
     const [sectionOffsetTop, setSectionOffsetTop] = useState<number[]>([]);
@@ -103,14 +102,14 @@ export const TOC: React.FC<ToCProps> = (props) => {
         <Box
             sx={[
                 {
-                    borderLeft: { xs: `2px solid`, lg: 'none' },
-                    borderLeftColor: 'divider',
+                    borderLeft: isLgUp ? 'none' : `2px solid`,
+                    color: 'divider',
                     py: { xs: 0, lg: 5 },
                     px: { xs: 2, lg: 1 },
                     my: { xs: 2, lg: 0 },
                     mx: 0,
                     maxWidth: TOC_WIDTH,
-                    position: { lg: 'fixed' },
+                    position: isLgUp ? 'fixed' : 'inherit',
                     top: 64,
                     left: `calc(50% + ${DRAWER_WIDTH}px*0.5 - ${TOC_WIDTH}px*0.5 - ${PAGE_WIDTH.REGULAR}px*0.5)`,
                 },
@@ -134,13 +133,15 @@ export const TOC: React.FC<ToCProps> = (props) => {
                                     textDecoration: 'none',
                                     color: 'text.primary',
                                     display: 'block',
-                                    borderLeftWidth: { xs: 0, lg: 2 },
+                                    borderLeftWidth: isLgUp ? 2 : 0,
                                     borderLeftStyle: 'solid',
                                     borderLeftColor: 'transparent',
-                                    pl: { lg: 2 },
                                     '&:hover': {
                                         color: 'primary.main',
                                     },
+                                    fontSize: '14px',
+                                    lineHeight: '20px',
+                                    pl: anchor.depth ? anchor.depth * 2 + 2 : 2,
                                 },
                                 activeSection === index
                                     ? (t): SystemStyleObject => ({
@@ -151,9 +152,7 @@ export const TOC: React.FC<ToCProps> = (props) => {
                                       })
                                     : {},
                                 isFirstAnchorIntro && index === 0 ? { display: { xs: 'none', lg: 'block' } } : {},
-                                {
-                                    pl: anchor.depth ? anchor.depth * 2 + 2 : undefined,
-                                },
+                                {},
                             ]}
                         >
                             {anchor.title}

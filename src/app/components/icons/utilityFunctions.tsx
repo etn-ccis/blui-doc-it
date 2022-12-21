@@ -78,7 +78,7 @@ export const createDownloadBluiPngElement = async (
     size: IconSize
 ): Promise<void> => {
     const formattedIconName = `${iconName}_${colorName}_${size}dp.png`;
-    const iconSrc = `https://raw.githubusercontent.com/brightlayer-ui/icons/master/png/png${size}/${formattedIconName}`;
+    const iconSrc = `https://raw.githubusercontent.com/brightlayer-ui/icons/master/packages/png/png${size}/${formattedIconName}`;
     const icon = await fetch(iconSrc);
     const iconBlog = await icon.blob();
     const iconUrl = URL.createObjectURL(iconBlog);
