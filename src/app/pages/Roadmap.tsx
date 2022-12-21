@@ -48,7 +48,7 @@ const styles: { [key: string]: SxProps<Theme> } = {
     },
     select: {
         alignSelf: 'stretch',
-        '&:not(:first-child)': {
+        '&:not(:first-of-type)': {
             ml: 2,
         },
     },
@@ -58,7 +58,7 @@ const styles: { [key: string]: SxProps<Theme> } = {
         display: { xs: 'none', sm: 'flex' },
     },
     tag: {
-        '&:not(:first-child)': {
+        '&:not(:first-of-type)': {
             ml: { xs: 0, md: 1 },
             mt: { sm: 1 },
         },
