@@ -1,5 +1,0 @@
-General
-    ❌ Eliminate the GA hook refer to devdocs
-    ❌ Look into laggy performance
-    ❌ Add Eslint rule for bundle imports
-    ❌ Use the newer version of redux

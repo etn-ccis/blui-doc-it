@@ -18,6 +18,10 @@
             "replacement": "../patterns/home.mdx"
         },
         {
+            "pattern": "^/style$",
+            "replacement": "../style/home.mdx"
+        },
+        {
             "pattern": "^/([A-Za-z-/]+)",
             "replacement": "../$1.mdx"
         }

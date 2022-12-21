@@ -235,7 +235,6 @@ export const ColorPalette: React.FC<PaletteProps> = (props): JSX.Element => {
                 width: '100%',
                 display: 'flex',
                 flexWrap: 'wrap',
-                justifyContent: { md: 'space-between' },
             }}
         >
             {(Object.keys(palette) as Array<keyof BLUIColor>)

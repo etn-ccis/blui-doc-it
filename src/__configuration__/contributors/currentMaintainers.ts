@@ -42,7 +42,7 @@ export const currentMaintainers: CurrentMaintainter[] = [
         name: 'Thomas Dailey',
         role: 'Front-End Developer',
         image: ThomasDailey,
-        description: `Basement dwelling Pittsburgh native and sworn enemy of Internet Explorer, Tom is a self-taught front-end web developer who will stop at nothing to prove himself. When he’s not busy programming you can find him playing guitar or enjoying the great outdoors with his wife and daughter.`,
+        description: `Basement dwelling Pittsburgh native and sworn enemy of Internet Explorer, Tom is a self-taught front-end web developer who will stop at nothing to prove himself. When he's not busy programming you can find him playing guitar or enjoying the great outdoors with his wife and children.`,
         contacts: {
             github: 'https://github.com/daileytj',
             linkedIn: 'https://www.linkedin.com/in/thomas-dailey/',

@@ -57,7 +57,7 @@ const getCardBackgroundColor = (index: number): string => {
     const listOfColors = Object.keys(BrandingColors);
     const theme = useTheme();
     // @ts-ignore
-    return BrandingColors[listOfColors[index % listOfColors.length]][theme.palette.mode === 'light' ? 300 : 800];
+    return BrandingColors[listOfColors[index + (1 % listOfColors.length)]][theme.palette.mode === 'light' ? 300 : 800];
 };
 
 export const MaintainersCards: React.FC = () => {
@@ -70,6 +70,8 @@ export const MaintainersCards: React.FC = () => {
                 .map((contributor, index) => (
                     <Card sx={styles.card} key={index}>
                         <Box sx={styles.leftStripe} style={{ backgroundColor: getCardBackgroundColor(index) }}>
+                            {' '}
+                            {/* adding 2 to the index to mix up the colors. index === 0 isn't returning a color */}
                             <Box
                                 sx={{
                                     ...styles.leftStripeBackground,

@@ -136,7 +136,7 @@ export const TypographyTable = (): JSX.Element => {
     );
 
     return (
-        <TableContainer style={{ backgroundColor: theme.palette.background.default }}>
+        <TableContainer>
             <Table aria-label="typography table">
                 <TableHead>
                     <TableRow>

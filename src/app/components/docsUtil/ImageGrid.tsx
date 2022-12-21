@@ -1,8 +1,6 @@
 import React, { useState, HTMLAttributes } from 'react';
-import { ListItemTag } from '@brightlayer-ui/react-components';
-import { Grid, GridProps, Typography, Theme, useTheme, useMediaQuery, SxProps, Box, PaletteMode } from '@mui/material';
-import { PaletteColor } from '@mui/material/styles/createPalette';
-import { orange } from '@brightlayer-ui/colors';
+import { Grid, GridProps, Typography, Theme, useTheme, useMediaQuery, SxProps, Box } from '@mui/material';
+import TaggedCaption from './rules/TaggedCaption';
 
 const styles: { [key: string]: SxProps<Theme> } = {
     root: {
@@ -42,28 +40,6 @@ type ImageGridProps = HTMLAttributes<HTMLDivElement> & {
     captionsUnderImages?: string[];
 };
 
-const getColoredCaption = (
-    captionText: string,
-    tag: string,
-    palette: PaletteColor,
-    themeType: PaletteMode,
-    title: string
-): React.ReactNode => (
-    <>
-        <Box
-            sx={{
-                backgroundColor: palette[themeType],
-                width: '100%',
-                height: 12,
-                mb: 1,
-            }}
-        ></Box>
-        <ListItemTag label={tag} backgroundColor={palette.main} fontColor={palette.contrastText} title={title} />
-        <br />
-        {captionText.trim()}
-    </>
-);
-
 export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
     const {
         images,
@@ -84,40 +60,16 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
     const getTaggedCaption = React.useCallback((captionText?: string): React.ReactNode => {
         if (!captionText) return undefined;
         if (captionText.startsWith('DONT:')) {
-            return getColoredCaption(
-                captionText.slice(5),
-                `DON'T`,
-                theme.palette.error,
-                theme.palette.mode,
-                'Under no circumstance should this ever be used.'
-            );
+            return <TaggedCaption tag={`DON'T`} captionText={captionText.slice(5)} />;
         }
         if (captionText.startsWith('AVOID:')) {
-            return getColoredCaption(
-                captionText.slice(6),
-                `AVOID`,
-                { light: orange[100], main: orange[500], dark: orange[900], contrastText: 'black' },
-                theme.palette.mode,
-                'Strong justifications are needed to carry design this way.'
-            );
+            return <TaggedCaption tag={`AVOID`} captionText={captionText.slice(6)} />;
         }
         if (captionText.startsWith('CAUTION:')) {
-            return getColoredCaption(
-                captionText.slice(8),
-                `CAUTION`,
-                theme.palette.warning,
-                theme.palette.mode,
-                'Must explore other design possibilities before choosing this path.'
-            );
+            return <TaggedCaption tag={`CAUTION`} captionText={captionText.slice(8)} />;
         }
         if (captionText.startsWith('DO:')) {
-            return getColoredCaption(
-                captionText.slice(3),
-                `DO`,
-                theme.palette.success,
-                theme.palette.mode,
-                'We encourage you to design this way, and this is common in other applications using this design system too.'
-            );
+            return <TaggedCaption tag={`DO`} captionText={captionText.slice(3)} />;
         }
         return captionText;
     }, []);
