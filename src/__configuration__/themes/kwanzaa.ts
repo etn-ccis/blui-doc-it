@@ -15,7 +15,7 @@ export const KwanzaaSchedule: Schedule = {
             ...BLUIThemes.blue,
             palette: {
                 ...BLUIThemes.blue.palette,
-                type: 'light',
+                mode: 'light',
                 primary: {
                     light: Colors.red[100],
                     main: Colors.red[500],
@@ -27,25 +27,29 @@ export const KwanzaaSchedule: Schedule = {
                     dark: BrandingColors.emerald[900],
                 },
             },
-            overrides: {
-                ...BLUIThemes.blue.overrides,
+            components: {
+                ...BLUIThemes.blue.components,
                 MuiAppBar: {
-                    ...BLUIThemes.blue.overrides?.MuiAppBar,
-                    colorSecondary: {
-                        color: Colors.white[50],
-                        backgroundColor: Colors.red[900],
-                        '& .MuiInputBase-root': {
+                    styleOverrides: {
+                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
+                        colorSecondary: {
                             color: Colors.white[50],
-                        },
-                        '& .MuiSelect-icon': {
-                            color: Colors.white[50],
+                            backgroundColor: Colors.red[900],
+                            '& .MuiInputBase-root': {
+                                color: Colors.white[50],
+                            },
+                            '& .MuiSelect-icon': {
+                                color: Colors.white[50],
+                            },
                         },
                     },
                 },
                 MuiButton: {
-                    ...BLUIThemes.blue.overrides?.MuiButton,
-                    outlined: {},
-                    outlinedPrimary: {},
+                    styleOverrides: {
+                        ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                        outlined: {},
+                        outlinedPrimary: {},
+                    },
                 },
             },
         },

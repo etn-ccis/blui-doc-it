@@ -1,5 +1,5 @@
 import React, { MouseEvent } from 'react';
-import { Typography, useTheme, makeStyles, Theme, createStyles } from '@material-ui/core';
+import { Typography, useTheme, SxProps, Box } from '@mui/material';
 
 const getTopPaddingForAspectRatio = (ratio: AspectRatio | undefined): string => {
     switch (ratio) {
@@ -32,50 +32,54 @@ type InfoCardProps = {
     };
 };
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        image: {
-            width: '100%',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            marginBottom: theme.spacing(2),
-            border: `1px solid ${theme.palette.divider}`,
-            position: 'relative',
+const styles: { [key: string]: SxProps } = {
+    image: {
+        width: '100%',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        mb: 2,
+        border: `1px solid`,
+        borderColor: 'divider',
+        position: 'relative',
+    },
+    card: {
+        '&:hover': {
+            backgroundColor: 'action.hover',
         },
-        card: {
-            '&:hover': {
-                backgroundColor: theme.palette.action.hover,
-            },
-        },
-    })
-);
+    },
+};
 
 export const InfoCard: React.FC<InfoCardProps> = (props): JSX.Element => {
     const { background = {} } = props;
     const theme = useTheme();
-    const classes = useStyles();
+
     return (
-        <div
-            style={{
+        <Box
+            sx={{
                 cursor: props.onClick ? 'pointer' : 'default',
-                margin: theme.spacing((-1 * props.spacing) / 2),
-                padding: theme.spacing(props.spacing / 2),
+                m: (-1 * props.spacing) / 2,
+                p: props.spacing / 2,
+                ...(props.onClick ? styles.card : {}),
             }}
             onClick={props.onClick}
-            className={props.onClick ? classes.card : ''}
         >
             {typeof props.source === 'string' ? (
-                <div
-                    style={{
+                <Box
+                    sx={{
                         backgroundImage: `url(${props.source})`,
-                        paddingTop: getTopPaddingForAspectRatio(props.aspectRatio),
                         backgroundPosition: background.position,
                         backgroundSize: background.size,
+                        pt: getTopPaddingForAspectRatio(props.aspectRatio),
+                        ...styles.image,
                     }}
-                    className={classes.image}
                 />
             ) : (
-                <div style={{ paddingTop: getTopPaddingForAspectRatio(props.aspectRatio) }} className={classes.image}>
+                <Box
+                    sx={{
+                        pt: getTopPaddingForAspectRatio(props.aspectRatio),
+                        ...styles.image,
+                    }}
+                >
                     <div
                         style={{
                             position: 'absolute',
@@ -91,14 +95,14 @@ export const InfoCard: React.FC<InfoCardProps> = (props): JSX.Element => {
                     >
                         {props.source}
                     </div>
-                </div>
+                </Box>
             )}
             <Typography variant={'h6'}>{props.title}</Typography>
             <Typography variant={'body2'} style={{ color: theme.palette.text.secondary, marginTop: theme.spacing(1) }}>
                 {props.description}
             </Typography>
             <div>{props.descriptionContent}</div>
-        </div>
+        </Box>
     );
 };
 InfoCard.displayName = 'InfoCard';

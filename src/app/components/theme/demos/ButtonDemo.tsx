@@ -1,6 +1,6 @@
 import React from 'react';
-import { Table, TableHead, TableRow, TableCell, TableBody, Button, TableContainer } from '@material-ui/core';
-import { Add } from '@material-ui/icons';
+import { Table, TableHead, TableRow, TableCell, TableBody, Button, TableContainer } from '@mui/material';
+import { Add } from '@mui/icons-material';
 
 /*
  * cannot iterate through variations due to the way MUI implemented text fields
@@ -18,7 +18,7 @@ export const ButtonDemo: JSX.Element = (
                 </TableRow>
             </TableHead>
             <TableBody>
-                {(['primary', 'secondary', 'default'] as Array<'primary' | 'secondary' | 'default'>).map((color) =>
+                {(['primary', 'secondary', 'inherit'] as Array<'primary' | 'secondary' | 'inherit'>).map((color) =>
                     [false, true].map((isDisabled) => (
                         <TableRow key={`${color}-${isDisabled ? 'disabled' : 'enabled'}`}>
                             <TableCell key={'elevated'}>

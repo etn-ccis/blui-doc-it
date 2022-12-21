@@ -1,5 +1,5 @@
 import React from 'react';
-import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
+import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
 
 export const NPM = (props: SvgIconProps): JSX.Element => (
     <SvgIcon viewBox={'0 0 24 24'} {...props}>

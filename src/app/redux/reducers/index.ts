@@ -11,6 +11,7 @@ import {
     HIDE_BANNER,
     CHANGE_SELECTED_COLOR,
     TOGGLE_COLOR_CONTRAST,
+    CHANGE_THEME,
 } from '../actions';
 
 export type AppState = {
@@ -26,6 +27,7 @@ export type CommonState = {
     showBanner: boolean;
     selectedColor: undefined | ColorType;
     showColorContrast: boolean;
+    theme: string;
 };
 const initialAppState: CommonState = {
     pageTitle: '',
@@ -37,6 +39,7 @@ const initialAppState: CommonState = {
     showBanner: false,
     selectedColor: undefined,
     showColorContrast: false,
+    theme: 'default',
 };
 const appReducer = (state = initialAppState, action: any): CommonState => {
     switch (action.type) {
@@ -89,6 +92,11 @@ const appReducer = (state = initialAppState, action: any): CommonState => {
             return {
                 ...state,
                 showColorContrast: action.payload,
+            };
+        case CHANGE_THEME:
+            return {
+                ...state,
+                theme: action.payload,
             };
         default:
             return state;

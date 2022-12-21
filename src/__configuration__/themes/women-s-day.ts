@@ -27,40 +27,48 @@ export const WomenSDaySchedule: Schedule = {
                     main: Colors.lightBlue[300],
                 },
             },
-            overrides: {
-                ...BLUIThemes.blue.overrides,
+            components: {
+                ...BLUIThemes.blue.components,
                 MuiAppBar: {
-                    ...BLUIThemes.blue.overrides?.MuiAppBar,
-                    colorDefault: {
-                        backgroundColor: MAIN_COLOR,
-                    },
-                    colorPrimary: {
-                        backgroundColor: MAIN_COLOR,
-                    },
-                    colorSecondary: {
-                        color: Colors.white[50],
-                        backgroundColor: DARK_COLOR,
-                        '& .MuiInputBase-input, & .MuiSelect-icon': {
+                    styleOverrides: {
+                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
+                        colorDefault: {
+                            backgroundColor: MAIN_COLOR,
+                        },
+                        colorPrimary: {
+                            backgroundColor: MAIN_COLOR,
+                        },
+                        colorSecondary: {
                             color: Colors.white[50],
+                            backgroundColor: DARK_COLOR,
+                            '& .MuiInputBase-input, & .MuiSelect-icon': {
+                                color: Colors.white[50],
+                            },
                         },
                     },
                 },
                 MuiButton: {
-                    ...BLUIThemes.blue.overrides?.MuiButton,
-                    outlined: {},
-                    outlinedPrimary: {},
+                    styleOverrides: {
+                        ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                        outlined: {},
+                        outlinedPrimary: {},
+                    },
                 },
                 MuiTabs: {
-                    indicator: {
-                        backgroundColor: Colors.white[50],
+                    styleOverrides: {
+                        indicator: {
+                            backgroundColor: Colors.white[50],
+                        },
                     },
                 },
                 MuiTab: {
-                    selected: {},
-                    textColorInherit: {
-                        color: Colors.white[50],
-                        '&$selected': {
+                    styleOverrides: {
+                        selected: {},
+                        textColorInherit: {
                             color: Colors.white[50],
+                            '&.Mui-selected': {
+                                color: Colors.white[50],
+                            },
                         },
                     },
                 },

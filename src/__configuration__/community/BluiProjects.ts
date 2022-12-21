@@ -7,7 +7,7 @@ import PredictPulse from '../../app/assets/blui-projects/predict-pulse.png';
 import SmartEnergyManager from '../../app/assets/blui-projects/smart-energy-manager.png';
 import EVChargerManager from '../../app/assets/blui-projects/ev-charger-manager.png';
 
-import { BluiProjectTag, BluiProject } from './BluiProjectsType';
+import { BluiProjectTag, BluiProjectStack, BluiProject } from './BluiProjectsType';
 
 export const bluiProjects: BluiProject[] = [
     {
@@ -22,6 +22,7 @@ export const bluiProjects: BluiProject[] = [
         image: ControlXpert,
         market: 'Agriculture',
         devices: 'Drives',
+        stack: [BluiProjectStack.REACT_NATIVE],
         tags: [
             BluiProjectTag.DEVICE_CONTROL_REMOTE,
             BluiProjectTag.DEVICE_COMMISSIONING,
@@ -39,6 +40,7 @@ export const bluiProjects: BluiProject[] = [
         imagePosition: '0 center',
         market: 'Data centers',
         devices: 'Power equipment (ex. UPS, PDU)',
+        stack: [BluiProjectStack.ANGULAR],
         tags: [
             BluiProjectTag.REAL_TIME_MONITORING,
             BluiProjectTag.SCHEDULES,
@@ -56,6 +58,7 @@ export const bluiProjects: BluiProject[] = [
         image: CymeLvdat,
         market: 'Power distribution utilities',
         devices: 'Low-voltage equipment',
+        stack: [BluiProjectStack.ANGULAR],
         tags: [BluiProjectTag.MAPS, BluiProjectTag.ONE_LINE],
     },
     {
@@ -86,6 +89,7 @@ export const bluiProjects: BluiProject[] = [
         image: BLI,
         market: 'Industrial',
         devices: 'General',
+        stack: [BluiProjectStack.REACT_NATIVE, BluiProjectStack.REACT],
         tags: [BluiProjectTag.REAL_TIME_MONITORING, BluiProjectTag.ALARMS],
     },
     {
@@ -99,6 +103,7 @@ export const bluiProjects: BluiProject[] = [
         imagePosition: '0 0',
         market: 'Data centers',
         devices: 'UPS',
+        stack: [BluiProjectStack.ANGULAR],
         tags: [BluiProjectTag.REAL_TIME_MONITORING, BluiProjectTag.ALARMS, BluiProjectTag.PREDICTIONS],
     },
     {
@@ -112,6 +117,7 @@ export const bluiProjects: BluiProject[] = [
         image: SmartEnergyManager,
         market: 'Residential & commercial',
         devices: 'Smart breakers',
+        stack: [BluiProjectStack.REACT_NATIVE],
         tags: [
             BluiProjectTag.REAL_TIME_MONITORING,
             BluiProjectTag.DEVICE_COMMISSIONING,
@@ -130,6 +136,7 @@ export const bluiProjects: BluiProject[] = [
         image: EVChargerManager,
         market: 'Residential & commercial',
         devices: 'EV chargers & smart breakers',
+        stack: [BluiProjectStack.REACT_NATIVE],
         tags: [
             BluiProjectTag.REAL_TIME_MONITORING,
             BluiProjectTag.DEVICE_COMMISSIONING,

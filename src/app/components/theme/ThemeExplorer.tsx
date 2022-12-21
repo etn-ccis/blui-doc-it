@@ -1,84 +1,43 @@
 import React, { useState } from 'react';
 import { Spacer } from '@brightlayer-ui/react-components';
 import { blue as lightTheme, blueDark as darkTheme } from '@brightlayer-ui/react-themes';
-import { makeStyles, ThemeProvider, useTheme, createTheme } from '@material-ui/core/styles';
+import { ThemeProvider, useTheme, createTheme } from '@mui/material/styles';
 import {
     Card,
     Divider,
     Select,
     Toolbar,
     MenuItem,
-    Theme,
     Switch,
     FormControlLabel,
     Typography,
-} from '@material-ui/core';
+    Box,
+    Stack,
+} from '@mui/material';
 import { componentNameList, componentList } from './componentList';
-import clsx from 'clsx';
-
-const useStyles = makeStyles((theme: Theme) => ({
-    themeControlContainer: {},
-    componentContainer: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-    },
-    toolbar: {
-        padding: `0 ${theme.spacing(2)}px`,
-        [theme.breakpoints.down('xs')]: {
-            flexDirection: 'column',
-            paddingTop: theme.spacing(),
-            paddingBottom: theme.spacing(),
-            alignItems: 'flex-end',
-        },
-    },
-    selectControl: {
-        backgroundColor: '#abb2',
-        borderRadius: theme.shape.borderRadius,
-        [theme.breakpoints.down('xs')]: {
-            width: '100%',
-        },
-    },
-    selectControlMenu: {
-        padding: `${theme.spacing(1.5)}px ${theme.spacing(5)}px ${theme.spacing(1.5)}px ${theme.spacing(2)}px`,
-        paddingRight: `${theme.spacing(5)}px !important`,
-        '&:focus': {
-            borderRadius: theme.shape.borderRadius,
-        },
-    },
-    selectControlIcon: {
-        marginRight: theme.spacing(),
-    },
-    card: {
-        '&:hover': {
-            boxShadow: theme.shadows[6],
-        },
-        marginBottom: theme.spacing(4),
-        boxSizing: 'border-box',
-    },
-    footnote: {
-        padding: `${theme.spacing()}px ${theme.spacing(2)}px`,
-    },
-    noShowOnMobile: {
-        [theme.breakpoints.up('sm')]: {
-            display: 'none',
-        },
-    },
-}));
+import { SystemStyleObject } from '@mui/system';
 
 export const ThemeExplorer: React.FC = () => {
     const globalTheme = useTheme();
-    const [localThemeDark, setLocalThemeDark] = useState(globalTheme.palette.type === 'dark');
+    const [localThemeDark, setLocalThemeDark] = useState(globalTheme.palette.mode === 'dark');
     const [selectedComponent, setSelectedComponent] = useState(0);
-    const classes = useStyles(localThemeDark ? darkTheme : lightTheme);
-    const localBackground = localThemeDark ? darkTheme.palette?.background : lightTheme.palette?.background;
 
     return (
         <ThemeProvider theme={createTheme(localThemeDark ? darkTheme : lightTheme)}>
-            <Card className={classes.card} variant={globalTheme.palette.type === 'dark' ? 'outlined' : undefined}>
-                <Toolbar className={classes.toolbar}>
+            <Card
+                sx={{ mb: 4, boxSizing: 'border-box', '&:hover': { boxShadow: 6 } }}
+                variant={globalTheme.palette.mode === 'dark' ? 'outlined' : undefined}
+            >
+                <Toolbar
+                    sx={[
+                        { py: 0, px: { xs: 2, sm: 2 } },
+                        (t): SystemStyleObject => ({
+                            [t.breakpoints.down('sm')]: { flexDirection: 'column', py: 1, alignItems: 'flex-end' },
+                        }),
+                    ]}
+                >
                     <Select
+                        variant={'standard'}
                         value={selectedComponent}
                         onChange={(e): void => {
                             // @ts-ignore
@@ -86,8 +45,24 @@ export const ThemeExplorer: React.FC = () => {
                         }}
                         color={'primary'}
                         disableUnderline
-                        className={classes.selectControl}
-                        classes={{ icon: classes.selectControlIcon, select: classes.selectControlMenu }}
+                        sx={[
+                            {
+                                backgroundColor: '#abb2',
+                                borderRadius: 1,
+                                width: { xs: '100%', sm: 'auto' },
+                                '& .MuiSelect-icon': {
+                                    mr: 1,
+                                },
+                                '& .MuiSelect-select': {
+                                    py: 1.5,
+                                    pr: '40px !important',
+                                    pl: 2,
+                                    '&:focus': {
+                                        borderRadius: 1,
+                                    },
+                                },
+                            },
+                        ]}
                     >
                         {componentNameList.map((componentName, index) => (
                             <MenuItem value={index} key={index}>
@@ -107,18 +82,15 @@ export const ThemeExplorer: React.FC = () => {
                     />
                 </Toolbar>
                 <Divider />
-                <div className={classes.componentContainer} style={{ backgroundColor: localBackground?.default }}>
+                <Stack alignItems={'center'} justifyContent={'center'} sx={{ backgroundColor: 'background.default' }}>
                     {componentList[selectedComponent]}
-                </div>
-                <Divider className={classes.noShowOnMobile} />
-                <div
-                    className={clsx(classes.footnote, classes.noShowOnMobile)}
-                    style={{ backgroundColor: localBackground?.paper }}
-                >
+                </Stack>
+                <Divider sx={{ display: { xs: 'block', sm: 'none' } }} />
+                <Box sx={{ py: 1, px: 2, display: { xs: 'block', sm: 'none' }, backgroundColor: 'background.paper' }}>
                     <Typography variant={'caption'}>
                         You may not get the best theme preview experience on mobile.
                     </Typography>
-                </div>
+                </Box>
             </Card>
         </ThemeProvider>
     );

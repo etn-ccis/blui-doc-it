@@ -1,44 +1,39 @@
 import React from 'react';
-import { Grid, makeStyles, Theme, Typography } from '@material-ui/core';
-import clsx from 'clsx';
+import { Box, Grid, Theme, Typography } from '@mui/material';
 import color from 'color';
 import { IconType } from '../../../__types__';
 import { snakeToTitleCase } from '../../shared';
 import { useSelectedIcon } from '../../contexts/selectedIconContextProvider';
+import { SystemStyleObject } from '@mui/system';
 
 type IconGridProps = {
     icons: IconType[];
-    onIconSelected: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+    onIconSelected: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
-const useIconGridStyles = makeStyles((theme: Theme) => ({
+const iconGridStyles: { [key: string]: SystemStyleObject<Theme> } = {
     wrapper: {
         cursor: 'pointer',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        // justifyContent: 'center',
-        padding: `${theme.spacing(3)}px ${theme.spacing(1)}px`,
-        color: theme.palette.text.primary,
+        py: 3,
+        px: 1,
+        color: 'text.primary',
         minHeight: 137,
         maxWidth: 137,
         margin: 'auto',
-    },
-    selected: {
-        background: color(theme.palette.primary.main).fade(0.9).string(),
-        border: `1px solid ${theme.palette.primary.main}`,
-        color: theme.palette.primary.main,
     },
     label: {
         width: '100%',
         textAlign: 'center',
         wordBreak: 'break-word',
-        marginTop: theme.spacing(1),
+        mt: 1,
     },
-}));
+};
+
 const Icons: React.FC<IconGridProps> = (props) => {
     const { icons, onIconSelected } = props;
     const { selectedIcon: selected } = useSelectedIcon();
-    const classes = useIconGridStyles();
 
     return (
         <Grid container spacing={2}>
@@ -59,20 +54,32 @@ const Icons: React.FC<IconGridProps> = (props) => {
                             onClick={onIconSelected}
                             data-iconid={`${icon.name}-${icon.isMaterial ? 'material' : 'blui'}`}
                         >
-                            <div className={clsx(classes.wrapper, { [classes.selected]: isSelected })}>
+                            <Box
+                                sx={[
+                                    iconGridStyles.wrapper,
+                                    isSelected
+                                        ? (theme): SystemStyleObject => ({
+                                              background: color(theme.palette.primary.main).alpha(0.1).string(),
+                                              border: `1px solid`,
+                                              borderColor: 'primary.main',
+                                              color: 'primary.main',
+                                          })
+                                        : {},
+                                ]}
+                            >
                                 <icon.Icon
-                                    style={{
+                                    sx={{
                                         fontSize: iconDisplayName.toLocaleLowerCase().includes('eaton') ? 24 : 36,
                                     }}
                                 />
                                 <Typography
                                     variant="subtitle2"
-                                    className={classes.label}
+                                    sx={iconGridStyles.label}
                                     color={isSelected ? 'primary' : 'textPrimary'}
                                 >
                                     {iconDisplayName}
                                 </Typography>
-                            </div>
+                            </Box>
                         </Grid>
                     );
                 })}

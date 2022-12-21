@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from 'react';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { PageContent } from '../components';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
-import { useMediaQuery, useTheme } from '@material-ui/core';
+import { useMediaQuery, useTheme } from '@mui/material';
 import * as Colors from '@brightlayer-ui/colors';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 import { useSelector } from 'react-redux';
@@ -23,13 +23,13 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element =>
     useGoogleAnalyticsPageView();
     const theme = useTheme();
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
-    const sm = useMediaQuery(theme.breakpoints.down('sm'));
+    const sm = useMediaQuery(theme.breakpoints.down('md'));
 
     let backgroundColor = background;
     if (background === 'light') {
         backgroundColor = theme.palette.background.paper;
     } else if (background === 'dark') {
-        backgroundColor = theme.palette.type === 'light' ? Colors.white[200] : theme.palette.background.default;
+        backgroundColor = theme.palette.mode === 'light' ? Colors.white[200] : theme.palette.background.default;
     }
     useBackgroundColor(backgroundColor);
 

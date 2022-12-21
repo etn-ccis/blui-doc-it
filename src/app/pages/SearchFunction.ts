@@ -18,7 +18,8 @@ function getShortText(keyword: string, url: string, siteMapDatabase: any): [stri
         .replace(/import .*? from .*?;/gim, '')
         .replace(/\r\n/g, '\n')
         .replace(/\n/gim, ' ')
-        .replace(/<!--.*?-->/g, ' ') // replace all comments (including keywords)
+        .replace(/<!--.*?-->/g, ' ') // replace all comments (including keywords) — HTML-style
+        .replace(/{\/\*.*?\*\/}/g, ' ') // replace all comments (including keywords) — JSX-style
         .replace(/\[(.*?)\]\(.*?\)/g, '$1') // replace all the markdown links [text](url) into text
         .replace(/<FAQExpander question={`(.*?)`}(.*?)>/gim, '$1') // pull out the FAQ question strings <FAQExpander question={''}>
         // pull out the caption props

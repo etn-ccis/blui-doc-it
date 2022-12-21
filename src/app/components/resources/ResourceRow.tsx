@@ -1,14 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import {
-    useMediaQuery,
-    Typography,
-    makeStyles,
-    createStyles,
-    Theme,
-    Button,
-    Divider,
-    useTheme,
-} from '@material-ui/core';
+import { useMediaQuery, Typography, Theme, Button, Divider, useTheme, SxProps, Box } from '@mui/material';
 
 import * as Colors from '@brightlayer-ui/colors';
 import { getNpmVersion } from '../../api';
@@ -16,28 +7,28 @@ import { ButtonRow } from './ButtonRow';
 import { InfoListItem } from '@brightlayer-ui/react-components';
 import { GitHub } from '../../assets/icons';
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        flex: {
-            display: 'flex',
-            alignItems: 'center',
-        },
-        title: {
-            fontWeight: 600,
-            lineHeight: 1.2,
-            fontSize: '0.875rem',
-        },
-        version: {
-            color: Colors.gray[500],
-            cursor: 'pointer',
-            marginLeft: theme.spacing(0.5),
-        },
-        buttonWrapper: {
-            width: '100%',
-            padding: `0 ${theme.spacing(2)}px ${theme.spacing(2)}px`,
-        },
-    })
-);
+const styles: { [key: string]: SxProps<Theme> } = {
+    flex: {
+        display: 'flex',
+        alignItems: 'center',
+    },
+    title: {
+        fontWeight: 600,
+        lineHeight: 1.2,
+        fontSize: '0.875rem',
+    },
+    version: {
+        color: Colors.gray[500],
+        cursor: 'pointer',
+        ml: 0.5,
+    },
+    buttonWrapper: {
+        width: '100%',
+        pt: 0,
+        px: 2,
+        pb: 2,
+    },
+};
 
 type ResourceRowProps = {
     demoUrl?: string;
@@ -56,7 +47,6 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
     const repositoryLink = `https://github.com/brightlayer-ui/${repository}`;
     const small = useMediaQuery('(max-width:799px)');
     const xs = useMediaQuery('(max-width:499px)');
-    const classes = useStyles();
 
     // Make the API calls for the live information
     useEffect(() => {
@@ -89,22 +79,22 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
                 style={{ paddingRight: theme.spacing(1) }}
                 divider={!small && divider ? 'full' : undefined}
                 title={
-                    <div className={classes.flex} style={{ width: small ? '100%' : 'auto' }}>
-                        <Typography className={classes.title} noWrap>
+                    <Box sx={styles.flex} style={{ width: small ? '100%' : 'auto' }}>
+                        <Typography sx={styles.title} noWrap>
                             {packageName && xs ? packageName.replace('@brightlayer-ui/', '') : packageName}
                             {!packageName && name}
                         </Typography>
                         {version && (
                             <Typography
                                 variant={'subtitle2'}
-                                className={classes.version}
+                                sx={styles.version}
                                 onClick={(): void => {
                                     window.open(`https://www.npmjs.com/package/${packageName || ''}`, '_blank');
                                 }}
                             >{`@${version || 'X.X.X'}`}</Typography>
                         )}
                         {small && buttons()}
-                    </div>
+                    </Box>
                 }
                 subtitle={description}
                 wrapSubtitle
@@ -112,19 +102,19 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
             />
             {small && (
                 <>
-                    <div className={classes.buttonWrapper}>
+                    <Box sx={styles.buttonWrapper}>
                         <Button
                             variant={'outlined'}
                             color={'primary'}
-                            style={{ width: '100%', fontWeight: 600 }}
+                            sx={{ width: '100%', fontWeight: 600 }}
                             onClick={(): void => {
                                 window.open(repositoryLink, '_blank');
                             }}
                         >
-                            <GitHub style={{ marginRight: theme.spacing(1) }} />
+                            <GitHub sx={{ mr: 1 }} />
                             View GitHub Repository
                         </Button>
-                    </div>
+                    </Box>
                     {divider && <Divider />}
                 </>
             )}
