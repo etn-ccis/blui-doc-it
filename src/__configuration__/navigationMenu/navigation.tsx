@@ -293,7 +293,7 @@ export const pageDefinitions: SimpleNavItem[] = [
         pages: [
             {
                 title: 'App Logos',
-                url: '/logo',
+                url: 'logo',
                 component: <MarkdownPage title={'App Logos'} markdown={Docs.Style.Logo} />,
             },
             {
