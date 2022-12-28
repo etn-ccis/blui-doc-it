@@ -1,60 +1,38 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
+    Box,
     Divider,
     Drawer,
     FormControlLabel,
     IconButton,
-    makeStyles,
     Switch,
-    Theme,
     Typography,
     useMediaQuery,
     useTheme,
-} from '@material-ui/core';
+} from '@mui/material';
 import color from 'color';
 import { InfoListItem } from '@brightlayer-ui/react-components';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
-import { Close } from '@material-ui/icons';
+import { Close } from '@mui/icons-material';
 import { ColorChips } from './ColorChips';
 import { DRAWER_WIDTH } from '../../shared';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../redux/reducers';
 import { CHANGE_SELECTED_COLOR, TOGGLE_COLOR_CONTRAST } from '../../redux/actions';
 import { useQueryString } from '../../hooks/useQueryString';
-
-const useStyles = makeStyles((theme: Theme) => ({
-    paper: {
-        backgroundColor: color(theme.palette.background.paper).fade(0.05).string(),
-        backdropFilter: 'blur(4px)',
-        zIndex: theme.zIndex.drawer - 1,
-        [theme.breakpoints.up('md')]: {
-            left: DRAWER_WIDTH,
-        },
-    },
-    header: {
-        backgroundColor: 'unset',
-    },
-    colorAvatar: {
-        width: theme.spacing(4),
-        height: theme.spacing(4),
-        borderRadius: '50%',
-        border: `1px dashed ${theme.palette.divider}`,
-    },
-    body: { padding: theme.spacing(2), paddingTop: 0 },
-}));
+import { SystemStyleObject } from '@mui/system';
 
 export const ColorBottomSheet: React.FC = () => {
     const theme = useTheme();
-    const classes = useStyles(theme);
     const dispatch = useDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
     const { category: queryCategory, name: queryName, weight: queryWeight } = useQueryString();
     const selectedColor = useSelector((state: AppState) => state.app.selectedColor);
     const showColorContrast = useSelector((state: AppState) => state.app.showColorContrast);
     const [hex, setHex] = useState<string | undefined>(undefined);
-    const xsDown = useMediaQuery(theme.breakpoints.down('xs'));
+    const xsDown = useMediaQuery(theme.breakpoints.down('sm'));
 
     useEffect(() => {
         if (queryCategory) {
@@ -83,12 +61,12 @@ export const ColorBottomSheet: React.FC = () => {
         }
     }, [selectedColor]);
 
-    const handleChangeContrastToggle = useCallback((e) => {
+    const handleChangeContrastToggle = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch({ type: TOGGLE_COLOR_CONTRAST, payload: e.target.checked });
     }, []);
 
     const dismissBottomSheet = useCallback(() => {
-        history.replace(`${location.pathname}`);
+        navigate(`${location.pathname}`, { replace: true });
         dispatch({ type: CHANGE_SELECTED_COLOR, payload: false });
         dispatch({ type: TOGGLE_COLOR_CONTRAST, payload: false });
     }, [history]);
@@ -99,6 +77,7 @@ export const ColorBottomSheet: React.FC = () => {
                 control={<Switch name={'contrast-switch'} color={'secondary'} />}
                 label={'View Color Contrast'}
                 title={'View Contrast against Other Colors'}
+                // @ts-ignore TODO: sort out these types
                 onChange={handleChangeContrastToggle}
                 checked={showColorContrast}
             />
@@ -107,15 +86,40 @@ export const ColorBottomSheet: React.FC = () => {
     );
 
     return (
-        <Drawer anchor={'bottom'} variant={'persistent'} open={!!selectedColor} classes={{ paper: classes.paper }}>
+        <Drawer
+            anchor={'bottom'}
+            variant={'persistent'}
+            open={!!selectedColor}
+            PaperProps={{
+                sx: (t): SystemStyleObject => ({
+                    backgroundColor: color(t.palette.background.paper).fade(0.05).string(),
+                    backdropFilter: 'blur(4px)',
+                    zIndex: t.zIndex.drawer - 1,
+                    left: { md: DRAWER_WIDTH },
+                }),
+            }}
+        >
             <InfoListItem
-                icon={<div className={classes.colorAvatar} style={hex ? { backgroundColor: hex } : undefined} />}
+                icon={
+                    <Box
+                        sx={[
+                            {
+                                width: 32,
+                                height: 32,
+                                borderRadius: '50%',
+                                border: '1px dashed',
+                                borderColor: 'divider',
+                            },
+                            hex ? { backgroundColor: hex } : {},
+                        ]}
+                    />
+                }
                 title={
                     <Typography variant={'h6'} display={'inline'}>
                         {selectedColor?.name}[{selectedColor?.weight}]
                     </Typography>
                 }
-                className={classes.header}
+                sx={{ backgroundColor: 'unset' }}
                 subtitle={selectedColor?.category === 'ui' ? 'UI / Status Color' : 'Branding Color'}
                 rightComponent={
                     <>
@@ -127,7 +131,7 @@ export const ColorBottomSheet: React.FC = () => {
                 }
             />
             {hex && (
-                <div className={classes.body}>
+                <Box sx={{ p: 2, pt: 0 }}>
                     <ColorChips type={'HEX'} hex={hex} />
                     <ColorChips type={'RGB'} hex={hex} />
                     <ColorChips type={'HSL'} hex={hex} />
@@ -136,9 +140,9 @@ export const ColorBottomSheet: React.FC = () => {
                         * Our colors are managed in hex / RGB. When converting to HSL or CMYK color spaces, some
                         fidelity might be lost.
                     </Typography>
-                    {xsDown && <Divider style={{ margin: `${theme.spacing()}px 0` }} />}
+                    {xsDown && <Divider sx={{ my: 1, mx: 0 }} />}
                     {xsDown && getColorContrastToggle()}
-                </div>
+                </Box>
             )}
         </Drawer>
     );

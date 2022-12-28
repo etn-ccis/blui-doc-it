@@ -1,0 +1,30 @@
+{
+    "ignorePatterns": [
+        { "pattern": "/resources" },
+        { "pattern": "/roadmap" },
+        { "pattern": "/release-notes" },
+        { "pattern": "^../images" },
+        {
+            "pattern": "^https://brightlayer-ui-components.github.io/"
+        }
+    ],
+    "replacementPatterns": [
+        {
+            "pattern": "^../images",
+            "replacement": "../../../public/images"
+        },
+        {
+            "pattern": "^/patterns$",
+            "replacement": "./patterns/home.mdx"
+        },
+        {
+            "pattern": "^/style$",
+            "replacement": "./style/home.mdx"
+        },
+        {
+            "pattern": "^/([A-Za-z-/]+)",
+            "replacement": "./$1.mdx"
+        }
+    ],
+    "httpHeaders": []
+}

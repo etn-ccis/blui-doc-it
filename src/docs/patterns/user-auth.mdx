@@ -1,11 +1,12 @@
+import React from 'react';
 import { DemoCard, ImageGrid, Divider, MaterialDesignDescription, TOC } from '../../app/components';
 import PxblueSmallAltIcon from '@brightlayer-ui/icons-mui/PxblueSmallAlt';
 
-<!-- Intro -->
+{/* Intro */}
 
 import LoginBanner from '../../app/assets/design-patterns/user-authentication/login.svg';
 
-<!-- Variations -->
+{/* Variations */}
 
 import EnterEmailAdress from '../../app/assets/design-patterns/user-authentication/enter-email-address.png';
 import AcceptEULA from '../../app/assets/design-patterns/user-authentication/accept-eula.png';
@@ -32,7 +33,7 @@ import ChangePasswordWelcome from '../../app/assets/design-patterns/user-authent
 import ResetPasswordDesktop from '../../app/assets/design-patterns/user-authentication/reset-password-desktop.png';
 import ChangePasswordDesktop from '../../app/assets/design-patterns/user-authentication/change-password-desktop.png';
 
-<!-- Behaviors -->
+{/* Behaviors */}
 
 import EmailCommunicationInvitation from '../../app/assets/design-patterns/user-authentication/email-communication-invitation.png';
 import EmailCommunicationVerification from '../../app/assets/design-patterns/user-authentication/email-communication-verification.png';
@@ -41,7 +42,7 @@ import ErrorStates1 from '../../app/assets/design-patterns/user-authentication/e
 import ErrorStates2 from '../../app/assets/design-patterns/user-authentication/error-states-2.png';
 import ErrorStates3 from '../../app/assets/design-patterns/user-authentication/error-states-3.png';
 
-<!-- KEYWORDS: design pattern login registration register password forget forgot account authentication auth join -->
+{/* KEYWORDS: design pattern login registration register password forget forgot account authentication auth join */}
 
 # User Authentication & Registration
 
@@ -49,16 +50,22 @@ import ErrorStates3 from '../../app/assets/design-patterns/user-authentication/e
 
 Most applications require some form of user authentication to keep unauthorized users out, and a way to add authorized users to the application.
 
-<!--
+{/*
 
 @TODO switch login links over to the "Component Recommendations style" instead of an "Interactive Code example" once we have one designed.
 
 <React.Fragment>
-    <DemoCard repository={'login'} angular react={`https://codesandbox.io/s/github/brightlayer-ui/react-workflows/tree/master/login-workflow/example`} ionic reactNative />
+    <DemoCard
+        repository={'login'}
+        angular
+        react={`https://codesandbox.io/s/github/brightlayer-ui/react-workflows/tree/master/login-workflow/example`}
+        ionic
+        reactNative
+    />
     <Divider />
 </React.Fragment>
 
--->
+*/}
 
 <React.Fragment>
     <TOC
@@ -195,9 +202,10 @@ The majority of the joining-an-organization screens are the same regardless of t
 
 ## Login
 
-<!--
+{/* prettier-ignore */}
+{/*
 An NFC login might either be documented here, or wait until we start adding in device registery / discovery pattern
--->
+*/}
 
 Logging in can usually be accomplished in one of two ways: basic login or login via a third-party.
 
@@ -276,7 +284,7 @@ When the users are logged in, they have the option to change their password by g
 
 ## Email Communications
 
-<!-- This might deserve its own pattern. We already have something in the backlog to design for an email template. -->
+{/* This might deserve its own pattern. We already have something in the backlog to design for an email template. */}
 
 Email communications are frequently used throughout the user authentication workflow to verify the user's identity. Users receive emails for invitations, address verification, confirmation codes, etc.
 

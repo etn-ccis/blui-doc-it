@@ -1,56 +1,42 @@
 import React, { ReactNode } from 'react';
-import { Avatar, Typography, makeStyles, Theme, createStyles, useTheme } from '@material-ui/core';
+import { Avatar, Box, Stack, StackProps, ListItemText } from '@mui/material';
 import { CurrentMaintainter } from '../../../__types__';
-import { Person } from '@material-ui/icons';
-import clsx from 'clsx';
+import { Person } from '@mui/icons-material';
+import { SystemStyleObject } from '@mui/system';
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        textContainer: {
-            marginLeft: theme.spacing(2),
-            flex: 1,
-            '&$noRole': {
-                display: 'flex',
-                alignItems: 'center',
-            },
-        },
-        title: {
-            textOverflow: 'ellipsis',
-        },
-        noRole: {},
-        colorDefault: {
-            backgroundColor: theme.palette.type === 'light' ? theme.palette.primary.light : theme.palette.primary.dark,
-            color: theme.palette.type === 'light' ? theme.palette.primary.main : theme.palette.primary.light,
-        },
-    })
-);
-
-type ContributorsCardProps = CurrentMaintainter & {
-    /**
-     * Use this icon when no image is supplied
-     * Default to `Person`
-     */
-    icon?: ReactNode;
-};
+type ContributorsCardProps = StackProps &
+    CurrentMaintainter & {
+        /**
+         * Use this icon when no image is supplied
+         * Default to `Person`
+         */
+        icon?: ReactNode;
+    };
 
 export const ContributorsCard: React.FC<ContributorsCardProps> = (props) => {
-    const { name, role, image, icon } = props;
-    const classes = useStyles(useTheme());
+    const { name, role, image, icon, ...stackProps } = props;
+
     return (
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
-            <div>
-                <Avatar src={image} classes={{ colorDefault: classes.colorDefault }}>
+        <Stack direction={'row'} alignItems={'center'} {...stackProps}>
+            <Box>
+                <Avatar
+                    src={image}
+                    sx={(theme): SystemStyleObject => ({
+                        backgroundColor: theme.palette.mode === 'light' ? 'primary.light' : 'primary.dark',
+                        color: theme.palette.mode === 'light' ? 'primary.main' : 'primary.light',
+                    })}
+                >
                     {icon || <Person />}
                 </Avatar>
-            </div>
-            <span className={clsx(classes.textContainer, { [classes.noRole]: !role })}>
-                <Typography noWrap variant={'subtitle2'} className={classes.title}>
-                    {name}
-                </Typography>
-                <Typography noWrap={false} variant={'caption'} color={'textSecondary'}>
-                    {role}
-                </Typography>
-            </span>
-        </div>
+            </Box>
+
+            <ListItemText
+                primary={name}
+                secondary={role}
+                primaryTypographyProps={{ variant: 'subtitle2', noWrap: true, sx: { textOverflow: 'sllipsis' } }}
+                secondaryTypographyProps={{ variant: 'caption', noWrap: false, color: 'textSecondary' }}
+                sx={{ ml: 2, flex: 1 }}
+            />
+        </Stack>
     );
 };

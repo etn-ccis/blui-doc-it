@@ -1,7 +1,7 @@
 import React from 'react';
-import { Grid, GridProps } from '@material-ui/core';
+import { Grid, GridProps } from '@mui/material';
 import { InfoCard } from '..';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 type Link = {
     title: string;
@@ -19,7 +19,7 @@ type LinkGridProps = GridProps & {
 
 export const LinkGrid: React.FC<LinkGridProps> = (props): JSX.Element => {
     const { links, ...gridProps } = props;
-    const history = useHistory();
+    const navigate = useNavigate();
     return (
         <Grid container spacing={6} {...gridProps}>
             {links.map((link) => (
@@ -28,7 +28,7 @@ export const LinkGrid: React.FC<LinkGridProps> = (props): JSX.Element => {
                         spacing={6}
                         source={link.image}
                         onClick={(): void => {
-                            if (link.url.startsWith('/')) history.push(link.url);
+                            if (link.url.startsWith('/')) navigate(link.url);
                             else window.open(link.url, '_blank');
                         }}
                         background={link.background}

@@ -1,5 +1,5 @@
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import { ThemeOptions } from '@material-ui/core';
+import { ThemeOptions } from '@mui/material';
+import { CSSProperties } from '@mui/styles';
 
 export type SiteConfig = {
     /**

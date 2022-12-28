@@ -5,38 +5,31 @@ import * as Progress from '@brightlayer-ui/react-progress-icons';
 import * as BluiColors from '@brightlayer-ui/colors';
 
 // Material-UI Components
-import { Typography, AppBar, Paper, Toolbar, makeStyles, FormControlLabel, Checkbox } from '@material-ui/core';
+import { Typography, AppBar, Paper, Toolbar, FormControlLabel, Checkbox, Box } from '@mui/material';
 import { BLUIColor } from '@brightlayer-ui/types';
 
 const size = 48;
 type ColorPalette = {
     [key: string]: BLUIColor;
 };
+// @ts-ignore TODO: Sort out these types
 const colorSet: ColorPalette = BluiColors;
 const colors = ['red', 'orange', 'gold', 'yellow', 'green', 'lightBlue', 'blue', 'purple', 'gray', 'black'];
 const weight = 300;
 
-const useStyles = makeStyles(() => ({
-    header: {
-        boxShadow: 'none',
-    },
-}));
-
 export const ProgressIconCard: React.FC = (): JSX.Element => {
-    const classes = useStyles();
-
     const [isOutlined, setIsOutlined] = React.useState(false);
 
     return (
         <Paper elevation={4}>
-            <AppBar position="static" color="primary" classes={{ root: classes.header }}>
+            <AppBar position="static" color="primary" sx={{ boxShadow: 'none' }}>
                 <Toolbar>
                     <Typography variant="h6" color="inherit" noWrap>
                         Brightlayer UI Progress Icons
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <Toolbar style={{ justifyContent: 'flex-end' }} variant={'dense'}>
+            <Toolbar sx={{ justifyContent: 'flex-end' }} variant={'dense'}>
                 <FormControlLabel
                     control={<Checkbox color="primary" onClick={(): void => setIsOutlined(!isOutlined)} />}
                     checked={isOutlined}
@@ -44,7 +37,7 @@ export const ProgressIconCard: React.FC = (): JSX.Element => {
                     labelPlacement={'start'}
                 />
             </Toolbar>
-            <div style={{ textAlign: 'center', padding: '0 24px 24px' }}>
+            <Box sx={{ textAlign: 'center', px: 3, pb: 3 }}>
                 <Typography variant={'h6'}>{'Battery'}</Typography>
                 {colors.map((key, index) => (
                     <Progress.Battery
@@ -99,7 +92,7 @@ export const ProgressIconCard: React.FC = (): JSX.Element => {
                         outlined={isOutlined}
                     />
                 ))}
-            </div>
+            </Box>
         </Paper>
     );
 };

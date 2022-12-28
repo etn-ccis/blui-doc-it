@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, useTheme } from '@material-ui/core';
+import { Typography, useTheme } from '@mui/material';
 import { LatestReleases } from '../../docs';
 import { ReleaseInfo } from '../../docs/release-notes';
 import { PageContent, Divider } from '../components';

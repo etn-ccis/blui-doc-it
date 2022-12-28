@@ -1,18 +1,18 @@
 import React from 'react';
 import { MaterialDesign } from '../../assets/icons';
 import { CTA_BUTTON } from '../../shared';
-import { OpenInNew } from '@material-ui/icons';
+import { OpenInNew } from '@mui/icons-material';
 import {
     Card,
     Typography,
     CardProps,
     CardActionArea,
-    makeStyles,
-    createStyles,
     Theme,
     useTheme,
     CardActionAreaProps,
-} from '@material-ui/core';
+    SxProps,
+    Box,
+} from '@mui/material';
 
 type MaterialDesignDescriptionProps = {
     // The icon used on the left
@@ -37,53 +37,44 @@ type MaterialDesignDescriptionProps = {
     minCardHeight?: 'unset' | number;
 } & CardProps;
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            width: CTA_BUTTON.WIDTH,
-            maxWidth: '100%',
-            marginBottom: theme.spacing(2),
-            marginRight: theme.spacing(2),
-            display: 'inline-block',
-            [theme.breakpoints.down('xs')]: {
-                marginRight: 0,
-            },
-        },
-        contentArea: {
-            flexDirection: 'row',
-            display: 'flex',
-            alignItems: 'flex-start',
-            padding: theme.spacing(1),
-            paddingBottom: theme.spacing(1.5),
-        },
-        textArea: {
-            flex: 1,
-            margin: `0 ${theme.spacing(2)}px`,
-        },
-        title: {
-            fontWeight: 600,
-        },
-    })
-);
+const styles: { [key: string]: SxProps<Theme> } = {
+    root: {
+        width: CTA_BUTTON.WIDTH,
+        maxWidth: '100%',
+        mb: 2,
+        mr: { xs: 0, sm: 2 },
+        display: 'inline-block',
+    },
+    contentArea: {
+        flexDirection: 'row',
+        display: 'flex',
+        alignItems: 'flex-start',
+        p: 1,
+        pb: 1.5,
+    },
+    textArea: {
+        flex: 1,
+        my: 0,
+        mx: 2,
+    },
+    title: {
+        fontWeight: 600,
+    },
+};
 
 export const MaterialDesignDescription: React.FC<MaterialDesignDescriptionProps> = (props): JSX.Element => {
     const theme = useTheme();
-    const classes = useStyles();
     const {
-        avatar = <MaterialDesign style={{ height: theme.spacing(6), width: theme.spacing(6) }} />,
+        avatar = <MaterialDesign sx={{ height: 48, width: 48 }} />,
         description = `Learn about Material Design's description of this pattern. Follow their guidance unless Brightlayer UI recommends specific changes.`,
-        icon = <OpenInNew style={{ color: theme.palette.text.hint }} />,
+        icon = <OpenInNew style={{ color: theme.palette.text.secondary }} />,
         title = `Material's Description`,
         url,
         minCardHeight,
         ...cardProps
     } = props;
     return (
-        <Card
-            className={classes.root}
-            variant={theme.palette.type === 'light' ? 'elevation' : 'outlined'}
-            {...cardProps}
-        >
+        <Card sx={styles.root} variant={theme.palette.mode === 'light' ? 'elevation' : 'outlined'} {...cardProps}>
             <CardActionArea
                 onClick={(e): void => {
                     if (e) {
@@ -92,16 +83,16 @@ export const MaterialDesignDescription: React.FC<MaterialDesignDescriptionProps>
                 }}
                 {...props.CardActionAreaProps}
             >
-                <div className={classes.contentArea} style={{ minHeight: minCardHeight || CTA_BUTTON.HEIGHT }}>
+                <Box sx={styles.contentArea} style={{ minHeight: minCardHeight || CTA_BUTTON.HEIGHT }}>
                     {avatar}
-                    <div className={classes.textArea}>
-                        <Typography variant={'body2'} className={classes.title}>
+                    <Box sx={styles.textArea}>
+                        <Typography variant={'body2'} sx={styles.title}>
                             {title}
                         </Typography>
                         <Typography variant={'caption'}>{description}</Typography>
-                    </div>
+                    </Box>
                     {icon}
-                </div>
+                </Box>
             </CardActionArea>
         </Card>
     );

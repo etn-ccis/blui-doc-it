@@ -15,7 +15,7 @@ export const MidAutumnSchedule: Schedule = {
             ...BLUIThemes.blueDark,
             palette: {
                 ...BLUIThemes.blueDark.palette,
-                type: 'dark',
+                mode: 'dark',
                 primary: {
                     light: Colors.yellow[200],
                     main: Colors.yellow[400],
@@ -25,43 +25,51 @@ export const MidAutumnSchedule: Schedule = {
                     main: Colors.red[500],
                 },
             },
-            overrides: {
-                ...BLUIThemes.blueDark.overrides,
+            components: {
+                ...BLUIThemes.blueDark.components,
                 MuiAppBar: {
-                    ...BLUIThemes.blueDark.overrides?.MuiAppBar,
-                    colorPrimary: {
-                        backgroundColor: BrandingColors.butter[500],
-                        color: Colors.black[700],
-                    },
-                    colorSecondary: {
-                        backgroundColor: BrandingColors.butter[700],
-                        color: Colors.black[700],
-                        '& .MuiInputBase-root': {
+                    styleOverrides: {
+                        ...BLUIThemes.blueDark.components?.MuiAppBar?.styleOverrides,
+                        colorPrimary: {
+                            backgroundColor: BrandingColors.butter[500],
                             color: Colors.black[700],
                         },
-                        '& .MuiSelect-icon': {
+                        colorSecondary: {
+                            backgroundColor: BrandingColors.butter[700],
                             color: Colors.black[700],
+                            '& .MuiInputBase-root': {
+                                color: Colors.black[700],
+                            },
+                            '& .MuiSelect-icon': {
+                                color: Colors.black[700],
+                            },
                         },
                     },
                 },
                 MuiButton: {},
                 MuiTabs: {
-                    indicator: {
-                        backgroundColor: Colors.red[500],
+                    styleOverrides: {
+                        indicator: {
+                            backgroundColor: Colors.red[500],
+                        },
                     },
                 },
                 MuiTab: {
-                    selected: {},
-                    textColorInherit: {
-                        '&$selected': {
-                            color: Colors.red[500],
+                    styleOverrides: {
+                        selected: {},
+                        textColorInherit: {
+                            '&.Mui-selected': {
+                                color: Colors.red[500],
+                            },
                         },
                     },
                 },
                 MuiFab: {
-                    primary: {
-                        backgroundColor: Colors.red[700],
-                        color: 'white',
+                    styleOverrides: {
+                        primary: {
+                            backgroundColor: Colors.red[700],
+                            color: 'white',
+                        },
                     },
                 },
             },

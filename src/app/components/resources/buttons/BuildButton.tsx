@@ -1,33 +1,24 @@
-import React, { ComponentProps, useState, useEffect } from 'react';
-import { IconButton, makeStyles, createStyles, Theme } from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
+import { IconButton, BoxProps, Box } from '@mui/material';
 // import axios from 'axios';
 import { getBuildStatus } from '../../../api';
 import * as Colors from '@brightlayer-ui/colors';
-import { CheckCircle, Cancel, RemoveCircle } from '@material-ui/icons';
+import { CheckCircle, Cancel, RemoveCircle } from '@mui/icons-material';
 
-type FontSize = 'default' | 'small' | 'inherit' | 'large' | undefined;
+type FontSize = 'medium' | 'small' | 'inherit' | 'large' | undefined;
 type BuildPassedStatus = boolean | undefined;
-type BuildButtonProps = ComponentProps<'div'> & {
+type BuildButtonProps = BoxProps & {
     small: boolean;
     link: string;
     repository: string;
     branches?: string[];
+    sx?: BoxProps['sx'];
 };
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        iconButton: {
-            color: Colors.gray[500],
-            padding: theme.spacing(1),
-            marginLeft: theme.spacing(1),
-        },
-    })
-);
 
 const getBuildIcon = (
     repository: string | undefined,
     status: boolean | undefined,
-    size: FontSize = 'default',
+    size: FontSize = 'medium',
     link?: string
 ): JSX.Element | null => {
     if (repository === undefined) return null;
@@ -44,7 +35,7 @@ const getBuildIcon = (
                           }
                         : undefined
                 }
-                style={{ cursor: 'pointer' }}
+                sx={{ cursor: 'pointer' }}
             />
         );
     } else if (status)
@@ -59,7 +50,7 @@ const getBuildIcon = (
                           }
                         : undefined
                 }
-                style={{ cursor: 'pointer' }}
+                sx={{ cursor: 'pointer' }}
             />
         );
 
@@ -74,14 +65,13 @@ const getBuildIcon = (
                       }
                     : undefined
             }
-            style={{ cursor: 'pointer' }}
+            sx={{ cursor: 'pointer' }}
         />
     );
 };
 
 export const BuildButton: React.FC<BuildButtonProps> = (props) => {
-    const { small, repository, branches, link } = props;
-    const classes = useStyles();
+    const { small, repository, branches, link, sx } = props;
     const [build, setBuild] = useState<BuildPassedStatus>();
 
     useEffect(() => {
@@ -103,7 +93,14 @@ export const BuildButton: React.FC<BuildButtonProps> = (props) => {
     return !small ? (
         <IconButton
             title={'Build Status'}
-            className={classes.iconButton}
+            sx={[
+                {
+                    color: Colors.gray[500],
+                    p: 1,
+                    ml: 1,
+                },
+                ...(Array.isArray(sx) ? sx : [sx]),
+            ]}
             onClick={(): void => {
                 window.open(link, '_blank');
             }}
@@ -111,6 +108,15 @@ export const BuildButton: React.FC<BuildButtonProps> = (props) => {
             {getBuildIcon(repository, build, 'small')}
         </IconButton>
     ) : (
-        getBuildIcon(repository, build, 'small', link)
+        <Box
+            sx={[
+                {
+                    ml: 2,
+                },
+                ...(Array.isArray(sx) ? sx : [sx]),
+            ]}
+        >
+            {getBuildIcon(repository, build, 'small', link)}
+        </Box>
     );
 };

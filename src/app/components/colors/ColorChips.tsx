@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Check, FileCopy } from '@material-ui/icons';
-import { Typography, Chip, Theme, makeStyles, useTheme } from '@material-ui/core';
+import { Check, FileCopy } from '@mui/icons-material';
+import { Typography, Chip, useTheme, Box, Theme } from '@mui/material';
 import color from 'color';
 import { copyTextToClipboard } from '../../shared';
-import clsx from 'clsx';
+import { SystemStyleObject } from '@mui/system';
 
 type ColorType = 'HEX' | 'RGB' | 'CMYK' | 'HSL';
 type ColorChipsProps = {
@@ -13,11 +13,15 @@ type ColorChipsProps = {
 
 const COLOR_NOT_AVAILABLE = '--';
 
-const useStyles = makeStyles((theme: Theme) => ({
-    root: { marginRight: theme.spacing(), marginBottom: theme.spacing(), position: 'relative' },
+const styles: { [key: string]: SystemStyleObject<Theme> } = {
+    root: {
+        mr: 1,
+        mb: 1,
+        position: 'relative',
+    },
     content: { display: 'flex', alignItems: 'center' },
-    divider: { color: theme.palette.divider, margin: `0 ${theme.spacing(0.5)}px` },
-    copyIcon: { fontSize: 16, marginLeft: theme.spacing() },
+    divider: { color: 'divider', my: 0, mx: 0.5 },
+    copyIcon: { fontSize: 16, ml: 1 },
     copiedOverlay: {
         position: 'absolute',
         top: 0,
@@ -32,16 +36,8 @@ const useStyles = makeStyles((theme: Theme) => ({
         borderRadius: 200,
         visibility: 'visible',
         opacity: 1,
-        '&$hidden': {
-            visibility: 'hidden',
-            transition: theme.transitions.create(['visibility', 'opacity'], {
-                duration: theme.transitions.duration.shorter,
-            }),
-            opacity: 0,
-        },
     },
-    hidden: {},
-}));
+};
 
 const getColorCode = (type: ColorType, hex: string): string => {
     const hslColor = color(hex).hsl().object();
@@ -65,7 +61,7 @@ const getColorCode = (type: ColorType, hex: string): string => {
 
 export const ColorChips: React.FC<ColorChipsProps> = (props) => {
     const theme = useTheme();
-    const classes = useStyles(theme);
+
     const [textCopied, setTextCopied] = useState(false);
     const colorCode = getColorCode(props.type, props.hex);
 
@@ -73,26 +69,42 @@ export const ColorChips: React.FC<ColorChipsProps> = (props) => {
         (type: ColorType, code: string): React.ReactNode => {
             const starredType = ['HSL', 'CMYK'].includes(type);
             return (
-                <div className={classes.content}>
-                    <div className={clsx(!textCopied && classes.hidden, classes.copiedOverlay)}>
+                <Box sx={styles.content}>
+                    <Box
+                        sx={[
+                            styles.copiedOverlay,
+                            (_theme): SystemStyleObject<Theme> =>
+                                !textCopied
+                                    ? {
+                                          visibility: 'hidden',
+                                          transition: _theme.transitions.create(['visibility', 'opacity'], {
+                                              duration: _theme.transitions.duration.shorter,
+                                          }),
+                                          opacity: 0,
+                                      }
+                                    : {},
+                        ]}
+                    >
                         Copied
                         <Check fontSize="inherit" />
-                    </div>
+                    </Box>
                     <Typography variant={'overline'} color={'textSecondary'}>
                         {type}
                         {starredType && '*'}
                     </Typography>
-                    <span className={classes.divider}>|</span>
+                    <Box component={'span'} sx={styles.divider}>
+                        |
+                    </Box>
                     <Typography variant={'caption'} color={'textPrimary'} style={{ fontFamily: 'Roboto Mono' }}>
                         {code}
                     </Typography>
                     {code !== COLOR_NOT_AVAILABLE && (
-                        <FileCopy className={classes.copyIcon} htmlColor={theme.palette.text.secondary} />
+                        <FileCopy sx={styles.copyIcon} htmlColor={theme.palette.text.secondary} />
                     )}
-                </div>
+                </Box>
             );
         },
-        [theme, textCopied]
+        [textCopied]
     );
 
     useEffect(() => {
@@ -111,13 +123,13 @@ export const ColorChips: React.FC<ColorChipsProps> = (props) => {
         <Chip
             clickable
             disabled={colorCode === COLOR_NOT_AVAILABLE}
-            variant={colorCode === COLOR_NOT_AVAILABLE ? 'outlined' : 'default'}
+            variant={colorCode === COLOR_NOT_AVAILABLE ? 'outlined' : 'filled'}
             onClick={(): void => {
                 copyTextToClipboard(colorCode, () => {
                     setTextCopied(true);
                 });
             }}
-            className={classes.root}
+            sx={styles.root}
             label={getChipContent(props.type, colorCode)}
         />
     );

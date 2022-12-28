@@ -1,8 +1,7 @@
 import React from 'react';
-import { makeStyles, createStyles, Theme, Card, Typography, CardProps, Chip, useTheme } from '@material-ui/core';
+import { Theme, Card, Typography, CardProps, Chip, useTheme, SxProps, Box } from '@mui/material';
 import { Angular, ReactBlue } from '../../assets/icons';
 import { CTA_BUTTON } from '../../shared';
-import clsx from 'clsx';
 
 type Framework = 'angular' | 'react' | 'react-native';
 type DemoCardProps = CardProps & {
@@ -48,34 +47,30 @@ const getDetails = (repository: string, framework: string): Details => {
     }
 };
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        button: {
-            fontWeight: 600,
-            margin: theme.spacing(0.5),
-        },
-        demoCard: {
-            width: CTA_BUTTON.WIDTH,
-            maxWidth: '100%',
-            margin: `0 auto`,
-            padding: theme.spacing(1.5),
-            // borderLeft: `${theme.spacing(1)}px solid ${theme.palette.secondary.main}`,
-            marginBottom: theme.spacing(2),
-            marginRight: theme.spacing(2),
-            display: 'inline-block',
-            minHeight: CTA_BUTTON.HEIGHT,
-        },
-        demoTitle: {
-            margin: theme.spacing(0.5),
-            marginBottom: theme.spacing(1),
-            fontWeight: 600,
-        },
-    })
-);
+const styles: { [key: string]: SxProps<Theme> } = {
+    button: {
+        fontWeight: 600,
+        m: 0.5,
+    },
+    demoCard: {
+        width: CTA_BUTTON.WIDTH,
+        maxWidth: '100%',
+        m: `0 auto`,
+        p: 1.5,
+        mb: 2,
+        mr: 2,
+        display: 'inline-block',
+        minHeight: CTA_BUTTON.HEIGHT,
+    },
+    demoTitle: {
+        m: 0.5,
+        mb: 1,
+        fontWeight: 600,
+    },
+};
 
 const DemoButton: React.FC<DemoButtonProps> = (props): JSX.Element => {
     const { framework, repository } = props;
-    const classes = useStyles();
     const { url, displayName, icon } = getDetails(repository, framework);
     return (
         <Chip
@@ -84,7 +79,7 @@ const DemoButton: React.FC<DemoButtonProps> = (props): JSX.Element => {
             onClick={(): void => {
                 window.open(typeof props.url === 'string' ? props.url : url, '_blank');
             }}
-            className={classes.button}
+            sx={styles.button}
             variant="outlined"
         />
     );
@@ -92,21 +87,16 @@ const DemoButton: React.FC<DemoButtonProps> = (props): JSX.Element => {
 
 export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
     const { repository, angular, react, reactNative, ...cardProps } = props;
-    const classes = useStyles();
     const theme = useTheme();
     return (
-        <Card
-            className={clsx(classes.demoCard)}
-            variant={theme.palette.type === 'light' ? 'elevation' : 'outlined'}
-            {...cardProps}
-        >
-            <div className={classes.demoTitle}>
-                <Typography variant={'subtitle1'} style={{ lineHeight: 1, fontWeight: 'inherit' }}>
+        <Card sx={styles.demoCard} variant={theme.palette.mode === 'light' ? 'elevation' : 'outlined'} {...cardProps}>
+            <Box sx={styles.demoTitle}>
+                <Typography variant={'subtitle1'} sx={{ lineHeight: 1, fontWeight: 'inherit' }}>
                     INTERACTIVE EXAMPLE
                 </Typography>
                 <Typography variant={'caption'}>{repository}</Typography>
-            </div>
-            <div style={{ textAlign: 'center' }}>
+            </Box>
+            <Box sx={{ textAlign: 'center' }}>
                 {angular && (
                     <DemoButton
                         repository={repository}
@@ -125,7 +115,7 @@ export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
                     //     url={reactNative === true ? undefined : reactNative}
                     // />
                 )}
-            </div>
+            </Box>
         </Card>
     );
 };

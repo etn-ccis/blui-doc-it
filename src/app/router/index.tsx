@@ -1,39 +1,35 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Navigate, Outlet, Route, Routes, useLocation } from 'react-router-dom';
 import { LandingPage } from '../pages';
 import { DrawerLayout } from '@brightlayer-ui/react-components';
 import { ContactFab, SharedToolbar } from '../components';
 import { NavigationDrawer } from './navigationDrawer';
 import { AppState } from '../redux/reducers';
-import { Menu } from '@material-ui/icons';
+import { Menu } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
 import { pageDefinitions, pageRedirects, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
-import {
-    AppBar,
-    createStyles,
-    makeStyles,
-    Theme,
-    Toolbar,
-    Typography,
-    useMediaQuery,
-    useTheme,
-} from '@material-ui/core';
+import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import * as Colors from '@brightlayer-ui/colors';
 import { AnnouncementAppbar } from '../components/announcements/announcementAppbar';
+import { SystemStyleObject } from '@mui/system';
 
 const buildRoutes = (routes: SimpleNavItem[], url: string): JSX.Element[] => {
     let ret: any[] = [];
     for (let i = 0; i < routes.length; i++) {
         if (routes[i].component) {
             ret.push(
-                <Route exact path={`${url}${routes[i].url || ''}`} key={`${url}/${routes[i].url || ''}`}>
-                    {routes[i].component}
-                </Route>
+                <Route
+                    path={`${url === '' ? '' : `${url}/`}${routes[i].url || ''}`}
+                    key={`${url}/${routes[i].url || ''}`}
+                    element={routes[i].component}
+                />
             );
         }
         if (routes[i].pages) {
-            ret = ret.concat(buildRoutes(routes[i].pages || [], `${url}${routes[i].url || ''}`));
+            ret = ret.concat(
+                buildRoutes(routes[i].pages || [], `${url === '' ? '' : `${url}/`}${routes[i].url || ''}`)
+            );
         }
     }
     return ret;
@@ -42,30 +38,12 @@ const buildRoutes = (routes: SimpleNavItem[], url: string): JSX.Element[] => {
 const buildRedirects = (): JSX.Element[] => {
     const ret: JSX.Element[] = [];
     for (let i = 0; i < pageRedirects.length; i++) {
-        ret.push(<Redirect exact from={pageRedirects[i].oldUrl} to={pageRedirects[i].newUrl} key={i} />);
+        ret.push(
+            <Route path={pageRedirects[i].oldUrl} key={i} element={<Navigate replace to={pageRedirects[i].newUrl} />} />
+        );
     }
     return ret;
 };
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        footer: {
-            zIndex: 0,
-            backgroundColor: Colors.black[900],
-            color: Colors.black[50],
-            textAlign: 'center',
-            marginTop: '50vh',
-            transform: 'inherit',
-            transition: theme.transitions.create('width'),
-        },
-        drawerHeightWithBanner: {
-            height: `calc(100% - ${theme.spacing(8)}px)`,
-            [theme.breakpoints.down('xs')]: {
-                height: `calc(100% - ${theme.spacing(7)}px)`,
-            },
-        },
-    })
-);
 
 const ScrollToTop = (): any => {
     const { pathname, hash } = useLocation();
@@ -91,11 +69,8 @@ const ScrollToTop = (): any => {
 
 export const MainRouter = (): JSX.Element => {
     const title = useSelector((state: AppState) => state.app.pageTitle);
-    const classes = useStyles();
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    const toolbarHeight = isMobile ? 104 : 112;
-    const className = getScheduledSiteConfig().className;
+    const selectedTheme = useSelector((state: AppState) => state.app.theme);
+    const className = getScheduledSiteConfig(selectedTheme).className;
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
     const showBanner = useSelector((state: AppState) => state.app.showBanner);
     return (
@@ -105,42 +80,58 @@ export const MainRouter = (): JSX.Element => {
             <DrawerLayout
                 drawer={<NavigationDrawer />}
                 className={className}
-                classes={{ drawer: showBanner ? classes.drawerHeightWithBanner : undefined }}
+                sx={(theme): SystemStyleObject => ({
+                    display: 'block',
+                    '& .BluiDrawerLayout-drawer': {
+                        height: showBanner
+                            ? { xs: `calc(100% - ${theme.spacing(7)}px)`, sm: `calc(100% - ${theme.spacing(8)}px)` }
+                            : undefined,
+                        zIndex: 'modal',
+                    },
+                })}
             >
-                <Switch>
-                    <Route exact path="/">
-                        <LandingPage />
-                    </Route>
-                    <Route path="*">
-                        <>
-                            <SharedToolbar title={title} navigationIcon={<Menu />} />
-                            <div style={{ minHeight: `calc(50vh - ${toolbarHeight}px)` }}>
-                                <Switch>
-                                    {buildRoutes(pageDefinitions, '')}
-                                    {buildRedirects()}
+                <Routes>
+                    <Route path="/" element={<LandingPage />} />
 
-                                    {/* Catch-All Redirect to Landing Page */}
-                                    <Route path="*">
-                                        <Redirect to={'/'} />
-                                    </Route>
-                                </Switch>
-                            </div>
-                            {/* Footer Section */}
-                            <AppBar
-                                position={'static'}
-                                className={classes.footer}
-                                elevation={0}
-                                style={{ width: `calc(100% - ${sidebarOpen ? 350 : 0}px)` }}
-                            >
-                                <Toolbar variant={'dense'}>
-                                    <Typography variant={'caption'} align={'center'} style={{ flex: '1 1 0px' }}>
-                                        {`Copyright ${new Date().getFullYear()} Eaton. Licensed under BSD-3-Clause.`}
-                                    </Typography>
-                                </Toolbar>
-                            </AppBar>
-                        </>
+                    <Route
+                        path="*"
+                        element={
+                            <>
+                                <SharedToolbar title={title} navigationIcon={<Menu />} />
+                                <Box sx={{ minHeight: { xs: `calc(50vh - ${104}px)`, sm: `calc(50vh - ${112}px)` } }}>
+                                    <Outlet />
+                                </Box>
+                                {/* Footer Section */}
+                                <AppBar
+                                    position={'static'}
+                                    sx={(theme): SystemStyleObject => ({
+                                        zIndex: 0,
+                                        backgroundColor: Colors.black[900],
+                                        color: Colors.black[50],
+                                        textAlign: 'center',
+                                        mt: '50vh',
+                                        transform: 'inherit',
+                                        transition: theme.transitions.create('width'),
+                                    })}
+                                    elevation={0}
+                                    style={{ width: `calc(100% - ${sidebarOpen ? 350 : 0}px)` }}
+                                >
+                                    <Toolbar variant={'dense'}>
+                                        <Typography variant={'caption'} align={'center'} style={{ flex: '1 1 0px' }}>
+                                            {`Copyright ${new Date().getFullYear()} Eaton. Licensed under BSD-3-Clause.`}
+                                        </Typography>
+                                    </Toolbar>
+                                </AppBar>
+                            </>
+                        }
+                    >
+                        {buildRoutes(pageDefinitions, '')}
+                        {buildRedirects()}
+
+                        {/* Catch-All Redirect to Landing Page */}
+                        <Route path="*" element={<Navigate replace to={'/'} />} />
                     </Route>
-                </Switch>
+                </Routes>
                 <ContactFab />
             </DrawerLayout>
         </Router>

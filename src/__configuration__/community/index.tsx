@@ -1,7 +1,19 @@
 import React from 'react';
-import { Gavel, BugReport, EmojiObjects, QuestionAnswer, Group, Drafts, ImportExport } from '@material-ui/icons';
+import {
+    Gavel,
+    BugReport,
+    EmojiObjects,
+    QuestionAnswer,
+    Group,
+    Drafts,
+    ImportExport,
+    Devices,
+} from '@mui/icons-material';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
+
+export * from './BluiProjects';
+export * from './BluiProjectsType';
 
 export const links = [
     {
@@ -15,6 +27,19 @@ export const links = [
         ),
         background: {
             color: BrandingColors.sky[500],
+        },
+    },
+    {
+        title: 'Apps Using Brightlayer UI',
+        url: '/community/blui-projects',
+        description: `A list of published projects built using Brightlayer UI.`,
+        image: (
+            <span style={{ fontSize: 120, color: 'white', display: 'flex' }}>
+                <Devices fontSize={'inherit'} color={'inherit'} />
+            </span>
+        ),
+        background: {
+            color: Colors.green[300],
         },
     },
     {

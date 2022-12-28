@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import debounce from 'lodash/debounce';
+import debounce from 'lodash.debounce';
 import FlexSearch from 'flexsearch';
 
 // Brightlayer UI Icons and Symbols
-import * as MuiIcons from '@material-ui/icons';
+import * as MuiIcons from '@mui/icons-material';
 import * as BLUIIcons from '@brightlayer-ui/icons-mui';
 import bluiMetadata from '@brightlayer-ui/icons-mui/index.json';
 
@@ -15,10 +15,9 @@ import { IconSearchBar } from './IconSearchBar';
 import { IconGrid } from './IconGrid';
 import { IconDrawer } from './IconDrawer';
 import { SelectedIconContext } from '../../contexts/selectedIconContextProvider';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useQueryString } from '../../hooks/useQueryString';
-import { Grid, Typography, useTheme } from '@material-ui/core';
-import { Skeleton } from '@material-ui/lab';
+import { Grid, Skeleton, Typography, useTheme } from '@mui/material';
 import { titleCase } from '../../shared';
 import { useDispatch } from 'react-redux';
 import { TOGGLE_SIDEBAR } from '../../redux/actions';
@@ -193,7 +192,7 @@ const parseBoolean = (str: string): boolean | undefined => {
  */
 export const IconBrowser: React.FC = (): JSX.Element => {
     const theme = useTheme();
-    const history = useHistory();
+    const navigate = useNavigate();
     const location = useLocation();
     const dispatch = useDispatch();
     const { icon: iconQuery, isMaterial: materialQuery } = useQueryString();
@@ -236,12 +235,14 @@ export const IconBrowser: React.FC = (): JSX.Element => {
         if (!iconQuery || iconQuery === '') setSelectedIcon(undefined);
     }, [iconQuery, setSelectedIcon]);
 
-    const handleSelect = useCallback((event) => {
-        const iconName = event.currentTarget.getAttribute('data-iconid').split('-');
+    const handleSelect = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
+        const iconName = event?.currentTarget?.getAttribute('data-iconid')?.split('-');
+        if (!iconName) return;
 
         setSelectedIcon(allIconsMap[iconName.join('-')]);
-        history.replace(
-            `${location.pathname}?icon=${iconName[0]}&isMaterial=${iconName[1] === 'material' ? 'true' : 'false'}`
+        navigate(
+            `${location.pathname}?icon=${iconName[0]}&isMaterial=${iconName[1] === 'material' ? 'true' : 'false'}`,
+            { replace: true }
         );
         dispatch({ type: TOGGLE_SIDEBAR, payload: true });
     }, []);
@@ -317,12 +318,12 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                     {Array(24)
                         .fill('')
                         .map((item, ind) => (
-                            <Grid item xs={4} sm={4} md={3} lg={2} key={`${ind}`} style={{ minHeight: 137 }}>
+                            <Grid item xs={4} sm={4} md={3} lg={2} key={`${ind}`} sx={{ minHeight: 137 }}>
                                 <Skeleton
-                                    variant={'rect'}
-                                    style={{ width: 48, height: 48, borderRadius: 24, margin: 'auto' }}
+                                    variant={'rectangular'}
+                                    sx={{ width: 48, height: 48, borderRadius: 6, margin: 'auto' }}
                                 />
-                                <Skeleton variant={'text'} style={{ height: 32, maxWidth: 100, margin: 'auto' }} />
+                                <Skeleton variant={'text'} sx={{ height: 32, maxWidth: 100, margin: 'auto' }} />
                             </Grid>
                         ))}
                 </Grid>
@@ -335,10 +336,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                         iconsByCategory[category].length > 0 &&
                         (iconCategories === null || iconCategories.includes(category)) ? (
                             <React.Fragment key={`category_${category}`}>
-                                <Typography
-                                    variant={'h6'}
-                                    style={{ marginTop: theme.spacing(3), marginBottom: theme.spacing(3) }}
-                                >
+                                <Typography variant={'h6'} sx={{ my: 3 }}>
                                     {titleCase(category)}
                                 </Typography>
                                 <IconGrid icons={iconsByCategory[category]} onIconSelected={handleSelect} />
@@ -350,7 +348,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                     title={'0 Matches'}
                     description={'No icons matched your filters.'}
                     icon={<MuiIcons.Search fontSize={'inherit'} />}
-                    style={{ height: 300, minHeight: 300 }}
+                    sx={{ height: 300, minHeight: 300 }}
                 />
             )}
             <IconDrawer />

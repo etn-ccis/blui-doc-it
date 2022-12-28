@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { AppBar, Toolbar, IconButton, useTheme, makeStyles, createStyles } from '@material-ui/core';
-import { Close } from '@material-ui/icons';
+import { AppBar, Toolbar, IconButton, useTheme, Box, SxProps } from '@mui/material';
+import { Close } from '@mui/icons-material';
 import { Spacer } from '@brightlayer-ui/react-components';
 import { getAnnouncementDetails } from '../../api';
 import { AnnouncementData } from '../../../__types__';
@@ -13,24 +13,21 @@ type BannerData = {
     bannerDismissed: boolean;
     id: number;
 };
-const useStyles = makeStyles(() =>
-    createStyles({
-        bannerContainer: {
-            '& > a': {
-                textDecoration: 'underline',
-                cursor: 'pointer',
-                color: Colors.white[50],
-            },
+const styles: { [key: string]: SxProps } = {
+    bannerContainer: {
+        '& > a': {
+            textDecoration: 'underline',
+            cursor: 'pointer',
+            color: Colors.white[50],
         },
-    })
-);
+    },
+};
 
 export const AnnouncementAppbar: React.FC = () => {
     const [announcementDetails, setAnnouncementDetails] = useState<AnnouncementData>();
     const environment = process.env.NODE_ENV;
     const [showBanner, setShowBanner] = useState(true);
     const theme = useTheme();
-    const classes = useStyles();
     const dispatch = useDispatch();
 
     const getPreviousBanner = (): BannerData => {
@@ -101,8 +98,8 @@ export const AnnouncementAppbar: React.FC = () => {
             {announcementDetails && showBanner && (
                 <AppBar position="sticky" color={'secondary'} elevation={0}>
                     <Toolbar>
-                        <div
-                            className={classes.bannerContainer}
+                        <Box
+                            sx={styles.bannerContainer}
                             // eslint-disable-next-line @typescript-eslint/naming-convention
                             dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(announcementDetails?.bannerContent) }}
                         />

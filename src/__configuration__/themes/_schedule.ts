@@ -1,7 +1,8 @@
 import { HalloweenSchedule } from './halloween';
 import { MayTheFourthSchedule } from './may-the-fourth';
 import { ChristmasSchedule } from './christmas';
-import { defaultTheme } from './default';
+import { blueTheme } from './blue';
+import { blueDarkTheme } from './blueDark';
 import { Schedule, SiteConfig } from './_types';
 import { DiwaliSchedule } from './diwali';
 import { WomenSDaySchedule } from './women-s-day';
@@ -57,10 +58,54 @@ export const schedule: Schedule[] = [
     ValentineSchedule,
 ];
 
+export const getSelectedSiteConfig = (key: string): SiteConfig => {
+    switch (key) {
+        case 'thanksgiving':
+            return ThanksgivingSchedule.config;
+        case 'womens-day':
+            return WomenSDaySchedule.config;
+        case 'diwali':
+            return DiwaliSchedule.config;
+        case 'christmas':
+            return ChristmasSchedule.config;
+        case 'halloween':
+            return HalloweenSchedule.config;
+        case 'april-fools':
+            return AprilFoolsDaySchedule.config;
+        case 'may-fourth':
+            return MayTheFourthSchedule.config;
+        case 'hanukkah':
+            return HanukkahSchedule.config;
+        case 'kwanzaa':
+            return KwanzaaSchedule.config;
+        case 'new-years':
+            return NewYearsSchedule.config;
+        case 'spring-festival':
+            return SpringFestivalSchedule.config;
+        case 'st-patricks':
+            return StPatricksDaySchedule.config;
+        case 'earth-day':
+            return EarthDaySchedule.config;
+        case 'independence-day':
+            return IndependenceDaySchedule.config;
+        case 'mid-autumn-festival':
+            return MidAutumnSchedule.config;
+        case 'valentines-day':
+            return ValentineSchedule.config;
+        case 'dark':
+            return blueDarkTheme;
+        case 'blue':
+        default:
+            return blueTheme;
+    }
+};
+
 /**
  * @returns a site configuration given the currently applied holiday theme
  */
-export const getScheduledSiteConfig = (): SiteConfig => {
+export const getScheduledSiteConfig = (theme?: string): SiteConfig => {
+    if (theme && theme !== 'default') return getSelectedSiteConfig(theme);
+
     const currentDate = new Date();
     currentDate.setFullYear(1900);
 
@@ -83,5 +128,5 @@ export const getScheduledSiteConfig = (): SiteConfig => {
         }
     }
     // didn't find a holiday theme, fall back to the default blue theme
-    return defaultTheme;
+    return blueTheme;
 };
