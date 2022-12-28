@@ -43,7 +43,7 @@ export const getBuildStatus = async (repository: string, branches: string[]): Pr
         for (const branch of branches) {
             results.push(
                 circleci.get(
-                    `/${repository}/tree/${branch.replace('-', '')}?limit=1&filter=completed&circle-token=${
+                    `blui-${repository}/tree/${branch.replace('-', '')}?limit=1&filter=completed&circle-token=${
                         process.env.REACT_APP_DOCIT_CIRCLECI_TOKEN || ''
                     }`
                 )
