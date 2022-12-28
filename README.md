@@ -9,7 +9,7 @@ Doc-It is the source code for the brightlayer-ui.github.io documentation site fo
 To contribute to the documentation site, you will need to clone a local copy of the repository:
 
 ```
-git clone https://github.com/brightlayer-ui/doc-it
+git clone https://github.com/etn-ccis/blui-doc-it
 ```
 
 You can then install the necessary dependencies and run a local instance with the following commands:

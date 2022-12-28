@@ -217,7 +217,7 @@ export const resources: ResourceBucket[] = [
                 name: '@brightlayer-ui/cli',
                 description: 'Command Line Interface for starting projects',
                 package: '@brightlayer-ui/cli',
-                repository: 'brightlayer-ui-cli',
+                repository: 'cli',
             },
         ],
     },

@@ -30,7 +30,7 @@ export const UniversalIconBrowser: React.FC = () => {
                         sx={{ m: -1.5 }}
                         onClick={(): void => {
                             window.open(
-                                `https://github.com/brightlayer-ui/doc-it/blob/dev/src/__configuration__/style/universalIcons.tsx`
+                                `https://github.com/etn-ccis/blui-doc-it/edit/dev/src/__configuration__/style/universalIcons.tsx`
                             );
                         }}
                     >

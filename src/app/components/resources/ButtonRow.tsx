@@ -23,9 +23,9 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
         : undefined;
 
     const bugString = (bugLabels ? [...bugLabels, 'bug'] : ['bug']).map((label) => `+label%3A${label}`).join('');
-    const bugLink = `https://github.com/brightlayer-ui/${repository}/issues?q=is%3Aissue+is%3Aopen${bugString}`;
+    const bugLink = `https://github.com/etn-ccis/blui-${repository}/issues?q=is%3Aissue+is%3Aopen${bugString}`;
     const buildLink = `https://circleci.com/gh/brightlayer-ui/${repository}${branch ? `/tree/${branch}` : ''}`;
-    const repoLink = `https://github.com/brightlayer-ui/${repository}${branch ? `/tree/${branch}` : ''}`;
+    const repoLink = `https://github.com/etn-ccis/blui-${repository}${branch ? `/tree/${branch}` : ''}`;
 
     return (
         <>
