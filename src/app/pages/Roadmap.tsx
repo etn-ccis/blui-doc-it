@@ -192,7 +192,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     />
                 );
             }
-            if (author !== undefined && author !== 'Brightlayer UI') {
+            if (author !== undefined && author !== 'Brightlayer UI' && author !== 'PX Blue') {
                 statusTags.push(
                     <ListItemTag
                         key={`${item.name}_author`}
