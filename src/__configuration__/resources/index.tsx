@@ -301,14 +301,14 @@ export const resources: ResourceBucket[] = [
                 description: 'Web design patterns made using the Angular framework',
                 repository: 'angular-design-patterns',
                 applies: ['angular'],
-                demoUrl: 'https://stackblitz.com/github/brightlayer-ui/angular-design-patterns/tree/master',
+                demoUrl: 'https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master',
             },
             {
                 name: 'react-design-patterns',
                 description: 'Web design patterns made using the React framework',
                 repository: 'react-design-patterns',
                 applies: ['react'],
-                demoUrl: 'https://codesandbox.io/s/github/brightlayer-ui/react-design-patterns/tree/master',
+                demoUrl: 'https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master',
             },
             {
                 name: 'react-native-design-patterns',

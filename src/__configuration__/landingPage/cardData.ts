@@ -49,7 +49,7 @@ export const cardData = [
         title: 'GitHub',
         description: `All Brightlayer UI resources and materials are open source and available for viewing on our GitHub organization.`,
         image: github,
-        path: 'https://github.com/brightlayer-ui',
+        path: 'https://github.com/etn-ccis?q=blui',
     },
     {
         title: 'Community',
