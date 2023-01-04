@@ -4,7 +4,7 @@ Thank you for helping to make Brightlayer UI projects great and being a part of 
 
 ## Code of Conduct
 
-Brightlayer UI has adopted the [Contributor Covenant](https://www.contributor-covenant.org/) as its Code of Conduct, and we expect project participants to adhere to it. Please read [the document](https://github.com/brightlayer-ui/.github/blob/master/CODE_OF_CONDUCT.md) so that you can understand what will and will not be tolerated.
+Brightlayer UI has adopted the [Contributor Covenant](https://www.contributor-covenant.org/) as its Code of Conduct, and we expect project participants to adhere to it. Please read [the document](https://github.com/etn-ccis/blui-doc-it/blob/master/src/docs/community/code-of-conduct.md) so that you can understand what will and will not be tolerated.
 
 ## Contributions
 
@@ -22,8 +22,6 @@ If you decide to fix an issue, please check the comments in the issues section o
 ## Branch Naming and Pull Request Workflow
 
 We have an established convention for branch naming and commit messages following the rules below. We ask that you also adhere to these rules to maximize the likelihood of your submission being accepted.
-
-> **Pro Tip:** to automatically enforce these conventions, you can use our [git hooks](https://github.com/brightlayer-ui/.github/tree/master/hooks) configuration.
 
 ### Branch Naming Conventions:
 
