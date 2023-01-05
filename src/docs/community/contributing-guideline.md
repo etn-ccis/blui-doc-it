@@ -130,4 +130,4 @@ Want to know where Brightlayer UI is heading or ideas on where you could contrib
 
 ## License
 
-By contributing to the Brightlayer UI GitHub organization, you agree to license your contribution under the [BSD-3-Clause license](https://github.com/brightlayer-ui/.github/blob/master/LICENSE).
+By contributing to the Brightlayer UI GitHub organization, you agree to license your contribution under the [BSD-3-Clause license](https://brightlayer-ui.github.io/community/license).
