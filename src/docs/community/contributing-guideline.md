@@ -69,9 +69,9 @@ Brightlayer UI is a community with many projects, so pull requests are always we
 2. Clone the fork repository to your local machine and add upstream remote:
 
 ```
-git clone https://github.com/<your-user-id>/<repository> -b <branch-name>
+git clone https://github.com/<your-user-id>/<repository-name> -b <branch-name>
 cd <repository>
-git remote add upstream https://github.com/brightlayer-ui/<repository-name>
+git remote add upstream https://github.com/etn-ccis/<repository-name>
 ```
 
 3. Synchronize your local branch with the upstream one:
@@ -102,8 +102,8 @@ git checkout -b bug/my-topic-branch
 6. Make changes and verify the code.
    Pull requests will only be accepted if they pass the following mandatory checks:
 
--   the code is formatted via `yarn prettier` with the [Brightlayer UI prettier](https://github.com/brightlayer-ui/code-standards/tree/dev/prettier-config) configuration
--   the code is linted via `yarn lint` using the [Brightlayer UI ESLint](https://github.com/brightlayer-ui/code-standards/tree/dev/eslint-config) configuration
+-   the code is formatted via `yarn prettier` with the [Brightlayer UI prettier](https://github.com/etn-ccis/blui-code-standards/tree/master/prettier-config) configuration
+-   the code is linted via `yarn lint` using the [Brightlayer UI ESLint](https://github.com/etn-ccis/blui-code-standards/tree/master/eslint-config) configuration
 -   the code builds successfully via `yarn build` (where appropriate).
 -   the code passes all tests via `yarn test` (some repositories include additional tests that must also pass).
 -   the branch name, commit messages, and pull request formats adhere to the requirements described above.
@@ -114,7 +114,7 @@ git checkout -b bug/my-topic-branch
 git push –set-upstream origin <your branch name>
 ```
 
-8. Go to the proper [Brightlayer UI repository](https://github.com/brightlayer-ui) and make a Pull Request.
+8. Go to the proper [Brightlayer UI repository](https://github.com/etn-ccis?q=blui) and make a Pull Request.
 
 The maintainers of Brightlayer UI will be notified and will review your pull request and either merge it, request changes to it, or close it with an explanation.
 
