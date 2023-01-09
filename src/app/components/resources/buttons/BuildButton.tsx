@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IconButton, BoxProps, Box } from '@mui/material';
+import { IconButton, BoxProps, Box, Tooltip } from '@mui/material';
 // import axios from 'axios';
 import { getBuildStatus } from '../../../api';
 import * as Colors from '@brightlayer-ui/colors';
@@ -91,22 +91,23 @@ export const BuildButton: React.FC<BuildButtonProps> = (props) => {
     }, [branches, repository]);
 
     return !small ? (
-        <IconButton
-            title={'Build Status'}
-            sx={[
-                {
-                    color: Colors.gray[500],
-                    p: 1,
-                    ml: 1,
-                },
-                ...(Array.isArray(sx) ? sx : [sx]),
-            ]}
-            onClick={(): void => {
-                window.open(link, '_blank');
-            }}
-        >
-            {getBuildIcon(repository, build, 'small')}
-        </IconButton>
+        <Tooltip title={'Build Status'}>
+            <IconButton
+                sx={[
+                    {
+                        color: Colors.gray[500],
+                        p: 1,
+                        ml: 1,
+                    },
+                    ...(Array.isArray(sx) ? sx : [sx]),
+                ]}
+                onClick={(): void => {
+                    window.open(link, '_blank');
+                }}
+            >
+                {getBuildIcon(repository, build, 'small')}
+            </IconButton>
+        </Tooltip>
     ) : (
         <Box
             sx={[

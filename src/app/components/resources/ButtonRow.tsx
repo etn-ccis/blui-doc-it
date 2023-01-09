@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconButton } from '@mui/material';
+import { IconButton, Tooltip } from '@mui/material';
 import { GitHub } from '../../assets/icons/github';
 import { Spacer } from '@brightlayer-ui/react-components';
 import * as Colors from '@brightlayer-ui/colors';
@@ -23,9 +23,9 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
         : undefined;
 
     const bugString = (bugLabels ? [...bugLabels, 'bug'] : ['bug']).map((label) => `+label%3A${label}`).join('');
-    const bugLink = `https://github.com/brightlayer-ui/${repository}/issues?q=is%3Aissue+is%3Aopen${bugString}`;
-    const buildLink = `https://circleci.com/gh/brightlayer-ui/${repository}${branch ? `/tree/${branch}` : ''}`;
-    const repoLink = `https://github.com/brightlayer-ui/${repository}${branch ? `/tree/${branch}` : ''}`;
+    const bugLink = `https://github.com/etn-ccis/blui-${repository}/issues?q=is%3Aissue+is%3Aopen${bugString}`;
+    const buildLink = `https://circleci.com/gh/etn-ccis/blui-${repository}${branch ? `/tree/${branch}` : ''}`;
+    const repoLink = `https://github.com/etn-ccis/blui-${repository}${branch ? `/tree/${branch}` : ''}`;
 
     return (
         <>
@@ -55,20 +55,21 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
             {small && <Spacer flex={0} width={8} />}
 
             {!small && (
-                <IconButton
-                    title={'View GitHub Repository'}
-                    sx={{
-                        color: Colors.gray[500],
-                        p: 1,
-                        ml: 1,
-                        '&:hover': { color: 'primary.main' },
-                    }}
-                    onClick={(): void => {
-                        window.open(repoLink, '_blank');
-                    }}
-                >
-                    <GitHub />
-                </IconButton>
+                <Tooltip title={'View GitHub Repository'}>
+                    <IconButton
+                        sx={{
+                            color: Colors.gray[500],
+                            p: 1,
+                            ml: 1,
+                            '&:hover': { color: 'primary.main' },
+                        }}
+                        onClick={(): void => {
+                            window.open(repoLink, '_blank');
+                        }}
+                    >
+                        <GitHub />
+                    </IconButton>
+                </Tooltip>
             )}
         </>
     );

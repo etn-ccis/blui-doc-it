@@ -27,13 +27,13 @@ const getDetails = (repository: string, framework: string): Details => {
     switch (framework) {
         case 'angular':
             return {
-                url: `https://stackblitz.com/github/brightlayer-ui/${repository}/tree/angular`,
+                url: `https://stackblitz.com/github/etn-ccis/blui-${repository}/tree/angular`,
                 displayName: 'Angular',
                 icon: <Angular style={{ backgroundColor: 'transparent' }} />,
             };
         case 'react':
             return {
-                url: `https://codesandbox.io/s/github/brightlayer-ui/${repository}/tree/react`,
+                url: `https://codesandbox.io/s/github/etn-ccis/blui-${repository}/tree/react`,
                 displayName: 'React',
                 icon: <ReactBlue style={{ backgroundColor: 'transparent' }} />,
             };
