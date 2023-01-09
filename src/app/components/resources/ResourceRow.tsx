@@ -44,7 +44,7 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
     const theme = useTheme();
 
     const [version, setVersion] = useState<string>();
-    const repositoryLink = `https://github.com/brightlayer-ui/${repository}`;
+    const repositoryLink = `https://github.com/etn-ccis/blui-${repository}`;
     const small = useMediaQuery('(max-width:799px)');
     const xs = useMediaQuery('(max-width:499px)');
 

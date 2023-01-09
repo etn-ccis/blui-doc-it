@@ -56,12 +56,7 @@ const styles: { [key: string]: SxProps<Theme> } = {
         alignItems: 'center',
         flexDirection: { xs: 'column', md: 'row' },
         display: { xs: 'none', sm: 'flex' },
-    },
-    tag: {
-        '&:not(:first-of-type)': {
-            ml: { xs: 0, md: 1 },
-            mt: { sm: 1 },
-        },
+        gap: 1,
     },
     title: {
         fontWeight: 600,
@@ -192,7 +187,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     />
                 );
             }
-            if (author !== undefined && author !== 'Brightlayer UI') {
+            if (author !== undefined && author !== 'Brightlayer UI' && author !== 'PX Blue') {
                 statusTags.push(
                     <ListItemTag
                         key={`${item.name}_author`}
