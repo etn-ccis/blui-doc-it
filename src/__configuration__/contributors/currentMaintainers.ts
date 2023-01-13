@@ -1,5 +1,4 @@
 import HuayunHuang from '../../app/assets/credits/huayun-huang.jpg';
-import EvanMcLaughlin from '../../app/assets/credits/evan-mclaughlin.jpeg';
 import JeffeyGreiner from '../../app/assets/credits/jeffery-greiner.jpeg';
 import ThomasDailey from '../../app/assets/credits/thomas-dailey.jpg';
 import EktaGhag from '../../app/assets/credits/ekta-ghag.jpg';
@@ -18,16 +17,6 @@ export const currentMaintainers: CurrentMaintainter[] = [
         },
     },
     {
-        name: 'Evan McLaughlin',
-        role: `Front-End Developer`,
-        image: EvanMcLaughlin,
-        description: `Evan is a Pittsburgh local who has been doing front-end web development since graduating from college. He is an Angular specialist and insists that it's better than whatever else you're using. Evan's favorite coworker is his dog, Juniper, who helps debug his code daily.`,
-        contacts: {
-            github: 'https://github.com/emclaug2',
-            linkedIn: 'https://www.linkedin.com/in/evan-mclaughlin-3a4b4089/',
-        },
-    },
-    {
         name: 'Jeff Greiner',
         role: 'Quality Assurance',
         image: JeffeyGreiner,
@@ -35,7 +24,7 @@ export const currentMaintainers: CurrentMaintainter[] = [
             new Date().getFullYear() - 2006
         } years of experience in software testing and as a Software Engineer in Test, Jeff continues to be passionate about quality and the journey that it takes to produce the best results. When Jeff is not testing, he can be found doing home remodeling with his wife or turning wrenches.`,
         contacts: {
-            github: 'https://github.com/jeffvg',
+            github: 'https://github.com/JeffGreiner-eaton',
         },
     },
     {
@@ -64,7 +53,7 @@ export const currentMaintainers: CurrentMaintainter[] = [
         image: SurajKarambe,
         description: `Suraj is a techie, who primarily works on the front-end technologies. He loves to trek and travel with the friends and has his roots in India. He is a big foodie and also likes to watch television series and movies.`,
         contacts: {
-            github: 'https://github.com/bkarambe',
+            github: 'https://github.com/surajeaton',
             linkedIn: 'https://www.linkedin.com/in/surajkarambe/',
         },
     },

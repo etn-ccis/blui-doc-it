@@ -12,6 +12,7 @@ import MarianaBela from '../../app/assets/credits/mariana-bela.jpg';
 import RenatoMartins from '../../app/assets/credits/renato-martins.jpg';
 import JosephBoyle from '../../app/assets/credits/joseph-boyle.png';
 import JoaoMota from '../../app/assets/credits/joao-mota.jpg';
+import EvanMcLaughlin from '../../app/assets/credits/evan-mclaughlin.jpeg';
 
 import { OtherContributor } from '../../__types__';
 
@@ -117,5 +118,10 @@ export const contributors: OtherContributor[] = [
         name: 'João Mota',
         role: `UI Designer`,
         image: JoaoMota,
+    },
+    {
+        name: 'Evan McLaughlin',
+        role: `Front-End Developer`,
+        image: EvanMcLaughlin,
     },
 ];
