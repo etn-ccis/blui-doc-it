@@ -4,8 +4,8 @@ Thank you for helping to make Brightlayer UI projects great and being a part of 
 
 ## Code of Conduct
 
-Brightlayer UI has adopted the [Contributor Covenant](https://www.contributor-covenant.org/) as its Code of Conduct, and we expect project participants to adhere to it. Please read [the document]{/* <!-- markdown-link-check-disable --> */}(https://github.com/etn-ccis/blui-doc-it/blob/master/src/docs/community/code-of-conduct.md) so that you can understand what will and will not be tolerated.
-{/* <!-- markdown-link-check-enable --> */}
+Brightlayer UI has adopted the [Contributor Covenant](https://www.contributor-covenant.org/) as its Code of Conduct, and we expect project participants to adhere to it. Please read [the document]{/_ <!-- markdown-link-check-disable --> _/}(https://github.com/etn-ccis/blui-doc-it/blob/master/src/docs/community/code-of-conduct.md) so that you can understand what will and will not be tolerated.
+{/_ <!-- markdown-link-check-enable --> _/}
 
 ## Contributions
 
