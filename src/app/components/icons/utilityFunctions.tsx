@@ -78,33 +78,39 @@ export const createDownloadBluiPngElement = async (
     size: IconSize
 ): Promise<void> => {
     const formattedIconName = `${iconName}_${colorName}_${size}dp.png`;
-    const iconSrc = `https://github.com/etn-ccis/blui-icons/raw/dev/packages/png/png${size}/${formattedIconName}`;
+    const iconSrc = `https://raw.githubusercontent.com/etn-ccis/blui-icons/master/packages/png/png${size}/${formattedIconName}`;
     const icon = await fetch(iconSrc);
     const iconBlog = await icon.blob();
     const iconUrl = URL.createObjectURL(iconBlog);
     createDownloadElement(iconUrl, formattedIconName);
 };
 
-export const createDownloadMaterialPngElement = (iconName: string, colorName: IconColor, size: IconSize): void => {
-    const iconUrl = `https://fonts.gstatic.com/s/i/materialicons/${iconName}/v6/${colorName}-${size}dp.zip`;
-    const formattedIconName = `${iconName}/v6/${colorName}-${size}dp.zip`;
+export const createDownloadMaterialPngElement = (
+    iconName: string,
+    colorName: IconColor,
+    size: IconSize,
+    version = 1
+): void => {
+    const iconUrl = `https://fonts.gstatic.com/s/i/materialicons/${iconName}/v${version}/${colorName}-${size}dp.zip`;
+    const formattedIconName = `${iconName}/v${version}/${colorName}-${size}dp.zip`;
     createDownloadElement(iconUrl, formattedIconName);
 };
 
 // Material or Brightlayer UI SVG icons
 export const downloadSvg = async (icon: IconType, color: IconColor, size: IconSize): Promise<void> => {
     if (icon.isMaterial) {
-        const iconData = (await getSvg(getSnakeCase(icon.name), 'material')) || '';
+        const iconData =
+            (await getSvg({ name: getSnakeCase(icon.name), family: 'material', version: icon.version })) || '';
         createDownloadSvgElement(icon, iconData, color, size);
     } else {
-        const iconData = (await getSvg(icon.iconFontKey, 'brightlayer-ui')) || '';
+        const iconData = (await getSvg({ name: icon.iconFontKey, family: 'brightlayer-ui' })) || '';
         createDownloadSvgElement(icon, iconData, color, size);
     }
 };
 // Material or Brightlayer UI PNG icons
 export const downloadPng = (icon: IconType, color: IconColor, size: IconSize): void => {
     if (icon.isMaterial) {
-        createDownloadMaterialPngElement(icon.iconFontKey, color, size);
+        createDownloadMaterialPngElement(icon.iconFontKey, color, size, icon.version);
     } else {
         const colorName = color === 'white' ? `${color}50` : `${color}500`;
         void createDownloadBluiPngElement(icon.iconFontKey, colorName, size);

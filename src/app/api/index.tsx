@@ -111,10 +111,18 @@ export const getRoadmap = async (release: Release): Promise<RoadmapBucket[] | un
     }
 };
 
-export const getSvg = async (name: string, family: 'material' | 'brightlayer-ui'): Promise<string | undefined> => {
+type MUIIconDescription = { name: string; family: 'material'; version: number };
+type BLUIIconDescription = { name: string; family: 'brightlayer-ui'; version?: '' };
+export const getSvg = async ({
+    name,
+    family,
+    version = 1,
+}: MUIIconDescription | BLUIIconDescription): Promise<string | undefined> => {
     try {
         const response =
-            family === 'brightlayer-ui' ? await bluiIcons.get(`/${name}.svg`) : await icons.get(`/${name}/v6/24px.svg`);
+            family === 'brightlayer-ui'
+                ? await bluiIcons.get(`/${name}.svg`)
+                : await icons.get(`/${name}/v${version}/24px.svg`);
         if (response && response.status === 200) return response.data;
         return undefined;
     } catch (thrown) {
