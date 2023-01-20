@@ -84,6 +84,7 @@ const loadIcons = (): void => {
             description: '',
             author: '',
             size: 0,
+            version: 1,
         };
 
         // do not add obsolete icons to the search index or the master icon lists
@@ -113,6 +114,7 @@ const loadIcons = (): void => {
             categories: iconDetails.categories || [],
             // @ts-ignore
             Icon: MuiIcons[iconKey],
+            version: iconDetails.version,
         };
 
         // add the icon details to the allIcons map
@@ -140,6 +142,7 @@ const loadIcons = (): void => {
             description: '',
             author: '',
             size: 0,
+            version: 1,
         };
 
         // add the name and tags to the search index
@@ -156,6 +159,7 @@ const loadIcons = (): void => {
             categories: iconDetails.family || [],
             // @ts-ignore
             Icon: BLUIIcons[iconKey],
+            version: iconDetails.version ?? 1,
         };
 
         // add the icon details to the allIcons map

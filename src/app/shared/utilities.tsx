@@ -1,6 +1,16 @@
-export const getSnakeCase = (str: string): string => str.replace(/[A-Z]/g, '_$&').toLowerCase().slice(1);
+export const getSnakeCase = (str: string): string =>
+    str
+        .replace(/[A-Z]/g, '_$&')
+        .replace(/[0-9]+/g, '_$&')
+        .toLowerCase()
+        .slice(1);
 
-export const getKebabCase = (str: string): string => str.replace(/[A-Z]/g, '-$&').toLowerCase().slice(1);
+export const getKebabCase = (str: string): string =>
+    str
+        .replace(/[A-Z]/g, '-$&')
+        .replace(/[0-9]+/g, '-$&')
+        .toLowerCase()
+        .slice(1);
 
 export const snakeToKebabCase = (str: string): string => str.replaceAll('_', '-').toLowerCase();
 
