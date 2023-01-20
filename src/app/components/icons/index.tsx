@@ -7,7 +7,14 @@ export * from './IconDrawer';
 export * from './ProgressIconCard';
 export * from './UniversalIconBrowser';
 
-export const emptyIcon: IconType = { name: '', iconFontKey: '', isMaterial: true, tags: [], categories: [] };
+export const emptyIcon: IconType = {
+    name: '',
+    iconFontKey: '',
+    isMaterial: true,
+    tags: [],
+    categories: [],
+    version: 1,
+};
 export const emptyIconDetails: DetailedIcon = {
     name: '',
     filename: '',
@@ -18,4 +25,5 @@ export const emptyIconDetails: DetailedIcon = {
     description: '',
     author: '',
     size: 0,
+    version: 1,
 };

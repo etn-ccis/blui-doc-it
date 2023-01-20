@@ -12,6 +12,7 @@ export type DetailedIcon = {
     description: string;
     author: string;
     size: number;
+    version: number;
 };
 export type IconType = {
     name: string;
@@ -21,6 +22,7 @@ export type IconType = {
     tags: string[];
     categories: string[];
     Icon?: any;
+    version: number;
 };
 export type MatIconList = {
     [key: string]: (props: SvgIconProps) => JSX.Element;
