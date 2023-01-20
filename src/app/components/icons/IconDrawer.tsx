@@ -238,7 +238,7 @@ export const IconDrawer: React.FC = () => {
                         <Box sx={{ p: 2 }}>
                             <Typography variant={'subtitle2'} align={'center'}>
                                 For detailed usage and installation instructions, visit our{' '}
-                                <Link href={'https://github.com/brightlayer-ui/icons'} target={'_blank'}>
+                                <Link href={'https://github.com/etn-ccis/blui-icons'} target={'_blank'}>
                                     Github
                                 </Link>
                                 .

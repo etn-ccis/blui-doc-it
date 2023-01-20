@@ -37,9 +37,9 @@ const CatalogStorybookLink: React.FC<CatalogStorybookLinkProp> = (props) => {
                     variant={'outlined'}
                     avatar={
                         name === 'Angular' ? (
-                            <Angular sx={{ backgroundColor: 'transparent', filter: 'grayscale(100%)' }} />
+                            <Angular sx={{ backgroundColor: 'transparent !important', filter: 'grayscale(100%)' }} />
                         ) : (
-                            <ReactBlue sx={{ backgroundColor: 'transparent', filter: 'grayscale(100%)' }} />
+                            <ReactBlue sx={{ backgroundColor: 'transparent !important', filter: 'grayscale(100%)' }} />
                         )
                     }
                 />

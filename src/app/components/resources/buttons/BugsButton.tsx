@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IconButton, Badge, Typography, BoxProps, Box } from '@mui/material';
+import { IconButton, Badge, Typography, BoxProps, Box, Tooltip } from '@mui/material';
 import { getBugCount } from '../../../api';
 import * as Colors from '@brightlayer-ui/colors';
 import { BugReport } from '@mui/icons-material';
@@ -41,37 +41,38 @@ export const BugsButton: React.FC<BugsButtonProps> = (props) => {
             : Colors.red[500];
 
     return !small ? (
-        <IconButton
-            title={'Open Bugs'}
-            sx={[
-                {
-                    color: Colors.gray[500],
-                    p: 1,
-                    ml: 1,
-                    '&:hover': {
-                        color: Colors.yellow[900],
-                        '& $color': {
-                            backgroundColor: Colors.red[500],
+        <Tooltip title={'Open Bugs'}>
+            <IconButton
+                sx={[
+                    {
+                        color: Colors.gray[500],
+                        p: 1,
+                        ml: 1,
+                        '&:hover': {
+                            color: Colors.yellow[900],
+                            '& $color': {
+                                backgroundColor: Colors.red[500],
+                            },
                         },
                     },
-                },
-                ...(Array.isArray(sx) ? sx : [sx]),
-            ]}
-            onClick={(): void => {
-                window.open(link, '_blank');
-            }}
-        >
-            <Badge
-                badgeContent={bugs}
-                color={'error'}
-                sx={{
-                    '&.MuiBadge-colorSecondary': { backgroundColor: Colors.gray[300] },
-                    '& .MuiBadge-badge': { fontWeight: 600 },
+                    ...(Array.isArray(sx) ? sx : [sx]),
+                ]}
+                onClick={(): void => {
+                    window.open(link, '_blank');
                 }}
             >
-                <BugReport />
-            </Badge>
-        </IconButton>
+                <Badge
+                    badgeContent={bugs}
+                    color={'error'}
+                    sx={{
+                        '&.MuiBadge-colorSecondary': { backgroundColor: Colors.gray[300] },
+                        '& .MuiBadge-badge': { fontWeight: 600 },
+                    }}
+                >
+                    <BugReport />
+                </Badge>
+            </IconButton>
+        </Tooltip>
     ) : (
         <Box
             sx={[{ cursor: 'pointer', display: 'flex', alignItems: 'center' }, ...(Array.isArray(sx) ? sx : [sx])]}

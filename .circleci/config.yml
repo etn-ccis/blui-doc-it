@@ -38,10 +38,10 @@ jobs:
             - run:
                   name: Run tests
                   command: yarn test
-            # - run:
-            #       name: Verify Markdown Hyperlinks
-            #       command: |
-            #           yarn check:links-ci
+            - run:
+                  name: Verify Markdown Hyperlinks
+                  command: |
+                      yarn check:links-ci
             # - run:
             #      name: Run Cypress
             #      command: |
