@@ -22,7 +22,7 @@ import { ValentineSchedule } from './valentine-s-day';
  * Add more holiday themes here.
  *
  * Current schedules:
- * * Feb 1 - Feb 7 2022: Spring Festival (changes each year)  ** Jan 21 - Jan 27 2023 | Feb 9 - Feb 15 2024 **
+ * * Jan 21 - Jan 27 2023: Spring Festival (changes each year) ** Feb 9 - Feb 15 2024 **
  * * Feb 12 - Feb 14: Valentine's Day
  * * Mar 7 - Mar 9: Women's Day
  * * Mar 16 - Mar 18: St. Patrick's Day
@@ -30,11 +30,11 @@ import { ValentineSchedule } from './valentine-s-day';
  * * Apr 20 - Apr 24: Earth Day
  * * May 3 - May 5: May the Fourth Day
  * * July 2 - July 7: Independence Day
- * * Sept 20 - Sept 27: Mid Autumn Festival (changes each year)
+ * * Sept 29 - Oct 6 2023: Mid Autumn Festival (changes each year)
  * * Oct 25 - Nov 1: Halloween
- * * Nov 2 - Nov 6 2021: Diwali (changes each year)  ** November 10 - November 14 2023 **
- * * Nov 21 - Nov 27: Thanksgiving (changes each year)  ** Nov 23 2023 **
- * * Dec 18 - Dec 23: Hanukkah (changes each year)  ** Dec 7 - Dec 15 2023 **
+ * * Nov 12 - Nov 16 2023: Diwali (changes each year)
+ * * Nov 21 - Nov 27: Thanksgiving (changes each year)
+ * * Dec 7 - Dec 15: Hanukkah (changes each year)
  * * Dec 23 - Dec 26: Christmas
  * * Dec 26 - Dec 30: Kwanzaa (Kwanzaa runs until Jan 1. Cutting this short to account for New Years.)
  * * Dec 31 - Jan 6: New Years
