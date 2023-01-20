@@ -8,8 +8,8 @@ import AppBarTile from '../../app/assets/themes/mid-autumn-festival/app-bar.png'
 import { Schedule } from './_types';
 
 export const MidAutumnSchedule: Schedule = {
-    start: new Date(0, 8, 20), // Sept 20
-    end: new Date(0, 8, 28), // Sept 27
+    start: new Date(0, 8, 29), // Sept 29
+    end: new Date(0, 9, 7), // Oct 6
     config: {
         theme: {
             ...BLUIThemes.blueDark,
