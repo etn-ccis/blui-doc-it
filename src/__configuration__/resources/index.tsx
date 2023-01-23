@@ -158,12 +158,6 @@ export const resources: ResourceBucket[] = [
                 repository: 'react-native-themes',
                 applies: ['react-native'],
             },
-            {
-                name: '@brightlayer-ui/storybook-themes',
-                description: 'Brightlayer UI themes for Storybook applications',
-                package: '@brightlayer-ui/storybook-themes',
-                repository: 'storybook-themes',
-            },
         ],
     },
     {
