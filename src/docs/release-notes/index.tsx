@@ -1,6 +1,7 @@
 import React from 'react';
 
 // Full Release Notes
+import R26 from './R26/FullNotes.mdx';
 import R25 from './R25/FullNotes.mdx';
 import R24 from './R24/FullNotes.mdx';
 import R23 from './R23/FullNotes.mdx';
@@ -22,6 +23,7 @@ import R8 from './R8/FullNotes.mdx';
 import R7 from './R7/FullNotes.mdx';
 
 // Summaries (for Landing Page)
+import R26Summary from './R26/Summary.mdx';
 import R25Summary from './R25/Summary.mdx';
 import R24Summary from './R24/Summary.mdx';
 import R23Summary from './R23/Summary.mdx';
@@ -50,6 +52,13 @@ export type ReleaseInfo = {
     summary: JSX.Element;
 };
 const Releases: ReleaseInfo[] = [
+    {
+        title: 'R26',
+        date: 'Jan 2023',
+        version: '3.2.0',
+        details: <R26 />,
+        summary: <R26Summary />,
+    },
     {
         title: 'R25',
         date: 'Oct 2022',
