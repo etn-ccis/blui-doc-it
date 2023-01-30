@@ -102,7 +102,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                         navigate('overview');
                     }}
                 >
-                    Get Started
+                    Quit now
                 </Button>
             </Box>
             <LandingSection title={'Design and Development'} align={'left'} background={'light'}>
