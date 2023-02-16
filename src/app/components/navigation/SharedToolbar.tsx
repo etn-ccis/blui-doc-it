@@ -18,6 +18,7 @@ import {
     DialogTitle,
     TextField,
     MenuItem,
+    Menu,
 } from '@mui/material';
 import { PxblueSmall } from '@brightlayer-ui/icons-mui';
 import { Spacer } from '@brightlayer-ui/react-components';
@@ -25,9 +26,12 @@ import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { CHANGE_THEME, TOGGLE_DRAWER, TOGGLE_SEARCH } from '../../redux/actions';
 import { AppState } from '../../redux/reducers';
-import Search from '@mui/icons-material/Search';
+import SearchIcon from '@mui/icons-material/Search';
+import AppsIcon from '@mui/icons-material/Apps';
 import { SearchBar } from '../../pages';
 import { getScheduledSiteConfig } from '../../../__configuration__/themes';
+import externalLinks from '../../../__configuration__/landingPage/externalLinks';
+import { ExternalLinkItem } from './ListOfExternalLinks';
 import FireworksCanvas from 'fireworks-canvas';
 
 export type SharedToolbarProps = AppBarProps & {
@@ -70,6 +74,8 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
     const showBanner = useSelector((state: AppState) => state.app.showBanner);
     const selectedTheme = useSelector((state: AppState) => state.app.theme);
+    const [externalLinkMenuAnchorEl, setExternalLinkMenuAnchorEl] = React.useState<null | HTMLElement>(null);
+    const isExternalLinkMenuOpen = Boolean(externalLinkMenuAnchorEl);
     const sm = useMediaQuery(theme.breakpoints.down('md'));
     const dispatch = useDispatch();
     const appBarBackground = getScheduledSiteConfig(selectedTheme).appBarBackground;
@@ -181,16 +187,46 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                     <IconButton
                         color={'inherit'}
                         size={'large'}
+                        onClick={(e): void => {
+                            setExternalLinkMenuAnchorEl(e.currentTarget);
+                        }}
+                    >
+                        <AppsIcon />
+                    </IconButton>
+                    <IconButton
+                        color={'inherit'}
+                        size={'large'}
                         edge={'end'}
                         onClick={(): void => {
                             dispatch({ type: TOGGLE_SEARCH, payload: true });
                         }}
                     >
-                        <Search />
+                        <SearchIcon />
                     </IconButton>
                 </Toolbar>
             </AppBar>
             <SearchBar />
+            {/* Convenient links to other design systems at Eaton*/}
+            <Menu
+                open={isExternalLinkMenuOpen}
+                anchorEl={externalLinkMenuAnchorEl}
+                onClose={(): void => {
+                    setExternalLinkMenuAnchorEl(null);
+                }}
+            >
+                {externalLinks.map((externalLink, index) => (
+                    <a
+                        href={externalLink.link}
+                        target={`_blank`}
+                        onClick={(): void => setExternalLinkMenuAnchorEl(null)}
+                        style={{ textDecoration: 'none', color: 'inherit' }}
+                        key={index}
+                    >
+                        <MenuItem>{ExternalLinkItem(externalLink)}</MenuItem>
+                    </a>
+                ))}
+            </Menu>
+            {/* Theme toggler */}
             <Dialog
                 open={showThemePicker}
                 onClose={(): void => {
