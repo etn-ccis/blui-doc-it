@@ -5,3 +5,4 @@ export * from './ContactFab';
 export * from './NewFeatureFormButton';
 export * from './TOC';
 export * from './InDocButton';
+export * from './ListOfExternalLinks';

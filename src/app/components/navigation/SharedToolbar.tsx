@@ -4,7 +4,6 @@ import {
     Typography,
     AppBar,
     Toolbar,
-    ListItem,
     ListItemText,
     AppBarProps,
     Hidden,
@@ -20,7 +19,6 @@ import {
     TextField,
     MenuItem,
     Menu,
-    Tooltip,
 } from '@mui/material';
 import { PxblueSmall } from '@brightlayer-ui/icons-mui';
 import { Spacer } from '@brightlayer-ui/react-components';
@@ -30,10 +28,10 @@ import { CHANGE_THEME, TOGGLE_DRAWER, TOGGLE_SEARCH } from '../../redux/actions'
 import { AppState } from '../../redux/reducers';
 import SearchIcon from '@mui/icons-material/Search';
 import AppsIcon from '@mui/icons-material/Apps';
-import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { SearchBar } from '../../pages';
 import { getScheduledSiteConfig } from '../../../__configuration__/themes';
 import externalLinks from '../../../__configuration__/landingPage/externalLinks';
+import { ExternalLinkItem } from './ListOfExternalLinks';
 import FireworksCanvas from 'fireworks-canvas';
 
 export type SharedToolbarProps = AppBarProps & {
@@ -224,20 +222,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                         style={{ textDecoration: 'none', color: 'inherit' }}
                         key={index}
                     >
-                        <MenuItem>
-                            <ListItem
-                                dense
-                                secondaryAction={
-                                    externalLink.loginRequired ? (
-                                        <Tooltip title={`Requires login with Eaton credentials`}>
-                                            <LockOpenIcon fontSize={'small'} color={`disabled`} />
-                                        </Tooltip>
-                                    ) : undefined
-                                }
-                            >
-                                <ListItemText primary={externalLink.title} secondary={externalLink.subtitle} />
-                            </ListItem>
-                        </MenuItem>
+                        <MenuItem>{ExternalLinkItem(externalLink)}</MenuItem>
                     </a>
                 ))}
             </Menu>

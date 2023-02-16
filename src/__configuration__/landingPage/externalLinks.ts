@@ -1,4 +1,4 @@
-type ExternalLink = {
+export type ExternalLink = {
     title: string;
     subtitle?: string;
     link: string;
