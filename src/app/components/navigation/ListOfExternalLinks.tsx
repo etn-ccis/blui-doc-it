@@ -11,12 +11,7 @@ export const ExternalLinkItem: React.FC<ExternalLinkItemProps> = (props) => {
     const { externalLink, ...otherProps } = props;
     return (
         // @ts-ignore
-        <ListItemButton
-            component={`a`}
-            href={externalLink.link}
-            style={{ textDecoration: 'none', color: 'inherit' }}
-            {...otherProps}
-        >
+        <ListItemButton component={`a`} href={externalLink.link} sx={{ gap: 2 }} {...otherProps}>
             <ListItemText primary={externalLink.title} secondary={externalLink.subtitle} />
             {externalLink.loginRequired && (
                 <Tooltip title={`Requires login with Eaton credentials`}>
