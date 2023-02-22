@@ -34,7 +34,7 @@ const externalLinks: ExternalLink[] = [
         subtitle: `Guides and Templates for Designing Physical Products`,
         link: `https://eaton.sharepoint.com/sites/ERG_GlobalIndustrialDesignPlatform`,
         loginRequired: true,
-    }
+    },
 ];
 
 export default externalLinks;
