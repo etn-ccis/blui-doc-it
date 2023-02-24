@@ -29,6 +29,12 @@ const externalLinks: ExternalLink[] = [
         link: `https://eaton.sharepoint.com/sites/ERG_Human-CenteredDesign`,
         loginRequired: true,
     },
+    {
+        title: `Industrial Design Platform`,
+        subtitle: `Guides and Templates for Designing Physical Products`,
+        link: `https://eaton.sharepoint.com/sites/ERG_GlobalIndustrialDesignPlatform`,
+        loginRequired: true,
+    },
 ];
 
 export default externalLinks;

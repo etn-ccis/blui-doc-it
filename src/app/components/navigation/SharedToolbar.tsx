@@ -215,15 +215,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                 }}
             >
                 {externalLinks.map((externalLink, index) => (
-                    <a
-                        href={externalLink.link}
-                        target={`_blank`}
-                        onClick={(): void => setExternalLinkMenuAnchorEl(null)}
-                        style={{ textDecoration: 'none', color: 'inherit' }}
-                        key={index}
-                    >
-                        <MenuItem>{ExternalLinkItem(externalLink)}</MenuItem>
-                    </a>
+                    <ExternalLinkItem externalLink={externalLink} key={index} />
                 ))}
             </Menu>
             {/* Theme toggler */}
