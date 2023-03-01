@@ -11,7 +11,7 @@
         "@brightlayer-ui/react-themes": "^7.1.0-alpha.0",
         "@emotion/css": "^11.10.5",
         "@emotion/react": "^11.10.5",
-        "@emotion/styled": "^11.10.5",
+        "@emotion/styled": "^11.10.6",
         "@fontsource/roboto-mono": "^4.5.0",
         "@mui/icons-material": "^5.6.0",
         "@mui/material": "^5.6.0",
