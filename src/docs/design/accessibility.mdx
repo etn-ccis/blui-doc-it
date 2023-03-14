@@ -1,10 +1,11 @@
+import React from 'react';
 import { MaterialDesignDescription, Divider, ImageGrid } from '../../app/components';
-import { Link as LinkIcon } from '@material-ui/icons';
+import { Link as LinkIcon } from '@mui/icons-material';
 import AccessibilityDesignImg from '../../app/assets/design/design-color.png';
 import PerceivableDesignImg from '../../app/assets/design/design-perceivable.png';
 import UnderstandableDesignImg from '../../app/assets/design/design-understandable.png';
 
-<!-- KEYWORDS: accessibility design styles compliance w3c  -->
+{/* KEYWORDS: accessibility design styles compliance w3c */}
 
 # Accessibility
 
@@ -69,15 +70,15 @@ Web content must be robust enough that it can be interpreted reliably by a wide 
     ]}
 />
 
-PX Blue colors and components have been tested to meet minimum accessibility requirements. By using these default styles, you should be able to reduce the effort required for your product to pass accessibility tests.
+Brightlayer UI colors and components have been tested to meet minimum accessibility requirements. By using these default styles, you should be able to reduce the effort required for your product to pass accessibility tests.
 
 If your project requires the use of additional styles or colors, you should adhere to the following guidelines:
 
--   Use PX Blue colors in the 500+ range for white backgrounds.
+-   Use Brightlayer UI colors in the 500+ range for white backgrounds.
 -   Avoid using yellow, red, and orange for text (except for single-line error messages on forms)
 -   Do not rely on colors for instructions (e.g., do not say "Click the red button to close")
 
-Most PX Blue text elements use the Black 500 color, with some headlines using Blue 500. Button labels should use White 50 for dark background and Black 500 on light backgrounds. You can check the contrast ratio to determine which option provides greater contrast.
+Most Brightlayer UI text elements use the Black 500 color, with some headlines using Blue 500. Button labels should use White 50 for dark background and Black 500 on light backgrounds. You can check the contrast ratio to determine which option provides greater contrast.
 
 <React.Fragment>
     <MaterialDesignDescription
@@ -88,13 +89,13 @@ Most PX Blue text elements use the Black 500 color, with some headlines using Bl
     />
     <MaterialDesignDescription
         title={'Section 508 guidelines'}
-        url={'https://www.section508.gov/'}
+        url={'https://www.section508.gov#'}
         description={`Rehabilitation Act of 1973`}
         avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
     />
     <MaterialDesignDescription
         title={'European commission'}
-        url={'https://ec.europa.eu/digital-single-market/en/web-accessibility'}
+        url={`https://ec.europa.eu/digital-single-market/en/web-accessibility`}
         description={`Web accessibility allows everyone, including people with disabilities, to perceive, understand, navigate and interact with the Internet.`}
         avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
     />
@@ -112,7 +113,7 @@ In addition to making sure that the colors used for text are accessible, you sho
 
 Most browsers offer a feature for you to change the default font size (larger or smaller). You should test your application across multiple sizes to make sure that everything still looks right and functions correctly.
 
-Most PX Blue components are designed to accommodate bigger font sizes when required.
+Most Brightlayer UI components are designed to accommodate bigger font sizes when required.
 
 <Divider />
 

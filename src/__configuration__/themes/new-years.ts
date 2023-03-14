@@ -1,19 +1,19 @@
-import * as PXBThemes from '@pxblue/react-themes';
-import * as Colors from '@pxblue/colors';
+import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import * as Colors from '@brightlayer-ui/colors';
 import NewYears from '../../app/assets/themes/new-years/new-years-banner.png';
 import fireworkCursor from '../../app/assets/themes/new-years/firework-rocket-cursor.png';
 import AppBarTile from '../../app/assets/themes/new-years/new-years-appbar-tile.png';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 export const NewYearsSchedule: Schedule = {
     start: new Date(0, 11, 31), // Dec 31
-    end: new Date(1, 0, 7), // Jan 7
+    end: new Date(1, 0, 7), // Jan 6 (Next Year)
     config: {
         theme: {
-            ...PXBThemes.blueDark,
+            ...BLUIThemes.blueDark,
             palette: {
-                ...PXBThemes.blueDark.palette,
-                type: 'dark',
+                ...BLUIThemes.blueDark.palette,
+                mode: 'dark',
                 primary: {
                     light: Colors.yellow[300],
                     main: Colors.yellow[500],
@@ -31,50 +31,62 @@ export const NewYearsSchedule: Schedule = {
                 text: {
                     primary: Colors.black[50],
                     secondary: Colors.black[200],
-                    hint: Colors.black[200],
+                    // hint: Colors.black[200],
                 },
             },
-            overrides: {
-                ...PXBThemes.blueDark.overrides,
+            components: {
+                ...BLUIThemes.blueDark.components,
                 MuiAppBar: {
-                    colorDefault: {
-                        color: Colors.black[50],
-                        backgroundColor: Colors.darkBlack[200],
-                    },
-                    colorPrimary: {
-                        color: Colors.black[50],
-                        backgroundColor: Colors.darkBlack[200],
-                    },
-                    colorSecondary: {
-                        color: Colors.white[200],
-                        backgroundColor: Colors.darkBlack[400],
+                    styleOverrides: {
+                        colorDefault: {
+                            color: Colors.black[50],
+                            backgroundColor: Colors.darkBlack[200],
+                        },
+                        colorPrimary: {
+                            color: Colors.black[50],
+                            backgroundColor: Colors.darkBlack[200],
+                        },
+                        colorSecondary: {
+                            color: Colors.white[200],
+                            backgroundColor: Colors.darkBlack[400],
+                        },
                     },
                 },
                 MuiBackdrop: {
-                    root: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                    styleOverrides: {
+                        root: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        },
                     },
                 },
                 MuiButton: {
-                    ...PXBThemes.blueDark.overrides?.MuiButton,
-                    outlined: {},
-                    outlinedPrimary: {},
+                    styleOverrides: {
+                        ...BLUIThemes.blueDark.components?.MuiButton?.styleOverrides,
+                        outlined: {},
+                        outlinedPrimary: {},
+                    },
                 },
                 MuiDrawer: {
-                    paper: {
-                        backgroundColor: Colors.darkBlack[100],
+                    styleOverrides: {
+                        paper: {
+                            backgroundColor: Colors.darkBlack[100],
+                        },
                     },
                 },
                 MuiTabs: {
-                    indicator: {
-                        backgroundColor: Colors.yellow[500],
+                    styleOverrides: {
+                        indicator: {
+                            backgroundColor: Colors.yellow[500],
+                        },
                     },
                 },
                 MuiTab: {
-                    selected: {},
-                    textColorInherit: {
-                        '&$selected': {
-                            color: Colors.yellow[500],
+                    styleOverrides: {
+                        selected: {},
+                        textColorInherit: {
+                            '&.Mui-selected': {
+                                color: Colors.yellow[500],
+                            },
                         },
                     },
                 },

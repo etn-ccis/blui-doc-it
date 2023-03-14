@@ -1,22 +1,13 @@
-import { makeStyles, Tooltip, TooltipProps } from '@material-ui/core';
-import { FileCopy } from '@material-ui/icons';
+import { Tooltip, TooltipProps } from '@mui/material';
+import { FileCopy } from '@mui/icons-material';
 import React, { useState } from 'react';
 import { copyTextToClipboard } from '../../shared';
 import { isMobile } from 'react-device-detect';
-import * as Colors from '@pxblue/colors';
-
-const useStyles = makeStyles(() => ({
-    copyIcon: {
-        color: Colors.gray[500],
-        fontSize: 16,
-        cursor: 'pointer',
-    },
-}));
 
 type Position = 'bottom' | 'top' | 'left' | 'right';
 type CopyToClipboardProps = Omit<
-    Omit<Omit<Omit<Omit<Omit<TooltipProps, 'placement'>, 'open'>, 'children'>, 'onMouseEnter'>, 'onMouseLeave'>,
-    'title'
+    TooltipProps,
+    'placement' | 'open' | 'children' | 'onMouseEnter' | 'onMouseLeave' | 'title'
 > & {
     duration?: number;
     position?: Position;
@@ -33,9 +24,9 @@ export const CopyToClipboard: React.FC<CopyToClipboardProps> = (props) => {
         copiedPosition = 'bottom',
         copiedTitle = 'Copied',
         copyText,
+        sx,
         ...otherProps
     } = props;
-    const classes = useStyles();
     const [isCopied, setIsCopied] = useState(false);
     const [showTooltip, setShowTooltip] = useState(false);
 
@@ -47,7 +38,14 @@ export const CopyToClipboard: React.FC<CopyToClipboardProps> = (props) => {
             open={showTooltip}
         >
             <FileCopy
-                className={classes.copyIcon}
+                sx={[
+                    {
+                        color: 'text.secondary',
+                        fontSize: 16,
+                        cursor: 'pointer',
+                    },
+                    ...(Array.isArray(sx) ? sx : [sx]),
+                ]}
                 onMouseEnter={(): void => {
                     if (!isCopied) setShowTooltip(true);
                 }}

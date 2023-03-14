@@ -1,3 +1,4 @@
+import React from 'react';
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
 import SummaryImage from '../../app/assets/design-patterns/form-validation/form-validation.svg';
 import Image4 from '../../app/assets/design-patterns/form-validation/form-validation-password-entering.png';
@@ -7,7 +8,7 @@ import Image6 from '../../app/assets/design-patterns/form-validation/form-valida
 import LongFormImage from '../../app/assets/design-patterns/form-validation/long-form.png';
 import OnBlurImage from '../../app/assets/design-patterns/form-validation/verify-input-on-blur.png';
 import OnChangeImage from '../../app/assets/design-patterns/form-validation/verify-input-on-change.png';
-import OnPageChangeImage from '../../app/assets/design-patterns/form-validation/verify-input-on-page-change.png';
+import OnSubmitImage from '../../app/assets/design-patterns/form-validation/verify-on-submit.gif';
 import SubmitButtonLocationImage from '../../app/assets/design-patterns/form-validation/submit-button-location.png';
 import NextButtonUsageImage from '../../app/assets/design-patterns/form-validation/next-button-usage.png';
 import SubmitButtonOnChangeImage from '../../app/assets/design-patterns/form-validation/submit-button-on-change.png';
@@ -23,32 +24,33 @@ import Specs5Image from '../../app/assets/design-patterns/form-validation/specs-
 import dismissKeyboardErrorAutoscrollImage from '../../app/assets/design-patterns/form-validation/dismiss-keyboard-error-autoscroll.gif';
 import dismissKeyboardErrorTextImage from '../../app/assets/design-patterns/form-validation/dismiss-keyboard-error-text.gif';
 
-<!-- KEYWORDS: design pattern form verification validation error -->
+{/* KEYWORDS: design pattern form verification validation error */}
 
 # Forms and Validation
 
 <ImageGrid images={[SummaryImage]} regularWidth />
 
-Forms are an integral part of many applications, particularly during the [user registration](/patterns/user-auth) phase. One of the most important parts of working with forms is properly validating the information that users enter into them. In general, PX Blue follows the form behaviors explained in detail by Material Design.
+Forms are an integral part of many applications, particularly during the [user registration](/patterns/user-auth) phase. One of the most important parts of working with forms is properly validating the information that users enter into them. In general, Brightlayer UI follows the form behaviors explained in detail by Material Design.
 
-<React.Fragment>
-    <MaterialDesignDescription title={'Text Fields'} url={`https://material.io/components/text-fields/`} />
-    <DemoCard
-        repository={'form-validation'}
-        angular={`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fform-validation%2Fform-validation.component.ts`}
-        react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/form-validation/index.tsx&initialpath=form-validation`}
-    />
-    <TOC
-        anchors={[
-            { title: 'Introduction', hash: '#forms-and-validation' },
-            { title: 'Anatomy', hash: '#anatomy' },
-            { title: 'Behaviors', hash: '#behaviors' },
-            { title: 'Design Specifications', hash: '#design-specifications' },
-            { title: 'Developers', hash: '#developers' },
-        ]}
-    />
-    <Divider />
-</React.Fragment>
+<MaterialDesignDescription title={'Text Fields'} url={`https://m2.material.io/components/text-fields/`} />
+<TOC
+    anchors={[
+        { title: 'Introduction', hash: 'forms-and-validation' },
+        { title: 'Anatomy' },
+        { title: 'Form Layout', depth: 1 },
+        { title: 'Field Requirements', depth: 1 },
+        { title: 'Error Messages', depth: 1 },
+        { title: 'Success Screens', depth: 1 },
+        { title: 'Mobile Keyboard', depth: 1 },
+        { title: 'Password Visibility', depth: 1 },
+        { title: 'Behaviors' },
+        { title: 'Verifying User Input', depth: 1 },
+        { title: 'Submitting the Form', depth: 1 },
+        { title: 'Design Specifications' },
+        { title: 'Developers' },
+    ]}
+/>
+<Divider />
 
 # Anatomy
 
@@ -64,17 +66,34 @@ Keep your forms short where possible, but make effective use of whitespace to av
     }
 />
 
-<!--
-## Input Controls
+<DemoCard
+    repository={'Sectioned Form'}
+    angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Fforms-and-validation%2Fsectioned-form%2Fsectioned-form.component.html`}
+    react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/form-validation/sectioned-form/index.tsx&initialpath=/in-a-sectioned-form`}
+/>
 
-When using multiple input controls, such as text fields, radio buttons, checkboxes, try to keep all of your inputs in a single column to preserve the sense of a linear progression. Inputs should be approximately as wide as their expected input values (or full width on mobile). Follow the Material Design [guidelines](https://material.io/components/selection-controls#specs) for when to use different selection controls.
- -->
+<DemoCard
+    repository={'Forms in a List'}
+    angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Fforms-and-validation%2Fin-a-list%2Fin-a-list.component.html`}
+    react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/form-validation/list/index.tsx&initialpath=/in-a-list`}
+/>
+
+<DemoCard
+    repository={'Forms in a Table'}
+    angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Fforms-and-validation%2Fin-a-table%2Fin-a-table.component.html`}
+    react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/form-validation/table/index.tsx&initialpath=/in-a-table`}
+/>
 
 ## Field Requirements
 
 Required / optional fields should be identified according to the Material Design guidelines. If your form fields have complex requirements for valid values, you can list these criteria below the input. A common use case for this is when displaying password complexity requirements.
 
 <ImageGrid images={[Image4, Image5, Image6]} caption={'A common application of form validation — reset password.'} />
+<DemoCard
+    repository={'Password'}
+    angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Fforms-and-validation%2Fpassword%2Fpassword.component.html`}
+    react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/form-validation/password/index.tsx&initialpath=/password`}
+/>
 
 ## Error Messages
 
@@ -123,6 +142,12 @@ In order to avoid distracting or confusing users, most text fields should verify
     ]}
 />
 
+<DemoCard
+    repository={'Phone Number Format'}
+    angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Fforms-and-validation%2Fphone-number-format%2Fphone-number-format.component.html`}
+    react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/form-validation/phone-number-format/index.tsx&initialpath=/phone-number-format`}
+/>
+
 ### Verifying on Change
 
 Some fields should verify the user input as it changes. The most common case for this type of verification is a new password field or a confirm password field. The verification feedback should be displayed / updated each time the user makes a change to the input field.
@@ -145,13 +170,17 @@ This type of verification is common when the checks cannot be performed on the c
 If verification is being triggered by clicking on a button, you should replace the button text with a loading spinner while the verification is in progress. If the verification is successful, the user should be automatically taken to the next screen.
 
 <ImageGrid
-    images={[OnPageChangeImage]}
+    images={[OnSubmitImage]}
     regularWidth
     caption={[
         'After the user clicks the submit button, the app waits for the server response, and displays an error message.',
-        '1: The helper text will be replaced by the error message. ',
-        '2: Use a circular progress indicator when waiting for responses from the server.',
     ]}
+/>
+
+<DemoCard
+    repository={'Verify on Submit'}
+    angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Fforms-and-validation%2Fverify-on-submit%2Fverify-on-submit.component.html`}
+    react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/form-validation/verify-on-submit/index.tsx&initialpath=/verify-on-submit`}
 />
 
 ## Submitting the Form
@@ -181,7 +210,7 @@ On mobile, if there are multiple input fields on the screen, the keyboard action
 
 For screens where there is a single field with a known required length (e.g., a verification code), the submit button can be omitted and the form submitted as soon as the required length is reached.
 
-<!-- TODO: A gif might handle the task better here -->
+{/* TODO: A gif might handle the task better here */}
 
 <ImageGrid
     images={[SubmitButtonAutoSubmitImage]}
@@ -189,6 +218,12 @@ For screens where there is a single field with a known required length (e.g., a 
     caption={
         'For the verification code screen, you can auto-submit the information once the user input reaches the required length (#2). After the verification code is recognized (#3), the screen pauses for a short moment before automatically moving to the next screen.'
     }
+/>
+
+<DemoCard
+    repository={'Fixed-Length Passcode'}
+    angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Fforms-and-validation%2Ffix-length-passcode%2Ffix-length-passcode.component.html`}
+    react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/form-validation/fixed-length-passcode/index.tsx&initialpath=/fixed-length-passcode`}
 />
 
 ### Disabling the Submit Button
@@ -210,9 +245,9 @@ If there are errors indicated on any of the form fields, the submit button shoul
     />
     <ImageGrid
         images={[dismissKeyboardErrorAutoscrollImage, dismissKeyboardErrorTextImage]}
-        caption={[
-            '1: The UI should auto-scroll to and focus on the first invalid field.',
-            '2: On login screens, form fields should not shift when errors appear.',
+        captionsUnderImages={[
+            'The UI should auto-scroll to and focus on the first invalid field.',
+            'On login screens, form fields should not shift when errors appear.',
         ]}
     />
 </React.Fragment>
@@ -220,7 +255,7 @@ If there are errors indicated on any of the form fields, the submit button shoul
 
 # Design Specifications
 
-For additional instructions, refer to Material Design's [specifications](https://material.io/components/text-fields#specs) for "Text fields".
+For additional instructions, refer to Material Design's [specifications](https://m2.material.io/components/text-fields#specs) for "Text fields".
 
 ## Mobile
 
@@ -242,10 +277,10 @@ Use the following components to implement this pattern:
 -   [Form Field](https://material.angular.io/components/form-field/overview)
 -   [Input](https://material.angular.io/components/input/overview)
 
-**React** — Material-UI
+**React** — MUI
 
--   [Text Field](https://material-ui.com/components/text-fields/#text-field)
+-   [Text Field](https://mui.com/material-ui/react-text-field/#main-content)
 
 **React Native** — React-Native-Paper
 
--   [TextInput](https://callstack.github.io/react-native-paper/text-input.html)
+-   [TextInput](https://callstack.github.io/react-native-paper/docs/components/TextInput/)

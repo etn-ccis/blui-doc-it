@@ -1,8 +1,13 @@
 import React from 'react';
-import { IconType } from '../../../__types__';
+import { IconColor, IconSize, IconType } from '../../../__types__';
+import { getSvg } from '../../api';
 import { getSnakeCase, snakeToKebabCase } from '../../shared';
+import * as Colors from '@brightlayer-ui/colors';
 
 export type Framework = 'angular' | 'react' | 'react-native';
+
+type GetSnippetFn = (framework: Framework, icon: IconType) => JSX.Element;
+type GetCopyTextFn = (framework: Framework, icon: IconType) => string;
 
 export const getMuiIconName = (filename: string): string => {
     let muiName = filename
@@ -15,101 +20,179 @@ export const getMuiIconName = (filename: string): string => {
     return muiName;
 };
 
-// Can be Material or PX Blue icons
-export const downloadSvg = (icon: IconType): void => {
-    if (icon.isMaterial) {
-        window.open(
-            `https://fonts.gstatic.com/s/i/materialicons/${icon.iconFontKey}/v6/24px.svg?download=true`,
-            '_blank'
-        );
-    } else {
-        window.open(`https://raw.githubusercontent.com/pxblue/icons/dev/svg/${getSnakeCase(icon.name)}.svg`, '_blank');
+const getColorCode = (color: IconColor): string => {
+    switch (color) {
+        case 'black':
+            return Colors.black[500];
+        case 'gray':
+            return Colors.gray[500];
+        case 'blue':
+            return Colors.blue[500];
+        case 'white':
+            return Colors.white[50];
+        default:
+            return Colors.black[500];
     }
 };
 
-// Material Icons only
-export const downloadPng = (icon: IconType): void => {
-    window.open(`//fonts.gstatic.com/s/i/materialicons/${icon.iconFontKey}/v6/black-24dp.zip?download=true`, '_blank');
+export const changeSvgColorAndSize = (
+    svg: string,
+    color: IconColor | undefined,
+    size: IconSize | undefined
+): string => {
+    let newSvg = svg;
+
+    if (color) {
+        newSvg = newSvg.replace(/<svg.*?>/i, (match) =>
+            match.replace('height=', `fill="${getColorCode(color)}" height=`)
+        );
+    }
+    if (size) {
+        newSvg = newSvg.replace(/<svg.*?>/i, (match) =>
+            match.replace(/height=".*?"/i, `height="${size}"`).replace(/width=".*?"/i, `width="${size}"`)
+        );
+    }
+    return newSvg;
+};
+
+export const createDownloadElement = (iconUrl: string, iconName: string): void => {
+    const element = document.createElement('a');
+    element.setAttribute('href', iconUrl);
+    element.setAttribute('download', iconName);
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+};
+
+export const createDownloadSvgElement = (icon: IconType, iconData: string, color: IconColor, size: IconSize): void => {
+    const iconUrl = `data:text/plain;charset=utf-8, ${encodeURIComponent(
+        changeSvgColorAndSize(iconData, color, size)
+    )}`;
+    createDownloadElement(iconUrl, `${icon.iconFontKey}.svg`);
+};
+
+export const createDownloadBluiPngElement = async (
+    iconName: string,
+    colorName: string,
+    size: IconSize
+): Promise<void> => {
+    const formattedIconName = `${iconName}_${colorName}_${size}dp.png`;
+    const iconSrc = `https://raw.githubusercontent.com/etn-ccis/blui-icons/master/packages/png/png${size}/${formattedIconName}`;
+    const icon = await fetch(iconSrc);
+    const iconBlog = await icon.blob();
+    const iconUrl = URL.createObjectURL(iconBlog);
+    createDownloadElement(iconUrl, formattedIconName);
+};
+
+export const createDownloadMaterialPngElement = (
+    iconName: string,
+    colorName: IconColor,
+    size: IconSize,
+    version = 1
+): void => {
+    const iconUrl = `https://fonts.gstatic.com/s/i/materialicons/${iconName}/v${version}/${colorName}-${size}dp.zip`;
+    const formattedIconName = `${iconName}/v${version}/${colorName}-${size}dp.zip`;
+    createDownloadElement(iconUrl, formattedIconName);
+};
+
+// Material or Brightlayer UI SVG icons
+export const downloadSvg = async (icon: IconType, color: IconColor, size: IconSize): Promise<void> => {
+    if (icon.isMaterial) {
+        const iconData =
+            (await getSvg({ name: getSnakeCase(icon.name), family: 'material', version: icon.version })) || '';
+        createDownloadSvgElement(icon, iconData, color, size);
+    } else {
+        const iconData = (await getSvg({ name: icon.iconFontKey, family: 'brightlayer-ui' })) || '';
+        createDownloadSvgElement(icon, iconData, color, size);
+    }
+};
+// Material or Brightlayer UI PNG icons
+export const downloadPng = (icon: IconType, color: IconColor, size: IconSize): void => {
+    if (icon.isMaterial) {
+        createDownloadMaterialPngElement(icon.iconFontKey, color, size, icon.version);
+    } else {
+        const colorName = color === 'white' ? `${color}50` : `${color}500`;
+        void createDownloadBluiPngElement(icon.iconFontKey, colorName, size);
+    }
 };
 
 /* Functions for returning various code snippets for icons in each framework */
 
-export const getIconFontInstructions = (framework: Framework, icon: IconType): string => {
+export const getIconFontCopyText: GetCopyTextFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             if (icon.isMaterial) {
-                return `import Icon from '@material-ui/core/Icon';\n<Icon>${icon.iconFontKey}</Icon>`;
+                return `import Icon from '@mui/material/Icon';\n<Icon>${icon.iconFontKey}</Icon>`;
             }
-            return `<i className="pxb-${getSnakeCase(icon.name)}"></i>`;
+            return `<i className="blui-${icon.iconFontKey}"></i>`;
         case 'angular':
             if (icon.isMaterial) return `<span class="material-icons">${icon.iconFontKey}</span>`;
-            return `<i class="pxb-${getSnakeCase(icon.name)}"></i>`;
+            return `<i class="blui-${icon.iconFontKey}"></i>`;
         default:
             return '';
     }
 };
 
-export const getIconFontExample = (framework: Framework, icon: IconType): JSX.Element => {
+export const getIconFontSnippet: GetSnippetFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             return (
                 <>
                     {icon.isMaterial && (
                         <>
-                            {`import Icon from '@material-ui/core/Icon';`}
+                            {`import Icon from '@mui/material/Icon';`}
                             <br />
                             {`<Icon>${icon.iconFontKey}</Icon>`}
                         </>
                     )}
-                    {!icon.isMaterial && `<i className="pxb-${getSnakeCase(icon.name)}"></i>`}
+                    {!icon.isMaterial && `<i className="blui-${icon.iconFontKey}"></i>`}
                 </>
             );
         case 'angular':
             if (icon.isMaterial) return <>{`<span class="material-icons">${icon.iconFontKey}</span>`}</>;
-            return <>{`<i class="pxb-${getSnakeCase(icon.name)}"></i>`}</>;
+            return <>{`<i class="blui-${icon.iconFontKey}"></i>`}</>;
         default:
             return <></>;
     }
 };
 
-export const getIconSvgInstructions = (framework: Framework, icon: IconType): string => {
+export const getIconSvgCopyText: GetCopyTextFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             if (icon.isMaterial) {
-                return `import ${icon.name}Icon from '@material-ui/icons/${icon.name}';\n<${icon.name}Icon></${icon.name}Icon>`;
+                return `import ${icon.name}Icon from '@mui/icons-material/${icon.name}';\n<${icon.name}Icon></${icon.name}Icon>`;
             }
-            return `import ${getMuiIconName(icon.name)} from '@pxblue/icons-svg/${getSnakeCase(
-                icon.name
-            )}.svg';\n<img src={${getMuiIconName(icon.name)}} />`;
+            return `import ${getMuiIconName(icon.name)} from '@brightlayer-ui/icons-svg/${
+                icon.iconFontKey
+            }.svg';\n<img src={${getMuiIconName(icon.name)}} />`;
         case 'angular':
             if (icon.isMaterial) {
                 return `<mat-icon>${icon.iconFontKey}</mat-icon>`;
             }
-            return `<mat-icon svgIcon="px-icons:${getSnakeCase(icon.name)}"></mat-icon>`;
+            return `<mat-icon svgIcon="blui-icons:${icon.iconFontKey}"></mat-icon>`;
         case 'react-native':
             if (icon.isMaterial) {
                 return `import MatIcon from 'react-native-vector-icons/MaterialIcons';\n<MatIcon name="${snakeToKebabCase(
                     icon.iconFontKey
                 )}"/>;`;
             }
-            return `import ${icon.name} from '@pxblue/icons-svg/${getSnakeCase(icon.name)}.svg';\n<${
-                icon.name
-            } width={24} height={24} fill={'black'} />`;
+            return `import BLUIIcon from '@brightlayer-ui/react-native-vector-icons';\n<BLUIIcon name="${icon.iconFontKey}"/>;`;
         default:
             return '';
     }
 };
 
-export const getIconSvgExample = (framework: Framework, icon: IconType): JSX.Element => {
+export const getIconSvgSnippet: GetSnippetFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             return (
                 <>
                     {!icon.isMaterial && (
                         <>
-                            {`import ${getMuiIconName(icon.name)} from '@pxblue/icons-svg/${getSnakeCase(
-                                icon.name
-                            )}.svg';`}
+                            {`import ${getMuiIconName(icon.name)} from '@brightlayer-ui/icons-svg/${
+                                icon.iconFontKey
+                            }.svg';`}
                             <br />
                             {`<img src={${getMuiIconName(icon.name)}} />`}
                         </>
@@ -120,7 +203,7 @@ export const getIconSvgExample = (framework: Framework, icon: IconType): JSX.Ele
             return (
                 <>
                     {icon.isMaterial && `<mat-icon>${icon.iconFontKey}</mat-icon>`}
-                    {!icon.isMaterial && `<mat-icon svgIcon="px-icons:${getSnakeCase(icon.name)}"></mat-icon>`}
+                    {!icon.isMaterial && `<mat-icon svgIcon="blui-icons:${icon.iconFontKey}"></mat-icon>`}
                 </>
             );
         case 'react-native':
@@ -135,9 +218,9 @@ export const getIconSvgExample = (framework: Framework, icon: IconType): JSX.Ele
                     )}
                     {!icon.isMaterial && (
                         <>
-                            {`import ${icon.name} from '@pxblue/icons-svg/${getSnakeCase(icon.name)}.svg';`}
+                            {`import BLUIIcon from '@brightlayer-ui/react-native-vector-icons';`}
                             <br />
-                            {`<${icon.name} width={24} height={24} fill={'black'} />`}
+                            {`<BLUIIcon name="${icon.iconFontKey}"/>`}
                         </>
                     )}
                 </>
@@ -147,23 +230,25 @@ export const getIconSvgExample = (framework: Framework, icon: IconType): JSX.Ele
     }
 };
 
-export const getIconComponentInstructions = (framework: Framework, icon: IconType): string => {
+export const getIconComponentCopyText: GetCopyTextFn = (framework, icon) => {
     switch (framework) {
         case 'react':
-            return `import { ${icon.name} } from '${icon.isMaterial ? '@material-ui/icons' : '@pxblue/icons-mui'}';\n<${
-                icon.name
-            } />`;
+            return `import { ${icon.name} } from '${
+                icon.isMaterial ? '@mui/icons-material' : '@brightlayer-ui/icons-mui'
+            }';\n<${icon.name} />`;
         default:
             return '';
     }
 };
 
-export const getIconComponentExample = (framework: Framework, icon: IconType): JSX.Element => {
+export const getIconComponentSnippet: GetSnippetFn = (framework, icon) => {
     switch (framework) {
         case 'react':
             return (
                 <>
-                    {`import { ${icon.name} } from '${icon.isMaterial ? '@material-ui/icons' : '@pxblue/icons-mui'}';`}
+                    {`import { ${icon.name} } from '${
+                        icon.isMaterial ? '@mui/icons-material' : '@brightlayer-ui/icons-mui'
+                    }';`}
                     <br />
                     {`<${icon.name} />`}
                 </>

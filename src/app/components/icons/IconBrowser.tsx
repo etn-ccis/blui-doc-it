@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import debounce from 'lodash/debounce';
+import debounce from 'lodash.debounce';
 import FlexSearch from 'flexsearch';
 
-// PX Blue Icons and Symbols
-import * as MuiIcons from '@material-ui/icons';
-import * as PXBIcons from '@pxblue/icons-mui';
-import pxbMetadata from '@pxblue/icons-mui/index.json';
+// Brightlayer UI Icons and Symbols
+import * as MuiIcons from '@mui/icons-material';
+import * as BLUIIcons from '@brightlayer-ui/icons-mui';
+import bluiMetadata from '@brightlayer-ui/icons-mui/index.json';
 
 // Types
 import { DetailedIcon, IconType } from '../../../__types__';
@@ -15,18 +15,18 @@ import { IconSearchBar } from './IconSearchBar';
 import { IconGrid } from './IconGrid';
 import { IconDrawer } from './IconDrawer';
 import { SelectedIconContext } from '../../contexts/selectedIconContextProvider';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useQueryString } from '../../hooks/useQueryString';
-import { Grid, Typography, useTheme } from '@material-ui/core';
-import { Skeleton } from '@material-ui/lab';
+import { Grid, Skeleton, Typography, useTheme } from '@mui/material';
 import { titleCase } from '../../shared';
 import { useDispatch } from 'react-redux';
 import { TOGGLE_SIDEBAR } from '../../redux/actions';
-import { EmptyState } from '@pxblue/react-components';
+import { EmptyState } from '@brightlayer-ui/react-components';
 
 type MaterialMeta = {
     icons: DetailedIcon[];
 };
+// https://fonts.google.com/metadata/icons
 // eslint-disable-next-line
 const materialMetadata: MaterialMeta = require('./MaterialMetadata.json');
 
@@ -52,10 +52,10 @@ const matMetaObject: { [key: string]: DetailedIcon } = {};
 for (const ico of materialMetadata.icons) {
     matMetaObject[getMuiIconName(ico.name)] = ico;
 }
-const pxbMetaObject: { [key: string]: DetailedIcon } = {};
-for (const ico of pxbMetadata.icons) {
+const bluiMetaObject: { [key: string]: DetailedIcon } = {};
+for (const ico of bluiMetadata.icons) {
     // @ts-ignore (our icon meta doesn't exactly match the material meta, but we never reference the missing props so it's ok)
-    pxbMetaObject[getMuiIconName(ico.filename)] = ico;
+    bluiMetaObject[getMuiIconName(ico.filename)] = ico;
 }
 
 const loadIcons = (): void => {
@@ -84,6 +84,7 @@ const loadIcons = (): void => {
             description: '',
             author: '',
             size: 0,
+            version: 1,
         };
 
         // do not add obsolete icons to the search index or the master icon lists
@@ -113,6 +114,7 @@ const loadIcons = (): void => {
             categories: iconDetails.categories || [],
             // @ts-ignore
             Icon: MuiIcons[iconKey],
+            version: iconDetails.version,
         };
 
         // add the icon details to the allIcons map
@@ -128,9 +130,9 @@ const loadIcons = (): void => {
         return icon;
     });
 
-    Object.keys(PXBIcons).map((iconKey) => {
+    Object.keys(BLUIIcons).map((iconKey) => {
         let searchableString = iconKey;
-        const iconDetails: DetailedIcon | undefined = pxbMetaObject[iconKey] || {
+        const iconDetails: DetailedIcon | undefined = bluiMetaObject[iconKey] || {
             name: '',
             filename: '',
             family: [],
@@ -140,37 +142,52 @@ const loadIcons = (): void => {
             description: '',
             author: '',
             size: 0,
+            version: 1,
         };
 
         // add the name and tags to the search index
         searchableString += iconDetails.tags.join(' ');
         // @ts-ignore
-        searchIndex.add(`${iconKey}-pxb`, searchableString);
+        searchIndex.add(`${iconKey}-blui`, searchableString);
 
         const icon: IconType = {
             name: iconKey,
-            iconFontKey: iconDetails.name,
+            iconFontKey: iconDetails.filename.slice(0, -4),
             type: 'Filled',
             isMaterial: false,
             tags: iconDetails.tags || [],
             categories: iconDetails.family || [],
             // @ts-ignore
-            Icon: PXBIcons[iconKey],
+            Icon: BLUIIcons[iconKey],
+            version: iconDetails.version ?? 1,
         };
 
         // add the icon details to the allIcons map
-        allIconsMap[`${iconKey}-pxb`] = icon;
+        allIconsMap[`${iconKey}-blui`] = icon;
 
         // add the icon details to the categorized icon list
         for (let cat of iconDetails.family) {
-            cat = cat.toLocaleLowerCase();
-            if (allIconsByCategory[cat]) allIconsByCategory[cat].push(icon);
-            else allIconsByCategory[cat] = [icon];
+            if (!iconDetails.filename.toLocaleLowerCase().includes('eaton')) {
+                cat = cat.toLocaleLowerCase();
+                if (allIconsByCategory[cat]) allIconsByCategory[cat].push(icon);
+                else allIconsByCategory[cat] = [icon];
+            }
         }
 
         // return the icon
         return icon;
     });
+};
+
+const parseBoolean = (str: string): boolean | undefined => {
+    switch (str) {
+        case 'true':
+            return true;
+        case 'false':
+            return false;
+        default:
+            return undefined;
+    }
 };
 
 /*
@@ -179,20 +196,14 @@ const loadIcons = (): void => {
  */
 export const IconBrowser: React.FC = (): JSX.Element => {
     const theme = useTheme();
-    const history = useHistory();
+    const navigate = useNavigate();
     const location = useLocation();
     const dispatch = useDispatch();
     const { icon: iconQuery, isMaterial: materialQuery } = useQueryString();
-    const isMaterial = materialQuery === 'true';
+    const isMaterial = parseBoolean(materialQuery);
     const [iconKeys, setIconKeys] = useState<string[] | null>(null);
     const [iconCategories, setIconCategories] = useState<string[] | null>(null);
-    const [selectedIcon, setSelectedIcon] = React.useState<IconType | undefined>(() => {
-        if (allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'pxb'}`]) {
-            dispatch({ type: TOGGLE_SIDEBAR, payload: true });
-            return allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'pxb'}`];
-        }
-        return undefined;
-    });
+    const [selectedIcon, setSelectedIcon] = React.useState<IconType | undefined>(undefined);
     const [iconsLoading, setIconsLoading] = useState(true);
     const iconClass = 'Filled'; // Future: allow users to select the style of icons to view
 
@@ -209,18 +220,33 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     useEffect(() => {
         if (Object.keys(allIconsMap).length === 0) loadIcons();
         setIconsLoading(false);
+        // If loading from a query param, load the icon if it exists in the icon map.
+        if (iconQuery) {
+            if (isMaterial !== undefined && allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'blui'}`]) {
+                dispatch({ type: TOGGLE_SIDEBAR, payload: true });
+                setSelectedIcon(allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'blui'}`]);
+            } else if (isMaterial === undefined) {
+                let newSelectedIcon;
+                if ((newSelectedIcon = allIconsMap[`${iconQuery}-material`] || allIconsMap[`${iconQuery}-blui`])) {
+                    dispatch({ type: TOGGLE_SIDEBAR, payload: true });
+                    setSelectedIcon(newSelectedIcon);
+                }
+            }
+        }
     }, []);
 
     useEffect(() => {
         if (!iconQuery || iconQuery === '') setSelectedIcon(undefined);
     }, [iconQuery, setSelectedIcon]);
 
-    const handleSelect = useCallback((event) => {
-        const iconName = event.currentTarget.getAttribute('data-iconid').split('-');
+    const handleSelect = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
+        const iconName = event?.currentTarget?.getAttribute('data-iconid')?.split('-');
+        if (!iconName) return;
 
         setSelectedIcon(allIconsMap[iconName.join('-')]);
-        history.replace(
-            `${location.pathname}?icon=${iconName[0]}&isMaterial=${iconName[1] === 'material' ? true : false}`
+        navigate(
+            `${location.pathname}?icon=${iconName[0]}&isMaterial=${iconName[1] === 'material' ? 'true' : 'false'}`,
+            { replace: true }
         );
         dispatch({ type: TOGGLE_SIDEBAR, payload: true });
     }, []);
@@ -235,7 +261,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                 if (value === '') {
                     setIconKeys(null);
                 } else {
-                    searchIndex.search(value).then((results) => {
+                    void searchIndex.search(value).then((results) => {
                         setIconKeys(results.sort());
                     });
                 }
@@ -265,7 +291,8 @@ export const IconBrowser: React.FC = (): JSX.Element => {
         for (const category of Object.keys(allIconsByCategory)) {
             filteredCategories[category] = allIconsByCategory[category].filter(
                 (icon) =>
-                    iconKeys.includes(`${icon.name}-${icon.isMaterial ? 'material' : 'pxb'}`) && icon.type === iconClass
+                    iconKeys.includes(`${icon.name}-${icon.isMaterial ? 'material' : 'blui'}`) &&
+                    icon.type === iconClass
             );
         }
         return filteredCategories;
@@ -295,12 +322,12 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                     {Array(24)
                         .fill('')
                         .map((item, ind) => (
-                            <Grid item xs={4} sm={4} md={3} lg={2} key={`${ind}`} style={{ minHeight: 137 }}>
+                            <Grid item xs={4} sm={4} md={3} lg={2} key={`${ind}`} sx={{ minHeight: 137 }}>
                                 <Skeleton
-                                    variant={'rect'}
-                                    style={{ width: 48, height: 48, borderRadius: 24, margin: 'auto' }}
+                                    variant={'rectangular'}
+                                    sx={{ width: 48, height: 48, borderRadius: 6, margin: 'auto' }}
                                 />
-                                <Skeleton variant={'text'} style={{ height: 32, maxWidth: 100, margin: 'auto' }} />
+                                <Skeleton variant={'text'} sx={{ height: 32, maxWidth: 100, margin: 'auto' }} />
                             </Grid>
                         ))}
                 </Grid>
@@ -313,10 +340,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                         iconsByCategory[category].length > 0 &&
                         (iconCategories === null || iconCategories.includes(category)) ? (
                             <React.Fragment key={`category_${category}`}>
-                                <Typography
-                                    variant={'h6'}
-                                    style={{ marginTop: theme.spacing(3), marginBottom: theme.spacing(3) }}
-                                >
+                                <Typography variant={'h6'} sx={{ my: 3 }}>
                                     {titleCase(category)}
                                 </Typography>
                                 <IconGrid icons={iconsByCategory[category]} onIconSelected={handleSelect} />
@@ -328,7 +352,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                     title={'0 Matches'}
                     description={'No icons matched your filters.'}
                     icon={<MuiIcons.Search fontSize={'inherit'} />}
-                    style={{ height: 300, minHeight: 300 }}
+                    sx={{ height: 300, minHeight: 300 }}
                 />
             )}
             <IconDrawer />

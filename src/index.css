@@ -34,6 +34,13 @@ q:after {
     padding: 0;
 }
 
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+    display: none;
+}
+
 blockquote > p:last-child {
     margin-bottom: 0;
 }
@@ -72,50 +79,42 @@ p.MuiTypography-h5.MuiTypography-paragraph {
     }
 }
 
-/* Carousel Overrides */
-.BrainhubCarousel {
-    position: relative;
-    color: white;
-}
-.BrainhubCarousel__customArrows {
-    position: absolute;
-    width: 0;
-    top: calc(50%);
-    transform: translateY(-50%);
-    z-index: 100;
-}
-.BrainhubCarousel__custom-arrowLeft {
-    left: 0;
-}
-.BrainhubCarousel__custom-arrowRight {
-    right: 59px;
-}
-
 /* Start: Holiday Themes */
 
 /* Halloween Theme & New Years Theme */
 .halloween pre,
 .halloween code,
 .new-years pre,
-.new-years code {
+.new-years code,
+.mid-autumn-festival pre,
+.mid-autumn-festival code {
     background-color: #13181b; /* darkBlack 300 */
     color: #e8eaea; /* black 50 */
 }
 
 .halloween.ph-item,
-.new-years.ph-item {
+.new-years.ph-item,
+.mid-autumn-festival.ph-item {
     background-color: #13181b; /* darkBlack 300 */
     border-color: #2b353a;
 }
 
 .halloween.ph-item::before,
-.new-years.ph-item::before {
+.new-years.ph-item::before,
+.mid-autumn-festival.ph-item::before {
     background: linear-gradient(to right, #13181b00 46%, #13181b55 50%, #13181b00 54%) 50% 50%;
 }
 
 .halloween.ph-item .ph-avatar,
 .halloween.ph-item .ph-row > div > *,
 .new-years.ph-item .ph-avatar,
-.new-years.ph-item .ph-row > div > * {
+.new-years.ph-item .ph-row > div > *,
+.mid-autumn-festival.ph-item .ph-avatar,
+.mid-autumn-festival.ph-item .ph-row > div > * {
     background-color: #2b353a;
+}
+
+#fireworks > canvas {
+    height: 100% !important;
+    width: 100% !important;
 }

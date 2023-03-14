@@ -1,12 +1,15 @@
+import React from 'react';
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
 import Banner from '../../app/assets/design-patterns/empty-states/empty-state-banner.svg';
 import Image1 from '../../app/assets/design-patterns/empty-states/empty-state-variations.png';
 import DesktopImage from '../../app/assets/design-patterns/empty-states/empty-state-desktop.png';
 import ElementImage from '../../app/assets/design-patterns/empty-states/empty-state-element.png';
+import DontDistractImage from '../../app/assets/design-patterns/empty-states/dont-distract.png';
+import DoEncourageImage from '../../app/assets/design-patterns/empty-states/do-encourage.png';
 import Specs1Image from '../../app/assets/design-patterns/empty-states/specs-1.png';
 import Specs2Image from '../../app/assets/design-patterns/empty-states/specs-2.png';
 
-<!-- KEYWORDS: design pattern empty state placeholder -->
+{/* KEYWORDS: design pattern empty state placeholder */}
 
 # Empty States
 
@@ -17,12 +20,7 @@ At times, there may be areas of your application that do not have data available
 <React.Fragment>
     <MaterialDesignDescription
         title={'Empty States'}
-        url={`https://material.io/design/communication/empty-states.html`}
-    />
-    <DemoCard
-        repository={'empty-states'}
-        angular={`https://pxblue-components.github.io/angular/?path=/story/components-empty-state--with-full-config`}
-        react={`https://pxblue-components.github.io/react/?path=/story/components-empty-state--with-full-config`}
+        url={`https://m2.material.io/design/communication/empty-states.html`}
     />
     <ImageGrid
         regularWidth
@@ -35,10 +33,11 @@ At times, there may be areas of your application that do not have data available
     <TOC
         anchors={[
             { title: 'Introduction', hash: '#empty-states' },
-            { title: 'Common Use Cases', hash: '#common-use-cases' },
-            { title: 'Anatomy', hash: '#anatomy' },
-            { title: 'Design Specifications', hash: '#design-specifications' },
-            { title: 'Developers', hash: '#developers' },
+            { title: 'Common Use Cases' },
+            { title: 'Anatomy' },
+            { title: 'Behavior' },
+            { title: 'Design Specifications' },
+            { title: 'Developers' },
         ]}
     />
     <Divider />
@@ -76,7 +75,7 @@ If the data is empty but could be populated by a user action (such as adding a d
 
 <ImageGrid
     images={[DesktopImage, ElementImage]}
-    caption={['1: A full-screen empty state.', '2: Empty state shown on an element (card).']}
+    captionsUnderImages={['A full-screen empty state.', 'Empty state shown on an element (card).']}
 />
 
 ### Full-screen
@@ -89,6 +88,26 @@ While less common, empty states can also be used as an indicator for individual 
 
 <Divider />
 
+# Behavior
+
+The empty state should clearly communicate to users:
+
+-   What they are looking at: What data will be present if the dataset is not empty?
+-   Why the state is empty: What actions (or inactions) did they perform that caused the dataset to be empty?
+-   How to get the data: What actions do they need to take to populate the data, if needed?
+
+<ImageGrid
+    images={[DontDistractImage, DoEncourageImage]}
+    captionsUnderImages={[
+        'DONT: Do not display pagination when datasets are empty as they can be distracting to users.',
+        'DO: Instead, provide instructions to help your user out of the empty state situation, if so desired by your application.',
+    ]}
+/>
+
+Empty states can also be a great place to express your project identity, especially if your application is designed to be consumer-facing. See [Project Identity](/design/project-identity#illustrations) for details.
+
+<Divider />
+
 # Design Specifications
 
 <ImageGrid images={[Specs1Image, Specs2Image]} regularWidth />
@@ -98,14 +117,14 @@ While less common, empty states can also be used as an indicator for individual 
 
 Use the following components to implement this pattern:
 
-**Angular** and **Ionic** - @pxblue/angular-components:
+**Angular** - @brightlayer-ui/angular-components:
 
--   [Empty State](https://pxblue-components.github.io/angular/?path=/info/components-empty-state--readme)
+-   [Empty State](https://brightlayer-ui-components.github.io/angular/components/empty-state/examples)
 
-**React** - @pxblue/react-components:
+**React** - @brightlayer-ui/react-components:
 
--   [Empty State](https://pxblue-components.github.io/react/?path=/info/components-empty-state--get-read-me-story)
+-   [Empty State](https://brightlayer-ui-components.github.io/react/components/empty-state/examples)
 
-**React Native** - @pxblue/react-native-components:
+**React Native** - @brightlayer-ui/react-native-components:
 
--   [Empty State](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--empty-state)
+-   [Empty State](https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--empty-state)

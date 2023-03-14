@@ -1,0 +1,208 @@
+import React from 'react';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
+import PxblueSmallAltIcon from '@brightlayer-ui/icons-mui/PxblueSmallAlt';
+import Banner from '../../app/assets/design-patterns/account-menu/account-menu-banner.png';
+import AccountSettingsPage from '../../app/assets/design-patterns/account-menu/account-settings-page.png';
+import DrawerDetails1 from '../../app/assets/design-patterns/account-menu/drawer-do-and-dont-1.png';
+import DrawerDetails2 from '../../app/assets/design-patterns/account-menu/drawer-do-and-dont-2.png';
+import UserMenuContents from '../../app/assets/design-patterns/account-menu/user-menu-contents.png';
+import AvatarVariants from '../../app/assets/design-patterns/account-menu/avatar-variants.png';
+import CrowdedDrawer from '../../app/assets/design-patterns/account-menu/crowded-drawer.png';
+import CrowdedUserMenu from '../../app/assets/design-patterns/account-menu/crowded-user-menu.png';
+
+import Specs1 from '../../app/assets/design-patterns/account-menu/spec-typography-mobile.png';
+import Specs2 from '../../app/assets/design-patterns/account-menu/spec-typography-desktop.png';
+import Specs3 from '../../app/assets/design-patterns/account-menu/spec-drawer.png';
+import Specs4 from '../../app/assets/design-patterns/account-menu/spec-avatar.png';
+
+{/* KEYWORDS: design pattern user account details settings menu avatar profile */}
+
+# Account Menu
+
+<ImageGrid images={[Banner]} regularWidth />
+
+When applications implement a form of [User Authentication](/patterns/user-auth), they must include ways for users to view / update their personal or account information as well as take account-related actions, such as logging out of the application or changing a password. There are several ways to present this information to the user in a Brightlayer UI application.
+
+<React.Fragment>
+    <TOC
+        anchors={[
+            { title: 'Introduction', hash: '#account-menu' },
+            { title: 'Account Settings Page' },
+            { title: 'In a Navigation Drawer' },
+            { title: 'In a User Menu' },
+            { title: 'Contents' },
+            { title: 'Design Specifications' },
+            { title: 'Developers' },
+        ]}
+    />
+    <Divider />
+</React.Fragment>
+
+# Account Settings Page
+
+<ImageGrid
+    images={[AccountSettingsPage]}
+    regularWidth
+    caption={`A typical account settings page on mobile and web displaying user information and various account-related options.`}
+/>
+
+At a minimum, your application should implement a dedicated account settings page for viewing and editing a user's account details, preferences, settings, etc. This page should also include a way for users to take account-related actions. The style of this page should be consistent with other settings pages in your application, if applicable. If you have multiple settings pages in your application, the account settings should be easily accessible from the top level.
+
+<Divider />
+
+# In a Navigation Drawer
+
+If your application is using [Drawer Navigation](/patterns/navigation#drawer-navigation), you can include quick-access user information and actions in the Drawer. Commonly, this involves placing an avatar in the drawer header along with basic information about the user (e.g., their name, username, email address, job title and / or organization affiliation). Additional account actions and a link to the account settings page can be placed at the bottom of the drawer body, just above the footer, if present (see the [contents](/patterns/account-menu#contents) section below).
+
+<ImageGrid
+    images={[DrawerDetails1, DrawerDetails2]}
+    captionsUnderImages={[
+        `DO: User avatar and basic information can be placed in the drawer header.`,
+        `DO: Place the top account-related actions at the bottom of the drawer.`,
+    ]}
+/>
+
+This approach is most effective when there are relatively few account-related actions and is also preferred on mobile where there is limited space in the app bar.
+
+If you are using a navigation rail, you may place account settings links in the rail, but you will not be able to show specific details about the user. Consider using the {/* <!-- markdown-link-check-disable --> */}[User Menu](#via-user-menu){/* <!-- markdown-link-check-enable --> */} in this situation or if you are using a primary navigation mechanism other than a drawer.
+
+<DemoCard
+    repository={'Account Details in Drawers'}
+    angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Faccount-menu%2Fin-a-drawer%2Fmenu-in-a-drawer.component.html`}
+    react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/account-menu/in-a-drawer/index.tsx&initialpath=/in-a-drawer`}
+/>
+<MaterialDesignDescription
+    title={'Drawer Navigation'}
+    url={'/patterns/navigation#drawer-navigation'}
+    description={`Follow Brightlayer UI's guideline for using a Drawer.`}
+    avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+/>
+<Divider />
+
+# In a User Menu
+
+<ImageGrid
+    images={[UserMenuContents]}
+    regularWidth
+    caption={[
+        `1. On desktop, user menu contents appear in a dropdown menu below the avatar.`,
+        `2. On mobile devices, the contents should be presented in a bottom sheet.`,
+    ]}
+/>
+
+Another way to present user information and actions is with the user menu. The user menu appears as an Avatar in the [App Bar](/patterns/appbar) which opens a menu with the user-related content (see the [contents](#contents) section below).
+
+This approach is most effective if you have more than three account-related actions, or if you want to present more detailed information about a user since it avoids cluttering the primary navigation drawer.
+
+<React.Fragment>
+    <DemoCard
+        repository={'User Menus in App Bars'}
+        angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Faccount-menu%2Fin-an-app-bar%2Fin-an-app-bar.component.html`}
+        react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/account-menu/in-an-app-bar/index.tsx&initialpath=/in-an-app-bar`}
+    />
+    <MaterialDesignDescription
+        title={'Bottom Sheet'}
+        url={'/patterns/overlay#bottom-sheet'}
+        description={`Follow Brightlayer UI's guideline for using a Bottom Sheet.`}
+        avatar={<PxblueSmallAltIcon style={{ width: 48, height: 48 }} />}
+    />
+    <Divider />
+</React.Fragment>
+
+# Contents
+
+Whether you are using the drawer or a dedicated user menu component, the content should be very similar.
+
+## Avatar
+
+<ImageGrid
+    images={[AvatarVariants]}
+    regularWidth
+    caption={[
+        `1. Generic avatar icon for use with shared or anonymous accounts`,
+        `2. Basic avatar showing user's initials.`,
+        `3. Avatar showing a user-selected profile picture.`,
+        `4. Avatar with a notification indicator.`,
+        `5. Avatar icon with full name / username.`,
+    ]}
+/>
+
+An avatar is used to identify the currently logged-in user / account. It may appear in the drawer header or in the [App Bar](/patterns/appbar).
+
+Avatars can take several forms. Usually, they display a user-selected profile picture. If your application does not support user-selected images, you can default to displaying the user's initials or a [person icon](/style/icon-library?icon=Person&isMaterial=true). You can also elect to show the user's full name or username — this may be particularly useful when your application uses shared or generic accounts (e.g., 'Administrator').
+
+The avatar should be accompanied by basic information about the user, such as their name, username, email, job title, etc., which can be placed in the navigation drawer header or in the user menu header.
+
+## Account Functions
+
+Most account functions can be located on the account settings page, but you should provide access to the most common / frequent actions in the drawer or user menu as well.
+
+You should at least include:
+
+-   A link to the account settings page
+-   A Log Out button
+-   Links to terms of service / privacy policy / license information (if applicable)
+
+When using the user menu, you will likely have more room available if you wish to include other frequently accessed account functions, such as change password, contact support, etc.
+
+<React.Fragment>
+    <ImageGrid
+        images={[CrowdedDrawer, CrowdedUserMenu]}
+        caption={`AVOID: Avoid overcrowding the drawer and the user menu by including too many user actions.`}
+    />
+    <Divider />
+</React.Fragment>
+
+# Design Specifications
+
+## Mobile
+
+### Navigation Drawer
+
+<ImageGrid images={[Specs3]} regularWidth />
+
+### User Menu
+
+<ImageGrid images={[Specs1]} regularWidth />
+
+### Avatar
+
+<ImageGrid images={[Specs4]} regularWidth />
+
+## Desktop and Tablet
+
+If certain dimensions are not specified, refer to the dimensions suggested in the mobile section above.
+
+### User Menu
+
+<ImageGrid images={[Specs2]} regularWidth />
+
+Also refer to the design specifications for [Drawer](/patterns/navigation#design-specifications) and [Bottom Sheet](/patterns/overlay#bottom-sheet).
+
+<Divider />
+
+# Developers
+
+Use the following components to implement this pattern:
+
+**Angular**:
+
+-   Angular Material
+    -   [Side Nav](https://material.angular.io/components/sidenav/overview)
+-   @brightlayer-ui/angular-components
+    -   [Drawer](https://brightlayer-ui-components.github.io/angular/components/drawer/examples)
+    -   [User Menu](https://brightlayer-ui-components.github.io/angular/components/user-menu/examples)
+
+**React**:
+
+-   MUI
+    -   [Drawer](https://mui.com/material-ui/react-drawer/#main-content)
+-   @brightlayer-ui/react-components
+    -   [Drawer](https://brightlayer-ui-components.github.io/react/components/drawer/examples)
+    -   [User Menu](https://brightlayer-ui-components.github.io/react/components/user-menu/examples)
+
+**React Native**:
+
+-   @brightlayer-ui/react-native-components
+    -   [Drawer](https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--drawer)
+    -   [User Menu](https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--user-menu)

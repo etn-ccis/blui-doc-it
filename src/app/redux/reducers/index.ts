@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { ColorType } from '../../../__types__';
 import {
     CHANGE_PAGE_TITLE,
     CHANGE_COLOR_FORMAT,
@@ -6,6 +7,11 @@ import {
     TOGGLE_SEARCH,
     TOGGLE_SIDEBAR,
     TOGGLE_TOC,
+    SHOW_BANNER,
+    HIDE_BANNER,
+    CHANGE_SELECTED_COLOR,
+    TOGGLE_COLOR_CONTRAST,
+    CHANGE_THEME,
 } from '../actions';
 
 export type AppState = {
@@ -18,6 +24,10 @@ export type CommonState = {
     searchActive: boolean;
     sidebarOpen: boolean;
     hasTOC: boolean;
+    showBanner: boolean;
+    selectedColor: undefined | ColorType;
+    showColorContrast: boolean;
+    theme: string;
 };
 const initialAppState: CommonState = {
     pageTitle: '',
@@ -26,6 +36,10 @@ const initialAppState: CommonState = {
     searchActive: false,
     sidebarOpen: false,
     hasTOC: false,
+    showBanner: false,
+    selectedColor: undefined,
+    showColorContrast: false,
+    theme: 'default',
 };
 const appReducer = (state = initialAppState, action: any): CommonState => {
     switch (action.type) {
@@ -58,6 +72,31 @@ const appReducer = (state = initialAppState, action: any): CommonState => {
             return {
                 ...state,
                 hasTOC: action.payload,
+            };
+        case SHOW_BANNER:
+            return {
+                ...state,
+                showBanner: action.payload,
+            };
+        case HIDE_BANNER:
+            return {
+                ...state,
+                showBanner: false,
+            };
+        case CHANGE_SELECTED_COLOR:
+            return {
+                ...state,
+                selectedColor: action.payload,
+            };
+        case TOGGLE_COLOR_CONTRAST:
+            return {
+                ...state,
+                showColorContrast: action.payload,
+            };
+        case CHANGE_THEME:
+            return {
+                ...state,
+                theme: action.payload,
             };
         default:
             return state;

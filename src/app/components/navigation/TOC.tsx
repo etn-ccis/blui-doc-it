@@ -1,12 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { makeStyles, createStyles, Theme, Typography } from '@material-ui/core';
+import { Typography, useMediaQuery, Box, useTheme } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
-import { DRAWER_WIDTH, TOC_WIDTH, PAGE_WIDTH } from '../../shared';
-import clsx from 'clsx';
+import { DRAWER_WIDTH, TOC_WIDTH, PAGE_WIDTH, getHash } from '../../shared';
 import { useTOC } from '../../hooks/useTOC';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../redux/reducers';
+import { SystemStyleObject } from '@mui/system';
 
 type ToCProps = {
-    anchors: Array<{ title: string; hash: string }>;
+    anchors: Array<{ title: string; hash?: string; depth?: number }>;
 
     /**
      * Whether the first anchor passed in is pointing to the page top
@@ -16,71 +18,22 @@ type ToCProps = {
     isFirstAnchorIntro?: boolean;
 };
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            borderLeft: `2px solid ${theme.palette.divider}`,
-            padding: `0 ${theme.spacing(2)}px`,
-            margin: `${theme.spacing(2)}px 0`,
-            maxWidth: TOC_WIDTH,
-            [theme.breakpoints.up('lg')]: {
-                borderLeft: 'none',
-                padding: `${theme.spacing(5)}px ${theme.spacing(1)}px`,
-                margin: 0,
-                position: 'fixed',
-                top: theme.spacing(8),
-                left: `calc(50% + ${DRAWER_WIDTH}px*0.5 - ${TOC_WIDTH}px*0.5 - ${PAGE_WIDTH.REGULAR}px*0.5)`,
-            },
-        },
-        onThisPage: {
-            display: 'block',
-            marginBottom: theme.spacing(2),
-            [theme.breakpoints.up('lg')]: {
-                marginLeft: theme.spacing(2),
-            },
-        },
-        link: {
-            marginBottom: theme.spacing(),
-            textDecoration: 'none',
-            color: theme.palette.text.primary,
-            display: 'block',
-            '&:hover': {
-                color: theme.palette.primary.main,
-            },
-            [theme.breakpoints.up('lg')]: {
-                borderLeft: `2px solid transparent`,
-                paddingLeft: theme.spacing(2),
-                '&$activeLink': {
-                    color: theme.palette.primary.main,
-                    fontWeight: 600,
-                    borderLeft: `2px solid ${
-                        theme.palette.type === 'light' ? theme.palette.primary.light : theme.palette.primary.dark
-                    }`,
-                },
-            },
-        },
-        activeLink: {},
-        hideIntro: {
-            [theme.breakpoints.down('md')]: {
-                display: 'none',
-            },
-        },
-    })
-);
-
 export const TOC: React.FC<ToCProps> = (props) => {
     const { anchors, isFirstAnchorIntro = true } = props;
-    const classes = useStyles();
+    const theme = useTheme();
+    const isLgUp = useMediaQuery(theme.breakpoints.up('lg'));
     const { pathname, hash } = useLocation();
     const [activeSection, setActiveSection] = useState(0);
     const [sectionOffsetTop, setSectionOffsetTop] = useState<number[]>([]);
+    const showBanner = useSelector((state: AppState) => state.app.showBanner);
     useTOC(true);
 
     const initializeSectionOffsetTop = useCallback(() => {
         // go through all the section anchors, read their offsetTop values
         const anchorTops: number[] = [];
         anchors.forEach((anchor) => {
-            const sectionAnchor = document.getElementById(anchor.hash.slice(1));
+            const anchorHash = anchor.hash?.slice(1) || getHash(anchor.title);
+            const sectionAnchor = document.getElementById(anchorHash);
             if (sectionAnchor) {
                 anchorTops.push(sectionAnchor.offsetTop - 200); // add a bit more scroll padding
             } else {
@@ -123,15 +76,20 @@ export const TOC: React.FC<ToCProps> = (props) => {
     useEffect(() => {
         initializeSectionOffsetTop();
 
-        // wait for the images to load first
+        // an initial positioning, in case some people got impatient
+        const timer1000 = setTimeout((): void => {
+            initializeSectionOffsetTop();
+        }, 1000);
+        // wait for the images to load on a regular internet
         const timer3000 = setTimeout((): void => {
             initializeSectionOffsetTop();
         }, 3000);
         // another one to account for slower internet
-        const timer10000 = setTimeout((): void => {
+        const timer10000 = setInterval((): void => {
             initializeSectionOffsetTop();
         }, 10000);
         return (): void => {
+            clearTimeout(timer1000);
             clearTimeout(timer3000);
             clearTimeout(timer10000);
         };
@@ -142,23 +100,66 @@ export const TOC: React.FC<ToCProps> = (props) => {
     }, [sectionOffsetTop]);
 
     return (
-        <div className={classes.root}>
-            <Typography className={classes.onThisPage} variant={'overline'} color={'textSecondary'}>
+        <Box
+            sx={[
+                {
+                    borderLeft: isLgUp ? 'none' : `2px solid`,
+                    color: 'divider',
+                    py: { xs: 0, lg: 5 },
+                    px: { xs: 2, lg: 1 },
+                    my: { xs: 2, lg: 0 },
+                    mx: 0,
+                    maxWidth: TOC_WIDTH,
+                    position: isLgUp ? 'fixed' : 'inherit',
+                    top: 64,
+                    left: `calc(50% + ${DRAWER_WIDTH}px*0.5 - ${TOC_WIDTH}px*0.5 - ${PAGE_WIDTH.REGULAR}px*0.5)`,
+                },
+                showBanner ? { top: { lg: 16 } } : {},
+            ]}
+        >
+            <Typography sx={{ display: 'block', mb: 2, ml: { lg: 2 } }} variant={'overline'} color={'textSecondary'}>
                 On This Page
             </Typography>
-            {anchors.map((anchor, index) => (
-                <Link
-                    key={index}
-                    to={anchor.hash}
-                    className={clsx(classes.link, {
-                        [classes.activeLink]: activeSection === index,
-                        [classes.hideIntro]: isFirstAnchorIntro && index === 0,
-                    })}
-                    replace
-                >
-                    {anchor.title}
-                </Link>
-            ))}
-        </div>
+            {anchors.map(
+                (anchor, index) =>
+                    (isLgUp || !anchor.depth) && (
+                        <Typography
+                            component={Link}
+                            key={index}
+                            replace
+                            to={anchor.hash || `#${getHash(anchor.title)}`}
+                            variant={'body2'}
+                            sx={[
+                                {
+                                    mb: 1,
+                                    textDecoration: 'none',
+                                    color: 'text.primary',
+                                    display: 'block',
+                                    borderLeftWidth: isLgUp ? 2 : 0,
+                                    borderLeftStyle: 'solid',
+                                    borderLeftColor: 'transparent',
+                                    '&:hover': {
+                                        color: 'primary.main',
+                                    },
+                                    lineHeight: '20px',
+                                    pl: anchor.depth ? anchor.depth * 2 + 2 : isLgUp ? 2 : 0,
+                                },
+                                activeSection === index && isLgUp
+                                    ? (t): SystemStyleObject => ({
+                                          color: 'primary.main',
+                                          fontWeight: 600,
+                                          borderLeftColor:
+                                              t.palette.mode === 'light' ? 'primary.light' : 'primary.dark',
+                                      })
+                                    : {},
+                                isFirstAnchorIntro && index === 0 ? { display: { xs: 'none', lg: 'block' } } : {},
+                                {},
+                            ]}
+                        >
+                            {anchor.title}
+                        </Typography>
+                    )
+            )}
+        </Box>
     );
 };

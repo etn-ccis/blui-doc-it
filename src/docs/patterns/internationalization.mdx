@@ -1,7 +1,9 @@
+import React from 'react';
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
-import { Link as LinkIcon } from '@material-ui/icons';
+import { Link as LinkIcon } from '@mui/icons-material';
 import InternationalizationImage from '../../app/assets/design-patterns/internationalization/internationalization.svg';
-import IconsFlippedImage from '../../app/assets/design-patterns/internationalization/icons-flipped.png';
+import IconsFlippedOKImage from '../../app/assets/design-patterns/internationalization/icons-flipped-ok.png';
+import IconsFlippedErrorImage from '../../app/assets/design-patterns/internationalization/icons-flipped-error.png';
 import UIFlippedImage from '../../app/assets/design-patterns/internationalization/ui-flipped.png';
 import ButtonWidthImage from '../../app/assets/design-patterns/internationalization/button-width.png';
 import TextFieldWidthImage from '../../app/assets/design-patterns/internationalization/text-field-width.png';
@@ -9,20 +11,18 @@ import LanguageOptionsImage from '../../app/assets/design-patterns/international
 import CulturalDifferencesImage from '../../app/assets/design-patterns/internationalization/cultural-differences.svg';
 import FormsImage from '../../app/assets/design-patterns/internationalization/forms.png';
 
-<!-- KEYWORDS: design pattern internationalization i18n internationalisation language translate translation localization l10n rtl localisation globalization globalize globalisation globalise -->
+{/* KEYWORDS: design pattern internationalization i18n internationalisation language translate translation localization l10n rtl localisation globalization globalize globalisation globalise */}
 
 # Internationalization & Localization
 
-<ImageGrid images={[InternationalizationImage]} regularWidth />
-<DemoCard
-repository={'internationalization'}
-angular={
-`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fi18n%2Fi18n.component.ts`
-}
-react={
-`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/i18n/index.tsx&initialpath=i18n`
-}
-/>
+<React.Fragment>
+    <ImageGrid images={[InternationalizationImage]} regularWidth />
+    <DemoCard
+        repository={'internationalization'}
+        angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Fi18n%2Fi18n.component.ts`}
+        react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/i18n/index.tsx&initialpath=/i18n`}
+    />
+</React.Fragment>
 
 Internationalization and localization refer to a set of practices for adapting applications to different regions, languages, and cultures. You can accomplish this in your applications or websites by considering the differences in language, scripts, and directionality.
 
@@ -45,7 +45,7 @@ You should always consider Internationalization during the design process, espec
 
 <MaterialDesignDescription
     title={'Language Support'}
-    url={`https://material.io/design/typography/language-support.html#language-considerations`}
+    url={`https://m2.material.io/design/typography/language-support.html#language-considerations`}
 />
 
 ## Translation
@@ -90,32 +90,31 @@ Consider your global audience when crafting forms — you may need to support mu
 
 Different languages or writing systems may require different vertical and horizontal space. To ensure flexibility, avoid using fixed dimensions for UI components such as buttons, labels, and badges. Also, consider setting different default display font sizes for languages that may have smaller glyphs.
 
-> **NOTE:** PX Blue recommends using [Noto Sans](https://www.google.com/get/noto/#sans-lgc) for all non-western languages. You can read more on our [Typography](/style/typography) page.
+> **NOTE:** Brightlayer UI recommends using [Noto Sans](https://www.google.com/get/noto/#sans-lgc) for all non-western languages. You can read more on our [Typography](/style/typography) page.
 
 ## Bidirectionality / Right-to-Left (RTL) Support
 
 <MaterialDesignDescription
     title={'Bidirectionality'}
     description={'Learn about mirroring layout, mirroring elements, and localization.'}
-    url={`https://material.io/design/usability/bidirectionality.html`}
+    url={`https://m2.material.io/design/usability/bidirectionality.html`}
 />
 
-Some languages, such as Arabic and Hebrew, are read from right to left. Applications supporting these languages will need to mirror the UI so the natural flow is from right to left. For example, navigation drawers should be displayed on the right side of the screen, icons should be to the right of the text in buttons, and [any icons with directionality](https://material.io/design/usability/bidirectionality.html#mirroring-elements) should be mirrored.
+Some languages, such as Arabic and Hebrew, are read from right to left. Applications supporting these languages will need to mirror the UI so the natural flow is from right to left. For example, navigation drawers should be displayed on the right side of the screen, icons should be to the right of the text in buttons, and [any icons with directionality](https://m2.material.io/design/usability/bidirectionality.html#mirroring-elements) should be mirrored.
 
 <ImageGrid
     images={[UIFlippedImage]}
     regularWidth
     caption={[
-        '1: A PX Blue user interface in right-to-left language (English).',
-        '2: The same PX Blue user interface in left-to-right language (Arabic).',
+        '1: A user interface in right-to-left language (English).',
+        '2: The same user interface in left-to-right language (Arabic).',
     ]}
 />
 <ImageGrid
-    images={[IconsFlippedImage]}
-    regularWidth
-    caption={[
-        '1: Icons that indicate directions should be mirrored.',
-        '2: Icons with glyphs and symbols should never be mirrored.',
+    images={[IconsFlippedOKImage, IconsFlippedErrorImage]}
+    captionsUnderImages={[
+        'DO: Icons that indicate directions should be mirrored.',
+        'DONT: Icons with glyphs and symbols should never be mirrored.',
     ]}
 />
 <MaterialDesignDescription
@@ -165,13 +164,13 @@ When you are designing for webpages, instead of applications, your primary goal 
 
 There are a number of available libraries to assist with implementing internationalization in your applications.
 
-## Angular and Ionic
+## Angular
 
 For projects that need the ability to swap between languages, we recommend using [ngx-translate](https://github.com/ngx-translate/core). As an alternative, the Angular framework has a powerful built-in [i18n tool](https://angular.io/guide/i18n) available, but it requires a separate web app be built for each supported language (e.g. an English version, a Spanish version, etc). This is ideal for larger projects that don't require in-app language switching and don't support more than a few locales.
 
 ## React
 
-There are many JS libraries available to help internationalize your applications. We recommend using [react-i18next](https://github.com/i18next/react-i18next) to manage your translations. If you are supporting right-to-left languages, you should also carefully follow the guide from [Material-UI](https://material-ui.com/guides/right-to-left).
+There are many JS libraries available to help internationalize your applications. We recommend using [react-i18next](https://github.com/i18next/react-i18next) to manage your translations. If you are supporting right-to-left languages, you should also carefully follow the guide from [MUI](https://mui.com/material-ui/guides/right-to-left). If you are using JSS styles with MUI v5, you can follow this [RTL example](https://github.com/mui/material-ui/issues/24803#issuecomment-774686550) to fix issues with certain styles not being flipped correctly.
 
 ## React Native
 

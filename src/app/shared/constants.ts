@@ -5,7 +5,7 @@ export const TOC_WIDTH = 200;
 
 export const PAGE_WIDTH = {
     WIDE: 1280, // medias, components
-    REGULAR: 766 + PADDING * 2, // text
+    REGULAR: 686 + PADDING * 2, // text
 };
 
 export const CTA_BUTTON = {

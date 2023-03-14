@@ -1,0 +1,269 @@
+import { MaterialDesignDescription, ImageGrid, TOC } from '../../app/components';
+import ExampleOfIcon from '../../app/assets/styles/icon-guidelines/example-of-icon.png';
+import ExampleOfLogo from '../../app/assets/styles/icon-guidelines/example-of-logo.png';
+import ExampleOfPictogram from '../../app/assets/styles/icon-guidelines/example-of-pictogram.png';
+import ExistingEatonAppLogos from '../../app/assets/styles/logos/existing-eaton-app-logos.png';
+import Anatomy from '../../app/assets/styles/logos/anatomy.png';
+import BottomBadge1 from '../../app/assets/styles/logos/bottom-badge-1.png';
+import BottomBadge2 from '../../app/assets/styles/logos/bottom-badge-2.png';
+import BottomBadge3 from '../../app/assets/styles/logos/bottom-badge-3.png';
+import BottomBadge4 from '../../app/assets/styles/logos/bottom-badge-4.png';
+import BottomBadge5 from '../../app/assets/styles/logos/bottom-badge-5.png';
+import Background1 from '../../app/assets/styles/logos/background-1.png';
+import Background2 from '../../app/assets/styles/logos/background-2.png';
+import Background3 from '../../app/assets/styles/logos/background-3.png';
+import BackgroundGradient1 from '../../app/assets/styles/logos/background-gradient-1.png';
+import BackgroundGradient2 from '../../app/assets/styles/logos/background-gradient-2.png';
+import BackgroundGradient3 from '../../app/assets/styles/logos/background-gradient-3.png';
+import Glyph1 from '../../app/assets/styles/logos/glyph-1.png';
+import Glyph2 from '../../app/assets/styles/logos/glyph-2.png';
+import Glyph3 from '../../app/assets/styles/logos/glyph-3.png';
+import PolishGlyph1 from '../../app/assets/styles/logos/polish-glyph-1.png';
+import PolishGlyph2 from '../../app/assets/styles/logos/polish-glyph-2.png';
+import GlyphKeyline from '../../app/assets/styles/logos/glyph-keyline.svg';
+import PixelHinting1 from '../../app/assets/styles/logos/pixel-hinting-1.png';
+import PixelHinting2 from '../../app/assets/styles/logos/pixel-hinting-2.png';
+import PixelHinting3 from '../../app/assets/styles/logos/pixel-hinting-3.png';
+import LogosOnDifferentPlatforms from '../../app/assets/styles/logos/logos-on-different-platforms.png';
+import Favicon from '../../app/assets/styles/logos/favicon.png';
+import Spec from '../../app/assets/styles/logos/spec.svg';
+import SpecCircle from '../../app/assets/styles/logos/spec-circle.svg';
+import SpecColor from '../../app/assets/styles/logos/spec-color.svg';
+
+{/* KEYWORDS: icon logo product badge */}
+
+# App Logos
+
+App logos are the primary way users identify an app or a product. Not only do they appear on app launcher screens, but app logos are also present in app markets like the Apple App Store and Google Play, the company's product pages, browser tabs, browser home pages, emails, and within the app itself. They serve a critical function in a product's identity.
+
+Eaton applications should follow these guidelines to create their app logo. The simplest way to do this is by using one of the provided app logo templates from Brightlayer UI (linked below) while keeping in mind requirements from different application platforms. You should ensure that your final design is simple, recognizable, and scalable.
+
+<TOC
+    anchors={[
+        { title: 'App Logos, Icons, and Pictograms' },
+        { title: 'Examples' },
+        { title: 'Anatomy' },
+        { title: 'Design Steps' },
+        { title: 'Tools', depth: 1 },
+        { title: 'Download the App Logo Template', depth: 1 },
+        { title: 'Background', depth: 1 },
+        { title: 'Glyph', depth: 1 },
+        { title: 'Bottom Badge', depth: 1 },
+        { title: 'Export', depth: 1 },
+        { title: 'Logo Requirements by Platforms' },
+        { title: 'Design Specifications' },
+    ]}
+/>
+
+# App Logos, Icons, and Pictograms
+
+{/* This section is adapted directly from icon guidelines. If you change something here, you may need to change it in the other file. */}
+
+<ImageGrid
+    images={[ExampleOfLogo, ExampleOfIcon, ExampleOfPictogram]}
+    captionsUnderImages={[`The logo of an app`, `An icon in a button`, `A pictogram on a webpage`]}
+    gridImageProps={{ sm: 6, md: 4 }}
+/>
+
+This guide deals specifically with the design of app logos, which should not be confused with other glyphs, such as icons and pictograms. App logos, sometimes referred to as "app icons", are symbols of products and apps, usually protected under trademark laws. [Icons](/style/icon-guidelines) symbolize common actions, objects, or ideas used to aid users. Pictograms are typically used on websites for decorative purposes only.
+
+> Note: if you need to use logos from other companies — such as a payment processor — make sure that you are compliant with their branding guidelines.
+
+# Examples
+
+Below are some existing app logos used at Eaton.
+
+<ImageGrid
+    images={[ExistingEatonAppLogos]}
+    caption={`Some logo examples from existing Eaton apps. Copyright © 2022 Eaton, All Rights Reserved.`}
+    regularWidth
+/>
+
+# Anatomy
+
+A standard Eaton app logo consists of three parts:
+
+<ImageGrid images={[Anatomy]} caption={[`1: Background`, `2: Glyph`, `3: Bottom badge`]} />
+
+# Design Steps
+
+## Tools
+
+We recommend using vector graphics design tools such as Adobe Illustrator or Figma to design your product logo. Raster graphic tools such as Adobe Photoshop might occasionally be useful for final touches, but they are not designed for vector graphics. They should not be used to design your logo's foundation because raster graphics are not scalable.
+
+Different app platforms have different requirements for image sizes — you will need to generate your logo at different resolutions to meet these requirements. There are online tools, such as [App Icon Generator](https://www.appicon.co/), to help automate this process.
+
+Some platforms may have specialized tools to preview the app logo. Android, for example, encourages developers to create adaptive icons using [Android Studio's Image Asset Studio](https://developer.android.com/studio/write/image-asset-studio#create-adaptive). Amazon Alexa has a web tool, [Alexa Icon Builder](https://developer.amazon.com/en-US/blogs/alexa/alexa-skills-kit/2018/08/create-eye-catching-icons-for-your-alexa-skills-in-minutes1), to allow users to generate Alexa Skill logos quickly.
+
+## Download the App Logo Template
+
+-   Adobe Illustrator
+    -   [iOS](https://github.com/etn-ccis/blui-doc-it/blob/master/src/app/assets/styles/logos/templates/iOS-IllustratorTemplate.ai?raw=true)
+    -   [Android Adaptive Icon](https://github.com/etn-ccis/blui-doc-it/blob/master/src/app/assets/styles/logos/templates/Android-Adaptive-Icon-IllustratorTemplate.ai?raw=true)
+-   [PDF (for printing)](https://github.com/etn-ccis/blui-doc-it/raw/master/src/app/assets/styles/logos/templates/App%20Logos%20Printable.pdf)
+-   [SVG](https://github.com/etn-ccis/blui-doc-it/tree/master/src/app/assets/styles/logos/templates/SVG)
+-   Our [Figma Component Sticker Sheet](https://www.figma.com/community/file/1024360297793425107) also includes a component called "App Logo Template"
+
+## Background
+
+Most Eaton app logos use [the primary blue](/style/color?category=ui&name=blue&weight=500) as the base background color. Some also select the background color from one of the [branding colors](/style/color#branding-colors) to stay consistent with colors in their product marketing.
+
+<ImageGrid
+    images={[Background1]}
+    captionsUnderImages={[`Use the primary blue or one of the branding colors as a foundation for the background.`]}
+    regularWidth
+/>
+
+<ImageGrid
+    images={[Background2, Background3]}
+    captionsUnderImages={[
+        `DONT: Do not use a photo in the logo.`,
+        `DONT: Do not use a screenshot or app UI in the logo.`,
+    ]}
+/>
+
+<ImageGrid
+    images={[BackgroundGradient1, BackgroundGradient2, BackgroundGradient3]}
+    captionsUnderImages={[
+        `DO: Most Eaton apps choose to add a subtle diagonal linear gradient to their app logo background.`,
+        `Apps may also consider using a centered radial gradient, especially when the glyph has a round shape.`,
+        `A monochromatic background is acceptable.`,
+    ]}
+    gridImageProps={{ sm: 6, md: 4 }}
+/>
+
+## Glyph
+
+A glyph is a simple shape representing an object, action, or idea. Your glyph must be simple, recognizable, and scalable to ensure that your app can be easily identified on multiple devices with different resolutions.
+
+We recommend you select your base glyph from our [icon library](/style/icon-library).
+
+<ImageGrid
+    images={[Glyph1, Glyph2]}
+    captionsUnderImages={[
+        `AVOID: Avoid the use of mnemonic logos or logotypes when possible. They are often not meaningful for first-time users, and can be hard to see in small logo sizes.`,
+        `DO: Use a graphical way to represent an application or product.`,
+    ]}
+/>
+
+Do not use the Eaton logo as a glyph — your app should not be presented as the "Eaton" app. It is not unusual for a customer to have multiple Eaton products and applications installed on their devices — if every one of those apps used the Eaton logo it would be very difficult for a user to differentiate them.
+
+<ImageGrid images={[Glyph3]} captionsUnderImages={[`DONT: Do not use the Eaton logo as glyphs.`]} />
+
+You should also verify that your product logo is distinguished enough from other existing Eaton product logos. [App Store](https://apps.apple.com/us/developer/eaton-corporation/id439590491) and [Google Play](https://play.google.com/store/apps/developer?id=Eaton) are good places to start, but keep in mind that not all logos in these two places are following our app logo guidelines.
+
+Glyphs are usually aligned to the keyline (visible in the template) to avoid bleeding beyond the safe zone.
+
+<ImageGrid images={[GlyphKeyline]} captionsUnderImages={[`Align glyphs to the icon template keyline.`]} regularWidth />
+
+Once you select the base glyph, you can be creative and add variations to the glyph to make it look more designed / stylized.
+
+<ImageGrid
+    images={[PolishGlyph1, PolishGlyph2]}
+    captionsUnderImages={[
+        `Smart Energy Manager modified the glyph shape to add a bolt glyph inside.`,
+        `Predict Pulse modified the glyph size, opacity, and image gradient.`,
+    ]}
+/>
+
+## Bottom Badge
+
+The bottom badges are not meant to be modified. You are expected to leave the bottom badge as it is in the logo templates.
+
+<ImageGrid
+    images={[BottomBadge1, BottomBadge2, BottomBadge3, BottomBadge4, BottomBadge5]}
+    captionsUnderImages={[
+        `DO: Use the default badge as it is. Note that different platforms might have different requirements (see below).`,
+        `DONT: Don't modify the badge color.`,
+        `DONT: Don't modify the badge logo color.`,
+        `DONT: Don't modify the badge size or the logo size.`,
+        `DONT: Don't modify the badge effects or add shadows.`,
+    ]}
+    gridImageProps={{ sm: 6, md: 4 }}
+/>
+
+## Export
+
+When exporting for different platforms, ensure that your logo design follows the platform-specific requirements [as listed below](#logo-requirements-by-platforms).
+
+When exporting for specific resolutions it is sometimes helpful to tweak vector shapes so that they fall on exact pixels, a process also known as "pixel hinting". This helps maintain a “crisp” look and avoids the blurriness that may occur when edges are in between pixels.
+
+<ImageGrid
+    images={[PixelHinting1, PixelHinting2, PixelHinting3]}
+    captionsUnderImages={[
+        `The original app logo design.`,
+        `When this design is shrinked to a small size, the details become illegible.`,
+        `Pixel-hinting helps sharpening the app logo at low resolutions.`,
+    ]}
+    caption={`Pixel hinting is helpful for app logos at low resolutions.`}
+    gridImageProps={{ sm: 6, md: 4 }}
+/>
+
+Do not export your final app logo with rounded corners or drop shadows. You are encouraged to preview the logo design with these effects enabled, but your final exported assets should be square-shaped. The additional effects are automatically applied by the application platform.
+
+# Logo Requirements by Platforms
+
+<ImageGrid
+    images={[LogosOnDifferentPlatforms]}
+    caption={[
+        `App logos look different on different platforms.`,
+        `1: The original design.`,
+        `2: iOS & iPadOS's rendering.`,
+        `3: Favicon for web apps, previewed at a high resolution.`,
+        `4: Amazon Alexa Skills' rendering.`,
+        `5 – 8: Android's adaptive icon allows phone manufacturers to render app logos in different shapes.`,
+    ]}
+    regularWidth
+/>
+
+Different platforms have different product logo requirements — they often have different shapes, resolutions, safe areas, and parallax layers. Click on the links below to learn more about logo guidelines on each platform.
+
+-   [Apple (iOS, iPadOS, macOS, tvOS, watchOS)](https://developer.apple.com/design/human-interface-guidelines/foundations/app-icons/)
+-   Android
+    -   [Adaptive Icons](https://developer.android.com/develop/ui/views/launch/icon_design_adaptive), for generic Android app logos
+        -   [Image Asset Studio](https://developer.android.com/studio/write/image-asset-studio.html) in Android Studio
+        -   Adaptive Icon [Design Guide](https://medium.com/google-design/designing-adaptive-icons-515af294c783)
+    -   [Google Play](https://developer.android.com/distribute/google-play/resources/icon-design-specifications), for the app's download page on Google Play
+-   [Windows](https://learn.microsoft.com/en-us/windows/apps/design/style/iconography/app-icon-design)
+
+## Favicons
+
+Favicons are product logos for web apps. They can appear at different sizes in browser tabs, task bars, bookmarks, and on phone screens (like native mobile apps). We highly recommend redesigning the app logo specifically for the favicon to ensure that it shows well at all resolutions.
+
+According to [Mailchimp](https://mailchimp.com/resources/favicon-size/), the optimal favicon dimensions are as follows, in pixels:
+
+-   Browser tab favicons - 16×16
+-   Taskbar shortcut icons - 32×32
+-   Desktop shortcut icons - 96×96
+-   Apple touch icons - 180×180
+
+Developers should [include multiple favicons](https://blog.hubspot.com/website/what-is-a-favicon) for these different resolutions in the HTML head to accommodate these various use cases.
+
+Favicons used in browser tabs and taskbar shortcuts resemble the original product logo design, but with the badge removed. It always has the background color to ensure that the glyph can be seen clearly.
+
+<ImageGrid
+    images={[Favicon]}
+    caption={[
+        `Favicon needs to be recognizable at a size as small as 16×16 pixels.`,
+        `1: The original product logo, with the bottom badge removed to allow more room for the glyph.`,
+        `2: The same logo, rendered at 16×16, a favicon size used in browser tabs.`,
+        `3: Optionally, you can consider doing "pixel-hinting" — manually editing the favicon to ensure that it renders well at low resolution.`,
+        `4: The favicon in a browser tab.`,
+    ]}
+    regularWidth
+/>
+
+Desktop shortcuts and Apple touch icons should resemble the design of standard app logos.
+
+# Design Specifications
+
+The provided templates have implemented these specifications for you already, but they are presented here for your reference if you need to make any customizations:
+
+<ImageGrid
+    images={[Spec, SpecCircle, SpecColor]}
+    captionsUnderImages={[
+        `A regular app logo.`,
+        `For platforms using round app logo shapes, such as Android's adaptive icon and Amazon Alexa Skills, the Eaton logo in the badge is shrunk to remain visible.`,
+        `The glyph should not be brighter than white[50] (pure white) at 90% to avoid looking too glaring.`,
+    ]}
+/>

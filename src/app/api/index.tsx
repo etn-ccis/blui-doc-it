@@ -1,19 +1,16 @@
 import axios from 'axios';
-import { RoadmapBucket } from '../../__types__';
+import { AnnouncementData, Release, RoadmapBucket } from '../../__types__';
 
 export const github = axios.create({
     baseURL: 'https://api.github.com/',
     timeout: 5000,
     headers: {
         Accept: 'application/vnd.github.v3+json',
-        Authorization: `token ${(process.env.REACT_APP_DOCIT_GITHUB_TOKEN || '')
-            .split('')
-            .reverse()
-            .join('')}`,
+        Authorization: `token ${(process.env.REACT_APP_DOCIT_GITHUB_TOKEN || '').split('').reverse().join('')}`,
     },
 });
 export const circleci = axios.create({
-    baseURL: 'https://circleci.com/api/v1.1/project/github/pxblue/',
+    baseURL: 'https://circleci.com/api/v1.1/project/github/etn-ccis/',
     timeout: 5000,
 });
 export const npm = axios.create({
@@ -21,7 +18,19 @@ export const npm = axios.create({
     timeout: 5000,
 });
 export const roadmap = axios.create({
-    baseURL: 'https://raw.githubusercontent.com/pxblue/pxb-database/master/deployed/doc-it',
+    baseURL: 'https://raw.githubusercontent.com/etn-ccis/blui-database/master/deployed/doc-it',
+    timeout: 5000,
+});
+export const icons = axios.create({
+    baseURL: 'https://fonts.gstatic.com/s/i/materialicons',
+    timeout: 5000,
+});
+export const bluiIcons = axios.create({
+    baseURL: 'https://raw.githubusercontent.com/etn-ccis/blui-icons/master/packages/svg/',
+    timeout: 5000,
+});
+export const announcementDetail = axios.create({
+    baseURL: 'https://raw.githubusercontent.com/etn-ccis/blui-database/master/deployed/doc-it/',
     timeout: 5000,
 });
 
@@ -34,8 +43,8 @@ export const getBuildStatus = async (repository: string, branches: string[]): Pr
         for (const branch of branches) {
             results.push(
                 circleci.get(
-                    `/${repository}/tree/${branch.replace('-', '')}?limit=1&filter=completed&circle-token=${
-                        process.env.REACT_APP_DOCIT_CIRCLECI_TOKEN
+                    `blui-${repository}/tree/${branch.replace('-', '')}?limit=1&filter=completed&circle-token=${
+                        process.env.REACT_APP_DOCIT_CIRCLECI_TOKEN || ''
                     }`
                 )
             );
@@ -62,7 +71,7 @@ export const getBuildStatus = async (repository: string, branches: string[]): Pr
 export const getBugCount = async (repository: string, bugLabels: string[]): Promise<number | undefined> => {
     try {
         const labels = bugLabels.length > 0 ? [bugLabels, 'bug'].join(',') : 'bug';
-        const response = await github.get(`/repos/pxblue/${repository}/issues?labels=${labels}`);
+        const response = await github.get(`/repos/etn-ccis/blui-${repository}/issues?labels=${labels}`);
         if (response && response.status === 200) return response.data.length;
         return undefined;
     } catch (thrown) {
@@ -88,10 +97,47 @@ export const getNpmVersion = async (packageName: string): Promise<string | undef
     }
 };
 
-export const getRoadmap = async (): Promise<RoadmapBucket[] | undefined> => {
+export const getRoadmap = async (release: Release): Promise<RoadmapBucket[] | undefined> => {
     try {
-        const response = await roadmap.get('/R19Roadmap.json');
+        const response = await roadmap.get(`/${release}Roadmap.json`);
         if (response && response.status === 200) return response.data;
+        return undefined;
+    } catch (thrown) {
+        if (axios.isCancel(thrown)) {
+            // request canceled
+            return undefined;
+        }
+        return undefined;
+    }
+};
+
+type MUIIconDescription = { name: string; family: 'material'; version: number };
+type BLUIIconDescription = { name: string; family: 'brightlayer-ui'; version?: '' };
+export const getSvg = async ({
+    name,
+    family,
+    version = 1,
+}: MUIIconDescription | BLUIIconDescription): Promise<string | undefined> => {
+    try {
+        const response =
+            family === 'brightlayer-ui'
+                ? await bluiIcons.get(`/${name}.svg`)
+                : await icons.get(`/${name}/v${version}/24px.svg`);
+        if (response && response.status === 200) return response.data;
+        return undefined;
+    } catch (thrown) {
+        if (axios.isCancel(thrown)) {
+            // request canceled
+            return undefined;
+        }
+        return undefined;
+    }
+};
+
+export const getAnnouncementDetails = async (): Promise<AnnouncementData | undefined> => {
+    try {
+        const response = await announcementDetail.get(`/Announcement.json`);
+        if (response && response.status === 200) return response.data.announcement;
         return undefined;
     } catch (thrown) {
         if (axios.isCancel(thrown)) {

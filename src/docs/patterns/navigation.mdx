@@ -1,3 +1,4 @@
+import React from 'react';
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
 import PermanentImg from '../../app/assets/design-patterns/navigation/navigation-permanent.png';
 import PersistentImg from '../../app/assets/design-patterns/navigation/navigation-persistent.png';
@@ -25,9 +26,18 @@ import HoverImg from '../../app/assets/design-patterns/navigation/persistent-dra
 import NavigationBottomImg from '../../app/assets/design-patterns/navigation/navigation-bottom.png';
 import NavigationBottomWithDrawerImg from '../../app/assets/design-patterns/navigation/navigation-bottom-with-drawer.png';
 import DividerGroupImage from '../../app/assets/design-patterns/navigation/drawer-divider.png';
-import DividerImage from '../../app/assets/design-patterns/navigation/divider.png';
+import DividerDoImage from '../../app/assets/design-patterns/navigation/divider-do.png';
+import DividerDontImage from '../../app/assets/design-patterns/navigation/divider-dont.png';
+import SafeArea1Image from '../../app/assets/design-patterns/navigation/safe-area-1.png';
+import SafeArea2Image from '../../app/assets/design-patterns/navigation/safe-area-2.png';
+import CombinedDrawerImage from '../../app/assets/design-patterns/navigation/combined-drawer.png';
+import PersistentDrawerPitfallImg from '../../app/assets/design-patterns/navigation/persistent-drawer-pitfall.gif';
+import ActiveRegular from '../../app/assets/design-patterns/navigation/active-regular.png';
+import ActiveRound from '../../app/assets/design-patterns/navigation/active-round.png';
+import ActiveParent from '../../app/assets/design-patterns/navigation/active-parent.png';
+import ActiveSolid from '../../app/assets/design-patterns/navigation/active-solid.png';
 
-<!-- KEYWORDS: design pattern navigation drawer menu tab tabs navigate nav -->
+{/* KEYWORDS: design pattern navigation drawer menu tab tabs navigate nav */}
 
 # Navigation
 
@@ -38,17 +48,26 @@ Navigation refers to how users access the different areas of your application an
 <React.Fragment>
     <MaterialDesignDescription
         title={'Understanding Navigation'}
-        url={`https://material.io/design/navigation/understanding-navigation.html#types-of-navigation`}
+        url={`https://m2.material.io/design/navigation/understanding-navigation.html#types-of-navigation`}
         description={`Read about Material Design's navigation fundamentals.`}
     />
     <TOC
         anchors={[
             { title: 'Introduction', hash: '#navigation' },
-            { title: 'Drawer Navigation', hash: '#drawer-navigation' },
-            { title: 'Tab Navigation', hash: '#tab-navigation' },
-            { title: 'Behaviors', hash: '#behaviors' },
-            { title: 'Design Specifications', hash: '#design-specifications' },
-            { title: 'Developers', hash: '#developers' },
+            { title: 'Drawer Navigation' },
+            { title: 'Permanent', depth: 1 },
+            { title: 'Rail', depth: 1 },
+            { title: 'Persistent', depth: 1 },
+            { title: 'Temporary', depth: 1 },
+            { title: 'Tab Navigation' },
+            { title: 'Behaviors' },
+            { title: 'Nested Navigation', depth: 1 },
+            { title: 'Content-Cover vs. Content-Resize', depth: 1 },
+            { title: 'Active State', depth: 1 },
+            { title: 'Dividers', depth: 1 },
+            { title: 'Safe Area', depth: 1 },
+            { title: 'Design Specifications' },
+            { title: 'Developers' },
         ]}
     />
     <Divider />
@@ -73,18 +92,11 @@ Most drawers have four main sections:
 
 There are several different styles of drawer navigation, each with slightly different behavior.
 
-<React.Fragment>
-    <DemoCard
-        repository={'Drawer'}
-        angular={`https://pxblue-components.github.io/angular/?path=/story/components-drawer--within-a-drawer-layout`}
-        react={`https://pxblue-components.github.io/react/?path=/story/components-drawer--in-drawer-layout`}
-    />
-    <MaterialDesignDescription
-        title={'Navigation Drawer '}
-        url={`https://material.io/components/navigation-drawer/`}
-        style={{ marginRight: 0 }}
-    />
-</React.Fragment>
+<MaterialDesignDescription
+    title={'Navigation Drawer '}
+    url={`https://m2.material.io/components/navigation-drawer/`}
+    style={{ marginRight: 0 }}
+/>
 
 ## Permanent
 
@@ -106,18 +118,8 @@ A navigation rail is a permanently collapsed drawer. The rail shows less informa
 
 The navigation rail can be regular (with text labels) or condensed (smaller area without labels).
 
-<ImageGrid images={[NavigationRailImg]} 
-caption={[
-        'Condensed Rail on desktop.',
-    ]}
-    regularWidth 
-/>
-<ImageGrid images={[NavigationRailLabelsImg]} 
-caption={[
-        'Standard rail with labels on desktop.',
-    ]}
-    regularWidth 
-/>
+<ImageGrid images={[NavigationRailImg]} caption={['Condensed Rail on desktop.']} regularWidth />
+<ImageGrid images={[NavigationRailLabelsImg]} caption={['Standard rail with labels on desktop.']} regularWidth />
 
 ## Persistent
 
@@ -139,6 +141,13 @@ A persistent drawer is an always-visible drawer that can be opened and closed (e
             'When the user hovers on the Navigation Rail, the side navigation will expand temporarily, revealing the text details of each navigation item; when the user moves their cursor away, the whole side navigation panel collapses.'
         }
         regularWidth
+    />
+    <ImageGrid
+        images={[PersistentDrawerPitfallImg, CombinedDrawerImage]}
+        caption={[
+            `When using a persistent drawer with navigation group titles (where it says "GROUP 1" and "GROUP 2" in the image), the titles become blank spaces by default when the drawer collapses.`,
+            `If you prefer a look without these spaces, you can conditionally hide the title when the drawer collapses or use different drawer variants at different view ports. For example, you can use a permanent drawer on desktop screens (#1) and switch to a persistent drawer without header text or a navigation rail on tablets (#2).`,
+        ]}
     />
 </React.Fragment>
 
@@ -165,7 +174,7 @@ Tab navigation uses a horizontal bar with buttons for each navigation location. 
     caption={['A rail menu (#1) combined with a tab navigation (#2) to show sub-pages within the settings page.']}
     regularWidth
 />
-<MaterialDesignDescription title={'Tabs'} url={`https://material.io/components/tabs`} />
+<MaterialDesignDescription title={'Tabs'} url={`https://m2.material.io/components/tabs`} />
 
 You can combine tabs and a drawer as a way to navigate between sub-pages (e.g., you may have several sub-pages on your main settings page). In this case, the tabs usually sit on a secondary [app bar](/patterns/appbar).
 
@@ -178,7 +187,7 @@ You can combine tabs and a drawer as a way to navigate between sub-pages (e.g., 
     ]}
     regularWidth
 />
-<MaterialDesignDescription title={'Bottom Navigation'} url={`https://material.io/components/bottom-navigation`} />
+<MaterialDesignDescription title={'Bottom Navigation'} url={`https://m2.material.io/components/bottom-navigation`} />
 
 For mobile and tablet applications, you may use bottom tabs to replace the classic drawer. Bottom tabs are a quick and easy way to navigate to the most frequently used primary navigation routes.
 
@@ -231,6 +240,20 @@ With content-cover, the navigation panel appears on top of the main application 
     />
 </React.Fragment>
 
+## Active State
+
+There are many different ways to indicate that a menu item is active / selected in a drawer.
+
+<ImageGrid
+    images={[ActiveRegular, ActiveRound, ActiveParent, ActiveSolid]}
+    captionsUnderImages={[
+        'DO: By default, an active item is indicated by a rectangular background shade.',
+        'Optionally, use a rounded background shade instead.',
+        'DO: When a child item is active, its parent item should have a bolder font weight.',
+        'Optionally, change the icon from "outlined" to "filled" when a menu item turns active.',
+    ]}
+/>
+
 ## Dividers
 
 Divider lines can be used between navigation items in the drawer. They are most effective when used for:
@@ -245,15 +268,24 @@ Divider lines can be used between navigation items in the drawer. They are most 
         caption={['Dividers can be used to separate different sections of the drawer contents.']}
     />
     <ImageGrid
-        images={[DividerImage]}
-        regularWidth
-        caption={[
-            '1. Standard drawer navigation does not include dividers.',
-            '2. Avoid using divider lines between every navigation item. These can make the drawer appear busy.',
+        images={[DividerDoImage, DividerDontImage]}
+        captionsUnderImages={[
+            'DO: Standard drawer navigation does not include dividers.',
+            'AVOID: Avoid using divider lines between every navigation item. These can make the drawer appear busy.',
         ]}
     />
-    <Divider />
 </React.Fragment>
+
+## Safe Area
+
+When designing for mobile screens, in particular for a iPhone X model, ensure that your contents lay inside the safe area.
+
+<ImageGrid
+    images={[SafeArea1Image, SafeArea2Image]}
+    caption={['Contents must be inside the safe area.']}
+    captionsUnderImages={['DONT: ', 'DO: ']}
+/>
+<Divider />
 
 # Design Specifications
 
@@ -280,22 +312,22 @@ If certain dimensions are not specified, refer to the dimensions suggested in th
     <MaterialDesignDescription
         title={'Navigation Drawer'}
         description={`For additional instructions, refer to Material Design's design specs`}
-        url={`https://material.io/components/navigation-drawer#specs`}
+        url={`https://m2.material.io/components/navigation-drawer#specs`}
     />
     <MaterialDesignDescription
         title={'Navigation Rail'}
         description={`For additional instructions, refer to Material Design's design specs`}
-        url={`https://material.io/components/navigation-rail#specs`}
+        url={`https://m2.material.io/components/navigation-rail#specs`}
     />
     <MaterialDesignDescription
         title={'Tabs'}
         description={`For additional instructions, refer to Material Design's design specs`}
-        url={`https://material.io/components/tabs#specs`}
+        url={`https://m2.material.io/components/tabs#specs`}
     />
     <MaterialDesignDescription
         title={'Bottom Navigation'}
         description={`For additional instructions, refer to Material Design's design specs`}
-        url={`https://material.io/components/bottom-navigation#specs`}
+        url={`https://m2.material.io/components/bottom-navigation#specs`}
     />
 </React.Fragment>
 <Divider />
@@ -304,23 +336,23 @@ If certain dimensions are not specified, refer to the dimensions suggested in th
 
 Use the following components to implement this pattern:
 
-**Angular** and **Ionic**:
+**Angular**:
 
 -   Angular Material
     -   [Side Nav](https://material.angular.io/components/sidenav/overview)
     -   [Tabs](https://material.angular.io/components/tabs/overview)
--   @pxblue/angular-components
-    -   [Drawer](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+-   @brightlayer-ui/angular-components
+    -   [Drawer](https://brightlayer-ui-components.github.io/angular/components/drawer/examples)
 
 **React**:
 
--   Material UI
-    -   [Drawer](https://material-ui.com/components/drawers/)
-    -   [Tabs](https://material-ui.com/components/tabs/)
--   @pxblue/react-components
-    -   [Drawer](https://pxblue-components.github.io/react/?path=/info/components-drawer--get-read-me-story)
+-   MUI
+    -   [Drawer](https://mui.com/components/drawers/)
+    -   [Tabs](https://mui.com//material-ui/react-tabs/)
+-   @brightlayer-ui/react-components
+    -   [Drawer](https://brightlayer-ui-components.github.io/react/components/drawer/examples)
 
 **React Native**:
 
--   @pxblue/react-native-components
-    -   [Drawer](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--drawer)
+-   @brightlayer-ui/react-native-components
+    -   [Drawer](https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--drawer)

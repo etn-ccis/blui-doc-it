@@ -6,104 +6,77 @@ import {
     AppBarProps,
     TextField,
     IconButton,
-    makeStyles,
     Theme,
-    createStyles,
     Backdrop,
     Divider,
-} from '@material-ui/core';
+    Box,
+} from '@mui/material';
 import { TOGGLE_SEARCH } from '../redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../redux/reducers';
-import { Close } from '@material-ui/icons';
+import { Close } from '@mui/icons-material';
 import { PADDING } from '../shared';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Result } from '../../__types__';
 import { search } from './SearchFunction';
 import siteMapDatabase from '../../database/sitemap-database.json';
 import indexDatabase from '../../database/index-database.json';
 import { useQueryString } from '../hooks/useQueryString';
 import { usePrevious } from '../hooks/usePrevious';
-import clsx from 'clsx';
+import ReactGA from 'react-ga';
+import { SystemStyleObject } from '@mui/system';
 
 export type SearchbarProps = AppBarProps;
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        appBar: {
-            backgroundColor: theme.palette.background.paper,
-            width: 0,
-            right: 0,
-            transition: 'all 200ms ease-in-out',
-            position: 'fixed',
-        },
-        showSearchBar: {
-            width: '100%',
-        },
-        searchfield: {
-            flex: 1,
-        },
-        backdrop: {
-            zIndex: 999,
-        },
-        searchResultsOverlay: {
-            position: 'fixed',
-            marginTop: theme.spacing(8),
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            overflowY: 'auto',
-            zIndex: 1001,
-            backgroundColor: theme.palette.background.default,
-            [theme.breakpoints.down('xs')]: {
-                marginTop: theme.spacing(7),
-            },
-        },
-        searchResultsContainer: {
-            maxWidth: 644,
-            margin: '0 auto',
-            padding: `${theme.spacing(3)}px ${PADDING}px 20vh ${PADDING}px`,
-        },
-        searchResultCount: {
-            fontWeight: 600,
-            color: theme.palette.text.hint,
-        },
-        searchResult: {
-            '&:hover': {
-                cursor: 'pointer',
-                color: theme.palette.text.secondary,
-            },
-            '& p, & h6': {
-                marginBottom: theme.spacing(1),
-            },
-        },
-        searchResultPath: {
-            color: theme.palette.text.hint,
-        },
-        searchResultDivider: {
-            margin: `${theme.spacing(3)}px 0`,
-        },
-    })
-);
+const styles: { [key: string]: SystemStyleObject<Theme> } = {
+    appBar: {
+        backgroundColor: 'background.paper',
+        width: 0,
+        right: 0,
+        transition: 'all 200ms ease-in-out',
+        position: 'fixed',
+        zIndex: 'modal',
+    },
+    searchResultsOverlay: {
+        position: 'fixed',
+        mt: { xs: 7, sm: 8 },
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        overflowY: 'auto',
+        zIndex: 'modal',
+        backgroundColor: 'background.default',
+    },
+    searchResultsOverlayBanner: {
+        mt: { xs: 14, sm: 16 },
+    },
+    searchResultsContainer: {
+        maxWidth: 644,
+        m: '0 auto',
+        pt: 3,
+        pb: '20vh',
+        px: `${PADDING}px`,
+    },
+};
 
 export const SearchBar: React.FC<SearchbarProps> = (props) => {
-    const classes = useStyles();
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
     const dispatch = useDispatch();
     const location = useLocation();
-    const deepQuery = decodeURI(useQueryString().search || '');
+    const deepQuery = useQueryString().search || '';
     const prevQuery = usePrevious(deepQuery);
     const [searchResults, setSearchResults] = useState<Result[]>([]);
     const [showSearchResult, setShowSearchResult] = useState(false);
     const [inputString, setInputString] = useState('');
-    const history = useHistory();
+    const navigate = useNavigate();
+    const showBanner = useSelector((state: AppState) => state.app.showBanner);
 
     // Push a new value on the browser history stack (if needed)
     const pushHistory = useCallback(
         (searchQuery: string) => {
             // match everything preceded by "&search=" and either end directly or is followed by a "&"
-            const currentQueryString = location.search.match(/(?<=&search=)[^&]*($|(?=&))/g);
+            const currentQueryString = location.search.match(/&search=[^&]*($|(?=&))/g)?.slice(8);
 
             // only push history when the user is not searching for the exact same string
             if (
@@ -111,29 +84,27 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                 (!currentQueryString ||
                     (currentQueryString && currentQueryString[0] !== encodeURIComponent(searchQuery)))
             ) {
-                history.push({
+                const newSearchUrl = `${location.search
+                    .replace(/(&?search=.+?)(&.+)*$/g, '$2')
+                    .replace(/^\?&/, '?')}&search=${encodeURIComponent(searchQuery)}`;
+                navigate({
                     pathname: location.pathname,
-                    search: `${location.search
-                        .replace(/(&?search=.+?)(&.+)*$/g, '$2')
-                        .replace(/^\?&/, '?')}&search=${encodeURIComponent(searchQuery)}`,
+                    search: newSearchUrl,
                 });
+                ReactGA.pageview(`${location.pathname}${newSearchUrl}`);
             }
         },
-        [history, location]
+        [navigate, location]
     );
 
     // Show updated search results after updating the browser history
-    const updateSearchResults = useCallback(
-        (searchQuery: string) => {
-            pushHistory(searchQuery);
-            if (searchQuery) setSearchResults(search(searchQuery, siteMapDatabase, indexDatabase));
-        },
-        [pushHistory]
-    );
+    const updateSearchResults = useCallback((searchQuery: string) => {
+        if (searchQuery) setSearchResults(search(searchQuery, siteMapDatabase, indexDatabase));
+    }, []);
 
     const dismissSearchBar = (): void => {
         if (location.search.includes(`search=`)) {
-            history.push({
+            navigate({
                 pathname: location.pathname,
                 search: location.search.replace(/(&?search=.+?)(&.+)*$/g, '$2').replace(/^\?&/, '?'),
             });
@@ -185,54 +156,58 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
             <Backdrop
                 open={searchActive}
                 transitionDuration={200}
-                className={classes.backdrop}
+                sx={{ zIndex: 'modal' }}
                 onClick={(): void => {
                     dispatch({ type: TOGGLE_SEARCH, payload: false });
                 }}
             />
 
             {showSearchResult && (
-                <div className={classes.searchResultsOverlay}>
-                    <div className={classes.searchResultsContainer}>
-                        <Typography variant={'body1'} className={classes.searchResultCount}>
+                <Box sx={[styles.searchResultsOverlay, ...(showBanner ? [styles.searchResultsOverlayBanner] : [])]}>
+                    <Box sx={styles.searchResultsContainer}>
+                        <Typography variant={'body1'} sx={{ fontWeight: 600, color: 'text.secondary' }}>
                             {getSearchResultCountText()}
                         </Typography>
                         {searchResults.map((result: Result, index: number) => (
-                            <div
-                                className={classes.searchResult}
+                            <Box
+                                sx={{
+                                    cursor: 'pointer',
+                                    '&:hover': { color: 'text.secondary' },
+                                    '& p, & h6': { mb: 1 },
+                                }}
                                 key={index.toString()}
                                 onClick={(): void => {
-                                    dismissSearchBar();
-                                    history.push(result.url);
+                                    navigate(result.url);
                                 }}
                             >
-                                <Divider className={classes.searchResultDivider} />
+                                <Divider sx={{ my: 3, mx: 0 }} />
                                 <Typography variant={'h6'}>{result.title}</Typography>
                                 <Typography variant={'body1'}>{result.text}</Typography>
-                                <Typography variant={'subtitle2'} className={classes.searchResultPath}>
+                                <Typography variant={'subtitle2'} sx={{ color: 'text.secondary' }}>
                                     {result.url.replace(/\//g, ' / ')}
                                 </Typography>
-                            </div>
+                            </Box>
                         ))}
-                    </div>
-                </div>
+                    </Box>
+                </Box>
             )}
 
             <AppBar
-                className={clsx(classes.appBar, { [classes.showSearchBar]: searchActive })}
+                sx={[styles.appBar, searchActive ? { width: '100%' } : {}, { top: showBanner ? { xs: 7, sm: 8 } : 0 }]}
                 position={'sticky'}
-                style={{ zIndex: 1001 }}
                 {...props}
             >
                 <Toolbar style={{ display: 'flex' }} id={'search-bar'}>
                     {searchActive && ( // to allow autofocus
                         <TextField
-                            className={classes.searchfield}
-                            placeholder={'Search on PX Blue...'}
-                            InputProps={{ disableUnderline: true }}
-                            value={inputString || ''}
-                            onChange={(e): void => onChangeHandler(e.target.value)}
+                            variant={'standard'}
                             autoFocus
+                            inputMode={'search'}
+                            type={'search'}
+                            placeholder={'Search on Brightlayer UI...'}
+                            value={inputString || ''}
+                            sx={{ flex: 1 }}
+                            onChange={(e): void => onChangeHandler(e.target.value)}
                             onKeyPress={(e): void => {
                                 if (e.key === 'Enter') {
                                     if (inputString === '') {
@@ -240,13 +215,24 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                                         return;
                                     }
                                     pushHistory(inputString);
+
+                                    // to dismiss the mobile keyboard
+                                    const field = document.createElement('input');
+                                    field.setAttribute('type', 'text');
+                                    document.getElementById('search-bar')?.appendChild(field);
+                                    field.focus();
+                                    field.remove();
                                 }
                             }}
+                            InputProps={{ disableUnderline: true }}
+                            inputProps={{ sx: { height: 56 } }}
                         />
                     )}
                     <IconButton
+                        size={'large'}
                         onClick={(): void => {
                             dismissSearchBar();
+                            setInputString('');
                         }}
                         edge={'end'}
                     >

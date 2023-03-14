@@ -1,15 +1,15 @@
 ## Doc-It (a.k.a. pxblue.github.io)
 
-[![CircleCI](https://circleci.com/gh/pxblue/doc-it/tree/master.svg?style=shield&circle-token=fc2656a76d70b4ff9cdc66cccc758c0dfbf89d25)](https://circleci.com/gh/pxblue/doc-it/tree/master)
+[![CircleCI](https://circleci.com/gh/etn-ccis/blui-doc-it/tree/master.svg?style=shield&circle-token=fc2656a76d70b4ff9cdc66cccc758c0dfbf89d25)](https://circleci.com/gh/etn-ccis/blui-doc-it/tree/master)
 
-Doc-It is the source code for the pxblue.github.io documentation site for Power Xpert Blue. The site is built to both provide documentation on how to use the system, but also as an example of how to use it. The entire site is using using the PX Blue design system - built with React+Redux, Material UI, and the PX Blue component library.
+Doc-It is the source code for [brightlayer-ui.github.io](brightlayer-ui.github.io), documentation site for Brightlayer UI. The site is built to both provide documentation on how to use the system, but also as an example of how to use it. The entire site is using using the Brightlayer UI design system - built with React+Redux, Material UI, and the Brightlayer UI component library.
 
 ## Contributing
 
 To contribute to the documentation site, you will need to clone a local copy of the repository:
 
 ```
-git clone https://github.com/pxblue/doc-it
+git clone https://github.com/etn-ccis/blui-doc-it
 ```
 
 You can then install the necessary dependencies and run a local instance with the following commands:
@@ -51,9 +51,9 @@ The folder structure of the application is segregated to keep the application an
     │   └── /shared                         // extra utility functions
     |
     └── /docs                               // markdown-based page definitions
-        |── /community                      // information on how to be a part of PX Blue
-        |── /design                         // information for designers using PX Blue
-        |── /development                    // information for developers using PX Blue
+        |── /community                      // information on how to be a part of Brightlayer UI
+        |── /design                         // information for designers using Brightlayer UI
+        |── /development                    // information for developers using Brightlayer UI
         |── /get-started                    // information on getting started with a project
         |── /patterns                       // design patterns and sample code
         |── /release-notes                  // information about past releases
@@ -66,10 +66,10 @@ The Doc-it project is configured with automated builds and deployment scripts.
 
 When changes are committed to the dev branch, they are automatically run through the test scripts and if the tests pass, the site is deployed to the staging server.
 
-When changes are committed to the master branch and the tests pass, the changes are automatically deployed to pxblue.github.io.
+When changes are committed to the master branch and the tests pass, the changes are automatically deployed to brightlayer-ui.github.io.
 
 ## Browsers support
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IE11, Edge                                                                                                                                                                                                      | last 2 versions                                                                                                                                                                                                   | last 2 versions                                                                                                                                                                                               | last 2 versions                                                                                                                                                                                               |
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Edge                                                                                                                                                                                                       | last 2 versions                                                                                                                                                                                                   | last 2 versions                                                                                                                                                                                               | last 2 versions                                                                                                                                                                                               |

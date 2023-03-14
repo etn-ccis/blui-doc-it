@@ -1,22 +1,33 @@
 .markdownH1:first-child {
-    margin-top: 32px;
+    margin-top: 40px;
 }
-.markdownH1:first-child .MuiSvgIcon-root {
+
+.markdownH1:first-child .MuiTypography-h4 {
+    font-size: 3rem;
+}
+
+.markdownH1:first-child .MuiIconButton-root {
     display: none;
 }
 .markdownH1:not(:first-child) {
     margin-top: 96px;
 }
 
-.headline:not(:first-child):hover {
-    cursor: pointer;
-}
-.headline:not(:first-child) .MuiSvgIcon-root {
+.headline:not(:first-child) .headline-text .MuiSvgIcon-root {
     opacity: 0;
 }
-.headline:not(:first-child):hover .MuiSvgIcon-root {
+.headline:not(:first-child) .headline-text:hover .MuiSvgIcon-root {
+    opacity: 0.25;
+}
+.headline:not(:first-child) .MuiIconButton-root:hover .MuiSvgIcon-root {
     opacity: 1;
 }
-.headline:not(:first-child):active .MuiSvgIcon-root {
+.headline:not(:first-child) .MuiIconButton-root:active .MuiSvgIcon-root {
     opacity: 0.5;
+}
+
+@media (hover: none) {
+    .headline:not(:first-child) .headline-text .MuiSvgIcon-root {
+        opacity: 0.25;
+    }
 }

@@ -1,3 +1,4 @@
+import React from 'react';
 import { DemoCard, Divider, ImageGrid, MaterialDesignDescription, TOC } from '../../app/components';
 import Dynamic from '../../app/assets/design-patterns/steppers/dynamic-stepper.gif';
 import StepperBanner from '../../app/assets/design-patterns/steppers/steppers-banner.svg';
@@ -8,7 +9,7 @@ import Specs1 from '../../app/assets/design-patterns/steppers/specs-1.png';
 import Specs2 from '../../app/assets/design-patterns/steppers/specs-2.png';
 import Specs3 from '../../app/assets/design-patterns/steppers/specs-desktop-1.png';
 
-<!-- KEYWORDS: design pattern stepper procedure wizard -->
+{/* KEYWORDS: design pattern stepper procedure wizard */}
 
 # Steppers
 
@@ -19,12 +20,12 @@ Steppers are used to communicate progress through a linear, multi-step workflow 
 <React.Fragment>
     <MaterialDesignDescription
         title={'Steppers'}
-        url={`https://material.io/archive/guidelines/components/steppers.html`}
+        url={`https://m2.material.io/archive/guidelines/components/steppers.html`}
     />
     <DemoCard
         repository={'dynamic-stepper'}
-        angular={`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Fdynamic-stepper%2Fdynamic-stepper.component.ts`}
-        react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/dynamic-stepper/index.tsx&initialpath=dynamic-stepper`}
+        angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns?file=src%2Fapp%2Fpages%2Fdynamic-stepper%2Fdynamic-stepper.component.ts`}
+        react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/dynamic-stepper/index.tsx&initialpath=/dynamic-stepper`}
     />
     <TOC
         anchors={[
@@ -65,7 +66,7 @@ A basic stepper simply shows the steps that are available and allows the user to
 
 ## Dynamic Stepper
 
-<ImageGrid images={[Dynamic]} />
+<ImageGrid images={[Dynamic]} regularWidth />
 
 A dynamic stepper is an extension of the basic stepper that allows users to configure their own steps. Typically, an "Add Step" button is included that will insert a new step into the stepper. This is most useful when your application allows users to define their own procedures, such as a sequence of steps for an emergency shutdown.
 
@@ -100,14 +101,19 @@ If certain dimensions are not specified, refer to the dimensions suggested in th
 
 Use the following components to implement this pattern:
 
-**Angular** and **Ionic** - Angular Material:
+**Angular** :
 
--   [Stepper](https://material.angular.io/components/stepper/overview)
+-   Angular Material
+    -   [Stepper](https://material.angular.io/components/stepper/overview)
+-   @brightlayer-ui/angular-components
+    -   [Mobile Stepper](https://brightlayer-ui-components.github.io/angular/components/mobile-stepper/examples)
 
-**React** - Material UI:
+**React**
 
--   [Stepper](https://material-ui.com/components/steppers/)
+-   MUI
+    -   [Stepper](https://mui.com/material-ui/react-stepper/)
 
-**React Native** - @pxblue/react-native-components:
+**React Native**
 
--   Pager (coming soon)
+-   @brightlayer-ui/react-native-components
+    -   [Mobile Stepper](https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--mobile-stepper)

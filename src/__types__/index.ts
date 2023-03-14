@@ -1,7 +1,7 @@
-import { SvgIconProps } from '@material-ui/core';
+import { SvgIconProps } from '@mui/material';
 
 export type TODOFIXME = any;
-export type FrameworkFilter = 'all' | 'angular' | 'react' | 'ionic' | 'react-native';
+export type FrameworkFilter = 'all' | 'angular' | 'react' | 'react-native';
 export type DetailedIcon = {
     name: string;
     filename: string;
@@ -12,6 +12,7 @@ export type DetailedIcon = {
     description: string;
     author: string;
     size: number;
+    version: number;
 };
 export type IconType = {
     name: string;
@@ -21,15 +22,20 @@ export type IconType = {
     tags: string[];
     categories: string[];
     Icon?: any;
+    version: number;
 };
 export type MatIconList = {
     [key: string]: (props: SvgIconProps) => JSX.Element;
 };
+export type IconSize = 18 | 24 | 36 | 48;
+export type IconColor = 'black' | 'blue' | 'gray' | 'white';
+
+export type ColorType = { category: 'ui' | 'branding'; name: string; weight: number };
 
 export type ItemTypeFilter = 'all' | 'design' | 'development';
 export type Status = 'backlog' | 'in-progress' | 'pre-release' | 'deferred' | 'finished';
 export type Quarter = 'Q1' | 'Q2' | 'Q3' | 'Q4';
-export type Release = 'R16' | 'R17' | 'R18' | 'R19' | 'R20' | 'all';
+export type Release = 'R16' | 'R17' | 'R18' | 'R19' | 'R20' | 'R21' | 'R22' | 'R23' | 'R24' | 'R25' | 'R26' | 'R27';
 
 export type RoadmapItem = {
     name: string;
@@ -49,6 +55,14 @@ export type RoadmapBucket = {
     items: RoadmapItem[];
 };
 
+export type AnnouncementData = {
+    id: number;
+    bannerContent: string;
+    startDate: Date;
+    endDate: Date;
+    devOnly: boolean;
+};
+
 export type Result = {
     url: string;
     title: string;
@@ -59,7 +73,8 @@ export type Result = {
 /**
  * For current maintainers and contributors (present or past)
  */
-export type Contributor = {
+
+export type OtherContributor = {
     /**
      * Contributor Name
      */
@@ -68,18 +83,20 @@ export type Contributor = {
     /**
      * Short description on what they did
      */
-    description?: string;
+    role?: string;
 
     /**
      * An image to be used for their avatars
      */
     image?: string;
+};
 
+export type CurrentMaintainter = OtherContributor & {
     /**
      * A detailed description on the contributor role in the team
      * current maintainers only
      */
-    info?: string;
+    description?: string;
 
     /**
      * Contact info, social medias

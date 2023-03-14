@@ -1,6 +1,6 @@
 import React from 'react';
-import { Typography, useTheme } from '@material-ui/core';
-import { ListItemTag } from '@pxblue/react-components';
+import { Typography, useTheme } from '@mui/material';
+import { ListItemTag } from '@brightlayer-ui/react-components';
 
 type PXBlueSVGProps = {
     className?: string;
@@ -38,7 +38,7 @@ export const PXBLogo: React.FC<PXBLogoProps> = ({ tagline, color }) => {
         <div style={{ textAlign: 'center', position: 'relative' }}>
             <PXBlueSVG className={'rotateMe'} size={82} color={color || theme.palette.primary.contrastText} />
             <Typography variant={'h3'} align={'center'} style={{ fontWeight: 300, marginBottom: theme.spacing() }}>
-                Power Xpert <b>Blue</b>
+                Brightlayer <b>User Interface</b>
             </Typography>
             {tagline && (
                 <ListItemTag
@@ -65,7 +65,7 @@ export const SmallPXBLogo: React.FC = () => (
     <div style={{ display: 'inline-flex', alignItems: 'center' }}>
         <PXBlueSVG size={32} color={'white'} />
         <Typography variant={'h5'} style={{ fontWeight: 300, marginLeft: 8 }}>
-            Power Xpert <b>Blue</b>
+            Brightlayer UI
         </Typography>
     </div>
 );

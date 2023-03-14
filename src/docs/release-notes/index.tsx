@@ -1,20 +1,36 @@
 import React from 'react';
 
 // Full Release Notes
-import R18 from './R18/R18.mdx';
-import R17 from './R17/R17.mdx';
-import R16 from './R16/R16.mdx';
-import R15 from './R15/R15.mdx';
-import R14 from './R14/R14.mdx';
-import R13 from './R13/R13.mdx';
-import R12 from './R12/R12.mdx';
-import R11 from './R11/R11.mdx';
-import R10 from './R10/R10.mdx';
-import R9 from './R9/R9.mdx';
-import R8 from './R8/R8.mdx';
-import R7 from './R7/R7.mdx';
+import R26 from './R26/FullNotes.mdx';
+import R25 from './R25/FullNotes.mdx';
+import R24 from './R24/FullNotes.mdx';
+import R23 from './R23/FullNotes.mdx';
+import R22 from './R22/FullNotes.mdx';
+import R21 from './R21/FullNotes.mdx';
+import R20 from './R20/FullNotes.mdx';
+import R19 from './R19/FullNotes.mdx';
+import R18 from './R18/FullNotes.mdx';
+import R17 from './R17/FullNotes.mdx';
+import R16 from './R16/FullNotes.mdx';
+import R15 from './R15/FullNotes.mdx';
+import R14 from './R14/FullNotes.mdx';
+import R13 from './R13/FullNotes.mdx';
+import R12 from './R12/FullNotes.mdx';
+import R11 from './R11/FullNotes.mdx';
+import R10 from './R10/FullNotes.mdx';
+import R9 from './R9/FullNotes.mdx';
+import R8 from './R8/FullNotes.mdx';
+import R7 from './R7/FullNotes.mdx';
 
 // Summaries (for Landing Page)
+import R26Summary from './R26/Summary.mdx';
+import R25Summary from './R25/Summary.mdx';
+import R24Summary from './R24/Summary.mdx';
+import R23Summary from './R23/Summary.mdx';
+import R22Summary from './R22/Summary.mdx';
+import R21Summary from './R21/Summary.mdx';
+import R20Summary from './R20/Summary.mdx';
+import R19Summary from './R19/Summary.mdx';
 import R18Summary from './R18/Summary.mdx';
 import R17Summary from './R17/Summary.mdx';
 import R16Summary from './R16/Summary.mdx';
@@ -36,6 +52,62 @@ export type ReleaseInfo = {
     summary: JSX.Element;
 };
 const Releases: ReleaseInfo[] = [
+    {
+        title: 'R26',
+        date: 'Jan 2023',
+        version: '3.2.0',
+        details: <R26 />,
+        summary: <R26Summary />,
+    },
+    {
+        title: 'R25',
+        date: 'Oct 2022',
+        version: '3.1.0',
+        details: <R25 />,
+        summary: <R25Summary />,
+    },
+    {
+        title: 'R24',
+        date: 'June 2022',
+        version: '3.0.2',
+        details: <R24 />,
+        summary: <R24Summary />,
+    },
+    {
+        title: 'R23',
+        date: 'Mar 2022',
+        version: '3.0.1',
+        details: <R23 />,
+        summary: <R23Summary />,
+    },
+    {
+        title: 'R22',
+        date: 'Dec 2021',
+        version: '3.0.0',
+        details: <R22 />,
+        summary: <R22Summary />,
+    },
+    {
+        title: 'R21',
+        date: 'Sept 2021',
+        version: '2.4.2',
+        details: <R21 />,
+        summary: <R21Summary />,
+    },
+    {
+        title: 'R20',
+        date: 'June 2021',
+        version: '2.4.1',
+        details: <R20 />,
+        summary: <R20Summary />,
+    },
+    {
+        title: 'R19',
+        date: 'March 2021',
+        version: '2.4.0',
+        details: <R19 />,
+        summary: <R19Summary />,
+    },
     {
         title: 'R18',
         date: 'December 2020',

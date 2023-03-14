@@ -1,20 +1,20 @@
-import * as PXBThemes from '@pxblue/react-themes';
-import * as Colors from '@pxblue/colors';
-import * as BrandingColors from '@pxblue/colors-branding';
+import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import * as Colors from '@brightlayer-ui/colors';
+import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import Diwali from '../../app/assets/themes/diwali/diwali-banner.jpg';
 import diwaliCursor from '../../app/assets/themes/diwali/diwali-cursor.png';
 import AppBarTile from '../../app/assets/themes/diwali/diwali-appbar-tile.png';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 export const DiwaliSchedule: Schedule = {
-    start: new Date(0, 10, 11), // Nov 11
-    end: new Date(0, 10, 17), // Nov 17
+    start: new Date(0, 10, 12), // Nov 12
+    end: new Date(0, 10, 17), // Nov 16
     config: {
         theme: {
-            ...PXBThemes.blue,
+            ...BLUIThemes.blue,
             palette: {
-                ...PXBThemes.blue.palette,
-                type: 'light',
+                ...BLUIThemes.blue.palette,
+                mode: 'light',
                 primary: {
                     light: BrandingColors.wine[300],
                     main: BrandingColors.wine[400],
@@ -26,25 +26,29 @@ export const DiwaliSchedule: Schedule = {
                     dark: Colors.gold[900],
                 },
             },
-            overrides: {
-                ...PXBThemes.blue.overrides,
+            components: {
+                ...BLUIThemes.blue.components,
                 MuiAppBar: {
-                    ...PXBThemes.blue.overrides?.MuiAppBar,
-                    colorSecondary: {
-                        color: Colors.white[50],
-                        backgroundColor: BrandingColors.wine[500],
-                        '& .MuiInputBase-root': {
+                    styleOverrides: {
+                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
+                        colorSecondary: {
                             color: Colors.white[50],
-                        },
-                        '& .MuiSelect-icon': {
-                            color: Colors.white[50],
+                            backgroundColor: BrandingColors.wine[500],
+                            '& .MuiInputBase-root': {
+                                color: Colors.white[50],
+                            },
+                            '& .MuiSelect-icon': {
+                                color: Colors.white[50],
+                            },
                         },
                     },
                 },
                 MuiButton: {
-                    ...PXBThemes.blue.overrides?.MuiButton,
-                    outlined: {},
-                    outlinedPrimary: {},
+                    styleOverrides: {
+                        ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                        outlined: {},
+                        outlinedPrimary: {},
+                    },
                 },
             },
         },

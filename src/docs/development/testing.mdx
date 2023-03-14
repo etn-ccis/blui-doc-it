@@ -1,8 +1,9 @@
+import React from 'react';
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider } from '../../app/components';
 
-# Testing Your PX Blue Applications
+# Testing Your Brightlayer UI Applications
 
-<!-- KEYWORDS: testing test unit e2e tdd bdd integration cypress -->
+{/* KEYWORDS: testing test unit e2e tdd bdd integration cypress */}
 
 Testing is a critical component of successfully building and releasing an application. Despite the value and importance of testing, it is common for teams to overlook or neglect it. Testing should be considered from the very beginning of development, not as an afterthought once development is complete. In general, every time you write a new piece of code or update existing code, you should also write a test that verifies that your code is correct.
 
@@ -50,11 +51,11 @@ For example, consider testing an Open Button that should open a modal dialog whe
 
 ## Testing Frameworks
 
-Angular, React, and React Native all come with built-in unit testing frameworks. Ionic can be unit tested using the same tools you would use for a standard Angular application.
+Angular, React, and React Native all come with built-in unit testing frameworks.
 
 ### Angular
 
-The Angular CLI comes pre-configured with [Jasmine](https://jasmine.github.io/2.0/introduction) and [Karma](https://karma-runner.github.io/latest/index.html) for unit testing. When you create a new project, sample tests are created in your project for you (test files are identified by the `.spec.ts` file extension). You can execute the tests by running the following in your terminal:
+The Angular CLI comes pre-configured with [Jasmine](https://jasmine.github.io/pages/getting_started.html) and [Karma](https://karma-runner.github.io/latest/index.html) for unit testing. When you create a new project, sample tests are created in your project for you (test files are identified by the `.spec.ts` file extension). You can execute the tests by running the following in your terminal:
 
 ```sh
 cd your/project/root
@@ -76,15 +77,11 @@ yarn test
 
 This will run your tests and show the pass / fail output in the terminal.
 
-There are additional test utilities that complement Jest well. [Create React App](https://facebook.github.io/create-react-app/docs/running-tests) provides access to [React Testing Library](https://www.npmjs.com/package/@testing-library/react) through the `react-dom` dependency. The PX Blue team has also made use of [Enzyme](https://airbnb.io/enzyme/), a testing framework created by AirBnB, and [Test Renderer](https://reactjs.org/docs/test-renderer.html).
+There are additional test utilities that complement Jest well. [Create React App](https://facebook.github.io/create-react-app/docs/running-tests) provides access to [React Testing Library](https://www.npmjs.com/package/@testing-library/react) through the `react-dom` dependency. The Brightlayer UI team has also made use of [Enzyme](https://airbnb.io/enzyme/), a testing framework created by AirBnB, and [Test Renderer](https://reactjs.org/docs/test-renderer.html).
 
 ### React Native
 
 Like React, the React Native CLI also bundles Jest into your application. Most of the testing strategies and libraries can be shared between the two frameworks. You can also consider additional libraries like [React Native Testing Library](https://www.npmjs.com/package/@testing-library/react-native).
-
-### Ionic
-
-When creating an Ionic project with Angular, the Angular CLI is used to generate the underlying project, so you have access to all the same testing tools as you would with a regular Angular project.
 
 <Divider />
 
@@ -106,22 +103,21 @@ Functional tests alone will not give you enough test coverage to avoid regressio
 End-to-end tests rely on the ability to find elements on the screen and interact with them in an automated way. This means that you need a reliable mechanism for selecting elements. Depending on your testing framework, there are different ways to select elements, including:
 
 -   **CSS Selectors**: find elements by using CSS classes or rules (e.g., `.your-class-name`)
--   **Element Selectors**: find elements inside the elements (e.g., `#\@\@pxb-drawerlayout-content > div > header > div > button`)
--   **xPath Selectors**: find selector within xPath (e.g., `//*[@id="@@pxb-drawerlayout-content"]/div/header/div/button`)
+-   **Element Selectors**: find elements inside the elements (e.g., `#\@\@blui-drawerlayout-content > div > header > div > button`)
+-   **xPath Selectors**: find selector within xPath (e.g., `//*[@id="@@blui-drawerlayout-content"]/div/header/div/button`)
 -   **ID Selectors**: find attribute id within elements (e.g., `#login-button`)
 
-> You can read more about different selector strategies on [browserstack](https://www.browserstack.com/guide/css-selectors-in-selenium) and [software testing help](https://www.softwaretestinghelp.com/css-selector-selenium-locator-selenium-tutorial-6/).
+> You can read more about different selector strategies on [Selenium Dev](https://www.selenium.dev/documentation/webdriver/elements/locators/) and {/* <!-- markdown-link-check-disable --> */}[software testing help](https://www.softwaretestinghelp.com/using-selenium-xpath-and-other-locators-selenium-tutorial-5/){/* <!-- markdown-link-check-enable --> */}.
 
 Each of these methods has their own advantages and disadvantages. A common pain point in E2E test automation is that modern Javascript platforms are constantly changing, particularly in the open source community. Many of these frameworks automatically (and dynamically) generate IDs and classes for components resulting in a constantly moving target for automation tooling. Identifying elements by these values (i.e., using IDs, CSS, or xPath locators _without_ property attributes) makes your tests brittle because they are subject to change any time a new version comes out (or even any time the page is reloaded).
 
 One way to combat this in your own applications is to use dedicated attributes for testing (e.g., `test-id` or `dev-id`). By adding this test-specific attribute to the element, identifying the correct underlying component should be safer. Because this attribute is test-specific and the application logic does not use it, it will be less likely to change throughout the product lifecycle. Combining this approach with other selectors is a common and reliable approach for element identification.
 
 ```html
-<!-- Component code -->
+{/* Component code */}
 <button id="login-button" class="default-button">Login</button>
 
-<!-- Selector to use in a test -->
-WebElement click = driver.findElement(By.id("login-button"));
+{/* Selector to use in a test */} WebElement click = driver.findElement(By.id("login-button"));
 ```
 
 ## Testing Frameworks
@@ -140,7 +136,7 @@ Selenium test suite has several test frameworks available and each one can be cu
 
 For more information, check out the browserstack [selenium guide](https://www.browserstack.com/guide/selenium-framework) or the official [selenium documentation](https://github.com/SeleniumHQ/selenium).
 
-There are also a number of [Selenium tutorials](https://www.softwaretestinghelp.com/selenium-tutorial-1/) available online to help you get started.
+There are also a number of [Selenium tutorials](https://www.guru99.com/selenium-tutorial.html) available online to help you get started.
 
 ### Cypress
 

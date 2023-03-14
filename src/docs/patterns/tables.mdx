@@ -1,0 +1,470 @@
+import React from 'react';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
+
+import BannerImage from '../../app/assets/design-patterns/tables/tables.svg';
+import StandardTable from '../../app/assets/design-patterns/tables/standard-table.png';
+
+{/* Behaviors */}
+
+import TableCellText from '../../app/assets/design-patterns/tables/table-cell-text.png';
+import TableCellNumber from '../../app/assets/design-patterns/tables/table-cell-number.png';
+import TableCellTextField from '../../app/assets/design-patterns/tables/table-cell-text-field.png';
+import TableCellSwitch from '../../app/assets/design-patterns/tables/table-cell-switch.png';
+import TableCellStatus from '../../app/assets/design-patterns/tables/table-cell-status.png';
+import TableCellIcon from '../../app/assets/design-patterns/tables/table-cell-icon.png';
+import TableCellMultiSelect from '../../app/assets/design-patterns/tables/table-cell-multi-select.png';
+import TableCellStripe from '../../app/assets/design-patterns/tables/table-cell-stripe.png';
+import TableCellUnderlinedField from '../../app/assets/design-patterns/tables/table-cell-underlined-field.png';
+import TableCellImage from '../../app/assets/design-patterns/tables/table-cell-image.png';
+import ActionOnHover from '../../app/assets/design-patterns/tables/action-on-hover.png';
+import ActionAtRowEnd from '../../app/assets/design-patterns/tables/action-at-row-end.png';
+import BatchAction1 from '../../app/assets/design-patterns/tables/batch-action-1.png';
+import BatchAction2 from '../../app/assets/design-patterns/tables/batch-action-2.png';
+import StickyHeader from '../../app/assets/design-patterns/tables/sticky-header.gif';
+import HorizontalScrollBar from '../../app/assets/design-patterns/tables/horizontal-scroll-bar.png';
+import StickyCheckbox from '../../app/assets/design-patterns/tables/sticky-checkbox.gif';
+import StickyRowAction from '../../app/assets/design-patterns/tables/sticky-row-action.gif';
+import ClickArea1 from '../../app/assets/design-patterns/tables/click-area-1.png';
+import ClickArea2 from '../../app/assets/design-patterns/tables/click-area-2.png';
+import Filter1 from '../../app/assets/design-patterns/tables/filter-1.png';
+import Filter2 from '../../app/assets/design-patterns/tables/filter-2.png';
+import Filter3 from '../../app/assets/design-patterns/tables/filter-3.png';
+import Filter4 from '../../app/assets/design-patterns/tables/filter-4.png';
+import AdvancedTableFilter from '../../app/assets/design-patterns/tables/advanced-table-filter.gif';
+import Drag1 from '../../app/assets/design-patterns/tables/drag-1.png';
+import Drag2 from '../../app/assets/design-patterns/tables/drag-2.png';
+import AdditionAnimation from '../../app/assets/design-patterns/tables/addition-animation.gif';
+import SubstractionAnimation from '../../app/assets/design-patterns/tables/substraction-animation.gif';
+import ExpandedRow from '../../app/assets/design-patterns/tables/expanded-row.gif';
+import ExpandedRowTooComplicated from '../../app/assets/design-patterns/tables/expanded-row-too-complicated.png';
+import ExpandedRowActions from '../../app/assets/design-patterns/tables/expanded-row-actions.png';
+
+{/* Tables vs. Lists */}
+
+import ListVTableTable from '../../app/assets/design-patterns/tables/list-v-table-table.png';
+import ListVTableList from '../../app/assets/design-patterns/tables/list-v-table-list.png';
+import ArrangeTable from '../../app/assets/design-patterns/tables/arrange-table.svg';
+import ArrangeList from '../../app/assets/design-patterns/tables/arrange-list.svg';
+import DashboardTable from '../../app/assets/design-patterns/tables/dashboard-table.png';
+import PageBodyTable from '../../app/assets/design-patterns/tables/page-body-table.png';
+import ReadTable from '../../app/assets/design-patterns/tables/read-table.svg';
+import ReadList from '../../app/assets/design-patterns/tables/read-list.svg';
+import ColumnOrder1 from '../../app/assets/design-patterns/tables/column-order-1.png';
+import ColumnOrder2 from '../../app/assets/design-patterns/tables/column-order-2.png';
+import ImplicitValueTable from '../../app/assets/design-patterns/tables/implicit-value-table.png';
+import ImplicitValueList1 from '../../app/assets/design-patterns/tables/implicit-value-list-1.png';
+import ImplicitValueList2 from '../../app/assets/design-patterns/tables/implicit-value-list-2.png';
+import TabularList from '../../app/assets/design-patterns/tables/tabular-list.png';
+
+{/* Responsive */}
+
+import TableOnMobile from '../../app/assets/design-patterns/tables/table-on-mobile.svg';
+import HomePagePreview from '../../app/assets/design-patterns/tables/home-page-preview.gif';
+import TableStackedAsList from '../../app/assets/design-patterns/tables/table-stacked-as-list.gif';
+import MobilePagination from '../../app/assets/design-patterns/tables/mobile-pagination.png';
+import MobileInfScroll from '../../app/assets/design-patterns/tables/mobile-inf-scroll.png';
+import LandscapeTable from '../../app/assets/design-patterns/tables/landscape-table.gif';
+import InviteToLandscapeX from '../../app/assets/design-patterns/tables/invite-to-landscape-x.png';
+import InviteToLandscapeCountdown from '../../app/assets/design-patterns/tables/invite-to-landscape-countdown.gif';
+import UserInField from '../../app/assets/design-patterns/tables/user-in-field.jpg';
+
+{/* Specs */}
+
+import SpecSize from '../../app/assets/design-patterns/tables/spec-size.png';
+import SpecTypography from '../../app/assets/design-patterns/tables/spec-typography.png';
+import SpecPagination from '../../app/assets/design-patterns/tables/spec-pagination.png';
+
+{/* KEYWORDS: design pattern table list tabular data sort */}
+
+# Tables
+
+> This page is still evolving and is subject to change in the future. We do not yet have coded examples for everything shown on this page. [Let us know](/community/contactus) what you think.
+
+<ImageGrid images={[BannerImage]} regularWidth />
+
+Similar to [lists](/patterns/lists), tables are used to display structured data. Tables are especially powerful in desktop applications, where users can easily compare and analyze a large set of data and find what they are looking for with sorting and filtering options.
+
+<MaterialDesignDescription title={'Data Table'} url={`https://m2.material.io/components/data-tables`} />
+<TOC
+    anchors={[
+        { title: 'Introduction', hash: '#tables' },
+        { title: 'Appearance' },
+        { title: 'Behaviors' },
+        { title: 'Row Actions', depth: 1 },
+        { title: 'Batch Actions', depth: 1 },
+        { title: 'Sticky Header Row', depth: 1 },
+        { title: 'Expanded Row', depth: 1 },
+        { title: 'Horizontal Scrolling', depth: 1 },
+        { title: 'Searching and Filtering', depth: 1 },
+        { title: 'Transition Animation', depth: 1 },
+        { title: 'Tables vs. Lists' },
+        { title: 'Responsive' },
+        { title: 'Design Specifications' },
+        { title: 'Developers' },
+    ]}
+/>
+<Divider />
+
+# Appearance
+
+<ImageGrid images={[StandardTable]} caption={`A basic table.`} regularWidth />
+
+Table cells may be dynamic and interactive.
+
+<ImageGrid
+    images={[
+        TableCellText,
+        TableCellNumber,
+        TableCellTextField,
+        TableCellSwitch,
+        TableCellStatus,
+        TableCellIcon,
+        TableCellMultiSelect,
+        TableCellStripe,
+    ]}
+    captionsUnderImages={[
+        'Text content. The alternating background color is optional.',
+        'Numerical value. Note that both the header and the text cells are right-aligned.',
+        'Text fields. Note that text fields are right-aligned as they are expecting numerical values. These rows are also taller than standard table rows.',
+        'Switches and checkboxes.',
+        'Icons and tags.',
+        'Icon buttons at the end of the table row for touch screens.',
+        `Checkboxes to select rows.`,
+        `Status stripes for row items with special statuses.`,
+    ]}
+    gridImageProps={{ sm: 6, md: 4 }}
+/>
+
+You should seek to make your tables both easy to navigate and effective to use.
+
+<ImageGrid
+    images={[TableCellUnderlinedField, TableCellImage]}
+    captionsUnderImages={[
+        'CAUTION: Be careful when using underlined text fields in a table, as their understrokes compete with the line strokes between each table row.',
+        `AVOID: Images can make table rows excessively tall. Consider using a list instead.`,
+    ]}
+/>
+
+# Behaviors
+
+## Row Actions
+
+Similar to lists, tables can also have row-level actions. Common actions include edit, delete, and view details. They are usually placed at the end of a table row.
+
+<ImageGrid
+    images={[ActionAtRowEnd, ActionOnHover]}
+    captionsUnderImages={[
+        `Row actions can be placed at the end of the row.`,
+        `DO: On desktop, you can choose to have row actions visible only when the mouse is hovering on the row. This will save space and make your tables cleaner and easier to read.`,
+    ]}
+/>
+
+<ImageGrid
+    images={[Drag1, Drag2]}
+    caption={[
+        `Drag-and-drop actions are usually placed at the beginning of a row. If you have row numbers, you may choose to display the drag handle on hover.`,
+    ]}
+/>
+
+## Batch Actions
+
+If your application allows users to perform batch actions on their data set, such as deleting 15 items at once, you can add a checkbox column on the left side of the table for handling selection.
+
+<ImageGrid
+    images={[BatchAction1, BatchAction2]}
+    captionsUnderImages={[
+        `Buttons are disabled when no rows are checked.`,
+        `Buttons become enabled when rows are checked. Optionally, use theme color to highlight the selected row, and label the button with the number of items selected to account for pagination.`,
+    ]}
+/>
+{/* prettier-ignore */}
+{/*
+
+Note: I think this is a good suggestion, but might be too high of a requirement for our adopters
+
+You may change the clickable area when users are cognitively loaded and busy deciding which row to check. When they enter this "batch action mode", increase the row selection area so that it is easier to select.
+
+<ImageGrid
+    images={[ClickArea1, ClickArea2]}
+    captionsUnderImages={[
+        `When nothing is selected, the selection target area is limited to the region around the checkbox.`,
+        `When a row is selected, the application enters this "batch action mode", and users can select other rows by clicking anywhere on those rows.`,
+    ]}
+/>
+*/}
+
+## Sticky Header Row
+
+When a table gets long, your users should not need to scroll back to the top to view the table header.
+
+<ImageGrid
+    images={[StickyHeader]}
+    caption={[`Use sticky headers to help your users navigate through the table.`]}
+    regularWidth
+/>
+
+## Expanded Row
+
+Occasionally, table rows may expand to allow users to take a quick peek into additional row details.
+
+<ImageGrid
+    images={[ExpandedRow]}
+    caption={[`Users can quickly glance into a small amount of additional row data.`]}
+    regularWidth
+/>
+
+<ImageGrid
+    images={[ExpandedRowTooComplicated, ExpandedRowActions]}
+    captionsUnderImages={[
+        `DONT: Do not include complicated contents in an expanded row, as this will break the efficiency of a table. In this case, you should design a dedicated page for the content.`,
+        `DONT: Do not surprise users by hiding high priority actions in the expanded row space.`,
+    ]}
+/>
+
+## Horizontal Scrolling
+
+We strongly encourage you to design your application to only show as much data as is necessary.
+
+When your table overflows horizontally, you should allow your users to scroll horizontally to view more about the table. However, this interaction is less ergonomically convenient when users are not using a touch screen or a trackpad. See the [Responsive](#responsive) section below.
+
+The application may display a scroll bar to suggest that there are more contents to the right.
+
+<ImageGrid
+    images={[HorizontalScrollBar]}
+    caption={[
+        `CAUTION: Do not use so many columns that there is significant overflow in your tables. If a horizontal scroll is necessary, place a horizontal scroll bar between rows and the footer / pagination area.`,
+    ]}
+    regularWidth
+/>
+
+<ImageGrid
+    images={[StickyCheckbox, StickyRowAction]}
+    captionsUnderImages={[
+        `The checkbox column should be sticky to the left as the user scrolls to the right.`,
+        `The action column, if designed to be always visible, should be sticky to the right. Do not include too many actions or they will consume a significant portion of your available space.`,
+    ]}
+/>
+
+## Searching and Filtering
+
+There are many different ways to perform searching and filtering with table data. Below are a few examples:
+
+<ImageGrid
+    images={[Filter1, Filter2, Filter3, Filter4]}
+    captionsUnderImages={[
+        `A simple search field embedded in a table.`,
+        `A search field outside a table.`,
+        `Filter criteria listed as chips.`,
+        `A "saved filter" dropdown.`,
+    ]}
+/>
+
+<ImageGrid
+    images={[AdvancedTableFilter]}
+    caption={[
+        `You may combine multiple interactions (searching and filtering) and input methods (keyboard navigations, keyboard typing, mouse clicking) together for an "advanced search".`,
+    ]}
+    regularWidth
+/>
+
+## Transition Animation
+
+Table rows often look very similar and can be difficult for users to differentiate. You should make use of animations and transitions to help users understand where certain actions are taking place.
+
+<ImageGrid
+    images={[AdditionAnimation, SubstractionAnimation]}
+    captionsUnderImages={[
+        `DO: Transition animation for adding a row to the table. Consider using a background color to temporarily highlight the newly-added row.`,
+        `DO: Transition animation for removing a row from the table.`,
+    ]}
+/>
+
+<Divider />
+
+# Tables vs. Lists
+
+<ImageGrid
+    images={[ListVTableTable, ListVTableList]}
+    caption={['The same set of data may be presented in tables (#1) or lists (#2), depends on the use case.']}
+/>
+
+In most cases, we encourage you to organize your data into lists instead of tables. However, the distinction between the two is not black and white. Below are a few factors you should consider when deciding how to present your data.
+
+## Arrangement
+
+Tables place more emphasis on columns, allowing users to easily find a row by any of its associated data points. Lists, on the other hand, can be less structured and tend to treat each item as a cohesive whole rather than a collection of individual data values.
+
+<ImageGrid
+    images={[ArrangeTable, ArrangeList]}
+    captionsUnderImages={[
+        'Tables usually take up more horizontal space and are often the main focus of the page they are on.',
+        'Lists are more horizontally compact and are frequently used for dashboards. Typography changes can give the text more visual hierarchy.',
+    ]}
+/>
+
+Because of this, tables tend to take up much more horizontal space. Therefore, they are almost always the primary content on the page where they reside. You should not use tables in dashboards, where many widgets are competing for the space; you should also avoid using tables on mobile applications, where the viewport size is limited.
+
+<ImageGrid
+    images={[DashboardTable, PageBodyTable]}
+    captionsUnderImages={[
+        'AVOID: Avoid using tables in dashboards. Use lists instead.',
+        'DO: Tables are usually the only main content on a page.',
+    ]}
+/>
+
+A "tabular list" or a structured list that attempts to combine tables and lists together might result in a design that does not pick up the advantages of either pattern.
+
+<ImageGrid
+    images={[TabularList]}
+    captionsUnderImages={[
+        'CAUTION: Be careful when combining tables and lists together, as this diminishes the value of both.',
+    ]}
+    gridContainerProps={{ style: { justifyContent: 'flex-start' } }}
+/>
+
+## Eye Movement
+
+Tables facilitate users who want to work across multiple different properties of an item. Users often navigate down a column, find the desired value, jump to another column, navigating further down, before they exit their path. This is called a [lawn mower pattern](https://www.nngroup.com/articles/lawn-mower-pattern/). On the other hand, lists often have a primary property — these can be icons, avatars, or primary list text — that the user would rely on for navigation, a scanning behavior known as the [layer cake pattern](https://www.nngroup.com/articles/layer-cake-pattern-scanning/).
+
+<ImageGrid
+    images={[ReadTable, ReadList]}
+    caption={[
+        `If you conduct eye tracking as a users attempts to perform some action, you would notice users scan differently depending on the data structure.`,
+        '1: In a table, users can start from any column / property, and navigate horizontally or vertically to the targeted item (lawn mower pattern).',
+        '2: In a list, users rely heavily on a primary property to navigate (layer cake pattern).',
+    ]}
+/>
+
+If you expect your users to compare across multiple parameters before deciding which row to interact with, you should use a table. If they primarily read your data row-by-row, you should try structuring your data as a list.
+
+<ImageGrid
+    images={[ColumnOrder1, ColumnOrder2]}
+    caption={[
+        `Users are more likely to find a user by their name or their role, not by their email address or phone number. Therefore, you should arrange the name and the role columns to the left, followed by phone number and email (#1). Email addresses and phone numbers should not show up before the role column (#2).`,
+    ]}
+    captionsUnderImages={['', 'DONT:']}
+/>
+
+## Data Labels
+
+In tables, each data point is labeled only once in the table header. In lists, however, the values are either clear enough on their own without explanations, or they have to be included in each list item.
+
+<ImageGrid
+    images={[ImplicitValueTable]}
+    captionsUnderImages={[`The values are explained by the table header row.`]}
+    gridContainerProps={{ style: { justifyContent: 'flex-start' } }}
+/>
+<ImageGrid
+    images={[ImplicitValueList1, ImplicitValueList2]}
+    captionsUnderImages={[
+        `DONT: It is not clear what those values in the subtitle mean.`,
+        `CAUTION: Be careful when calling out property names in lists, as they weaken the scanability.`,
+    ]}
+/>
+
+## Consumer-Facing Applications
+
+Avoid using tables in consumer-facing applications. Lists mentally match real-world individual objects, while tables can be more abstract. Use tables only if your users really need to examine technical details.
+
+<Divider />
+
+# Responsive
+
+In general, **we do not encourage tables on mobile platforms**, as table-related interactions tend to be complicated for small viewports, and mobile phones also often lack the computational power to process massive data sets.
+
+<ImageGrid
+    images={[TableOnMobile]}
+    regularWidth
+    caption={`Users can only see a very small portion of the table on mobile devices.`}
+/>
+
+## Understanding Users' Goals
+
+<ImageGrid images={[UserInField]} regularWidth caption={`While on foot, it is very hard to examine small details.`} />
+
+Before you design a table structure for a mobile application, you should conduct user research and have a clear understanding of users' intentions. When they land on this page, do they need to do complicated cross-comparisons between multiple rows and columns? Is a full table necessary?
+
+For applications where users will be on foot and out in the field while they interact with the app, keep the interactions minimal so users can pay sufficient attention to their surroundings.
+
+## Breaking Down Tables into Lists
+
+If a user only needs a few parameters to identify the correct data entry and make decisions, a list with a few selected data points would suffice.
+
+<ImageGrid
+    images={[HomePagePreview, TableStackedAsList]}
+    captionsUnderImages={[
+        `On a crowded page, show a preview of the table content, with the option to view the full table in a dedicated page.`,
+        `Stack each property into a list item, with the ability to click into a list item to view the full item details.`,
+    ]}
+/>
+
+## Infinite Scroll and Pagination
+
+If tables become necessary in your mobile application, infinite scroll and pagination are especially helpful to reduce the load of both the server and the client-side render.
+
+<ImageGrid
+    images={[MobileInfScroll, MobilePagination]}
+    captionsUnderImages={[`Infinite scroll`, `Pagination`]}
+    gridContainerProps={{ style: { justifyContent: 'flex-start' } }}
+/>
+
+> Be careful using pagination with multi-selection, as it is unclear whether the selection gets preserved when the page number changes.
+
+## Native Mobile Gestures
+
+In native mobile applications, you may also consider embedding action gestures common for touch screens, such as long-press and swipe.
+
+<MaterialDesignDescription title={'Gestures'} url={`https://m2.material.io/design/interaction/gestures.html`} />
+
+However, these gestures should never be the only way to perform an action. For example, if your application is able to delete a table row, users may be able to either (1) left-swipe to bring up a contextual menu with a delete option, or (2) click into the target row, which opens a new page that contains a delete button.
+
+## Landscape Mode
+
+If a full table view is desired on mobile devices, consider offering a landscape view so that more columns are visible at once.
+
+<ImageGrid images={[LandscapeTable]} caption={`Use the landscape mode for viewing the full table.`} regularWidth />
+
+However, many applications are meant to be used primarily in portrait mode. In this case, you need to call out the option.
+
+<ImageGrid
+    images={[InviteToLandscapeX, InviteToLandscapeCountdown]}
+    caption={`For example, you can use a chip button to "invite" users to the landscape view.`}
+/>
+
+<Divider />
+
+# Design Specifications
+
+<ImageGrid
+    images={[SpecSize, SpecTypography, SpecPagination]}
+    captionsUnderImages={[`Dimensions`, `Colors and typography`, `Pagination`]}
+    regularWidth
+/>
+
+<MaterialDesignDescription
+    title={'Data Tables'}
+    description={`For additional instructions, refer to Material Design's design specs.`}
+    url={`https://m2.material.io/components/data-tables#specs`}
+/>
+
+<Divider />
+
+# Developers
+
+Use the following components to implement this pattern:
+
+**Angular**:
+
+-   Angular Material
+    -   [Table](https://material.angular.io/components/table/overview)
+
+**React**:
+
+-   MUI
+    -   [Table](https://mui.com/components/tables/)
+    -   [Data Grid](https://mui.com/components/data-grid/)
+
+**React Native**:
+
+-   React Native Paper
+    -   [Data Table](https://callstack.github.io/react-native-paper/docs/components/DataTable/)

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Typography } from '@material-ui/core';
+import { Switch, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { CHANGE_COLOR_FORMAT } from '../../redux/actions';
 
@@ -27,7 +27,7 @@ export const Picker = (): JSX.Element => {
 export const HeadlineWithToggle = (): JSX.Element => (
     <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', marginBottom: 16 }} className={'markdownH1'}>
         <Typography variant={'h4'} color={'primary'} style={{ flex: '1 1 auto' }}>
-            PX Blue Color Palette
+            Brightlayer UI Color Palette
         </Typography>
         <Picker />
     </div>

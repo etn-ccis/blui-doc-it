@@ -3,8 +3,6 @@ import {
     AppBar,
     Typography,
     Theme,
-    createStyles,
-    makeStyles,
     List,
     Accordion,
     AccordionDetails,
@@ -14,7 +12,9 @@ import {
     Toolbar,
     Button,
     useTheme,
-} from '@material-ui/core';
+    SxProps,
+    Box,
+} from '@mui/material';
 
 import { PageContent, ExpansionHeader } from '../components';
 
@@ -23,72 +23,53 @@ import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
 
-import { EmptyState, InfoListItem, ListItemTag, Spacer } from '@pxblue/react-components';
+import { EmptyState, InfoListItem, ListItemTag, Spacer } from '@brightlayer-ui/react-components';
 import { useSelector } from 'react-redux';
 import { AppState } from '../redux/reducers';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import color from 'color';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
-import { PXBlueColor } from '@pxblue/types';
+import { BLUIColor } from '@brightlayer-ui/types';
 import { getRoadmap } from '../api';
-import { ErrorOutline } from '@material-ui/icons';
+import { ErrorOutline } from '@mui/icons-material';
 import clsx from 'clsx';
+import { AVAILABLE_RELEASES, CURRENT_RELEASE } from '../../__configuration__/roadmap';
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        secondaryAppbar: {
-            color: theme.palette.primary.contrastText,
-            top: theme.spacing(8),
-            height: theme.spacing(6),
-            [theme.breakpoints.down('xs')]: {
-                top: theme.spacing(7),
-            },
+const styles: { [key: string]: SxProps<Theme> } = {
+    secondaryAppbar: {
+        color: 'primary.contrastText',
+        top: { xs: 56, sm: 64 },
+        height: { xs: 48 },
+    },
+    secondaryToolbar: {
+        minHeight: { xs: 48, sm: 48 },
+        height: 48,
+        overflowX: 'auto',
+    },
+    select: {
+        alignSelf: 'stretch',
+        '&:not(:first-of-type)': {
+            ml: 2,
         },
-        secondaryToolbar: {
-            minHeight: theme.spacing(6),
-            [theme.breakpoints.down('xs')]: {
-                overflowX: 'auto',
-            },
-        },
-        select: {
-            alignSelf: 'stretch',
-            '&:not(:first-child)': {
-                marginLeft: theme.spacing(2),
-            },
-        },
-        tagWrapper: {
-            display: 'flex',
-            alignItems: 'center',
-            [theme.breakpoints.down('sm')]: {
-                flexDirection: 'column',
-                display: 'none',
-            },
-        },
-        tag: {
-            '&:not(:first-child)': {
-                marginLeft: theme.spacing(1),
-                [theme.breakpoints.down('sm')]: {
-                    marginLeft: 0,
-                    marginTop: theme.spacing(1),
-                },
-            },
-        },
-        title: {
-            fontWeight: 600,
-            lineHeight: 1.2,
-            fontSize: '0.875rem',
-        },
-        emptyStateWrapper: {
-            position: 'relative',
-            top: '28vh',
-            [theme.breakpoints.down('sm')]: {
-                top: '22vh',
-            },
-        },
-    })
-);
+    },
+    tagWrapper: {
+        alignItems: 'center',
+        flexDirection: { xs: 'column', md: 'row' },
+        display: { xs: 'none', sm: 'flex' },
+        gap: 1,
+    },
+    title: {
+        fontWeight: 600,
+        lineHeight: 1.2,
+        fontSize: '0.875rem',
+    },
+    emptyStateWrapper: {
+        position: 'relative',
+        top: { xs: '22vh', sm: '28vh' },
+    },
+};
 
-const getStatusColor = (status: Status): PXBlueColor | undefined => {
+const getStatusColor = (status: Status): BLUIColor | undefined => {
     switch (status) {
         case 'finished':
             return Colors.green;
@@ -106,20 +87,21 @@ const getStatusColor = (status: Status): PXBlueColor | undefined => {
 
 export const Roadmap: React.FC = (): JSX.Element => {
     const theme = useTheme();
-    const classes = useStyles(theme);
     const [typeFilter, setTypeFilter] = useState<ItemTypeFilter>('all');
     const [statusFilter, setStatusFilter] = useState<Status | 'all'>('all');
     const [frameworkFilter, setFrameworkFilter] = useState<FrameworkFilter>('all');
-    const [releaseFilter, setReleaseFilter] = useState<Release | 'all'>('R19');
+    const [releaseFilter, setReleaseFilter] = useState<Release>(CURRENT_RELEASE);
     const [roadmap, setRoadmap] = useState<RoadmapBucket[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const searchActive = useSelector((state: AppState) => state.app.searchActive);
+    const showBanner = useSelector((state: AppState) => state.app.showBanner);
+    const selectedTheme = useSelector((state: AppState) => state.app.theme);
     const loadingGroups = [
         [1, 2, 3, 4],
         [1, 2, 3],
         [1, 2, 3],
     ];
-    const themedClassName = getScheduledSiteConfig().className;
+    const themedClassName = getScheduledSiteConfig(selectedTheme).className;
 
     usePageTitle('Roadmap');
     useGoogleAnalyticsPageView();
@@ -130,29 +112,22 @@ export const Roadmap: React.FC = (): JSX.Element => {
 
         setLoading(true);
         const loadRoadmap = async (): Promise<void> => {
-            const data = await getRoadmap();
+            const data = await getRoadmap(releaseFilter);
             if (isMounted) {
                 setRoadmap(data || []);
             }
             setLoading(false);
         };
-        loadRoadmap();
+        void loadRoadmap();
         return (): void => {
             isMounted = false;
         };
-    }, []);
-
-    const filterByRelease = (release: Release, item: any): boolean =>
-        (release === 'R16' && item.quarter === 'Q2' && item.year === 2020) ||
-        (release === 'R17' && item.quarter === 'Q3' && item.year === 2020) ||
-        (release === 'R18' && item.quarter === 'Q4' && item.year === 2020) ||
-        (release === 'R19' && item.quarter === 'Q1' && item.year === 2021) ||
-        (release === 'R20' && item.quarter === 'Q2' && item.year === 2021);
+    }, [releaseFilter, setRoadmap, setLoading]);
 
     const clearFilters = useCallback(() => {
         setTypeFilter('all');
         setFrameworkFilter('all');
-        setReleaseFilter('all');
+        setReleaseFilter(CURRENT_RELEASE);
         setStatusFilter('all');
     }, [setTypeFilter, setFrameworkFilter, setReleaseFilter, setStatusFilter]);
 
@@ -182,7 +157,6 @@ export const Roadmap: React.FC = (): JSX.Element => {
                             item.framework.includes(frameworkFilter) ||
                             item.framework.includes('all') ||
                             frameworkFilter === 'all') &&
-                        (filterByRelease(releaseFilter, item) || releaseFilter === 'all') &&
                         (item.status === statusFilter || statusFilter === 'all');
                     if (show) results++;
                     return show;
@@ -200,24 +174,24 @@ export const Roadmap: React.FC = (): JSX.Element => {
                 statusTags.push(
                     <ListItemTag
                         key={`${item.name}_status`}
-                        className={classes.tag}
+                        sx={styles.tag}
                         label={status}
-                        fontColor={statusColor ? statusColor[500] : undefined}
+                        fontColor={statusColor ? statusColor[theme.palette.mode === 'dark' ? 200 : 500] : undefined}
                         backgroundColor={
                             statusColor
                                 ? color(statusColor[500])
-                                      .fade(0.9)
+                                      .fade(theme.palette.mode === 'dark' ? 0.8 : 0.9)
                                       .string()
                                 : undefined
                         }
                     />
                 );
             }
-            if (author !== undefined && author !== 'PX Blue') {
+            if (author !== undefined && author !== 'Brightlayer UI' && author !== 'PX Blue') {
                 statusTags.push(
                     <ListItemTag
                         key={`${item.name}_author`}
-                        className={classes.tag}
+                        sx={styles.tag}
                         label={author}
                         backgroundColor={Colors.blue[500]}
                         fontColor={Colors.white[50]}
@@ -225,9 +199,9 @@ export const Roadmap: React.FC = (): JSX.Element => {
                 );
             }
             const result = authorTags.concat(statusTags);
-            return result.length ? <div className={classes.tagWrapper}>{result}</div> : undefined;
+            return result.length ? <Box sx={styles.tagWrapper}>{result}</Box> : undefined;
         },
-        [classes, roadmap]
+        [roadmap]
     );
 
     return (
@@ -235,15 +209,19 @@ export const Roadmap: React.FC = (): JSX.Element => {
             <AppBar
                 position={searchActive ? 'static' : 'sticky'} // to avoid the filter bar "pops out" when searching
                 color={'secondary'}
-                className={classes.secondaryAppbar}
+                sx={{
+                    ...styles.secondaryAppbar,
+                    ...(showBanner ? { top: { xs: 2 * 56, sm: 2 * 64 } } : {}),
+                }}
                 elevation={0}
             >
-                <Toolbar className={classes.secondaryToolbar}>
+                <Toolbar sx={styles.secondaryToolbar}>
                     <Select
-                        value={typeFilter}
+                        variant={'standard'}
                         disableUnderline
+                        value={typeFilter}
                         onChange={(e): void => setTypeFilter(e.target.value as ItemTypeFilter | 'all')}
-                        className={classes.select}
+                        sx={styles.select}
                     >
                         <MenuItem value={'all'}>Any Type</MenuItem>
                         <MenuItem value={'design'}>Design</MenuItem>
@@ -252,9 +230,10 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     {(typeFilter === 'all' || typeFilter === 'development') && (
                         <Select
                             value={frameworkFilter}
+                            variant={'standard'}
                             disableUnderline
                             onChange={(e): void => setFrameworkFilter(e.target.value as FrameworkFilter)}
-                            className={classes.select}
+                            sx={styles.select}
                         >
                             <MenuItem value={'all'}>Any Framework</MenuItem>
                             <MenuItem value={'angular'}>Angular</MenuItem>
@@ -265,22 +244,24 @@ export const Roadmap: React.FC = (): JSX.Element => {
                     )}
                     <Select
                         value={releaseFilter}
+                        variant={'standard'}
                         disableUnderline
                         onChange={(e): void => setReleaseFilter(e.target.value as Release)}
-                        className={classes.select}
+                        sx={styles.select}
                     >
-                        <MenuItem value={'all'}>Any Release</MenuItem>
-                        <MenuItem value={'R16'}>R16 (2Q20)</MenuItem>
-                        <MenuItem value={'R17'}>R17 (3Q20)</MenuItem>
-                        <MenuItem value={'R18'}>R18 (4Q20)</MenuItem>
-                        <MenuItem value={'R19'}>R19 (1Q21)</MenuItem>
-                        <MenuItem value={'R20'}>R20 (2Q21)</MenuItem>
+                        {AVAILABLE_RELEASES.map((release) => (
+                            <MenuItem key={release.name} value={release.name}>{`${release.name} (${release.quarter
+                                .split('')
+                                .reverse()
+                                .join('')}${release.year.toString().substr(2)})`}</MenuItem>
+                        ))}
                     </Select>
                     <Select
                         value={statusFilter}
+                        variant={'standard'}
                         disableUnderline
                         onChange={(e): void => setStatusFilter(e.target.value as Status | 'all')}
-                        className={classes.select}
+                        sx={styles.select}
                     >
                         <MenuItem value={'all'}>Any Status</MenuItem>
                         <MenuItem value={'backlog'}>Todo</MenuItem>
@@ -296,7 +277,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
 
             <PageContent>
                 {loading && (
-                    <div>
+                    <Box>
                         {loadingGroups.map((group, groupNumber) =>
                             group.map((item, i) => (
                                 <div
@@ -316,11 +297,11 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                 </div>
                             ))
                         )}
-                    </div>
+                    </Box>
                 )}
 
                 {!loading && (roadmapBuckets.length === 0 || results < 1) && (
-                    <div className={classes.emptyStateWrapper}>
+                    <Box sx={styles.emptyStateWrapper}>
                         <EmptyState
                             icon={<ErrorOutline fontSize={'inherit'} style={{ marginBottom: '0' }} />}
                             title={'No Roadmap Items'}
@@ -331,7 +312,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                 </Button>
                             }
                         />
-                    </div>
+                    </Box>
                 )}
 
                 {!loading &&
@@ -340,9 +321,9 @@ export const Roadmap: React.FC = (): JSX.Element => {
                         return (
                             <Accordion key={`${bucket.name}_${bIndex}`} defaultExpanded>
                                 <ExpansionHeader name={bucket.name} description={bucket.description} />
-                                <AccordionDetails style={{ display: 'block', padding: 0 }}>
+                                <AccordionDetails sx={{ display: 'block', padding: 0 }}>
                                     <Divider />
-                                    <List style={{ padding: 0 }}>
+                                    <List sx={{ padding: 0 }}>
                                         {bucket.items.map((item, index): JSX.Element | null => {
                                             const statusColor = getStatusColor(item.status);
                                             return (
@@ -350,21 +331,19 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                                     key={`roadmap_item_${index}`}
                                                     hidePadding
                                                     divider={index === bucket.items.length - 1 ? undefined : 'full'}
-                                                    title={
-                                                        <Typography className={classes.title}>{item.name}</Typography>
-                                                    }
+                                                    title={<Typography sx={styles.title}>{item.name}</Typography>}
                                                     subtitle={item.description}
                                                     statusColor={statusColor ? statusColor[500] : ''}
                                                     wrapSubtitle
                                                     leftComponent={
-                                                        <div style={{ display: 'block' }}>
+                                                        <Box style={{ display: 'block' }}>
                                                             <Typography
                                                                 variant={'subtitle2'}
                                                                 align={'center'}
-                                                                style={{
+                                                                sx={{
                                                                     fontWeight: 600,
                                                                     lineHeight: 1,
-                                                                    marginBottom: 4,
+                                                                    marginBottom: 0.5,
                                                                 }}
                                                             >
                                                                 {item.quarter}
@@ -373,11 +352,11 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                                                 variant={'caption'}
                                                                 display={'block'}
                                                                 align={'center'}
-                                                                style={{ color: Colors.gray[500], lineHeight: 1 }}
+                                                                sx={{ color: Colors.gray[500], lineHeight: 1 }}
                                                             >
                                                                 {item.year}
                                                             </Typography>
-                                                        </div>
+                                                        </Box>
                                                     }
                                                     rightComponent={getTags(item)}
                                                 />

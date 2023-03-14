@@ -1,19 +1,32 @@
-import { Divider } from '../../app/components';
+import React from 'react';
+import { Divider, EmbeddedYouTubePlayer } from '../../app/components';
 
-<!-- KEYWORDS: cli command line interface new project start -->
+{/* KEYWORDS: cli command line interface new project start */}
 
-# PX Blue CLI
+# Brightlayer UI CLI
 
-The PX Blue CLI (Command-Line Interface) is a tool for quickly starting a new project using PX Blue. It will automatically create a skeleton project in your chosen framework, add Material and PX Blue component library dependencies, include and integrate PX Blue themes, typography, and colors, and optionally add PX Blue code formatting and linting profiles.
+<EmbeddedYouTubePlayer videoID={`CESJ9BKLWco`} />
+
+The Brightlayer UI CLI (Command-Line Interface) is a tool for quickly starting new projects using Brightlayer UI. It will create a skeleton project in your chosen framework and automatically integrate:
+
+-   Material and Brightlayer UI component libraries
+-   Brightlayer UI themes
+-   Open Sans Typography package
+-   Brightlayer UI colors package
+-   Brightlayer UI code formatting and linting profiles (optional)
+
+When starting a new project, you will have the opportunity to select a template as your starting point, including a blank template, basic routing template, and a full authentication template.
+
+> These templates are available for [Angular](https://github.com/etn-ccis/blui-angular-cli-templates/blob/master/README.md#angular-cli-templates), [React](https://github.com/etn-ccis/blui-react-cli-templates/blob/master/README.md#react-cli-templates), and [React-Native](https://github.com/etn-ccis/blui-react-native-cli-templates/blob/master/README.md#react-native-cli-templates).
 
 To start a new project with the CLI:
 
 ```sh
-npx -p @pxblue/cli pxb new
+npx -p @brightlayer-ui/cli blui new
 ```
 
-For more detailed information and usage instructions, check out the [@pxblue/cli](https://www.npmjs.com/package/@pxblue/cli) package on NPM.
+For more detailed information and usage instructions, check out the [@brightlayer-ui/cli](https://www.npmjs.com/package/@brightlayer-ui/cli) package on NPM.
 
 ## Supported Frameworks
 
-The PX Blue CLI works with all PX Blue supported frameworks: Angular, React, Ionic, and React Native. For React and React Native projects, you will have the option to create your project in TypeScript or JavaScript.
+The Brightlayer UI CLI works with all Brightlayer UI supported frameworks: Angular, React, and React Native.

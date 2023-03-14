@@ -1,4 +1,6 @@
+import AccountDetailsBanner from '../../app/assets/design-patterns/account-menu/account-menu-banner.png';
 import AppBarsImg from '../../app/assets/design-patterns/app-bar/appbar-banner.png';
+import ButtonsImg from '../../app/assets/design-patterns/buttons/banner.svg';
 import EmptyStatesImg from '../../app/assets/design-patterns/empty-states/empty-state-banner.svg';
 import FormValidationImg from '../../app/assets/design-patterns/form-validation/form-validation.svg';
 import InternationalizationImg from '../../app/assets/design-patterns/internationalization/internationalization.svg';
@@ -7,16 +9,35 @@ import LoadingImage from '../../app/assets/design-patterns/loading-states/loadin
 import LoginBanner from '../../app/assets/design-patterns/user-authentication/login.svg';
 import NavigationtImg from '../../app/assets/design-patterns/navigation/navigation.svg';
 import OverlayBanner from '../../app/assets/design-patterns/overlays/overlay-banner.svg';
+import TableImg from '../../app/assets/design-patterns/tables/tables.svg';
 // import PageLayoutImg from '../../app/assets/design-patterns/page-layout/layout-banner.svg';
 import StepperImg from '../../app/assets/design-patterns/steppers/steppers-banner.svg';
 import VisualizationImage from '../../app/assets/design-patterns/visualizations/visualizations-banner.svg';
 
 export const patterns = [
     {
+        title: 'Account Menu',
+        url: '/patterns/account-menu',
+        description: 'Providing a way for users to access their information / preferences.',
+        image: AccountDetailsBanner,
+        background: {
+            position: '75% 0',
+        },
+    },
+    {
         title: 'App Bars',
         url: '/patterns/appbar',
         description: 'Common interactions in the header of an application.',
         image: AppBarsImg,
+    },
+    {
+        title: 'Buttons',
+        url: '/patterns/buttons',
+        description: 'One of the primary ways for users to take actions.',
+        image: ButtonsImg,
+        background: {
+            position: 'center',
+        },
     },
     {
         title: 'Empty States',
@@ -46,7 +67,7 @@ export const patterns = [
         },
     },
     {
-        title: 'Lists & Tables',
+        title: 'Lists',
         url: '/patterns/lists',
         description: 'Different lists for different kinds of data.',
         image: ListImg,
@@ -78,6 +99,15 @@ export const patterns = [
     //     description: 'Laying out elements on the screen.',
     //     image: PageLayoutImg,
     // },
+    {
+        title: 'Tables',
+        url: '/patterns/tables',
+        description: 'Render tables in a structured way.',
+        image: TableImg,
+        background: {
+            position: 'center',
+        },
+    },
     {
         title: 'Steppers',
         url: '/patterns/steppers',

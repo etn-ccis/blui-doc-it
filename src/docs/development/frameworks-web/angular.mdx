@@ -1,49 +1,49 @@
+import React from 'react';
 import { Divider } from '../../../app/components';
 
-<!-- KEYWORDS: angular web framework guide tutorial -->
+{/* KEYWORDS: angular web framework guide tutorial */}
 
 # Getting Started with Angular
 
-The following instructions will guide you through starting a new PX Blue project using Angular. Alternatively, you can also start your project by downloading one of our code samples from [Github](https://github.com/pxblue) (the Login or Navigation examples are good projects to start from).
+The following instructions will guide you through starting a new Brightlayer UI project using Angular. Alternatively, you can also start your project by downloading one of our code samples from [Github](https://github.com/etn-ccis?q=blui) (the Login or Navigation examples are good projects to start from).
 
-## Using the PX Blue CLI
+## Using the Brightlayer UI CLI
 
-The fastest way to start a new PX Blue project is to use the [PX Blue CLI](/development/cli). The CLI will automatically create a starter project for you (using the [Angular CLI](http://cli.angular.io/)) with all of the necessary PX Blue dependencies pre-configured. To start an Angular project:
+The fastest way to start a new Brightlayer UI project is to use the [Brightlayer UI CLI](/development/cli). The CLI will automatically create a starter project for you (using the [Angular CLI](http://cli.angular.io/)) with all of the necessary Brightlayer UI dependencies pre-configured. To start an Angular project:
 
 ```sh
-npx -p @pxblue/cli pxb new angular
+npx -p @brightlayer-ui/cli blui new angular
 ```
 
-You will be asked to provide a name for your project and whether or not you want to use the PX Blue eslint and prettier configurations files.
+You will be asked to provide a name for your project and whether or not you want to use the Brightlayer UI eslint and prettier configurations files.
 
-The PX Blue CLI will automatically include:
+The Brightlayer UI CLI will automatically include:
 
 -   Angular Material Component Library ([@angular/material](https://www.npmjs.com/package/@angular/material))
--   PX Blue Component Library ([@pxblue/angular-components](https://www.npmjs.com/package/@pxblue/angular-components))
--   PX Blue Themes ([@pxblue/angular-themes](https://www.npmjs.com/package/@pxblue/angular-themes))
--   PX Blue Icons ([@pxblue/icons](https://www.npmjs.com/package/@pxblue/icons))
--   PX Blue Colors ([@pxblue/colors](https://www.npmjs.com/package/@pxblue/colors))
--   Open Sans web font ([typeface-open-sans](https://www.npmjs.com/package/typeface-open-sans))
--   PX Blue ESLint and Prettier configurations, if selected ([@pxblue/eslint-config](https://www.npmjs.com/package/@pxblue/eslint-config) / [@pxblue/prettier-config](https://www.npmjs.com/package/@pxblue/prettier-config))
--   IE 11 Support
+-   Brightlayer UI Component Library ([@brightlayer-ui/angular-components](https://www.npmjs.com/package/@brightlayer-ui/angular-components))
+-   Brightlayer UI Themes ([@brightlayer-ui/angular-themes](https://www.npmjs.com/package/@brightlayer-ui/angular-themes))
+-   Brightlayer UI Icons ([@brightlayer-ui/icons](https://www.npmjs.com/package/@brightlayer-ui/icons))
+-   Brightlayer UI Colors ([@brightlayer-ui/colors](https://www.npmjs.com/package/@brightlayer-ui/colors))
+-   Open Sans web font ([@font-source/open-sans](https://www.npmjs.com/package/@fontsource/open-sans))
+-   Brightlayer UI ESLint and Prettier configurations, if selected ([@brightlayer-ui/eslint-config](https://www.npmjs.com/package/@brightlayer-ui/eslint-config) / [@brightlayer-ui/prettier-config](https://www.npmjs.com/package/@brightlayer-ui/prettier-config))
 
-For detailed usage instructions, refer to the [PX Blue CLI documentation](https://www.npmjs.com/package/@pxblue/cli).
+For detailed usage instructions, refer to the [Brightlayer UI CLI documentation](https://www.npmjs.com/package/@brightlayer-ui/cli).
 
 ## Using an Existing Project
 
-If you have an existing project and would like to integrate PX Blue, you can follow the manual integration instructions below. If you have not already started your project, we recommend that you scaffold your project with the PX Blue CLI.
+If you have an existing project and would like to integrate Brightlayer UI, you can follow the manual integration instructions below. If you have not already started your project, we recommend that you scaffold your project with the Brightlayer UI CLI.
 
 <Divider />
 
-# Manual PX Blue Integration
+# Manual Brightlayer UI Integration
 
-Before taking the following steps, you'll want to make sure that you have an existing application. If you used the PX Blue CLI to start your project, these steps have already been done for you automatically.
+Before taking the following steps, you'll want to make sure that you have an existing application. If you used the Brightlayer UI CLI to start your project, these steps have already been done for you automatically.
 
 ## Including the Component Libraries
 
 ### Angular Material
 
-Angular projects should make use of the [Angular Material](https://material.angular.io/) component library. Our PX Blue themes are designed to work with these components.
+Angular projects should make use of the [Angular Material](https://material.angular.io/) component library. Our Brightlayer UI themes are designed to work with these components.
 
 ```sh
 npm install --save @angular/material
@@ -53,33 +53,33 @@ yarn add @angular/material
 
 For detailed documentation about the various components available in Angular Material, as well as sample code and API reference, refer to the [Angular Material Documentation](https://material.angular.io/components/).
 
-### PX Blue Components
+### Brightlayer UI Components
 
-Additionally, we have a [supplemental library](https://github.com/pxblue/angular-component-library/tree/dev) of components designed specifically for PX Blue applications. If you wish to use these components, you can install them by running:
-
-```sh
-npm install --save @pxblue/angular-components
-// or
-yarn add @pxblue/angular-components
-```
-
-## Adding PX Blue Themes
-
-By default, your application will be themed with the Google Material theme. To use the [PX Blue theme](https://www.npmjs.com/package/@pxblue/angular-themes), first install it:
+Additionally, we have a [supplemental library](/development/components) of components designed specifically for Brightlayer UI applications. If you wish to use these components, you can install them by running:
 
 ```sh
-npm install --save @pxblue/angular-themes
+npm install --save @brightlayer-ui/angular-components
 // or
-yarn add @pxblue/angular-themes
+yarn add @brightlayer-ui/angular-components
 ```
 
-Installing the theme package will automatically include the Open Sans web font package as well as the PX Blue [colors](https://www.npmjs.com/package/@pxblue/colors) package. In order to use the PX Blue themes and font (Open Sans), you will need to modify your angular.json file "styles" entries (there is one under "build" and one under "test") to include the PX Blue themes and Open Sans reference:
+## Adding Brightlayer UI Themes
+
+By default, your application will be themed with the Google Material theme. To use the [Brightlayer UI theme](https://www.npmjs.com/package/@brightlayer-ui/angular-themes), first install it:
+
+```sh
+npm install --save @brightlayer-ui/angular-themes
+// or
+yarn add @brightlayer-ui/angular-themes
+```
+
+Installing the theme package will automatically include the Open Sans web font package as well as the Brightlayer UI [colors](https://www.npmjs.com/package/@brightlayer-ui/colors) package. In order to use the Brightlayer UI themes and font (Open Sans), you will need to modify your angular.json file "styles" entries (there is one under "build" and one under "test") to include the Brightlayer UI themes and Open Sans reference:
 
 ```json
 "styles": [
     "src/styles.scss",
-    "./node_modules/@pxblue/angular-themes/theme.scss",
-    "./node_modules/typeface-open-sans"
+    "./node_modules/@brightlayer-ui/angular-themes/theme.scss",
+    "./node_modules/@brightlayer-ui/angular-themes/open-sans.scss",
 ],
 ```
 
@@ -89,10 +89,10 @@ You can apply the theme to your application by adding the proper class to your a
 
 ```html
 // Default Theme
-<body class="pxb-blue" />
+<body class="blui-blue" />
 
 // Dark Theme
-<body class="pxb-blue-dark" />
+<body class="blui-blue-dark" />
 ```
 
 > If you do not specify a theme class, your application will use the default Material theme.
@@ -122,16 +122,16 @@ More details about applying themes in your application can be found in [Theming 
 
 ## Code Formatting / Style
 
-PX Blue provides packages for code standards and style using ESLint and Prettier. These packages are used internally by the PX Blue team, but they can also be used in your projects. You can find instructions for adding these packages to your project on [GitHub](https://github.com/pxblue/code-standards).
+Brightlayer UI provides packages for code standards and style using ESLint and Prettier. These packages are used internally by the Brightlayer UI team, but they can also be used in your projects. You can find instructions for adding these packages to your project on [GitHub](https://github.com/etn-ccis/blui-code-standards).
 
 ## Browser Support
 
-Angular and Angular Material will work with any modern browser. For specific details, you can view their official support pages:
+Brightlayer UI supports the same browsers as Angular and Angular Material. For specifics, please check out their support pages:
 
 -   [Angular CLI](https://angular.io/guide/browser-support)
 -   [Angular Material](https://github.com/angular/material2#browser-and-screen-reader-support)
 
-> As of Angular 8, the Angular CLI no longer includes support for IE11 by default. If you need to support this browser (not recommended), you can configure your project to support it manually ([Contact us](/community/contactus) for assistance) or use the PX Blue CLI to scaffold your project.
+> With the end-of-life of Internet Explorer 11, Brightlayer UI will no longer be supporting IE11 as of 2021.
 
 ## License Information
 

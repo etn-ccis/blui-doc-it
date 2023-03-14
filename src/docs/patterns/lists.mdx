@@ -1,25 +1,28 @@
+import React from 'react';
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
 
 import ListBannerImage from '../../app/assets/design-patterns/lists/lists.svg';
 
-<!-- Common Use Cases -->
+{/* Common Use Cases */}
 
 import DashboardListImage from '../../app/assets/design-patterns/lists/dashboard-list.png';
 import NotificationListDesktopImage from '../../app/assets/design-patterns/lists/notification-list-desktop.png';
 import AnatomyImage from '../../app/assets/design-patterns/lists/anatomy.png';
 
-<!-- Variations -->
+{/* Variations */}
 
 import SimpleListImage1 from '../../app/assets/design-patterns/lists/simple-list-1.png';
 import SimpleListImage2 from '../../app/assets/design-patterns/lists/simple-list-2.png';
 import StatusListImage from '../../app/assets/design-patterns/lists/status-list.png';
 import ScorecardImage from '../../app/assets/design-patterns/lists/scorecard.png';
 import ContactsImage from '../../app/assets/design-patterns/lists/contacts.png';
-import IconAlignImage from '../../app/assets/design-patterns/lists/icon-align.png';
+import IconAlignImage1 from '../../app/assets/design-patterns/lists/icon-align-1.png';
+import IconAlignImage2 from '../../app/assets/design-patterns/lists/icon-align-2.png';
+import IconAlignImage3 from '../../app/assets/design-patterns/lists/icon-align-3.png';
 import NotificationBucketsImage1 from '../../app/assets/design-patterns/lists/notification-buckets-1.png';
 import NotificationBucketsImage2 from '../../app/assets/design-patterns/lists/notification-buckets-2.png';
 
-<!-- Behaviors -->
+{/* Behaviors */}
 
 import NotificationListMobileImage from '../../app/assets/design-patterns/lists/notification-list-mobile.png';
 import DashboardListDesktopImage from '../../app/assets/design-patterns/lists/dashboard-list-desktop.png';
@@ -29,11 +32,13 @@ import GlobalActionPanelHeaderImage from '../../app/assets/design-patterns/lists
 import GlobalActionAsButtonImage from '../../app/assets/design-patterns/lists/action-button-as-button.png';
 import SortableListImage from '../../app/assets/design-patterns/lists/sortable-list.gif';
 import LocalListActionsImage from '../../app/assets/design-patterns/lists/local-list-actions.png';
+import LocalListActions2Image from '../../app/assets/design-patterns/lists/local-list-actions-2.png';
 import MultiSelectImage from '../../app/assets/design-patterns/lists/multi-select-list.png';
 import NavigateListImage1 from '../../app/assets/design-patterns/lists/navigate-list-1.png';
 import NavigateListImage2 from '../../app/assets/design-patterns/lists/navigate-list-2.png';
+import HoverActionsImage from '../../app/assets/design-patterns/lists/hover-actions.gif';
 
-<!-- Specs -->
+{/* Specs */}
 
 import Spec1Image from '../../app/assets/design-patterns/lists/spec-1.png';
 import Spec2Image from '../../app/assets/design-patterns/lists/spec-2.png';
@@ -42,24 +47,31 @@ import Spec4Image from '../../app/assets/design-patterns/lists/spec-4.png';
 import Spec5Image from '../../app/assets/design-patterns/lists/spec-5.png';
 import SpecTypographyImage from '../../app/assets/design-patterns/lists/spec-typography.png';
 
-<!-- KEYWORDS: design pattern list status sort table drag drop action data -->
+{/* KEYWORDS: design pattern list status sort table drag drop action data */}
 
-# Lists & Tables
+# Lists
 
 <ImageGrid images={[ListBannerImage]} regularWidth />
 
-Lists and tables are frequently used throughout PX Blue applications. They are intended to represent groups of similar logical items, such as a device, an alarm, or a setting. They can display data from simple name-value pairs up to complex timelines or device lists.
+Lists are frequently used throughout Brightlayer UI applications. They are intended to represent groups of similar logical items, such as a device, an alarm, or a setting. They can display data from simple name-value pairs up to complex timelines or device lists.
 
 <React.Fragment>
-    <MaterialDesignDescription title={'Lists'} url={`https://material.io/components/lists/`} />
+    <MaterialDesignDescription title={'Lists'} url={`https://m2.material.io/components/lists/`} />
     <TOC
         anchors={[
-            { title: 'Introduction', hash: '#lists--tables' },
-            { title: 'Common Use Cases', hash: '#common-use-cases' },
-            { title: 'Variations', hash: '#variations' },
-            { title: 'Behaviors', hash: '#behaviors' },
-            { title: 'Design Specifications', hash: '#design-specifications' },
-            { title: 'Developers', hash: '#developers' },
+            { title: 'Introduction', hash: '#lists' },
+            { title: 'Common Use Cases' },
+            { title: 'Variations' },
+            { title: 'Basic Lists', depth: 1 },
+            { title: 'Lists with Status', depth: 1 },
+            { title: 'Timestamps', depth: 1 },
+            { title: 'Behaviors' },
+            { title: 'Global List Actions', depth: 1 },
+            { title: 'Actions on Selected Items', depth: 1 },
+            { title: 'Local List Item Actions', depth: 1 },
+            { title: 'Responsive Design', depth: 1 },
+            { title: 'Design Specifications' },
+            { title: 'Developers' },
         ]}
     />
     <Divider />
@@ -90,25 +102,25 @@ Lists should **NOT** be used where:
 
 -   Data represents different logical items (e.g., don't mix alarms and devices in a single list)
 
+For information about the differences between lists and tables, check out our [Tables](/patterns/tables#tables-vs.-lists) pattern.
+
 ## Supporting UI Elements
 
 Lists typically appear inside of a panel (mobile) or a card (desktop). Occasionally, an entire screen may use a single list as its main body content.
 
-<React.Fragment>
-    <ImageGrid
-        images={[AnatomyImage]}
-        regularWidth
-        caption={[
-            'An example of a list embedded inside a panel.',
-            '1: Panel header and footer.',
-            '2: A global list action sits inside the panel header.',
-            '3: Additional panel content supporting the list.',
-            '4: A list item.',
-            '5: A local list action.',
-        ]}
-    />
-    <Divider />
-</React.Fragment>
+<ImageGrid
+    images={[AnatomyImage]}
+    regularWidth
+    caption={[
+        'An example of a list embedded inside a panel.',
+        '1: Panel header and footer.',
+        '2: A global list action sits inside the panel header.',
+        '3: Additional panel content supporting the list.',
+        '4: A list item.',
+        '5: A local list action.',
+    ]}
+/>
+<Divider />
 
 # Variations
 
@@ -116,22 +128,12 @@ Lists typically appear inside of a panel (mobile) or a card (desktop). Occasiona
 
 <ImageGrid
     images={[SimpleListImage1, SimpleListImage2]}
-    caption={[
-        '1: A simple key-value list.',
-        '2: A key-value list with icons and subtitle.',
-    ]}
+    captionsUnderImages={['A simple key-value list.', 'A key-value list with icons and subtitle.']}
 />
 <DemoCard
-    repository={'data-list'}
-    angular={
-        `https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fdata-list%2Fdata-list.component.ts`
-    }
-    react={
-        `https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/data-list/index.tsx&initialpath=data-list`
-    }
-    ionic={
-        `https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Fapp-bar%2Fsearch-bar%2Fsearch-bar.component.ts`
-    }
+    repository={'Data List'}
+    angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Fdata-list%2Fdata-list.component.ts`}
+    react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/lists/data-list/index.tsx&initialpath=/data-list`}
     reactNative
 />
 
@@ -139,25 +141,30 @@ The simplest type of list simply presents a single line (or multiple lines) of t
 
 ## Lists with Status
 
-<ImageGrid images={[StatusListImage]} regularWidth caption={`Use an icon avatar and / or a status stripe to catch people's attention.`}/>
-<DemoCard repository={'status-list'}
-    angular={`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fstatus-list%2Fstatus-list.component.ts`}
-    react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/status-list/index.tsx&initialpath=status-list`}
-    ionic={`https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fstatus-list%2Fstatus-list.component.ts`}
+<ImageGrid
+    images={[StatusListImage]}
+    regularWidth
+    caption={`Use an icon avatar and / or a status stripe to catch people's attention.`}
+/>
+<DemoCard
+    repository={'Status List'}
+    angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Fstatus-list%2Fstatus-list.component.html`}
+    react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/lists/status-list/index.tsx&initialpath=/status-list`}
     reactNative
 />
 
-Commonly in PX Blue applications, list items also show a visual indication of an item's current status, such as online, offline, or an error condition. You can indicate this status by using avatars and status stripes with [PX Blue's status color palette](/style/color#status-colors).
+Commonly in Brightlayer UI applications, list items also show a visual indication of an item's current status, such as online, offline, or an error condition. You can indicate this status by using avatars and status stripes with [Brightlayer UI's status color palette](/style/color#status-colors).
 
 <ImageGrid
-    images={[IconAlignImage]}
-    regularWidth
+    images={[IconAlignImage1, IconAlignImage2, IconAlignImage3]}
     caption={
         'When using a list that may contain both avatars and simple icons, all icons should be center-aligned. If you are using interactive elements like checkboxes and radio buttons, they should also be center-aligned to accommodate ripples. When using only simple icons, they should be left-aligned.'
     }
+    captionsUnderImages={['DO: ', 'DO: ', 'DONT: ']}
+    gridImageProps={{ sm: 6, md: 4 }}
 />
 
-If avatars and status stripes do not work well based on the context, such as in the body of a [scorecard component](https://pxblue-components.github.io/react/?path=/info/components-score-card--get-read-me-story), you can color-code your list item icons and labels to indicate status. However, for accessibility concerns, you should never rely _solely_ on the color to convey the message.
+If avatars and status stripes do not work well based on the context, such as in the body of a [scorecard component](https://brightlayer-ui-components.github.io/react/components/score-card/examples), you can color-code your list item icons and labels to indicate status. However, for accessibility concerns, you should never rely _solely_ on the color to convey the message.
 
 <ImageGrid
     images={[ScorecardImage]}
@@ -189,36 +196,16 @@ Depending on the data being displayed, you can add additional UI elements to the
     ]}
 />
 
-## Tables
-
-<!-- Might be enhanced when we go to do the "design a better table" story -->
-
-<DemoCard
-    repository={'responsive-table'}
-    angular={
-        `https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fresponsive-table%2Fresponsive-table.component.ts`
-    }
-    react={
-        `https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/responsive-table/index.tsx&initialpath=responsive-table`
-    }
-/>
-<MaterialDesignDescription title={'Data Tables'} url={`https://material.io/components/data-tables/`} />
-
-Lists emphasize individual items, while tables highlight a comparison between each data point. However, tables generally perform poorly on a mobile device. Do not structure the list as a table if you don't expect your users examining the data "vertically".
-
-<React.Fragment>
-    <Divider />
-</React.Fragment>
+<Divider />
 
 # Behaviors
 
 Lists can be interactive. In general, there are two types of actions: global list actions and local list item actions.
 
 <DemoCard
-    repository={'action-list'}
-    angular={`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Faction-list%2Faction-list.component.ts`}
-    react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/action-list/index.tsx&initialpath=action-list`}
-    ionic={`https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Faction-list%2Faction-list.component.ts`}
+    repository={'Action List'}
+    angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Faction-list%2Faction-list.component.ts`}
+    react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/lists/action-list/index.tsx&initialpath=/action-list`}
     reactNative
 />
 
@@ -228,7 +215,7 @@ Global list actions are the actions that manipulate the entire list. The buttons
 
 <ImageGrid
     images={[GlobalActionAppBarImage, GlobalActionPanelHeaderImage, GlobalActionAsButtonImage]}
-    caption={[
+    captionsUnderImages={[
         `1: Global actions in the Appbar.`,
         '2: Global actions in the panel header.',
         '3: Global actions in its own button panel.',
@@ -242,55 +229,107 @@ Common global list actions include:
 -   Toggling a different view, such as a grid view
 -   Exporting or downloading the list data
 
-### Drag and Drop
-
-<ImageGrid images={[SortableListImage]} regularWidth />
-<DemoCard repository={'sortable-list'}
-angular={`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fsortable-list%2Fsortable-list.component.ts`}
-react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/sortable-list/index.tsx&initialpath=sortable-list`}
-ionic={`https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fsortable-list%2Fsortable-list.component.ts`}
-reactNative
+<DemoCard
+    repository={'Global Action List In Button Panel'}
+    angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Finline-button-panel%2Finline-button-panel.component.html`}
+    react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/lists/action-list/action-list-button-panel/index.tsx&initialpath=/action-list-button-panel`}
+    reactNative
+/>
+<DemoCard
+    repository={'Global Action List In Panel Header'}
+    angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Fin-panel-header%2Fin-panel-header.component.html`}
+    react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/lists/action-list/action-list-panel-header/index.tsx&initialpath=/action-list-panel-header`}
+    reactNative
 />
 
+### Drag and Drop
+
+<React.Fragment>
+    <ImageGrid images={[SortableListImage]} regularWidth />
+    <DemoCard
+        repository={'Sortable List'}
+        angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Fsortable-list%2Fsortable-list.component.ts`}
+        react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/lists/sortable-list/index.tsx&initialpath=/sortable-list`}
+        reactNative
+    />
+</React.Fragment>
+
 Drag and drop is a special case for list sorting. It re-orders the items in a list manually. This should be accomplished by placing a drag handle as the leftmost element in the row, and pushing all the list item content to its right. In most cases, the ability to re-order the list should be locked behind an Edit Mode toggle mechanism.
+
+## Actions on Selected Items
+
+<React.Fragment>
+    <ImageGrid images={[MultiSelectImage]} regularWidth caption={`A multi-select list on a mobile device.`} />
+    <DemoCard
+        repository={'Multi-select List'}
+        angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Fmultiselect-list%2Fmultiselect-list.component.ts`}
+        react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/lists/multiselect-list/index.tsx&initialpath=multiselect-list`}
+        reactNative
+    />
+</React.Fragment>
+
+You may want to take action on several list items at once, but not all. The easiest way to do this is through a multi-select list. You may optionally add a highlight color for the selected items.
 
 ## Local List Item Actions
 
 <ImageGrid
-    images={[LocalListActionsImage]}
+    images={[LocalListActionsImage, LocalListActions2Image]}
     caption={[
         '1: A 3-dot icon, used to open a menu for more list actions.',
         '2: A chevron, usually indicates the entire list item is clickable and opens up a new page with list item details.',
         '3: A few icons that serve as list action buttons.',
         '4: An inline checkbox to toggle a status.',
-        '5: An inline text field for data entry.',
+        '5: An inline toggle switch.',
+        '6: An inline dropdown field.',
+        '7: An inline radio button group.',
     ]}
+/>
+
+<DemoCard
+    repository={'Inline Actions'}
+    angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Finline-actions%2Finline-actions.component.html`}
+    react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/lists/action-list/action-list-inline/index.tsx&initialpath=/action-list-inline`}
+    reactNative
+/>
+
+<DemoCard
+    repository={'Local Actions'}
+    angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Finline-local-actions%2Finline-local-actions.component.html`}
+    react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/lists/action-list/action-list-local-actions/index.tsx&initialpath=/action-list-local-actions`}
+    reactNative
 />
 
 If there are actions that you need to perform on individual list items, you may add icon buttons or an action menu. If you have three or fewer actions, they can be represented by individual icon buttons. If there are more than three, you should move them into an action menu.
 
 > If your entire list item is clickable, you should not include local list actions, as the two interactions can interfere with one another.
 
+### Actions on Hover
+
+On desktop applications, you may use hover events to display applicable list actions. Hover list actions can save space, leaving more room for displaying static information.
+
+<ImageGrid
+    images={[HoverActionsImage]}
+    caption={
+        'Hover actions can save room on desktop applications and allow you to avoid repeated columns of action buttons, but the nature of hover prevents this pattern from being used on touch screen devices.'
+    }
+    regularWidth
+/>
+
 ### Navigating Down a Tree Structure
 
 <ImageGrid
     images={[NavigateListImage1, NavigateListImage2]}
-    caption={['1: A list used for separated pages.', '2: A list displaying a folder structure.']}
+    captionsUnderImages={['1: A list used for separated pages.', '2: A list displaying a folder structure.']}
+/>
+
+<DemoCard
+    repository={'List as a Tree Structure'}
+    angular={`https://stackblitz.com/github/etn-ccis/blui-angular-design-patterns/tree/master?file=src%2Fapp%2Fpages%2Flist%2Ftree%2Ftree.component.html`}
+    react={`https://codesandbox.io/s/github/etn-ccis/blui-react-design-patterns/tree/master?file=/src/pages/lists/tree-structure-list/index.tsx&initialpath=/tree-structure-list`}
+    reactNative
 />
 
 Lists can be used to navigate a tree-like structure in an application. See [the navigation pattern](/patterns/navigation).
-
-### Actions on Selected Items
-
-<ImageGrid images={[MultiSelectImage]} regularWidth />
-<DemoCard repository={'multiselect-list'}
-angular={`https://stackblitz.com/github/pxblue/angular-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fmultiselect-list%2Fmultiselect-list.component.ts`}
-react={`https://codesandbox.io/s/github/pxblue/react-design-patterns/tree/master?file=/src/pages/lists/multiselect-list/index.tsx&initialpath=multiselect-list`}
-ionic={`https://stackblitz.com/github/pxblue/ionic-design-patterns?file=src%2Fapp%2Fpages%2Flist%2Fmultiselect-list%2Fmultiselect-list.component.ts`}
-reactNative
-/>
-
-You may want to take action on several list items at once, but not all. The easiest way to do this is through a multi-select list. You may optionally add a highlight color for the selected items.
 
 ## Responsive Design
 
@@ -306,7 +345,6 @@ You may want to take action on several list items at once, but not all. The easi
 
 When it comes to responsive design and progressive disclosure, it can be tricky to fit all the information from a list onto a smaller screen. Here are some best practices on designing for mobile:
 
--   Avoid using tables if possible, or reduce the number of columns visible on mobile.
 -   Remove less critical information from lists on mobile.
 -   Use summary cards with a "view more" option to view the full data.
 -   Use gestures (e.g., long-press, swipe-left) that align with the target device's native behavior.
@@ -316,40 +354,41 @@ When it comes to responsive design and progressive disclosure, it can be tricky 
 # Design Specifications
 
 <ImageGrid images={[Spec1Image, Spec2Image, Spec3Image, Spec4Image, Spec5Image, SpecTypographyImage]} regularWidth />
-<MaterialDesignDescription title={'Lists'} description={`For additional instructions, refer to Material Design's design specs`} url={`https://material.io/components/lists#specs`} />
-<MaterialDesignDescription title={'Data Tables'} description={`For additional instructions, refer to Material Design's design specs`} url={`https://material.io/components/data-tables#specs`} />
+<MaterialDesignDescription
+    title={'Lists'}
+    description={`For additional instructions, refer to Material Design's design specs.`}
+    url={`https://m2.material.io/components/lists#specs`}
+/>
 <Divider />
 
 # Developers
 
 Use the following components to implement this pattern:
 
-**Angular** and **Ionic**:
+**Angular**:
 
 -   Angular Material
     -   [List](https://material.angular.io/components/list/overview)
-    -   [Table](https://material.angular.io/components/table/overview)
--   @pxblue/angular-components
-    -   [Info List Item](https://pxblue-components.github.io/angular/?path=/info/components-info-list-item--readme)
-    -   [List Item Tag](https://pxblue-components.github.io/angular/?path=/info/components-list-item-tag--readme)
+    -   [Info List Item](https://brightlayer-ui-components.github.io/angular/components/info-list-item/examples)
+    -   [List Item Tag](https://brightlayer-ui-components.github.io/angular/components/list-item-tag/examples)
 
 > In Angular, the CDK (Component Developer's Kit) version 7+ is required to use the drag-and-drop feature.
 
 **React**:
 
--   Material UI
-    -   [List](https://material-ui.com/api/list/)
-    -   [List Item](https://material-ui.com/api/list-item/)
--   @pxblue/angular-components
-    -   [Info List Item](https://pxblue-components.github.io/react/?path=/info/components-info-list-item--get-read-me-story)
-    -   [List Item Tag](https://pxblue-components.github.io/react/?path=/info/components-list-item-tag--get-read-me-story)
+-   MUI
+    -   [List](https://mui.com/material-ui/api/list/)
+    -   [List Item](https://mui.com/material-ui/api/list-item/)
+-   @brightlayer-ui/angular-components
+    -   [Info List Item](https://brightlayer-ui-components.github.io/react/components/info-list-item/examples)
+    -   [List Item Tag](https://brightlayer-ui-components.github.io/react/components/list-item-tag/examples)
 
 **React Native**:
 
 -   React-Native
     -   [Flat List](https://reactnative.dev/docs/using-a-listview)
 -   React Native Paper
-    -   [List Item](https://callstack.github.io/react-native-paper/list-item.html)
--   @pxblue/react-native-components
-    -   [Info List Item](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--info-list-item)
-    -   [List Item Tag](https://pxblue-components.github.io/react-native/?path=/info/components-documentation--list-item-tag)
+    -   [List Item](https://callstack.github.io/react-native-paper/docs/components/List/ListItem)
+-   @brightlayer-ui/react-native-components
+    -   [Info List Item](https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--info-list-item)
+    -   [List Item Tag](https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--list-item-tag)

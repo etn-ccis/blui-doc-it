@@ -1,20 +1,20 @@
-import * as PXBThemes from '@pxblue/react-themes';
-import * as Colors from '@pxblue/colors';
-import * as BrandingColors from '@pxblue/colors-branding';
+import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import * as Colors from '@brightlayer-ui/colors';
+import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import Thanksgiving from '../../app/assets/themes/thanksgiving/thanksgiving-banner.jpg';
 import turkeyCursor from '../../app/assets/themes/thanksgiving/turkey-cursor.png';
 import AppBarTile from '../../app/assets/themes/thanksgiving/thanksgiving-appbar-tile.png';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 export const ThanksgivingSchedule: Schedule = {
-    start: new Date(0, 10, 22), // Nov 22
-    end: new Date(0, 11, 1), // Nov 30
+    start: new Date(0, 10, 21), // Nov 21
+    end: new Date(0, 10, 28), // Nov 27
     config: {
         theme: {
-            ...PXBThemes.blue,
+            ...BLUIThemes.blue,
             palette: {
-                ...PXBThemes.blue.palette,
-                type: 'light',
+                ...BLUIThemes.blue.palette,
+                mode: 'light',
                 primary: {
                     light: BrandingColors.rust[100],
                     main: BrandingColors.rust[500],
@@ -26,26 +26,26 @@ export const ThanksgivingSchedule: Schedule = {
                     dark: BrandingColors.goldenrod[900],
                 },
             },
-            overrides: {
-                ...PXBThemes.blue.overrides,
+            components: {
+                ...BLUIThemes.blue.components,
                 MuiAppBar: {
-                    ...PXBThemes.blue.overrides?.MuiAppBar,
-                    colorSecondary: {
-                        color: Colors.white[50],
-                        backgroundColor: BrandingColors.rust[500],
-                        '& .MuiInputBase-root': {
+                    styleOverrides: {
+                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
+                        colorSecondary: {
                             color: Colors.white[50],
-                        },
-                        '& .MuiSelect-icon': {
-                            color: Colors.white[50],
+                            backgroundColor: BrandingColors.rust[500],
+                            '& .MuiInputBase-root': {
+                                color: Colors.white[50],
+                            },
+                            '& .MuiSelect-icon': {
+                                color: Colors.white[50],
+                            },
                         },
                     },
                 },
-                MuiButton: {
-                    ...PXBThemes.blue.overrides?.MuiButton,
-                    outlined: {},
-                    outlinedPrimary: {},
-                },
+                MuiButton: {},
+                MuiFab: {},
+                MuiSwitch: {},
             },
         },
         landingPageBanner: {

@@ -1,7 +1,10 @@
 import Themes from './themes.mdx';
 import Typography from './typography.mdx';
 import Color from './color.mdx';
-import Iconography from './iconography.mdx';
 import Illustrations from './illustrations.mdx';
+import Home from './home.mdx';
+import IconLibrary from './icon-library.mdx';
+import IconGuidelines from './icon-guidelines.mdx';
+import Logo from './logo.mdx';
 
-export { Themes, Typography, Color, Iconography, Illustrations };
+export { Themes, Typography, Color, Home, IconLibrary, IconGuidelines, Illustrations, Logo };

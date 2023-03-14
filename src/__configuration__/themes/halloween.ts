@@ -1,16 +1,15 @@
-import * as PXBThemes from '@pxblue/react-themes';
-import * as Colors from '@pxblue/colors';
-import { ThemeOptions } from '@material-ui/core';
+import { blueDark } from '@brightlayer-ui/react-themes';
+import * as Colors from '@brightlayer-ui/colors';
+import { ThemeOptions } from '@mui/material';
 
 import castles from '../../app/assets/themes/halloween/castles.svg';
 import ghosts from '../../app/assets/themes/halloween/halloween-appbar-tile.svg';
 import witch from '../../app/assets/themes/halloween/witch.png';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 const HalloweenTheme: ThemeOptions = {
-    ...PXBThemes.blueDark,
     palette: {
-        ...PXBThemes.blueDark.palette,
+        ...blueDark.palette,
         primary: {
             light: Colors.orange[300],
             main: Colors.orange[500],
@@ -28,50 +27,61 @@ const HalloweenTheme: ThemeOptions = {
         text: {
             primary: Colors.black[50],
             secondary: Colors.black[200],
-            hint: Colors.black[200],
+            // hint: Colors.black[200],
         },
     },
-    overrides: {
-        ...PXBThemes.blueDark.overrides,
+    typography: blueDark.typography,
+    components: {
         MuiAppBar: {
-            colorDefault: {
-                color: Colors.black[50],
-                backgroundColor: Colors.black[800],
-            },
-            colorPrimary: {
-                color: Colors.black[50],
-                backgroundColor: Colors.black[800],
-            },
-            colorSecondary: {
-                color: Colors.white[200],
-                backgroundColor: Colors.black[900],
+            styleOverrides: {
+                colorDefault: {
+                    color: Colors.black[50],
+                    backgroundColor: Colors.black[800],
+                },
+                colorPrimary: {
+                    color: Colors.black[50],
+                    backgroundColor: Colors.black[800],
+                },
+                colorSecondary: {
+                    color: Colors.white[200],
+                    backgroundColor: Colors.black[900],
+                },
             },
         },
         MuiBackdrop: {
-            root: {
-                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            styleOverrides: {
+                root: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                },
             },
         },
         MuiButton: {
-            ...PXBThemes.blueDark.overrides?.MuiButton,
-            outlined: {},
-            outlinedPrimary: {},
+            styleOverrides: {
+                outlined: {},
+                outlinedPrimary: {},
+            },
         },
         MuiDrawer: {
-            paper: {
-                backgroundColor: Colors.darkBlack[300],
+            styleOverrides: {
+                paper: {
+                    backgroundColor: Colors.darkBlack[300],
+                },
             },
         },
         MuiTabs: {
-            indicator: {
-                backgroundColor: Colors.orange[500],
+            styleOverrides: {
+                indicator: {
+                    backgroundColor: Colors.orange[500],
+                },
             },
         },
         MuiTab: {
-            selected: {},
-            textColorInherit: {
-                '&$selected': {
-                    color: Colors.orange[500],
+            styleOverrides: {
+                selected: {},
+                textColorInherit: {
+                    '&$selected': {
+                        color: Colors.orange[500],
+                    },
                 },
             },
         },
@@ -79,8 +89,8 @@ const HalloweenTheme: ThemeOptions = {
 };
 
 export const HalloweenSchedule: Schedule = {
-    start: new Date(0, 9, 14), // Oct 14
-    end: new Date(0, 10, 3), // Nov 3
+    start: new Date(0, 9, 25), // Oct 25
+    end: new Date(0, 10, 2), // Nov 1
     config: {
         theme: HalloweenTheme,
         landingPageBanner: {

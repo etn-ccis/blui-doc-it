@@ -1,44 +1,18 @@
-import React, { ComponentProps, useState, useEffect } from 'react';
-import { IconButton, Badge, makeStyles, createStyles, Theme, Typography } from '@material-ui/core';
-import clsx from 'clsx';
+import React, { useState, useEffect } from 'react';
+import { IconButton, Badge, Typography, BoxProps, Box, Tooltip } from '@mui/material';
 import { getBugCount } from '../../../api';
-import * as Colors from '@pxblue/colors';
-import { BugReport } from '@material-ui/icons';
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        iconButton: {
-            color: Colors.gray[500],
-            padding: theme.spacing(1),
-            marginLeft: theme.spacing(1),
-        },
-        badge: {
-            fontWeight: 600,
-        },
-        bugs: {
-            '&:hover': {
-                color: Colors.yellow[900],
-                '& $color': {
-                    backgroundColor: Colors.red[500],
-                },
-            },
-        },
-        color: {
-            backgroundColor: Colors.gray[300],
-        },
-    })
-);
+import * as Colors from '@brightlayer-ui/colors';
+import { BugReport } from '@mui/icons-material';
 
 type BugsCount = number | undefined;
-type BugsButtonProps = ComponentProps<'div'> & {
+type BugsButtonProps = BoxProps & {
     small: boolean;
     link: string;
     repository: string;
     bugLabels?: string[];
 };
 export const BugsButton: React.FC<BugsButtonProps> = (props) => {
-    const { small, repository, bugLabels, link, style, ...other } = props;
-    const classes = useStyles();
+    const { small, repository, bugLabels, link, sx, ...other } = props;
     const [bugs, setBugs] = useState<BugsCount>();
 
     useEffect(() => {
@@ -50,7 +24,7 @@ export const BugsButton: React.FC<BugsButtonProps> = (props) => {
                 setBugs(bugCount);
             }
         };
-        loadBugs();
+        void loadBugs();
 
         return (): void => {
             isMounted = false;
@@ -67,31 +41,48 @@ export const BugsButton: React.FC<BugsButtonProps> = (props) => {
             : Colors.red[500];
 
     return !small ? (
-        <IconButton
-            title={'Open Bugs'}
-            className={clsx(classes.iconButton, classes.bugs)}
-            onClick={(): void => {
-                window.open(link, '_blank');
-            }}
-        >
-            <Badge
-                badgeContent={bugs}
-                color={'error'}
-                classes={{ colorSecondary: classes.color, badge: classes.badge }}
+        <Tooltip title={'Open Bugs'}>
+            <IconButton
+                sx={[
+                    {
+                        color: Colors.gray[500],
+                        p: 1,
+                        ml: 1,
+                        '&:hover': {
+                            color: Colors.yellow[900],
+                            '& $color': {
+                                backgroundColor: Colors.red[500],
+                            },
+                        },
+                    },
+                    ...(Array.isArray(sx) ? sx : [sx]),
+                ]}
+                onClick={(): void => {
+                    window.open(link, '_blank');
+                }}
             >
-                <BugReport />
-            </Badge>
-        </IconButton>
+                <Badge
+                    badgeContent={bugs}
+                    color={'error'}
+                    sx={{
+                        '&.MuiBadge-colorSecondary': { backgroundColor: Colors.gray[300] },
+                        '& .MuiBadge-badge': { fontWeight: 600 },
+                    }}
+                >
+                    <BugReport />
+                </Badge>
+            </IconButton>
+        </Tooltip>
     ) : (
-        <div
-            style={Object.assign({ cursor: 'pointer', display: 'flex', alignItems: 'center' }, style)}
+        <Box
+            sx={[{ cursor: 'pointer', display: 'flex', alignItems: 'center' }, ...(Array.isArray(sx) ? sx : [sx])]}
             onClick={(): void => {
                 window.open(link, '_blank');
             }}
             {...other}
         >
             <BugReport fontSize={'small'} htmlColor={color} />
-            <Typography style={{ color: color, fontSize: 12 }}>{bugs}</Typography>
-        </div>
+            <Typography sx={{ color: color, fontSize: 12 }}>{bugs}</Typography>
+        </Box>
     );
 };

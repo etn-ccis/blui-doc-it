@@ -1,102 +1,102 @@
+import React from 'react';
 import { Divider } from '../../../app/components';
 
-<!-- KEYWORDS: react web framework guide tutorial -->
+{/* KEYWORDS: react web framework guide tutorial */}
 
 # Getting Started with React
 
-The following instructions will guide you through starting a new PX Blue project using React. Alternatively, you can also start your project by downloading one of our code samples from [Github](https://github.com/pxblue) (the Login or Navigation examples are good projects to start from).
+The following instructions will guide you through starting a new Brightlayer UI project using React. Alternatively, you can also start your project by downloading one of our code samples from [Github](https://github.com/etn-ccis?q=blui) (the Login or Navigation examples are good projects to start from).
 
-## Using the PX Blue CLI
+## Using the Brightlayer UI CLI
 
-The fastest way to start a new PX Blue project is to use the [PX Blue CLI](/development/cli). The CLI will automatically create a starter project for you (using [Create React App](https://github.com/facebookincubator/create-react-app)) with all of the necessary PX Blue dependencies pre-configured. To start a React project:
+The fastest way to start a new Brightlayer UI project is to use the [Brightlayer UI CLI](/development/cli). The CLI will automatically create a starter project for you (using [Create React App](https://github.com/facebookincubator/create-react-app)) with all of the necessary Brightlayer UI dependencies pre-configured. To start a React project:
 
 ```sh
-npx -p @pxblue/cli pxb new react
+npx -p @brightlayer-ui/cli blui new react
 ```
 
-You will be asked to provide a name for your project, choose whether you would like to use TypeScript or JavaScript, and for TypeScript projects, you'll be asked if you want to use the PX Blue eslint and prettier configurations files.
+You will be asked to provide a name for your project and whether you want to use the Brightlayer UI eslint and prettier configuration files.
 
-The PX Blue CLI will automatically include:
+The Brightlayer UI CLI will automatically include:
 
--   Material-UI Component Library and Icons ([@material-ui/core](https://www.npmjs.com/package/@material-ui/core) / [@material-ui/icons](https://www.npmjs.com/package/@material-ui/icons))
--   PX Blue Component Library ([@pxblue/react-components](https://www.npmjs.com/package/@pxblue/react-components))
--   PX Blue Themes ([@pxblue/react-themes](https://www.npmjs.com/package/@pxblue/react-themes))
--   PX Blue Icons ([@pxblue/icons-mui](https://www.npmjs.com/package/@pxblue/icons-mui))
--   PX Blue Colors ([@pxblue/colors](https://www.npmjs.com/package/@pxblue/colors))
--   Open Sans web font ([typeface-open-sans](https://www.npmjs.com/package/typeface-open-sans))
--   PX Blue ESLint and Prettier configurations, if selected ([@pxblue/eslint-config](https://www.npmjs.com/package/@pxblue/eslint-config) / [@pxblue/prettier-config](https://www.npmjs.com/package/@pxblue/prettier-config))
--   IE 11 Polyfills ([react-app-polyfill](https://www.npmjs.com/package/react-app-polyfill))
+-   MUI Component Library and Icons ([@mui/material](https://www.npmjs.com/package/@mui/material) / [@mui/icons-material](https://www.npmjs.com/package/@mui/icons-material))
+-   Brightlayer UI Component Library ([@brightlayer-ui/react-components](https://www.npmjs.com/package/@brightlayer-ui/react-components))
+-   Brightlayer UI Themes ([@brightlayer-ui/react-themes](https://www.npmjs.com/package/@brightlayer-ui/react-themes))
+-   Brightlayer UI Icons ([@brightlayer-ui/icons-mui](https://www.npmjs.com/package/@brightlayer-ui/icons-mui))
+-   Brightlayer UI Colors ([@brightlayer-ui/colors](https://www.npmjs.com/package/@brightlayer-ui/colors))
+-   Open Sans web font ([@fontsource/open-sans](https://www.npmjs.com/package/@fontsource/open-sans))
+-   Brightlayer UI ESLint and Prettier configurations, if selected ([@brightlayer-ui/eslint-config](https://www.npmjs.com/package/@brightlayer-ui/eslint-config) / [@brightlayer-ui/prettier-config](https://www.npmjs.com/package/@brightlayer-ui/prettier-config))
 -   Enzyme testing library ([enzyme](https://www.npmjs.com/package/enzyme) / [enzyme-adapter-react-16](https://www.npmjs.com/package/enzyme-adapter-react-16))
 
-For detailed usage instructions, refer to the [PX Blue CLI documentation](https://www.npmjs.com/package/@pxblue/cli).
+For detailed usage instructions, refer to the [Brightlayer UI CLI documentation](https://www.npmjs.com/package/@brightlayer-ui/cli).
 
 ## Using an Existing Project
 
-If you have an existing project and would like to integrate PX Blue, you can follow the manual integration instructions below. If you have not already started your project, we recommend that you scaffold your project with the PX Blue CLI.
+If you have an existing project and would like to integrate Brightlayer UI, you can follow the manual integration instructions below. If you have not already started your project, we recommend that you scaffold your project with the Brightlayer UI CLI.
 
 <Divider />
 
-# Manual PX Blue Integration
+# Manual Brightlayer UI Integration
 
-Before taking the following steps, you'll want to make sure that you have an existing application. If you used the PX Blue CLI to start your project, these steps have already been done for you automatically.
+Before taking the following steps, you'll want to make sure that you have an existing application. If you used the Brightlayer UI CLI to start your project, these steps have already been done for you automatically.
 
 ## Including the Component Libraries
 
-### Material UI
+### MUI
 
-React projects should make use of the [Material-UI](https://material-ui.com/) component library. Our PX Blue themes are designed to work with these components. You'll also want to install the icons.
-
-```sh
-npm install --save @material-ui/core @material-ui/icons
-// or
-yarn add @material-ui/core @material-ui/icons
-```
-
-For detailed documentation about the various components available in Material UI, as well as sample code and API reference, refer to the [Material UI Documentation](https://material-ui.com/).
-
-### PX Blue Components
-
-Additionally, we have a [supplemental library](https://github.com/pxblue/react-component-library/tree/dev) of components designed specifically for PX Blue applications. If you wish to use these components, you can install them by running:
+React projects should make use of the [MUI](https://mui.com/) component library, formerly known as Material UI. Our Brightlayer UI themes are designed to work with these components. You'll also want to install the icons.
 
 ```sh
-npm install --save @pxblue/react-components
+npm install --save @mui/material @mui/icons-material @emotion/react @emotion/styled
 // or
-yarn add @pxblue/react-components
+yarn add @mui/material @mui/icons-material @emotion/react @emotion/styled
 ```
 
-## Adding PX Blue Themes
+For detailed documentation about the various components available in MUI, as well as sample code and API reference, refer to the [MUI Documentation](https://mui.com/).
 
-By default, your application will be themed with the Google Material theme. To use the [PX Blue theme](https://www.npmjs.com/package/@pxblue/react-themes), first install it:
+### Brightlayer UI Components
+
+Additionally, we have a [supplemental library](/development/components) of components designed specifically for Brightlayer UI applications. If you wish to use these components, you can install them by running:
 
 ```sh
-npm install --save @pxblue/react-themes
+npm install --save @brightlayer-ui/react-components
 // or
-yarn add @pxblue/react-themes
+yarn add @brightlayer-ui/react-components
 ```
 
-Installing the theme package will automatically include the Open Sans web font package as well as the PX Blue [colors](https://www.npmjs.com/package/@pxblue/colors) package.
+## Adding Brightlayer UI Themes
+
+By default, your application will be themed with the Google Material theme. To use the [Brightlayer UI theme](https://www.npmjs.com/package/@brightlayer-ui/react-themes), first install it:
+
+```sh
+npm install --save @brightlayer-ui/react-themes
+// or
+yarn add @brightlayer-ui/react-themes
+```
+
+Installing the theme package will automatically include the Open Sans web font package as well as the Brightlayer UI [colors](https://www.npmjs.com/package/@brightlayer-ui/colors) package.
 
 ### Applying the Theme
 
-Import the theme files, Material UI theme provider, and **Open Sans** font into your application, e.g. in App.js:
+Import the theme files, MUI theme provider, and **Open Sans** font into your application, e.g. in App.js:
 
 ```tsx
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import * as PXBThemes from '@pxblue/react-themes';
-require('typeface-open-sans');
+import { ThemeProvider, createTheme } from '@mui/material';
+import CssBaseline from '@mui/material/CssBaseline';
+import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import '@brightlayer-ui/react-themes/open-sans';
 ```
 
 To add the theme to your whole application, you would simply add a `<ThemeProvider>` around your top-level component and pass it the theme you want to use, e.g.:
 
 ```tsx
-<ThemeProvider theme={createMuiTheme(PXBThemes.blue)}>
+<ThemeProvider theme={createTheme(BLUIThemes.blue)}>
     <CssBaseline/>
     <MyApp/>
 </MuiThemeProvider>
 ```
 
-You can read about [React Theming](https://material-ui.com/customization/theming/) to learn more.
+You can read about [React Theming](https://mui.com/customization/theming/) to learn more.
 
 <Divider />
 
@@ -104,19 +104,19 @@ You can read about [React Theming](https://material-ui.com/customization/theming
 
 ## Code Formatting / Style
 
-PX Blue provides packages for code standards and style using ESLint and Prettier. These packages are used internally by the PX Blue team, but they can also be used in your projects. You can find instructions for adding these packages to your project on [GitHub](https://github.com/pxblue/code-standards).
+Brightlayer UI provides packages for code standards and style using ESLint and Prettier. These packages are used internally by the Brightlayer UI team, but they can also be used in your projects. You can find instructions for adding these packages to your project on [GitHub](https://github.com/etn-ccis/blui-code-standards).
 
 > NOTE: the ESLint package is only available for TypeScript projects.
 
 ## Browser Support
 
-React and Material UI will work with any modern browser. For specific details, you can view their official support pages:
+Brightlayer UI supports the same browsers as React and MUI. For specifics, please check out their support pages:
 
 -   [React](https://facebook.github.io/create-react-app/docs/supported-browsers-features)
--   [Material UI](https://material-ui.com/getting-started/supported-platforms/)
+-   [MUI](https://mui.com/material-ui/getting-started/supported-platforms/)
 
-> The latest Create React App CLI does not include support for IE11 by default. If you need to support this browser (not recommended), you can configure your project to support it manually ([Contact us](/community/contactus) for assistance) or use the PX Blue CLI to scaffold your project.
+> With the end-of-life of Internet Explorer 11, Brightlayer UI will no longer be supporting IE11 as of 2021.
 
 ## License Information
 
-[React](https://github.com/facebook/react/blob/master/LICENSE) and [Material UI](https://github.com/mui-org/material-ui/blob/master/LICENSE) are both available under the MIT License.
+[React](https://github.com/facebook/react/blob/master/LICENSE) and [MUI](https://github.com/mui-org/material-ui/blob/master/LICENSE) are both available under the MIT License.

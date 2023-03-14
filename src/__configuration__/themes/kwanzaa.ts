@@ -1,21 +1,21 @@
-import * as PXBThemes from '@pxblue/react-themes';
-import * as Colors from '@pxblue/colors';
-import * as BrandingColors from '@pxblue/colors-branding';
+import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import * as Colors from '@brightlayer-ui/colors';
+import * as BrandingColors from '@brightlayer-ui/colors-branding';
 // import Kwanzaa from '../../app/assets/themes/kwanzaa/kwanzaa-banner.png';
 import Kwanzaa from '../../app/assets/themes/kwanzaa/kwanzaa-banner.png';
 import flagCursor from '../../app/assets/themes/kwanzaa/flag-cursor.png';
 import AppBarTile from '../../app/assets/themes/kwanzaa/kwanzaa-appbar-tile.png';
-import { Schedule } from './types';
+import { Schedule } from './_types';
 
 export const KwanzaaSchedule: Schedule = {
     start: new Date(0, 11, 26), // Dec 26
-    end: new Date(0, 11, 31), // Dec 30 - should run until Jan 1 (cutting this off on early to account for New Years theme)
+    end: new Date(0, 11, 31), // Dec 30 - festival should run until Jan 1, but we cut this off on early to account for New Years theme
     config: {
         theme: {
-            ...PXBThemes.blue,
+            ...BLUIThemes.blue,
             palette: {
-                ...PXBThemes.blue.palette,
-                type: 'light',
+                ...BLUIThemes.blue.palette,
+                mode: 'light',
                 primary: {
                     light: Colors.red[100],
                     main: Colors.red[500],
@@ -27,25 +27,29 @@ export const KwanzaaSchedule: Schedule = {
                     dark: BrandingColors.emerald[900],
                 },
             },
-            overrides: {
-                ...PXBThemes.blue.overrides,
+            components: {
+                ...BLUIThemes.blue.components,
                 MuiAppBar: {
-                    ...PXBThemes.blue.overrides?.MuiAppBar,
-                    colorSecondary: {
-                        color: Colors.white[50],
-                        backgroundColor: Colors.red[900],
-                        '& .MuiInputBase-root': {
+                    styleOverrides: {
+                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
+                        colorSecondary: {
                             color: Colors.white[50],
-                        },
-                        '& .MuiSelect-icon': {
-                            color: Colors.white[50],
+                            backgroundColor: Colors.red[900],
+                            '& .MuiInputBase-root': {
+                                color: Colors.white[50],
+                            },
+                            '& .MuiSelect-icon': {
+                                color: Colors.white[50],
+                            },
                         },
                     },
                 },
                 MuiButton: {
-                    ...PXBThemes.blue.overrides?.MuiButton,
-                    outlined: {},
-                    outlinedPrimary: {},
+                    styleOverrides: {
+                        ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                        outlined: {},
+                        outlinedPrimary: {},
+                    },
                 },
             },
         },

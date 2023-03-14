@@ -8,90 +8,120 @@ import KyleHarris from '../../app/assets/credits/kyle-harris.jpg';
 import AndrewPuhalla from '../../app/assets/credits/andrew-puhalla.jpeg';
 import ChinnaGurrala from '../../app/assets/credits/chinna-gurrala.jpeg';
 import AnjaliPatodia from '../../app/assets/credits/anjali-patodia.png';
+import MarianaBela from '../../app/assets/credits/mariana-bela.jpg';
+import RenatoMartins from '../../app/assets/credits/renato-martins.jpg';
+import JosephBoyle from '../../app/assets/credits/joseph-boyle.png';
+import JoaoMota from '../../app/assets/credits/joao-mota.jpg';
+import EvanMcLaughlin from '../../app/assets/credits/evan-mclaughlin.jpeg';
 
-import { Contributor } from '../../__types__';
+import { OtherContributor } from '../../__types__';
 
-export const contributors: Contributor[] = [
+export const contributors: OtherContributor[] = [
     {
         name: 'Eric Atha',
-        description: 'UX Designer',
+        role: 'UX Designer',
         image: EricAtha,
     },
     {
         name: 'Kyle Horchen',
-        description: 'UX Designer',
+        role: 'UX Designer',
         image: KyleHorchen,
     },
     {
         name: 'Kraig Keller',
-        description: 'Front-End Developer',
+        role: 'Front-End Developer',
         image: KraigKeller,
     },
     {
         name: 'Ian Todhunter',
-        description: 'UX Designer',
+        role: 'UX Designer',
         image: IanTodhunter,
     },
     {
         name: 'Nikhil Behari',
-        description: 'Front-End Developer',
+        role: 'Front-End Developer',
     },
     {
         name: 'Chinna Gurrala',
-        description: 'Front-End Developer',
+        role: 'Front-End Developer',
         image: ChinnaGurrala,
     },
     {
         name: 'Shivani Pitta',
-        description: 'Front-End Developer',
+        role: 'Front-End Developer',
         image: ShivaniPitta,
     },
     {
         name: 'Andrew Puhalla',
-        description: 'Front-End Developer',
+        role: 'Front-End Developer',
         image: AndrewPuhalla,
     },
     {
         name: 'Brian Shyu',
-        description: 'PX Blue Manager',
+        role: 'Strategy & Promotion',
         image: BrianShyu,
     },
     {
         name: 'Bertrand Karerangabo',
-        description: 'Initial website and CLI',
+        role: 'Initial website & CLI',
     },
     {
         name: 'Tyler Hoffman',
-        description: 'React Native Components',
+        role: 'React Native Components',
     },
     {
         name: 'Patrick Bacon',
-        description: 'React Workflows & Components',
+        role: 'React Workflows & Components',
     },
     {
         name: 'Brett Park',
-        description: 'React Native Workflows',
+        role: 'React Native Workflows',
     },
     {
         name: 'Jonathan Dasilva',
-        description: 'Angular Components',
+        role: 'Angular Components',
     },
     {
         name: 'Anjali Patodia',
-        description: 'React Components & Workflows',
+        role: 'React Components & Workflows',
         image: AnjaliPatodia,
     },
     {
         name: 'Bryan Elkus',
-        description: 'PX Blue Independent Audit',
+        role: 'Brightlayer UI Independent Audit',
     },
     {
         name: 'Kyle Harris',
-        description: 'Figma Stickersheet Components',
+        role: 'Figma Sticker Sheet Components',
         image: KyleHarris,
     },
     {
         name: 'Jean Perriault',
-        description: 'Design Engineer',
+        role: 'Design Engineer',
+    },
+    {
+        name: 'Mariana Bela',
+        role: 'Figma Components and Design Patterns',
+        image: MarianaBela,
+    },
+    {
+        name: 'Renato Martins',
+        role: 'Icons',
+        image: RenatoMartins,
+    },
+    {
+        name: 'Joseph Boyle',
+        role: `Front-End Developer & Strategy`,
+        image: JosephBoyle,
+    },
+    {
+        name: 'João Mota',
+        role: `UI Designer`,
+        image: JoaoMota,
+    },
+    {
+        name: 'Evan McLaughlin',
+        role: `Front-End Developer`,
+        image: EvanMcLaughlin,
     },
 ];

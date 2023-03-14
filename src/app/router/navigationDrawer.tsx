@@ -1,13 +1,19 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
-import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, NavItem } from '@pxblue/react-components';
-import { PxblueSmall } from '@pxblue/icons-mui';
-import * as Colors from '@pxblue/colors';
+import { useLocation, useNavigate } from 'react-router-dom';
+import {
+    Drawer,
+    DrawerBody,
+    DrawerNavGroup,
+    DrawerFooter,
+    DrawerHeader,
+    NavItem,
+} from '@brightlayer-ui/react-components';
+import { PxblueSmall } from '@brightlayer-ui/icons-mui';
 import color from 'color';
 
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { EatonTagline } from '../assets/icons';
-import { Typography, useTheme, useMediaQuery } from '@material-ui/core';
+import { Typography, useTheme, useMediaQuery, Stack } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../redux/reducers';
 import { TOGGLE_DRAWER } from '../redux/actions';
@@ -16,14 +22,15 @@ import { DRAWER_WIDTH } from '../shared';
 
 export const NavigationDrawer = (): JSX.Element => {
     const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
+    const selectedTheme = useSelector((state: AppState) => state.app.theme);
     const location = useLocation();
-    const history = useHistory();
-    const [activeRoute, setActiveRoute] = useState(location.pathname);
+    const navigate = useNavigate();
+    const [activeRoute, setActiveRoute] = useState(location.pathname.replace(/^\//, ''));
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const dispatch = useDispatch();
-    const isLandingPage = history.location.pathname === '/';
-    const activeDrawerFade = getScheduledSiteConfig().drawerActiveBackgroundFade;
+    const isLandingPage = location.pathname === '/';
+    const activeDrawerFade = getScheduledSiteConfig(selectedTheme).drawerActiveBackgroundFade;
 
     const createNavItems = useCallback((navData: SimpleNavItem[], parentUrl: string, depth: number): NavItem[] => {
         const convertedItems: NavItem[] = [];
@@ -32,7 +39,7 @@ export const NavigationDrawer = (): JSX.Element => {
             if (item.hidden) {
                 continue;
             }
-            const fullURL = `${parentUrl}${item.url}`;
+            const fullURL = `${parentUrl === '' ? '' : `${parentUrl}/`}${item.url || ''}`;
             convertedItems.push({
                 title: item.title,
                 icon: depth === 0 ? item.icon : undefined,
@@ -50,18 +57,31 @@ export const NavigationDrawer = (): JSX.Element => {
                 //     ),
                 onClick: item.component
                     ? (): void => {
-                          history.push(fullURL);
+                          navigate(fullURL);
                           dispatch({ type: TOGGLE_DRAWER, payload: false });
                       }
                     : undefined,
-                items: item.pages ? createNavItems(item.pages, `${parentUrl}${item.url}`, depth + 1) : undefined,
+                items: item.pages
+                    ? createNavItems(
+                          item.pages,
+                          `${parentUrl === '' ? '' : `${parentUrl}/`}${item.url || ''}`,
+                          depth + 1
+                      )
+                    : undefined,
             });
         }
         return convertedItems;
     }, []);
 
+    const getDrawerNavItemActiveBackgroundColor = useCallback((): string | undefined => {
+        if (activeDrawerFade) {
+            return color(theme.palette.primary.main).fade(activeDrawerFade).string();
+        }
+        return undefined;
+    }, [theme, activeDrawerFade]);
+
     useEffect(() => {
-        setActiveRoute(location.pathname);
+        setActiveRoute(location.pathname.replace(/^\//, ''));
     }, [location.pathname]);
 
     const [menuItems] = useState(createNavItems(pageDefinitions, '', 0));
@@ -71,27 +91,20 @@ export const NavigationDrawer = (): JSX.Element => {
             open={drawerOpen}
             width={DRAWER_WIDTH}
             ModalProps={{
-                onBackdropClick: (): void => {
-                    dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                onClose: (event, reason): void => {
+                    if (reason === 'backdropClick') {
+                        dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                    }
                 },
             }}
             variant={isMobile || isLandingPage ? 'temporary' : 'permanent'}
-            nestedBackgroundColor={theme.palette.type === 'light' ? undefined : Colors.darkBlack[500]}
-            activeItemBackgroundColor={
-                activeDrawerFade
-                    ? color(theme.palette.primary.main)
-                          .fade(activeDrawerFade)
-                          .string()
-                    : theme.palette.type === 'light'
-                    ? undefined
-                    : color(theme.palette.primary.main)
-                          .fade(0.8)
-                          .string()
-            }
-            activeItemFontColor={theme.palette.type === 'light' ? undefined : theme.palette.primary.light}
-            activeItemIconColor={theme.palette.type === 'light' ? undefined : theme.palette.primary.light}
+            activeItemBackgroundColor={getDrawerNavItemActiveBackgroundColor()}
             itemFontColor={theme.palette.text.primary}
             divider={false}
+            activeItem={activeRoute}
+            activeItemFontColor={theme.palette.primary.main}
+            hidePadding
+            activeItemBackgroundShape={'round'}
         >
             <DrawerHeader
                 icon={<PxblueSmall />}
@@ -99,49 +112,37 @@ export const NavigationDrawer = (): JSX.Element => {
                     if (isMobile) {
                         dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
                     } else {
-                        history.push('/');
+                        navigate('/');
                         dispatch({ type: TOGGLE_DRAWER, payload: false });
                     }
                 }}
                 titleContent={
-                    <div
-                        style={{
-                            alignSelf: 'stretch',
-                            flex: '1 1 0px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            cursor: 'pointer',
-                            color: theme.palette.primary.contrastText,
-                        }}
+                    <Stack
+                        direction={'row'}
+                        alignItems={'center'}
+                        sx={{ alignSelf: 'stretch', flex: 1, cursor: 'pointer' }}
                         onClick={(): void => {
-                            history.push('/');
+                            navigate('/');
                             dispatch({ type: TOGGLE_DRAWER, payload: false });
                         }}
                     >
-                        <Typography>
-                            Power Xpert <b>Blue</b>
-                        </Typography>
-                    </div>
+                        <Typography>Brightlayer UI</Typography>
+                    </Stack>
                 }
             />
             <DrawerBody>
-                <DrawerNavGroup hidePadding activeItem={activeRoute} items={menuItems} />
+                <DrawerNavGroup items={menuItems} />
             </DrawerBody>
             <DrawerFooter>
-                <div
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        background: theme.palette.background.default,
-                        padding: 16,
-                        cursor: 'pointer',
-                    }}
+                <Stack
+                    alignItems={'center'}
+                    sx={{ backgroundColor: 'background.default', p: 2, cursor: 'pointer' }}
                     onClick={(): void => {
                         window.open('https://eaton.com', 'blank');
                     }}
                 >
-                    <EatonTagline style={{ fontSize: 150, height: 48 }} />
-                </div>
+                    <EatonTagline sx={{ fontSize: 150, height: 48 }} />
+                </Stack>
             </DrawerFooter>
         </Drawer>
     );

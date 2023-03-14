@@ -4,85 +4,135 @@ import {
     Theme,
     Typography,
     useTheme,
-    withStyles,
-    makeStyles,
-    Accordion as MuiAccordion,
-    AccordionSummary as MuiAccordionSummary,
-    AccordionDetails as MuiAccordionDetails,
+    Accordion,
+    AccordionSummary,
+    AccordionDetails,
     AccordionProps,
     Divider,
-} from '@material-ui/core';
+    SxProps,
+    Box,
+    Stack,
+} from '@mui/material';
 
-import { ArrowDropDown } from '@material-ui/icons';
+import { ArrowDropDown } from '@mui/icons-material';
 
 import { titleCase } from '../../shared';
 import { emptyIcon } from '.';
 
-import * as Colors from '@pxblue/colors';
 import {
-    getIconComponentExample,
-    getIconComponentInstructions,
-    getIconFontExample,
-    getIconFontInstructions,
-    getIconSvgExample,
-    getIconSvgInstructions,
+    getIconComponentSnippet,
+    getIconComponentCopyText,
+    getIconFontSnippet,
+    getIconFontCopyText,
+    getIconSvgSnippet,
+    getIconSvgCopyText,
 } from './utilityFunctions';
 import { useSelectedIcon } from '../../contexts/selectedIconContextProvider';
 import { CopyToClipboard } from './CopyToClipboardButton';
 
 type Framework = 'angular' | 'react' | 'react-native';
 
-const useStyles = makeStyles((theme: Theme) => ({
-    codeSnippetTitle: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    },
+const styles: { [key: string]: SxProps<Theme> } = {
     codeSnippet: {
-        margin: `${theme.spacing(0.5)}px 0`,
-        marginBottom: theme.spacing(2),
+        mt: 0.5,
+        mx: 0,
+        mb: 2,
         whiteSpace: 'normal',
     },
-    expandIcon: {
-        color: Colors.gray[500],
-    },
-    expanded: {},
-}));
-
-const Accordion = withStyles((theme: Theme) => ({
-    root: {
+    accordion: {
         boxShadow: 'none',
         transition: `border 0ms`,
-        '&$expanded': {
-            margin: 0,
-            borderLeft: `solid 6px ${theme.palette.primary.main}`,
+        borderLeft: '6px solid',
+        borderLeftColor: 'transparent',
+        '&.Mui-expanded': {
+            m: 0,
+            borderLeftColor: 'primary.main',
+            '& .MuiAccordionSummary-root': {
+                pl: 1.25,
+            },
         },
         '&:before': {
             opacity: 0,
         },
     },
-    expanded: {},
-}))(MuiAccordion);
-
-const AccordionSummary = withStyles({
-    root: {
+    accordionSummary: {
         height: 48,
         minHeight: '48px!important',
-        '&$expanded': {
-            paddingLeft: 10,
-        },
+        pl: 1.25,
     },
-    expanded: {},
-})(MuiAccordionSummary);
+};
 
-const AccordionDetails = withStyles(() => ({
-    root: {
-        padding: '0 16px',
-        paddingLeft: 10,
-        display: 'flex',
-        flexDirection: 'column',
-    },
-}))(MuiAccordionDetails);
+export type DeveloperAccordionProps = Omit<AccordionProps, 'children'> & {
+    framework: Framework;
+    icon: IconType;
+};
+export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = (props) => {
+    const { framework, icon } = props;
+
+    return (
+        <Accordion square {...props} sx={[styles.accordion, ...(Array.isArray(props.sx) ? props.sx : [props.sx])]}>
+            <AccordionSummary
+                expandIcon={<ArrowDropDown sx={{ color: 'text.secondary' }} />}
+                disableRipple
+                sx={styles.accordionSummary}
+            >
+                <Typography variant={props.expanded ? 'subtitle2' : 'body2'}>{titleCase(framework)}</Typography>
+            </AccordionSummary>
+            <AccordionDetails
+                sx={{
+                    pr: 2,
+                    pl: 1.25,
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}
+            >
+                {/* ICON FONT */}
+                {(framework === 'angular' || framework === 'react') && (
+                    <>
+                        <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
+                            <Typography variant={'overline'}>Icon Font</Typography>
+                            <CopyToClipboard copyText={getIconFontCopyText(framework, icon)} copiedPosition={'left'} />
+                        </Stack>
+                        <Box component={'pre'} sx={styles.codeSnippet}>
+                            {getIconFontSnippet(framework, icon)}
+                        </Box>
+                    </>
+                )}
+
+                {/* SVG ICONS */}
+                {(framework === 'angular' ||
+                    framework === 'react-native' ||
+                    (framework === 'react' && !icon.isMaterial)) && (
+                    <>
+                        <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
+                            <Typography variant={'overline'}>SVG</Typography>
+                            <CopyToClipboard copyText={getIconSvgCopyText(framework, icon)} copiedPosition={'left'} />
+                        </Stack>
+                        <Box component={'pre'} sx={styles.codeSnippet}>
+                            {getIconSvgSnippet(framework, icon)}
+                        </Box>
+                    </>
+                )}
+
+                {/* ICON COMPONENT */}
+                {framework === 'react' && (
+                    <>
+                        <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
+                            <Typography variant={'overline'}>Icon Components</Typography>
+                            <CopyToClipboard
+                                copyText={getIconComponentCopyText(framework, icon)}
+                                copiedPosition={'left'}
+                            />
+                        </Stack>
+                        <Box component={'pre'} sx={styles.codeSnippet}>
+                            {getIconComponentSnippet(framework, icon)}
+                        </Box>
+                    </>
+                )}
+            </AccordionDetails>
+        </Accordion>
+    );
+};
 
 export const DeveloperInstructionsPanel: React.FC = (): JSX.Element => {
     const theme = useTheme();
@@ -95,83 +145,18 @@ export const DeveloperInstructionsPanel: React.FC = (): JSX.Element => {
             <Typography display={'block'} variant={'overline'} style={{ padding: theme.spacing(2) }}>
                 Developer Usage
             </Typography>
-            <Divider />
             {frameworks.map((framework) => (
                 <React.Fragment key={`instructions_${framework}`}>
+                    <Divider style={{ marginLeft: theme.spacing(2) }} />
                     <DeveloperInstructionAccordion
                         framework={framework}
                         icon={icon}
                         expanded={activeFramework === framework}
                         onChange={(): void => setActiveFramework(activeFramework === framework ? undefined : framework)}
                     />
-                    <Divider />
                 </React.Fragment>
             ))}
+            <Divider />
         </>
-    );
-};
-
-export type DeveloperAccordionProps = Omit<AccordionProps, 'children'> & {
-    framework: Framework;
-    icon: IconType;
-};
-export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = (props) => {
-    const { framework, icon } = props;
-    const classes = useStyles();
-
-    return (
-        <Accordion {...props}>
-            <AccordionSummary
-                expandIcon={<ArrowDropDown className={classes.expandIcon} />}
-                IconButtonProps={{ disableRipple: true }}
-            >
-                <Typography variant={props.expanded ? 'subtitle2' : 'body2'}>{titleCase(framework)}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-                {/* ICON FONT */}
-                {(framework === 'angular' || framework === 'react') && (
-                    <>
-                        <div className={classes.codeSnippetTitle}>
-                            <Typography variant={'overline'}>Icon Font</Typography>
-                            <CopyToClipboard
-                                copyText={getIconFontInstructions(framework, icon)}
-                                copiedPosition={'left'}
-                            />
-                        </div>
-                        <pre className={classes.codeSnippet}>{getIconFontExample(framework, icon)}</pre>
-                    </>
-                )}
-
-                {/* SVG ICONS */}
-                {(framework === 'angular' ||
-                    framework === 'react-native' ||
-                    (framework === 'react' && !icon.isMaterial)) && (
-                    <>
-                        <div className={classes.codeSnippetTitle}>
-                            <Typography variant={'overline'}>SVG</Typography>
-                            <CopyToClipboard
-                                copyText={getIconSvgInstructions(framework, icon)}
-                                copiedPosition={'left'}
-                            />
-                        </div>
-                        <pre className={classes.codeSnippet}>{getIconSvgExample(framework, icon)}</pre>
-                    </>
-                )}
-
-                {/* ICON COMPONENT */}
-                {framework === 'react' && (
-                    <>
-                        <div className={classes.codeSnippetTitle}>
-                            <Typography variant={'overline'}>Icon Components</Typography>
-                            <CopyToClipboard
-                                copyText={getIconComponentInstructions(framework, icon)}
-                                copiedPosition={'left'}
-                            />
-                        </div>
-                        <pre className={classes.codeSnippet}>{getIconComponentExample(framework, icon)}</pre>
-                    </>
-                )}
-            </AccordionDetails>
-        </Accordion>
     );
 };

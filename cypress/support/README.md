@@ -1,7 +1,7 @@
 Applitools admin console test results https://auth.applitools.com/users/login
-Authentication located in Teams wiki PX Blue Logistical.
+Authentication located in Teams wiki Brightlayer UI Logistical.
 
-Cypress.io and Applitools eyes-cypress package are configured to run out of the integration folder. UI tests are definded by vs-test-name.spec.js and normal cypress tests are test-name.spec.js
+Cypress.io and Applitools eyes-cypress package are configured to run out of the integration folder. UI tests are defined by vs-test-name.spec.js and normal cypress tests are test-name.spec.js
 
 Currently we have 2 placeholder tests.
 
