@@ -62,6 +62,18 @@ export const NewYearsSchedule: Schedule = {
                 MuiButton: {},
                 MuiFab: {},
                 MuiSwitch: {},
+                MuiOutlinedInput: {
+                    styleOverrides: {
+                        root: {
+                            '&.MuiInputBase-colorPrimary.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                borderColor: Colors.yellow[500],
+                            },
+                            '&.MuiInputBase-colorSecondary.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                borderColor: Colors.lightBlue[500],
+                            },
+                        },
+                    },
+                },
                 MuiDrawer: {
                     styleOverrides: {
                         paper: {

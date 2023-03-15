@@ -47,6 +47,18 @@ export const MidAutumnSchedule: Schedule = {
                     },
                 },
                 MuiButton: {},
+                MuiOutlinedInput: {
+                    styleOverrides: {
+                        root: {
+                            '&.MuiInputBase-colorPrimary.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                borderColor: Colors.yellow[400],
+                            },
+                            '&.MuiInputBase-colorSecondary.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                borderColor: Colors.red[500],
+                            },
+                        },
+                    },
+                },
                 MuiTabs: {
                     styleOverrides: {
                         indicator: {
