@@ -59,13 +59,9 @@ export const NewYearsSchedule: Schedule = {
                         },
                     },
                 },
-                MuiButton: {
-                    styleOverrides: {
-                        ...BLUIThemes.blueDark.components?.MuiButton?.styleOverrides,
-                        outlined: {},
-                        outlinedPrimary: {},
-                    },
-                },
+                MuiButton: {},
+                MuiFab: {},
+                MuiSwitch: {},
                 MuiDrawer: {
                     styleOverrides: {
                         paper: {

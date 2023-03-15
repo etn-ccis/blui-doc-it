@@ -47,13 +47,9 @@ export const WomenSDaySchedule: Schedule = {
                         },
                     },
                 },
-                MuiButton: {
-                    styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
-                        outlined: {},
-                        outlinedPrimary: {},
-                    },
-                },
+                MuiButton: {},
+                MuiFab: {},
+                MuiSwitch: {},
                 MuiTabs: {
                     styleOverrides: {
                         indicator: {
@@ -83,7 +79,7 @@ export const WomenSDaySchedule: Schedule = {
             cursor: `url("${Cursor}"), auto`,
         },
         drawerActiveBackgroundFade: 0.9,
-        className: 'christmas-eve',
+        className: 'women-s-day',
         appBarBackground: {
             backgroundImage: `url(${AppBarTile})`,
         },

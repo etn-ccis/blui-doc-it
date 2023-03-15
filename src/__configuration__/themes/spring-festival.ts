@@ -7,8 +7,8 @@ import AppBarTile from '../../app/assets/themes/spring-festival/tile.svg';
 import { Schedule } from './_types';
 
 export const SpringFestivalSchedule: Schedule = {
-    start: new Date(0, 0, 21), // Jan 21
-    end: new Date(0, 0, 28), // Jan 27
+    start: new Date(0, 1, 9), // Feb 9
+    end: new Date(0, 1, 13), // Feb 12
     config: {
         theme: {
             ...BLUIThemes.blue,
@@ -45,13 +45,8 @@ export const SpringFestivalSchedule: Schedule = {
                         },
                     },
                 },
-                MuiButton: {
-                    styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
-                        outlined: {},
-                        outlinedPrimary: {},
-                    },
-                },
+                MuiButton: {},
+                MuiSwitch: {},
                 MuiFab: {
                     styleOverrides: {
                         primary: {

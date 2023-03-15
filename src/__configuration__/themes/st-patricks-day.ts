@@ -42,13 +42,9 @@ export const StPatricksDaySchedule: Schedule = {
                         },
                     },
                 },
-                MuiButton: {
-                    styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
-                        outlined: {},
-                        outlinedPrimary: {},
-                    },
-                },
+                MuiButton: {},
+                MuiFab: {},
+                MuiSwitch: {},
             },
         },
         drawerActiveBackgroundFade: 0.85,

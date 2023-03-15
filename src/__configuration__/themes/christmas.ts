@@ -51,6 +51,14 @@ export const ChristmasSchedule: Schedule = {
                         },
                     },
                 },
+                MuiButton: {
+                    styleOverrides: {
+                        ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                        outlined: {
+                            borderColor: Colors.white[50],
+                        },
+                    },
+                },
             },
         },
         landingPageBanner: {
