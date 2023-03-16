@@ -46,7 +46,13 @@ export const MidAutumnSchedule: Schedule = {
                         },
                     },
                 },
-                MuiButton: {},
+                MuiButton: {
+                    ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                    styleOverrides: {
+                        outlined: { textTransform: 'none' },
+                        outlinedPrimary: {},
+                    },
+                },
                 MuiOutlinedInput: {
                     styleOverrides: {
                         root: {

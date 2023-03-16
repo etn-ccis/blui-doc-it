@@ -45,7 +45,13 @@ export const SpringFestivalSchedule: Schedule = {
                         },
                     },
                 },
-                MuiButton: {},
+                MuiButton: {
+                    ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                    styleOverrides: {
+                        outlined: { textTransform: 'none' },
+                        outlinedPrimary: {},
+                    },
+                },
                 MuiSwitch: {},
                 MuiFab: {
                     styleOverrides: {

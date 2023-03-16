@@ -47,7 +47,13 @@ export const WomenSDaySchedule: Schedule = {
                         },
                     },
                 },
-                MuiButton: {},
+                MuiButton: {
+                    ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                    styleOverrides: {
+                        outlined: { textTransform: 'none' },
+                        outlinedPrimary: {},
+                    },
+                },
                 MuiFab: {},
                 MuiSwitch: {},
                 MuiTabs: {
