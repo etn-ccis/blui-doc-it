@@ -69,6 +69,12 @@ export const MidAutumnSchedule: Schedule = {
                 MuiTab: {
                     styleOverrides: {
                         selected: {},
+                        textColorPrimary: {
+                            color: Colors.black[700],
+                            '&.Mui-selected': {
+                                color: Colors.red[500],
+                            },
+                        },
                         textColorInherit: {
                             '&.Mui-selected': {
                                 color: Colors.red[500],

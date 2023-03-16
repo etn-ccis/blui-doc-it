@@ -7,10 +7,10 @@ export const blueDarkTheme: SiteConfig = {
     theme: {
         ...BLUIThemes.blueDark,
         components: {
-            ...BLUIThemes.blue.components,
+            ...BLUIThemes.blueDark.components,
             MuiButton: {
                 styleOverrides: {
-                    ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                    ...BLUIThemes.blueDark.components?.MuiButton?.styleOverrides,
                     outlined: {
                         borderColor: Colors.black[500],
                     },
