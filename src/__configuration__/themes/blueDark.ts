@@ -18,5 +18,6 @@ export const blueDarkTheme: SiteConfig = {
             },
         },
     },
+    className: 'blui-dark',
     landingPageBanner: { backgroundImage: `url(${circles})`, backgroundSize: 1200 },
 };

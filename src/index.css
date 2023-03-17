@@ -87,7 +87,9 @@ p.MuiTypography-h5.MuiTypography-paragraph {
 .new-years pre,
 .new-years code,
 .mid-autumn-festival pre,
-.mid-autumn-festival code {
+.mid-autumn-festival code,
+.blui-dark pre,
+.blui-dark code {
     background-color: #13181b; /* darkBlack 300 */
     color: #e8eaea; /* black 50 */
 }
