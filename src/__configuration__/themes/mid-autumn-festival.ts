@@ -46,7 +46,25 @@ export const MidAutumnSchedule: Schedule = {
                         },
                     },
                 },
-                MuiButton: {},
+                MuiButton: {
+                    ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                    styleOverrides: {
+                        outlined: { textTransform: 'none' },
+                        outlinedPrimary: {},
+                    },
+                },
+                MuiOutlinedInput: {
+                    styleOverrides: {
+                        root: {
+                            '&.MuiInputBase-colorPrimary.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                borderColor: Colors.yellow[400],
+                            },
+                            '&.MuiInputBase-colorSecondary.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                borderColor: Colors.red[500],
+                            },
+                        },
+                    },
+                },
                 MuiTabs: {
                     styleOverrides: {
                         indicator: {
@@ -57,6 +75,12 @@ export const MidAutumnSchedule: Schedule = {
                 MuiTab: {
                     styleOverrides: {
                         selected: {},
+                        textColorPrimary: {
+                            color: Colors.black[700],
+                            '&.Mui-selected': {
+                                color: Colors.red[500],
+                            },
+                        },
                         textColorInherit: {
                             '&.Mui-selected': {
                                 color: Colors.red[500],

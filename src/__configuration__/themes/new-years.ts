@@ -60,10 +60,24 @@ export const NewYearsSchedule: Schedule = {
                     },
                 },
                 MuiButton: {
+                    ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
                     styleOverrides: {
-                        ...BLUIThemes.blueDark.components?.MuiButton?.styleOverrides,
-                        outlined: {},
+                        outlined: { textTransform: 'none' },
                         outlinedPrimary: {},
+                    },
+                },
+                MuiFab: {},
+                MuiSwitch: {},
+                MuiOutlinedInput: {
+                    styleOverrides: {
+                        root: {
+                            '&.MuiInputBase-colorPrimary.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                borderColor: Colors.yellow[500],
+                            },
+                            '&.MuiInputBase-colorSecondary.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                borderColor: Colors.lightBlue[500],
+                            },
+                        },
                     },
                 },
                 MuiDrawer: {

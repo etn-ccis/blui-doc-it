@@ -57,6 +57,9 @@ const styles: { [key: string]: SystemStyleObject<Theme> } = {
         '&.mid-autumn-festival': {
             color: Colors.black[50],
         },
+        '&.christmas-eve': {
+            color: Colors.white[50],
+        },
     },
     appBarCloseButton: {
         color: Colors.white[50],

@@ -56,8 +56,9 @@ const HalloweenTheme: ThemeOptions = {
             },
         },
         MuiButton: {
+            ...blueDark.components?.MuiButton?.styleOverrides,
             styleOverrides: {
-                outlined: {},
+                outlined: { textTransform: 'none' },
                 outlinedPrimary: {},
             },
         },
