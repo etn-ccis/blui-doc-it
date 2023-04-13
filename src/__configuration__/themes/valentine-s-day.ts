@@ -10,8 +10,8 @@ import * as Colors from '@brightlayer-ui/colors';
 import { Schedule } from './_types';
 
 export const ValentineSchedule: Schedule = {
-    start: new Date(0, 1, 12), // Feb 12
-    end: new Date(0, 1, 15), // Feb 14
+    start: new Date(0, 1, 13), // Feb 13
+    end: new Date(0, 1, 16), // Feb 15
     config: {
         theme: {
             ...BLUIThemes.blue,
@@ -41,12 +41,14 @@ export const ValentineSchedule: Schedule = {
                     },
                 },
                 MuiButton: {
+                    ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
                     styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
-                        outlined: {},
+                        outlined: { textTransform: 'none' },
                         outlinedPrimary: {},
                     },
                 },
+                MuiFab: {},
+                MuiSwitch: {},
             },
         },
         landingPageBanner: {

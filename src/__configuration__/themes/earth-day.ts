@@ -17,6 +17,17 @@ export const EarthDaySchedule: Schedule = {
                     main: Colors.green[500],
                 },
             },
+            components: {
+                ...BLUIThemes.blue.components,
+                MuiButton: {
+                    styleOverrides: {
+                        ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                        outlined: {
+                            borderColor: Colors.white[50],
+                        },
+                    },
+                },
+            },
         },
         // @ts-ignore
         landingPageBanner: {

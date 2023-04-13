@@ -62,10 +62,10 @@ export const bluiProjects: BluiProject[] = [
         tags: [BluiProjectTag.MAPS, BluiProjectTag.ONE_LINE],
     },
     {
-        name: 'Power Xpert Dashboard',
-        description: `The Power Xpert Dashboard (PX Dashboard) is the user portal to Eaton’s switchgear, motor control centers, switchboards, and panelboards. A multi-touch HMI provides the user with a touchscreen interface showing the elevation view, one-line diagrams, energy usage, and timeline of the assembly line-up. The Power Xpert Dashboard allows users to monitor, diagnose and control devices from a safe location outside the arc flash boundary.`,
+        name: 'Power Distribution Monitoring and Control',
+        description: `Formerly Power Xpert Dashboard, Power Distribution Monitoring and Control is the user portal to Eaton’s switchgear, motor control centers, switchboards, and panelboards. It shows the elevation view, one-line diagrams, energy usage, and timeline of the assembly line-up. The application allows users to monitor, diagnose and control devices from a safe location outside the arc flash boundary.`,
         platformURLs: {},
-        website: `https://www.eaton.com/us/en-us/digital/brightlayer/brightlayer-industrial-suite/power-xpert-dashboard.html`,
+        website: `https://www.eaton.com/us/en-us/digital/brightlayer/brightlayer-industrial-suite/power-distribution-monitor-and-control.html`,
         image: PXDashboard,
         market: 'General',
         devices: 'Switchgear, motor control centers, switchboards, and panelboards',

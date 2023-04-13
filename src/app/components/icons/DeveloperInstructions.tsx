@@ -44,6 +44,8 @@ const styles: { [key: string]: SxProps<Theme> } = {
         transition: `border 0ms`,
         borderLeft: '6px solid',
         borderLeftColor: 'transparent',
+        backgroundColor: 'unset',
+        backgroundImage: 'unset',
         '&.Mui-expanded': {
             m: 0,
             borderLeftColor: 'primary.main',
