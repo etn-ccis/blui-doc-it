@@ -8,6 +8,7 @@ type Resource = {
     applies?: FrameworkFilter[];
     bugLabels?: string[];
     demoUrl?: string;
+    workSpace?: string;
 };
 type ResourceBucket = Omit<Resource, 'repository'> & {
     items: Resource[];
@@ -55,6 +56,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/icons',
                 repository: 'icons',
                 bugLabels: ['font'],
+                workSpace: 'packages/icon-font',
             },
             {
                 name: '@brightlayer-ui/icons-svg',
@@ -62,6 +64,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/icons-svg',
                 repository: 'icons',
                 bugLabels: ['svg'],
+                workSpace: 'packages/svg',
             },
             {
                 name: '@brightlayer-ui/icons-mui',
@@ -69,6 +72,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/icons-mui',
                 repository: 'icons',
                 applies: ['react'],
+                workSpace: 'packages/mui',
             },
             {
                 name: '@brightlayer-ui/symbols',
@@ -83,6 +87,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/symbols-mui',
                 repository: 'symbols',
                 applies: ['react'],
+                workSpace: 'symbols-mui',
             },
             {
                 name: '@brightlayer-ui/ng-progress-icons',
@@ -115,6 +120,7 @@ export const resources: ResourceBucket[] = [
                 repository: 'icons',
                 applies: ['react-native'],
                 bugLabels: ['react-native'],
+                workSpace: 'packages/rn-vector',
             },
         ],
     },
@@ -136,6 +142,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/colors-branding',
                 repository: 'colors',
                 bugLabels: ['branding'],
+                workSpace: 'branding',
             },
             {
                 name: '@brightlayer-ui/angular-themes',

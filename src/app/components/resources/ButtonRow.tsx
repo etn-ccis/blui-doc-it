@@ -12,9 +12,10 @@ type ButtonRowProps = {
     small?: boolean;
     branches?: string[];
     demoUrl?: string;
+    workSpace?: string;
 };
 export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
-    const { repository, branches, bugLabels, isPackage, small, demoUrl } = props;
+    const { repository, branches, bugLabels, isPackage, small, demoUrl, workSpace = '' } = props;
 
     const branch = isPackage
         ? 'master'
@@ -25,7 +26,7 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
     const bugString = (bugLabels ? [...bugLabels, 'bug'] : ['bug']).map((label) => `+label%3A${label}`).join('');
     const bugLink = `https://github.com/etn-ccis/blui-${repository}/issues?q=is%3Aissue+is%3Aopen${bugString}`;
     const buildLink = `https://circleci.com/gh/etn-ccis/blui-${repository}${branch ? `/tree/${branch}` : ''}`;
-    const repoLink = `https://github.com/etn-ccis/blui-${repository}${branch ? `/tree/${branch}` : ''}`;
+    const repoLink = `https://github.com/etn-ccis/blui-${repository}${branch ? `/tree/${branch}` : ''}/${workSpace}`;
 
     return (
         <>
