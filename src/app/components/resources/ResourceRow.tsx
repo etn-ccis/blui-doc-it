@@ -119,7 +119,7 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
                             }}
                         >
                             <GitHub sx={{ mr: 1 }} />
-                            View GitHub Repository One
+                            View GitHub Repository
                         </Button>
                     </Box>
                     {divider && <Divider />}
