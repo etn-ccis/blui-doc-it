@@ -38,13 +38,14 @@ type ResourceRowProps = {
     divider?: boolean;
     repository: string;
     bugLabels?: string[];
+    workSpace?: string;
 };
 export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
-    const { name, demoUrl, repository, description, divider, bugLabels, package: packageName } = props;
+    const { name, demoUrl, repository, description, divider, bugLabels, package: packageName, workSpace = '' } = props;
     const theme = useTheme();
 
     const [version, setVersion] = useState<string>();
-    const repositoryLink = `https://github.com/etn-ccis/blui-${repository}`;
+    const repositoryLink = `https://github.com/etn-ccis/blui-${repository}/tree/master/${workSpace}`;
     const small = useMediaQuery('(max-width:799px)');
     const xs = useMediaQuery('(max-width:499px)');
 
@@ -67,7 +68,13 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
 
     const buttons = useCallback(
         (): JSX.Element => (
-            <ButtonRow isPackage={Boolean(packageName)} small={small} repository={repository} demoUrl={demoUrl} />
+            <ButtonRow
+                isPackage={Boolean(packageName)}
+                small={small}
+                repository={repository}
+                demoUrl={demoUrl}
+                workSpace={workSpace}
+            />
         ),
         [small, repository, demoUrl]
     );

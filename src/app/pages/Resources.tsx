@@ -79,6 +79,7 @@ export const DevResources: React.FC = (): JSX.Element => {
                                                     description={item.description}
                                                     divider={index < bucket.items.length - 1}
                                                     demoUrl={item.demoUrl}
+                                                    workSpace={item.workSpace}
                                                 />
                                             ) : null
                                         )}
