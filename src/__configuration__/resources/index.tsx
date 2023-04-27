@@ -240,6 +240,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/cra-template-authentication-typescript',
                 repository: 'react-cli-templates',
                 bugLabels: ['authentication-ts'],
+                applies: ['react'],
                 workSpace: 'authentication-typescript',
             },
             {
@@ -248,6 +249,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/cra-template-routing-typescript',
                 repository: 'react-cli-templates',
                 bugLabels: ['routing-ts'],
+                applies: ['react'],
                 workSpace: 'routing-typescript',
             },
             {
@@ -256,6 +258,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/cra-template-blank-typescript',
                 repository: 'react-cli-templates',
                 bugLabels: ['blank-ts'],
+                applies: ['react'],
                 workSpace: 'blank-typescript',
             },
             {
@@ -264,6 +267,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/angular-template-blank',
                 repository: 'angular-cli-templates',
                 bugLabels: ['blank'],
+                applies: ['angular'],
                 workSpace: 'src/app/blank',
             },
             {
@@ -272,6 +276,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/angular-template-routing',
                 repository: 'angular-cli-templates',
                 bugLabels: ['routing'],
+                applies: ['angular'],
                 workSpace: 'src/app/routing',
             },
             {
@@ -280,6 +285,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/angular-template-authentication',
                 repository: 'angular-cli-templates',
                 bugLabels: ['authentication'],
+                applies: ['angular'],
                 workSpace: 'src/app/auth-workflow',
             },
             {
@@ -288,6 +294,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/react-native-template-authentication-typescript',
                 repository: 'react-native-cli-templates',
                 bugLabels: ['authentication-ts'],
+                applies: ['react-native'],
                 workSpace: 'authentication-typescript',
             },
             {
@@ -296,6 +303,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/react-native-template-routing-typescript',
                 repository: 'react-native-cli-templates',
                 bugLabels: ['routing-ts'],
+                applies: ['react-native'],
                 workSpace: 'routing-typescript',
             },
             {
@@ -304,6 +312,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/react-native-template-blank-typescript',
                 repository: 'react-native-cli-templates',
                 bugLabels: ['blank-ts'],
+                applies: ['react-native'],
                 workSpace: 'blank-typescript',
             },
         ],
