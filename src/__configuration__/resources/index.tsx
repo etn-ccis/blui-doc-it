@@ -80,6 +80,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/symbols',
                 repository: 'symbols',
                 bugLabels: ['symbols'],
+                workSpace: 'symbols',
             },
             {
                 name: '@brightlayer-ui/symbols-mui',
@@ -96,6 +97,7 @@ export const resources: ResourceBucket[] = [
                 repository: 'progress-icons',
                 applies: ['angular'],
                 bugLabels: ['progress', 'angular'],
+                workSpace: 'angular',
             },
             {
                 name: '@brightlayer-ui/react-progress-icons',
@@ -104,6 +106,7 @@ export const resources: ResourceBucket[] = [
                 repository: 'progress-icons',
                 applies: ['react'],
                 bugLabels: ['progress', 'react'],
+                workSpace: 'react',
             },
             {
                 name: '@brightlayer-ui/react-native-progress-icons',
@@ -112,6 +115,7 @@ export const resources: ResourceBucket[] = [
                 repository: 'progress-icons',
                 applies: ['react-native'],
                 bugLabels: ['progress', 'react-native'],
+                workSpace: 'react-native',
             },
             {
                 name: '@brightlayer-ui/react-native-vector-icons',
@@ -135,6 +139,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/colors',
                 repository: 'colors',
                 bugLabels: ['ui'],
+                workSpace: 'ui',
             },
             {
                 name: '@brightlayer-ui/colors-branding',
@@ -206,6 +211,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/eslint-config',
                 repository: 'code-standards',
                 bugLabels: ['eslint'],
+                workSpace: 'eslint-config',
             },
             {
                 name: '@brightlayer-ui/prettier-config',
@@ -213,6 +219,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/prettier-config',
                 repository: 'code-standards',
                 bugLabels: ['eslint'],
+                workSpace: 'prettier-config',
             },
             {
                 name: '@brightlayer-ui/cli',
@@ -233,6 +240,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/cra-template-authentication-typescript',
                 repository: 'react-cli-templates',
                 bugLabels: ['authentication-ts'],
+                workSpace: 'authentication-typescript',
             },
             {
                 name: '@brightlayer-ui/cra-template-routing-typescript',
@@ -240,6 +248,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/cra-template-routing-typescript',
                 repository: 'react-cli-templates',
                 bugLabels: ['routing-ts'],
+                workSpace: 'routing-typescript',
             },
             {
                 name: '@brightlayer-ui/cra-template-blank-typescript',
@@ -247,6 +256,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/cra-template-blank-typescript',
                 repository: 'react-cli-templates',
                 bugLabels: ['blank-ts'],
+                workSpace: 'blank-typescript',
             },
             {
                 name: '@brightlayer-ui/angular-template-blank',
@@ -254,6 +264,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/angular-template-blank',
                 repository: 'angular-cli-templates',
                 bugLabels: ['blank'],
+                workSpace: 'src/app/blank',
             },
             {
                 name: '@brightlayer-ui/angular-template-routing',
@@ -261,6 +272,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/angular-template-routing',
                 repository: 'angular-cli-templates',
                 bugLabels: ['routing'],
+                workSpace: 'src/app/routing',
             },
             {
                 name: '@brightlayer-ui/angular-template-authentication',
@@ -268,6 +280,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/angular-template-authentication',
                 repository: 'angular-cli-templates',
                 bugLabels: ['authentication'],
+                workSpace: 'src/app/auth-workflow',
             },
             {
                 name: '@brightlayer-ui/react-native-template-authentication-typescript',
@@ -275,6 +288,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/react-native-template-authentication-typescript',
                 repository: 'react-native-cli-templates',
                 bugLabels: ['authentication-ts'],
+                workSpace: 'authentication-typescript',
             },
             {
                 name: '@brightlayer-ui/react-native-template-routing-typescript',
@@ -282,6 +296,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/react-native-template-routing-typescript',
                 repository: 'react-native-cli-templates',
                 bugLabels: ['routing-ts'],
+                workSpace: 'routing-typescript',
             },
             {
                 name: '@brightlayer-ui/react-native-template-blank-typescript',
@@ -289,6 +304,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/react-native-template-blank-typescript',
                 repository: 'react-native-cli-templates',
                 bugLabels: ['blank-ts'],
+                workSpace: 'blank-typescript',
             },
         ],
     },
