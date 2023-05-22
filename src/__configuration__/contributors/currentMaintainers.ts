@@ -3,6 +3,7 @@ import JeffeyGreiner from '../../app/assets/credits/jeffery-greiner.jpeg';
 import ThomasDailey from '../../app/assets/credits/thomas-dailey.jpg';
 import EktaGhag from '../../app/assets/credits/ekta-ghag.jpg';
 import SurajKarambe from '../../app/assets/credits/suraj-karambe.png';
+import YazadSidhwa from '../../app/assets/credits/yazad-sidhwa.jpg';
 import { CurrentMaintainter } from '../../__types__';
 
 export const currentMaintainers: CurrentMaintainter[] = [
@@ -55,6 +56,24 @@ export const currentMaintainers: CurrentMaintainter[] = [
         contacts: {
             github: 'https://github.com/surajeaton',
             linkedIn: 'https://www.linkedin.com/in/surajkarambe/',
+        },
+    },
+    {
+        name: 'Raghavendran Chithirarajan',
+        role: `Front-End Developer`,
+    },
+    {
+        name: 'Manoj Lokesh',
+        role: `Front-End Developer`,
+    },
+    {
+        name: 'Yazad Sidhwa',
+        role: `Intern`,
+        image: YazadSidhwa,
+        description: `Yazad just graduated from Texas A&M University and is an intern working with Eaton for the summer of 2023. He loves to play various sports like soccer and rock climbing and enjoys the occasional hike. He also enjoys to travel the globe and enjoy new experiences.`,
+        contacts: {
+            github: 'https://github.com/yazads',
+            linkedIn: 'https://www.linkedin.com/in/yazad-sidhwa/',
         },
     },
 ];
