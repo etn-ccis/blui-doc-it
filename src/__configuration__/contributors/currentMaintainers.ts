@@ -4,6 +4,7 @@ import ThomasDailey from '../../app/assets/credits/thomas-dailey.jpg';
 import EktaGhag from '../../app/assets/credits/ekta-ghag.jpg';
 import SurajKarambe from '../../app/assets/credits/suraj-karambe.png';
 import YazadSidhwa from '../../app/assets/credits/yazad-sidhwa.jpg';
+import ManojLokesh from '../../app/assets/credits/manoj-lokesh.jpg';
 import { CurrentMaintainter } from '../../__types__';
 
 export const currentMaintainers: CurrentMaintainter[] = [
@@ -65,6 +66,12 @@ export const currentMaintainers: CurrentMaintainter[] = [
     {
         name: 'Manoj Lokesh',
         role: `Front-End Developer`,
+        image: ManojLokesh,
+        description: 'Software developer who primarily works on the front-end technologies. His hobbies are playing cricket, travelling, listening to music and watching movies.',
+        contacts: {
+            github: 'https://github.com/manojleaton',
+            linkedIn: 'https://www.linkedin.com/in/manoj-l-b25823138'
+        }
     },
     {
         name: 'Yazad Sidhwa',
