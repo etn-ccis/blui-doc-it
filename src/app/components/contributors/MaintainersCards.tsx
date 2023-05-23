@@ -49,7 +49,7 @@ const styles: { [key: string]: SxProps<Theme> } = {
         mr: 2,
     },
     container: {
-        columns: { xs: 2 },
+        columns: { xs: 1, sm: 2 },
     },
 };
 
