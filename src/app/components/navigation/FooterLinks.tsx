@@ -131,7 +131,8 @@ export const FooterLinks: React.FC = (): JSX.Element => {
                         to={'/roadmap'} 
                         title={'Roadmap'} 
                         sx={styles.navLink} 
-                        hoverColor={Colors.white[50]} />
+                        hoverColor={Colors.white[50]} 
+                    />
                 </Box>
             </Box>
 
