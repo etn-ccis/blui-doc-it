@@ -7,5 +7,18 @@ module.exports =  {
         },
         env: {
             browser: true
+        },
+        "rules": {
+            "@typescript-eslint/no-restricted-imports": [
+                "error",
+                {
+                    "paths": [
+                        {
+                            "name": "@mui/material",
+                            "message": "Import [module] from @mui/material/[module] instead"
+                        }
+                    ]
+                }
+            ]
         }
     };
