@@ -43,8 +43,20 @@ function fallbackCopyTextToClipboard(text: string): void {
     textArea.focus();
     textArea.select();
 
-    document.execCommand('copy');
-    document.body.removeChild(textArea);
+    // document.execCommand('copy');
+
+    navigator.clipboard
+        .writeText(text)
+        .then(() => {
+            //console.log('Text copied to clipboard.');
+            // Perform additional actions here if needed
+        })
+        .catch((err) => {
+            console.error('Failed to copy text: ', err);
+        })
+        .finally(() => {
+            document.body.removeChild(textArea);
+        });
 }
 export function copyTextToClipboard(text: string, onCopied?: () => void): void {
     if (!navigator.clipboard) {
