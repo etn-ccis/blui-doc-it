@@ -115,7 +115,18 @@ export const FooterLinks: React.FC = (): JSX.Element => {
                         sx={styles.navLink}
                         hoverColor={Colors.white[50]}
                     />
-                    <NavLink to={'/resources'} title={'Resources'} sx={styles.navLink} hoverColor={Colors.white[50]} />
+                    <NavLink
+                        to={'/resources/developer'}
+                        title={'Developer Resources'}
+                        sx={styles.navLink}
+                        hoverColor={Colors.white[50]}
+                    />
+                    <NavLink
+                        to={'/resources/designer'}
+                        title={'Designer Resources'}
+                        sx={styles.navLink}
+                        hoverColor={Colors.white[50]}
+                    />
                     <NavLink to={'/roadmap'} title={'Roadmap'} sx={styles.navLink} hoverColor={Colors.white[50]} />
                 </Box>
             </Box>
