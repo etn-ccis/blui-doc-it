@@ -5,6 +5,7 @@ import EktaGhag from '../../app/assets/credits/ekta-ghag.jpg';
 import SurajKarambe from '../../app/assets/credits/suraj-karambe.png';
 import YazadSidhwa from '../../app/assets/credits/yazad-sidhwa.jpg';
 import ManojLokesh from '../../app/assets/credits/manoj-lokesh.jpg';
+import RaghavC from '../../app/assets/credits/raghavendran-chithirarajan.jpeg';
 import { CurrentMaintainter } from '../../__types__';
 
 export const currentMaintainers: CurrentMaintainter[] = [
@@ -62,16 +63,24 @@ export const currentMaintainers: CurrentMaintainter[] = [
     {
         name: 'Raghavendran Chithirarajan',
         role: `Front-End Developer`,
+        image: RaghavC,
+        description:
+            'He loves to code both frontend & backend to create beautiful performant products with delightful user experiences. He has a passion for learning and exploring new things, especially in the fields of technology. He is a friendly and empathetic person also enjoys helping others and making new friends. In his free time, he enjoys listening to music and playing outdoor games.',
+        contacts: {
+            github: '',
+            linkedIn: 'https://github.com/RaghavendranC-Eaton',
+        },
     },
     {
         name: 'Manoj Lokesh',
         role: `Front-End Developer`,
         image: ManojLokesh,
-        description: 'Software developer who primarily works on the front-end technologies. His hobbies are playing cricket, travelling, listening to music and watching movies.',
+        description:
+            'Software developer who primarily works on the front-end technologies. His hobbies are playing cricket, travelling, listening to music and watching movies.',
         contacts: {
             github: 'https://github.com/manojleaton',
-            linkedIn: 'https://www.linkedin.com/in/manoj-l-b25823138'
-        }
+            linkedIn: 'https://www.linkedin.com/in/manoj-l-b25823138',
+        },
     },
     {
         name: 'Yazad Sidhwa',
