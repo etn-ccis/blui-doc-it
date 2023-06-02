@@ -68,7 +68,6 @@ export const currentMaintainers: CurrentMaintainter[] = [
             'He loves to code both frontend and backend applications to create performant products with delightful user experiences. He has a passion for learning and exploring new things, especially in the field of technology. He is a friendly and empathetic person who enjoys helping others and making new friends. In his free time, he listens to music and plays outdoor games.',
         contacts: {
             github: 'https://github.com/RaghavendranC-Eaton',
-            linkedIn: '',
         },
     },
     {
