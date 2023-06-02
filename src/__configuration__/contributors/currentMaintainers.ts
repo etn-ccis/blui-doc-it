@@ -75,7 +75,7 @@ export const currentMaintainers: CurrentMaintainter[] = [
         role: `Front-End Developer`,
         image: ManojLokesh,
         description:
-            'Software developer who primarily works on the front-end technologies. His hobbies are playing cricket, travelling, listening to music and watching movies.',
+            'Software developer who primarily works on the front-end technologies. His hobbies are playing cricket, traveling, listening to music and watching movies.',
         contacts: {
             github: 'https://github.com/manojleaton',
             linkedIn: 'https://www.linkedin.com/in/manoj-l-b25823138',
