@@ -65,10 +65,10 @@ export const currentMaintainers: CurrentMaintainter[] = [
         role: `Front-End Developer`,
         image: RaghavC,
         description:
-            'He loves to code both frontend & backend to create beautiful performant products with delightful user experiences. He has a passion for learning and exploring new things, especially in the fields of technology. He is a friendly and empathetic person also enjoys helping others and making new friends. In his free time, he enjoys listening to music and playing outdoor games.',
+            'He loves to code both frontend and backend applications to create performant products with delightful user experiences. He has a passion for learning and exploring new things, especially in the field of technology. He is a friendly and empathetic person who enjoys helping others and making new friends. In his free time, he listens to music and plays outdoor games.',
         contacts: {
-            github: '',
-            linkedIn: 'https://github.com/RaghavendranC-Eaton',
+            github: 'https://github.com/RaghavendranC-Eaton',
+            linkedIn: '',
         },
     },
     {
