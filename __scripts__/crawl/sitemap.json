@@ -40,8 +40,10 @@
                 {
                     "title": "Web Frameworks",
                     "url": "/frameworks-web",
+                    "hasLandingPage": true,
                     "pages": [
                         {
+                            "hidden": true,
                             "title": "Introduction",
                             "url": "/intro"
                         },
@@ -58,8 +60,10 @@
                 {
                     "title": "Mobile Frameworks",
                     "url": "/frameworks-mobile",
+                    "hasLandingPage": true,
                     "pages": [
                         {
+                            "hidden": true,
                             "title": "Introduction",
                             "url": "/intro"
                         },

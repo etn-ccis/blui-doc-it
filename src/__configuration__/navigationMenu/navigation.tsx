@@ -63,8 +63,10 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Web Frameworks',
                 url: 'frameworks-web',
+                component: <MarkdownPage title={'Web Framework Introduction'} markdown={Docs.Development.WebFrameworks.Intro}/>,
                 pages: [
                     {
+                        hidden: true,
                         title: 'Introduction',
                         url: 'intro',
                         component: (
@@ -93,8 +95,10 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Mobile Frameworks',
                 url: 'frameworks-mobile',
+                component: <MarkdownPage title={'Mobile Frameworks Introduction'} markdown={Docs.Development.MobileFrameworks.Intro} />,
                 pages: [
                     {
+                        hidden: true,
                         title: 'Introduction',
                         url: 'intro',
                         component: (
