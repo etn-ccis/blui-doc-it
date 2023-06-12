@@ -1,0 +1,54 @@
+import React from 'react';
+import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
+
+# Tags
+
+Tags, sometimes known as badges, are UI components to indicate statuses with text labels and status colors.
+Tags and Chips
+Tags and chips may share similar structures, but they serve different purposes. Tags are static and non-interactive and are commonly used as status indicators or something to capture users’ attention. Chips are versatile, contextual, and interactive, and are used for filtering or suggested actions. Chips may also contain auxiliary elements like a leading icon or a dismissive action. This page focuses only on tags. For chips, here’s a link to MD2.
+Common Use Cases
+Tags are nearly exclusively seen in list items (links) to annotate a status (e.g., alarms, warnings, active, acknowledged) or a content type (e.g., PDF files, CSV files). It can also be used to call for visual attention (e.g., “Update Required”).
+
+(Image)
+
+Some designers may choose to use icons, but tags require less “guesswork” from users. If users are not expected to frequently interact with your application, tags are less demanding on users’ memories.
+
+(Image, email scheduled for sent?)
+Styles
+Brightlayer UI tags have three different styles:
+
+-          outlined, shaded light and shaded full color
+
+Similar to how button styles can be used to guide users’ attention, different tag styles can also be used to convey different urgency.
+
+-          Call out “OK” next to an “error” icon. OK is less concerning than “error”, and therefore we make Error “full color” and the OK “shaded light” color
+-          Call out yellow tags
+
+Be careful when using tags with a fixed width, as the paddings are uncontrolled, and the tag label can spill over when translated into a new language.
+
+Color
+
+Tag colors should be consistent with status colors throughout the application. For recommendations on how colors are used across Brightlayer UI applications, see our color guides (link).
+
+In dark themes, the tag colors should update to reflect their respective theme colors appropriately.
+
+-          Image
+    Content
+    To ensure the text can be easily read while keeping the tag size as small as possible, The fonts are 10dp all caps bolded. Do not use lowercase letters on tags.
+-          Show an image of lower cased tag
+    Text-Only
+    Use only text inside a tag. Do not use additional elements such as leading icons, avatars, and dismiss actions. Use chips instead.
+    Short Text Labels
+    Keep the label short. Ideally, the tag label should contain only 1-2 words that form an adjective.
+-          Correct: “Active” “acknowledged”
+-          Incorrect: “New Updates Available”
+
+Multiple Tags
+can have different tags on one list - try to align them better
+too many tags/width not enough — tag on a new line (left), ellipsis, tag on a new line (wrapping tags like inline blocks). Do not wrap the tag itself
+
+Design Specs
+specs
+Developers
+
+-          List Item tags
