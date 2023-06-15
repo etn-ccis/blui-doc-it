@@ -1,54 +1,230 @@
 import React from 'react';
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
+import BannerImage from '../../app/assets/design-patterns/tags/banner.svg';
+
+import TagsNChipsTag from '../../app/assets/design-patterns/tags/tags-and-chips-tags.svg';
+import TagsNChipsChips from '../../app/assets/design-patterns/tags/tags-and-chips-chips.svg';
+import InList from '../../app/assets/design-patterns/tags/in-list.png';
+import InAlarms from '../../app/assets/design-patterns/tags/in-alarms.png';
+import InList2 from '../../app/assets/design-patterns/tags/in-list-2.png';
+import InTimestamp from '../../app/assets/design-patterns/tags/in-timestamp.png';
+import Inline from '../../app/assets/design-patterns/tags/inline.png';
+import InTables from '../../app/assets/design-patterns/tags/in-tables.png';
+import FilledLight from '../../app/assets/design-patterns/tags/filled-light.svg';
+import ShadedLight from '../../app/assets/design-patterns/tags/shaded-light.svg';
+import OutlinedLight from '../../app/assets/design-patterns/tags/outlined-light.svg';
+import OKErrorTag from '../../app/assets/design-patterns/tags/ok-error-tag.png';
+import GoodIcon from '../../app/assets/design-patterns/tags/good-icon.png';
+import BadIcon from '../../app/assets/design-patterns/tags/bad-icon.png';
+import GoodTag from '../../app/assets/design-patterns/tags/good-tag.png';
+import DarkTheme from '../../app/assets/design-patterns/tags/dark-theme.svg';
+import YellowTagsDont from '../../app/assets/design-patterns/tags/yellow-tags-dont.svg';
+import YellowTags from '../../app/assets/design-patterns/tags/yellow-tags.svg';
+import LowerCase from '../../app/assets/design-patterns/tags/lower-case.svg';
+import TextOnly from '../../app/assets/design-patterns/tags/text-only.svg';
+import LongWords from '../../app/assets/design-patterns/tags/long-words.svg';
+import I18N from '../../app/assets/design-patterns/tags/i18n.svg';
+import MultiTagSameColor from '../../app/assets/design-patterns/tags/multi-tag-same-color.png';
+import MultiTagShiftingDont from '../../app/assets/design-patterns/tags/multi-tag-tag-shifting-dont.png';
+import MultiTagShiftingDo from '../../app/assets/design-patterns/tags/multi-tag-tag-shifting-do.png';
+import MultiTagInfoLine from '../../app/assets/design-patterns/tags/multi-tag-info-line.png';
+import MultiTagEllipsis from '../../app/assets/design-patterns/tags/multi-tag-ellipsis.png';
+import MultiTagWrap from '../../app/assets/design-patterns/tags/multi-tag-wrap.png';
+import MultiTagWrapInline from '../../app/assets/design-patterns/tags/multi-tag-wrap-inline.png';
+import Spec1 from '../../app/assets/design-patterns/tags/spec-1.svg';
+import Spec2 from '../../app/assets/design-patterns/tags/spec-2.svg';
+
+{/* KEYWORDS: design pattern tag status badge label */}
 
 # Tags
 
-Tags, sometimes known as badges, are UI components to indicate statuses with text labels and status colors.
-Tags and Chips
-Tags and chips may share similar structures, but they serve different purposes. Tags are static and non-interactive and are commonly used as status indicators or something to capture users’ attention. Chips are versatile, contextual, and interactive, and are used for filtering or suggested actions. Chips may also contain auxiliary elements like a leading icon or a dismissive action. This page focuses only on tags. For chips, here’s a link to MD2.
-Common Use Cases
-Tags are nearly exclusively seen in list items (links) to annotate a status (e.g., alarms, warnings, active, acknowledged) or a content type (e.g., PDF files, CSV files). It can also be used to call for visual attention (e.g., “Update Required”).
+<ImageGrid images={[BannerImage]} regularWidth />
 
-(Image)
+Tags, sometimes known as badges and labels, are UI components to indicate statuses with text labels and status colors.
 
-Some designers may choose to use icons, but tags require less “guesswork” from users. If users are not expected to frequently interact with your application, tags are less demanding on users’ memories.
+<TOC
+    anchors={[
+        { title: 'Introduction', hash: '#chips' },
+        { title: 'Tags vs. Chips' },
+        { title: 'Common Use Cases' },
+        { title: 'Variants' },
+        { title: 'Colors' },
+        { title: 'Labels' },
+        { title: 'Text-Only', depth: 1 },
+        { title: 'Short Labels', depth: 1 },
+        { title: 'Multiple Tags' },
+        { title: 'Design Specifications' },
+        { title: 'Developers' },
+    ]}
+/>
 
-(Image, email scheduled for sent?)
-Styles
-Brightlayer UI tags have three different styles:
+# Tags vs. Chips
 
--          outlined, shaded light and shaded full color
+<ImageGrid
+    images={[TagsNChipsTag, TagsNChipsChips]}
+    captionsUnderImages={[`Tags — static and non-interactive.`, `Chips — contextual and interactive.`]}
+/>
 
-Similar to how button styles can be used to guide users’ attention, different tag styles can also be used to convey different urgency.
+The name "tag" may sometimes be used for another UI component "chip", but they serve different purposes. Tags are static and non-interactive. They are commonly used as status indicators or something to capture users’ attention. Chips are versatile, contextual, and interactive. They are used for filtering or suggested actions. Chips may also contain auxiliary elements like leading icons or trailing remove icons.
 
--          Call out “OK” next to an “error” icon. OK is less concerning than “error”, and therefore we make Error “full color” and the OK “shaded light” color
--          Call out yellow tags
+This guide deals specifically with the design of tags. For chips, please refer to [Material Design's guidelines](https://m2.material.io/components/chips).
 
-Be careful when using tags with a fixed width, as the paddings are uncontrolled, and the tag label can spill over when translated into a new language.
+<MaterialDesignDescription title={'Chips'} url={`https://m2.material.io/components/chips.html`} />
 
-Color
+<Divider />
 
-Tag colors should be consistent with status colors throughout the application. For recommendations on how colors are used across Brightlayer UI applications, see our color guides (link).
+# Common Use Cases
 
-In dark themes, the tag colors should update to reflect their respective theme colors appropriately.
+Tags are nearly exclusively seen in [list items](/patterns/lists) to annotate a status such as alarms, warnings, active, and acknowledged. It can also be used to call for visual attention (e.g., “Update Required”).
 
--          Image
-    Content
-    To ensure the text can be easily read while keeping the tag size as small as possible, The fonts are 10dp all caps bolded. Do not use lowercase letters on tags.
--          Show an image of lower cased tag
-    Text-Only
-    Use only text inside a tag. Do not use additional elements such as leading icons, avatars, and dismiss actions. Use chips instead.
-    Short Text Labels
-    Keep the label short. Ideally, the tag label should contain only 1-2 words that form an adjective.
--          Correct: “Active” “acknowledged”
--          Incorrect: “New Updates Available”
+<ImageGrid
+    images={[InList, InAlarms, InList2, InTimestamp, Inline, InTables]}
+    caption={`Tags used inside different components.`}
+/>
 
-Multiple Tags
-can have different tags on one list - try to align them better
-too many tags/width not enough — tag on a new line (left), ellipsis, tag on a new line (wrapping tags like inline blocks). Do not wrap the tag itself
+Some designers may choose to use icons to depict statuses, but tags require less “guesswork” from users. Although there are a few "[universal icons](/style/icon-guidelines#common-universal-icons)" that's instantly recognizable and should stay as icons, If users are not expected to frequently interact with your application, they should not be forced to memorize all the rare icons and their meanings — and tags are wonderful for avoiding this situation.
 
-Design Specs
-specs
-Developers
+<ImageGrid
+    images={[GoodIcon]}
+    captionsUnderImages={[`DO: Use universal icons. They are long-established and widely recognizable.`]}
+/>
 
--          List Item tags
+<ImageGrid
+    images={[BadIcon, GoodTag]}
+    captionsUnderImages={[`DONT: Do not invent an icon for a rare status.`, `DO: Use tags instead.`]}
+/>
+
+# Variants
+
+Brightlayer UI tags have three different variants: filled, shaded, and outlined.
+
+<ImageGrid
+    images={[FilledLight, ShadedLight, OutlinedLight]}
+    captionsUnderImages={[`"Filled" style`, `"Shaded" style`, `"Outlined" style`]}
+    gridImageProps={{ sm: 6, md: 4 }}
+/>
+
+Similar to how [button styles](/patterns/buttons#styles) can be used to guide users’ attention, tag variants can also be used to convey different urgencies and visual hierarchies.
+
+<ImageGrid
+    images={[OKErrorTag]}
+    captionsUnderImages={[
+        `An "error" status is more concerning to the user than an "OK" status, therefore the "error" tag should use the filled variant to make it stand out against the OK tags.`,
+    ]}
+/>
+
+# Colors
+
+Tag colors should be consistent with status colors throughout the application. For recommendations on how colors are used across Brightlayer UI applications, please refer to our [color guides](/style/color).
+
+In the dark theme, the tag colors should reflect the respective theme colors appropriately.
+
+<ImageGrid images={[DarkTheme]} captionsUnderImages={[`Tags in the light and dark themes.`]} />
+
+Always double check the color choices to ensure that the tag meets the [accessibility requirements](/design/accessibility).
+
+<ImageGrid
+    images={[YellowTagsDont, YellowTags]}
+    captionsUnderImages={[
+        `DONT: Do not use color combinations that make tags hard to read. This is especially important for light colors such as yellow and orange.`,
+        `DO: Always select colors that makes the text readable.`,
+    ]}
+/>
+
+# Labels
+
+To ensure users can easily read the tag while keeping the tag size as small as possible, the font style of tags is 10dp, all caps, and bolded. Do not use lowercase letters on tags, as they are less legible at a small font size.
+
+<ImageGrid images={[LowerCase]} captionsUnderImages={[`DONT: Do not use lowercase letters in tags.`]} />
+
+## Text-Only
+
+Use only texts inside a tag. Do not use additional elements such as leading icons and trailing remove icons.
+
+<ImageGrid
+    images={[TextOnly]}
+    captionsUnderImages={[
+        `DONT: Do not include anything in tags other than texts. Chips should be used in this situation.`,
+    ]}
+/>
+
+## Short Labels
+
+Keep the label short. Ideally, the tag label should contain only 1-2 words that form an adjective.
+
+<ImageGrid
+    images={[LongWords]}
+    captionsUnderImages={[
+        `AVOID: Avoid using more words than necessary. "Updates available" is shorter and can convey the same message.`,
+    ]}
+/>
+
+Be careful when designing tags with a fixed width, as the tag label can overflow when translated into a new language.
+
+<ImageGrid images={[I18N]} captionsUnderImages={[`CAUTION: Fixed-width tags may cause labels to overflow.`]} />
+
+# Multiple Tags
+
+List items can be flagged with more than one tag. Avoid assigning different tags with the same or similar variants and colors.
+
+<ImageGrid
+    images={[MultiTagSameColor]}
+    captionsUnderImages={[
+        `AVOID: Avoid using the same variant and color for different tags, as it becomes difficult to distinguish tags from a glance.`,
+    ]}
+/>
+
+Order tags by frequency to minimize the chance of tags shifting horizontally in a list.
+
+<ImageGrid
+    images={[MultiTagShiftingDont, MultiTagShiftingDo]}
+    captionsUnderImages={[
+        `AVOID: Avoid "tag shifting" in lists.`,
+        `DO: Minimize users' effort to scan through tags by placing the most frequently used tag to the right.`,
+    ]}
+/>
+
+If you are running out of horizontal spaces, such as when designing for mobile devices, there are a few ways to reposition tags to a more appropriate place.
+
+<ImageGrid
+    images={[MultiTagInfoLine, MultiTagEllipsis, MultiTagWrap, MultiTagWrapInline]}
+    captionsUnderImages={[
+        `Tags can be placed next to list item texts.`,
+        `AVOID: Avoid using ellipsis in tags. However, if ellipsis has to be used, supplement with a tooltip.`,
+        `Tags can be wrapped to a new line as "inline blocks".`,
+        `DONT: Never wrap within a tag.`,
+    ]}
+/>
+
+<Divider />
+
+# Design Specifications
+
+<ImageGrid
+    images={[Spec1, Spec2]}
+    captionsUnderImages={[
+        ,
+        'The text label inside a tag uses a custom font style that is not part of our standard font style set.',
+    ]}
+/>
+
+# Developers
+
+Use the following components to implement this pattern:
+
+**Angular**:
+
+-   @brightlayer-ui/angular-components
+
+        -   [List Item Tag](https://brightlayer-ui-components.github.io/angular/components/list-item-tag/examples)
+
+**React**:
+
+-   @brightlayer-ui/react-components
+
+        -   [List Item Tag](https://brightlayer-ui-components.github.io/react/components/list-item-tag/examples)
+
+**React Native**:
+
+-   @brightlayer-ui/react-native-components
+    -   [List Item Tag](https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--list-item-tag)

@@ -10,6 +10,7 @@ import LoginBanner from '../../app/assets/design-patterns/user-authentication/lo
 import NavigationtImg from '../../app/assets/design-patterns/navigation/navigation.svg';
 import OverlayBanner from '../../app/assets/design-patterns/overlays/overlay-banner.svg';
 import TableImg from '../../app/assets/design-patterns/tables/tables.svg';
+import TagImage from '../../app/assets/design-patterns/tags/banner.svg';
 // import PageLayoutImg from '../../app/assets/design-patterns/page-layout/layout-banner.svg';
 import StepperImg from '../../app/assets/design-patterns/steppers/steppers-banner.svg';
 import VisualizationImage from '../../app/assets/design-patterns/visualizations/visualizations-banner.svg';
@@ -99,6 +100,15 @@ export const patterns = [
     //     description: 'Laying out elements on the screen.',
     //     image: PageLayoutImg,
     // },
+    {
+        title: 'Tags',
+        url: '/patterns/tags',
+        description: 'Indicating the status of list items.',
+        image: TagImage,
+        background: {
+            position: 'right',
+        },
+    },
     {
         title: 'Tables',
         url: '/patterns/tables',
