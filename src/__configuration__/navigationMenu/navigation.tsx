@@ -16,7 +16,7 @@ export type RedirectItem = {
     newUrl: string;
 };
 
-// Change __script__s/crawl/sitemap.json after you make changes here.
+// Change __scripts__/crawl/sitemap.json after you make changes here.
 export const pageDefinitions: SimpleNavItem[] = [
     {
         title: 'What is Brightlayer UI?',
