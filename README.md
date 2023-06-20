@@ -1,4 +1,4 @@
-# Doc-It (a.k.a. brightlayer-ui.github.io)
+## Doc-It (a.k.a. brightlayer-ui.github.io)
 
 [![CircleCI](https://circleci.com/gh/etn-ccis/blui-doc-it/tree/master.svg?style=shield&circle-token=fc2656a76d70b4ff9cdc66cccc758c0dfbf89d25)](https://circleci.com/gh/etn-ccis/blui-doc-it/tree/master)
 
