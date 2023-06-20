@@ -169,6 +169,10 @@
                     "hidden": true
                 },
                 {
+                    "title": "Tags",
+                    "url": "/tags"
+                },
+                {
                     "title": "Tables",
                     "url": "/tables"
                 },
