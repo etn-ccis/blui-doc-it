@@ -88,6 +88,22 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
                     flexDirection: 'column',
                 }}
             >
+                {/* ICON COMPONENT */}
+                {framework === 'react' && (
+                    <>
+                        <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
+                            <Typography variant={'overline'}>Icon Components (Recommended)</Typography>
+                            <CopyToClipboard
+                                copyText={getIconComponentCopyText(framework, icon)}
+                                copiedPosition={'left'}
+                            />
+                        </Stack>
+                        <Box component={'pre'} sx={styles.codeSnippet}>
+                            {getIconComponentSnippet(framework, icon)}
+                        </Box>
+                    </>
+                )}
+
                 {/* ICON FONT */}
                 {(framework === 'angular' || framework === 'react') && (
                     <>
@@ -112,22 +128,6 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
                         </Stack>
                         <Box component={'pre'} sx={styles.codeSnippet}>
                             {getIconSvgSnippet(framework, icon)}
-                        </Box>
-                    </>
-                )}
-
-                {/* ICON COMPONENT */}
-                {framework === 'react' && (
-                    <>
-                        <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
-                            <Typography variant={'overline'}>Icon Components</Typography>
-                            <CopyToClipboard
-                                copyText={getIconComponentCopyText(framework, icon)}
-                                copiedPosition={'left'}
-                            />
-                        </Stack>
-                        <Box component={'pre'} sx={styles.codeSnippet}>
-                            {getIconComponentSnippet(framework, icon)}
                         </Box>
                     </>
                 )}

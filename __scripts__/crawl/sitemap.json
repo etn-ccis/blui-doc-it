@@ -93,6 +93,10 @@
                     "url": "/intro"
                 },
                 {
+                    "title": "Design Training For Non Designers",
+                    "url": "/for-non-designers"
+                },
+                {
                     "title": "Design System Anatomy",
                     "url": "/anatomy"
                 },
@@ -163,6 +167,10 @@
                     "title": "Page Layout",
                     "url": "/layout",
                     "hidden": true
+                },
+                {
+                    "title": "Tags",
+                    "url": "/tags"
                 },
                 {
                     "title": "Tables",

@@ -1,7 +1,7 @@
 import React from 'react';
 import externalLinks, { ExternalLink } from '../../../__configuration__/landingPage/externalLinks';
-import { ListItemButton, ListItemText, Tooltip, List, ListItemButtonProps } from '@mui/material';
-import LockOpenIcon from '@mui/icons-material/LockOpen';
+import { LockedBehindEatonFirewall } from './LockedBehindEatonFirewall';
+import { ListItemButton, ListItemText, List, ListItemButtonProps } from '@mui/material';
 
 type ExternalLinkItemProps = ListItemButtonProps & {
     externalLink: ExternalLink;
@@ -13,11 +13,7 @@ export const ExternalLinkItem: React.FC<ExternalLinkItemProps> = (props) => {
         // @ts-ignore
         <ListItemButton component={`a`} href={externalLink.link} sx={{ gap: 2 }} {...otherProps}>
             <ListItemText primary={externalLink.title} secondary={externalLink.subtitle} />
-            {externalLink.loginRequired && (
-                <Tooltip title={`Requires login with Eaton credentials`}>
-                    <LockOpenIcon fontSize={'small'} color={`disabled`} />
-                </Tooltip>
-            )}
+            {externalLink.loginRequired && <LockedBehindEatonFirewall />}
         </ListItemButton>
     );
 };
