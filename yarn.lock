@@ -1043,6 +1043,13 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
+"@babel/runtime@^7.22.6":
+  version "7.22.6"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.6.tgz#57d64b9ae3cff1d67eb067ae117dac087f5bd438"
+  integrity sha512-wDb5pWm4WDdF6LFUde3Jl8WzPA+3ZbxYqkC6xAXuD3irdEHN1k0NfTRrJD8ZD378SJ61miMLCqIOXYhd8x+AJQ==
+  dependencies:
+    regenerator-runtime "^0.13.11"
+
 "@babel/template@^7.18.10", "@babel/template@^7.20.7", "@babel/template@^7.3.3":
   version "7.20.7"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.20.7.tgz#a15090c2839a83b02aa996c0b4994005841fd5a8"
@@ -1106,10 +1113,10 @@
   optionalDependencies:
     eslint-plugin-react "^7.28.0"
 
-"@brightlayer-ui/icons-mui@^3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/icons-mui/-/icons-mui-3.4.0.tgz#b5df32f89d329f9a5d2d9b01c84a645e997f3c1c"
-  integrity sha512-MJWXLEjnjsSeXUtpZhqsWDalzZD+L4J4whw0ErYJ/pfkcC37w3JG07pTyxFJY+Lm1v8TDjZQoaKTT3NjYOE6tA==
+"@brightlayer-ui/icons-mui@^3.5.0":
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/icons-mui/-/icons-mui-3.5.0.tgz#f2eaab9328180aab28b8b6157bd8bdfb72783d60"
+  integrity sha512-mGN7f+d6Ia40JaQ0faqFMRi5sWWLOmquOEzR26n3jyz5Qhs4Ufs6Nnq6DZGlyABz2hDq2eSQf9cZlgauu4tBxQ==
 
 "@brightlayer-ui/prettier-config@^1.0.3":
   version "1.0.3"
@@ -1842,12 +1849,12 @@
   resolved "https://registry.yarnpkg.com/@mui/core-downloads-tracker/-/core-downloads-tracker-5.11.13.tgz#0419a88ae98b3eaff2a633229d23ee04c8868be1"
   integrity sha512-lx+GXBR9h/ApZsEP728tl0pyZyuajto+VnBgsoAzw1d5+CbmOo8ZWieKwVUGxZlPT1wMYNUYS5NtKzCli0xYjw==
 
-"@mui/icons-material@^5.11.16":
-  version "5.11.16"
-  resolved "https://registry.yarnpkg.com/@mui/icons-material/-/icons-material-5.11.16.tgz#417fa773c56672e39d6ccfed9ac55591985f0d38"
-  integrity sha512-oKkx9z9Kwg40NtcIajF9uOXhxiyTZrrm9nmIJ4UjkU2IdHpd4QVLbCc/5hZN/y0C6qzi2Zlxyr9TGddQx2vx2A==
+"@mui/icons-material@^5.14.1":
+  version "5.14.1"
+  resolved "https://registry.yarnpkg.com/@mui/icons-material/-/icons-material-5.14.1.tgz#2f145c15047a0c7f01353ce620cb88276dadba9e"
+  integrity sha512-xV/f26muQqtWzerzOIdGPrXoxp/OKaE2G2Wp9gnmG47mHua5Slup/tMc3fA4ZYUreGGrK6+tT81TEvt1Wsng8Q==
   dependencies:
-    "@babel/runtime" "^7.21.0"
+    "@babel/runtime" "^7.22.6"
 
 "@mui/material@^5.6.0":
   version "5.11.13"
