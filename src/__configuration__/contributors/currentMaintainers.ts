@@ -3,9 +3,7 @@ import JeffeyGreiner from '../../app/assets/credits/jeffery-greiner.jpeg';
 import ThomasDailey from '../../app/assets/credits/thomas-dailey.jpg';
 import EktaGhag from '../../app/assets/credits/ekta-ghag.jpg';
 import SurajKarambe from '../../app/assets/credits/suraj-karambe.png';
-import YazadSidhwa from '../../app/assets/credits/yazad-sidhwa.jpg';
 import ManojLokesh from '../../app/assets/credits/manoj-lokesh.jpg';
-import RaghavC from '../../app/assets/credits/raghavendran-chithirarajan.jpeg';
 import { CurrentMaintainter } from '../../__types__';
 
 export const currentMaintainers: CurrentMaintainter[] = [
@@ -61,16 +59,6 @@ export const currentMaintainers: CurrentMaintainter[] = [
         },
     },
     {
-        name: 'Raghavendran Chithirarajan',
-        role: `Front-End Developer`,
-        image: RaghavC,
-        description:
-            'He loves to code both frontend and backend applications to create performant products with delightful user experiences. He has a passion for learning and exploring new things, especially in the field of technology. He is a friendly and empathetic person who enjoys helping others and making new friends. In his free time, he listens to music and plays outdoor games.',
-        contacts: {
-            github: 'https://github.com/RaghavendranC-Eaton',
-        },
-    },
-    {
         name: 'Manoj Lokesh',
         role: `Front-End Developer`,
         image: ManojLokesh,
@@ -79,16 +67,6 @@ export const currentMaintainers: CurrentMaintainter[] = [
         contacts: {
             github: 'https://github.com/manojleaton',
             linkedIn: 'https://www.linkedin.com/in/manoj-l-b25823138',
-        },
-    },
-    {
-        name: 'Yazad Sidhwa',
-        role: `Intern`,
-        image: YazadSidhwa,
-        description: `Yazad just graduated from Texas A&M University and is an intern working with Eaton for the summer of 2023. He loves to play various sports like soccer and rock climbing and enjoys the occasional hike. He also enjoys to travel the globe and enjoy new experiences.`,
-        contacts: {
-            github: 'https://github.com/yazads',
-            linkedIn: 'https://www.linkedin.com/in/yazad-sidhwa/',
         },
     },
 ];
