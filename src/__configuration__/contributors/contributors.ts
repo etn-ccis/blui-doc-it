@@ -14,7 +14,8 @@ import JosephBoyle from '../../app/assets/credits/joseph-boyle.png';
 import JoaoMota from '../../app/assets/credits/joao-mota.jpg';
 import EvanMcLaughlin from '../../app/assets/credits/evan-mclaughlin.jpeg';
 import RaghavC from '../../app/assets/credits/raghavendran-chithirarajan.jpeg';
-import YazadSidhwa from '../../app/assets/credits/yazad-sidhwa.jpg'
+import YazadSidhwa from '../../app/assets/credits/yazad-sidhwa.jpg';
+import ThomasDailey from '../../app/assets/credits/thomas-dailey.jpg';
 
 import { OtherContributor } from '../../__types__';
 
@@ -47,6 +48,11 @@ export const contributors: OtherContributor[] = [
         name: 'Raghavendran Chithirarajan',
         role: 'Front-End Developer',
         image: RaghavC,
+    },
+    {
+        name: 'Thomas Dailey',
+        role: 'Front-End Developer',
+        image: ThomasDailey,
     },
     {
         name: 'Chinna Gurrala',
