@@ -24,9 +24,16 @@ export const patternLinks = [
 
 export const figmaCommunityFileLinks = [
     {
+        title: 'Brightlayer UI Components + Tokens',
+        url: '    https://www.figma.com/community/file/1293308181354933598/brightlayer-ui-tokens-components-in-material-design-3',
+        description: 'Material and Brightlayer UI Figma tokens and components (Material Design 3 style)',
+        image: componentStickersheet,
+        background: { position: 'center' },
+    },
+    {
         title: 'Brightlayer UI Component Sticker Sheet',
         url: 'https://www.figma.com/community/file/1024360297793425107',
-        description: 'Pre-built Material and Brightlayer UI Figma components',
+        description: 'Material and Brightlayer UI Figma components (Material Design 2 style)',
         image: componentStickersheet,
         background: { position: 'center' },
     },
