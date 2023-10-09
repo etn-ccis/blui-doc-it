@@ -31,7 +31,7 @@ export const figmaCommunityFileLinks = [
         background: { position: 'center' },
     },
     {
-        title: 'Brightlayer UI Component Sticker Sheet',
+        title: 'Brightlayer UI Components',
         url: 'https://www.figma.com/community/file/1024360297793425107',
         description: 'Material and Brightlayer UI Figma components (Material Design 2 style)',
         image: componentStickersheet,
