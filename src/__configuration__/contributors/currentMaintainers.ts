@@ -5,7 +5,7 @@ import SurajKarambe from '../../app/assets/credits/suraj-karambe.png';
 import ManojLokesh from '../../app/assets/credits/manoj-lokesh.jpg';
 import AubreyThompson from '../../app/assets/credits/aubrey-thompson.jpg';
 import ArshdeepSingh from '../../app/assets/credits/arshdeep-singh.jpg';
-import AndrewPuhalla from '../../app/assets/credits/andrew-puhalla.jpeg'
+import AndrewPuhalla from '../../app/assets/credits/andrew-puhalla.jpeg';
 import { CurrentMaintainter } from '../../__types__';
 
 export const currentMaintainers: CurrentMaintainter[] = [
@@ -65,8 +65,7 @@ export const currentMaintainers: CurrentMaintainter[] = [
         name: 'Andrew Puhalla',
         role: `Front-End Developer`,
         image: AndrewPuhalla,
-        description:
-            `Andrew gained his interest in software development playing videogames as a kid. Outside of work, he also likes to play tennis and, of course, videogames. He also enjoys watching Star Wars, Game of Thrones, and anything Sci-Fi / Fantasy`,
+        description: `Andrew gained his interest in software development playing videogames as a kid. Outside of work, he also likes to play tennis and, of course, videogames. He also enjoys watching Star Wars, Game of Thrones, and anything Sci-Fi / Fantasy`,
         contacts: {
             github: `https://github.com/andrupu`,
             linkedIn: `https://www.linkedin.com/in/andrew-puhalla-8b105689`,
@@ -76,8 +75,7 @@ export const currentMaintainers: CurrentMaintainter[] = [
         name: 'Arshdeep Singh',
         role: `Front-End Developer`,
         image: ArshdeepSingh,
-        description:
-        `With a wealth of experience as a front-end developer, Arshdeep Singh stands as a testament to precision and skill. Specializing in React Native, Arshdeep brings forth a passion for creating seamless user experiences and dynamic applications. When he's not immersed in code, you'll find Arshdeep on the cricket field or passionately following European football. He cherishes moments spent with his family, a source of inspiration that fuels his dedication to perfection in every project.`,
+        description: `With a wealth of experience as a front-end developer, Arshdeep Singh stands as a testament to precision and skill. Specializing in React Native, Arshdeep brings forth a passion for creating seamless user experiences and dynamic applications. When he's not immersed in code, you'll find Arshdeep on the cricket field or passionately following European football. He cherishes moments spent with his family, a source of inspiration that fuels his dedication to perfection in every project.`,
         contacts: {
             github: `https://github.com/arshdeeparora`,
             linkedIn: `https://www.linkedin.com/in/arshdeep-singh-86aaa2184/`,
@@ -87,8 +85,7 @@ export const currentMaintainers: CurrentMaintainter[] = [
         name: 'Aubrey Thompson',
         role: `Front-End Developer`,
         image: AubreyThompson,
-        description:
-            `Aubrey left the snowy tundra of Buffalo, NY in 2018 to become a self-taught front-end web developer in her favorite city (Pittsburgh). When she's not working on coding tutorials you can find her playing Super Mario on SNES or creating weird art in her home studio.`,
+        description: `Aubrey left the snowy tundra of Buffalo, NY in 2018 to become a self-taught front-end web developer in her favorite city (Pittsburgh). When she's not working on coding tutorials you can find her playing Super Mario on SNES or creating weird art in her home studio.`,
         contacts: {
             github: `https://github.com/aubreyhthompson`,
             linkedIn: `https://www.linkedin.com/in/aubrey-thompson-02464391/`,
