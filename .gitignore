@@ -23,4 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # Eaton certificate
-# EatonRootCA2chain.crt
+EatonRootCA2chain.crt
