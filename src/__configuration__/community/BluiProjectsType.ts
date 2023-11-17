@@ -9,6 +9,7 @@ export enum BluiProjectTag {
     PREDICTIONS = 'Predictions',
     REAL_TIME_MONITORING = 'Real-time Monitoring',
     SCHEDULES = 'Schedules & Automation',
+    TRANSACTIONS = 'Transactions',
 }
 
 export enum BluiProjectStack {
@@ -24,7 +25,7 @@ export type BluiProject = {
     description: string;
     market?: string;
     devices?: string;
-    stack?: BluiProjectStack[];
+    stack?: BluiProjectStack[] | string;
     platformURLs: {
         web?: string;
         ios?: string;
