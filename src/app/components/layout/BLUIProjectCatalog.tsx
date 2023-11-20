@@ -72,24 +72,24 @@ export const BLUIProjectCatalog: React.FC = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const getMarketDevicesInfo = React.useCallback(
-        (market?: string, devices?: string, stack?: BluiProjectStack[]) => (
+        (market?: string, devices?: string, stack?: BluiProjectStack[] | string) => (
             <Box sx={styles.infoWrapper}>
                 {market && (
                     <span>
-                        <Typography variant={'subtitle2'} color={'textSecondary'} component="span">
+                        <Typography variant={'subtitle2'} color={'textSecondary'} component={'span'}>
                             Market:{' '}
                         </Typography>
-                        <Typography variant={'body2'} color={'textSecondary'} component="span">
+                        <Typography variant={'body2'} color={'textSecondary'} component={'span'}>
                             {market}
                         </Typography>
                     </span>
                 )}
                 {devices && (
                     <span>
-                        <Typography variant={'subtitle2'} color={'textSecondary'} component="span">
+                        <Typography variant={'subtitle2'} color={'textSecondary'} component={'span'}>
                             Devices:{' '}
                         </Typography>
-                        <Typography variant={'body2'} color={'textSecondary'} component="span">
+                        <Typography variant={'body2'} color={'textSecondary'} component={'span'}>
                             {devices}
                         </Typography>
                     </span>
@@ -99,16 +99,22 @@ export const BLUIProjectCatalog: React.FC = () => {
                         <Typography variant={'subtitle2'} color={'textSecondary'} component="span">
                             Stack:{' '}
                         </Typography>
-                        {stack.map((elt, stackIndex) => (
-                            <Typography
-                                key={`${stackIndex}-txt`}
-                                color={'textSecondary'}
-                                variant={'body2'}
-                                component="span"
-                            >
-                                {`${stackIndex !== 0 ? ', ' : ''}${elt}`}
+                        {stack instanceof Array ? (
+                            stack.map((elt, stackIndex) => (
+                                <Typography
+                                    key={`${stackIndex}-txt`}
+                                    color={'textSecondary'}
+                                    variant={'body2'}
+                                    component={'span'}
+                                >
+                                    {`${stackIndex !== 0 ? ', ' : ''}${elt}`}
+                                </Typography>
+                            ))
+                        ) : (
+                            <Typography color={'textSecondary'} variant={'body2'} component={'span'}>
+                                {stack}
                             </Typography>
-                        ))}
+                        )}
                     </span>
                 )}
             </Box>

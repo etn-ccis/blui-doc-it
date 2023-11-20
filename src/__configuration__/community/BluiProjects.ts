@@ -6,6 +6,7 @@ import BLI from '../../app/assets/blui-projects/bli.png';
 import PredictPulse from '../../app/assets/blui-projects/predict-pulse.png';
 import SmartEnergyManager from '../../app/assets/blui-projects/smart-energy-manager.png';
 import EVChargerManager from '../../app/assets/blui-projects/ev-charger-manager.png';
+import GreenMotionEVCharger from '../../app/assets/blui-projects/green-motion-ev-charger.jpg';
 
 import { BluiProjectTag, BluiProjectStack, BluiProject } from './BluiProjectsType';
 
@@ -143,5 +144,16 @@ export const bluiProjects: BluiProject[] = [
             BluiProjectTag.DEVICE_CONTROL_REMOTE,
             BluiProjectTag.SCHEDULES,
         ],
+    },
+    {
+        name: 'Green Motion Building / Fleet',
+        description: `Fast, cost-effective and sustainable charging for passenger vehicles, last mile delivery vehicles, light and medium-duty trucks, and school buses.`,
+        platformURLs: {}, // this is an HMI project; no URL available
+        website: `https://www.eaton.com/evchargers`,
+        image: GreenMotionEVCharger,
+        market: 'Commercial',
+        devices: 'EV chargers (HMI touch screens)',
+        stack: 'SGUS, Keil',
+        tags: [BluiProjectTag.REAL_TIME_MONITORING, BluiProjectTag.TRANSACTIONS],
     },
 ].sort((a, b) => a.name.localeCompare(b.name));
