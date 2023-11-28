@@ -142,14 +142,6 @@ export const resources: ResourceBucket[] = [
                 workSpace: 'ui',
             },
             {
-                name: '@brightlayer-ui/colors-branding',
-                description: 'Eaton branding color palette definitions',
-                package: '@brightlayer-ui/colors-branding',
-                repository: 'colors',
-                bugLabels: ['branding'],
-                workSpace: 'branding',
-            },
-            {
                 name: '@brightlayer-ui/angular-themes',
                 description: 'Brightlayer UI themes for Angular Material',
                 package: '@brightlayer-ui/angular-themes',
