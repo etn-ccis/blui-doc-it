@@ -138,8 +138,6 @@ export const resources: ResourceBucket[] = [
                 description: 'Brightlayer UI color palette definitions',
                 package: '@brightlayer-ui/colors',
                 repository: 'colors',
-                bugLabels: ['ui'],
-                workSpace: 'ui',
             },
             {
                 name: '@brightlayer-ui/angular-themes',
@@ -157,7 +155,7 @@ export const resources: ResourceBucket[] = [
             },
             {
                 name: '@brightlayer-ui/react-native-themes',
-                description: 'Brightlayer UI themes for @brightlayer-ui/react-native-components',
+                description: 'Brightlayer UI themes for React Native Paper',
                 package: '@brightlayer-ui/react-native-themes',
                 repository: 'react-native-themes',
                 applies: ['react-native'],
