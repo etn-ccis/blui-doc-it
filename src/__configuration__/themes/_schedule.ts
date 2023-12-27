@@ -22,21 +22,21 @@ import { ValentineSchedule } from './valentine-s-day';
  * Add more holiday themes here.
  *
  * Current schedules:
- * * Feb 9 - Feb 13 2023: Spring Festival (changes each year) ** Feb 9 - Feb 15 2024 **
+ * * Feb 6 - Feb 12: Spring Festival (changes each year)
  * * Feb 13 - Feb 15: Valentine's Day
  * * Mar 7 - Mar 9: Women's Day
  * * Mar 16 - Mar 18: St. Patrick's Day
  * * Apr 1: April Fool's Day
  * * Apr 20 - Apr 24: Earth Day
  * * May 3 - May 5: May the Fourth Day
- * * July 2 - July 7: Independence Day
- * * Sept 29 - Oct 6 2023: Mid Autumn Festival (changes each year)
- * * Oct 25 - Nov 1: Halloween
- * * Nov 12 - Nov 16 2023: Diwali (changes each year)
- * * Nov 21 - Nov 27: Thanksgiving (changes each year)
- * * Dec 7 - Dec 15: Hanukkah (changes each year)
- * * Dec 23 - Dec 26: Christmas
- * * Dec 26 - Dec 30: Kwanzaa (Kwanzaa runs until Jan 1. Cutting this short to account for New Years.)
+ * * July 1 - July 7: Independence Day
+ * * Sept 12 - Sept 18: Mid Autumn Festival (changes each year)
+ * * Oct 24 - Oct 30: Halloween
+ * * Nov 1 - Nov 7: Diwali (changes each year)
+ * * Nov 22 - Nov 29: Thanksgiving (changes each year)
+ * * Dec 19 - Dec 25: Christmas
+ * * Dec 26 - Dec 28: Hanukkah (changes each year)
+ * * Dec 29 - Dec 30: Kwanzaa (Kwanzaa runs until Jan 1. Cutting this short to account for New Years.)
  * * Dec 31 - Jan 6: New Years
  */
 export const schedule: Schedule[] = [
