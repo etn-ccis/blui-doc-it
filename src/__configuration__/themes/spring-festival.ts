@@ -7,7 +7,7 @@ import AppBarTile from '../../app/assets/themes/spring-festival/tile.svg';
 import { Schedule } from './_types';
 
 export const SpringFestivalSchedule: Schedule = {
-    start: new Date(0, 1, 9), // Feb 9
+    start: new Date(0, 1, 6), // Feb 6
     end: new Date(0, 1, 13), // Feb 12
     config: {
         theme: {
