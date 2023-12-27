@@ -7,20 +7,10 @@ jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.19.0]
     steps:
       - uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - run: yarn && yarn build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - run: cd components && yarn && cd ../docs && yarn && cd .. && yarn link:components && cd docs && yarn build
+      - uses: emclaug2/action-hosting-deploy@main
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BLUI_DOC_IT }}'
