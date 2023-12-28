@@ -90,8 +90,8 @@ const HalloweenTheme: ThemeOptions = {
 };
 
 export const HalloweenSchedule: Schedule = {
-    start: new Date(0, 9, 25), // Oct 25
-    end: new Date(0, 10, 2), // Nov 1
+    start: new Date(0, 9, 24), // Oct 24
+    end: new Date(0, 10, 1), // Oct 30
     config: {
         theme: HalloweenTheme,
         landingPageBanner: {

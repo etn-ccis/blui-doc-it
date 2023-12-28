@@ -8,7 +8,7 @@ import AppBarTile from '../../app/assets/themes/kwanzaa/kwanzaa-appbar-tile.png'
 import { Schedule } from './_types';
 
 export const KwanzaaSchedule: Schedule = {
-    start: new Date(0, 11, 26), // Dec 26
+    start: new Date(0, 11, 29), // Dec 29
     end: new Date(0, 11, 31), // Dec 30 - festival should run until Jan 1, but we cut this off on early to account for New Years theme
     config: {
         theme: {

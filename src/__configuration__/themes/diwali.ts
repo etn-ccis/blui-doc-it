@@ -7,8 +7,8 @@ import AppBarTile from '../../app/assets/themes/diwali/diwali-appbar-tile.png';
 import { Schedule } from './_types';
 
 export const DiwaliSchedule: Schedule = {
-    start: new Date(0, 10, 12), // Nov 12
-    end: new Date(0, 10, 17), // Nov 16
+    start: new Date(0, 10, 1), // Nov 1
+    end: new Date(0, 10, 8), // Nov 7
     config: {
         theme: {
             ...BLUIThemes.blue,
