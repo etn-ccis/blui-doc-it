@@ -1,17 +1,20 @@
 import AppBar from '../../app/assets/component-catalog/app-bar.png';
 import ChannelValue from '../../app/assets/component-catalog/channel-value.png';
+import Chip from '../../app/assets/component-catalog/chip.png';
 import CollapsibleHeaderLayout from '../../app/assets/component-catalog/collapsible-header-layout.png';
 import Drawer from '../../app/assets/component-catalog/drawer.png';
 import EmptyState from '../../app/assets/component-catalog/empty-state.png';
+import Grade from '../../app/assets/component-catalog/grade.png';
 import Hero from '../../app/assets/component-catalog/hero.png';
 import Icon from '../../app/assets/component-catalog/icon.png';
+import IconSwitch from '../../app/assets/component-catalog/icon-switch.png';
 import InfoListItem from '../../app/assets/component-catalog/info-list-item.png';
 import ListItemTag from '../../app/assets/component-catalog/list-item-tag.png';
 import MobileStepper from '../../app/assets/component-catalog/mobile-stepper.png';
+import Overline from '../../app/assets/component-catalog/overline.png';
 import Scorecard from '../../app/assets/component-catalog/scorecard.png';
 import ThreeLiner from '../../app/assets/component-catalog/three-liner.png';
 import ToolbarMenu from '../../app/assets/component-catalog/toolbar-menu.png';
-import Typography from '../../app/assets/component-catalog/typography.png';
 import UserMenu from '../../app/assets/component-catalog/user-menu.png';
 
 const branchSuffix = window.location.hostname === 'brightlayer-ui.github.io' ? '' : '-dev';
@@ -49,6 +52,13 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         image: ChannelValue,
     },
     {
+        title: 'Chip',
+        angular: `Offered by Angular Material`,
+        react: `Offered by MUI`,
+        reactNative: `https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--chip`,
+        image: Chip,
+    },
+    {
         title: 'Collapsible Header Layout',
         angular: `Included as part of Brightlayer UI's App Bar Component`,
         react: `Included as part of Brightlayer UI's App Bar Component`,
@@ -70,6 +80,13 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         image: EmptyState,
     },
     {
+        title: 'Grade',
+        angular: `Not Available`,
+        react: `Not Available`,
+        reactNative: `https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--grade`,
+        image: Grade,
+    },
+    {
         title: 'Hero',
         angular: `https://brightlayer-ui-components.github.io/angular${branchSuffix}/components/hero/examples`,
         react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/hero/examples`,
@@ -77,11 +94,18 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         image: Hero,
     },
     {
-        title: 'Icon (wrapper for Brightlayer UI icons)',
+        title: 'Icon',
         angular: `Offered by Angular Material's icon fonts and icon SVGs`,
         react: `Offered by MUI's icon fonts and icon components`,
         reactNative: `https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--icons`,
         image: Icon,
+    },
+    {
+        title: 'Icon Switch',
+        angular: `Offered by Angular Material's slide toggle`,
+        react: `Offered by MUI's switch component`,
+        reactNative: `https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--icon-switch`,
+        image: IconSwitch,
     },
     {
         title: 'Info List Item',
@@ -105,6 +129,13 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         image: MobileStepper,
     },
     {
+        title: 'Overline',
+        angular: `Not Available`,
+        react: `Offered by MUI's Typography component`,
+        reactNative: `https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--overline`,
+        image: Overline,
+    },
+    {
         title: 'Scorecard',
         angular: `https://brightlayer-ui-components.github.io/angular${branchSuffix}/components/score-card/examples`,
         react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/score-card/examples`,
@@ -124,13 +155,6 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/toolbar-menu/examples`,
         reactNative: `Not Available`,
         image: ToolbarMenu,
-    },
-    {
-        title: 'Typography',
-        angular: `Offered by Angular Material`,
-        react: `Offered by MUI`,
-        reactNative: `https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--typography`,
-        image: Typography,
     },
     {
         title: 'User Menu',
