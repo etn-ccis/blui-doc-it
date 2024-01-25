@@ -7,7 +7,7 @@ import AppBarTile from '../../app/assets/themes/independence-day/independence-da
 import { Schedule } from './_types';
 
 export const IndependenceDaySchedule: Schedule = {
-    start: new Date(0, 6, 2), // July 2
+    start: new Date(0, 6, 1), // July 1
     end: new Date(0, 6, 8), // July 7
     config: {
         theme: {
