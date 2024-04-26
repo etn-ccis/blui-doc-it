@@ -1,16 +1,18 @@
 import React from 'react';
 
-## React Native
+## React Native Registration Workflow
 
--   The React Native Registration Workflow was re-architected to allow for greater flexibility from the application side with several more Registration UI Actions such as:
-    -   acceptEula
-    -   requestRegistrationCode
-    -   validateUserRegistrationRequest
-    -   createPassword
-    -   completeRegistration
--   The new major version with breaking changes also provides greater control over your routing library, internationalization, screen order/custom screens, error handling, etc.
--   We are currently in the process of migrating our React Native Authentication Workflow.
+-   Rearchitected from the ground up for greater control and customization
+    -    Screens are all exported individually as independent components
+    -    Screen customizations available through screen components
+    -    Declarative syntax for building custom flows / reordering screens / adding or removing screens
+    -    Router independence (react-navigation still recommended)
+    -    Simplified internationalization giving users more control over translations
+    -    Additional actions for more back-end integrations
+    -    More robust error management solution
+    -    Dependencies updated to support the latest third-party versions
+-   This functionality will be available in our next release once the Auth Workflow architecture changes are complete
 
 ## Figma Component Sticker Sheet
 
--   The innersourcing of Brightlayer Chart’s components into the Material Design 3 Figma component sticker sheet is complete and has gone through user testing.
+-   Innersourced Brightlayer Chart’s components into the Material Design 3 Figma component sticker sheet
