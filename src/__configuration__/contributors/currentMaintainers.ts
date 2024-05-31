@@ -7,6 +7,7 @@ import AubreyThompson from '../../app/assets/credits/aubrey-thompson.jpg';
 import ArshdeepSingh from '../../app/assets/credits/arshdeep-singh.jpg';
 import AndrewPuhalla from '../../app/assets/credits/andrew-puhalla.jpeg';
 import KomalRanjit from '../../app/assets/credits/komal-ranjit.jpg';
+import PriyankaKM from '../../app/assets/credits/priyanka-km.jpeg';
 import { CurrentMaintainter } from '../../__types__';
 
 export const currentMaintainers: CurrentMaintainter[] = [
@@ -100,6 +101,16 @@ export const currentMaintainers: CurrentMaintainter[] = [
         contacts: {
             github: `https://github.com/Komal-Ranjit`,
             linkedIn: `https://www.linkedin.com/in/komal-ranjit-6a800718a/`,
+        },
+    },
+    {
+        name: 'Priyanka KM',
+        role: `Front-End Developer`,
+        image: PriyankaKM,
+        description: `Working as a React-native front End developer, She loves to spend time in drawing and craftwork. She also enjoys listening to music.`,
+        contacts: {
+            github: `https://github.com/Priyanka-km0`,
+            linkedIn: `https://www.linkedin.com/in/priyanka-km-960390193`,
         },
     }
 ];
