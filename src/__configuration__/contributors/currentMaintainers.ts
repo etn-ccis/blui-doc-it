@@ -107,7 +107,7 @@ export const currentMaintainers: CurrentMaintainter[] = [
         name: 'Priyanka KM',
         role: `Front-End Developer`,
         image: PriyankaKM,
-        description: `Working as a React-native front End developer, She loves to spend time in drawing and craftwork. She also enjoys listening to music.`,
+        description: `Working as a React-native front-end developer, She loves to spend time in drawing and craftwork. She also enjoys listening to music.`,
         contacts: {
             github: `https://github.com/Priyanka-km0`,
             linkedIn: `https://www.linkedin.com/in/priyanka-km-960390193`,
