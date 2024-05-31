@@ -6,6 +6,7 @@ import ManojLokesh from '../../app/assets/credits/manoj-lokesh.jpg';
 import AubreyThompson from '../../app/assets/credits/aubrey-thompson.jpg';
 import ArshdeepSingh from '../../app/assets/credits/arshdeep-singh.jpg';
 import AndrewPuhalla from '../../app/assets/credits/andrew-puhalla.jpeg';
+import KomalRanjit from '../../app/assets/credits/komal-ranjit.jpg';
 import { CurrentMaintainter } from '../../__types__';
 
 export const currentMaintainers: CurrentMaintainter[] = [
@@ -91,4 +92,14 @@ export const currentMaintainers: CurrentMaintainter[] = [
             linkedIn: `https://www.linkedin.com/in/aubrey-thompson-02464391/`,
         },
     },
+    {
+        name: 'Komal Ranjit',
+        role: `Front-End Developer`,
+        image: KomalRanjit,
+        description: `Komal is a passionate front-end developer with experience in React.js and Appcelerator Titanium development. She is always eager to stay ahead in the dynamic world of tech and is dedicated to continuous learning and professional development. In her leisure time, she enjoys nature, with a love for gardening and swimming, finding them both as ways to recharge and relax.`,
+        contacts: {
+            github: `https://github.com/Komal-Ranjit`,
+            linkedIn: `https://www.linkedin.com/in/komal-ranjit-6a800718a/`,
+        },
+    }
 ];
