@@ -1,0 +1,128 @@
+name: Build
+
+on:
+  push:
+    branches: [ "dev", "master" ]
+  pull_request:
+    branches: [ "dev", "master" ]
+  pull_request_target:
+    types:
+      - opened
+    branches:
+      - '*/*'
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  prettier_lint:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+    - run: yarn
+    - run: yarn prettier:check
+    - run: yarn lint
+
+  test_links:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+    - run: yarn
+    - run: yarn check:links-ci
+
+  build_doc_site:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+    - run: yarn --immutable
+    - run: yarn build
+    - name: Save build
+      uses: actions/upload-artifact@v3
+      with:
+        name: build
+        if-no-files-found: error
+        path: build
+
+  # deploy_doc_site_dev:
+  #   runs-on: ubuntu-latest
+  #   if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/dev' }}
+  #   needs: build_doc_site
+  #   env:
+  #     DEV_DEPLOY_TOKEN: ${{secrets.DEV_DEPLOY_TOKEN}}
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #     - name: Download build
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: build
+  #         path: build
+  #     - name: deploy
+  #       uses: JamesIves/github-pages-deploy-action@v4
+  #       with:
+  #           folder: build
+  #           token: ${{env.DEV_DEPLOY_TOKEN}}
+  #           repository-name: brightlayer-ui/brightlayer-ui.github.io
+  #           branch: dev
+  #           git-config-name: Brightlayer UI Agent
+  #           git-config-email: brightlayer-ui@eaton.com
+  #           commit-message: "Automated deployment to GitHub Pages ${{github.sha}}"
+
+  # deploy_doc_site_prod:
+  #   runs-on: ubuntu-latest
+  #   if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+  #   needs: build_doc_site
+  #   env:
+  #     DEV_DEPLOY_TOKEN: ${{secrets.DEV_DEPLOY_TOKEN}}
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #     - name: Download build
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: build
+  #         path: build
+  #     - name: deploy
+  #       uses: JamesIves/github-pages-deploy-action@v4
+  #       with:
+  #           folder: build
+  #           token: ${{env.DEV_DEPLOY_TOKEN}}
+  #           repository-name: brightlayer-ui/brightlayer-ui.github.io
+  #           branch: master
+  #           git-config-name: Brightlayer UI Agent
+  #           git-config-email: brightlayer-ui@eaton.com
+  #           commit-message: "Automated deployment to GitHub Pages ${{github.sha}}"
