@@ -35,23 +35,23 @@ jobs:
     - run: yarn prettier:check
     - run: yarn lint
 
-  test_links_old:
-    runs-on: ubuntu-latest
+  # test_links_old:
+  #   runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [20.x]
+  #   strategy:
+  #     matrix:
+  #       node-version: [20.x]
 
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'yarn'
-    - run: yarn
-    - run: yarn check:links-ci
+  #   steps:
+  #   - name: Checkout
+  #     uses: actions/checkout@v4
+  #   - name: Use Node.js ${{ matrix.node-version }}
+  #     uses: actions/setup-node@v4
+  #     with:
+  #       node-version: ${{ matrix.node-version }}
+  #       cache: 'yarn'
+  #   - run: yarn
+  #   - run: yarn check:links-ci
 
   test_links_new:
     runs-on: ubuntu-latest
@@ -68,6 +68,7 @@ jobs:
         use-quiet-mode: 'yes'
         use-verbose-mode: 'yes'
         folder-path: 'src/docs'
+        file-extension: '.mdx'
 
   build_doc_site:
     runs-on: ubuntu-latest
