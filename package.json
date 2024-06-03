@@ -80,7 +80,7 @@
         "@craco/craco": "^7.1.0",
         "@mdx-js/loader": "^2.1.5",
         "@mdx-js/mdx": "^2.2.1",
-        "@mdx-js/react": "^2.1.5",
+        "@mdx-js/react": "^3.0.1",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.4.0",
         "@testing-library/user-event": "^14.4.3",
