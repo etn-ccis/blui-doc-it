@@ -112,5 +112,5 @@ export const currentMaintainers: CurrentMaintainter[] = [
             github: `https://github.com/Priyanka-km0`,
             linkedIn: `https://www.linkedin.com/in/priyanka-km-960390193`,
         },
-    }
+    },
 ];
