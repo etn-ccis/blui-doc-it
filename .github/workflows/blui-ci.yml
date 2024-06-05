@@ -55,6 +55,7 @@ jobs:
 
   build_doc_site:
     runs-on: ubuntu-latest
+    needs: test_links
 
     strategy:
       matrix:
