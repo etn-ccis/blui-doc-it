@@ -9,6 +9,7 @@ export const github = axios.create({
         Authorization: `token ${(process.env.REACT_APP_DOCIT_GITHUB_TOKEN || '').split('').reverse().join('')}`,
     },
 });
+// circleCI will need replaced with github status
 export const circleci = axios.create({
     baseURL: 'https://circleci.com/api/v1.1/project/github/etn-ccis/',
     timeout: 5000,
@@ -35,6 +36,7 @@ export const announcementDetail = axios.create({
 });
 
 // API Calls
+// circleCI will need replaced with github status
 
 export const getBuildStatus = async (repository: string, branches: string[]): Promise<boolean | undefined> => {
     try {
