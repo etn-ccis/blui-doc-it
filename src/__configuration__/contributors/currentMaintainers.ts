@@ -8,6 +8,7 @@ import ArshdeepSingh from '../../app/assets/credits/arshdeep-singh.jpg';
 import AndrewPuhalla from '../../app/assets/credits/andrew-puhalla.jpeg';
 import KomalRanjit from '../../app/assets/credits/komal-ranjit.jpg';
 import PriyankaKM from '../../app/assets/credits/priyanka-km.jpeg';
+import ShubhamVishwakarma from '../../app/assets/credits/shubham-vishwakarma.jpeg';
 import { CurrentMaintainter } from '../../__types__';
 
 export const currentMaintainers: CurrentMaintainter[] = [
@@ -111,6 +112,16 @@ export const currentMaintainers: CurrentMaintainter[] = [
         contacts: {
             github: `https://github.com/Priyanka-km0`,
             linkedIn: `https://www.linkedin.com/in/priyanka-km-960390193`,
+        },
+    },
+    {
+        name: 'Shubham Kumar Vishwakarma',
+        role: `Front-End Developer`,
+        image: ShubhamVishwakarma,
+        description: `Shubham is a front-end developer and has demonstrated his skills and ability in writing and maintaining clean reusable code. When Shubham is away from his workstation you will usually find him exploring the beauty of nature, our mother earth <3`,
+        contacts: {
+            github: `https://github.com/ShubhamProjects`,
+            linkedIn: `https://www.linkedin.com/in/shubham-vishwakarma-7252221a9`,
         },
     },
 ];
