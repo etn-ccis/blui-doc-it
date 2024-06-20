@@ -37,23 +37,20 @@ export const getBuildStatus = async (repository: string, branches: string[]): Pr
         let failed = 0;
         const results = [];
         for (const branch of branches) {
-            results.push(
-                github.get(
-                    `repos/etn-ccis/blui-${repository}/actions/runs?branch=${branch}`
-                )
-            );
+            results.push(github.get(`repos/etn-ccis/blui-${repository}/actions/runs?branch=${branch}`));
         }
         const test = await Promise.all(results);
         for (let i = 0; i < test.length; i++) {
             const response = test[i];
             if (response && response.status === 200) {
-                const data = response.data.workflow_runs
-                const buildjobs = data.filter((job: any) => job.name === 'Build')
+                const data = response.data.workflow_runs;
+                const buildjobs = data.filter((job: any) => job.name === 'Build');
                 if (buildjobs.length > 0) {
-                    const buildfailed = buildjobs[0].conclusion === 'failure'
-                    failed += buildfailed ? 1 : 0
+                    const buildfailed = buildjobs[0].conclusion === 'failure';
+                    failed += buildfailed ? 1 : 0;
+                } else {
+                    failed += 0;
                 }
-                else { failed += 0 }
             } else {
                 failed += 1;
             }
