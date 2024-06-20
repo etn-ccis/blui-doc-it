@@ -9,11 +9,6 @@ export const github = axios.create({
         Authorization: `token ${(process.env.REACT_APP_DOCIT_GITHUB_TOKEN || '').split('').reverse().join('')}`,
     },
 });
-// circleCI will need replaced with github status
-export const circleci = axios.create({
-    baseURL: 'https://circleci.com/api/v1.1/project/github/etn-ccis/',
-    timeout: 5000,
-});
 export const npm = axios.create({
     baseURL: 'https://api.npms.io/v2/',
     timeout: 5000,
@@ -36,7 +31,6 @@ export const announcementDetail = axios.create({
 });
 
 // API Calls
-// circleCI will need replaced with github status
 
 export const getBuildStatus = async (repository: string, branches: string[]): Promise<boolean | undefined> => {
     try {
@@ -44,18 +38,22 @@ export const getBuildStatus = async (repository: string, branches: string[]): Pr
         const results = [];
         for (const branch of branches) {
             results.push(
-                circleci.get(
-                    `blui-${repository}/tree/${branch.replace('-', '')}?limit=1&filter=completed&circle-token=${
-                        process.env.REACT_APP_DOCIT_CIRCLECI_TOKEN || ''
-                    }`
+                github.get(
+                    `repos/etn-ccis/blui-${repository}/actions/runs?branch=${branch}`
                 )
             );
         }
         const test = await Promise.all(results);
         for (let i = 0; i < test.length; i++) {
             const response = test[i];
-            if (response && response.status === 200 && response.data[0].failed === false) {
-                failed += 0;
+            if (response && response.status === 200) {
+                const data = response.data.workflow_runs
+                const buildjobs = data.filter((job: any) => job.name === 'Build')
+                if (buildjobs.length > 0) {
+                    const buildfailed = buildjobs[0].conclusion === 'failure'
+                    failed += buildfailed ? 1 : 0
+                }
+                else { failed += 0 }
             } else {
                 failed += 1;
             }
