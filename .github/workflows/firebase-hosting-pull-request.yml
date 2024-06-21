@@ -7,6 +7,8 @@ jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
+    env:
+      REACT_APP_DOCIT_GITHUB_TOKEN: ${{ secrets.REACT_APP_DOCIT_GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
       - run: yarn && yarn build

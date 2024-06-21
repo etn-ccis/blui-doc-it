@@ -61,6 +61,7 @@ jobs:
         node-version: [20.x]
     env:
       ga-id: ${{ github.ref == 'refs/heads/master' && 'ga:prod' || 'ga:dev' }}
+      REACT_APP_DOCIT_GITHUB_TOKEN: ${{ secrets.REACT_APP_DOCIT_GITHUB_TOKEN }}
 
     steps:
     - name: Checkout
