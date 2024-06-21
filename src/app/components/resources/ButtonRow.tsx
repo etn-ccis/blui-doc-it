@@ -27,7 +27,7 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
     const bugLink = `https://github.com/etn-ccis/blui-${repository}/issues?q=is%3Aissue+is%3Aopen${bugString}`;
     // circleCI will need replaced with github
     const buildLink = `https://github.com/etn-ccis/blui-${repository}/actions/workflows/blui-ci.yml${
-        branch ? `?query=branch%3A+${branch}` : ''
+        branch ? `?query=branch%3A${branch}` : ''
     }`;
     const repoLink = `https://github.com/etn-ccis/blui-${repository}${branch ? `/tree/${branch}` : ''}/${workSpace}`;
 
