@@ -33,6 +33,7 @@ export const announcementDetail = axios.create({
 // API Calls
 
 export const getBuildStatus = async (repository: string, branches: string[]): Promise<boolean | undefined> => {
+    // eslint-disable-next-line
     console.log(process.env.REACT_APP_DOCIT_GITHUB_TOKEN)
     try {
         let failed = 0;
