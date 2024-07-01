@@ -67,7 +67,7 @@ export type ReleaseInfo = {
 const Releases: ReleaseInfo[] = [
     {
         title: 'R32',
-        date: 'july 2024',
+        date: 'July 2024',
         version: '4.2.0',
         details: <R32 />,
         summary: <R32Summary />,
