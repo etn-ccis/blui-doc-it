@@ -7,8 +7,8 @@ import AubreyThompson from '../../app/assets/credits/aubrey-thompson.jpg';
 import ArshdeepSingh from '../../app/assets/credits/arshdeep-singh.jpg';
 import AndrewPuhalla from '../../app/assets/credits/andrew-puhalla.jpeg';
 import KomalRanjit from '../../app/assets/credits/komal-ranjit.jpg';
-import PriyankaKM from '../../app/assets/credits/priyanka-km.jpeg';
 import ShubhamVishwakarma from '../../app/assets/credits/shubham-vishwakarma.jpeg';
+import YazadSidhwa from '../../app/assets/credits/yazad-sidhwa.jpg';
 import { CurrentMaintainter } from '../../__types__';
 
 export const currentMaintainers: CurrentMaintainter[] = [
@@ -105,16 +105,6 @@ export const currentMaintainers: CurrentMaintainter[] = [
         },
     },
     {
-        name: 'Priyanka KM',
-        role: `Front-End Developer`,
-        image: PriyankaKM,
-        description: `Working as a React-native front-end developer, She loves to spend time in drawing and craftwork. She also enjoys listening to music.`,
-        contacts: {
-            github: `https://github.com/Priyanka-km0`,
-            linkedIn: `https://www.linkedin.com/in/priyanka-km-960390193`,
-        },
-    },
-    {
         name: 'Shubham Kumar Vishwakarma',
         role: `Front-End Developer`,
         image: ShubhamVishwakarma,
@@ -122,6 +112,16 @@ export const currentMaintainers: CurrentMaintainter[] = [
         contacts: {
             github: `https://github.com/ShubhamProjects`,
             linkedIn: `https://www.linkedin.com/in/shubham-vishwakarma-7252221a9`,
+        },
+    },
+    {
+        name: 'Yazad Sidhwa',
+        role: `Intern`,
+        image: YazadSidhwa,
+        description: `Yazad is currently pursuing his M.S. in Computer Science at the University of California, Irvine. When he's not working, you’ll find him shooting hoops on the basketball court or kicking a soccer ball around. He is also an avid hiker, exploring trails with friends and is a total nerd for sci-fi films. Plus, he’s a foodie who loves discovering new restaurants.`,
+        contacts: {
+            github: `https://github.com/yazadsidhwa-eaton`,
+            linkedIn: `https://www.linkedin.com/in/yazad-sidhwa`,
         },
     },
 ];
