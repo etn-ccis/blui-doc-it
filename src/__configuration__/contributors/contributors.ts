@@ -15,6 +15,7 @@ import JoaoMota from '../../app/assets/credits/joao-mota.jpg';
 import EvanMcLaughlin from '../../app/assets/credits/evan-mclaughlin.jpeg';
 import RaghavC from '../../app/assets/credits/raghavendran-chithirarajan.jpeg';
 import ThomasDailey from '../../app/assets/credits/thomas-dailey.jpg';
+import PriyankaKM from '../../app/assets/credits/priyanka-km.jpeg';
 
 import { OtherContributor } from '../../__types__';
 
@@ -135,5 +136,10 @@ export const contributors: OtherContributor[] = [
         name: 'Evan McLaughlin',
         role: `Front-End Developer`,
         image: EvanMcLaughlin,
+    },
+    {
+        name: 'Priyanka KM',
+        role: `Front-End Developer`,
+        image: PriyankaKM,
     },
 ];
