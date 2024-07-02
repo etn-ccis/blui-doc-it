@@ -1,6 +1,7 @@
 import React from 'react';
 
 // Full Release Notes
+import R32 from './R32/FullNotes.mdx';
 import R31 from './R31/FullNotes.mdx';
 import R30 from './R30/FullNotes.mdx';
 import R29 from './R29/FullNotes.mdx';
@@ -28,6 +29,7 @@ import R8 from './R8/FullNotes.mdx';
 import R7 from './R7/FullNotes.mdx';
 
 // Summaries (for Landing Page)
+import R32Summary from './R32/Summary.mdx';
 import R31Summary from './R31/Summary.mdx';
 import R30Summary from './R30/Summary.mdx';
 import R29Summary from './R29/Summary.mdx';
@@ -63,6 +65,13 @@ export type ReleaseInfo = {
 };
 
 const Releases: ReleaseInfo[] = [
+    {
+        title: 'R32',
+        date: 'July 2024',
+        version: '4.2.0',
+        details: <R32 />,
+        summary: <R32Summary />,
+    },
     {
         title: 'R31',
         date: 'April 2024',
