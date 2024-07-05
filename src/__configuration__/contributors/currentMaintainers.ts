@@ -8,6 +8,7 @@ import ArshdeepSingh from '../../app/assets/credits/arshdeep-singh.jpg';
 import AndrewPuhalla from '../../app/assets/credits/andrew-puhalla.jpeg';
 import KomalRanjit from '../../app/assets/credits/komal-ranjit.jpg';
 import ShubhamVishwakarma from '../../app/assets/credits/shubham-vishwakarma.jpeg';
+import KomalDhere from '../../app/assets/credits/komal-dhere.jpg';
 import YazadSidhwa from '../../app/assets/credits/yazad-sidhwa.jpg';
 import { CurrentMaintainter } from '../../__types__';
 
@@ -122,6 +123,16 @@ export const currentMaintainers: CurrentMaintainter[] = [
         contacts: {
             github: `https://github.com/yazadsidhwa-eaton`,
             linkedIn: `https://www.linkedin.com/in/yazad-sidhwa`,
+        },
+    },
+    {
+        name: 'Komal Dhere',
+        role: `Front-End Developer`,
+        image: KomalDhere,
+        description: `Meet Komal, a dedicated front-end developer who values continuous learning and personal growth. When she is not immersed in coding, you will find her unwinding with her favorite TV shows, exploring new recipes in the kitchen, and pursuing her passion for dancing.`,
+        contacts: {
+            github: `https://github.com/KomalGDhere-eaton`,
+            linkedIn: `https://www.linkedin.com/in/komal-dhere-4a7735153/`,
         },
     },
 ];
