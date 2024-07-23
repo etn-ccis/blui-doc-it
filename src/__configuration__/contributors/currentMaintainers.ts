@@ -6,6 +6,10 @@ import ManojLokesh from '../../app/assets/credits/manoj-lokesh.jpg';
 import AubreyThompson from '../../app/assets/credits/aubrey-thompson.jpg';
 import ArshdeepSingh from '../../app/assets/credits/arshdeep-singh.jpg';
 import AndrewPuhalla from '../../app/assets/credits/andrew-puhalla.jpeg';
+import KomalRanjit from '../../app/assets/credits/komal-ranjit.jpg';
+import ShubhamVishwakarma from '../../app/assets/credits/shubham-vishwakarma.jpeg';
+import KomalDhere from '../../app/assets/credits/komal-dhere.jpg';
+import YazadSidhwa from '../../app/assets/credits/yazad-sidhwa.jpg';
 import { CurrentMaintainter } from '../../__types__';
 
 export const currentMaintainers: CurrentMaintainter[] = [
@@ -89,6 +93,46 @@ export const currentMaintainers: CurrentMaintainter[] = [
         contacts: {
             github: `https://github.com/aubreyhthompson`,
             linkedIn: `https://www.linkedin.com/in/aubrey-thompson-02464391/`,
+        },
+    },
+    {
+        name: 'Komal Ranjit',
+        role: `Front-End Developer`,
+        image: KomalRanjit,
+        description: `Komal is a passionate front-end developer with experience in React.js and Appcelerator Titanium development. She is always eager to stay ahead in the dynamic world of tech and is dedicated to continuous learning and professional development. In her leisure time, she enjoys nature, with a love for gardening and swimming, finding them both as ways to recharge and relax.`,
+        contacts: {
+            github: `https://github.com/Komal-Ranjit`,
+            linkedIn: `https://www.linkedin.com/in/komal-ranjit-6a800718a/`,
+        },
+    },
+    {
+        name: 'Shubham Kumar Vishwakarma',
+        role: `Front-End Developer`,
+        image: ShubhamVishwakarma,
+        description: `Shubham is a front-end developer and has demonstrated his skills and ability in writing and maintaining clean reusable code. When Shubham is away from his workstation you will usually find him exploring the beauty of nature, our mother earth <3`,
+        contacts: {
+            github: `https://github.com/ShubhamProjects`,
+            linkedIn: `https://www.linkedin.com/in/shubham-vishwakarma-7252221a9`,
+        },
+    },
+    {
+        name: 'Yazad Sidhwa',
+        role: `Intern`,
+        image: YazadSidhwa,
+        description: `Yazad is currently pursuing his M.S. in Computer Science at the University of California, Irvine. When he's not working, you’ll find him shooting hoops on the basketball court or kicking a soccer ball around. He is also an avid hiker, exploring trails with friends and is a total nerd for sci-fi films. Plus, he’s a foodie who loves discovering new restaurants.`,
+        contacts: {
+            github: `https://github.com/yazadsidhwa-eaton`,
+            linkedIn: `https://www.linkedin.com/in/yazad-sidhwa`,
+        },
+    },
+    {
+        name: 'Komal Dhere',
+        role: `Front-End Developer`,
+        image: KomalDhere,
+        description: `Meet Komal, a dedicated front-end developer who values continuous learning and personal growth. When she is not immersed in coding, you will find her unwinding with her favorite TV shows, exploring new recipes in the kitchen, and pursuing her passion for dancing.`,
+        contacts: {
+            github: `https://github.com/KomalGDhere-eaton`,
+            linkedIn: `https://www.linkedin.com/in/komal-dhere-4a7735153/`,
         },
     },
 ];

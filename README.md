@@ -1,6 +1,6 @@
 # Doc-It (a.k.a. brightlayer-ui.github.io)
 
-[![CircleCI](https://circleci.com/gh/etn-ccis/blui-doc-it/tree/master.svg?style=shield&circle-token=fc2656a76d70b4ff9cdc66cccc758c0dfbf89d25)](https://circleci.com/gh/etn-ccis/blui-doc-it/tree/master)
+[![Build](https://github.com/etn-ccis/blui-doc-it/actions/workflows/blui-ci.yml/badge.svg?branch=master)](https://github.com/etn-ccis/blui-doc-it/actions/workflows/blui-ci.yml)
 
 Doc-It is the source code for [brightlayer-ui.github.io](brightlayer-ui.github.io), documentation site for Brightlayer UI. The site is built to both provide documentation on how to use the system, but also as an example of how to use it. The entire site is using using the Brightlayer UI design system - built with React+Redux, Material UI, and the Brightlayer UI component library.
 
@@ -41,7 +41,7 @@ The folder structure of the application is segregated to keep the application an
     |── /__types__                          // shared type definitions
     |── /databases                          // databases generated automatically for the search functionality
     |── /app
-    │   |── /api                            // api utilities for pulling data from npm, github, circleci
+    │   |── /api                            // api utilities for pulling data from npm, github
     │   |── /assets                         // images and icons
     │   |── /components                     // re-usable component definitions
     │   |── /hooks                          // react hook definitions
