@@ -17,7 +17,7 @@
         "@mui/material": "^5.6.0",
         "@mui/styles": "^5.6.0",
         "@types/dompurify": "^3.0.2",
-        "axios": "^1.6.0",
+        "axios": "^1.7.4",
         "color": "^4.2.3",
         "dompurify": "^3.0.2",
         "fireworks-canvas": "^2.6.2",
