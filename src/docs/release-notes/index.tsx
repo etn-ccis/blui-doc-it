@@ -70,7 +70,7 @@ const Releases: ReleaseInfo[] = [
     {
         title: 'R33',
         date: 'October 2024',
-        version: '4.2.0',
+        version: '4.3.0',
         details: <R33 />,
         summary: <R33Summary />,
     },
