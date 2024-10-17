@@ -53,7 +53,8 @@ export type Release =
     | 'R30'
     | 'R31'
     | 'R32'
-    | 'R33';
+    | 'R33'
+    | 'R34';
 
 export type RoadmapItem = {
     name: string;
