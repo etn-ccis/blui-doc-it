@@ -1,0 +1,30 @@
+import Chart from '../../app/assets/visualizations/foundations-chart.png';
+import { Divider, ImageGrid } from '../../app/components';
+import { ExpansionHeader, BLCAccordian } from '../../app/components'
+
+# Foundations
+
+Charts are a common data visualization solution, and they are a part of many Eaton products 
+and interfaces. In this page you can learn about the elements that compose our chart components, 
+how they relate to each other and the design rules to put these elements together.
+
+## Building Blocks
+
+<ImageGrid images={[Chart]} regularWidth />
+
+<BLCAccordian
+  heading='1. Legends'
+  content={
+    <span>
+      Legends have two functions in Brightlayer Charts. They provide the key to understanding the plot area, and also
+      work as toggles to show / hide datasets individually. <br />
+      <br />
+      Using a legend is optional if you are displaying a single dataset, as long as the chart title provides enough
+      context for the user.
+      <br />
+      <br />
+      By default, legends appears on top of the plot area but you can use it at the bottom or displayed vertically besides
+      the chart, according to your design needs.
+    </span>
+  }
+/>                                

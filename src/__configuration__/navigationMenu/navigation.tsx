@@ -348,6 +348,18 @@ export const pageDefinitions: SimpleNavItem[] = [
         ],
     },
     {
+        title: 'Visualizations',
+        url: 'visualizations',
+        component: <MarkdownPage title={'Visualizations'} markdown={Docs.Visualizations.Home} />,
+        pages: [
+            {
+                title: 'Foundations',
+                url: 'foundations',
+                component: <MarkdownPage title={'Foundations'} markdown={Docs.Visualizations.Foundations} />,
+            },
+        ],
+    },
+    {
         title: 'Community',
         url: 'community',
         component: <MarkdownPage title={'Brightlayer UI Community'} markdown={Docs.Community.Home} />,
