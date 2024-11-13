@@ -1,6 +1,7 @@
 import Chart from '../../app/assets/visualizations/foundations-chart.png';
-import { Divider, ImageGrid } from '../../app/components';
-import { ExpansionHeader, BLCAccordian } from '../../app/components'
+import DataGranularity from '../../app/assets/visualizations/datagranularity.png';
+import { ImageGrid } from '../../app/components';
+import { ExpansionHeader, BLCAccordian } from '../../app/components';
 
 # Foundations
 
@@ -10,7 +11,7 @@ how they relate to each other and the design rules to put these elements togethe
 
 ## Building Blocks
 
-<ImageGrid images={[Chart]} regularWidth />
+<ImageGrid images={[Chart]} regularWidth style={{border: '0px !important'}}/>
 
 <BLCAccordian
   heading='1. Legends'
@@ -27,4 +28,265 @@ how they relate to each other and the design rules to put these elements togethe
       the chart, according to your design needs.
     </span>
   }
-/>                                
+/>
+<BLCAccordian
+  heading='2. Date range'
+  content={
+    <span>
+      This field shows the span of the date range currently being displayed on the chart, and changes automatically as
+      users swap from day to Week / Month / Year.
+    </span>
+  }
+/>
+<BLCAccordian
+  heading='3. Tooltip'
+  content={
+    <span>
+      <span>
+        Appearing when you hover elements inside the plot area, tooltips show more detailed information about a single
+        or multiple datasets, connecting the data points in both axis to the specific location you are hovering in the
+        plot area. There are two variants for the Tooltip component:
+      </span>
+      <span style={{display: 'flex', flexDirection: 'column', marginTop: '1rem'}}>
+        <span style={{display: 'flex', marginBottom: '1rem'}}>
+          <span style={{display: 'block'}}>&#x2022;</span>
+          <span style={{marginLeft: '1rem',}}>
+            <b>Multiple values</b> - To be used on Line and Bar charts, whenever a user can hover a data point that has
+            more than one dataset associated with it.
+          </span>
+        </span>
+        <span style={{display: 'flex'}}>
+          <span style={{display: 'block'}}>&#x2022;</span>
+          <span  style={{marginLeft: '1rem'}}>
+            <b>Single value</b> - To be used on Pie charts or smaller versions of other charts, whenever a user hovers a
+            datapoint that has only one dataset associated with it OR smaller chart sizes that require a smaller
+            tooltip.
+          </span>
+        </span>
+      </span>
+    </span>
+  }
+/>
+<BLCAccordian
+  heading='4. Grid'
+  content={
+    <span>
+      A combination of dotted lines aligned horizontally and/or vertically with the Y-Axis and X-Axis values creates a
+      grid, which appears in the background of the plot area, making it easier for users to associate data points in a
+      plot with their correct axis values.
+      <br />
+      When hovering a specific value in the plot area, the vertical grid line associated with it is replaced by a full
+      thicker line, to give emphasis to the value we are reading.
+    </span>
+  }
+/>
+<BLCAccordian
+  heading='5. Plot area'
+  content={
+    <span>
+      This is where your data will be displayed, as points placed in the cartesian plane between the two axis. The plot
+      area can present single or multiple data sets.
+      <br />
+      In the background of the plot area, grid lines support connecting your data values to the axis for better
+      interpretation.
+    </span>
+  }
+/>
+<BLCAccordian
+  heading='6. Predicted values'
+  content={
+    <span>
+      In Brightlayer Charts, dashed lines indicate predicted values. This means forecast data is being used to project
+      the expected behaviour for data sets. They are used in combination with a reference line (read more below) that
+      indicates the Current Time, so that users can clearly make a distinction between historical (past) and forecast
+      (future) data.
+      <br />
+      <br />
+      To use this feature, your project needs to have both forecast and actual data, either two separate datasets or two
+      separate items in the same dataset.
+    </span>
+  }
+/>
+<BLCAccordian
+  heading='7. Underlays'
+  content={
+    <span>
+      <span>
+        Underlays are a useful resource to convey additional context in a chart. They consist of a multi-colored layer
+        that sits under the Plot area, with horizontal or vertical subdivisions determined by specific values in the X
+        or Y axis. These colors are used to visually represent system features, such as thresholds and average values.
+        <br />
+        <br />
+        Underlays are currently available for Line charts only, in two different presets:
+      </span>
+      <span style={{display: 'flex', flexDirection: 'column', marginTop: '1rem'}}>
+        <span style={{display: 'flex', paddingBottom: '1rem', marginBottom: '1rem'}}>
+          <span style={{display: 'block'}}>&#x2022;</span>
+          <span style={{marginLeft: '1rem'}}>
+            <b>Solar forecasting</b> - using weather forecast data, the chart displays a background vertically split
+            into 2 areas: light blue for Night time and light yellow for Day time. The precise length of these
+            backgrounds is a variable, determined by factors such as time of the year and geographical position.
+          </span>
+        </span>
+        <span style={{display: 'flex', paddingBottom: '1rem', marginBottom: '1rem'}}>
+          <span style={{display: 'block'}}>&#x2022;</span>
+          <span style={{marginLeft: '1rem'}}>
+            <b>Healthy range</b> - an underlay that conveys critical information to users regarding safety thresholds.
+            The background is horizontally split into 3 areas: Safe (light green), Warning (light yellow) and Critical
+            (light red). It can be used in tandem with Reference lines to ensure users understand the meaning of the
+            colors.
+          </span>
+        </span>
+      </span>
+      <span>
+        To customise the design of charts that use underlays, designers will need to detach the component instance and
+        resize these areas manually. In Storybook, this variable can be manipulated with a dedicated control.
+      </span>
+    </span>
+  }
+/>
+<BLCAccordian
+  heading='8. Reference lines'
+  content={
+    <span>
+      <span>
+        Reference lines are guides placed in the Overlays section of components, similarly to the Tooltip. They can add
+        a layer of related information to the chart, or indicate additional values that users should be mindful of when
+        examining the data.
+        <br />
+        <br />
+        Reference lines are available in <b>Horizontal</b> and <b>Vertical</b> versions. The Vertical variant also includes
+        two styles, <b>Chip Label</b> and <b>Text Label</b>.<br />
+        <br />
+        Some examples of using Reference lines in Eaton products include:
+      </span>
+      <br />
+      <br />
+      <span style={{display: 'flex', flexDirection: 'column'}}>
+        <span style={{display: 'flex', paddingBottom: '1rem', marginBottom: '1rem'}}>
+          <span style={{display: 'block'}}>&#x2022;</span>
+          <span style={{display: 'block', marginLeft: '1rem'}}>
+            <b>Limits / thresholds</b> - a Horizontal reference line that indicates preset values such as Safe /
+            Critical / Warning, Minimum or Maximum and others
+          </span>
+        </span>
+        <span style={{display: 'flex', paddingBottom: '1rem', marginBottom: '1rem'}}>
+          <span style={{display: 'block'}}>&#x2022;</span>
+          <span style={{display: 'block', marginLeft: '1rem'}}>
+            <b>Current Time</b> - a Vertical reference lines that moves along the X-Axis as the day goes by, to help
+            users make a distinction between historical and forecast data (also indicated by solid and dashed lines)
+          </span>
+        </span>
+        <span style={{display: 'flex'}}>
+          <span style={{display: 'block'}}>&#x2022;</span>
+          <span style={{display: 'block', marginLeft: '1rem'}}>
+            <b>Average</b> - a Horizontal reference that indicates the average values for data points in the Y-Axis. The
+            average value can be calculated using the time period being displayed on the chart, or an all-time average.
+          </span>
+        </span>
+      </span>
+    </span>
+  }
+/>
+
+## Data granularity
+
+Charts commonly include the option to browse historical data, going back in time or zooming out to display data points 
+spread across a day, a week, a month or a year. This is a high value feature for our end users, as it allows them to 
+identify patterns and obtain additional insights.  
+  
+In Brightlayer UI charts, this process of data wrangling is done through 
+our Data Granularity component, made using icons and components from Brightlayer UI:
+
+<ImageGrid images={[DataGranularity]} regularWidth />
+
+<BLCAccordian
+  heading='1. Previous / Next buttons'
+  content={
+    <span>
+      Clicking these buttons will update the chart to show the corresponding data points for the new date range that has been selected.
+    </span>
+  }
+/>
+<BLCAccordian
+  heading='2. Axis'
+  content={
+    <span>
+      The X-Axis and Y-Axis provide units of measure and a context of proportion to the datasets illustrated in the plot
+      area.
+      <br />
+      <br />
+      Usually, axis are placed in two locations:
+      <br />
+      <span style={{display: 'flex', flexDirection: 'column', marginTop: '1rem'}}>
+        <span style={{display: 'flex', marginBottom: '1rem', paddingBottom: '1rem'}}>
+          <span style={{display: 'block'}}>&#x2022;</span>
+          <span style={{marginLeft: '1rem'}}>
+            Y-Axis is placed vertically on the left or right of the chart and is often used to display sequential values
+            (such as 10kW, 20kW, 30kW).
+          </span>
+        </span>
+        <span style={{display: 'flex', marginBottom: '1rem', paddingBottom: '1rem'}}>
+          <span style={{display: 'block'}}>&#x2022;</span>
+          <span style={{marginLeft: '1rem'}}>
+            X-Axis is placed horizontally below the chart and is often used to display time intervals (such as 08:00,
+            09:00, 10:00).
+          </span>
+        </span>
+      </span>
+      It’s common practice to use abbreviated labels on both axis in order to save space. You can use the first three
+      letters of the word for months and days of the week (such as Mon, Tue, Wed or Jan, Feb, Mar).
+      <br />
+      <br />
+      Avoid using long labels on the Y-Axis, as this will affect the look and functionality of both the chart and the tooltip
+      component.
+      <br />
+      <br />
+      The Brightlayer Charts sticker sheet includes additional unit options, which in Figma are available by selecting
+      the Axis component (within the chart layers) and changing its variant.
+    </span>
+  }
+/>
+<BLCAccordian
+  heading='3. Granularity toggle'
+  content={
+    <span>
+      There are many different ways to use this toggle. In some cases, the chart might change from Line to Bar when
+      users swap from Day to Week / Month / Year. The units and the amount of data points on the X and Y-Axis are also
+      subject to change. All of these options depend on the datasets that are available to use in your charts.
+    </span>
+  }
+/>
+
+## Chart sizes
+
+Our Figma sticker sheet offers each chart in three different sizes.  
+<div style={{paddingTop: '0.5rem'}}></div>
+Picking the appropriate size is important, as it ensures a more seamless integration with dashboards built using components 
+from Brightlayer UI.  
+<div style={{paddingTop: '0.5rem'}}></div>
+The Medium and Small components in the Figma sticker sheet include limited features compared to their Large versions. This 
+is a conscious decision based on our research and user testing: as the chart size shrinks, less space is available to display 
+all the relevant information inside the plot area.  
+<div style={{paddingTop: '0.5rem'}}></div>
+If your product requires additional options for Medium or Small charts, both our Figma and Storybook components can be locally 
+customised by your team.  
+<div style={{paddingTop: '0.5rem'}}></div>
+When choosing the appropriate size of your chart, consider the following:
+
+<div style={{paddingTop: '0.5rem'}}></div>
+**Large - 960 x 600px** To be used on desktop, spanning the full width of available screen space. This is the best
+version if you want to avail of advanced features such as Forecasting and Underlays.
+
+<div style={{paddingTop: '0.5rem'}}></div>
+
+**Medium - 420 x 300px**  
+To be used on desktop or tablet, spanning 4-6 columns of your grid.
+
+<div style={{paddingTop: '0.5rem'}}></div>
+
+**Small - 320 x 200px**  
+To be used on desktop, tablet or mobile, spanning 3 columns of your grid (full width on mobile).
+
+<br />
+<br />
