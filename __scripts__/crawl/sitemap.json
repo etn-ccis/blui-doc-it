@@ -237,6 +237,16 @@
             ]
         },
         {
+            "title": "Visualizations",
+            "url": "/visualizations",
+            "pages": [
+                {
+                    "title": "Foundations",
+                    "url": "/foundations"
+                }
+            ]
+        },
+        {
             "title": "Community",
             "url": "/community",
             "hasLandingPage": true,
