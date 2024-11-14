@@ -9,4 +9,4 @@ export * from './contributors';
 export * from './faq';
 export * from './typography';
 export * from './theme';
-export * from './foundations';
+export * from './visualizations';
