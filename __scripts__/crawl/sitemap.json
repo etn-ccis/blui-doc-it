@@ -243,6 +243,20 @@
                 {
                     "title": "Foundations",
                     "url": "/foundations"
+                },
+                {
+                    "title": "Colors in Data Viz",
+                    "url": "/colors"
+                },
+                {
+                    "title": "Bar Chart",
+                    "url": "/barchart"
+                },{
+                    "title": "Line Chart",
+                    "url": "/linechart"
+                },{
+                    "title": "Pie Chart",
+                    "url": "/piechart"
                 }
             ]
         },
