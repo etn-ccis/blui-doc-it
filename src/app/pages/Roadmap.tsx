@@ -238,7 +238,6 @@ export const Roadmap: React.FC = (): JSX.Element => {
                             <MenuItem value={'all'}>Any Framework</MenuItem>
                             <MenuItem value={'angular'}>Angular</MenuItem>
                             <MenuItem value={'react'}>React</MenuItem>
-                            <MenuItem value={'ionic'}>Ionic</MenuItem>
                             <MenuItem value={'react-native'}>React Native</MenuItem>
                         </Select>
                     )}
