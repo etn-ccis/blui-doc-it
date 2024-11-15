@@ -56,9 +56,9 @@ export const pageDefinitions: SimpleNavItem[] = [
                 ),
             },
             {
-                title: 'Brightlayer UI CLI',
-                url: 'cli',
-                component: <MarkdownPage title={'Brightlayer UI CLI'} markdown={Docs.Development.CLI} />,
+                title: 'Brightlayer UI Templates',
+                url: 'templates',
+                component: <MarkdownPage title={'Brightlayer UI Templates'} markdown={Docs.Development.Templates} />,
             },
             {
                 title: 'Web Frameworks',
@@ -113,14 +113,6 @@ export const pageDefinitions: SimpleNavItem[] = [
                                 title={'Apache Cordova Guide'}
                                 markdown={Docs.Development.MobileFrameworks.Cordova}
                             />
-                        ),
-                    },
-                    {
-                        hidden: true,
-                        title: 'Ionic Guide',
-                        url: 'ionic',
-                        component: (
-                            <MarkdownPage title={'Ionic Guide'} markdown={Docs.Development.MobileFrameworks.Ionic} />
                         ),
                     },
                     {
