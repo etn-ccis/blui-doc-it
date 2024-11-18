@@ -12,7 +12,7 @@ const AccordianStyled = styled(Accordion)`
     display: none;
   }
   .MuiAccordionSummary-content p {
-    color: #0089f2;
+    color: #007BC1;
   }
   .MuiAccordionDetails-root {
     padding-top: 0;
@@ -26,7 +26,7 @@ const AccordianStyled = styled(Accordion)`
     margin: 0;
   }
   & .MuiSvgIcon-root {
-    color: #0088F2;
+    color: #007BC1;
   }
   .MuiAccordionSummary-content p {
     font-weight: 700;

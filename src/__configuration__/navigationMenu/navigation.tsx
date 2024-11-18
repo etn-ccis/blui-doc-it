@@ -350,7 +350,6 @@ export const pageDefinitions: SimpleNavItem[] = [
     {
         title: 'Visualizations',
         url: 'visualizations',
-        component: <MarkdownPage title={'Visualizations'} markdown={Docs.Visualizations.Home} />,
         pages: [
             {
                 title: 'Foundations',

@@ -12,6 +12,7 @@ const Container = styled('div')({
     fontFamily: 'Open Sans',
     fontSize: '20px;',
     fontWeight: '600',
+    margin: '1rem 0 1rem 0',
 });
 
 const ColsWrapper = styled('div')({
@@ -39,13 +40,13 @@ const ItemContainer = styled('div')({
     gap: '8px',
 });
 
-const Circle = styled('div')<{ color: string }>(({ color }) => ({
+const Circle = styled('div')<{ color: string, circlePatch: boolean }>(({ color, circlePatch }) => ({
     width: '16px',
     height: '16px',
     borderRadius: '50%',
     backgroundColor: color,
     marginRight: '8px',
-    backgroundImage: `url(${colorpatch})`,
+    backgroundImage: circlePatch ?`url(${colorpatch})` : 'none',
     backgroundSize: 'cover',
 }));
 
@@ -58,22 +59,19 @@ type Item = {
     label: string;
 };
 
-type BlockLabel = { label: string };
-
 type ColorRowBlockProps = {
     col1: Item[];
     col2: Item[];
-    label: BlockLabel[];
+    hasPatch: boolean[];
 };
 
-export const ColorRowBlock: React.FC<ColorRowBlockProps> = ({ col1, col2, label }) => (
+export const ColorRowBlock: React.FC<ColorRowBlockProps> = ({ col1, col2, hasPatch }) => (
     <Container>
-        <span style={{ display: 'block', width: '200px' }}>{label.toString()}</span>
         <ColsWrapper>
             <Column>
                 {col1.map((item, index) => (
                     <ItemContainer key={index}>
-                        <Circle color={item.color} />
+                        <Circle color={item.color} circlePatch={hasPatch[0]} />
                         <Label>{item.label}</Label>
                     </ItemContainer>
                 ))}
@@ -81,7 +79,7 @@ export const ColorRowBlock: React.FC<ColorRowBlockProps> = ({ col1, col2, label 
             <Column>
                 {col2.map((item, index) => (
                     <ItemContainer key={index}>
-                        <Circle color={item.color} />
+                        <Circle color={item.color} circlePatch={hasPatch[1]} />
                         <Label>{item.label}</Label>
                     </ItemContainer>
                 ))}

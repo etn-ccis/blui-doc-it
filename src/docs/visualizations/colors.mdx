@@ -1,24 +1,27 @@
 import { ColorRowBlock, ImageGrid } from '../../app/components';
 import Consistency from '../../app/assets/visualizations/consistency.png';
-import datarel1 from '../../app/assets/visualizations/datarel1.png';
-import datarel2 from '../../app/assets/visualizations/datarel2.png';
-import infohierarchy1 from '../../app/assets/visualizations/infohierarchy1.png';
-import infohierarchy2 from '../../app/assets/visualizations/infohierarchy2.png';
+import Datarel1 from '../../app/assets/visualizations/datarel1.png';
+import Datarel2 from '../../app/assets/visualizations/datarel2.png';
+import Infohierarchy1 from '../../app/assets/visualizations/infohierarchy1.png';
+import Infohierarchy2 from '../../app/assets/visualizations/infohierarchy2.png';
 
 # Colors in Data Visualization
 
 The colors used in Eaton visualizations are a subset of the Eaton color palette. 
-They are part of the  [Eaton Branding Guidelines](https://eaton.sharepoint.com/sites/CommunicationsBrandCenter), 
+They are part of the [Eaton Branding Guidelines](https://eaton.sharepoint.com/sites/CommunicationsBrandCenter), 
 and all charts added to Eaton interfaces follow the same rules.
 
-## Color Tokens
+### Color Tokens
 
-Our data viz components make use of the color tokens listed in the Brightlayer UI sticker sheet. This allows 
-automatic switching between Light and Dark modes, and ensure your designs are always using standard Eaton 
-palettes. We offer token support to 5 of the 16 Branding colors.
+Our data viz components make use of the color tokens listed in the 
+[Brightlayer UI sticker sheet](https://www.figma.com/design/Nydz8n8HBj6U3ZtULja3gD/%F0%9F%92%AB-Brightlayer-UI-Tokens-%2B-Components-(in-Material-Design-3)?node-id=0-1&node-type=canvas&t=B7pOWyjgMm1qqjda-0). 
+This allows automatic switching between Light and Dark modes, and ensure your designs are always using standard Eaton palettes. We offer token 
+support to 5 of the 16 Branding colors.
 
-**Data Series** - these are the hues from the Branding palette that we recommend using for data viz, for having 
-the best contrast relationships and accessibility scores.
+### Data Series
+
+These are the hues from the Branding palette that we recommend using for data viz, for having the best 
+contrast relationships and accessibility scores.
 
 These tokens are also ordered from 1 to 5, which is the preferred order of use:  
 \- If you need a single color Bar chart, we recommend using Data Series 1.  
@@ -26,10 +29,10 @@ These tokens are also ordered from 1 to 5, which is the preferred order of use:
 
 If you want to use more than 5 hues in a single chart, feel free to use colors from the 
 [Branding palette](https://brightlayer-ui.github.io/style/color#branding-colors) at your discretion. For most 
-cases, we recommend using the 500 values.
+cases, we recommend using the 500 values.  
 
 <ColorRowBlock
-label={'Data Series'}
+hasPatch={[false, false]}
 col1={[
     { color: '#005EB8', label: 'Data Series 1' },
     { color: '#FFC72C', label: 'Data Series 2' },
@@ -46,11 +49,13 @@ col2={[
 ]}
 />
 
-**Axis and Grids** - These are the color tokens used on ancillary elements of charts, such as axis, grids and 
+### Axis and Grids
+
+These are the color tokens used on ancillary elements of charts, such as axis, grids and 
 reference lines.
 
 <ColorRowBlock
-label={'Axis and Grids'}
+hasPatch={[false, true]}
 col1={[
     { color: '#192024', label: 'Axis' },
 ]}
@@ -59,11 +64,13 @@ col2={[
 ]}
 />
 
-**Underlays** - These are the color tokens used on the Underlay component, which conveys additional data insights 
+### Underlays
+
+These are the color tokens used on the Underlay component, which conveys additional data insights 
 by outlining data ranges through the use of color.
 
 <ColorRowBlock
-label={'Underlays'}
+hasPatch={[true, true]}
 col1={[
     { color: '#BA1B1A1A', label: 'Underlay Danger' },
     { color: '#1989001A', label: 'Underlay Healthy' },
@@ -80,7 +87,7 @@ col2={[
 Color has a substantial influence on how quickly and accurately the audience derives meaning from data. When 
 used correctly, color can help communicate the following;
 
-## Consistency
+### Consistency
 
 Using our recommended color palette ensures user experience is consistent across different products and systems. 
 Within a given product or dashboard, ensure that the meaning associated with each color is consistent through all 
@@ -92,28 +99,26 @@ screens.
     caption='The meaning associated with Purple (EV Chargers) stays consistent throughout different charts'
 />
 
-## Data Relationships
+### Data Relationships
 
 Color can be used to communicate the relationship between data. Related data should have similar colors, and unrelated 
 data should have distinct colors.
 
 <ImageGrid
-    images={[datarel1, datarel2]}
+    images={[Datarel1, Datarel2]}
     captionsUnderImages={[
         'Bar charts showing related \n data use a single color',
         'Donut charts use distinct colors for quick understanding'
     ]}
 />
   
-# Information Hierarchy
+### Information Hierarchy
 
 Color can effectively communicate the information hierarchy of data visuals by making the most important information 
 vibrant and eye-catching, and the less important information muted (Gray 200).
 
-
-
 <ImageGrid
-    images={[infohierarchy1, infohierarchy2]}
+    images={[Infohierarchy1, Infohierarchy2]}
     captionsUnderImages={[
         'Line chart using a highlight to guide storytelling and help users focus on most relevant info',
         'Bar chart with a single bar highlighted to represent This Week (past weeks are shown in grey for reference)'
