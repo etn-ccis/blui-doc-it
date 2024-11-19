@@ -9,7 +9,6 @@ const Container = styled('div')({
     alignItems: 'flex-start',
     gap: '8px',
     position: 'relative',
-    //borderBottom: '1px solid rgba(66, 78, 84, 0.12)',    
 });
 
 const StyledLink = styled(Link)({
