@@ -5,29 +5,29 @@ import { SvgIconComponent } from '@mui/icons-material';
 import { Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const StyledIconButton = styled(IconButton)({
-    borderRadius: '4px',
-    border: '1px solid #007BC1',
-    display: 'flex',
-    height: '36px',
-    padding: '0px 16px 0px 12px',
-    marginRight: '1rem',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: '8px',
-    '&:hover': {
-        backgroundColor: '#E0E0E0',
-    },
-});
+const StyledIconButton = styled(IconButton)`
+    border-radius: 4px;
+    border: 1px solid #007BC1;
+    display: flex;
+    height: 36px;
+    padding: 0px 16px 0px 12px;
+    margin-right: 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    &:hover {
+        background-color: #E0E0E0;
+    }
+`;
 
-const StyledTypography = styled(Typography)({
-    color: '#007BC1',
-    fontFamily: 'Open Sans',
-    fontSize: '14px',
-    fontWeight: '600',
-    lineHeight: '14px',
-    paddingBottom: '2px',
-});
+const StyledTypography = styled(Typography)`
+    color: #007BC1;
+    font-family: Open Sans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 14px;
+    padding-bottom: 2px;
+`;
 
 type BLCIconButtonProps = {
     icon: SvgIconComponent;

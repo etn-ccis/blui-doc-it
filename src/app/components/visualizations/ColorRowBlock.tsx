@@ -2,53 +2,52 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import colorpatch from '../../assets/visualizations/colorpatch.png';
 
-const Container = styled('div')({
-    width: '100%',
-    borderRadius: '12px',
-    backgroundColor: '#F7F8F8',
-    padding: '16px',
-    gap: '16px',
-    color: '#192024',
-    fontFamily: 'Open Sans',
-    fontSize: '20px;',
-    fontWeight: '600',
-    margin: '1rem 0 1rem 0',
-});
+const Container = styled('div')`
+    width: 100%;
+    border-radius: 12px;
+    background-color: #F7F8F8;
+    padding: 16px;
+    gap: 16px;
+    color: #192024;
+    font-family: Open Sans;
+    font-weight: 600;
+    margin: 1rem 0 1rem 0
+`;
 
-const ColsWrapper = styled('div')({
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-});
+const ColsWrapper = styled('div')`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+`;
 
-const Column = styled('div')({
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '8px',
-    padding: '16px',
-});
+const Column = styled('div')`
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+`;
 
-const ItemContainer = styled('div')({
-    display: 'flex',
-    alignItems: 'center',
-    width: '240px',
-    color: '#192024',
-    fontFamily: 'Open Sans',
-    fontSize: '14px',
-    fontWeight: '600',
-    padding: '16px',
-    gap: '8px',
-});
+const ItemContainer = styled('div')`
+    display: flex;
+    align-items: center;
+    width: 240px;
+    color: #192024;
+    font-family: Open Sans;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 16px;
+    gap: 8px;
+`;
 
-const Circle = styled('div')<{ color: string, circlePatch: boolean }>(({ color, circlePatch }) => ({
-    width: '16px',
-    height: '16px',
-    borderRadius: '50%',
-    backgroundColor: color,
-    marginRight: '8px',
-    backgroundImage: circlePatch ?`url(${colorpatch})` : 'none',
-    backgroundSize: 'cover',
-}));
+const Circle = styled('div')<{ color: string, circlePatch: boolean }>`
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: ${(props): string => props.color};
+    margin-right: 8px;
+    background-image: ${(props): string => (props.circlePatch ? `url(${colorpatch})` : 'none')};
+    background-size: cover;
+`;
 
 const Label = styled('span')({
     fontSize: '14px',
