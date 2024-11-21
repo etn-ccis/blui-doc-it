@@ -8,12 +8,12 @@ const VariantContainer = styled('div')`
     margin-bottom: 16px;
 `;
 
-const VariantIconContainer = styled('div')`
+const VariantIconContainer = styled('div')<{ noPadding: boolean }>`
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #f7f8f8;
-    padding: 2rem;
+    padding: ${(props): string => (props.noPadding ? '0rem' : '2rem')};
 `;
 
 const VariantTextContainer = styled('div')`
@@ -43,22 +43,33 @@ const VariantDescription = styled('span')`
     line-height: normal;
 `;
 
-const VariantImage = styled('img')`
-    height: 120px;
-    width: 136px;
+const VariantImage = styled('img')<{ height: string; width: string }>`
+    height: ${(props): string => (props.height ? props.height : '120px')};
+    width: ${(props): string => (props.width ? props.width : '136px')};
 `;
 
 type VariantIllustrationProps = {
     iconImage: string;
+    noPadding: boolean;
+    height: string;
+    width: string;
     label: string;
     description: string;
     tags?: string[];
 };
 
-export const VariantIllustration: React.FC<VariantIllustrationProps> = ({ iconImage, label, description, tags }) => (
+export const VariantIllustration: React.FC<VariantIllustrationProps> = ({
+    iconImage,
+    label,
+    description,
+    tags,
+    noPadding,
+    height,
+    width,
+}) => (
     <VariantContainer key={`variant-${label}`}>
-        <VariantIconContainer>
-            <VariantImage src={iconImage} alt="variant icon" />
+        <VariantIconContainer noPadding={noPadding}>
+            <VariantImage src={iconImage} alt="variant icon" height={height} width={width} />
         </VariantIconContainer>
         <VariantTextContainer>
             <VariantLabel>{label}</VariantLabel>

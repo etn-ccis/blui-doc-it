@@ -1,5 +1,25 @@
 import React from 'react';
-import { Divider } from '../../app/components';
+import { Divider, GettingStartedTabs, VariantIllustration } from '../../app/components';
+import Getstarted from '../../app/assets/visualizations/get-started-v2.png';
+import Stickersheet from '../../app/assets/visualizations/stickersheet.png';
+import DesignPatterns from '../../app/assets/visualizations/designpatterns.png';
+import EnvSetup from '../../app/assets/visualizations/envsetup.png';
+import ReactImage from '../../app/assets/visualizations/react.png';
+import ReactNativeImage from '../../app/assets/visualizations/reactnativeimage.png';
+import IconLibImage from '../../app/assets/visualizations/iconlibimage.png';
+import ThemesImage from '../../app/assets/visualizations/themes.png';
+import ColorPallette from '../../app/assets/visualizations/colorpallette.png';
+import Roadmap from '../../app/assets/visualizations/roadmap.png';
+import ReleaseNotes from '../../app/assets/visualizations/releasenotes.png';
+import ContactUs from '../../app/assets/visualizations/contactus.png';
+
+
+import { ReactComponent as TabIconBLC } from '../../app/assets/visualizations/blcicon.svg';
+import { ReactComponent as TabIconDevelop } from '../../app/assets/visualizations/developicon.svg';
+import { ReactComponent as StyleGuideIcon } from '../../app/assets/visualizations/styleguideicon.svg';
+import { ReactComponent as CommunityIcon } from '../../app/assets/visualizations/communityicon.svg';
+
+
 
 {/* KEYWORDS: web mobile new project compare comparison */}
 
@@ -7,13 +27,154 @@ import { Divider } from '../../app/components';
 
 When approaching a potential new project, it can be challenging to know where to start. As a first step, it's helpful to decide if this is going to be a web application, mobile application, or both. Here is a run-down of these different types of applications.
 
-## Web Applications
+### Getting Started
 
-These applications are accessible over the web. They can be accessed from any device with a network connection and a web browser (personal computer, mobile phone). To learn more about what a web application entails, check out our [Web App](/get-started/web) guide.
+<GettingStartedTabs tabs={[
+    {
+        label: 'Design with BLUI',
+        content:
+        <div>
+            <p>Brightlayer UI can speed up and enhance your process by offering style libraries, design patterns and a variety of Figma components that use the Material Design open-source framework. Using Brightlayer UI also ensures that your designs match the Eaton brand and standards.</p>
+            <div style={{display: 'flex', gap: '1rem', marginTop: '1.5rem'}}>
+                <VariantIllustration
+                    noPadding={true}
+                    iconImage={Getstarted}
+                    label='Get started'
+                    description='A dedicated page to introduce you and your teams to the universe of Brightlayer UI.'
+                    height='196px'
+                    width='200px'
+                />
+                <VariantIllustration
+                    noPadding={true}
+                    iconImage={Stickersheet}
+                    label='Figma sticker sheet'
+                    description='Material and Brightlayer UI tokens and components in Figma (Material Design 3).'
+                    height='196px'
+                    width='200px'
+                />
+                <VariantIllustration
+                    noPadding={true}
+                    iconImage={DesignPatterns}
+                    label='Design patterns'
+                    description='Common interactions and designs found in Brightlayer UI applications.'
+                    height='196px'
+                    width='200px'
+                />
+            </div>
+        </div>,
+        icon: TabIconBLC
+    },
+    { 
+        label: 'Develop with BLUI',
+        content:
+        <div>
+            <p>Developers can benefit from Brightlayer UI resources such as a Command-Line Interface (CLI) and component libraries in Angular and React, available as NPM packages. Using Brightlayer UI components ensures that the coded solution looks exactly like the designs, keeping our products in brand.</p>
+            <div style={{display: 'flex', gap: '1rem', marginTop: '1.5rem'}}>
+                <VariantIllustration
+                    noPadding={true}
+                    iconImage={EnvSetup}
+                    label='Environment setup'
+                    description='We walk through the basics of getting your system set up to develop.'
+                    height='196px'
+                    width='200px'
+                />
+                <VariantIllustration
+                    noPadding={true}
+                    iconImage={ReactImage}
+                    label='React'
+                    description='Instructions to guide you through starting a new Brightlayer UI project using React.'
+                    height='196px'
+                    width='200px'
+                />
+                <VariantIllustration
+                    noPadding={true}
+                    iconImage={ReactNativeImage}
+                    label='React Native'
+                    description='Instructions to guide you through starting a new Brightlayer UI project using React Native.'
+                    height='196px'
+                    width='200px'
+                />
+            </div>
+        </div>,
+        icon: TabIconDevelop
+    },
+    {
+        label: 'Style Guide',
+        content:
+        <div>
+            <p>Brightlayer UI has a wide variety of style resources to help ensure consistency across applications and make designing and building them easier.</p>
+            <div style={{display: 'flex', gap: '1rem', marginTop: '1.5rem'}}>
+                <VariantIllustration
+                    noPadding={true}
+                    iconImage={IconLibImage}
+                    label='Icon Library'
+                    description='Browse the library of icons available in Brightlayer UI including Material icons as well as custom ones for Brightlayer UI applications.'
+                    height='196px'
+                    width='200px'
+                />
+                <VariantIllustration
+                    noPadding={true}
+                    iconImage={ThemesImage}
+                    label='Themes'
+                    description='Learn more about Brightlayer UI themes and how they can help you build applications that adhere to our design guidelines.'
+                    height='196px'
+                    width='200px'
+                />
+                <VariantIllustration
+                    noPadding={true}
+                    iconImage={ColorPallette}
+                    label='Color Palette'
+                    description='Browse all of the UI, Status, and Charting colors available from Brightlayer UI and when to use them.'
+                    height='196px'
+                    width='200px'
+                />
+            </div>
+        </div>,
+        icon: StyleGuideIcon
+    },
+    {
+        label: 'Community',
+        content:
+        <div>
+            <p>Brightlayer UI is an open source design system that thrives on having an active and engaged community of maintainers and contributors. Check out the links below to learn more about our team and how you can be a part of the Brightlayer UI community.</p>
+            <div style={{display: 'flex', gap: '1rem', marginTop: '1.5rem'}}>
+                <VariantIllustration
+                    noPadding={true}
+                    iconImage={Roadmap}
+                    label='Roadmap'
+                    description='See what we have planned in the backlog for future versions of Brightlayer UI.'
+                    height='196px'
+                    width='200px'
+                />
+                <VariantIllustration
+                    noPadding={true}
+                    iconImage={ReleaseNotes}
+                    label='Release notes'
+                    description='A complete history of notes for all previous releases of Brightlayer UI.'
+                    height='196px'
+                    width='200px'
+                />
+                <VariantIllustration
+                    noPadding={true}
+                    iconImage={ContactUs}
+                    label='Contact us'
+                    description='Get in touch with our team'
+                    height='196px'
+                    width='200px'
+                />
+            </div>
+        </div>,
+        icon: CommunityIcon
+    },
+  ]}/>
 
-## Mobile Applications
+### Web Applications
 
-Mobile applications are intended to be used strictly on mobile devices (e.g., cell phones, tablets, etc.). These can be downloaded directly to the device (e.g., from the App Store or Google Play) and do not have to be connected to the Internet to run. To learn more about what a mobile application entails, including the difference between native and hybrid apps, check out our [Mobile App](/get-started/mobile) guide.
+These applications are accessible over the web. They can be accessed from any device with a network connection and a web browser (personal computer, mobile phone). To learn more about what a web application entails, check out our [Web App](https://brightlayer-ui.github.io/get-started/web) guide.
+
+### Mobile Applications
+
+Mobile applications are intended to be used strictly on mobile devices (e.g., cell phones, tablets, etc.). These can be downloaded directly to the device (e.g., from the App Store or Google Play) and do not have to be connected to the Internet to run. To learn more about what a mobile application entails, including the difference between native and hybrid apps, check out our [Mobile App](https://brightlayer-ui.github.io/get-started/mobile) guide.
 
 <Divider />
 
@@ -21,13 +182,13 @@ Mobile applications are intended to be used strictly on mobile devices (e.g., ce
 
 With a new project, the nature of the project often determines which type of application you will need.
 
-## This Project is Replacing an Existing Product
+### This Project is Replacing an Existing Product
 
 Think about the existing product and how it is used. Gather feedback from existing users and identify areas for improvement.
 
 In general, you will want to at least provide the same type of application as before (unless user feedback suggests that it's not what they need). If you had a web application before, you may want to build a responsive web application this time. Alternatively, you may want to expand on the existing product by offering a mobile application.
 
-## This is a Brand New Product (never before seen)
+### This is a Brand New Product (never before seen)
 
 Think about how the product will be used. Does it offer features that users will want to access on the go? Is it going to be actively used in the field, or is it something users will more likely use from their desk?
 
