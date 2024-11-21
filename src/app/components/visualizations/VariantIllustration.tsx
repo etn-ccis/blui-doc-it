@@ -1,11 +1,20 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
-const VariantContainer = styled('div')`
+/* const VariantContainer = styled('div')`
     display: flex;
     flex-direction: column;
     align-items: start;
     margin-bottom: 16px;
+`; */
+
+const VariantContainer = styled('div')<{ url?: string }>`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 16px;
+  cursor: ${(props): string => (props.url ? 'pointer' : 'default')};
 `;
 
 const VariantIconContainer = styled('div')<{ noPadding: boolean }>`
@@ -30,11 +39,6 @@ const VariantLabel = styled('span')`
     font-weight: 600;
 `;
 
-const VariantTags = styled('span')`
-    margin-bottom: 5px;
-    color: gray;
-`;
-
 const VariantDescription = styled('span')`
     max-width: 200px;
     color: #0b0e10;
@@ -55,6 +59,7 @@ type VariantIllustrationProps = {
     width: string;
     label: string;
     description: string;
+    url: string;
     tags?: string[];
 };
 
@@ -62,21 +67,34 @@ export const VariantIllustration: React.FC<VariantIllustrationProps> = ({
     iconImage,
     label,
     description,
-    tags,
     noPadding,
     height,
     width,
-}) => (
-    <VariantContainer key={`variant-${label}`}>
-        <VariantIconContainer noPadding={noPadding}>
-            <VariantImage src={iconImage} alt="variant icon" height={height} width={width} />
-        </VariantIconContainer>
-        <VariantTextContainer>
-            <VariantLabel>{label}</VariantLabel>
-            {tags ? <VariantTags>{tags.join(' • ')}</VariantTags> : null}
-            <VariantDescription>{description}</VariantDescription>
-        </VariantTextContainer>
-    </VariantContainer>
-);
+    url,
+}) => {
+    const navigate = useNavigate();
+
+    const handleClick = (): void => {
+        if (url !== undefined) {
+            if (url.startsWith('http://') || url.startsWith('https://')) {
+                window.open(url, '_blank');
+            } else {
+                navigate(url);
+            }
+        }
+    };
+
+    return (
+        <VariantContainer key={`variant-${label}`} onClick={handleClick} url={url}>
+            <VariantIconContainer noPadding={noPadding}>
+                <VariantImage src={iconImage} alt="variant icon" height={height} width={width} />
+            </VariantIconContainer>
+            <VariantTextContainer>
+                <VariantLabel>{label}</VariantLabel>
+                <VariantDescription>{description}</VariantDescription>
+            </VariantTextContainer>
+        </VariantContainer>
+    );
+};
 
 export default VariantIllustration;
