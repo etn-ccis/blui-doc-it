@@ -125,6 +125,6 @@ p.MuiTypography-h5.MuiTypography-paragraph {
 img[src*="foundations-chart"],
 img[src*="datagranularity"],
 img[src*="barcharts-component"],
-img[src*="linechartcomponent"] { 
+img[src*="line-chart-component"] { 
     border: none;
 }
