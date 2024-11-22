@@ -5,7 +5,7 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { styled, useTheme } from '@mui/material/styles';
 
-const TabText = styled('p')`
+const TabText = styled('span')`
     color: #1D2529;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: "Open Sans";
@@ -15,6 +15,7 @@ const TabText = styled('p')`
     line-height: 28px;
     max-height: 463px;
     min-height: 463px;
+    display: block;
 `;
 
 const StyledMainBox = styled(Box)`
@@ -25,6 +26,7 @@ const StyledPanelBox = styled(Box)`
     padding: 1.5rem;
     background: #fbfbfb;
     border-radius: 0px 0px 8px 8px;
+    padding-top: 2.5rem;
 `;
 
 const StyledTab = styled(Tab)<{ color: string }>`

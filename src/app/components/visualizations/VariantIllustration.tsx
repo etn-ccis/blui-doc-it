@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 
-const VariantContainer = styled('div')<{ url?: string }>`
+const VariantContainer = styled('span')<{ url?: string }>`
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -10,7 +10,7 @@ const VariantContainer = styled('div')<{ url?: string }>`
   cursor: ${(props): string => (props.url ? 'pointer' : 'default')};
 `;
 
-const VariantIconContainer = styled('div')<{ noPadding: boolean }>`
+const VariantIconContainer = styled('span')<{ noPadding: boolean }>`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@ const VariantIconContainer = styled('div')<{ noPadding: boolean }>`
     padding: ${(props): string => (props.noPadding ? '0rem' : '2rem')};
 `;
 
-const VariantTextContainer = styled('div')`
+const VariantTextContainer = styled('span')`
     display: flex;
     flex-direction: column;
     align-items: start;
