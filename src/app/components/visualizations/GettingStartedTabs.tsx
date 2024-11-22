@@ -30,16 +30,16 @@ const StyledPanelBox = styled(Box)`
 `;
 
 const StyledTab = styled(Tab)<{ color: string }>`
-  background-color: #eef0f0 !important;
+  background-color: #eef0f0;
   display: flex;
   padding: 18px 18px;
   border-radius: 8px 8px 0px 0px;
 
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  color: #424E54 !important;
+  font-size: 14px;
+  font-weight: 600;
+  color: #424E54;
   font-family: 'Open Sans !important', sans-serif !important;
-  text-transform: none !important;
+  text-transform: none;
   max-width: 169px;
   min-width: 169px;
 
@@ -48,9 +48,8 @@ const StyledTab = styled(Tab)<{ color: string }>`
   }
 
   &.Mui-selected {
-    background: #fbfbfb !important;
-    color: ${(props): string => props.color} !important;
-    font-weight: 600 !important;
+    background: #fbfbfb;
+    color: ${(props): string => props.color};
   }
 `;
 
