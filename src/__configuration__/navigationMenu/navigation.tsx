@@ -277,11 +277,6 @@ export const pageDefinitions: SimpleNavItem[] = [
                 url: 'user-auth',
                 component: <MarkdownPage title={'User Authentication'} markdown={Docs.Patterns.UserAuth} />,
             },
-            {
-                title: 'Visualizations',
-                url: 'visualizations',
-                component: <MarkdownPage title={'Visualizations'} markdown={Docs.Patterns.Visualizations} />,
-            },
         ],
     },
     {

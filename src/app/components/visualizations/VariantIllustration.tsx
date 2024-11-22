@@ -2,13 +2,6 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 
-/* const VariantContainer = styled('div')`
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    margin-bottom: 16px;
-`; */
-
 const VariantContainer = styled('div')<{ url?: string }>`
   display: flex;
   flex-direction: column;

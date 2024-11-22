@@ -183,10 +183,6 @@
                 {
                     "title": "User Authentication",
                     "url": "/user-auth"
-                },
-                {
-                    "title": "Visualizations",
-                    "url": "/visualizations"
                 }
             ]
         },

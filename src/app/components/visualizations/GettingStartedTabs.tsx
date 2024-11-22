@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 
 const TabText = styled('p')`
     color: #1D2529;
@@ -27,29 +27,29 @@ const StyledPanelBox = styled(Box)`
     border-radius: 0px 0px 8px 8px;
 `;
 
-const StyledTab = styled(Tab)`
-    background-color: #eef0f0 !important;
-    display: flex;
-    padding: 18px 18px;
-    border-radius: 8px 8px 0px 0px;
-    border: none;
-    font-size: 14px !important;
+const StyledTab = styled(Tab)<{ color: string }>`
+  background-color: #eef0f0 !important;
+  display: flex;
+  padding: 18px 18px;
+  border-radius: 8px 8px 0px 0px;
+
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #424E54 !important;
+  font-family: 'Open Sans !important', sans-serif !important;
+  text-transform: none !important;
+  max-width: 169px;
+  min-width: 169px;
+
+  &:not(:last-child) {
+    margin-right: 4px;
+  }
+
+  &.Mui-selected {
+    background: #fbfbfb !important;
+    color: ${(props): string => props.color} !important;
     font-weight: 600 !important;
-    color: #424e54 !important;
-    font-family: 'Open Sans !important', sans-serif !important;
-    text-transform: none !important;
-    max-width: 169px;
-    min-width: 169px;
-
-    &:not(:last-child) {
-        margin-right: 4px;
-    }
-
-    &.Mui-selected {
-        background: #fbfbfb !important;
-        color: #007bc1 !important;
-        font-weight: 600 !important;
-    }
+  }
 `;
 
 type TabPanelProps = {
@@ -95,7 +95,9 @@ type GettingStartedTabsProps = {
 
 export const GettingStartedTabs: React.FC<GettingStartedTabsProps> = ({ tabs }) => {
     const [value, setValue] = useState(0);
-    const selectedColor = '#007BC1';
+    const theme = useTheme();
+
+    const selectedColor = theme.palette.primary.main;
     const TabIcon1 = tabs[0].icon;
     const TabIcon2 = tabs[1].icon;
     const TabIcon3 = tabs[2].icon;
@@ -127,21 +129,25 @@ export const GettingStartedTabs: React.FC<GettingStartedTabsProps> = ({ tabs }) 
                         icon={<TabIcon1 fill={getTabColor(value, 0)} />}
                         label={tabs[0].label}
                         {...a11yProps(0)}
+                        color={getTabColor(value, 0)}
                     />
                     <StyledTab
                         icon={<TabIcon2 fill={getTabColor(value, 1)} />}
                         label={tabs[1].label}
                         {...a11yProps(1)}
+                        color={getTabColor(value, 1)}
                     />
                     <StyledTab
                         icon={<TabIcon3 fill={getTabColor(value, 2)} />}
                         label={tabs[2].label}
                         {...a11yProps(2)}
+                        color={getTabColor(value, 2)}
                     />
                     <StyledTab
                         icon={<TabIcon4 fill={getTabColor(value, 3)} />}
                         label={tabs[3].label}
                         {...a11yProps(3)}
+                        color={getTabColor(value, 3)}
                     />
                 </Tabs>
             </Box>

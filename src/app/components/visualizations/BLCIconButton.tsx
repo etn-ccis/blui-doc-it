@@ -1,13 +1,13 @@
 import React from 'react';
 import IconButton from '@mui/material/IconButton';
-import { styled } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import { SvgIconComponent } from '@mui/icons-material';
 import { Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const StyledIconButton = styled(IconButton)`
+const StyledIconButton = styled(IconButton)<{ borderColor: string }>`
     border-radius: 4px;
-    border: 1px solid #007BC1;
+    border: 1px solid ${(props): string => props.borderColor};
     display: flex;
     height: 36px;
     padding: 0px 16px 0px 12px;
@@ -20,8 +20,8 @@ const StyledIconButton = styled(IconButton)`
     }
 `;
 
-const StyledTypography = styled(Typography)`
-    color: #007BC1;
+const StyledTypography = styled(Typography)<{ color: string }>`
+    color: ${(props): string => props.color};
     font-family: Open Sans;
     font-size: 14px;
     font-weight: 600;
@@ -36,8 +36,10 @@ type BLCIconButtonProps = {
 };
 
 export const BLCIconButton: React.FC<BLCIconButtonProps> = ({ icon: icon, url, label }) => {
-    let IconComp;
+    const theme = useTheme();
+    const primaryColor = theme.palette.primary.main;
     const navigate = useNavigate();
+    let IconComp;
     if (icon) IconComp = icon;
 
     const handleClick = (): void => {
@@ -49,9 +51,9 @@ export const BLCIconButton: React.FC<BLCIconButtonProps> = ({ icon: icon, url, l
     };
     return (
         <div style={{ display: 'inline-block' }}>
-            <StyledIconButton onClick={handleClick}>
-                {IconComp ? <IconComp /> : ''}
-                <StyledTypography>{label}</StyledTypography>
+            <StyledIconButton onClick={handleClick} borderColor={primaryColor}>
+                {IconComp ? <IconComp fill={primaryColor} /> : ''}
+                <StyledTypography color={primaryColor}>{label}</StyledTypography>
             </StyledIconButton>
         </div>
     );
