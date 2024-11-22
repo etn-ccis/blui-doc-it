@@ -13,7 +13,6 @@ import Steppers from './steppers.mdx';
 import Tables from './tables.mdx';
 import Tags from './tags.mdx';
 import UserAuth from './user-auth.mdx';
-import Visualizations from './visualizations.mdx';
 import Home from './home.mdx';
 
 export {
@@ -33,5 +32,4 @@ export {
     Steppers,
     Tables,
     Tags,
-    Visualizations,
 };
