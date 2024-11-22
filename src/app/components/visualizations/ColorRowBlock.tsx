@@ -5,13 +5,13 @@ import colorpatch from '../../assets/visualizations/colorpatch.png';
 const Container = styled('div')`
     width: 100%;
     border-radius: 12px;
-    background-color: #F7F8F8;
+    background-color: #f7f8f8;
     padding: 16px;
     gap: 16px;
     color: #192024;
     font-family: Open Sans;
     font-weight: 600;
-    margin: 1rem 0 1rem 0
+    margin: 1rem 0 1rem 0;
 `;
 
 const ColsWrapper = styled('div')`
@@ -39,7 +39,7 @@ const ItemContainer = styled('div')`
     gap: 8px;
 `;
 
-const Circle = styled('div')<{ color: string, circlePatch: boolean }>`
+const Circle = styled('div')<{ color: string; circlePatch: boolean }>`
     width: 16px;
     height: 16px;
     border-radius: 50%;

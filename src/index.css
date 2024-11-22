@@ -122,10 +122,10 @@ p.MuiTypography-h5.MuiTypography-paragraph {
 }
 
 /* Remove border from ImageGrid for BrightlayerCharts integration images*/
-img[src*="foundations-chart"],
-img[src*="datagranularity"],
-img[src*="barcharts-component"],
-img[src*="line-chart-component"],
-img[src*="piechart-component"] { 
+img[src*='foundations-chart'],
+img[src*='datagranularity'],
+img[src*='barcharts-component'],
+img[src*='line-chart-component'],
+img[src*='piechart-component'] {
     border: none;
 }

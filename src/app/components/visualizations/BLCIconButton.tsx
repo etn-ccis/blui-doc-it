@@ -16,7 +16,7 @@ const StyledIconButton = styled(IconButton)<{ bordercolor: string }>`
     align-items: center;
     gap: 8px;
     &:hover {
-        background-color: #E0E0E0;
+        background-color: #e0e0e0;
     }
 `;
 

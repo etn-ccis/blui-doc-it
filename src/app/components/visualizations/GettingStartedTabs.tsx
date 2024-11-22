@@ -6,9 +6,9 @@ import Box from '@mui/material/Box';
 import { styled, useTheme } from '@mui/material/styles';
 
 const TabText = styled('span')`
-    color: #1D2529;
+    color: #1d2529;
     font-feature-settings: 'liga' off, 'clig' off;
-    font-family: "Open Sans";
+    font-family: 'Open Sans';
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -30,27 +30,27 @@ const StyledPanelBox = styled(Box)`
 `;
 
 const StyledTab = styled(Tab)<{ color: string }>`
-  background-color: #eef0f0;
-  display: flex;
-  padding: 18px 18px;
-  border-radius: 8px 8px 0px 0px;
+    background-color: #eef0f0;
+    display: flex;
+    padding: 18px 18px;
+    border-radius: 8px 8px 0px 0px;
 
-  font-size: 14px;
-  font-weight: 600;
-  color: #424E54;
-  font-family: 'Open Sans !important', sans-serif !important;
-  text-transform: none;
-  max-width: 169px;
-  min-width: 169px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #424e54;
+    font-family: 'Open Sans !important', sans-serif !important;
+    text-transform: none;
+    max-width: 169px;
+    min-width: 169px;
 
-  &:not(:last-child) {
-    margin-right: 4px;
-  }
+    &:not(:last-child) {
+        margin-right: 4px;
+    }
 
-  &.Mui-selected {
-    background: #fbfbfb;
-    color: ${(props): string => props.color};
-  }
+    &.Mui-selected {
+        background: #fbfbfb;
+        color: ${(props): string => props.color};
+    }
 `;
 
 type TabPanelProps = {

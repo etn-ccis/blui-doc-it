@@ -3,11 +3,11 @@ import { styled } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 
 const VariantContainer = styled('span')<{ url?: string }>`
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  margin-bottom: 16px;
-  cursor: ${(props): string => (props.url ? 'pointer' : 'default')};
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 16px;
+    cursor: ${(props): string => (props.url ? 'pointer' : 'default')};
 `;
 
 const VariantIconContainer = styled('span')`

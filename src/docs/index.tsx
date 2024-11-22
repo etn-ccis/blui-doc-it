@@ -25,5 +25,5 @@ export {
     Design,
     Resources,
     Workflows,
-    Visualizations
+    Visualizations,
 };
