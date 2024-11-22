@@ -1,1 +1,155 @@
+import { ImageGrid, BLCIconButton, VariantIllustration } from '../../app/components';
+import { ReactComponent as BLCIcon } from '../../app/assets/visualizations/icons/blc-button-icon.svg';
+import { ReactComponent as CodeIcon } from '../../app/assets/visualizations/icons/codeicon.svg';
+
+import PiechartComponentImage from '../../app/assets/visualizations/piechart/piechart-component.png';
+import LayoutPie from '../../app/assets/visualizations/piechart/pie-layout-pie.png';
+import layoutDonut from '../../app/assets/visualizations/piechart/pie-layout-donut.png';
+import layoutGauge from '../../app/assets/visualizations/piechart/pie-layout-gauge.png';
+import DonutLayoutDo from '../../app/assets/visualizations/piechart/donut-layout-do.png';
+import DonutLayoutDont from '../../app/assets/visualizations/piechart/donut-layout-dont.png';
+import GaugeOverallHealth from '../../app/assets/visualizations/piechart/gauge-overall-health.png';
+import GaugeWarrantyDates from '../../app/assets/visualizations/piechart/gauge-warranty-dates.png';
+import LimitCategories from '../../app/assets/visualizations/piechart/limit-categories.png';
+import CrowdedPiechart from '../../app/assets/visualizations/piechart/crowded-piechart.png';
+import DescendingOrder from '../../app/assets/visualizations/piechart/descending-order.png';
+import RandomOrder from '../../app/assets/visualizations/piechart/random-order.png';
+import RelatedBar from '../../app/assets/visualizations/related-bar.png';
+import RelatedLine from '../../app/assets/visualizations/relatedline.png';
+
 # Piecharts
+
+Pie charts are used for comparing relationships between parts of a whole. The area of a circle is split into slices, each corresponding to a dataset category.
+
+### Component
+
+<ImageGrid
+    images={[PiechartComponentImage]}
+    regularWidth
+/>
+
+<BLCIconButton
+    icon={BLCIcon}
+    label={'View in Figma sticker sheet'}
+    url={'https://www.figma.com/design/Nydz8n8HBj6U3ZtULja3gD/%F0%9F%92%AB-Brightlayer-UI-Tokens-%2B-Components-(in-Material-Design-3)?m=auto&node-id=3910-27353&t=7xCaD2dDxjGnBtV6-1'}
+/>
+
+### When to use
+
+Pie charts work well for satisfying the following user needs, among others:
+
+- Displaying different parts within a data category, such as energy sources (e.g. 60% Wind, 20% Solar, 20% Natural Gas);
+
+- Demonstrating how a budget is split;
+
+- Showing how partial values add up to a total.
+
+### Layout options
+
+Pie charts are commonly presented in the following layouts:
+
+<div 
+    style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        maxWidth: '43rem',
+        gap: '40px',
+        marginTop: '2rem'
+    }}
+>
+  <VariantIllustration
+    iconImage={LayoutPie}
+    label='Pie'
+    description='Standard option showing parts of a whole split into slices'
+  />
+  <VariantIllustration
+    iconImage={layoutDonut}
+    label='Donut'
+    description='More accurate display and understanding of slice proportions'
+  />
+  <VariantIllustration
+    iconImage={layoutGauge}
+    label='Gauge'
+    description='Measure quality values and to count down to key dates e.g. warranty.'
+  />
+</div>
+
+### Best practices
+
+<p style={{fontSize: '20px',fontWeight: 'bold',}}>How to use the Donut layout</p>
+
+Donut charts are very similar to Pie charts but their central section is removed. That effect enhances the user's perception of proportion, helping the audience better judge the size of each slice. For tips on using the extra space available, see Gauges below.
+
+<ImageGrid
+    images={[DonutLayoutDo, DonutLayoutDont]}
+    captionsUnderImages={[
+        'DO:Removing the centre section improves readability',
+        'DONT:Avoid multi-level donut charts for a general audience. Keep it to specialised users only'
+    ]}
+/>
+
+<p style={{fontSize: '20px',fontWeight: 'bold',}}>How to use the Gauge layout</p>
+
+Gauges are a variation of Donut charts, in which a qualitative value is displayed in the empty center of the chart. Adding a gauge to a scorecard is a known visual pattern, commonly used in dashboards to help users quickly assess quality or deadlines.
+
+<ImageGrid
+    images={[GaugeOverallHealth, GaugeWarrantyDates]}
+    captionsUnderImages={[
+        'DO:A gauge can reflect a score attributed to a system’s overall health',
+        'DO:Use it to bring awareness to key warranty dates or lifecycle for parts'
+    ]}
+/>
+
+<p style={{fontSize: '20px',fontWeight: 'bold',}}>Keep categories at a minimum</p>
+
+Research has shown that users find it hard to derive meaning from pie charts containing more than four categories. If you have more than four categories within your dataset, consider using [Bar charts](/visualizations/barcharts).
+
+<ImageGrid
+    images={[LimitCategories, CrowdedPiechart]}
+    captionsUnderImages={[
+        'DO:Limit categories for visual cleanliness and easy reading',
+        'DONT:Crowded pie charts are difficult to read, even when a tooltip is present'
+    ]}
+/>
+
+<p style={{fontSize: '20px',fontWeight: 'bold',}}>Display your data in descending order</p>
+
+Ranking the categories in descending order, starting at the 12 o'clock point can help your users to better visualise the relationship between the data.
+
+<ImageGrid
+    images={[DescendingOrder, RandomOrder]}
+    captionsUnderImages={[
+        'DO:Slices start at 12, get progressively smaller clockwise',
+        'DONT:Avoid using random angles for slices'
+    ]}
+/>
+
+### Additional resources
+
+For more in-depth information on how to design bar charts for Eaton, please refer to:
+
+<BLCIconButton
+    label={'Foundations'}
+    url={'/visualizations/foundations'}
+/>
+<BLCIconButton
+    label={'Colors In Data Viz'}
+    url={'/visualizations/colors'}
+/>
+
+### Related Components
+
+<div style={{display: 'flex', gap: '3.5rem'}}>
+    <VariantIllustration
+        iconImage={RelatedLine}
+        label='Line Chart'
+        description='Observe trends and track changes over time'
+        url='/visualizations/linecharts'
+    />
+    <VariantIllustration
+        iconImage={RelatedBar}
+        label='Bar Chart'
+        description='Compare values within a data category'
+        url='/visualizations/barcharts'
+    />
+</div>

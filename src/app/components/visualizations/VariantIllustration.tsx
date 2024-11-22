@@ -10,12 +10,12 @@ const VariantContainer = styled('span')<{ url?: string }>`
   cursor: ${(props): string => (props.url ? 'pointer' : 'default')};
 `;
 
-const VariantIconContainer = styled('span')<{ noPadding: boolean }>`
+const VariantIconContainer = styled('span')`
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #f7f8f8;
-    padding: ${(props): string => (props.noPadding ? '0rem' : '2rem')};
+    padding: none;
 `;
 
 const VariantTextContainer = styled('span')`
@@ -41,13 +41,12 @@ const VariantDescription = styled('span')`
 `;
 
 const VariantImage = styled('img')<{ height: string; width: string }>`
-    height: ${(props): string => (props.height ? props.height : '120px')};
-    width: ${(props): string => (props.width ? props.width : '136px')};
+    height: ${(props): string => (props.height ? props.height : '184px')};
+    width: ${(props): string => (props.width ? props.width : '200px')};
 `;
 
 type VariantIllustrationProps = {
     iconImage: string;
-    noPadding: boolean;
     height: string;
     width: string;
     label: string;
@@ -60,7 +59,6 @@ export const VariantIllustration: React.FC<VariantIllustrationProps> = ({
     iconImage,
     label,
     description,
-    noPadding,
     height,
     width,
     url,
@@ -79,7 +77,7 @@ export const VariantIllustration: React.FC<VariantIllustrationProps> = ({
 
     return (
         <VariantContainer key={`variant-${label}`} onClick={handleClick} url={url}>
-            <VariantIconContainer noPadding={noPadding}>
+            <VariantIconContainer>
                 <VariantImage src={iconImage} alt="variant icon" height={height} width={width} />
             </VariantIconContainer>
             <VariantTextContainer>

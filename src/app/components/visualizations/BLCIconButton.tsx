@@ -5,9 +5,9 @@ import { SvgIconComponent } from '@mui/icons-material';
 import { Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const StyledIconButton = styled(IconButton)<{ borderColor: string }>`
+const StyledIconButton = styled(IconButton)<{ bordercolor: string }>`
     border-radius: 4px;
-    border: 1px solid ${(props): string => props.borderColor};
+    border: 1px solid ${(props): string => props.bordercolor};
     display: flex;
     height: 36px;
     padding: 0px 16px 0px 12px;
@@ -51,7 +51,7 @@ export const BLCIconButton: React.FC<BLCIconButtonProps> = ({ icon: icon, url, l
     };
     return (
         <div style={{ display: 'inline-block' }}>
-            <StyledIconButton onClick={handleClick} borderColor={primaryColor}>
+            <StyledIconButton onClick={handleClick} bordercolor={primaryColor}>
                 {IconComp ? <IconComp fill={primaryColor} /> : ''}
                 <StyledTypography color={primaryColor}>{label}</StyledTypography>
             </StyledIconButton>
