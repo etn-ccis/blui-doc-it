@@ -35,12 +35,11 @@ type BLCIconButtonProps = {
     label: string;
 };
 
-export const BLCIconButton: React.FC<BLCIconButtonProps> = ({ icon: icon, url, label }) => {
+export const BLCIconButton: React.FC<BLCIconButtonProps> = ({ icon, url, label }) => {
     const theme = useTheme();
     const primaryColor = theme.palette.primary.main;
     const navigate = useNavigate();
-    let IconComp;
-    if (icon) IconComp = icon;
+    const IconComp = icon;
 
     const handleClick = (): void => {
         if (url.startsWith('http://') || url.startsWith('https://')) {
@@ -52,7 +51,7 @@ export const BLCIconButton: React.FC<BLCIconButtonProps> = ({ icon: icon, url, l
     return (
         <div style={{ display: 'inline-block' }}>
             <StyledIconButton onClick={handleClick} bordercolor={primaryColor}>
-                {IconComp ? <IconComp fill={primaryColor} /> : ''}
+                {IconComp && <IconComp fill={primaryColor} />}
                 <StyledTypography color={primaryColor}>{label}</StyledTypography>
             </StyledIconButton>
         </div>

@@ -99,19 +99,12 @@ export const GettingStartedTabs: React.FC<GettingStartedTabsProps> = ({ tabs }) 
     const theme = useTheme();
 
     const selectedColor = theme.palette.primary.main;
-    const TabIcon1 = tabs[0].icon;
-    const TabIcon2 = tabs[1].icon;
-    const TabIcon3 = tabs[2].icon;
-    const TabIcon4 = tabs[3].icon;
 
     const handleChange = (event: React.SyntheticEvent, newValue: number): void => {
         setValue(newValue);
     };
 
-    const getTabColor = (tabValue: number, tab: number): string => {
-        const color = tabValue === tab ? selectedColor : '#424E54';
-        return color;
-    };
+    const getTabColor = (tabValue: number, tab: number): string => (tabValue === tab ? selectedColor : '#424E54');
 
     return (
         <StyledMainBox>
@@ -124,46 +117,27 @@ export const GettingStartedTabs: React.FC<GettingStartedTabsProps> = ({ tabs }) 
                     }}
                     value={value}
                     onChange={handleChange}
-                    aria-label="basic tabs example"
+                    aria-label="blui tabs"
                 >
-                    <StyledTab
-                        icon={<TabIcon1 fill={getTabColor(value, 0)} />}
-                        label={tabs[0].label}
-                        {...a11yProps(0)}
-                        color={getTabColor(value, 0)}
-                    />
-                    <StyledTab
-                        icon={<TabIcon2 fill={getTabColor(value, 1)} />}
-                        label={tabs[1].label}
-                        {...a11yProps(1)}
-                        color={getTabColor(value, 1)}
-                    />
-                    <StyledTab
-                        icon={<TabIcon3 fill={getTabColor(value, 2)} />}
-                        label={tabs[2].label}
-                        {...a11yProps(2)}
-                        color={getTabColor(value, 2)}
-                    />
-                    <StyledTab
-                        icon={<TabIcon4 fill={getTabColor(value, 3)} />}
-                        label={tabs[3].label}
-                        {...a11yProps(3)}
-                        color={getTabColor(value, 3)}
-                    />
+                    {tabs.map((tab, index) => {
+                        const Icon = tab.icon;
+                        return (
+                            <StyledTab
+                                key={index}
+                                icon={<Icon style={{ fill: getTabColor(value, index) }} />}
+                                label={tab.label}
+                                {...a11yProps(index)}
+                                color={getTabColor(value, index)}
+                            />
+                        );
+                    })}
                 </Tabs>
             </Box>
-            <TabPanel value={value} index={0}>
-                <TabText>{tabs[0].content}</TabText>
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-                <TabText>{tabs[1].content}</TabText>
-            </TabPanel>
-            <TabPanel value={value} index={2}>
-                <TabText>{tabs[2].content}</TabText>
-            </TabPanel>
-            <TabPanel value={value} index={3}>
-                <TabText>{tabs[3].content}</TabText>
-            </TabPanel>
+            {tabs.map((tab, index) => (
+                <TabPanel value={value} index={index} key={index}>
+                    <TabText>{tab.content}</TabText>
+                </TabPanel>
+            ))}
         </StyledMainBox>
     );
 };
