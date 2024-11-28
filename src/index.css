@@ -120,3 +120,12 @@ p.MuiTypography-h5.MuiTypography-paragraph {
     height: 100% !important;
     width: 100% !important;
 }
+
+/* Remove border from ImageGrid for BrightlayerCharts integration images*/
+img[src*='foundations-chart'],
+img[src*='datagranularity'],
+img[src*='barcharts-component'],
+img[src*='line-chart-component'],
+img[src*='piechart-component'] {
+    border: none;
+}

@@ -269,11 +269,6 @@ export const pageDefinitions: SimpleNavItem[] = [
                 url: 'user-auth',
                 component: <MarkdownPage title={'User Authentication'} markdown={Docs.Patterns.UserAuth} />,
             },
-            {
-                title: 'Visualizations',
-                url: 'visualizations',
-                component: <MarkdownPage title={'Visualizations'} markdown={Docs.Patterns.Visualizations} />,
-            },
         ],
     },
     {
@@ -336,6 +331,37 @@ export const pageDefinitions: SimpleNavItem[] = [
                 title: 'Typography',
                 url: 'typography',
                 component: <MarkdownPage title={'Typography'} markdown={Docs.Style.Typography} />,
+            },
+        ],
+    },
+    {
+        title: 'Visualizations',
+        url: 'visualizations',
+        pages: [
+            {
+                title: 'Foundations',
+                url: 'foundations',
+                component: <MarkdownPage title={'Foundations'} markdown={Docs.Visualizations.Foundations} />,
+            },
+            {
+                title: 'Colors in Data Viz',
+                url: 'colors',
+                component: <MarkdownPage title={'Colors'} markdown={Docs.Visualizations.Colors} />,
+            },
+            {
+                title: 'Bar Charts',
+                url: 'barcharts',
+                component: <MarkdownPage title={'Bar Charts'} markdown={Docs.Visualizations.Barcharts} />,
+            },
+            {
+                title: 'Line Charts',
+                url: 'linecharts',
+                component: <MarkdownPage title={'Line Charts'} markdown={Docs.Visualizations.Linecharts} />,
+            },
+            {
+                title: 'Pie Charts',
+                url: 'piecharts',
+                component: <MarkdownPage title={'Pie Charts'} markdown={Docs.Visualizations.Piecharts} />,
             },
         ],
     },

@@ -1,0 +1,150 @@
+import { ImageGrid, BLCIconButton, VariantIllustration } from '../../app/components';
+import BarchartsComponent from '../../app/assets/visualizations/barchart/barcharts-component.png';
+import Verticalbar from '../../app/assets/visualizations/barchart/verticalbar.png';
+import Horizontalbar from '../../app/assets/visualizations/barchart/horizontalbar.png';
+import Stackedbar from '../../app/assets/visualizations/barchart/stackedbar.png';
+import Pairedbar from '../../app/assets/visualizations/barchart/pairedbar.png';
+import ZeroXBar from '../../app/assets/visualizations/barchart/zero-x-bar.png';
+import NoZeroXBar from '../../app/assets/visualizations/barchart/no-zero-x-bar.png';
+import Straightbars from '../../app/assets/visualizations/barchart/straightbars.png';
+import Rounderbars from '../../app/assets/visualizations/barchart/rounderbars.png';
+import Orderedbars from '../../app/assets/visualizations/barchart/orderedbars.png';
+import Unorderedbars from '../../app/assets/visualizations/barchart/unorderedbars.png';
+import RelatedLine from '../../app/assets/visualizations/relatedline.png';
+import RelatedPie from '../../app/assets/visualizations/related-pie.png';
+import { ReactComponent as BLCIcon } from '../../app/assets/visualizations/icons/blc-button-icon.svg';
+import { ReactComponent as CodeIcon } from '../../app/assets/visualizations/icons/codeicon.svg';
+
+# Bar Charts
+
+Bar charts are used to categorize and compare datasets. Colors are used to represent 
+different categories, while size is used to represent the category values.
+
+## Component
+
+<ImageGrid
+    images={[BarchartsComponent]}
+    regularWidth
+/>
+
+<BLCIconButton
+    icon={BLCIcon}
+    label={'View in Figma sticker sheet'}
+    url={'https://www.figma.com/design/Nydz8n8HBj6U3ZtULja3gD/%F0%9F%92%AB-Brightlayer-UI-Tokens-%2B-Components-(in-Material-Design-3)?m=auto&node-id=3910-27353&t=7xCaD2dDxjGnBtV6-1'}
+/>
+
+## When to use
+
+Bar charts work well for satisfying the following user needs, among others:
+
+- Absorb dense / complex content, such as financial figures or data from sensors;
+- Comparing different states of the same data, such as energy consumption across time;
+- Identifying part-to-whole relationships, such as budget allocation;
+- Observing trends over time;
+- Ranking items based on quantity.
+
+Data is grouped into categories and assigned a bar. The bars can be displayed vertically or horizontally. The numeric value of each category determines the length of each bar.
+
+## Layout options
+
+Bar charts are commonly presented in the following layouts:
+
+<div 
+    style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        maxWidth: '43rem',
+        gap: '40px',
+        marginTop: '2rem'
+    }}
+>
+  <VariantIllustration
+    iconImage={Verticalbar}
+    label='Vertical'
+    description='Standard option for comparing size/magnitude'
+
+  />
+  <VariantIllustration
+    iconImage={Horizontalbar}
+    label='Horizontal'
+    description='Useful for ranking and displaying data with long category labels'
+  />
+  <VariantIllustration
+    iconImage={Stackedbar}
+    label='Stacked'
+    description='Useful for groups of part-to-whole data'
+  />
+  <VariantIllustration
+    iconImage={Pairedbar}
+    label='Paired'
+    description='Useful for comparing categories of paired data'
+  />
+</div>
+
+## Best practices
+
+<p style={{fontSize: '20px',fontWeight: 'bold',}}>Start with a baseline of zero</p>
+
+To facilitate analysis, the X-axis on bar charts should always start at zero. Having a different value as a baseline can distort the proportions between bars, which can cause the data to be perceived incorrectly.
+
+<ImageGrid
+    images={[ZeroXBar, NoZeroXBar]}
+    captionsUnderImages={[
+        'DO:X-axis should start at zero',
+        'DONT:Starting at 20 makes differences look exaggerated'
+    ]}
+/>
+
+<p style={{fontSize: '20px',fontWeight: 'bold',}}>Avoid over-styling bars</p>
+
+Do not choose aesthetic over readability. Anything that could mislead the user and their interpretation of the data should not be altered or added.
+
+<ImageGrid
+    images={[Straightbars, Rounderbars]}
+    captionsUnderImages={[
+        'DO:Accuracy is preserved using straight bars',
+        'DONT:Starting at 20 makes differences look exaggerated'
+    ]}
+/>
+
+<p style={{fontSize: '20px',fontWeight: 'bold',}}>Display ordered bars to help deliver your message</p>
+
+Horizontal bar charts can be really useful for magnitude and ranking. If your objective is to help the user quickly identify ordinal relationships, consider ranking your Y-axis from highest (top) to lowest (bottom) numbers, while using the X-axis to determine magnitude.
+
+<ImageGrid
+    images={[Orderedbars, Unorderedbars]}
+    captionsUnderImages={[
+        'DO:Ordered bars help establish ranking (highest to lowest values)',
+        'DONT:Alphabetical order serves no clear purpose here'
+    ]}
+/>
+
+## Additional resources
+
+For more in-depth information on how to design bar charts for Eaton, please refer to:
+
+<BLCIconButton
+    label={'Foundations'}
+    url={'/visualizations/foundations'}
+/>
+<BLCIconButton
+    label={'Colors In Data Viz'}
+    url={'/visualizations/colors'}
+/>
+
+## Related Components
+
+<div style={{display: 'flex', gap: '3.5rem'}}>
+<VariantIllustration
+    iconImage={RelatedLine}
+    label='Line Chart'
+    description='Observe trends and track changes over time'
+    url='/visualizations/linecharts'
+  />
+  <VariantIllustration
+    iconImage={RelatedPie}
+    label='Pie Chart'
+    description='Compare relationships between parts of a whole'
+    url='/visualizations/piecharts'
+  />
+</div>

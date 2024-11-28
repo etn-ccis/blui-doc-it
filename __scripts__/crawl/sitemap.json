@@ -183,10 +183,6 @@
                 {
                     "title": "User Authentication",
                     "url": "/user-auth"
-                },
-                {
-                    "title": "Visualizations",
-                    "url": "/visualizations"
                 }
             ]
         },
@@ -233,6 +229,30 @@
                 {
                     "title": "Themes",
                     "url": "/themes"
+                }
+            ]
+        },
+        {
+            "title": "Visualizations",
+            "url": "/visualizations",
+            "pages": [
+                {
+                    "title": "Foundations",
+                    "url": "/foundations"
+                },
+                {
+                    "title": "Colors in Data Viz",
+                    "url": "/colors"
+                },
+                {
+                    "title": "Bar Chart",
+                    "url": "/barchart"
+                },{
+                    "title": "Line Chart",
+                    "url": "/linechart"
+                },{
+                    "title": "Pie Chart",
+                    "url": "/piechart"
                 }
             ]
         },

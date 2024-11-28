@@ -1,6 +1,12 @@
 import React from 'react';
-import { Divider, LinkGrid, InDocButton } from '../../app/components';
+import { Divider, LinkGrid, InDocButton, ImageGrid, ResourceLink } from '../../app/components';
 import { patternLinks } from '../../__configuration__/design';
+import Audience from '../../app/assets/visualizations/design-intro/audience.png';
+import Feedback from '../../app/assets/visualizations/design-intro/feedback.png';
+import Workshop from '../../app/assets/visualizations/design-intro/workshop.png';
+import Filestructure from '../../app/assets/visualizations/design-intro/filestructure.png';
+import Filterdata from '../../app/assets/visualizations/design-intro/filterdata.png';
+import Dashboard from '../../app/assets/visualizations/design-intro/dashboard.png';
 
 {/* KEYWORDS: design tutorial environment begin introduction */}
 
@@ -12,7 +18,7 @@ Using the Brightlayer UI design system as a designer can greatly improve your ef
 
 We host and maintain all [our design assets](/resources/designer) through Figma. Figma is a powerful prototyping tool that facilitates collaboration and sharing of design assets between teams. It can be used on the web, and they also provide a desktop app for Mac and Windows. To use Figma, you will need to [sign up](https://www.figma.com/) for an account.
 
-If this is the first time you've ever used Figma, consider going through {/* <!-- markdown-link-check-disable --> */}[one of its official tutorials](https://help.figma.com/hc/en-us/sections/4405269443991-Figma-for-Beginners-tutorial){/* <!-- markdown-link-check-enable --> */}. Or if you prefer video tutorials to follow through, websites such as [Pluralsight](https://www.pluralsight.com/courses/figma-getting-started) and even [YouTube](https://www.youtube.com/watch?v=g6rQFP9zCAM) have tutorials for beginners. If you come from another professional UI design tool like Sketch, Figma also [provides details on how to migrate](https://www.figma.com/best-practices/what-to-expect-when-moving-from-sketch-to-figma/).
+If this is the first time you've ever used Figma, consider going through {/* <!-- markdown-link-check-disable --> */}[one of its official tutorials](https://help.figma.com/hc/en-us/sections/4405269443991-Figma-for-Beginners-tutorial){/* <!-- markdown-link-check-enable --> */}. Or if you prefer video tutorials to follow through, websites such as [Pluralsight](https://www.pluralsight.com/courses/figma-getting-started) and even [YouTube](https://www.youtube.com/watch?v=g6rQFP9zCAM) have tutorials for beginners. 
 
 <InDocButton
     title={'View Our Figma Resource Intro'}
@@ -30,57 +36,86 @@ Brightlayer UI has design guidelines that serve as the foundation for the design
 
 # General Guidance
 
-The best designs generally start with mobile first, and that's what we recommend as well when working with the Brightlayer UI design system. It's much easier to scale designs up than to scale them down. We also strongly encourage you to perform extensive user research to truly understand your users and their needs, skills, preferences, and tendencies.
+Eaton hardware (such as power meters or a UPS) generate a lot of data, and we often convert that data into actionable insights. Eaton software should make energy management problems easier to solve, and communicate data insights efficiently.
 
-## Web Applications
+Brightlayer UI is here to support designers in creating products that help our customers solve problems and add value to their energy management. These principles can help:
 
-Keep the interface simple - avoid unnecessary elements and ensure the language used for labels and messaging is clear.
+## Know your audience
 
-{/* image */}
+Run user research with your team before committing to designs. We must fully understand user journeys first and ensure we capture entry points, pain points and user needs.
 
-Strive for consistency by using pre-defined Brightlayer UI UI elements where possible. By using these elements, your users will feel more familiar and will be able to get things done quickly. You can also help ensure consistency by defining patterns in language, layout, and design that are used throughout the application.
+<ImageGrid
+    images={[Audience, Feedback]}
+    captionsUnderImages={[
+        'Build and validate personas to make design decisions easier, while helping shape product strategy',
+        'Early feedback from stakeholders and users will save you design and development time'
+    ]}
+/>
 
-{/* image */}
+The following resources are available for Eaton employees:
 
-Be purposeful when laying out page content. Consider space and the relationship between items on the page. Structure pages based on importance.
+<ResourceLink
+    linkLabel={'Design Thinking courses on Eaton University (requires JOE window open)'}
+    url={'https://eatonuniversity.sumtotal.host/rcore/c/search?relyingParty=ELIXHRUI&nodeKey=search_header&nodeUrl=%2Fsearch&searchTerm=*DESIGN%20THINKING&context=activity&originalSearchText=*DESIGN%20THINKING&isFromSuggestion=0'}
+    label={'If you are new to the world of design thinking, start with these video lessons.'}
+/>
+<Divider style={{marginTop: '1rem'}} />
+<ResourceLink
+    linkLabel={'Design Thinking Exercises on Miro'}
+    url={'https://miro.com/app/board/o9J_kw6znY8=/'}
+    label={'Workshop ideas to help define the problem, generate alternatives and reach consensus'}
+/>
+<Divider style={{marginTop: '1rem'}} />
+<ResourceLink
+    linkLabel={'Design Thinking Sharepoint'}
+    url={'https://eaton.sharepoint.com/sites/ERG_DesignThinkingPractice'}
+    label={'Eaton’s portal with useful links and documentation on design thinking and human-centric design'}
+/>
+<Divider style={{marginTop: '1rem'}} />
+<ResourceLink
+    linkLabel={'Design Thinking Community on Viva Engage'}
+    url={'https://engage.cloud.microsoft/main/org/eaton.com/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIzODAyNzI2NDAwIn0'}
+    label={'Chat to more people who are using design thinking practices'}
+/>
+<Divider style={{marginTop: '1rem'}} />
 
-{/* image */}
+## Understand your content
 
-Use the typography guidelines to create hierarchy and clarity. An effective type hierarchy increases scalability, legibility, and readability.
+It's important to conduct stakeholder workshops before designing interfaces, in order to understand the product you’ll be working on. Eaton projects have many sources of information, and as a designer you can help your team make sense of all that data. Once you have a good overview of the needs coming from both sides (business and users), Brightlayer UI can help you create apps and interfaces that address those needs.
 
-{/* image */}
+<ImageGrid
+    images={[Workshop, Filestructure]}
+    captionsUnderImages={[
+        'Design Thinking workshops help define the problem, generate alternatives and reach consensus among team members',
+        'Brightlayer UI components provide solutions to your most common design needs, including displaying and organising content'
+    ]}
+/>
+
+## Design with screen size in mind
+
+Flexible interfaces generally adopt a mobile first mindset. If your personas will make use of mobile devices, that's what we recommend as well when working with the Brightlayer UI design system. It's much easier to scale designs up than to scale them down.
+
+When working with a dedicated mobile app (iOS/Android), familiarize yourself with device / platform capabilities and take advantage of these where possible. As technology continues to evolve, it is important to consider scaling for the future. Products such as non-mobile touch screens, interactive displays, automotive displays, and touch screen laptops should be considered during your design phase.
+
+## Apply industry best practices
+
+Strive for consistency by using pre-defined Brightlayer UI elements where possible. By using these elements, your users can experience familiarity across different products and get things done faster. You can also help ensure consistency by defining patterns in language, layout and design that are used throughout the application.
 
 Ensure that the application provides effective feedback to users. Make sure that you communicate location, actions, changes in state, and errors to users. Brightlayer UI has various UI elements to assist with communicating this information.
 
-{/* image */}
-
 Consider using defaults. If you have a strong understanding of the users of your application, careful planning around default states, actions, and paths can reduce the burden on your users.
 
-{/* image */}
+## Make it meaningful
 
-## Mobile Applications
+To stay competitive in our current landscape, we must offer data insights that are truly helpful and make a measurable difference in our users’ lives, going beyond raw data logs. Our products need to not only display current and historical data, but create value from it.
 
-Generally, interfaces less than seven inches in width should be treated as a mobile (phone) device. Font styles and layouts should be consistent across devices as much as possible - your product should feel like the same application regardless of the device used to access it. When working with a dedicated mobile app, familiarize yourself with device / platform capabilities and take advantage of these where possible.
-
-{/* image */}
-
-A fundamental principle for mobile design is to include only the information that is necessary. Don't overload the user with excessive information. Mobile devices are a convenient way to quickly consume information on the go and the information presented should reflect this.
-
-{/* image */}
-
-Interfaces greater than seven inches in width should be treated as a tablet device. As with phone devices, font styles and layouts should be consistent across devices in this class. However, you may find it appropriate to have some differences between phone and tablet devices because of the difference in screen real estate.
-
-{/* image */}
-
-Tablet designs should look and feel like a desktop application / website, but they should function like a phone app.
-
-{/* image */}
-
-As technology continues to evolve, it is important to consider scaling for the future. Products such as non-mobile touch screens, interactive displays, automotive displays, and touch screen laptops should be considered during your design phase.
-
-{/* image */}
-
-<Divider style={{}} />
+<ImageGrid
+    images={[Dashboard, Filterdata]}
+    captionsUnderImages={[
+        'A dashboard full of charts can look good, but it might not be helpful to the personas using your product',
+        'Filtering data according to context (which you can understand through user research) contributes to a more purposeful product'
+    ]}
+/>
 
 # Contributing
 

@@ -1,0 +1,203 @@
+import { ImageGrid, BLCIconButton, VariantIllustration } from '../../app/components';
+import LinechartComponentImage from '../../app/assets/visualizations/linechart/line-chart-component.png';
+import HorizontalLine from '../../app/assets/visualizations/linechart/horizontalline.png';
+import MultipleLine from '../../app/assets/visualizations/linechart/multiplelines.png';
+import Sparkline from '../../app/assets/visualizations/linechart/sparkline.png';
+import RidgelinePlot from '../../app/assets/visualizations/linechart/ridge-line-plot.png';
+import Deviation from '../../app/assets/visualizations/linechart/deviationline.png';
+import CombinationChart from '../../app/assets/visualizations/linechart/combinationchart.png';
+import Fewerlines from '../../app/assets/visualizations/linechart/fewerlines.png';
+import Manylines from '../../app/assets/visualizations/linechart/manylines.png';
+import Overstylingtabs from '../../app/assets/visualizations/linechart/over-styling-line-tabs.png';
+import OverstylingAvoid from '../../app/assets/visualizations/linechart/over-styling-avoid.png';
+import LargeAxisLabels from '../../app/assets/visualizations/linechart/large-axis-labels.png';
+import NoZeroLineValue from '../../app/assets/visualizations/linechart/no-zero-line-value.png';
+import DashedOpacityLine from '../../app/assets/visualizations/linechart/dashed-opacity-line.png';
+import MultiStylingOptions from '../../app/assets/visualizations/linechart/multi-styling-options.png';
+import UnevenAxMultiCat from '../../app/assets/visualizations/linechart/uneven-ax-multi-cat.png';
+import UnevenAxIntervals from '../../app/assets/visualizations/linechart/uneven-ax-intervals.png';
+import AreaChart from '../../app/assets/visualizations/linechart/area-chart.png';
+import NoLineAccData from '../../app/assets/visualizations/linechart/no-line-acc-data.png';
+import RelatedBar from '../../app/assets/visualizations/related-bar.png';
+import RelatedPie from '../../app/assets/visualizations/related-pie.png';
+import { ReactComponent as BLCIcon } from '../../app/assets/visualizations/icons/blc-button-icon.svg';
+import { ReactComponent as CodeIcon } from '../../app/assets/visualizations/icons/codeicon.svg';
+
+# Line Charts
+
+Line charts are used to visualise and compare trends over time. They are highly customisable and a popular option for dashboards.
+
+### Component
+
+<ImageGrid
+    images={[LinechartComponentImage]}
+    regularWidth
+/>
+
+<BLCIconButton
+    icon={BLCIcon}
+    label={'View in Figma sticker sheet'}
+    url={'https://www.figma.com/design/Nydz8n8HBj6U3ZtULja3gD/%F0%9F%92%AB-Brightlayer-UI-Tokens-%2B-Components-(in-Material-Design-3)?m=auto&node-id=3910-27353&t=7xCaD2dDxjGnBtV6-1'}
+/>
+
+### When to use
+
+Line charts work well for satisfying the following user needs, among others:
+
+- Observe trends over time, such as a growth in EV charging stations usage;
+- Identify changes or events, such as power outages or peak demand;
+- Show data distribution in order to identify possible outliers;
+- Compare related data over time, such as EV charging station consumption over July.
+
+They’re usually shown as data points connected by straight lines, commonly used to express variations on data over equal intervals of time. While the base axis displays categorical/time-based variables, the vertical axis should display numeric values, which determines the line variation in height.
+
+### Layout options
+
+Line charts are commonly presented in the following layouts:
+
+<div 
+    style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        maxWidth: '43rem',
+        gap: '40px',
+        marginTop: '2rem'
+    }}
+>
+  <VariantIllustration
+    iconImage={HorizontalLine}
+    label='Horizontal'
+    description='Standard option to see trends and compare data over time.'
+  />
+  <VariantIllustration
+    iconImage={MultipleLine}
+    label='Multiple'
+    description='Multiple lines allow for comparing different data distributions.'
+  />
+  <VariantIllustration
+    iconImage={Sparkline}
+    label='Sparkline'
+    description='Small line chart usually  within a table, useful for information at a glance'
+  />
+  <VariantIllustration
+    iconImage={RidgelinePlot}
+    label='Ridgeline Plot'
+    description='Overlapping line/area charts displayed at different depths, used to visualise the distribution of groups of data.'
+  />
+  <VariantIllustration
+    iconImage={Deviation}
+    label='Deviation'
+    description='Display uncertainty in the data with the help of shaded area.'
+  />
+  <VariantIllustration
+    iconImage={CombinationChart}
+    label='Combination'
+    description='Combining two or more chart types, to show the relationship of data over a shared time frame.'
+  />
+</div>
+
+
+### Best practices
+
+<p style={{fontSize: '20px',fontWeight: 'bold',}}>Avoid comparing too many datasets in a single chart</p>
+
+The goal of a chart is to communicate trends and changes over time clearly. If the plot area is cluttered with too many datasets, the chart will be less effective at reaching this goal and harder to understand for users.
+
+For most cases, we recommend displaying 1 to 5 plots in a single Line chart. There is no ideal number of lines to include, as this depends on the chart size or the presence of other elements (such as reference lines and underlays) that can increase cognitive load.
+
+<ImageGrid
+    images={[Fewerlines, Manylines]}
+    captionsUnderImages={[
+        'DO:Use five or fewer related values for optimal data analysis.',
+        'DONT:Do not use more than five values as it will compromise readability and data analysis. Choose another chart if you need to present more related values.'
+    ]}
+/>
+
+<p style={{fontSize: '20px',fontWeight: 'bold',}}>Avoid over-styling bars</p>
+
+Do not choose aesthetic over readability. Anything that could mislead the user and their interpretation of the data should not be altered or added.
+
+ 
+
+
+<ImageGrid
+    images={[Overstylingtabs, OverstylingAvoid]}
+    captionsUnderImages={[
+        'DO:Use tab menus to separate your charts by context, allowing the use of less lines in a single plot area',
+        'DO:If you can’t avoid showing more than 8 datasets in the same chart, show the top results in color and group the remaining datasets in grey  (for edge cases only)'
+    ]}
+/>
+
+<p style={{fontSize: '20px',fontWeight: 'bold',}}>Choosing a baseline</p>
+
+You don't always need to use a zero-value baseline. As the main goal for the line chart is to display changes over time, you don't always have to show data from the zero-value, if it's not meaningful - you can zoom the vertical axis range.
+
+<ImageGrid
+    images={[LargeAxisLabels, NoZeroLineValue]}
+    captionsUnderImages={[
+        'DO:Zoom in the axis labels so you can have better readability to analyse the graph, in cases where the zero line is not meaningful.',
+        'DONT:Do not show the zero-line value if it doesn’t add context or is useful to analyse the results. You’re compromising readability on the actual data.'
+    ]}
+/>
+
+<p style={{fontSize: '20px',fontWeight: 'bold',}}>Using additional features to show variability</p>
+
+Add dashed lines, line with varying opacity, filled space or bar charts to deliver additional information such as deviations, uncertain measures or bounds (e.g. max. & min.)
+
+<ImageGrid
+    images={[DashedOpacityLine, MultiStylingOptions]}
+    captionsUnderImages={[
+        'DO:Use dashed or varied opacity lines to show different data types for the same values.',
+        'DONT:Do not mix every styling option available. Choose one that fits your data better and use it through all of your chart.'
+    ]}
+/>
+
+<p style={{fontSize: '20px',fontWeight: 'bold',}}>Making sure the line chart is the right type for your data</p>
+
+There are several chart types that are visually similar to line charts, that you may want to consider. Make sure you choose the chart type that displays the data in the most meaningful way for your end user.
+
+<ImageGrid
+    images={[UnevenAxMultiCat, UnevenAxIntervals]}
+    captionsUnderImages={[
+        'DO:Use connected scatterplot if you need to correlate sets of data related to multiple categories on uneven axis intervals.',
+        "DONT:Don't use line charts if you need to connect data points that are spreaded into uneven axis intervals."
+    ]}
+/>
+
+<ImageGrid
+    images={[AreaChart, NoLineAccData]}
+    captionsUnderImages={[
+        'DO:Use area charts to show accumulative data or parts to whole data over time and use low opacity fills to avoid obscuring data points.',
+        "DONT:Avoid line charts if the volume below the line is meaningful to the data set, because it is hard to quantify this volume if it is not filled."
+    ]}
+/>
+
+### Additional resources
+
+For more in-depth information on how to design bar charts for Eaton, please refer to:
+
+<BLCIconButton
+    label={'Foundations'}
+    url={'/visualizations/foundations'}
+/>
+<BLCIconButton
+    label={'Colors In Data Viz'}
+    url={'/visualizations/colors'}
+/>
+
+### Related Components
+
+<div style={{display: 'flex', gap: '3.5rem'}}>
+    <VariantIllustration
+        iconImage={RelatedBar}
+        label='Bar Chart'
+        description='Compare values within a data category'
+        url='/visualizations/barcharts'
+    />
+    <VariantIllustration
+        iconImage={RelatedPie}
+        label='Pie Chart'
+        description='Compare relationships between parts of a whole'
+        url='/visualizations/piecharts'
+    />
+</div>
