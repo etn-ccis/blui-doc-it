@@ -25,144 +25,166 @@ When approaching a potential new project, it can be challenging to know where to
 
 ### Getting Started
 
-<GettingStartedTabs tabs={[
-    {
-        label: 'Design with BLUI',
-        content:
-        <p>
-            <span>Brightlayer UI can speed up and enhance your process by offering style libraries, design patterns and a variety of Figma components that use the Material Design open-source framework. Using Brightlayer UI also ensures that your designs match the Eaton brand and standards.</span>
-            <span style={{display: 'flex', gap: '1rem', marginTop: '1.5rem'}}>
-                <VariantIllustration
-                    iconImage={Getstarted}
-                    label='Get started'
-                    description='A dedicated page to introduce you and your teams to the universe of Brightlayer UI.'
-                    height='196px'
-                    width='200px'
-                    url='https://brightlayer-ui.github.io/design/intro'
-                />
-                <VariantIllustration
-                    iconImage={Stickersheet}
-                    label='Figma sticker sheet'
-                    description='Material and Brightlayer UI tokens and components in Figma (Material Design 3).'
-                    height='196px'
-                    width='200px'
-                    url='https://www.figma.com/community/file/1108703646592220015'
-                />
-                <VariantIllustration
-                    iconImage={DesignPatterns}
-                    label='Design patterns'
-                    description='Common interactions and designs found in Brightlayer UI applications.'
-                    height='196px'
-                    width='200px'
-                    url='https://brightlayer-ui.github.io/patterns'
-                />
-            </span>
-        </p>,
-        icon: TabIconBLC
-    },
-    { 
-        label: 'Develop with BLUI',
-        content:
-        <p>
-            <span>Developers can benefit from Brightlayer UI resources such as a Command-Line Interface (CLI) and component libraries in Angular and React, available as NPM packages. Using Brightlayer UI components ensures that the coded solution looks exactly like the designs, keeping our products in brand.</span>
-            <span style={{display: 'flex', gap: '1rem', marginTop: '1.5rem'}}>
-                <VariantIllustration
-                    iconImage={EnvSetup}
-                    label='Environment setup'
-                    description='We walk through the basics of getting your system set up to develop.'
-                    height='196px'
-                    width='200px'
-                    url='https://brightlayer-ui.github.io/development/environment'
-                />
-                <VariantIllustration
-                    iconImage={ReactImage}
-                    label='React'
-                    description='Instructions to guide you through starting a new Brightlayer UI project using React.'
-                    height='196px'
-                    width='200px'
-                    url='https://brightlayer-ui.github.io/development/frameworks-web/react'
-                />
-                <VariantIllustration
-                    iconImage={ReactNativeImage}
-                    label='React Native'
-                    description='Instructions to guide you through starting a new Brightlayer UI project using React Native.'
-                    height='196px'
-                    width='200px'
-                    url='https://brightlayer-ui.github.io/development/frameworks-mobile/react-native'
-                />
-            </span>
-        </p>,
-        icon: TabIconDevelop
-    },
-    {
-        label: 'Style Guide',
-        content:
-        <p>
-            <span>Brightlayer UI has a wide variety of style resources to help ensure consistency across applications and make designing and building them easier.</span>
-            <span style={{display: 'flex', gap: '1rem', marginTop: '1.5rem'}}>
-                <VariantIllustration
-                    iconImage={IconLibImage}
-                    label='Icon Library'
-                    description='Browse the library of icons available in Brightlayer UI including Material icons as well as custom ones for Brightlayer UI applications.'
-                    height='196px'
-                    width='200px'
-                    url='https://brightlayer-ui.github.io/style/icon-library'
-                />
-                <VariantIllustration
-                    iconImage={ThemesImage}
-                    label='Themes'
-                    description='Learn more about Brightlayer UI themes and how they can help you build applications that adhere to our design guidelines.'
-                    height='196px'
-                    width='200px'
-                    url='https://brightlayer-ui.github.io/style/themes'
-                />
-                <VariantIllustration
-                    iconImage={ColorPallette}
-                    label='Color Palette'
-                    description='Browse all of the UI, Status, and Charting colors available from Brightlayer UI and when to use them.'
-                    height='196px'
-                    width='200px'
-                    url='https://brightlayer-ui.github.io/style/color'
-                />
-            </span>
-        </p>,
-        icon: StyleGuideIcon
-    },
-    {
-        label: 'Community',
-        content:
-        <p>
-            <span>Brightlayer UI is an open source design system that thrives on having an active and engaged community of maintainers and contributors. Check out the links below to learn more about our team and how you can be a part of the Brightlayer UI community.</span>
-            <span style={{display: 'flex', gap: '1rem', marginTop: '1.5rem'}}>
-                <VariantIllustration
-                    iconImage={Roadmap}
-                    label='Roadmap'
-                    description='See what we have planned in the backlog for future versions of Brightlayer UI.'
-                    height='196px'
-                    width='200px'
-                    url='https://brightlayer-ui.github.io/roadmap'
-                />
-                <VariantIllustration
-                    iconImage={ReleaseNotes}
-                    label='Release notes'
-                    description='A complete history of notes for all previous releases of Brightlayer UI.'
-                    height='196px'
-                    width='200px'
-                    url='https://brightlayer-ui.github.io/release-notes'
-                />
-                <VariantIllustration
-                    iconImage={ContactUs}
-                    label='Contact us'
-                    description='Get in touch with our team'
-                    height='196px'
-                    width='200px'
-                    url='https://brightlayer-ui.github.io/community/contactus'
-                />
-            </span>
-        </p>,
-        icon: CommunityIcon
-    },
-  ]}/>
+<GettingStartedTabs
+    tabs={[
+        {
+            label: 'Design with BLUI',
+            content: (
+                <p>
+                    <span>
+                        Brightlayer UI can speed up and enhance your process by offering style libraries, design
+                        patterns and a variety of Figma components that use the Material Design open-source framework.
+                        Using Brightlayer UI also ensures that your designs match the Eaton brand and standards.
+                    </span>
+                    <span style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
+                        <VariantIllustration
+                            iconImage={Getstarted}
+                            label="Get started"
+                            description="A dedicated page to introduce you and your teams to the universe of Brightlayer UI."
+                            height="196px"
+                            width="200px"
+                            url="https://brightlayer-ui.github.io/design/intro"
+                        />
+                        <VariantIllustration
+                            iconImage={Stickersheet}
+                            label="Figma sticker sheet"
+                            description="Material and Brightlayer UI tokens and components in Figma (Material Design 3)."
+                            height="196px"
+                            width="200px"
+                            url="https://www.figma.com/community/file/1108703646592220015"
+                        />
+                        <VariantIllustration
+                            iconImage={DesignPatterns}
+                            label="Design patterns"
+                            description="Common interactions and designs found in Brightlayer UI applications."
+                            height="196px"
+                            width="200px"
+                            url="https://brightlayer-ui.github.io/patterns"
+                        />
+                    </span>
+                </p>
+            ),
+            icon: TabIconBLC,
+        },
+        {
+            label: 'Develop with BLUI',
+            content: (
+                <p>
+                    <span>
+                        Developers can benefit from Brightlayer UI resources such as a Brightlayer UI Templates and
+                        component libraries in Angular and React, available as NPM packages. Using Brightlayer UI
+                        components ensures that the coded solution looks exactly like the designs, keeping our products
+                        in brand.
+                    </span>
+                    <span style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
+                        <VariantIllustration
+                            iconImage={EnvSetup}
+                            label="Environment setup"
+                            description="We walk through the basics of getting your system set up to develop."
+                            height="196px"
+                            width="200px"
+                            url="https://brightlayer-ui.github.io/development/environment"
+                        />
+                        <VariantIllustration
+                            iconImage={ReactImage}
+                            label="React"
+                            description="Instructions to guide you through starting a new Brightlayer UI project using React."
+                            height="196px"
+                            width="200px"
+                            url="https://brightlayer-ui.github.io/development/frameworks-web/react"
+                        />
+                        <VariantIllustration
+                            iconImage={ReactNativeImage}
+                            label="React Native"
+                            description="Instructions to guide you through starting a new Brightlayer UI project using React Native."
+                            height="196px"
+                            width="200px"
+                            url="https://brightlayer-ui.github.io/development/frameworks-mobile/react-native"
+                        />
+                    </span>
+                </p>
+            ),
+            icon: TabIconDevelop,
+        },
+        {
+            label: 'Style Guide',
+            content: (
+                <p>
+                    <span>
+                        Brightlayer UI has a wide variety of style resources to help ensure consistency across
+                        applications and make designing and building them easier.
+                    </span>
+                    <span style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
+                        <VariantIllustration
+                            iconImage={IconLibImage}
+                            label="Icon Library"
+                            description="Browse the library of icons available in Brightlayer UI including Material icons as well as custom ones for Brightlayer UI applications."
+                            height="196px"
+                            width="200px"
+                            url="https://brightlayer-ui.github.io/style/icon-library"
+                        />
+                        <VariantIllustration
+                            iconImage={ThemesImage}
+                            label="Themes"
+                            description="Learn more about Brightlayer UI themes and how they can help you build applications that adhere to our design guidelines."
+                            height="196px"
+                            width="200px"
+                            url="https://brightlayer-ui.github.io/style/themes"
+                        />
+                        <VariantIllustration
+                            iconImage={ColorPallette}
+                            label="Color Palette"
+                            description="Browse all of the UI, Status, and Charting colors available from Brightlayer UI and when to use them."
+                            height="196px"
+                            width="200px"
+                            url="https://brightlayer-ui.github.io/style/color"
+                        />
+                    </span>
+                </p>
+            ),
+            icon: StyleGuideIcon,
+        },
+        {
+            label: 'Community',
+            content: (
+                <p>
+                    <span>
+                        Brightlayer UI is an open source design system that thrives on having an active and engaged
+                        community of maintainers and contributors. Check out the links below to learn more about our
+                        team and how you can be a part of the Brightlayer UI community.
+                    </span>
+                    <span style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
+                        <VariantIllustration
+                            iconImage={Roadmap}
+                            label="Roadmap"
+                            description="See what we have planned in the backlog for future versions of Brightlayer UI."
+                            height="196px"
+                            width="200px"
+                            url="https://brightlayer-ui.github.io/roadmap"
+                        />
+                        <VariantIllustration
+                            iconImage={ReleaseNotes}
+                            label="Release notes"
+                            description="A complete history of notes for all previous releases of Brightlayer UI."
+                            height="196px"
+                            width="200px"
+                            url="https://brightlayer-ui.github.io/release-notes"
+                        />
+                        <VariantIllustration
+                            iconImage={ContactUs}
+                            label="Contact us"
+                            description="Get in touch with our team"
+                            height="196px"
+                            width="200px"
+                            url="https://brightlayer-ui.github.io/community/contactus"
+                        />
+                    </span>
+                </p>
+            ),
+            icon: CommunityIcon,
+        },
+    ]}
+/>
 
 ### Web Applications
 
