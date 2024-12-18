@@ -95,7 +95,7 @@
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-react": "^7.33.2",
         "firebase-tools": "^13.28.0",
-        "markdown-link-check": "^3.8.0",
+        "markdown-link-check": "^3.13.6",
         "natural": "^5.0.0",
         "prettier": "^2.8.0",
         "remark-gfm": "^1.0.0",
