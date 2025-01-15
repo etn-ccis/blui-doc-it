@@ -3,6 +3,7 @@ import NotFound from './notfound.mdx';
 import LatestReleases from './release-notes/index';
 import Migration from './migration.mdx';
 import * as Style from './style';
+import * as Visualizations from './visualizations';
 import * as Patterns from './patterns';
 import * as GetStarted from './get-started';
 import * as Development from './development';
@@ -24,4 +25,5 @@ export {
     Design,
     Resources,
     Workflows,
+    Visualizations,
 };

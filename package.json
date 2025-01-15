@@ -9,7 +9,7 @@
         "@brightlayer-ui/react-components": "^6.3.0",
         "@brightlayer-ui/react-progress-icons": "^2.1.1",
         "@brightlayer-ui/react-themes": "^7.1.0",
-        "@emotion/css": "^11.11.2",
+        "@emotion/css": "^11.13.4",
         "@emotion/react": "^11.10.5",
         "@emotion/styled": "^11.10.6",
         "@fontsource/roboto-mono": "^5.1.0",
@@ -81,7 +81,7 @@
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.4.0",
         "@testing-library/user-event": "^14.4.3",
-        "@types/color": "^3.0.6",
+        "@types/color": "^4.2.0",
         "@types/jest": "^27.5.2",
         "@types/lodash.debounce": "^4.0.9",
         "@types/mdx": "^2.0.3",
@@ -94,12 +94,13 @@
         "eslint": "^8.28.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-react": "^7.33.2",
-        "markdown-link-check": "^3.8.0",
+        "firebase-tools": "^13.28.0",
+        "markdown-link-check": "^3.13.6",
         "natural": "^5.0.0",
         "prettier": "^2.8.0",
         "remark-gfm": "^1.0.0",
         "sass": "^1.70.0",
-        "typescript": "^5.1.6"
+        "typescript": "^5.7.2"
     },
     "prettier": "@brightlayer-ui/prettier-config"
 }

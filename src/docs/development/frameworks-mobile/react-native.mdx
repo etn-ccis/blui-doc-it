@@ -19,15 +19,23 @@ You'll need to start by following the general instructions for setting up your d
 
 ## Using the Brightlayer UI CLI
 
-The fastest way to start a new Brightlayer UI project is to use the [Brightlayer UI CLI](/development/cli). The CLI will automatically create a starter project for you using the [React Native Community CLI](https://github.com/react-native-community/cli) with all of the necessary Brightlayer UI dependencies pre-configured. To start a React Native project:
+The fastest way to start a new Brightlayer UI project is to use our templates. The [React Native Community CLI](https://github.com/react-native-community/cli) will automatically scaffold a starter project for you using the Brightlayer UI templates with all of the necessary Brightlayer UI dependencies pre-configured. To start a React Native project:
 
 ```sh
-npx -p @brightlayer-ui/cli blui new react-native
+npx react-native init MyApp
+```
+
+You can also select the template you want to use when starting a new project:
+
+```sh
+npx react-native init MyApp --template @brightlayer-ui/react-native-template-blank-typescript
+npx react-native init MyApp --template @brightlayer-ui/react-native-template-routing-typescript
+npx react-native init MyApp --template @brightlayer-ui/react-native-template-authentication-typescript
 ```
 
 You will be asked to provide a name for your project and whether you want to use the Brightlayer UI eslint and prettier configurations files.
 
-The Brightlayer UI CLI will automatically include:
+The Brightlayer UI React Native Templates will automatically include:
 
 -   React Native Paper Component Library ([react-native-paper](https://www.npmjs.com/package/react-native-paper))
 -   Brightlayer UI Component Library ([@brightlayer-ui/react-native-components](https://www.npmjs.com/package/@brightlayer-ui/react-native-components))
@@ -39,7 +47,7 @@ The Brightlayer UI CLI will automatically include:
 -   Brightlayer UI ESLint and Prettier configurations, if selected ([@brightlayer-ui/eslint-config](https://www.npmjs.com/package/@brightlayer-ui/eslint-config) / [@brightlayer-ui/prettier-config](https://www.npmjs.com/package/@brightlayer-ui/prettier-config))
 -   Testing libraries ([jest](https://www.npmjs.com/package/jest) / [react-test-renderer](https://www.npmjs.com/package/react-test-renderer))
 
-For detailed usage instructions, refer to the [Brightlayer UI CLI documentation](https://www.npmjs.com/package/@brightlayer-ui/cli).
+For detailed usage instructions, refer to the [Brightlayer UI React Native Templates documentation](https://github.com/etn-ccis/blui-react-native-cli-templates/blob/master/README.md).
 
 ## Using an Existing Project
 
