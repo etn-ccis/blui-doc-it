@@ -26,7 +26,7 @@ const externalLinks: ExternalLink[] = [
     {
         title: `Studio Blue`,
         subtitle: `Human-Centered Design CoE`,
-        link: `https://eaton.sharepoint.com/sites/ERG_Human-CenteredDesign`,
+        link: `https://eaton.sharepoint.com/sites/ERG_StudioBlue`,
         loginRequired: true,
     },
     {
