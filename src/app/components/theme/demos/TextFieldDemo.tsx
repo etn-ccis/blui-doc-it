@@ -1,15 +1,13 @@
 import React from 'react';
-import {
-    Table,
-    TableHead,
-    TableRow,
-    TableCell,
-    TableBody,
-    TextField,
-    InputAdornment,
-    IconButton,
-    TableContainer,
-} from '@mui/material';
+import Table from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
+import TableBody from '@mui/material/TableBody';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import TableContainer from '@mui/material/TableContainer';
 import { Visibility } from '@mui/icons-material';
 
 /*

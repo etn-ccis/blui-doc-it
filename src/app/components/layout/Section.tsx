@@ -1,5 +1,7 @@
 import React from 'react';
-import { Typography, Divider, BoxProps, Box } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import Box, { BoxProps } from '@mui/material/Box';
 
 type SectionProps = BoxProps & {
     title: string;

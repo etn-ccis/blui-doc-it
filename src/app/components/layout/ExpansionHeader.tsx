@@ -1,5 +1,7 @@
 import React from 'react';
-import { Typography, AccordionSummary, Box } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Box from '@mui/material/Box';
 
 import { ExpandMore } from '@mui/icons-material';
 

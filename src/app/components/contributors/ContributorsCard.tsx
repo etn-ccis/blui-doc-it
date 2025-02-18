@@ -1,5 +1,8 @@
 import React, { ReactNode } from 'react';
-import { Avatar, Box, Stack, StackProps, ListItemText } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
+import Box from '@mui/material/Box';
+import Stack, { StackProps } from '@mui/material/Stack';
+import ListItemText from '@mui/material/ListItemText';
 import { CurrentMaintainter } from '../../../__types__';
 import { Person } from '@mui/icons-material';
 import { SystemStyleObject } from '@mui/system';
@@ -26,7 +29,7 @@ export const ContributorsCard: React.FC<ContributorsCardProps> = (props) => {
                         color: theme.palette.mode === 'light' ? 'primary.main' : 'primary.light',
                     })}
                 >
-                    {icon || <Person />}
+                    {icon ?? <Person />}
                 </Avatar>
             </Box>
 

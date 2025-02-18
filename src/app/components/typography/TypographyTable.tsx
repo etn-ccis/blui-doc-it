@@ -90,10 +90,10 @@ export const TypographyTable = (): JSX.Element => {
 
             // @ts-ignore
             const rootFontSize = theme.typography.htmlFontSize || 16;
-            const fontSizeREM = parseFloat((typographyVariant.fontSize || '1').toString().replace('rem', ''));
+            const fontSizeREM = parseFloat((typographyVariant.fontSize ?? '1').toString().replace('rem', ''));
             const fontSizePX = fontSizeREM * rootFontSize;
 
-            const lineHeightEM = parseFloat((typographyVariant.lineHeight || '1').toString().replace('em', ''));
+            const lineHeightEM = parseFloat((typographyVariant.lineHeight ?? '1').toString().replace('em', ''));
             const lineHeightPX = Math.round(lineHeightEM * fontSizePX * 10) / 10; // round to decimal precision
             return {
                 fontSize: {
@@ -127,8 +127,8 @@ export const TypographyTable = (): JSX.Element => {
                         <Typography variant={variant}>{formatName(variant)}</Typography>
                     </TableCell>
                     <TableCell>{fontWeight}</TableCell>
-                    <TableCell>{size || `${rowInfo.fontSize.PX}dp / ${rowInfo.fontSize.REM}rem`}</TableCell>
-                    <TableCell>{lineHeight || `${rowInfo.lineHeight.PX}dp / ${rowInfo.lineHeight.EM}em`}</TableCell>
+                    <TableCell>{size ?? `${rowInfo.fontSize.PX}dp / ${rowInfo.fontSize.REM}rem`}</TableCell>
+                    <TableCell>{lineHeight ?? `${rowInfo.lineHeight.PX}dp / ${rowInfo.lineHeight.EM}em`}</TableCell>
                 </TableRow>
             );
         },

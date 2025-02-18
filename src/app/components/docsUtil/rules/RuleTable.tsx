@@ -30,19 +30,19 @@ export const RuleTable: React.FC = () => (
                     <TableCell>
                         <TaggedCaption tag={'AVOID'} tagOnly />
                     </TableCell>
-                    <TableCell>{RULES['AVOID']}</TableCell>
+                    <TableCell>{RULES.AVOID}</TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>
                         <TaggedCaption tag={'CAUTION'} tagOnly />
                     </TableCell>
-                    <TableCell>{RULES['CAUTION']}</TableCell>
+                    <TableCell>{RULES.CAUTION}</TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>
                         <TaggedCaption tag={'DO'} tagOnly />
                     </TableCell>
-                    <TableCell>{RULES['DO']}</TableCell>
+                    <TableCell>{RULES.DO}</TableCell>
                 </TableRow>
             </TableBody>
         </Table>

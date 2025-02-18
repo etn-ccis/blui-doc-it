@@ -5,13 +5,17 @@ import * as Progress from '@brightlayer-ui/react-progress-icons';
 import * as BluiColors from '@brightlayer-ui/colors';
 
 // Material-UI Components
-import { Typography, AppBar, Paper, Toolbar, FormControlLabel, Checkbox, Box } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import AppBar from '@mui/material/AppBar';
+import Paper from '@mui/material/Paper';
+import Toolbar from '@mui/material/Toolbar';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Box from '@mui/material/Box';
 import { BLUIColor } from '@brightlayer-ui/types';
 
 const size = 48;
-type ColorPalette = {
-    [key: string]: BLUIColor;
-};
+type ColorPalette = Record<string, BLUIColor>;
 // @ts-ignore TODO: Sort out these types
 const colorSet: ColorPalette = BluiColors;
 const colors = ['red', 'orange', 'gold', 'yellow', 'green', 'lightBlue', 'blue', 'purple', 'gray', 'black'];

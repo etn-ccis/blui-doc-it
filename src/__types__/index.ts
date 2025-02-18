@@ -1,4 +1,4 @@
-import { SvgIconProps } from '@mui/material';
+import { SvgIconProps } from '@mui/material/SvgIcon';
 
 export type TODOFIXME = any;
 export type FrameworkFilter = 'all' | 'angular' | 'react' | 'react-native';
@@ -24,9 +24,7 @@ export type IconType = {
     Icon?: any;
     version: number;
 };
-export type MatIconList = {
-    [key: string]: (props: SvgIconProps) => JSX.Element;
-};
+export type MatIconList = Record<string, (props: SvgIconProps) => JSX.Element>;
 export type IconSize = 18 | 24 | 36 | 48;
 export type IconColor = 'black' | 'blue' | 'gray' | 'white';
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { IconButton, Tooltip } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
 import { GitHub } from '../../assets/icons/github';
 import { Spacer } from '@brightlayer-ui/react-components';
 import * as Colors from '@brightlayer-ui/colors';
@@ -20,8 +21,8 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
     const branch = isPackage
         ? 'master'
         : branches && branches.length === 1 && branches[0] !== 'all'
-        ? branches[0].replace('-', '')
-        : undefined;
+          ? branches[0].replace('-', '')
+          : undefined;
 
     const bugString = (bugLabels ? [...bugLabels, 'bug'] : ['bug']).map((label) => `+label%3A${label}`).join('');
     const bugLink = `https://github.com/etn-ccis/blui-${repository}/issues?q=is%3Aissue+is%3Aopen${bugString}`;
@@ -36,21 +37,21 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
             {small && <Spacer sx={{ mr: 2 }} />}
             {demoUrl && (
                 <DemoButton
-                    small={small || false}
+                    small={small ?? false}
                     link={demoUrl}
                     sx={{ mr: 0 }}
                     count={branches ? (branches.length > 1 ? branches.length : 0) : 0}
                 />
             )}
             <BugsButton
-                small={small || false}
+                small={small ?? false}
                 link={bugLink}
                 repository={repository}
                 bugLabels={bugLabels}
                 sx={{ mr: 0 }}
             />
             <BuildButton
-                small={small || false}
+                small={small ?? false}
                 link={buildLink}
                 repository={repository}
                 branches={branches}

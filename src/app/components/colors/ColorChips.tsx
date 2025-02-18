@@ -1,6 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Check, FileCopy } from '@mui/icons-material';
-import { Typography, Chip, useTheme, Box, Theme } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import Chip from '@mui/material/Chip';
+import { useTheme, Theme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 import color from 'color';
 import { copyTextToClipboard } from '../../shared';
 import { SystemStyleObject } from '@mui/system';
@@ -13,7 +16,7 @@ type ColorChipsProps = {
 
 const COLOR_NOT_AVAILABLE = '--';
 
-const styles: { [key: string]: SystemStyleObject<Theme> } = {
+const styles: Record<string, SystemStyleObject<Theme>> = {
     root: {
         mr: 1,
         mb: 1,

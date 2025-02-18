@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Feedback } from '@mui/icons-material';
-import { Fab } from '@mui/material';
+import Fab from '@mui/material/Fab';
 
 export const ContactFab = (): JSX.Element | null => {
     const navigate = useNavigate();

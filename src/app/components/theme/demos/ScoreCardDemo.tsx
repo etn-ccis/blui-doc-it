@@ -1,7 +1,10 @@
 import React from 'react';
 import { Hero, InfoListItem, ScoreCard } from '@brightlayer-ui/react-components';
 import { Temp } from '@brightlayer-ui/icons-mui';
-import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
 import { CloudDone, Info, Notifications } from '@mui/icons-material';
 
 /*

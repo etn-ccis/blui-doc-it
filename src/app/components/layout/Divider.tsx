@@ -1,5 +1,5 @@
 import React from 'react';
-import { Divider as MuiDivider, DividerProps as MuiDividerProps } from '@mui/material';
+import MuiDivider, { DividerProps as MuiDividerProps } from '@mui/material/Divider';
 import { PAGE_WIDTH } from '../../shared';
 
 type DividerProps = MuiDividerProps & {

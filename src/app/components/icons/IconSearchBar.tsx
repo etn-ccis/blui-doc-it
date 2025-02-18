@@ -2,18 +2,16 @@ import React, { ChangeEvent, useEffect, useState, HTMLAttributes, useCallback } 
 import { Category, Search } from '@mui/icons-material';
 import { useQueryString } from '../../hooks/useQueryString';
 // Material-UI Components
-import {
-    Checkbox,
-    FormControl,
-    Grid,
-    InputAdornment,
-    InputLabel,
-    ListItemText,
-    MenuItem,
-    Select,
-    TextField,
-    useMediaQuery,
-} from '@mui/material';
+import Checkbox from '@mui/material/Checkbox';
+import FormControl from '@mui/material/FormControl';
+import Grid from '@mui/material/Grid';
+import InputAdornment from '@mui/material/InputAdornment';
+import InputLabel from '@mui/material/InputLabel';
+import ListItemText from '@mui/material/ListItemText';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import TextField from '@mui/material/TextField';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { titleCase } from '../../shared';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../redux/reducers';
