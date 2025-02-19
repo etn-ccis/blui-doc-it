@@ -1,28 +1,15 @@
-import HuayunHuang from '../../app/assets/credits/huayun-huang.jpg';
 import JeffeyGreiner from '../../app/assets/credits/jeffery-greiner.jpeg';
 import EktaGhag from '../../app/assets/credits/ekta-ghag.jpg';
 import SurajKarambe from '../../app/assets/credits/suraj-karambe.png';
 import ManojLokesh from '../../app/assets/credits/manoj-lokesh.jpg';
-import AubreyThompson from '../../app/assets/credits/aubrey-thompson.jpg';
 import ArshdeepSingh from '../../app/assets/credits/arshdeep-singh.jpg';
-import AndrewPuhalla from '../../app/assets/credits/andrew-puhalla.jpeg';
 import KomalRanjit from '../../app/assets/credits/komal-ranjit.jpg';
 import ShubhamVishwakarma from '../../app/assets/credits/shubham-vishwakarma.jpeg';
 import KomalDhere from '../../app/assets/credits/komal-dhere.jpg';
-import YazadSidhwa from '../../app/assets/credits/yazad-sidhwa.jpg';
+import HarshalKapure from '../../app/assets/credits/harshal-kapure.jpg';
 import { CurrentMaintainter } from '../../__types__';
 
 export const currentMaintainers: CurrentMaintainter[] = [
-    {
-        name: 'Huayun Huang',
-        role: 'UX Designer & Developer',
-        image: HuayunHuang,
-        description: `Huayun is a half-blood between a UX-driven designer and a detail-oriented developer. A bit of a night owl, she does her best work between the hours of 12 and 4 am, and likes spending her spare time indulging in 2D visual arts. Be prepared! She has no mercy when it comes to reviewing your work.`,
-        contacts: {
-            github: `https://github.com/huayunh`,
-            linkedIn: `https://www.linkedin.com/in/huayun-huang/`,
-        },
-    },
     {
         name: 'Jeff Greiner',
         role: 'Quality Assurance',
@@ -66,16 +53,6 @@ export const currentMaintainers: CurrentMaintainter[] = [
         },
     },
     {
-        name: 'Andrew Puhalla',
-        role: `Front-End Developer`,
-        image: AndrewPuhalla,
-        description: `Andrew gained his interest in software development playing videogames as a kid. Outside of work, he also likes to play tennis and, of course, videogames. He also enjoys watching Star Wars, Game of Thrones, and anything Sci-Fi / Fantasy`,
-        contacts: {
-            github: `https://github.com/andrupu`,
-            linkedIn: `https://www.linkedin.com/in/andrew-puhalla-8b105689`,
-        },
-    },
-    {
         name: 'Arshdeep Singh',
         role: `Front-End Developer`,
         image: ArshdeepSingh,
@@ -83,16 +60,6 @@ export const currentMaintainers: CurrentMaintainter[] = [
         contacts: {
             github: `https://github.com/arshdeeparora`,
             linkedIn: `https://www.linkedin.com/in/arshdeep-singh-86aaa2184/`,
-        },
-    },
-    {
-        name: 'Aubrey Thompson',
-        role: `Front-End Developer`,
-        image: AubreyThompson,
-        description: `Aubrey left the snowy tundra of Buffalo, NY in 2018 to become a self-taught front-end web developer in her favorite city (Pittsburgh). When she's not working on coding tutorials you can find her playing Super Mario on SNES or creating weird art in her home studio.`,
-        contacts: {
-            github: `https://github.com/aubreyhthompson`,
-            linkedIn: `https://www.linkedin.com/in/aubrey-thompson-02464391/`,
         },
     },
     {
@@ -116,16 +83,6 @@ export const currentMaintainers: CurrentMaintainter[] = [
         },
     },
     {
-        name: 'Yazad Sidhwa',
-        role: `Intern`,
-        image: YazadSidhwa,
-        description: `Yazad is currently pursuing his M.S. in Computer Science at the University of California, Irvine. When he's not working, you’ll find him shooting hoops on the basketball court or kicking a soccer ball around. He is also an avid hiker, exploring trails with friends and is a total nerd for sci-fi films. Plus, he’s a foodie who loves discovering new restaurants.`,
-        contacts: {
-            github: `https://github.com/yazadsidhwa-eaton`,
-            linkedIn: `https://www.linkedin.com/in/yazad-sidhwa`,
-        },
-    },
-    {
         name: 'Komal Dhere',
         role: `Front-End Developer`,
         image: KomalDhere,
@@ -133,6 +90,16 @@ export const currentMaintainers: CurrentMaintainter[] = [
         contacts: {
             github: `https://github.com/KomalGDhere-eaton`,
             linkedIn: `https://www.linkedin.com/in/komal-dhere-4a7735153/`,
+        },
+    },
+    {
+        name: 'Harshal Kapure',
+        role: `Front-End Developer`,
+        image: HarshalKapure,
+        description: `Harshal is a front-end developer.He specializes in React.js, Ext.Js and Modern web technologies. He is passionate about learning new technologies and building user-friendly applications.`,
+        contacts: {
+            github: 'https://github.com/HarshalKapure',
+            linkedIn: `https://www.linkedin.com/in/harshal-kapure-b9237776/`,
         },
     },
 ];
