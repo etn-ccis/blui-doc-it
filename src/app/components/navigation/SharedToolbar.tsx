@@ -1,25 +1,22 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import {
-    Typography,
-    AppBar,
-    Toolbar,
-    ListItemText,
-    AppBarProps,
-    Hidden,
-    IconButton,
-    useTheme,
-    useMediaQuery,
-    Box,
-    Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogTitle,
-    TextField,
-    MenuItem,
-    Menu,
-} from '@mui/material';
+import Typography from '@mui/material/Typography';
+import AppBar, { AppBarProps } from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import ListItemText from '@mui/material/ListItemText';
+import Hidden from '@mui/material/Hidden';
+import IconButton from '@mui/material/IconButton';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
 import { PxblueSmall } from '@brightlayer-ui/icons-mui';
 import { Spacer } from '@brightlayer-ui/react-components';
 import { useLocation } from 'react-router-dom';
@@ -65,7 +62,7 @@ const availableThemes = [
 
 export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const { title, color, subtitle, navigationIcon, onClick, ...other } = props;
-    const icon = navigationIcon ? navigationIcon : <PxblueSmall />;
+    const icon = navigationIcon ?? <PxblueSmall />;
     const location = useLocation();
     const theme = useTheme();
     const isLandingPage = location.pathname === '/';
@@ -80,7 +77,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const dispatch = useDispatch();
     const appBarBackground = getScheduledSiteConfig(selectedTheme).appBarBackground;
     const getIsFireworkHoliday = (): boolean => {
-        const holidayClassName = getScheduledSiteConfig(selectedTheme).className || '';
+        const holidayClassName = getScheduledSiteConfig(selectedTheme).className ?? '';
         const fireworkHolidays = ['independence-day'];
 
         if (fireworkHolidays.includes(holidayClassName)) {
@@ -111,7 +108,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     useEffect(() => {
         if (getIsFireworkHoliday()) {
             const fireworksContainer: HTMLElement =
-                document.getElementById('fireworks') || document.createElement('div');
+                document.getElementById('fireworks') ?? document.createElement('div');
             fireworksContainer.innerHTML = '';
             const fireworks = new FireworksCanvas(fireworksContainer, {
                 maxRockets: 3,

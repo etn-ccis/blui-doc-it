@@ -1,8 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
-type SearchParams = {
-    [key: string]: string;
-};
+type SearchParams = Record<string, string>;
 export const useQueryString = (): SearchParams => {
     const { search } = useLocation();
     let noQuestion = search;

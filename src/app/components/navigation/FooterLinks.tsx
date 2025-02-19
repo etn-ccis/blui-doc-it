@@ -1,12 +1,16 @@
 import React from 'react';
-import { Typography, Theme, useMediaQuery, SxProps, Box, Stack } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import { SxProps, Theme } from '@mui/material/styles';
 
 import * as Colors from '@brightlayer-ui/colors';
 import { NavLink } from './NavLink';
 import { Eaton } from '../../assets/icons';
 import { SmallPXBLogo } from '../../assets/icons/PXBLogo';
 
-const styles: { [key: string]: SxProps<Theme> } = {
+const styles: Record<string, SxProps<Theme>> = {
     divider: {
         width: '1px',
         background: Colors.black[800],

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, LinkProps } from 'react-router-dom';
-import { Box, SxProps, Theme } from '@mui/material';
+import Box from '@mui/material/Box';
+import { SxProps, Theme } from '@mui/material/styles';
 
 type NavLinkProps = LinkProps & {
     title: string;
@@ -18,7 +19,7 @@ export const NavLink: React.FC<NavLinkProps> = (props): JSX.Element => (
             color: '#ffffff',
             ml: 2,
             '&:hover': {
-                color: props.hoverColor || '',
+                color: props.hoverColor ?? '',
             },
             ...props.sx,
         }}

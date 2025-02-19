@@ -1,16 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import {
-    Typography,
-    AppBar,
-    Toolbar,
-    AppBarProps,
-    TextField,
-    IconButton,
-    Theme,
-    Backdrop,
-    Divider,
-    Box,
-} from '@mui/material';
+import Typography from '@mui/material/Typography';
+import Toolbar from '@mui/material/Toolbar';
+import AppBar, { AppBarProps } from '@mui/material/AppBar';
+import TextField from '@mui/material/TextField';
+import IconButton from '@mui/material/IconButton';
+import { Theme } from '@mui/material/styles';
+import Backdrop from '@mui/material/Backdrop';
+import Divider from '@mui/material/Divider';
+import Box from '@mui/material/Box';
 import { TOGGLE_SEARCH } from '../redux/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../redux/reducers';
@@ -28,7 +25,7 @@ import { SystemStyleObject } from '@mui/system';
 
 export type SearchbarProps = AppBarProps;
 
-const styles: { [key: string]: SystemStyleObject<Theme> } = {
+const styles: Record<string, SystemStyleObject<Theme>> = {
     appBar: {
         backgroundColor: 'background.paper',
         width: 0,

@@ -1,5 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Typography, Theme, Box, Stack, BoxProps } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import { Theme } from '@mui/material/styles';
+import Stack from '@mui/material/Stack';
+import Box, { BoxProps } from '@mui/material/Box';
 import { Check } from '@mui/icons-material';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
@@ -44,7 +47,7 @@ type SwatchProps = BoxProps &
         weight: number;
     };
 
-const styles: { [key: string]: SystemStyleObject<Theme> } = {
+const styles: Record<string, SystemStyleObject<Theme>> = {
     tags: {
         boxSizing: 'content-box',
         border: `1px solid`,
@@ -126,7 +129,7 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
                 setSelectedColorHex(BrandingColors[selectedColor.name][selectedColor.weight]);
             }
         }
-    }, [selectedColor]);
+    }, [selectedColor, category, name, weight]);
 
     return (
         <Box
@@ -159,7 +162,7 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
                 sx={{
                     height: 60,
                     position: 'relative',
-                    background: color || 'background.paper',
+                    background: color ?? 'background.paper',
                     color: colorModule(color).isLight() ? '#000d' : 'white',
                 }}
                 onClick={onSelectColor}
@@ -242,7 +245,7 @@ export const ColorPalette: React.FC<PaletteProps> = (props): JSX.Element => {
                 .map((key) => (
                     <ColorSwatch
                         key={key}
-                        color={palette[key] || ''}
+                        color={palette[key] ?? ''}
                         weight={key as number}
                         name={props.name}
                         category={props.category}

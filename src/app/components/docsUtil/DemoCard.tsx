@@ -1,5 +1,10 @@
 import React from 'react';
-import { Theme, Card, Typography, CardProps, Chip, useTheme, SxProps, Box } from '@mui/material';
+import Card, { CardProps } from '@mui/material/Card';
+import Typography from '@mui/material/Typography';
+import Chip from '@mui/material/Chip';
+import { useTheme } from '@mui/material/styles';
+import { SxProps, Theme } from '@mui/system';
+import Box from '@mui/material/Box';
 import { Angular, ReactBlue } from '../../assets/icons';
 import { CTA_BUTTON } from '../../shared';
 
@@ -47,7 +52,7 @@ const getDetails = (repository: string, framework: string): Details => {
     }
 };
 
-const styles: { [key: string]: SxProps<Theme> } = {
+const styles: Record<string, SxProps<Theme>> = {
     button: {
         fontWeight: 600,
         m: 0.5,

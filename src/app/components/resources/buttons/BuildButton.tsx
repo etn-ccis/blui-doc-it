@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { IconButton, BoxProps, Box, Tooltip } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import Box, { BoxProps } from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip';
 // import axios from 'axios';
 import { getBuildStatus } from '../../../api';
 import * as Colors from '@brightlayer-ui/colors';
@@ -78,7 +80,7 @@ export const BuildButton: React.FC<BuildButtonProps> = (props) => {
         let isMounted = true;
 
         const loadBuildStatus = async (): Promise<void> => {
-            const buildStatus = await getBuildStatus(repository, branches || ['master']);
+            const buildStatus = await getBuildStatus(repository, branches ?? ['master']);
             if (isMounted) {
                 setBuild(buildStatus);
             }

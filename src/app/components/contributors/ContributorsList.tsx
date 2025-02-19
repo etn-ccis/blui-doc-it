@@ -1,7 +1,9 @@
 import React from 'react';
 import { ContributorsCard } from './';
 import { CurrentMaintainter } from '../../../__types__';
-import { Box, BoxProps, Grid, Typography } from '@mui/material';
+import Box, { BoxProps } from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 
 type ContributorListProps = BoxProps & {
     contributors: CurrentMaintainter[];

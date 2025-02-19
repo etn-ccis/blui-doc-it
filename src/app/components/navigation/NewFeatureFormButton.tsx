@@ -12,7 +12,7 @@ export const NewFeatureFormButton: React.FC<NewFeatureFormButtonProps> = (props)
             href={
                 'https://docs.google.com/forms/d/e/1FAIpQLScfsDVH0bSZYqqKhLZTYZA0KnSrMsp0pmXZCDjJeHG4kaDXJg/viewform?usp=sf_link'
             }
-            title={title || 'Request New Features'}
+            title={title ?? 'Request New Features'}
         />
     );
 };

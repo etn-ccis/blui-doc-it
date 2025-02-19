@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tooltip } from '@mui/material';
+import Tooltip from '@mui/material/Tooltip';
 import LockOutlined from '@mui/icons-material/LockOutlined';
 
 /**

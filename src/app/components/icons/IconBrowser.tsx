@@ -17,7 +17,10 @@ import { IconDrawer } from './IconDrawer';
 import { SelectedIconContext } from '../../contexts/selectedIconContextProvider';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useQueryString } from '../../hooks/useQueryString';
-import { Grid, Skeleton, Typography, useTheme } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import Skeleton from '@mui/material/Skeleton';
+import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
 import { titleCase } from '../../shared';
 import { useDispatch } from 'react-redux';
 import { TOGGLE_SIDEBAR } from '../../redux/actions';
@@ -27,7 +30,7 @@ type MaterialMeta = {
     icons: DetailedIcon[];
 };
 // https://fonts.google.com/metadata/icons
-// eslint-disable-next-line
+
 const materialMetadata: MaterialMeta = require('./MaterialMetadata.json');
 
 /*
@@ -38,21 +41,17 @@ const searchIndex = FlexSearch.create<string>({
     tokenize: 'full',
 });
 type MuiIconClass = 'Outlined' | 'Two Tone' | 'Rounded' | 'Sharp' | 'Filled';
-type IconMapType = {
-    [key: string]: IconType;
-};
-type IconCategoriesType = {
-    [key: string]: IconType[];
-};
+type IconMapType = Record<string, IconType>;
+type IconCategoriesType = Record<string, IconType[]>;
 const allIconsMap: IconMapType = {};
 const allIconsByCategory: IconCategoriesType = {};
 
 // convert the metadata arrays into objects for faster searching
-const matMetaObject: { [key: string]: DetailedIcon } = {};
+const matMetaObject: Record<string, DetailedIcon> = {};
 for (const ico of materialMetadata.icons) {
     matMetaObject[getMuiIconName(ico.name)] = ico;
 }
-const bluiMetaObject: { [key: string]: DetailedIcon } = {};
+const bluiMetaObject: Record<string, DetailedIcon> = {};
 for (const ico of bluiMetadata.icons) {
     // @ts-ignore (our icon meta doesn't exactly match the material meta, but we never reference the missing props so it's ok)
     bluiMetaObject[getMuiIconName(ico.filename)] = ico;
@@ -233,23 +232,26 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                 }
             }
         }
-    }, []);
+    }, [dispatch, iconQuery, isMaterial]);
 
     useEffect(() => {
         if (!iconQuery || iconQuery === '') setSelectedIcon(undefined);
     }, [iconQuery, setSelectedIcon]);
 
-    const handleSelect = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
-        const iconName = event?.currentTarget?.getAttribute('data-iconid')?.split('-');
-        if (!iconName) return;
+    const handleSelect = useCallback(
+        (event: React.MouseEvent<HTMLDivElement>) => {
+            const iconName = event?.currentTarget?.getAttribute('data-iconid')?.split('-');
+            if (!iconName) return;
 
-        setSelectedIcon(allIconsMap[iconName.join('-')]);
-        navigate(
-            `${location.pathname}?icon=${iconName[0]}&isMaterial=${iconName[1] === 'material' ? 'true' : 'false'}`,
-            { replace: true }
-        );
-        dispatch({ type: TOGGLE_SIDEBAR, payload: true });
-    }, []);
+            setSelectedIcon(allIconsMap[iconName.join('-')]);
+            navigate(
+                `${location.pathname}?icon=${iconName[0]}&isMaterial=${iconName[1] === 'material' ? 'true' : 'false'}`,
+                { replace: true }
+            );
+            dispatch({ type: TOGGLE_SIDEBAR, payload: true });
+        },
+        [dispatch, navigate, location.pathname]
+    );
 
     const handleSearchChange = useMemo(
         () =>

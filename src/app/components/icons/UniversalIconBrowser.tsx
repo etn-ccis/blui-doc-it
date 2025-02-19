@@ -1,7 +1,14 @@
 import React from 'react';
 import { iconList } from '../../../__configuration__/style';
 
-import { Typography, Card, CardContent, CardActions, Divider, useTheme, IconButton, Tooltip } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Divider from '@mui/material/Divider';
+import useTheme from '@mui/material/styles/useTheme';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
 import { InfoListItem, ListItemTag } from '@brightlayer-ui/react-components';
 import { ExpandLess, ExpandMore, Edit } from '@mui/icons-material';
 import { SystemStyleObject } from '@mui/system';

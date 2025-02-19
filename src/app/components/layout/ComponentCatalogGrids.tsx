@@ -1,5 +1,8 @@
 import React from 'react';
-import { Grid, Tooltip, Chip, Box } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import Tooltip from '@mui/material/Tooltip';
+import Chip from '@mui/material/Chip';
+import Box from '@mui/material/Box';
 import { InfoCard } from '..';
 import { componentCatalogLinks } from '../../../__configuration__/resources';
 import { Angular, ReactBlue } from '../../assets/icons';

@@ -1,20 +1,17 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import {
-    AppBar,
-    Typography,
-    Theme,
-    List,
-    Accordion,
-    AccordionDetails,
-    Divider,
-    Select,
-    MenuItem,
-    Toolbar,
-    Button,
-    useTheme,
-    SxProps,
-    Box,
-} from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Typography from '@mui/material/Typography';
+import { Theme, useTheme } from '@mui/material/styles';
+import List from '@mui/material/List';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Divider from '@mui/material/Divider';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
+import { SxProps } from '@mui/system';
+import Box from '@mui/material/Box';
 
 import { PageContent, ExpansionHeader } from '../components';
 
@@ -35,7 +32,7 @@ import { ErrorOutline } from '@mui/icons-material';
 import clsx from 'clsx';
 import { AVAILABLE_RELEASES, CURRENT_RELEASE } from '../../__configuration__/roadmap';
 
-const styles: { [key: string]: SxProps<Theme> } = {
+const styles: Record<string, SxProps<Theme>> = {
     secondaryAppbar: {
         color: 'primary.contrastText',
         top: { xs: 56, sm: 64 },
@@ -114,7 +111,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
         const loadRoadmap = async (): Promise<void> => {
             const data = await getRoadmap(releaseFilter);
             if (isMounted) {
-                setRoadmap(data || []);
+                setRoadmap(data ?? []);
             }
             setLoading(false);
         };

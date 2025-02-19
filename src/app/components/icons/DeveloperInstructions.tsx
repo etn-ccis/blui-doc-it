@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import { IconType } from '../../../__types__';
-import {
-    Theme,
-    Typography,
-    useTheme,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
-    AccordionProps,
-    Divider,
-    SxProps,
-    Box,
-    Stack,
-} from '@mui/material';
+import { Theme, SxProps } from '@mui/system';
+import Typography from '@mui/material/Typography';
+import useTheme from '@mui/material/styles/useTheme';
+import Divider from '@mui/material/Divider';
+import Box from '@mui/material/Box';
+import Accordion, { AccordionProps } from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Stack from '@mui/material/Stack';
 
 import { ArrowDropDown } from '@mui/icons-material';
 
@@ -32,7 +28,7 @@ import { CopyToClipboard } from './CopyToClipboardButton';
 
 type Framework = 'angular' | 'react' | 'react-native';
 
-const styles: { [key: string]: SxProps<Theme> } = {
+const styles: Record<string, SxProps<Theme>> = {
     codeSnippet: {
         mt: 0.5,
         mx: 0,

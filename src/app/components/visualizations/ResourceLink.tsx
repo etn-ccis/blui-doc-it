@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
-import { Link, Typography } from '@mui/material';
+import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 const Container = styled('div')`

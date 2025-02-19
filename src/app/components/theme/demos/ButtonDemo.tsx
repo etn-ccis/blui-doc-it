@@ -1,5 +1,11 @@
 import React from 'react';
-import { Table, TableHead, TableRow, TableCell, TableBody, Button, TableContainer } from '@mui/material';
+import Table from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
+import TableBody from '@mui/material/TableBody';
+import Button from '@mui/material/Button';
+import TableContainer from '@mui/material/TableContainer';
 import { Add } from '@mui/icons-material';
 
 /*

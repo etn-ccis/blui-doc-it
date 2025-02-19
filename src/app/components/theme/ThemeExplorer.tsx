@@ -2,18 +2,16 @@ import React, { useState } from 'react';
 import { Spacer } from '@brightlayer-ui/react-components';
 import { blue as lightTheme, blueDark as darkTheme } from '@brightlayer-ui/react-themes';
 import { ThemeProvider, useTheme, createTheme } from '@mui/material/styles';
-import {
-    Card,
-    Divider,
-    Select,
-    Toolbar,
-    MenuItem,
-    Switch,
-    FormControlLabel,
-    Typography,
-    Box,
-    Stack,
-} from '@mui/material';
+import Card from '@mui/material/Card';
+import Divider from '@mui/material/Divider';
+import Select from '@mui/material/Select';
+import Toolbar from '@mui/material/Toolbar';
+import MenuItem from '@mui/material/MenuItem';
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import { componentNameList, componentList } from './componentList';
 import { SystemStyleObject } from '@mui/system';
 

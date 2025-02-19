@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, GridProps } from '@mui/material';
+import Grid, { GridProps } from '@mui/material/Grid';
 import { InfoCard } from '..';
 import { useNavigate } from 'react-router-dom';
 

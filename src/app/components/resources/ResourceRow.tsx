@@ -1,5 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useMediaQuery, Typography, Theme, Button, Divider, useTheme, SxProps, Box } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Typography from '@mui/material/Typography';
+import { Theme, useTheme } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import { SxProps } from '@mui/system';
+import Box from '@mui/material/Box';
 
 import * as Colors from '@brightlayer-ui/colors';
 import { getNpmVersion } from '../../api';
@@ -7,7 +13,7 @@ import { ButtonRow } from './ButtonRow';
 import { InfoListItem } from '@brightlayer-ui/react-components';
 import { GitHub } from '../../assets/icons';
 
-const styles: { [key: string]: SxProps<Theme> } = {
+const styles: Record<string, SxProps<Theme>> = {
     flex: {
         display: 'flex',
         alignItems: 'center',
@@ -96,7 +102,7 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
                                 variant={'subtitle2'}
                                 sx={styles.version}
                                 onClick={(): void => {
-                                    window.open(`https://www.npmjs.com/package/${packageName || ''}`, '_blank');
+                                    window.open(`https://www.npmjs.com/package/${packageName ?? ''}`, '_blank');
                                 }}
                             >{`@${version || 'X.X.X'}`}</Typography>
                         )}

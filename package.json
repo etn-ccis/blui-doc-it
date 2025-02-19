@@ -55,8 +55,6 @@
     },
     "eslintConfig": {
         "extends": [
-            "react-app",
-            "react-app/jest"
         ]
     },
     "browserslist": {
@@ -72,7 +70,7 @@
         ]
     },
     "devDependencies": {
-        "@brightlayer-ui/eslint-config": "^3.0.1",
+        "@brightlayer-ui/eslint-config": "^4.0.0",
         "@brightlayer-ui/prettier-config": "^1.0.3",
         "@craco/craco": "^7.1.0",
         "@mdx-js/loader": "^2.1.5",
@@ -91,13 +89,14 @@
         "@types/react-router-dom": "^5.3.3",
         "@typescript-eslint/eslint-plugin": "^5.62.0",
         "@typescript-eslint/parser": "^5.62.0",
-        "eslint": "^8.28.0",
-        "eslint-config-prettier": "^8.5.0",
-        "eslint-plugin-react": "^7.33.2",
+        "eslint": "^9.20.1",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-react": "^7.36.1",
+        "eslint-plugin-react-hooks": "^5.1.0",
         "firebase-tools": "^13.28.0",
         "markdown-link-check": "^3.13.6",
         "natural": "^5.0.0",
-        "prettier": "^2.8.0",
+        "prettier": "^3.3.3",
         "remark-gfm": "^1.0.0",
         "sass": "^1.70.0",
         "typescript": "^5.7.2"

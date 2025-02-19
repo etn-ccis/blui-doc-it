@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { AppBar, Tabs, Tab, List, Accordion, AccordionDetails, Divider, useTheme } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import List from '@mui/material/List';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Divider from '@mui/material/Divider';
+import { useTheme } from '@mui/material/styles';
 
 import { ResourceRow, PageContent, ExpansionHeader } from '../components';
 import { resources } from '../../__configuration__/resources';

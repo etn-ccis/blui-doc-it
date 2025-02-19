@@ -2,7 +2,7 @@ import React from 'react';
 import IconButton from '@mui/material/IconButton';
 import { styled, useTheme } from '@mui/material/styles';
 import { SvgIconComponent } from '@mui/icons-material';
-import { Typography } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 
 const StyledIconButton = styled(IconButton)<{ bordercolor: string }>`

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Switch, Typography } from '@mui/material';
+import Switch from '@mui/material/Switch';
+import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
 import { CHANGE_COLOR_FORMAT } from '../../redux/actions';
 

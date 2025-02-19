@@ -1,4 +1,4 @@
-import { createTheme, ThemeProvider } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { ThemeProviderProps } from '@mui/styles';
 import React from 'react';
 import { getScheduledSiteConfig } from '../../../__configuration__/themes';

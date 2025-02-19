@@ -1,16 +1,12 @@
-import {
-    Accordion,
-    AccordionDetails,
-    AccordionProps,
-    AccordionSummary,
-    Typography,
-    Theme,
-    SxProps,
-} from '@mui/material';
+import Accordion, { AccordionProps } from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Typography from '@mui/material/Typography';
+import { Theme, SxProps } from '@mui/material/styles';
 import { ExpandMore } from '@mui/icons-material';
 import React from 'react';
 
-const styles: { [key: string]: SxProps<Theme> } = {
+const styles: Record<string, SxProps<Theme>> = {
     summary: {
         py: 0,
         px: 2,

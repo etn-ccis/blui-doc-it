@@ -109,8 +109,7 @@ export const getScheduledSiteConfig = (theme?: string): SiteConfig => {
     const currentDate = new Date();
     currentDate.setFullYear(1900);
 
-    for (let i = 0; i < schedule.length; i++) {
-        const duration = schedule[i];
+    for (const duration of schedule) {
         // if did not wrap to the next year
         if (duration.end.getFullYear() === 1900) {
             if (duration.start <= currentDate && currentDate <= duration.end) {
