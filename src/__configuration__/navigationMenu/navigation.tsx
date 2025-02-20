@@ -426,6 +426,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 url: 'designer',
                 component: <MarkdownPage title={'Designer Resources'} markdown={Docs.Resources.DesignerResources} />,
             },
+            {
+                title: 'Community Packages',
+                url: 'community',
+                component: <MarkdownPage title={'Community Resources'} markdown={Docs.Resources.CommunityPackages} />,
+            },
         ],
     },
     {

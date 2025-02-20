@@ -9,7 +9,7 @@ const externalLinks: ExternalLink[] = [
     {
         title: `Brightlayer Charts`,
         subtitle: `A Design System for Data Visualization`,
-        link: `https://brightlayer-charts.azurewebsites.net/`,
+        link: `https://brightlayer-ui-community.github.io/`,
     },
     {
         title: `Design Thinking Resources`,
