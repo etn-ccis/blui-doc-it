@@ -247,10 +247,12 @@
                 {
                     "title": "Bar Chart",
                     "url": "/barchart"
-                },{
+                },
+                {
                     "title": "Line Chart",
                     "url": "/linechart"
-                },{
+                },
+                {
                     "title": "Pie Chart",
                     "url": "/piechart"
                 }
@@ -306,6 +308,10 @@
                 {
                     "title": "Designer Resources",
                     "url": "/designer"
+                },
+                {
+                    "title": "Community Resources",
+                    "url": "/community"
                 }
             ]
         },
