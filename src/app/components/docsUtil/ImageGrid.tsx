@@ -1,8 +1,13 @@
 import React, { useState, HTMLAttributes } from 'react';
-import { Grid, GridProps, Typography, Theme, useTheme, useMediaQuery, SxProps, Box } from '@mui/material';
+import Grid, { GridProps } from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import { Theme, useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { SxProps } from '@mui/system';
+import Box from '@mui/material/Box';
 import TaggedCaption from './rules/TaggedCaption';
 
-const styles: { [key: string]: SxProps<Theme> } = {
+const styles: Record<string, SxProps<Theme>> = {
     root: {
         mb: 5,
     },

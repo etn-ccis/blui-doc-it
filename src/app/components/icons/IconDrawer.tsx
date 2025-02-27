@@ -1,21 +1,18 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-    AppBar,
-    Button,
-    Divider,
-    Drawer as MuiDrawer,
-    IconButton,
-    Link,
-    Theme,
-    Toolbar,
-    Typography,
-    useTheme,
-    useMediaQuery,
-    Box,
-    Stack,
-    ListItemText,
-} from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import MuiDrawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import Link from '@mui/material/Link';
+import { useTheme, Theme } from '@mui/material/styles';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import ListItemText from '@mui/material/ListItemText';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -42,7 +39,7 @@ import { IconSize, IconColor } from '../../../__types__';
 import { usePrevious } from '../../hooks/usePrevious';
 import { SystemStyleObject } from '@mui/system';
 
-const styles: { [key: string]: SystemStyleObject<Theme> } = {
+const styles: Record<string, SystemStyleObject<Theme>> = {
     drawer: {
         maxWidth: '80%',
         width: 350,

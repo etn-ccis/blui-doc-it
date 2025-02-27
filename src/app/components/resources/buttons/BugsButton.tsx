@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { IconButton, Badge, Typography, BoxProps, Box, Tooltip } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import Badge from '@mui/material/Badge';
+import Typography from '@mui/material/Typography';
+import Box, { BoxProps } from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip';
 import { getBugCount } from '../../../api';
 import * as Colors from '@brightlayer-ui/colors';
 import { BugReport } from '@mui/icons-material';
@@ -19,7 +23,7 @@ export const BugsButton: React.FC<BugsButtonProps> = (props) => {
         let isMounted = true;
 
         const loadBugs = async (): Promise<void> => {
-            const bugCount = await getBugCount(repository, bugLabels || []);
+            const bugCount = await getBugCount(repository, bugLabels ?? []);
             if (isMounted) {
                 setBugs(bugCount);
             }
@@ -35,10 +39,10 @@ export const BugsButton: React.FC<BugsButtonProps> = (props) => {
         bugs === undefined
             ? Colors.gray[500]
             : bugs < 1
-            ? Colors.green[500]
-            : bugs < 5
-            ? Colors.orange[500]
-            : Colors.red[500];
+              ? Colors.green[500]
+              : bugs < 5
+                ? Colors.orange[500]
+                : Colors.red[500];
 
     return !small ? (
         <Tooltip title={'Open Bugs'}>

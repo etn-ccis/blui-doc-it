@@ -1,5 +1,7 @@
 import React from 'react';
-import { Box, IconButton, Snackbar } from '@mui/material';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Snackbar from '@mui/material/Snackbar';
 import { Delete } from '@mui/icons-material';
 
 export const SnackbarDemo: JSX.Element = (

@@ -1,16 +1,10 @@
-/* eslint-disable react/display-name */
 import React, { useState } from 'react';
-import {
-    Typography,
-    TypographyProps,
-    SvgIconProps,
-    Snackbar,
-    useTheme,
-    IconButton,
-    Box,
-    BoxProps,
-    Theme,
-} from '@mui/material';
+import Typography, { TypographyProps } from '@mui/material/Typography';
+import { SvgIconProps } from '@mui/material/SvgIcon';
+import Snackbar from '@mui/material/Snackbar';
+import { Theme, useTheme } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import Box, { BoxProps } from '@mui/material/Box';
 import { Link as LinkIcon } from '@mui/icons-material';
 import { Link, LinkProps } from 'react-router-dom';
 import { REGULAR_WIDTH_STYLE, copyTextToClipboard, getHash } from '../../app/shared';
@@ -108,42 +102,42 @@ export const componentsMap: MDXComponents = {
         <Headline
             className={'markdownH1'}
             sx={{ mb: 4, hyphens: 'auto' }}
-            hash={getHash(props.children?.toString() || 'h1')}
+            hash={getHash(typeof props.children === 'string' ? props.children : 'h1')}
             TypographyProps={{ variant: 'h4', ...(props as TypographyProps) }}
         />
     ),
     h2: (props): JSX.Element => (
         <Headline
             sx={{ mt: 8, mb: 2 }}
-            hash={getHash(props.children?.toString() || 'h2')}
+            hash={getHash(typeof props.children === 'string' ? props.children : 'h2')}
             TypographyProps={{ variant: 'h6', ...(props as TypographyProps) }}
         />
     ),
     h3: (props): JSX.Element => (
         <Headline
             sx={{ mt: 4, mb: 2 }}
-            hash={getHash(props.children?.toString() || 'h3')}
+            hash={getHash(typeof props.children === 'string' ? props.children : 'h3')}
             TypographyProps={{ variant: 'body1', style: { fontWeight: 600 }, ...(props as TypographyProps) }}
         />
     ),
     h4: (props): JSX.Element => (
         <Headline
             sx={{ mt: 2 }}
-            hash={getHash(props.children?.toString() || 'h4')}
+            hash={getHash(typeof props.children === 'string' ? props.children : 'h4')}
             TypographyProps={{ variant: 'subtitle1', ...(props as TypographyProps) }}
         />
     ),
     h5: (props): JSX.Element => (
         <Headline
             sx={{ mt: 1 }}
-            hash={getHash(props.children?.toString() || 'h5')}
+            hash={getHash(typeof props.children === 'string' ? props.children : 'h5')}
             TypographyProps={{ variant: 'body2', ...(props as TypographyProps) }}
         />
     ),
     h6: (props): JSX.Element => (
         <Headline
             sx={{ mt: 1, fontSize: '0.75rem' }}
-            hash={getHash(props.children?.toString() || 'h6')}
+            hash={getHash(typeof props.children === 'string' ? props.children : 'h6')}
             TypographyProps={{ variant: 'body2', ...(props as TypographyProps) }}
         />
     ),

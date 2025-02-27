@@ -1,5 +1,7 @@
-import { Button, Typography, useTheme } from '@mui/material';
 import React from 'react';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
 
 type InDocButtonProps = {
     title: string;

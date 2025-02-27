@@ -1,12 +1,18 @@
 import React from 'react';
-import { Card, Typography, Theme, useTheme, Avatar, IconButton, SxProps, Box } from '@mui/material';
+import Card from '@mui/material/Card';
+import Typography from '@mui/material/Typography';
+import { Theme, useTheme } from '@mui/material/styles';
+import Avatar from '@mui/material/Avatar';
+import IconButton from '@mui/material/IconButton';
+import { SxProps } from '@mui/system';
+import Box from '@mui/material/Box';
 import { GitHub, LinkedIn } from '@mui/icons-material';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 
 import { currentMaintainers } from '../../../__configuration__/contributors';
 import backgroundImage from '../../assets/themes/circles.svg';
 
-const styles: { [key: string]: SxProps<Theme> } = {
+const styles: Record<string, SxProps<Theme>> = {
     card: {
         display: 'inline-flex',
         flexDirection: 'row',

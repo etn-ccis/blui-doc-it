@@ -1,5 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Typography, useMediaQuery, Box, useTheme } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Box from '@mui/material/Box';
+import useTheme from '@mui/material/styles/useTheme';
 import { Link, useLocation } from 'react-router-dom';
 import { DRAWER_WIDTH, TOC_WIDTH, PAGE_WIDTH, getHash } from '../../shared';
 import { useTOC } from '../../hooks/useTOC';
@@ -32,7 +35,7 @@ export const TOC: React.FC<ToCProps> = (props) => {
         // go through all the section anchors, read their offsetTop values
         const anchorTops: number[] = [];
         anchors.forEach((anchor) => {
-            const anchorHash = anchor.hash?.slice(1) || getHash(anchor.title);
+            const anchorHash = anchor.hash?.slice(1) ?? getHash(anchor.title);
             const sectionAnchor = document.getElementById(anchorHash);
             if (sectionAnchor) {
                 anchorTops.push(sectionAnchor.offsetTop - 200); // add a bit more scroll padding
@@ -127,7 +130,7 @@ export const TOC: React.FC<ToCProps> = (props) => {
                             component={Link}
                             key={index}
                             replace
-                            to={anchor.hash || `#${getHash(anchor.title)}`}
+                            to={anchor.hash ?? `#${getHash(anchor.title)}`}
                             variant={'body2'}
                             sx={[
                                 {

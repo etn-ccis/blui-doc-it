@@ -156,7 +156,7 @@ export const BLUIProjectCatalog: React.FC = () => {
                 </CardContent>
             </Card>
         ),
-        []
+        [getMarketDevicesInfo, getPlatformLink, styles]
     );
 
     const getProjectListItem = React.useCallback(
@@ -191,7 +191,7 @@ export const BLUIProjectCatalog: React.FC = () => {
                 )}
             </Box>
         ),
-        [styles]
+        [styles, getMarketDevicesInfo, getPlatformLink]
     );
     return (
         <Box sx={{ mt: 8 }}>

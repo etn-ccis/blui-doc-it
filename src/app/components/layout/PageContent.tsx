@@ -6,7 +6,7 @@ import { Spacer } from '@brightlayer-ui/react-components';
 import { AppState } from '../../redux/reducers';
 import { useSelector } from 'react-redux';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 export type PageContentProps = HTMLAttributes<HTMLDivElement> & {
     noPadding?: boolean;

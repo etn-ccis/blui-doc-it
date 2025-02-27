@@ -1,16 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import {
-    Box,
-    Divider,
-    Drawer,
-    FormControlLabel,
-    IconButton,
-    Switch,
-    Typography,
-    useMediaQuery,
-    useTheme,
-} from '@mui/material';
+import { useNavigate, useLocation } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import Drawer from '@mui/material/Drawer';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import IconButton from '@mui/material/IconButton';
+import Switch from '@mui/material/Switch';
+import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import useTheme from '@mui/material/styles/useTheme';
 import color from 'color';
 import { InfoListItem } from '@brightlayer-ui/react-components';
 import * as Colors from '@brightlayer-ui/colors';
@@ -28,6 +26,7 @@ export const ColorBottomSheet: React.FC = () => {
     const theme = useTheme();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const location = useLocation();
     const { category: queryCategory, name: queryName, weight: queryWeight } = useQueryString();
     const selectedColor = useSelector((state: AppState) => state.app.selectedColor);
     const showColorContrast = useSelector((state: AppState) => state.app.showColorContrast);
@@ -61,9 +60,12 @@ export const ColorBottomSheet: React.FC = () => {
         }
     }, [selectedColor]);
 
-    const handleChangeContrastToggle = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-        dispatch({ type: TOGGLE_COLOR_CONTRAST, payload: e.target.checked });
-    }, []);
+    const handleChangeContrastToggle = useCallback(
+        (e: React.ChangeEvent<HTMLInputElement>) => {
+            dispatch({ type: TOGGLE_COLOR_CONTRAST, payload: e.target.checked });
+        },
+        [dispatch]
+    );
 
     const dismissBottomSheet = useCallback(() => {
         navigate(`${location.pathname}`, { replace: true });

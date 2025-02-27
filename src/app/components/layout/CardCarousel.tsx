@@ -1,8 +1,10 @@
 import React from 'react';
-import { Typography, Theme, SxProps, Box } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import { Theme, SxProps } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 import * as Colors from '@brightlayer-ui/colors';
 
-const styles: { [key: string]: SxProps<Theme> } = {
+const styles: Record<string, SxProps<Theme>> = {
     cardWrapper: {
         width: '100%',
         backgroundSize: 'cover',
@@ -36,7 +38,7 @@ export const CarouselCard: React.FC<CarouselCardProps> = (props): JSX.Element =>
         sx={{
             ...styles.cardWrapper,
             height: props.height,
-            backgroundImage: `url(${props.backgroundImage || ''})`,
+            backgroundImage: `url(${props.backgroundImage ?? ''})`,
             cursor: props.onClick ? 'pointer' : 'default',
         }}
         onClick={(): void => {

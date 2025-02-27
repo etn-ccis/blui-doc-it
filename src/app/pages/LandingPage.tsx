@@ -1,17 +1,14 @@
 import React from 'react';
-import {
-    AppBar,
-    Toolbar,
-    Typography,
-    Button,
-    Grid,
-    Theme,
-    useTheme,
-    useMediaQuery,
-    SxProps,
-    Box,
-    Stack,
-} from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import { Theme, useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { SxProps } from '@mui/system';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import {
     InfoCard,
     Section as LandingSection,
@@ -41,7 +38,7 @@ import { Menu, DeveloperMode } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
 import { AppState } from '../redux/reducers';
 
-const styles: { [key: string]: SxProps<Theme> } = {
+const styles: Record<string, SxProps<Theme>> = {
     banner: {
         display: 'flex',
         flexDirection: 'column',

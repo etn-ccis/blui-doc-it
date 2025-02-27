@@ -1,7 +1,9 @@
 import React from 'react';
 import externalLinks, { ExternalLink } from '../../../__configuration__/landingPage/externalLinks';
 import { LockedBehindEatonFirewall } from './LockedBehindEatonFirewall';
-import { ListItemButton, ListItemText, List, ListItemButtonProps } from '@mui/material';
+import ListItemButton, { ListItemButtonProps } from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import List from '@mui/material/List';
 
 type ExternalLinkItemProps = ListItemButtonProps & {
     externalLink: ExternalLink;

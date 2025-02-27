@@ -1,5 +1,6 @@
 import React from 'react';
-import { Typography, useTheme } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import useTheme from '@mui/material/styles/useTheme';
 import { LatestReleases } from '../../docs';
 import { ReleaseInfo } from '../../docs/release-notes';
 import { PageContent, Divider } from '../components';
