@@ -7,7 +7,7 @@ import { NavigationDrawer } from './navigationDrawer';
 import { AppState } from '../redux/reducers';
 import { Menu } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
-import { pageDefinitions, pageRedirects, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
+import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -32,16 +32,6 @@ const buildRoutes = (routes: SimpleNavItem[], url: string): JSX.Element[] => {
         if (route.pages) {
             ret = ret.concat(buildRoutes(route.pages || [], `${url === '' ? '' : `${url}/`}${route.url ?? ''}`));
         }
-    }
-    return ret;
-};
-
-const buildRedirects = (): JSX.Element[] => {
-    const ret: JSX.Element[] = [];
-    for (let i = 0; i < pageRedirects.length; i++) {
-        ret.push(
-            <Route path={pageRedirects[i].oldUrl} key={i} element={<Navigate replace to={pageRedirects[i].newUrl} />} />
-        );
     }
     return ret;
 };
@@ -127,7 +117,6 @@ export const MainRouter = (): JSX.Element => {
                         }
                     >
                         {buildRoutes(pageDefinitions, '')}
-                        {buildRedirects()}
 
                         {/* Catch-All Redirect to Landing Page */}
                         <Route path="*" element={<Navigate replace to={'/'} />} />
