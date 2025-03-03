@@ -12,7 +12,7 @@ import { BluiProjectTag, BluiProjectStack, BluiProject } from './BluiProjectsTyp
 
 export const bluiProjects: BluiProject[] = [
     {
-        name: 'Control Xpert Ag',
+        name: 'Pump Control and Monitoring',
         description:
             'The Control Xpert mobile app allows remote access for monitoring and controlling irrigation systems. Users can start, stop, change speed, and reset faults on drives directly from their mobile devices.',
         platformURLs: {
@@ -79,7 +79,7 @@ export const bluiProjects: BluiProject[] = [
         ],
     },
     {
-        name: 'Brightlayer Industrial',
+        name: 'Brightlayer Industrial Remote Monitoring',
         description: `The app offers a unified view of assets, processes and facilities remotely with data from electrical and manufacturing equipment.`,
         platformURLs: {
             web: 'https://brightlayer-ind.eaton.com/',
@@ -108,8 +108,8 @@ export const bluiProjects: BluiProject[] = [
         tags: [BluiProjectTag.REAL_TIME_MONITORING, BluiProjectTag.ALARMS, BluiProjectTag.PREDICTIONS],
     },
     {
-        name: 'Smart Energy Manager',
-        description: `The Smart Energy Manager app provides an interface to Eaton’s WiFi-enabled smart breakers which offer circuit protection, cloud connectivity, remote control and precise metering all packaged in a standard miniature breaker form factor.`,
+        name: 'Brightlayer Home',
+        description: `The Brightlayer Home app provides an interface to Eaton’s WiFi-enabled smart breakers which offer circuit protection, cloud connectivity, remote control and precise metering all packaged in a standard miniature breaker form factor.`,
         platformURLs: {
             ios: `https://apps.apple.com/us/app/eaton-smart-energy-manager/id1598965906`,
             android: `https://play.google.com/store/apps/details?id=com.eaton.smartenergymanager`,
@@ -127,7 +127,7 @@ export const bluiProjects: BluiProject[] = [
         ],
     },
     {
-        name: 'EV Charger Manager',
+        name: 'Green Motion EV Charger Manager',
         description: `Track energy usage, manage chargers and save on energy costs by taking advantage of off-peak charging rates.`,
         platformURLs: {
             ios: `https://apps.apple.com/us/app/eaton-ev-charger-manager/id1593060138`,
@@ -146,7 +146,7 @@ export const bluiProjects: BluiProject[] = [
         ],
     },
     {
-        name: 'Green Motion Building / Fleet',
+        name: 'EV Charging Products',
         description: `Fast, cost-effective and sustainable charging for passenger vehicles, last mile delivery vehicles, light and medium-duty trucks, and school buses.`,
         platformURLs: {}, // this is an HMI project; no URL available
         website: `https://www.eaton.com/evchargers`,
