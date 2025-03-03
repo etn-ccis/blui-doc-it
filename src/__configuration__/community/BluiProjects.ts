@@ -19,7 +19,7 @@ export const bluiProjects: BluiProject[] = [
             ios: `https://apps.apple.com/us/app/control-xpert-ag/id1494485593`,
             android: `https://play.google.com/store/apps/details?id=com.glacierpoint`,
         },
-        website: `https://www.eaton.com/us/en-us/digital/brightlayer/brightlayer-industrial-suite/control-xpert-app.html`,
+        website: `https://www.eaton.com/us/en-us/digital/brightlayer/brightlayer-industrial-suite/pump-control-and-monitoring.html`,
         image: ControlXpert,
         market: 'Agriculture',
         devices: 'Drives',
@@ -149,7 +149,7 @@ export const bluiProjects: BluiProject[] = [
         name: 'EV Charging Products',
         description: `Fast, cost-effective and sustainable charging for passenger vehicles, last mile delivery vehicles, light and medium-duty trucks, and school buses.`,
         platformURLs: {}, // this is an HMI project; no URL available
-        website: `https://www.eaton.com/evchargers`,
+        website: `https://www.eaton.com/us/en-us/products/emobility/ev-charging-products.html`,
         image: GreenMotionEVCharger,
         market: 'Commercial',
         devices: 'EV chargers (HMI touch screens)',
