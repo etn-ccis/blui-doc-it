@@ -103,8 +103,8 @@ Registration is the process of user account creation. Typically, users can eithe
 
 If you do not need to restrict who can register for your application, you can allow users to self-register. The self-registration workflow includes the following steps:
 
--   Enter email address
 -   Accept EULA
+-   Enter email address
 -   Receive an email for verification
 -   Verify email
 -   Create password
@@ -126,11 +126,11 @@ If you need to restrict who is able to use your application, you may choose to g
 The majority of the registration screens are the same between invitation-based and self-registration. The primary difference is in how the registration workflow is initiated, and whether the email needs to be verified. Use the following screens for the registration workflow where appropriate.
 
 <ImageGrid
-    images={[EnterEmailAdress, AcceptEULA, VerifyEmail, CreatePassword, AccountDetails, WelcomeOnboard]}
+    images={[AcceptEULA, EnterEmailAdress, VerifyEmail, CreatePassword, AccountDetails, WelcomeOnboard]}
     caption={[
         'Screens in the registration workflow.',
-        '1: Enter email address',
-        '2: Accept EULA',
+        '1: Accept EULA',
+        '2: Enter email address',
         '3: Verify email',
         '4: Create password',
         '5: Add account details',
