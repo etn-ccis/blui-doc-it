@@ -102,7 +102,6 @@ const appReducer = (state = initialAppState, action: any): CommonState => {
             return state;
     }
 };
-export const Reducer = (): any =>
-    combineReducers<AppState>({
-        app: appReducer,
-    });
+export const Reducer = combineReducers({
+    app: appReducer,
+});

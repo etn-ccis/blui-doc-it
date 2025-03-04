@@ -10,7 +10,7 @@ import React from 'react';
 import ReactDOMClient from 'react-dom/client';
 import { StyledEngineProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { createStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { MDXProvider } from '@mdx-js/react';
 import { MainRouter } from './app/router';
@@ -33,10 +33,27 @@ if (gaID) {
     ReactGA.initialize(gaID);
 }
 
+// TODO: Remove this after the issues with @types/react goes away
+// https://github.com/DefinitelyTyped/DefinitelyTyped/discussions/68444
+/* eslint-disable */
+declare global {
+    namespace React {
+        interface DOMAttributes<T> {
+            placeholder?: string | undefined;
+            onPointerEnterCapture?: string | undefined;
+            onPointerLeaveCapture?: string | undefined;
+        }
+    }
+}
+
 const container = document.getElementById('root');
 if (!container) throw new Error('Root Element was not found in the DOM');
 
-const store = createStore(Reducer());
+const initialState = {};
+const store = configureStore({
+    reducer: Reducer,
+    preloadedState: initialState,
+});
 const root = ReactDOMClient.createRoot(container);
 
 root.render(

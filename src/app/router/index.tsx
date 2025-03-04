@@ -75,7 +75,12 @@ export const MainRouter = (): JSX.Element => {
     const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
     const showBanner = useSelector((state: AppState) => state.app.showBanner);
     return (
-        <Router>
+        <Router
+            future={{
+                v7_startTransition: true,
+                v7_relativeSplatPath: true,
+            }}
+        >
             <ScrollToTop />
             <AnnouncementAppbar />
             <DrawerLayout
