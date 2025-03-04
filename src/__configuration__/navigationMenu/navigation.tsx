@@ -63,17 +63,13 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Web Frameworks',
                 url: 'frameworks-web',
+                component: (
+                    <MarkdownPage
+                        title={'Web Framework Introduction'}
+                        markdown={Docs.Development.WebFrameworks.Intro}
+                    />
+                ),
                 pages: [
-                    {
-                        title: 'Introduction',
-                        url: 'intro',
-                        component: (
-                            <MarkdownPage
-                                title={'Web Framework Introduction'}
-                                markdown={Docs.Development.WebFrameworks.Intro}
-                            />
-                        ),
-                    },
                     {
                         title: 'Angular Guide',
                         url: 'angular',
@@ -93,17 +89,13 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Mobile Frameworks',
                 url: 'frameworks-mobile',
+                component: (
+                    <MarkdownPage
+                        title={'Mobile Framework Introduction'}
+                        markdown={Docs.Development.MobileFrameworks.Intro}
+                    />
+                ),
                 pages: [
-                    {
-                        title: 'Introduction',
-                        url: 'intro',
-                        component: (
-                            <MarkdownPage
-                                title={'Mobile Framework Introduction'}
-                                markdown={Docs.Development.MobileFrameworks.Intro}
-                            />
-                        ),
-                    },
                     {
                         hidden: true,
                         title: 'Apache Cordova Guide',
