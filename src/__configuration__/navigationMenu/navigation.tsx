@@ -462,19 +462,3 @@ export const pageDefinitions: SimpleNavItem[] = [
         component: <MarkdownPage title={'Brightlayer UI Package Migration'} markdown={Docs.Migration} />,
     },
 ];
-
-export const pageRedirects: RedirectItem[] = [
-    {
-        oldUrl: 'patterns/login',
-        newUrl: 'patterns/user-auth',
-    },
-    // Remove this when we have a landing page for all the resources
-    {
-        oldUrl: 'resources',
-        newUrl: 'resources/developer',
-    },
-    {
-        oldUrl: 'style/iconography',
-        newUrl: 'style/icon-library',
-    },
-];
