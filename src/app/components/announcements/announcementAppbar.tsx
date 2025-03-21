@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { AppBar, Toolbar, IconButton, useTheme, Box, SxProps } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import { useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import { SxProps } from '@mui/system';
 import { Close } from '@mui/icons-material';
 import { Spacer } from '@brightlayer-ui/react-components';
 import { getAnnouncementDetails } from '../../api';
@@ -13,7 +18,7 @@ type BannerData = {
     bannerDismissed: boolean;
     id: number;
 };
-const styles: { [key: string]: SxProps } = {
+const styles: Record<string, SxProps> = {
     bannerContainer: {
         '& > a': {
             textDecoration: 'underline',
@@ -100,12 +105,11 @@ export const AnnouncementAppbar: React.FC = () => {
                     <Toolbar>
                         <Box
                             sx={styles.bannerContainer}
-                            // eslint-disable-next-line @typescript-eslint/naming-convention
                             dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(announcementDetails?.bannerContent) }}
                         />
                         <Spacer />
                         <IconButton
-                            style={{ marginRight: -theme.spacing(1) }}
+                            style={{ marginRight: -Number(theme.spacing(1).replace('px', '')) }}
                             color={'inherit'}
                             onClick={(): void => {
                                 dispatch({ type: HIDE_BANNER });

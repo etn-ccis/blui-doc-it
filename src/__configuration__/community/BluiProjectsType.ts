@@ -1,4 +1,3 @@
-/* eslint-disable */
 export enum BluiProjectTag {
     ALARMS = 'Alarms',
     DEVICE_COMMISSIONING = 'Device Commissioning',
@@ -17,8 +16,6 @@ export enum BluiProjectStack {
     REACT = 'React',
     REACT_NATIVE = 'React Native',
 }
-
-/* eslint-enable */
 
 export type BluiProject = {
     name: string;

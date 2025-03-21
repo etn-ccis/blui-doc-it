@@ -1,15 +1,13 @@
 import React from 'react';
-import {
-    Table,
-    TableHead,
-    TableRow,
-    TableCell,
-    TableBody,
-    Switch,
-    FormControlLabel,
-    TableContainer,
-    Typography,
-} from '@mui/material';
+import Table from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
+import TableBody from '@mui/material/TableBody';
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import TableContainer from '@mui/material/TableContainer';
+import Typography from '@mui/material/Typography';
 
 /*
  * cannot iterate through variations due to the way MUI implemented text fields

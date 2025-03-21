@@ -7,40 +7,31 @@ import { NavigationDrawer } from './navigationDrawer';
 import { AppState } from '../redux/reducers';
 import { Menu } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
-import { pageDefinitions, pageRedirects, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
+import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
-import { AppBar, Box, Toolbar, Typography } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 import * as Colors from '@brightlayer-ui/colors';
 import { AnnouncementAppbar } from '../components/announcements/announcementAppbar';
 import { SystemStyleObject } from '@mui/system';
 
 const buildRoutes = (routes: SimpleNavItem[], url: string): JSX.Element[] => {
     let ret: any[] = [];
-    for (let i = 0; i < routes.length; i++) {
-        if (routes[i].component) {
+    for (const route of routes) {
+        if (route.component) {
             ret.push(
                 <Route
-                    path={`${url === '' ? '' : `${url}/`}${routes[i].url || ''}`}
-                    key={`${url}/${routes[i].url || ''}`}
-                    element={routes[i].component}
+                    path={`${url === '' ? '' : `${url}/`}${route.url ?? ''}`}
+                    key={`${url}/${route.url ?? ''}`}
+                    element={route.component}
                 />
             );
         }
-        if (routes[i].pages) {
-            ret = ret.concat(
-                buildRoutes(routes[i].pages || [], `${url === '' ? '' : `${url}/`}${routes[i].url || ''}`)
-            );
+        if (route.pages) {
+            ret = ret.concat(buildRoutes(route.pages || [], `${url === '' ? '' : `${url}/`}${route.url ?? ''}`));
         }
-    }
-    return ret;
-};
-
-const buildRedirects = (): JSX.Element[] => {
-    const ret: JSX.Element[] = [];
-    for (let i = 0; i < pageRedirects.length; i++) {
-        ret.push(
-            <Route path={pageRedirects[i].oldUrl} key={i} element={<Navigate replace to={pageRedirects[i].newUrl} />} />
-        );
     }
     return ret;
 };
@@ -126,7 +117,6 @@ export const MainRouter = (): JSX.Element => {
                         }
                     >
                         {buildRoutes(pageDefinitions, '')}
-                        {buildRedirects()}
 
                         {/* Catch-All Redirect to Landing Page */}
                         <Route path="*" element={<Navigate replace to={'/'} />} />

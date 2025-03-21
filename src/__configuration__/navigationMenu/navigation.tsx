@@ -63,17 +63,13 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Web Frameworks',
                 url: 'frameworks-web',
+                component: (
+                    <MarkdownPage
+                        title={'Web Framework Introduction'}
+                        markdown={Docs.Development.WebFrameworks.Intro}
+                    />
+                ),
                 pages: [
-                    {
-                        title: 'Introduction',
-                        url: 'intro',
-                        component: (
-                            <MarkdownPage
-                                title={'Web Framework Introduction'}
-                                markdown={Docs.Development.WebFrameworks.Intro}
-                            />
-                        ),
-                    },
                     {
                         title: 'Angular Guide',
                         url: 'angular',
@@ -93,17 +89,13 @@ export const pageDefinitions: SimpleNavItem[] = [
             {
                 title: 'Mobile Frameworks',
                 url: 'frameworks-mobile',
+                component: (
+                    <MarkdownPage
+                        title={'Mobile Framework Introduction'}
+                        markdown={Docs.Development.MobileFrameworks.Intro}
+                    />
+                ),
                 pages: [
-                    {
-                        title: 'Introduction',
-                        url: 'intro',
-                        component: (
-                            <MarkdownPage
-                                title={'Mobile Framework Introduction'}
-                                markdown={Docs.Development.MobileFrameworks.Intro}
-                            />
-                        ),
-                    },
                     {
                         hidden: true,
                         title: 'Apache Cordova Guide',
@@ -426,6 +418,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 url: 'designer',
                 component: <MarkdownPage title={'Designer Resources'} markdown={Docs.Resources.DesignerResources} />,
             },
+            {
+                title: 'Community Packages',
+                url: 'community',
+                component: <MarkdownPage title={'Community Packages'} markdown={Docs.Resources.CommunityPackages} />,
+            },
         ],
     },
     {
@@ -455,21 +452,5 @@ export const pageDefinitions: SimpleNavItem[] = [
         url: 'migration',
         hidden: true,
         component: <MarkdownPage title={'Brightlayer UI Package Migration'} markdown={Docs.Migration} />,
-    },
-];
-
-export const pageRedirects: RedirectItem[] = [
-    {
-        oldUrl: 'patterns/login',
-        newUrl: 'patterns/user-auth',
-    },
-    // Remove this when we have a landing page for all the resources
-    {
-        oldUrl: 'resources',
-        newUrl: 'resources/developer',
-    },
-    {
-        oldUrl: 'style/iconography',
-        newUrl: 'style/icon-library',
     },
 ];

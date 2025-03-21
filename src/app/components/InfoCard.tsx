@@ -1,5 +1,8 @@
 import React, { MouseEvent } from 'react';
-import { Typography, useTheme, SxProps, Box } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import useTheme from '@mui/material/styles/useTheme';
+import { SxProps } from '@mui/system';
+import Box from '@mui/material/Box';
 
 const getTopPaddingForAspectRatio = (ratio: AspectRatio | undefined): string => {
     switch (ratio) {
@@ -32,7 +35,7 @@ type InfoCardProps = {
     };
 };
 
-const styles: { [key: string]: SxProps } = {
+const styles: Record<string, SxProps> = {
     image: {
         width: '100%',
         backgroundSize: 'cover',

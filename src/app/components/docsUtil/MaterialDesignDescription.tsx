@@ -2,17 +2,12 @@ import React from 'react';
 import { MaterialDesign } from '../../assets/icons';
 import { CTA_BUTTON } from '../../shared';
 import { OpenInNew } from '@mui/icons-material';
-import {
-    Card,
-    Typography,
-    CardProps,
-    CardActionArea,
-    Theme,
-    useTheme,
-    CardActionAreaProps,
-    SxProps,
-    Box,
-} from '@mui/material';
+import Card, { CardProps } from '@mui/material/Card';
+import Typography from '@mui/material/Typography';
+import CardActionArea, { CardActionAreaProps } from '@mui/material/CardActionArea';
+import { Theme, useTheme } from '@mui/material/styles';
+import { SxProps } from '@mui/system';
+import Box from '@mui/material/Box';
 
 type MaterialDesignDescriptionProps = {
     // The icon used on the left
@@ -37,7 +32,7 @@ type MaterialDesignDescriptionProps = {
     minCardHeight?: 'unset' | number;
 } & CardProps;
 
-const styles: { [key: string]: SxProps<Theme> } = {
+const styles: Record<string, SxProps<Theme>> = {
     root: {
         width: CTA_BUTTON.WIDTH,
         maxWidth: '100%',
@@ -83,7 +78,7 @@ export const MaterialDesignDescription: React.FC<MaterialDesignDescriptionProps>
                 }}
                 {...props.CardActionAreaProps}
             >
-                <Box sx={styles.contentArea} style={{ minHeight: minCardHeight || CTA_BUTTON.HEIGHT }}>
+                <Box sx={styles.contentArea} style={{ minHeight: minCardHeight ?? CTA_BUTTON.HEIGHT }}>
                     {avatar}
                     <Box sx={styles.textArea}>
                         <Typography variant={'body2'} sx={styles.title}>

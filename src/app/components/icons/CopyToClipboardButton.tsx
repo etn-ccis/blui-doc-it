@@ -1,4 +1,4 @@
-import { Tooltip, TooltipProps } from '@mui/material';
+import Tooltip, { TooltipProps } from '@mui/material/Tooltip';
 import { FileCopy } from '@mui/icons-material';
 import React, { useState } from 'react';
 import { copyTextToClipboard } from '../../shared';

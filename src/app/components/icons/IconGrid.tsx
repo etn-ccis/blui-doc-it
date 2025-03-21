@@ -1,5 +1,8 @@
 import React from 'react';
-import { Box, Grid, Theme, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import { Theme } from '@mui/material/styles';
 import color from 'color';
 import { IconType } from '../../../__types__';
 import { snakeToTitleCase } from '../../shared';
@@ -10,7 +13,7 @@ type IconGridProps = {
     icons: IconType[];
     onIconSelected: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
-const iconGridStyles: { [key: string]: SystemStyleObject<Theme> } = {
+const iconGridStyles: Record<string, SystemStyleObject<Theme>> = {
     wrapper: {
         cursor: 'pointer',
         display: 'flex',

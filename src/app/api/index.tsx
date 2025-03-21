@@ -6,7 +6,7 @@ export const github = axios.create({
     timeout: 5000,
     headers: {
         Accept: 'application/vnd.github.v3+json',
-        Authorization: `token ${(process.env.REACT_APP_DOCIT_GITHUB_TOKEN || '').split('').reverse().join('')}`,
+        Authorization: `token ${(process.env.REACT_APP_DOCIT_GITHUB_TOKEN ?? '').split('').reverse().join('')}`,
     },
 });
 export const npm = axios.create({
@@ -40,8 +40,7 @@ export const getBuildStatus = async (repository: string, branches: string[]): Pr
             results.push(github.get(`repos/etn-ccis/blui-${repository}/actions/runs?branch=${branch}`));
         }
         const test = await Promise.all(results);
-        for (let i = 0; i < test.length; i++) {
-            const response = test[i];
+        for (const response of test) {
             if (response && response.status === 200) {
                 const data = response.data.workflow_runs;
                 const buildjobs = data.filter((job: any) => job.name === 'Build');

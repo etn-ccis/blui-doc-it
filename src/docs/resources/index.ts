@@ -1,3 +1,4 @@
 import DesignerResources from './designer.mdx';
+import CommunityPackages from './community.mdx';
 
-export { DesignerResources };
+export { DesignerResources, CommunityPackages };

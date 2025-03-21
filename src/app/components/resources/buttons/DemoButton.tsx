@@ -1,5 +1,9 @@
 import React from 'react';
-import { IconButton, Badge, Typography, BoxProps, Box, Tooltip } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import Badge from '@mui/material/Badge';
+import Typography from '@mui/material/Typography';
+import Box, { BoxProps } from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip';
 import * as Colors from '@brightlayer-ui/colors';
 import { Code } from '@mui/icons-material';
 

@@ -13,7 +13,10 @@ import color from 'color';
 
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { EatonTagline } from '../assets/icons';
-import { Typography, useTheme, useMediaQuery, Stack } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import useTheme from '@mui/material/styles/useTheme';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Stack from '@mui/material/Stack';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../redux/reducers';
 import { TOGGLE_DRAWER } from '../redux/actions';
@@ -34,12 +37,11 @@ export const NavigationDrawer = (): JSX.Element => {
 
     const createNavItems = useCallback((navData: SimpleNavItem[], parentUrl: string, depth: number): NavItem[] => {
         const convertedItems: NavItem[] = [];
-        for (let i = 0; i < navData.length; i++) {
-            const item = navData[i];
+        for (const item of navData) {
             if (item.hidden) {
                 continue;
             }
-            const fullURL = `${parentUrl === '' ? '' : `${parentUrl}/`}${item.url || ''}`;
+            const fullURL = `${parentUrl === '' ? '' : `${parentUrl}/`}${item.url ?? ''}`;
             convertedItems.push({
                 title: item.title,
                 icon: depth === 0 ? item.icon : undefined,
@@ -64,7 +66,7 @@ export const NavigationDrawer = (): JSX.Element => {
                 items: item.pages
                     ? createNavItems(
                           item.pages,
-                          `${parentUrl === '' ? '' : `${parentUrl}/`}${item.url || ''}`,
+                          `${parentUrl === '' ? '' : `${parentUrl}/`}${item.url ?? ''}`,
                           depth + 1
                       )
                     : undefined,

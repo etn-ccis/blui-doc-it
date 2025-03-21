@@ -100,10 +100,10 @@ export const createDownloadMaterialPngElement = (
 export const downloadSvg = async (icon: IconType, color: IconColor, size: IconSize): Promise<void> => {
     if (icon.isMaterial) {
         const iconData =
-            (await getSvg({ name: getSnakeCase(icon.name), family: 'material', version: icon.version })) || '';
+            (await getSvg({ name: getSnakeCase(icon.name), family: 'material', version: icon.version })) ?? '';
         createDownloadSvgElement(icon, iconData, color, size);
     } else {
-        const iconData = (await getSvg({ name: icon.iconFontKey, family: 'brightlayer-ui' })) || '';
+        const iconData = (await getSvg({ name: icon.iconFontKey, family: 'brightlayer-ui' })) ?? '';
         createDownloadSvgElement(icon, iconData, color, size);
     }
 };

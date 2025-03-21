@@ -16,7 +16,9 @@ import EvanMcLaughlin from '../../app/assets/credits/evan-mclaughlin.jpeg';
 import RaghavC from '../../app/assets/credits/raghavendran-chithirarajan.jpeg';
 import ThomasDailey from '../../app/assets/credits/thomas-dailey.jpg';
 import PriyankaKM from '../../app/assets/credits/priyanka-km.jpeg';
-
+import YazadSidhwa from '../../app/assets/credits/yazad-sidhwa.jpg';
+import AubreyThompson from '../../app/assets/credits/aubrey-thompson.jpg';
+import HuayunHuang from '../../app/assets/credits/huayun-huang.jpg';
 import { OtherContributor } from '../../__types__';
 
 export const contributors: OtherContributor[] = [
@@ -141,5 +143,20 @@ export const contributors: OtherContributor[] = [
         name: 'Priyanka KM',
         role: `Front-End Developer`,
         image: PriyankaKM,
+    },
+    {
+        name: 'Aubrey Thompson',
+        role: `Front-End Developer`,
+        image: AubreyThompson,
+    },
+    {
+        name: 'Yazad Sidhwa',
+        role: `Intern`,
+        image: YazadSidhwa,
+    },
+    {
+        name: 'Huayun Huang',
+        role: 'UX Designer & Developer',
+        image: HuayunHuang,
     },
 ];
