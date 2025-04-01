@@ -96,7 +96,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     color={'inherit'}
                     sx={{ minWidth: 150, fontWeight: 600, mt: 2, mx: 0 }}
                     onClick={(): void => {
-                        navigate('overview');
+                        void navigate('overview');
                     }}
                 >
                     Get Started
@@ -113,7 +113,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                                 aspectRatio={'3x2'}
                                 description={item.description}
                                 onClick={(): void => {
-                                    if (item.path.startsWith('/')) navigate(item.path);
+                                    if (item.path.startsWith('/')) void navigate(item.path);
                                     else window.open(item.path, '_blank');
                                 }}
                             />
@@ -142,7 +142,9 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     variant={'outlined'}
                     color={'primary'}
                     sx={{ mt: 1 }}
-                    onClick={(): void => navigate('/release-notes')}
+                    onClick={(): void => {
+                        void navigate('/release-notes');
+                    }}
                 >
                     View All
                 </Button>
@@ -158,7 +160,9 @@ export const LandingPage: React.FC = (): JSX.Element => {
                             'We offer many resources and assets for designers getting acquainted with Brightlayer UI.'
                         }
                         icon={<DesignIcon fontSize={'large'} />}
-                        onClick={(): void => navigate('/design/intro')}
+                        onClick={(): void => {
+                            void navigate('/design/intro');
+                        }}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -169,7 +173,9 @@ export const LandingPage: React.FC = (): JSX.Element => {
                             'We have numerous guides and resources to prepare you for working with Brightlayer UI.'
                         }
                         icon={<DeveloperMode fontSize={'large'} />}
-                        onClick={(): void => navigate('/development/environment')}
+                        onClick={(): void => {
+                            void navigate('/development/environment');
+                        }}
                     />
                 </Grid>
             </Grid>
@@ -182,7 +188,9 @@ export const LandingPage: React.FC = (): JSX.Element => {
                         variant={'outlined'}
                         color={'primary'}
                         sx={{ mt: 1 }}
-                        onClick={(): void => navigate('/community/innersourcing')}
+                        onClick={(): void => {
+                            void navigate('/community/innersourcing');
+                        }}
                     >
                         Become a Contributor!
                     </Button>

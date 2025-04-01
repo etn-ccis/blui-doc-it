@@ -78,7 +78,7 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
     }, [color, format]);
 
     const onSelectColor = useCallback(() => {
-        navigate(`${location.pathname}?category=${category}&name=${name}&weight=${weight}`, { replace: true });
+        void navigate(`${location.pathname}?category=${category}&name=${name}&weight=${weight}`, { replace: true });
         dispatch({ type: CHANGE_SELECTED_COLOR, payload: { category, name, weight } });
     }, []);
 

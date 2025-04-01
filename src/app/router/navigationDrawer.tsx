@@ -59,7 +59,7 @@ export const NavigationDrawer = (): JSX.Element => {
                 //     ),
                 onClick: item.component
                     ? (): void => {
-                          navigate(fullURL);
+                          void navigate(fullURL);
                           dispatch({ type: TOGGLE_DRAWER, payload: false });
                       }
                     : undefined,
@@ -114,7 +114,7 @@ export const NavigationDrawer = (): JSX.Element => {
                     if (isMobile) {
                         dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
                     } else {
-                        navigate('/');
+                        void navigate('/');
                         dispatch({ type: TOGGLE_DRAWER, payload: false });
                     }
                 }}
@@ -124,7 +124,7 @@ export const NavigationDrawer = (): JSX.Element => {
                         alignItems={'center'}
                         sx={{ alignSelf: 'stretch', flex: 1, cursor: 'pointer' }}
                         onClick={(): void => {
-                            navigate('/');
+                            void navigate('/');
                             dispatch({ type: TOGGLE_DRAWER, payload: false });
                         }}
                     >

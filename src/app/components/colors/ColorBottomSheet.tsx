@@ -68,7 +68,7 @@ export const ColorBottomSheet: React.FC = () => {
     );
 
     const dismissBottomSheet = useCallback(() => {
-        navigate(`${location.pathname}`, { replace: true });
+        void navigate(`${location.pathname}`, { replace: true });
         dispatch({ type: CHANGE_SELECTED_COLOR, payload: false });
         dispatch({ type: TOGGLE_COLOR_CONTRAST, payload: false });
     }, [history]);

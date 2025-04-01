@@ -20,7 +20,7 @@ export const ContactFab = (): JSX.Element | null => {
                 boxShadow: 10,
             }}
             onClick={(): void => {
-                navigate('/community/contactus');
+                void navigate('/community/contactus');
             }}
         >
             <Feedback />

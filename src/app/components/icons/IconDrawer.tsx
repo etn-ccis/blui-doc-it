@@ -85,7 +85,7 @@ export const IconDrawer: React.FC = () => {
     const iconTitle = snakeToTitleCase(selectedIcon.iconFontKey);
 
     const closeDrawer = (): void => {
-        navigate(`${location.pathname}`, { replace: true });
+        void navigate(`${location.pathname}`, { replace: true });
         dispatch({ type: TOGGLE_SIDEBAR, payload: false });
     };
 

@@ -45,7 +45,7 @@ export const BLCIconButton: React.FC<BLCIconButtonProps> = ({ icon, url, label }
         if (url.startsWith('http://') || url.startsWith('https://')) {
             window.open(url, '_blank');
         } else if (url) {
-            navigate(url);
+            void navigate(url);
         }
     };
     return (

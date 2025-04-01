@@ -70,7 +70,7 @@ export const VariantIllustration: React.FC<VariantIllustrationProps> = ({
             if (url.startsWith('http://') || url.startsWith('https://')) {
                 window.open(url, '_blank');
             } else {
-                navigate(url);
+                void navigate(url);
             }
         }
     };

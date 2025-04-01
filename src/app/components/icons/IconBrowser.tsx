@@ -244,7 +244,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
             if (!iconName) return;
 
             setSelectedIcon(allIconsMap[iconName.join('-')]);
-            navigate(
+            void navigate(
                 `${location.pathname}?icon=${iconName[0]}&isMaterial=${iconName[1] === 'material' ? 'true' : 'false'}`,
                 { replace: true }
             );
