@@ -1,6 +1,7 @@
 import React from 'react';
 
 // Full Release Notes
+import R35 from './R35/FullNotes.mdx';
 import R34 from './R34/FullNotes.mdx';
 import R33 from './R33/FullNotes.mdx';
 import R32 from './R32/FullNotes.mdx';
@@ -31,6 +32,7 @@ import R8 from './R8/FullNotes.mdx';
 import R7 from './R7/FullNotes.mdx';
 
 // Summaries (for Landing Page)
+import R35Summary from './R35/Summary.mdx';
 import R34Summary from './R34/Summary.mdx';
 import R33Summary from './R33/Summary.mdx';
 import R32Summary from './R32/Summary.mdx';
@@ -69,6 +71,13 @@ export type ReleaseInfo = {
 };
 
 const Releases: ReleaseInfo[] = [
+    {
+        title: 'R35',
+        date: 'March 2025',
+        version: '4.5.0',
+        details: <R35 />,
+        summary: <R35Summary />,
+    },
     {
         title: 'R34',
         date: 'December 2024',
