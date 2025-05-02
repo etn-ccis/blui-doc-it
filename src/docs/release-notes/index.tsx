@@ -73,7 +73,7 @@ export type ReleaseInfo = {
 const Releases: ReleaseInfo[] = [
     {
         title: 'R35',
-        date: 'March 2025',
+        date: 'April 2025',
         version: '4.5.0',
         details: <R35 />,
         summary: <R35Summary />,
