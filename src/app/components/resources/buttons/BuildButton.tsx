@@ -15,6 +15,7 @@ type BuildButtonProps = BoxProps & {
     repository: string;
     branches?: string[];
     sx?: BoxProps['sx'];
+    buildJobName?: string;
 };
 
 const getBuildIcon = (
@@ -73,14 +74,14 @@ const getBuildIcon = (
 };
 
 export const BuildButton: React.FC<BuildButtonProps> = (props) => {
-    const { small, repository, branches, link, sx } = props;
+    const { small, repository, branches, link, sx, buildJobName } = props;
     const [build, setBuild] = useState<BuildPassedStatus>();
 
     useEffect(() => {
         let isMounted = true;
 
         const loadBuildStatus = async (): Promise<void> => {
-            const buildStatus = await getBuildStatus(repository, branches ?? ['master']);
+            const buildStatus = await getBuildStatus(repository, branches ?? ['master'], buildJobName);
             if (isMounted) {
                 setBuild(buildStatus);
             }

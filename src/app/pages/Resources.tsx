@@ -87,6 +87,8 @@ export const DevResources: React.FC = (): JSX.Element => {
                                                     divider={index < bucket.items.length - 1}
                                                     demoUrl={item.demoUrl}
                                                     workSpace={item.workSpace}
+                                                    bugLabels={item.bugLabels}
+                                                    buildJobName={item.buildJobName}
                                                 />
                                             ) : null
                                         )}
