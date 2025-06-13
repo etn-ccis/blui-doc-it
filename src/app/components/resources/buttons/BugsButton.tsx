@@ -39,10 +39,10 @@ export const BugsButton: React.FC<BugsButtonProps> = (props) => {
         bugs === undefined
             ? Colors.gray[500]
             : bugs < 1
-              ? Colors.green[500]
-              : bugs < 5
-                ? Colors.orange[500]
-                : Colors.red[500];
+            ? Colors.green[500]
+            : bugs < 5
+            ? Colors.orange[500]
+            : Colors.red[500];
 
     return !small ? (
         <Tooltip title={'Open Bugs'}>

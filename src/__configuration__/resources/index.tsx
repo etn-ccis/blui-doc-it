@@ -38,7 +38,7 @@ export const resources: ResourceBucket[] = [
                 applies: ['react'],
                 workSpace: 'packages/component-library',
                 bugLabels: ['components'],
-                buildJobName: 'Build Component Library'
+                buildJobName: 'Build Component Library',
             },
             {
                 name: '@brightlayer-ui/react-native-components',
@@ -48,7 +48,7 @@ export const resources: ResourceBucket[] = [
                 applies: ['react-native'],
                 workSpace: 'packages/component-library',
                 bugLabels: ['components'],
-                buildJobName: 'Build Component Library'
+                buildJobName: 'Build Component Library',
             },
         ],
     },
@@ -125,7 +125,7 @@ export const resources: ResourceBucket[] = [
                 applies: ['react-native'],
                 bugLabels: ['progress', 'react-native'],
                 workSpace: 'packages/progress-icons',
-                buildJobName: 'Build Progress Icons'
+                buildJobName: 'Build Progress Icons',
             },
             {
                 name: '@brightlayer-ui/react-native-vector-icons',
@@ -164,7 +164,7 @@ export const resources: ResourceBucket[] = [
                 applies: ['react'],
                 workSpace: 'packages/themes',
                 bugLabels: ['themes'],
-                buildJobName: 'Build and Test Themes'
+                buildJobName: 'Build and Test Themes',
             },
             {
                 name: '@brightlayer-ui/react-native-themes',
@@ -174,7 +174,7 @@ export const resources: ResourceBucket[] = [
                 applies: ['react-native'],
                 workSpace: 'packages/themes',
                 bugLabels: ['themes'],
-                buildJobName: 'Build and Test Themes'
+                buildJobName: 'Build and Test Themes',
             },
         ],
     },
@@ -191,7 +191,7 @@ export const resources: ResourceBucket[] = [
                 applies: ['react-native'],
                 workSpace: 'packages/auth-workflows',
                 bugLabels: ['auth-workflow'],
-                buildJobName: 'Build Workflow'
+                buildJobName: 'Build Workflow',
             },
             {
                 name: '@brightlayer-ui/react-auth-workflow',
@@ -201,7 +201,7 @@ export const resources: ResourceBucket[] = [
                 applies: ['react'],
                 workSpace: 'packages/login-workflow',
                 bugLabels: ['auth-workflow'],
-                buildJobName: 'Build Workflow'
+                buildJobName: 'Build Workflow',
             },
             {
                 name: '@brightlayer-ui/angular-auth-workflow',

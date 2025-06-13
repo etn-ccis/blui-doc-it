@@ -48,7 +48,17 @@ type ResourceRowProps = {
     buildJobName?: string;
 };
 export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
-    const { name, demoUrl, repository, description, divider, bugLabels, package: packageName, workSpace = '', buildJobName } = props;
+    const {
+        name,
+        demoUrl,
+        repository,
+        description,
+        divider,
+        bugLabels,
+        package: packageName,
+        workSpace = '',
+        buildJobName,
+    } = props;
     const theme = useTheme();
 
     const [version, setVersion] = useState<string>();

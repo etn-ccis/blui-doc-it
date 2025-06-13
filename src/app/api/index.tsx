@@ -32,7 +32,11 @@ export const announcementDetail = axios.create({
 
 // API Calls
 
-export const getBuildStatus = async (repository: string, branches: string[], buildJobName?: string): Promise<boolean | undefined> => {
+export const getBuildStatus = async (
+    repository: string,
+    branches: string[],
+    buildJobName?: string
+): Promise<boolean | undefined> => {
     try {
         let failed = 0;
         const results = [];
@@ -43,17 +47,21 @@ export const getBuildStatus = async (repository: string, branches: string[], bui
         for (const response of test) {
             if (response && response.status === 200) {
                 const data = response.data.workflow_runs;
-                if(buildJobName) {
+                if (buildJobName) {
                     const targetRun = data.find((run: any) => run.name === 'Build');
-                    if(!targetRun){
+                    if (!targetRun) {
                         failed += 1;
                         continue;
                     }
                     const runId = targetRun.id;
-                    const jobsResponse = await github.get(`repos/etn-ccis/blui-${repository}/actions/runs/${runId}/jobs`);
+                    const jobsResponse = await github.get(
+                        `repos/etn-ccis/blui-${repository}/actions/runs/${runId}/jobs`
+                    );
                     const jobs = jobsResponse?.data?.jobs || [];
-                    const targetJob = jobs.find((job: any) => job.name?.toLowerCase().includes(buildJobName?.toLowerCase()));
-                    if(targetJob){
+                    const targetJob = jobs.find((job: any) =>
+                        job.name?.toLowerCase().includes(buildJobName?.toLowerCase())
+                    );
+                    if (targetJob) {
                         const isSuccess = targetJob.conclusion === 'success';
                         return isSuccess;
                     } else {
