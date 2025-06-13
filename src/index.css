@@ -48,9 +48,7 @@ pre,
 code {
     background-color: #eef0f0; /* gray[50] */
     color: #333;
-    font-family:
-        Roboto Mono,
-        Monospaced;
+    font-family: Roboto Mono, Monospaced;
     font-size: 0.75rem;
     border-radius: 3px;
     overflow: auto;

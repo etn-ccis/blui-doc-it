@@ -7,9 +7,7 @@ import { styled, useTheme } from '@mui/material/styles';
 
 const TabText = styled('span')`
     color: #1d2529;
-    font-feature-settings:
-        'liga' off,
-        'clig' off;
+    font-feature-settings: 'liga' off, 'clig' off;
     font-family: 'Open Sans';
     font-size: 18px;
     font-style: normal;
