@@ -54,6 +54,7 @@ export const getBuildStatus = async (
                         continue;
                     }
                     const runId = targetRun.id;
+                    // eslint-disable-next-line no-await-in-loop
                     const jobsResponse = await github.get(
                         `repos/etn-ccis/blui-${repository}/actions/runs/${runId}/jobs`
                     );
@@ -64,10 +65,9 @@ export const getBuildStatus = async (
                     if (targetJob) {
                         const isSuccess = targetJob.conclusion === 'success';
                         return isSuccess;
-                    } else {
-                        failed += 1;
-                        continue;
                     }
+                    failed += 1;
+                    continue;
                 }
 
                 const buildjobs = data.filter((job: any) => job.name === 'Build');
@@ -93,7 +93,6 @@ export const getBuildStatus = async (
 
 export const getBugCount = async (repository: string, bugLabels: string[]): Promise<number | undefined> => {
     try {
-        console.log('bugLabels:', bugLabels);
         const labels = bugLabels.length > 0 ? [bugLabels, 'bug'].join(',') : 'bug';
         const response = await github.get(`/repos/etn-ccis/blui-${repository}/issues?labels=${labels}`);
         if (response && response.status === 200) return response.data.length;
