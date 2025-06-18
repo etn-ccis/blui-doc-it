@@ -9,6 +9,7 @@ type Resource = {
     bugLabels?: string[];
     demoUrl?: string;
     workSpace?: string;
+    buildJobName?: string;
 };
 type ResourceBucket = Omit<Resource, 'repository'> & {
     items: Resource[];
@@ -33,8 +34,11 @@ export const resources: ResourceBucket[] = [
                 name: '@brightlayer-ui/react-components',
                 description: 'Components for React applications',
                 package: '@brightlayer-ui/react-components',
-                repository: 'react-component-library',
+                repository: 'react',
                 applies: ['react'],
+                workSpace: 'packages/component-library',
+                bugLabels: ['components'],
+                buildJobName: 'Build Component Library',
             },
             {
                 name: '@brightlayer-ui/react-native-components',
@@ -42,7 +46,9 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/react-native-components',
                 repository: 'react-native',
                 applies: ['react-native'],
-                workSpace: 'packages/blui-react-native-component-library',
+                workSpace: 'packages/component-library',
+                bugLabels: ['components'],
+                buildJobName: 'Build Component Library',
             },
         ],
     },
@@ -73,6 +79,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/icons-mui',
                 repository: 'icons',
                 applies: ['react'],
+                bugLabels: ['mui'],
                 workSpace: 'packages/mui',
             },
             {
@@ -89,6 +96,7 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/symbols-mui',
                 repository: 'symbols',
                 applies: ['react'],
+                bugLabels: ['symbols'],
                 workSpace: 'symbols-mui',
             },
             {
@@ -116,7 +124,8 @@ export const resources: ResourceBucket[] = [
                 repository: 'react-native',
                 applies: ['react-native'],
                 bugLabels: ['progress', 'react-native'],
-                workSpace: 'packages/blui-react-native-progress-icons',
+                workSpace: 'packages/progress-icons',
+                buildJobName: 'Build Progress Icons',
             },
             {
                 name: '@brightlayer-ui/react-native-vector-icons',
@@ -151,8 +160,11 @@ export const resources: ResourceBucket[] = [
                 name: '@brightlayer-ui/react-themes',
                 description: 'Brightlayer UI themes for Material UI',
                 package: '@brightlayer-ui/react-themes',
-                repository: 'react-themes',
+                repository: 'react',
                 applies: ['react'],
+                workSpace: 'packages/themes',
+                bugLabels: ['themes'],
+                buildJobName: 'Build and Test Themes',
             },
             {
                 name: '@brightlayer-ui/react-native-themes',
@@ -160,7 +172,9 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/react-native-themes',
                 repository: 'react-native',
                 applies: ['react-native'],
-                workSpace: 'packages/blui-react-native-themes',
+                workSpace: 'packages/themes',
+                bugLabels: ['themes'],
+                buildJobName: 'Build and Test Themes',
             },
         ],
     },
@@ -175,14 +189,19 @@ export const resources: ResourceBucket[] = [
                 package: '@brightlayer-ui/react-native-auth-workflow',
                 repository: 'react-native',
                 applies: ['react-native'],
-                workSpace: 'packages/blui-react-native-auth-workflow',
+                workSpace: 'packages/auth-workflows',
+                bugLabels: ['auth-workflow'],
+                buildJobName: 'Build Workflow',
             },
             {
                 name: '@brightlayer-ui/react-auth-workflow',
                 description: 'Login and Registration workflow',
                 package: '@brightlayer-ui/react-auth-workflow',
-                repository: 'react-workflows',
+                repository: 'react',
                 applies: ['react'],
+                workSpace: 'packages/login-workflow',
+                bugLabels: ['auth-workflow'],
+                buildJobName: 'Build Workflow',
             },
             {
                 name: '@brightlayer-ui/angular-auth-workflow',
@@ -255,7 +274,7 @@ export const resources: ResourceBucket[] = [
                 repository: 'react-native',
                 bugLabels: ['authentication-ts'],
                 applies: ['react-native'],
-                workSpace: 'packages/blui-react-native-cli-templates/authentication-typescript',
+                workSpace: 'packages/cli-templates/authentication-typescript',
             },
             {
                 name: '@brightlayer-ui/react-native-template-routing-typescript',
@@ -264,7 +283,7 @@ export const resources: ResourceBucket[] = [
                 repository: 'react-native',
                 bugLabels: ['routing-ts'],
                 applies: ['react-native'],
-                workSpace: 'packages/blui-react-native-cli-templates/routing-typescript',
+                workSpace: 'packages/cli-templates/routing-typescript',
             },
             {
                 name: '@brightlayer-ui/react-native-template-blank-typescript',
@@ -273,7 +292,7 @@ export const resources: ResourceBucket[] = [
                 repository: 'react-native',
                 bugLabels: ['blank-ts'],
                 applies: ['react-native'],
-                workSpace: 'packages/blui-react-native-cli-templates/blank-typescript',
+                workSpace: 'packages/cli-templates/blank-typescript',
             },
         ],
     },
