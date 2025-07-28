@@ -35,8 +35,7 @@ import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView'
 
 import { PXBLogo } from '../assets/icons/PXBLogo';
 import { Menu, DeveloperMode } from '@mui/icons-material';
-import { useSelector } from 'react-redux';
-import { AppState } from '../redux/reducers';
+import { useAppSelector, RootState } from '../redux';
 
 const styles: Record<string, SxProps<Theme>> = {
     banner: {
@@ -68,7 +67,7 @@ const styles: Record<string, SxProps<Theme>> = {
 export const LandingPage: React.FC = (): JSX.Element => {
     const navigate = useNavigate();
     const theme = useTheme();
-    const selectedTheme = useSelector((state: AppState) => state.app.theme);
+    const selectedTheme = useAppSelector((state: RootState) => state.app.theme);
     const themeConfig = getScheduledSiteConfig(selectedTheme);
     let landingPageBanner = themeConfig.landingPageBanner;
     const logoColor = themeConfig.logoColor;

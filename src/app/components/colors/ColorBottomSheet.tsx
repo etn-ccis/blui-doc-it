@@ -16,35 +16,36 @@ import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import { Close } from '@mui/icons-material';
 import { ColorChips } from './ColorChips';
 import { DRAWER_WIDTH } from '../../shared';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from '../../redux/reducers';
-import { CHANGE_SELECTED_COLOR, TOGGLE_COLOR_CONTRAST } from '../../redux/actions';
+import { useAppDispatch, useAppSelector, changeSelectedColor, toggleColorContrast, RootState } from '../../redux';
 import { useQueryString } from '../../hooks/useQueryString';
 import { SystemStyleObject } from '@mui/system';
 
 export const ColorBottomSheet: React.FC = () => {
     const theme = useTheme();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const location = useLocation();
     const { category: queryCategory, name: queryName, weight: queryWeight } = useQueryString();
-    const selectedColor = useSelector((state: AppState) => state.app.selectedColor);
-    const showColorContrast = useSelector((state: AppState) => state.app.showColorContrast);
+    const selectedColor = useAppSelector((state: RootState) => state.app.selectedColor);
+    const showColorContrast = useAppSelector((state: RootState) => state.app.showColorContrast);
     const [hex, setHex] = useState<string | undefined>(undefined);
     const xsDown = useMediaQuery(theme.breakpoints.down('sm'));
 
     useEffect(() => {
-        if (queryCategory) {
-            dispatch({
-                type: CHANGE_SELECTED_COLOR,
-                payload: { category: queryCategory, name: queryName, weight: queryWeight },
-            });
+        if (queryCategory && queryName && queryWeight) {
+            dispatch(
+                changeSelectedColor({
+                    category: queryCategory as 'ui' | 'branding',
+                    name: queryName,
+                    weight: parseInt(queryWeight),
+                })
+            );
             const anchor = document.getElementById(`color-${queryCategory}-${queryName}-${queryWeight}`);
             if (anchor) {
                 window.scrollTo({ top: anchor.offsetTop - 200 });
             }
         }
-    }, []);
+    }, [dispatch, queryCategory, queryName, queryWeight]);
 
     useEffect(() => {
         if (selectedColor) {
@@ -62,16 +63,16 @@ export const ColorBottomSheet: React.FC = () => {
 
     const handleChangeContrastToggle = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
-            dispatch({ type: TOGGLE_COLOR_CONTRAST, payload: e.target.checked });
+            dispatch(toggleColorContrast(e.target.checked));
         },
         [dispatch]
     );
 
     const dismissBottomSheet = useCallback(() => {
         navigate(`${location.pathname}`, { replace: true });
-        dispatch({ type: CHANGE_SELECTED_COLOR, payload: false });
-        dispatch({ type: TOGGLE_COLOR_CONTRAST, payload: false });
-    }, [history]);
+        dispatch(changeSelectedColor(undefined));
+        dispatch(toggleColorContrast(false));
+    }, [navigate, location.pathname, dispatch]);
 
     const getColorContrastToggle = useCallback(
         () => (

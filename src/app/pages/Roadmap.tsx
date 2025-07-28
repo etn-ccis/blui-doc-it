@@ -21,8 +21,7 @@ import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView'
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
 
 import { EmptyState, InfoListItem, ListItemTag, Spacer } from '@brightlayer-ui/react-components';
-import { useSelector } from 'react-redux';
-import { AppState } from '../redux/reducers';
+import { useAppSelector, RootState } from '../redux';
 import * as Colors from '@brightlayer-ui/colors';
 import color from 'color';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
@@ -90,9 +89,9 @@ export const Roadmap: React.FC = (): JSX.Element => {
     const [releaseFilter, setReleaseFilter] = useState<Release>(CURRENT_RELEASE);
     const [roadmap, setRoadmap] = useState<RoadmapBucket[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
-    const searchActive = useSelector((state: AppState) => state.app.searchActive);
-    const showBanner = useSelector((state: AppState) => state.app.showBanner);
-    const selectedTheme = useSelector((state: AppState) => state.app.theme);
+    const searchActive = useAppSelector((state: RootState) => state.app.searchActive);
+    const showBanner = useAppSelector((state: RootState) => state.app.showBanner);
+    const selectedTheme = useAppSelector((state: RootState) => state.app.theme);
     const loadingGroups = [
         [1, 2, 3, 4],
         [1, 2, 3],
