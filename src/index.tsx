@@ -10,7 +10,7 @@ import React from 'react';
 import ReactDOMClient from 'react-dom/client';
 import { StyledEngineProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { createStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { MDXProvider } from '@mdx-js/react';
 import { MainRouter } from './app/router';
@@ -36,7 +36,9 @@ if (gaID) {
 const container = document.getElementById('root');
 if (!container) throw new Error('Root Element was not found in the DOM');
 
-const store = createStore(Reducer());
+const store = configureStore({
+    reducer: Reducer(),
+});
 const root = ReactDOMClient.createRoot(container);
 
 root.render(

@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux';
 import { ColorType } from '../../../__types__';
 import {
     CHANGE_PAGE_TITLE,
@@ -102,7 +101,6 @@ const appReducer = (state = initialAppState, action: any): CommonState => {
             return state;
     }
 };
-export const Reducer = (): any =>
-    combineReducers<AppState>({
-        app: appReducer,
-    });
+export const Reducer = (): any => ({
+    app: appReducer,
+});
