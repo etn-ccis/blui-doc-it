@@ -10,10 +10,10 @@ Brightlayer UI has adopted the [Contributor Covenant](https://www.contributor-co
 
 There are many ways to contribute to Brightlayer UI (code contribution is just one aspect of it). Here are some ways you can help:
 
-- Reporting and/or fixing bugs
-- Suggesting and/or implementing new features
-- Adding to or improving our documentation
-- Adding new code examples, components, or libraries
+-   Reporting and/or fixing bugs
+-   Suggesting and/or implementing new features
+-   Adding to or improving our documentation
+-   Adding new code examples, components, or libraries
 
 ## Your first Pull Request
 
@@ -27,10 +27,10 @@ We have an established convention for branch naming and commit messages followin
 
 Branch names should:
 
-- be prefixed with `feature/` or `bug/` depending on what you're working on
-- use only lowercase alphanumeric characters
-- use dashes as the word separator (no spaces or underscores)
-- be concise but descriptive
+-   be prefixed with `feature/` or `bug/` depending on what you're working on
+-   use only lowercase alphanumeric characters
+-   use dashes as the word separator (no spaces or underscores)
+-   be concise but descriptive
 
 ```
 feature/my-topic-branch or bug/fix-topic-branch
@@ -40,21 +40,21 @@ feature/my-topic-branch or bug/fix-topic-branch
 
 Commit messages should:
 
-- capitalize the subject line
-- **not** end the subject with a period
-- use the imperative mood in the subject line, e.g., `Add capability X` instead of `Added capability X`
-- be concise but descriptive
+-   capitalize the subject line
+-   **not** end the subject with a period
+-   use the imperative mood in the subject line, e.g., `Add capability X` instead of `Added capability X`
+-   be concise but descriptive
 
 ### Pull Request:
 
 Pull requests should:
 
-- Target `dev` branch
-- Have a clear and descriptive title
-- Adhere to the Brightlayer UI Pull Request template
-- Reference any issue(s) that are fixed (i.e., 'Fixes #XX')
-- Briefly describe at a high level what is being proposed
-- Use a bulleted list to highlight the key changes/additions
+-   Target `dev` branch
+-   Have a clear and descriptive title
+-   Adhere to the Brightlayer UI Pull Request template
+-   Reference any issue(s) that are fixed (i.e., 'Fixes #XX')
+-   Briefly describe at a high level what is being proposed
+-   Use a bulleted list to highlight the key changes/additions
 
 ## Sending a Pull Request
 
@@ -102,11 +102,11 @@ git checkout -b bug/my-topic-branch
 6. Make changes and verify the code.
    Pull requests will only be accepted if they pass the following mandatory checks:
 
-- the code is formatted via `yarn prettier` with the [Brightlayer UI prettier](https://github.com/etn-ccis/blui-code-standards/tree/master/prettier-config) configuration
-- the code is linted via `yarn lint` using the [Brightlayer UI ESLint](https://github.com/etn-ccis/blui-code-standards/tree/master/eslint-config) configuration
-- the code builds successfully via `yarn build` (where appropriate).
-- the code passes all tests via `yarn test` (some repositories include additional tests that must also pass).
-- the branch name, commit messages, and pull request formats adhere to the requirements described above.
+-   the code is formatted via `yarn prettier` with the [Brightlayer UI prettier](https://github.com/etn-ccis/blui-code-standards/tree/master/prettier-config) configuration
+-   the code is linted via `yarn lint` using the [Brightlayer UI ESLint](https://github.com/etn-ccis/blui-code-standards/tree/master/eslint-config) configuration
+-   the code builds successfully via `yarn build` (where appropriate).
+-   the code passes all tests via `yarn test` (some repositories include additional tests that must also pass).
+-   the branch name, commit messages, and pull request formats adhere to the requirements described above.
 
 7. Commit and push to your fork:
 
