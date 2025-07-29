@@ -136,13 +136,4 @@ export const patterns = [
             position: 'center',
         },
     },
-    {
-        title: 'Visualizations',
-        url: '/patterns/visualizations',
-        description: 'Adding charts and maps to your applications.',
-        image: VisualizationImage,
-        background: {
-            position: '65%',
-        },
-    },
 ];
