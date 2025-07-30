@@ -1,14 +1,13 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { TOGGLE_TOC } from '../redux/actions';
+import { useAppDispatch, toggleTOC } from '../redux';
 
 export const useTOC = (toc: boolean): void => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch({ type: TOGGLE_TOC, payload: toc });
+        dispatch(toggleTOC(toc));
         return (): void => {
-            dispatch({ type: TOGGLE_TOC, payload: false });
+            dispatch(toggleTOC(false));
         };
     }, [dispatch, toc]);
 };

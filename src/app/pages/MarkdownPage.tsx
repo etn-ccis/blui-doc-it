@@ -6,8 +6,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import useTheme from '@mui/material/styles/useTheme';
 import * as Colors from '@brightlayer-ui/colors';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
-import { useSelector } from 'react-redux';
-import { AppState } from '../redux/reducers';
+import { useAppSelector, RootState } from '../redux';
 
 export type MarkdownPageProps = HTMLAttributes<HTMLDivElement> & {
     title: string;
@@ -23,7 +22,7 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element =>
     usePageTitle(title);
     useGoogleAnalyticsPageView();
     const theme = useTheme();
-    const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
+    const sidebarOpen = useAppSelector((state: RootState) => state.app.sidebarOpen);
     const sm = useMediaQuery(theme.breakpoints.down('md'));
 
     let backgroundColor = background;

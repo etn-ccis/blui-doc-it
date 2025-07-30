@@ -13,8 +13,7 @@ import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { titleCase } from '../../shared';
-import { useSelector } from 'react-redux';
-import { AppState } from '../../redux/reducers';
+import { useAppSelector, RootState } from '../../redux';
 
 type SearchBarProps = HTMLAttributes<HTMLDivElement> & {
     onSearchChange: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -25,7 +24,7 @@ export const IconSearchBar: React.FC<SearchBarProps> = (props): JSX.Element => {
     const { onSearchChange, onCategoriesChanged, iconCategories, ...divProps } = props;
     const { iconSearch = '' } = useQueryString();
     const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-    const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
+    const sidebarOpen = useAppSelector((state: RootState) => state.app.sidebarOpen);
 
     // Media Query adjustments to search spacing
     const small = useMediaQuery('(max-width:599px)');
