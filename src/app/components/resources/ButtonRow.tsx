@@ -22,8 +22,8 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
     const branch = isPackage
         ? 'master'
         : branches && branches.length === 1 && branches[0] !== 'all'
-        ? branches[0].replace('-', '')
-        : undefined;
+          ? branches[0].replace('-', '')
+          : undefined;
 
     const bugString = (bugLabels ? [...bugLabels, 'bug'] : ['bug']).map((label) => `+label%3A${label}`).join('');
     const bugLink = `https://github.com/etn-ccis/blui-${repository}/issues?q=is%3Aissue+is%3Aopen${bugString}`;
