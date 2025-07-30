@@ -6,8 +6,7 @@ import useTheme from '@mui/material/styles/useTheme';
 import { Link, useLocation } from 'react-router-dom';
 import { DRAWER_WIDTH, TOC_WIDTH, PAGE_WIDTH, getHash } from '../../shared';
 import { useTOC } from '../../hooks/useTOC';
-import { useSelector } from 'react-redux';
-import { AppState } from '../../redux/reducers';
+import { useAppSelector, RootState } from '../../redux';
 import { SystemStyleObject } from '@mui/system';
 
 type ToCProps = {
@@ -28,7 +27,7 @@ export const TOC: React.FC<ToCProps> = (props) => {
     const { pathname, hash } = useLocation();
     const [activeSection, setActiveSection] = useState(0);
     const [sectionOffsetTop, setSectionOffsetTop] = useState<number[]>([]);
-    const showBanner = useSelector((state: AppState) => state.app.showBanner);
+    const showBanner = useAppSelector((state: RootState) => state.app.showBanner);
     useTOC(true);
 
     const initializeSectionOffsetTop = useCallback(() => {
