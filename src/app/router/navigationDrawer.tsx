@@ -17,21 +17,19 @@ import Typography from '@mui/material/Typography';
 import useTheme from '@mui/material/styles/useTheme';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Stack from '@mui/material/Stack';
-import { useSelector, useDispatch } from 'react-redux';
-import { AppState } from '../redux/reducers';
-import { TOGGLE_DRAWER } from '../redux/actions';
+import { useAppSelector, useAppDispatch, toggleDrawer, RootState } from '../redux';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
 import { DRAWER_WIDTH } from '../shared';
 
 export const NavigationDrawer = (): JSX.Element => {
-    const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
-    const selectedTheme = useSelector((state: AppState) => state.app.theme);
+    const drawerOpen = useAppSelector((state: RootState) => state.app.drawerOpen);
+    const selectedTheme = useAppSelector((state: RootState) => state.app.theme);
     const location = useLocation();
     const navigate = useNavigate();
     const [activeRoute, setActiveRoute] = useState(location.pathname.replace(/^\//, ''));
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const isLandingPage = location.pathname === '/';
     const activeDrawerFade = getScheduledSiteConfig(selectedTheme).drawerActiveBackgroundFade;
 
@@ -60,7 +58,7 @@ export const NavigationDrawer = (): JSX.Element => {
                 onClick: item.component
                     ? (): void => {
                           navigate(fullURL);
-                          dispatch({ type: TOGGLE_DRAWER, payload: false });
+                          dispatch(toggleDrawer(false));
                       }
                     : undefined,
                 items: item.pages
@@ -95,7 +93,7 @@ export const NavigationDrawer = (): JSX.Element => {
             ModalProps={{
                 onClose: (event, reason): void => {
                     if (reason === 'backdropClick') {
-                        dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                        dispatch(toggleDrawer(!drawerOpen));
                     }
                 },
             }}
@@ -112,10 +110,10 @@ export const NavigationDrawer = (): JSX.Element => {
                 icon={<PxblueSmall />}
                 onIconClick={(): void => {
                     if (isMobile) {
-                        dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                        dispatch(toggleDrawer(!drawerOpen));
                     } else {
                         navigate('/');
-                        dispatch({ type: TOGGLE_DRAWER, payload: false });
+                        dispatch(toggleDrawer(false));
                     }
                 }}
                 titleContent={
@@ -125,7 +123,7 @@ export const NavigationDrawer = (): JSX.Element => {
                         sx={{ alignSelf: 'stretch', flex: 1, cursor: 'pointer' }}
                         onClick={(): void => {
                             navigate('/');
-                            dispatch({ type: TOGGLE_DRAWER, payload: false });
+                            dispatch(toggleDrawer(false));
                         }}
                     >
                         <Typography>Brightlayer UI</Typography>

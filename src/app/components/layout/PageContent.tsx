@@ -3,8 +3,7 @@ import * as Colors from '@brightlayer-ui/colors';
 import { useBackgroundColor } from '../../hooks/useBackgroundColor';
 import { PAGE_WIDTH, PADDING, TOC_WIDTH } from '../../shared';
 import { Spacer } from '@brightlayer-ui/react-components';
-import { AppState } from '../../redux/reducers';
-import { useSelector } from 'react-redux';
+import { useAppSelector, RootState } from '../../redux';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
@@ -17,7 +16,7 @@ export type PageContentProps = HTMLAttributes<HTMLDivElement> & {
 export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
     const { noPadding, children, style, backgroundColor, wideLayout, ...other } = props;
     const theme = useTheme();
-    const hasTOC = useSelector((state: AppState) => state.app.hasTOC);
+    const hasTOC = useAppSelector((state: RootState) => state.app.hasTOC);
     const showFixedTOC = useMediaQuery(theme.breakpoints.up('lg'));
     const pageBodyWidth = useMemo((): number => {
         if (wideLayout) {

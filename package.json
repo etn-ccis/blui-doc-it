@@ -11,13 +11,14 @@
         "@brightlayer-ui/react-themes": "^7.1.0",
         "@emotion/css": "^11.13.4",
         "@emotion/react": "^11.10.5",
-        "@emotion/styled": "^11.10.6",
+        "@emotion/styled": "^11.14.1",
         "@fontsource/roboto-mono": "^5.1.0",
         "@mui/icons-material": "^5.16.14",
         "@mui/material": "^5.6.0",
         "@mui/styles": "^5.6.0",
+        "@reduxjs/toolkit": "^2.8.2",
         "@types/dompurify": "^3.0.2",
-        "axios": "^1.7.4",
+        "axios": "^1.8.2",
         "color": "^4.2.3",
         "dompurify": "^3.2.4",
         "fireworks-canvas": "^2.6.2",
@@ -29,11 +30,11 @@
         "react-device-detect": "^2.2.2",
         "react-dom": "^18.2.0",
         "react-ga": "^3.0.0",
-        "react-redux": "^7.2.0",
+        "react-redux": "^9.2.0",
         "react-router": "^6.4.3",
         "react-router-dom": "^6.4.3",
         "react-scripts": "5.0.1",
-        "redux": "^4.0.5",
+        "redux": "^5.0.1",
         "web-vitals": "^3.5.1"
     },
     "scripts": {
@@ -54,8 +55,7 @@
         "analyze": "source-map-explorer 'build/static/js/*.js'"
     },
     "eslintConfig": {
-        "extends": [
-        ]
+        "extends": []
     },
     "browserslist": {
         "production": [
@@ -78,7 +78,7 @@
         "@mdx-js/react": "^3.0.1",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.4.0",
-        "@testing-library/user-event": "^14.4.3",
+        "@testing-library/user-event": "^14.6.1",
         "@types/color": "^4.2.0",
         "@types/jest": "^27.5.2",
         "@types/lodash.debounce": "^4.0.9",
@@ -93,7 +93,7 @@
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-react": "^7.36.1",
         "eslint-plugin-react-hooks": "^5.2.0",
-        "firebase-tools": "^13.28.0",
+        "firebase-tools": "^14.2.2",
         "markdown-link-check": "^3.13.6",
         "natural": "^5.0.0",
         "prettier": "^3.3.3",

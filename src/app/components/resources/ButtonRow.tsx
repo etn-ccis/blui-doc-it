@@ -14,9 +14,10 @@ type ButtonRowProps = {
     branches?: string[];
     demoUrl?: string;
     workSpace?: string;
+    buildJobName?: string;
 };
 export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
-    const { repository, branches, bugLabels, isPackage, small, demoUrl, workSpace = '' } = props;
+    const { repository, branches, bugLabels, isPackage, small, demoUrl, workSpace = '', buildJobName } = props;
 
     const branch = isPackage
         ? 'master'
@@ -55,6 +56,7 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
                 link={buildLink}
                 repository={repository}
                 branches={branches}
+                buildJobName={buildJobName}
                 sx={{ display: 'flex', mr: 0 }}
             />
             {small && <Spacer flex={0} width={8} />}

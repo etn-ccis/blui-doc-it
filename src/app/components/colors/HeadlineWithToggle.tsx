@@ -1,13 +1,13 @@
 import React from 'react';
 import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
-import { useDispatch, useSelector } from 'react-redux';
-import { CHANGE_COLOR_FORMAT } from '../../redux/actions';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { changeColorFormat } from '../../redux';
 
 export const Picker = (): JSX.Element => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     // @ts-ignore
-    const value = useSelector((state): 'rgb' | 'hex' => state.app.colorFormat);
+    const value = useAppSelector((state): 'rgb' | 'hex' => state.app.colorFormat);
     return (
         <div style={{ flex: '0 0 auto' }}>
             RGB
@@ -18,7 +18,7 @@ export const Picker = (): JSX.Element => {
                 ): {
                     type: string;
                     payload: string;
-                } => dispatch({ type: CHANGE_COLOR_FORMAT, payload: e.target.checked ? 'hex' : 'rgb' })}
+                } => dispatch(changeColorFormat(e.target.checked ? 'hex' : 'rgb'))}
             />
             HEX
         </div>

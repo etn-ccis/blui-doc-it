@@ -20,9 +20,7 @@ import Menu from '@mui/material/Menu';
 import { PxblueSmall } from '@brightlayer-ui/icons-mui';
 import { Spacer } from '@brightlayer-ui/react-components';
 import { useLocation } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { CHANGE_THEME, TOGGLE_DRAWER, TOGGLE_SEARCH } from '../../redux/actions';
-import { AppState } from '../../redux/reducers';
+import { useAppSelector, useAppDispatch, changeTheme, toggleDrawer, toggleSearch, RootState } from '../../redux';
 import SearchIcon from '@mui/icons-material/Search';
 import AppsIcon from '@mui/icons-material/Apps';
 import { SearchBar } from '../../pages';
@@ -67,14 +65,14 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const theme = useTheme();
     const isLandingPage = location.pathname === '/';
     const [showThemePicker, setShowThemePicker] = useState(false);
-    const drawerOpen = useSelector((state: AppState) => state.app.drawerOpen);
-    const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
-    const showBanner = useSelector((state: AppState) => state.app.showBanner);
-    const selectedTheme = useSelector((state: AppState) => state.app.theme);
+    const drawerOpen = useAppSelector((state: RootState) => state.app.drawerOpen);
+    const sidebarOpen = useAppSelector((state: RootState) => state.app.sidebarOpen);
+    const showBanner = useAppSelector((state: RootState) => state.app.showBanner);
+    const selectedTheme = useAppSelector((state: RootState) => state.app.theme);
     const [externalLinkMenuAnchorEl, setExternalLinkMenuAnchorEl] = React.useState<null | HTMLElement>(null);
     const isExternalLinkMenuOpen = Boolean(externalLinkMenuAnchorEl);
     const sm = useMediaQuery(theme.breakpoints.down('md'));
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const appBarBackground = getScheduledSiteConfig(selectedTheme).appBarBackground;
     const getIsFireworkHoliday = (): boolean => {
         const holidayClassName = getScheduledSiteConfig(selectedTheme).className ?? '';
@@ -95,7 +93,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                     edge={'start'}
                     sx={{ mr: 0.5 }}
                     onClick={(): void => {
-                        dispatch({ type: TOGGLE_DRAWER, payload: !drawerOpen });
+                        dispatch(toggleDrawer(!drawerOpen));
                     }}
                 >
                     {icon}
@@ -195,7 +193,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                         size={'large'}
                         edge={'end'}
                         onClick={(): void => {
-                            dispatch({ type: TOGGLE_SEARCH, payload: true });
+                            dispatch(toggleSearch(true));
                         }}
                     >
                         <SearchIcon />
@@ -233,7 +231,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                         variant="outlined"
                         value={selectedTheme}
                         onChange={(e): void => {
-                            dispatch({ type: CHANGE_THEME, payload: e.target.value });
+                            dispatch(changeTheme(e.target.value));
                         }}
                     >
                         {availableThemes.map((t) => (

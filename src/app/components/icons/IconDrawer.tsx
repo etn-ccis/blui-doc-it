@@ -31,9 +31,7 @@ import * as Colors from '@brightlayer-ui/colors';
 import { DeveloperInstructionsPanel } from './DeveloperInstructions';
 import { useSelectedIcon } from '../../contexts/selectedIconContextProvider';
 import { getScheduledSiteConfig } from '../../../__configuration__/themes';
-import { useDispatch, useSelector } from 'react-redux';
-import { TOGGLE_SIDEBAR } from '../../redux/actions';
-import { AppState } from '../../redux/reducers';
+import { useAppDispatch, useAppSelector, toggleSidebar, RootState } from '../../redux';
 import { CopyToClipboard } from './CopyToClipboardButton';
 import { IconSize, IconColor } from '../../../__types__';
 import { usePrevious } from '../../hooks/usePrevious';
@@ -74,19 +72,19 @@ export const IconDrawer: React.FC = () => {
     const previousSelectedIcon = usePrevious(selectedIcon);
     const theme = useTheme();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const [iconSize, setIconSize] = React.useState<IconSize>(24);
     const [iconColor, setIconColor] = React.useState<IconColor>('black');
-    const drawerOpen = useSelector((state: AppState) => state.app.sidebarOpen);
-    const selectedTheme = useSelector((state: AppState) => state.app.theme);
+    const drawerOpen = useAppSelector((state: RootState) => state.app.sidebarOpen);
+    const selectedTheme = useAppSelector((state: RootState) => state.app.theme);
     const sm = useMediaQuery(theme.breakpoints.down('md'));
     const themeConfig = getScheduledSiteConfig(selectedTheme);
-    const showBanner = useSelector((state: AppState) => state.app.showBanner);
+    const showBanner = useAppSelector((state: RootState) => state.app.showBanner);
     const iconTitle = snakeToTitleCase(selectedIcon.iconFontKey);
 
     const closeDrawer = (): void => {
         navigate(`${location.pathname}`, { replace: true });
-        dispatch({ type: TOGGLE_SIDEBAR, payload: false });
+        dispatch(toggleSidebar(false));
     };
 
     useEffect(() => {

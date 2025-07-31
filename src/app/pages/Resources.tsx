@@ -12,16 +12,15 @@ import { ResourceRow, PageContent, ExpansionHeader } from '../components';
 import { resources } from '../../__configuration__/resources';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
-import { useSelector } from 'react-redux';
-import { AppState } from '../redux/reducers';
+import { useAppSelector, RootState } from '../redux';
 import { FrameworkFilter } from '../../__types__';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
 
 export const DevResources: React.FC = (): JSX.Element => {
     const [filter, setFilter] = useState<FrameworkFilter>('all');
-    const searchActive = useSelector((state: AppState) => state.app.searchActive);
+    const searchActive = useAppSelector((state: RootState) => state.app.searchActive);
     const theme = useTheme();
-    const showBanner = useSelector((state: AppState) => state.app.showBanner);
+    const showBanner = useAppSelector((state: RootState) => state.app.showBanner);
 
     usePageTitle('Resources');
     useGoogleAnalyticsPageView();
@@ -87,6 +86,8 @@ export const DevResources: React.FC = (): JSX.Element => {
                                                     divider={index < bucket.items.length - 1}
                                                     demoUrl={item.demoUrl}
                                                     workSpace={item.workSpace}
+                                                    bugLabels={item.bugLabels}
+                                                    buildJobName={item.buildJobName}
                                                 />
                                             ) : null
                                         )}

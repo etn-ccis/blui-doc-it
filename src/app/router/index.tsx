@@ -4,9 +4,8 @@ import { LandingPage } from '../pages';
 import { DrawerLayout } from '@brightlayer-ui/react-components';
 import { ContactFab, SharedToolbar } from '../components';
 import { NavigationDrawer } from './navigationDrawer';
-import { AppState } from '../redux/reducers';
+import { RootState, useAppSelector } from '../redux';
 import { Menu } from '@mui/icons-material';
-import { useSelector } from 'react-redux';
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
 import AppBar from '@mui/material/AppBar';
@@ -59,11 +58,11 @@ const ScrollToTop = (): any => {
 };
 
 export const MainRouter = (): JSX.Element => {
-    const title = useSelector((state: AppState) => state.app.pageTitle);
-    const selectedTheme = useSelector((state: AppState) => state.app.theme);
+    const title = useAppSelector((state: RootState) => state.app.pageTitle);
+    const selectedTheme = useAppSelector((state: RootState) => state.app.theme);
     const className = getScheduledSiteConfig(selectedTheme).className;
-    const sidebarOpen = useSelector((state: AppState) => state.app.sidebarOpen);
-    const showBanner = useSelector((state: AppState) => state.app.showBanner);
+    const sidebarOpen = useAppSelector((state: RootState) => state.app.sidebarOpen);
+    const showBanner = useAppSelector((state: RootState) => state.app.showBanner);
     return (
         <Router>
             <ScrollToTop />

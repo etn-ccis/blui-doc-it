@@ -6,13 +6,11 @@ import Box, { BoxProps } from '@mui/material/Box';
 import { Check } from '@mui/icons-material';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
-import { AppState } from '../../redux/reducers';
+import { useAppSelector, useAppDispatch, changeSelectedColor, RootState } from '../../redux';
 import { copyTextToClipboard } from '../../shared';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import { BLUIColor } from '@brightlayer-ui/types';
 import colorModule from 'color';
-import { CHANGE_SELECTED_COLOR } from '../../redux/actions';
 import { ListItemTag } from '@brightlayer-ui/react-components';
 import { SystemStyleObject } from '@mui/system';
 
@@ -57,14 +55,14 @@ const styles: Record<string, SystemStyleObject<Theme>> = {
 
 export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
     const { color, name, category, weight, ...otherProps } = props;
-    const format = useSelector((state: AppState) => state.app.colorFormat);
-    const showColorContrast = useSelector((state: AppState) => state.app.showColorContrast);
+    const format = useAppSelector((state: RootState) => state.app.colorFormat);
+    const showColorContrast = useAppSelector((state: RootState) => state.app.showColorContrast);
     const navigate = useNavigate();
     const location = useLocation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const [copied, setCopied] = useState(false);
     const [isSelected, setIsSelected] = useState(false);
-    const selectedColor = useSelector((state: AppState) => state.app.selectedColor);
+    const selectedColor = useAppSelector((state: RootState) => state.app.selectedColor);
     const [selectedColorHex, setSelectedColorHex] = useState('');
     const colorLabel = useCallback(() => getColorLabel(color, format), [color, format]);
 
@@ -79,7 +77,7 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
 
     const onSelectColor = useCallback(() => {
         navigate(`${location.pathname}?category=${category}&name=${name}&weight=${weight}`, { replace: true });
-        dispatch({ type: CHANGE_SELECTED_COLOR, payload: { category, name, weight } });
+        dispatch(changeSelectedColor({ category, name, weight }));
     }, []);
 
     const getColorContrastTag = useCallback((contrastRatio: number) => {

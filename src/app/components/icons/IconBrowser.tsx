@@ -22,8 +22,8 @@ import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 import { titleCase } from '../../shared';
-import { useDispatch } from 'react-redux';
-import { TOGGLE_SIDEBAR } from '../../redux/actions';
+import { useAppDispatch } from '../../redux/hooks';
+import { toggleSidebar } from '../../redux';
 import { EmptyState } from '@brightlayer-ui/react-components';
 
 type MaterialMeta = {
@@ -197,7 +197,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
     const theme = useTheme();
     const navigate = useNavigate();
     const location = useLocation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const { icon: iconQuery, isMaterial: materialQuery } = useQueryString();
     const isMaterial = parseBoolean(materialQuery);
     const [iconKeys, setIconKeys] = useState<string[] | null>(null);
@@ -211,7 +211,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
         isMounted.current = true;
         return (): void => {
             isMounted.current = false;
-            dispatch({ type: TOGGLE_SIDEBAR, payload: false });
+            dispatch(toggleSidebar(false));
         };
     }, []);
 
@@ -222,12 +222,12 @@ export const IconBrowser: React.FC = (): JSX.Element => {
         // If loading from a query param, load the icon if it exists in the icon map.
         if (iconQuery) {
             if (isMaterial !== undefined && allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'blui'}`]) {
-                dispatch({ type: TOGGLE_SIDEBAR, payload: true });
+                dispatch(toggleSidebar(true));
                 setSelectedIcon(allIconsMap[`${iconQuery}-${isMaterial ? 'material' : 'blui'}`]);
             } else if (isMaterial === undefined) {
                 let newSelectedIcon;
                 if ((newSelectedIcon = allIconsMap[`${iconQuery}-material`] || allIconsMap[`${iconQuery}-blui`])) {
-                    dispatch({ type: TOGGLE_SIDEBAR, payload: true });
+                    dispatch(toggleSidebar(true));
                     setSelectedIcon(newSelectedIcon);
                 }
             }
@@ -248,7 +248,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                 `${location.pathname}?icon=${iconName[0]}&isMaterial=${iconName[1] === 'material' ? 'true' : 'false'}`,
                 { replace: true }
             );
-            dispatch({ type: TOGGLE_SIDEBAR, payload: true });
+            dispatch(toggleSidebar(true));
         },
         [dispatch, navigate, location.pathname]
     );

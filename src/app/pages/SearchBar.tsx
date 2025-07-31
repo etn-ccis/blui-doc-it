@@ -8,9 +8,7 @@ import { Theme } from '@mui/material/styles';
 import Backdrop from '@mui/material/Backdrop';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
-import { TOGGLE_SEARCH } from '../redux/actions';
-import { useSelector, useDispatch } from 'react-redux';
-import { AppState } from '../redux/reducers';
+import { useAppSelector, useAppDispatch, toggleSearch, RootState } from '../redux';
 import { Close } from '@mui/icons-material';
 import { PADDING } from '../shared';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -58,8 +56,8 @@ const styles: Record<string, SystemStyleObject<Theme>> = {
 };
 
 export const SearchBar: React.FC<SearchbarProps> = (props) => {
-    const searchActive = useSelector((state: AppState) => state.app.searchActive);
-    const dispatch = useDispatch();
+    const searchActive = useAppSelector((state: RootState) => state.app.searchActive);
+    const dispatch = useAppDispatch();
     const location = useLocation();
     const deepQuery = useQueryString().search || '';
     const prevQuery = usePrevious(deepQuery);
@@ -67,7 +65,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
     const [showSearchResult, setShowSearchResult] = useState(false);
     const [inputString, setInputString] = useState('');
     const navigate = useNavigate();
-    const showBanner = useSelector((state: AppState) => state.app.showBanner);
+    const showBanner = useAppSelector((state: RootState) => state.app.showBanner);
 
     // Push a new value on the browser history stack (if needed)
     const pushHistory = useCallback(
@@ -107,7 +105,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
             });
         }
         setShowSearchResult(false);
-        dispatch({ type: TOGGLE_SEARCH, payload: false });
+        dispatch(toggleSearch(false));
     };
 
     // Update the local variables and results if the deep link (URL) changes
@@ -118,13 +116,13 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
             updateSearchResults(deepQuery);
             setShowSearchResult(true);
             if (!searchActive) {
-                dispatch({ type: TOGGLE_SEARCH, payload: true });
+                dispatch(toggleSearch(true));
             }
         } else {
             setInputString('');
             setShowSearchResult(false);
             if (searchActive) {
-                dispatch({ type: TOGGLE_SEARCH, payload: false });
+                dispatch(toggleSearch(false));
             }
         }
     }, [deepQuery, prevQuery, updateSearchResults, searchActive, dispatch]);
@@ -155,7 +153,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                 transitionDuration={200}
                 sx={{ zIndex: 'modal' }}
                 onClick={(): void => {
-                    dispatch({ type: TOGGLE_SEARCH, payload: false });
+                    dispatch(toggleSearch(false));
                 }}
             />
 
