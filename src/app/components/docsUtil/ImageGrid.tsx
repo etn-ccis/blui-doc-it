@@ -91,8 +91,7 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): React.JSX.Element =>
             >
                 {images.map((item, index) =>
                     typeof item === 'string' ? (
-                        <Grid key={`content_${index}`} size={{ xs: 12, sm: fullSize ? 12 : 6 }}  {...gridImageProps}>
-                            {console.log('in first grid')}
+                        <Grid key={`content_${index}`} size={{ xs: 12, sm: fullSize ? 12 : 6 }} {...gridImageProps}>
                             <Box
                                 component={'img'}
                                 sx={styles.image}
@@ -111,9 +110,7 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): React.JSX.Element =>
                             }
                         </Grid>
                     ) : (
-
                         <Grid key={`content_${index}`} size={{ xs: 12, sm: 6 }} {...gridComponentProps}>
-                                {console.log('in 2nd grid')}
                             <>{item}</>
                         </Grid>
                     )
