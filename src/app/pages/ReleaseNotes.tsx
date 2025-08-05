@@ -1,6 +1,6 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
-import useTheme from '@mui/material/styles/useTheme';
+import { useTheme } from '@mui/material/styles';
 import { LatestReleases } from '../../docs';
 import { ReleaseInfo } from '../../docs/release-notes';
 import { PageContent, Divider } from '../components';
@@ -11,6 +11,7 @@ export const ReleaseNotes: React.FC = (): JSX.Element => {
     const theme = useTheme();
     usePageTitle('Release Notes');
     useGoogleAnalyticsPageView();
+    console.log('Release Notes', theme.palette.background.paper, theme.palette.mode);
 
     return (
         <PageContent backgroundColor={theme.palette.background.paper}>

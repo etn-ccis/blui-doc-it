@@ -1,4 +1,5 @@
-import * as BLUIThemes from '@brightlayer-ui/react-themes';
+// import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import { theme } from "@brightlayer-ui/react-themes";
 import * as Colors from '@brightlayer-ui/colors';
 import banner from '../../app/assets/themes/earth-day/earth.jpg';
 import cursor from '../../app/assets/themes/earth-day/cursor.svg';
@@ -10,18 +11,18 @@ export const EarthDaySchedule: Schedule = {
     end: new Date(0, 3, 25), // Apr 24
     config: {
         theme: {
-            ...BLUIThemes.blue,
+            ...theme,
             palette: {
-                ...BLUIThemes.blue.palette,
+                ...theme.palette,
                 secondary: {
                     main: Colors.green[500],
                 },
             },
             components: {
-                ...BLUIThemes.blue.components,
+                ...theme.components,
                 MuiButton: {
                     styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                        ...theme.components?.MuiButton?.styleOverrides,
                         outlined: {
                             borderColor: Colors.white[50],
                         },

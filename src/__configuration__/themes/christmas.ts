@@ -1,4 +1,5 @@
-import * as BLUIThemes from '@brightlayer-ui/react-themes';
+// import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import { theme } from "@brightlayer-ui/react-themes";
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import ChristmasEve from '../../app/assets/themes/christmas/christmas-eve.png';
@@ -10,12 +11,12 @@ export const ChristmasSchedule: Schedule = {
     end: new Date(0, 11, 26), // Dec 25
     config: {
         theme: {
-            ...BLUIThemes.blue,
+            ...theme,
             components: {
-                ...BLUIThemes.blue.components,
+                ...theme.components,
                 MuiAppBar: {
                     styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
+                        ...theme.components?.MuiAppBar?.styleOverrides,
                         root: {
                             borderBottom: `1px solid ${Colors.black[50]}`,
                         },
@@ -53,7 +54,7 @@ export const ChristmasSchedule: Schedule = {
                 },
                 MuiButton: {
                     styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                        ...theme.components?.MuiButton?.styleOverrides,
                         outlined: {
                             borderColor: Colors.white[50],
                         },

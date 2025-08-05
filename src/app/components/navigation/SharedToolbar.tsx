@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import AppBar, { AppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import ListItemText from '@mui/material/ListItemText';
-import Hidden from '@mui/material/Hidden';
+// import Hidden from '@mui/material/Hidden';
 import IconButton from '@mui/material/IconButton';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -83,25 +83,47 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
         }
         return false;
     };
-
-    const getNavigationIcon = useCallback(
-        () => (
-            <Hidden mdUp={navigationIcon !== undefined && !isLandingPage}>
-                <IconButton
-                    color={'inherit'}
-                    size={'large'}
-                    edge={'start'}
-                    sx={{ mr: 0.5 }}
-                    onClick={(): void => {
-                        dispatch(toggleDrawer(!drawerOpen));
-                    }}
-                >
-                    {icon}
-                </IconButton>
-            </Hidden>
-        ),
-        [navigationIcon]
-    );
+//     // Create this component in a separate file or at the top of your file
+// const Hidden: React.FC<{ 
+//     mdUp?: boolean; 
+//     children: React.ReactNode 
+// }> = ({ mdUp, children }) => {
+//     if (mdUp) {
+//         return (
+//             <Box sx={{ display: { xs: 'block', sm: 'block', md: 'none' } }}>
+//                 {children}
+//             </Box>
+//         );
+//     }
+// //     return <>{children}</>;
+// };
+        //   const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
+        //   const shouldHide = (navigationIcon !== undefined && !isLandingPage) && isMdUp;
+   const getNavigationIcon = useCallback(() => (
+     <Box
+            sx={{
+                display: {
+                    xs: 'block',
+                    sm: 'block',
+                    md: navigationIcon !== undefined && !isLandingPage ? 'none' : 'block'
+                }
+            }}
+       >
+    // {/* <Hidden mdUp={navigationIcon !== undefined && !isLandingPage}> */}
+        <IconButton
+            color={'inherit'}
+            size={'large'}
+            edge={'start'}
+            sx={{ mr: 0.5 }}
+            onClick={(): void => {
+                dispatch(toggleDrawer(!drawerOpen));
+            }}
+        >
+            {icon}
+        </IconButton>
+        </Box>
+    // {/* </Hidden> */}
+), [navigationIcon]);
 
     useEffect(() => {
         if (getIsFireworkHoliday()) {

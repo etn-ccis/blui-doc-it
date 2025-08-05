@@ -1,5 +1,5 @@
 import type { ThemeOptions } from '@mui/material/styles';
-import { CSSProperties } from '@mui/styles';
+import { CSSProperties } from 'react';
 
 export type SiteConfig = {
     /**

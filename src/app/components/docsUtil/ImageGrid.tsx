@@ -45,7 +45,7 @@ type ImageGridProps = HTMLAttributes<HTMLDivElement> & {
     captionsUnderImages?: string[];
 };
 
-export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
+export const ImageGrid: React.FC<ImageGridProps> = (props): React.JSX.Element => {
     const {
         images,
         caption,
@@ -91,7 +91,8 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
             >
                 {images.map((item, index) =>
                     typeof item === 'string' ? (
-                        <Grid key={`content_${index}`} item xs={12} sm={fullSize ? 12 : 6} {...gridImageProps}>
+                        <Grid key={`content_${index}`} size={{ xs: 12, sm: fullSize ? 12 : 6 }}  {...gridImageProps}>
+                            {console.log('in first grid')}
                             <Box
                                 component={'img'}
                                 sx={styles.image}
@@ -110,8 +111,10 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
                             }
                         </Grid>
                     ) : (
-                        <Grid key={`content_${index}`} item xs={12} sm={6} {...gridComponentProps}>
-                            {item}
+
+                        <Grid key={`content_${index}`} size={{ xs: 12, sm: 6 }} {...gridComponentProps}>
+                                {console.log('in 2nd grid')}
+                            <>{item}</>
                         </Grid>
                     )
                 )}

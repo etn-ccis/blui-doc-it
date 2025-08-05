@@ -48,7 +48,7 @@ export const IconSearchBar: React.FC<SearchBarProps> = (props): JSX.Element => {
 
     return (
         <Grid container spacing={2} {...divProps}>
-            <Grid item xs={searchSize}>
+            <Grid sx={{xs:searchSize}}>
                 <TextField
                     fullWidth
                     placeholder="Enter keyword or icon name"
@@ -66,7 +66,7 @@ export const IconSearchBar: React.FC<SearchBarProps> = (props): JSX.Element => {
                     }}
                 />
             </Grid>
-            <Grid item xs={categorySize}>
+            <Grid sx={{ xs: categorySize }}>
                 <FormControl variant={'outlined'} fullWidth>
                     <InputLabel id="category-select-label">Icon Categories</InputLabel>
                     <Select
