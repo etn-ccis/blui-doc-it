@@ -48,7 +48,7 @@ export const IconSearchBar: React.FC<SearchBarProps> = (props): JSX.Element => {
 
     return (
         <Grid container spacing={2} {...divProps}>
-            <Grid size={{ xs: searchSize }} >
+            <Grid size={{ xs: searchSize }}>
                 <TextField
                     fullWidth
                     placeholder="Enter keyword or icon name"

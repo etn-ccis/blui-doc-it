@@ -86,14 +86,14 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
     const getNavigationIcon = useCallback(
         () => (
             <Box
-            sx={{
-                display: {
-                    xs: 'block',
-                    sm: 'block',
-                    md: navigationIcon !== undefined && !isLandingPage ? 'none' : 'block'
-                }
-            }}
-       >
+                sx={{
+                    display: {
+                        xs: 'block',
+                        sm: 'block',
+                        md: navigationIcon !== undefined && !isLandingPage ? 'none' : 'block',
+                    },
+                }}
+            >
                 <IconButton
                     color={'inherit'}
                     size={'large'}
@@ -105,7 +105,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                 >
                     {icon}
                 </IconButton>
-         </Box>
+            </Box>
         ),
         [navigationIcon]
     );

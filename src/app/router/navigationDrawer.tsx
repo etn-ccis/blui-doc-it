@@ -104,8 +104,9 @@ export const NavigationDrawer = (): JSX.Element => {
             activeItem={activeRoute}
             activeItemFontColor={theme.palette.primary.main}
             hidePadding
-            activeItemBackgroundShape={'round'} 
-            onBackdropClick={undefined}        >
+            activeItemBackgroundShape={'round'}
+            onBackdropClick={undefined}
+        >
             <DrawerHeader
                 icon={<PxblueSmall />}
                 onIconClick={(): void => {
