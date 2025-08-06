@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { IconType } from '../../../__types__';
 import { Theme, SxProps } from '@mui/system';
 import Typography from '@mui/material/Typography';
-import useTheme from '@mui/material/styles/useTheme';
+import { useTheme } from '@mui/material/styles';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 import Accordion, { AccordionProps } from '@mui/material/Accordion';

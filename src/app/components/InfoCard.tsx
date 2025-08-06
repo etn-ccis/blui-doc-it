@@ -1,6 +1,6 @@
 import React, { MouseEvent } from 'react';
 import Typography from '@mui/material/Typography';
-import useTheme from '@mui/material/styles/useTheme';
+import { useTheme } from '@mui/material/styles';
 import { SxProps } from '@mui/system';
 import Box from '@mui/material/Box';
 

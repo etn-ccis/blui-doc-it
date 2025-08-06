@@ -14,7 +14,7 @@ import color from 'color';
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { EatonTagline } from '../assets/icons';
 import Typography from '@mui/material/Typography';
-import useTheme from '@mui/material/styles/useTheme';
+import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Stack from '@mui/material/Stack';
 import { useAppSelector, useAppDispatch, toggleDrawer, RootState } from '../redux';
@@ -105,6 +105,7 @@ export const NavigationDrawer = (): JSX.Element => {
             activeItemFontColor={theme.palette.primary.main}
             hidePadding
             activeItemBackgroundShape={'round'}
+            onBackdropClick={undefined}
         >
             <DrawerHeader
                 icon={<PxblueSmall />}
