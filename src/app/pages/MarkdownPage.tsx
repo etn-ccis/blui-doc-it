@@ -3,7 +3,7 @@ import { usePageTitle } from '../hooks/usePageTitle';
 import { PageContent } from '../components';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import useTheme from '@mui/material/styles/useTheme';
+import { useTheme } from '@mui/material/styles';
 import * as Colors from '@brightlayer-ui/colors';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 import { useAppSelector, RootState } from '../redux';

@@ -23,7 +23,7 @@ export const LinkGrid: React.FC<LinkGridProps> = (props): JSX.Element => {
     return (
         <Grid container spacing={6} {...gridProps}>
             {links.map((link) => (
-                <Grid key={link.url} item xs={12} sm={6} md={4}>
+                <Grid key={link.url} size={{ xs: 12, sm: 6, md: 4 }}>
                     <InfoCard
                         spacing={6}
                         source={link.image}

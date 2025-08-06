@@ -23,7 +23,7 @@ export const ContributorsList: React.FC<ContributorListProps> = (props) => {
                 {contributors
                     .sort((a, b) => (a.name.split(' ')[1] > b.name.split(' ')[1] ? 1 : -1)) // sort by lastname
                     .map((contributor, index) => (
-                        <Grid item xs={12} sm={6} md={4} key={index}>
+                        <Grid size={{ xs: 12, sm: 6, md: 4 }}  key={index}>
                             <ContributorsCard {...contributor} />
                         </Grid>
                     ))}

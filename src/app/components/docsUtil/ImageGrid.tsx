@@ -91,7 +91,7 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
             >
                 {images.map((item, index) =>
                     typeof item === 'string' ? (
-                        <Grid key={`content_${index}`} item xs={12} sm={fullSize ? 12 : 6} {...gridImageProps}>
+                        <Grid key={`content_${index}`} size={{ xs: 12, sm: fullSize ? 12 : 6 }} {...gridImageProps}>
                             <Box
                                 component={'img'}
                                 sx={styles.image}
@@ -110,7 +110,7 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
                             }
                         </Grid>
                     ) : (
-                        <Grid key={`content_${index}`} item xs={12} sm={6} {...gridComponentProps}>
+                        <Grid key={`content_${index}`} size={{ xs: 12, sm: 6 }} {...gridComponentProps}>
                             {item}
                         </Grid>
                     )

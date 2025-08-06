@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import useTheme from '@mui/material/styles/useTheme';
+import { useTheme } from '@mui/material/styles';
 import color from 'color';
 import { InfoListItem } from '@brightlayer-ui/react-components';
 import * as Colors from '@brightlayer-ui/colors';

@@ -4,7 +4,6 @@ import Typography from '@mui/material/Typography';
 import AppBar, { AppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import ListItemText from '@mui/material/ListItemText';
-import Hidden from '@mui/material/Hidden';
 import IconButton from '@mui/material/IconButton';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -86,7 +85,15 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
 
     const getNavigationIcon = useCallback(
         () => (
-            <Hidden mdUp={navigationIcon !== undefined && !isLandingPage}>
+            <Box
+            sx={{
+                display: {
+                    xs: 'block',
+                    sm: 'block',
+                    md: navigationIcon !== undefined && !isLandingPage ? 'none' : 'block'
+                }
+            }}
+       >
                 <IconButton
                     color={'inherit'}
                     size={'large'}
@@ -98,7 +105,7 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
                 >
                     {icon}
                 </IconButton>
-            </Hidden>
+         </Box>
         ),
         [navigationIcon]
     );

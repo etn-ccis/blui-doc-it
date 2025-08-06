@@ -104,7 +104,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
             <LandingSection title={'Design and Development'} align={'left'} background={'light'}>
                 <Grid container spacing={6} sx={{ mt: -1 }}>
                     {cardData.map((item, ind) => (
-                        <Grid key={`grid${ind}`} item xs={12} sm={6} md={4}>
+                        <Grid key={`grid${ind}`} size={{ xs: 12, sm: 6, md: 4 }}>
                             <InfoCard
                                 spacing={6}
                                 source={item.image}
@@ -149,7 +149,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
 
             {/* Carousel Section */}
             <Grid container>
-                <Grid item xs={12} sm={6}>
+                <Grid size={{ xs: 12, sm: 6 }} >
                     <CarouselCard
                         backgroundImage={designImage}
                         title={'Getting started as a designer'}
@@ -160,7 +160,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                         onClick={(): void => navigate('/design/intro')}
                     />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                     <CarouselCard
                         backgroundImage={developImage}
                         title={'Getting started as a developer'}
