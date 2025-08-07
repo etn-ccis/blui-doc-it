@@ -96,7 +96,7 @@ export const MainRouter = (): JSX.Element => {
                                     position={'static'}
                                     sx={(theme): SystemStyleObject => ({
                                         zIndex: 0,
-                                        backgroundColor: Colors.black[900],
+                                        // backgroundColor: Colors.black[900],
                                         color: Colors.black[50],
                                         textAlign: 'center',
                                         mt: '50vh',

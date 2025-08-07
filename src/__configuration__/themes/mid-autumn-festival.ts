@@ -1,4 +1,5 @@
-import * as BLUIThemes from '@brightlayer-ui/react-themes';
+// import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import { theme } from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import banner from '../../app/assets/themes/mid-autumn-festival/banner.svg';
@@ -12,9 +13,9 @@ export const MidAutumnSchedule: Schedule = {
     end: new Date(0, 8, 19), // Sept 18
     config: {
         theme: {
-            ...BLUIThemes.blueDark,
+            ...theme,
             palette: {
-                ...BLUIThemes.blueDark.palette,
+                ...theme.palette,
                 mode: 'dark',
                 primary: {
                     light: Colors.yellow[200],
@@ -26,10 +27,10 @@ export const MidAutumnSchedule: Schedule = {
                 },
             },
             components: {
-                ...BLUIThemes.blueDark.components,
+                ...theme.components,
                 MuiAppBar: {
                     styleOverrides: {
-                        ...BLUIThemes.blueDark.components?.MuiAppBar?.styleOverrides,
+                        ...theme.components?.MuiAppBar?.styleOverrides,
                         colorPrimary: {
                             backgroundColor: BrandingColors.butter[500],
                             color: Colors.black[700],
@@ -47,7 +48,7 @@ export const MidAutumnSchedule: Schedule = {
                     },
                 },
                 MuiButton: {
-                    ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                    ...theme.components?.MuiButton?.styleOverrides,
                     styleOverrides: {
                         outlined: { textTransform: 'none' },
                         outlinedPrimary: {},

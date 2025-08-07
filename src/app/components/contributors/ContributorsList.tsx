@@ -28,7 +28,7 @@ export const ContributorsList: React.FC<ContributorListProps> = (props) => {
                         </Grid>
                     ))}
             </Grid>
-        </Box>
+        </Box> 
     );
 };
 
