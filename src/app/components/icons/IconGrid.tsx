@@ -48,7 +48,7 @@ const Icons: React.FC<IconGridProps> = (props) => {
                     const iconDisplayName = snakeToTitleCase(icon.iconFontKey);
                     return (
                         <Grid
-                            sx={{ xs: 4, sm: 2, md: 3, lg: 2 }}
+                            size={{ xs: 4, sm: 2, md: 3, lg: 2 }}
                             key={`${icon.name}_${icon.isMaterial ? 'material' : 'brightlayer-ui'}`}
                             onClick={onIconSelected}
                             data-iconid={`${icon.name}-${icon.isMaterial ? 'material' : 'blui'}`}

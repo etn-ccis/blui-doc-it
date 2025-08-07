@@ -83,30 +83,32 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
         return false;
     };
 
-   const getNavigationIcon = useCallback(() => (
-     <Box
-            sx={{
-                display: {
-                    xs: 'block',
-                    sm: 'block',
-                    md: navigationIcon !== undefined && !isLandingPage ? 'none' : 'block'
-                }
-            }}
-       >
-        <IconButton
-            color={'inherit'}
-            size={'large'}
-            edge={'start'}
-            sx={{ mr: 0.5 }}
-            onClick={(): void => {
-                dispatch(toggleDrawer(!drawerOpen));
-            }}
-        >
-            {icon}
-        </IconButton>
-        </Box>
- 
-), [navigationIcon]);
+    const getNavigationIcon = useCallback(
+        () => (
+            <Box
+                sx={{
+                    display: {
+                        xs: 'block',
+                        sm: 'block',
+                        md: navigationIcon !== undefined && !isLandingPage ? 'none' : 'block',
+                    },
+                }}
+            >
+                <IconButton
+                    color={'inherit'}
+                    size={'large'}
+                    edge={'start'}
+                    sx={{ mr: 0.5 }}
+                    onClick={(): void => {
+                        dispatch(toggleDrawer(!drawerOpen));
+                    }}
+                >
+                    {icon}
+                </IconButton>
+            </Box>
+        ),
+        [navigationIcon]
+    );
 
     useEffect(() => {
         if (getIsFireworkHoliday()) {

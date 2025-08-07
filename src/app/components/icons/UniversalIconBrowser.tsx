@@ -57,9 +57,7 @@ export const UniversalIconBrowser: React.FC = () => {
                         expanded
                             ? (): void => {
                                   window.open(
-                                      `/style/icon-library?icon=${icon.name.replaceAll(' ', '')}&isMaterial=${
-                                          icon.isMaterial === undefined || icon.isMaterial === true ? 'true' : 'false'
-                                      }`
+                                      `/style/icon-library?icon=${icon.name.replaceAll(' ', '')}&isMaterial=${icon.isMaterial === undefined || icon.isMaterial === true ? 'true' : 'false'}`
                                   );
                               }
                             : undefined
@@ -79,6 +77,8 @@ export const UniversalIconBrowser: React.FC = () => {
                             </Tooltip>
                         ) : undefined
                     }
+                    disabled={undefined}
+                    selected={undefined}
                 />
             ))}
             <CardActions

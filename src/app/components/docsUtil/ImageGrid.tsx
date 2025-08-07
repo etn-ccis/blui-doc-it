@@ -111,7 +111,7 @@ export const ImageGrid: React.FC<ImageGridProps> = (props): React.JSX.Element =>
                         </Grid>
                     ) : (
                         <Grid key={`content_${index}`} size={{ xs: 12, sm: 6 }} {...gridComponentProps}>
-                            <>{item}</>
+                            {item}
                         </Grid>
                     )
                 )}
