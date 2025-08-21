@@ -41,13 +41,6 @@ export const blueDarkTheme: SiteConfig = {
                     },
                 },
             },
-            // MuiToolbar: {
-            //     styleOverrides: {
-            //         root: {
-            //             color: Colors.white[200],
-            //         },
-            //     },
-            // },
             MuiBackdrop: {
                 styleOverrides: {
                     root: {
@@ -59,6 +52,20 @@ export const blueDarkTheme: SiteConfig = {
                 styleOverrides: {
                     outlined: { textTransform: 'none' },
                     outlinedPrimary: {},
+                },
+            },
+            MuiPaper: {
+                styleOverrides: {
+                    outlined: {
+                        borderColor: Colors.gray[900],
+                    },
+                },
+            },
+            MuiToolbar: {
+                styleOverrides: {
+                    root: {
+                        color: Colors.white[200],
+                    },
                 },
             },
             MuiDrawer: {

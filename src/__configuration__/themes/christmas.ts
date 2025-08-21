@@ -63,6 +63,13 @@ export const ChristmasSchedule: Schedule = {
                         },
                     },
                 },
+                MuiPaper: {
+                    styleOverrides: {
+                        outlined: {
+                            borderColor: Colors.gray[900],
+                        },
+                    },
+                },
             },
             typography: blueThemes.typography,
         },

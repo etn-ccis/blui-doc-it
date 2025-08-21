@@ -37,15 +37,6 @@ const macPrank = {
         palette: {
             ...blueThemes.palette,
         },
-        // components: {
-        //     MuiButton: {
-        //         styleOverrides: {
-        //             outlined: { textTransform: 'none' },
-        //         },
-        //     },
-        //     MuiFab: {},
-        //     MuiSwitch: {},
-        // },
         typography: blueThemes.typography,
     },
     landingPageBanner: {
