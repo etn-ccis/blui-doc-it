@@ -132,8 +132,6 @@ export const ColorBottomSheet: React.FC = () => {
                         </IconButton>
                     </>
                 }
-                disabled={undefined}
-                selected={undefined}
             />
             {hex && (
                 <Box sx={{ p: 2, pt: 0 }}>

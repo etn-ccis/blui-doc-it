@@ -1,4 +1,4 @@
-import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import { blueThemes } from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import Hanukkah from '../../app/assets/themes/hanukkah/hanukkah-banner.png';
@@ -11,9 +11,8 @@ export const HanukkahSchedule: Schedule = {
     end: new Date(0, 11, 29), // Dec 28
     config: {
         theme: {
-            ...BLUIThemes.blue,
             palette: {
-                ...BLUIThemes.blue.palette,
+                ...blueThemes.palette,
                 mode: 'light',
                 primary: {
                     light: BrandingColors.blue[100],
@@ -27,10 +26,8 @@ export const HanukkahSchedule: Schedule = {
                 },
             },
             components: {
-                ...BLUIThemes.blue.components,
                 MuiAppBar: {
                     styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
                         colorSecondary: {
                             color: Colors.white[50],
                             backgroundColor: BrandingColors.blue[500],
@@ -45,12 +42,12 @@ export const HanukkahSchedule: Schedule = {
                 },
                 MuiButton: {
                     styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
                         outlined: {},
                         outlinedPrimary: {},
                     },
                 },
             },
+            typography: blueThemes.typography,
         },
         landingPageBanner: {
             backgroundImage: `url(${Hanukkah})`,

@@ -30,9 +30,7 @@ export const ScoreCardDemo: JSX.Element = (
                 fontSize={'normal'}
             />
         }
-        actionRow={
-            <InfoListItem dense chevron title={'View Location'} hidePadding disabled={undefined} selected={undefined} />
-        }
+        actionRow={<InfoListItem dense chevron title={'View Location'} hidePadding />}
     >
         <List>
             <ListItem sx={{ py: 0.5 }}>

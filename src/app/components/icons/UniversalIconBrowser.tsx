@@ -77,8 +77,6 @@ export const UniversalIconBrowser: React.FC = () => {
                             </Tooltip>
                         ) : undefined
                     }
-                    disabled={undefined}
-                    selected={undefined}
                 />
             ))}
             <CardActions

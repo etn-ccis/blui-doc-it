@@ -105,7 +105,6 @@ export const NavigationDrawer = (): JSX.Element => {
             activeItemFontColor={theme.palette.primary.main}
             hidePadding
             activeItemBackgroundShape={'round'}
-            onBackdropClick={undefined}
         >
             <DrawerHeader
                 icon={<PxblueSmall />}
@@ -130,6 +129,7 @@ export const NavigationDrawer = (): JSX.Element => {
                         <Typography>Brightlayer UI</Typography>
                     </Stack>
                 }
+                sx={{ '& .BluiDrawerHeader-navigation': { ml: 0 }, '&.MuiToolbar-root': { pl: 2 } }}
             />
             <DrawerBody>
                 <DrawerNavGroup items={menuItems} />

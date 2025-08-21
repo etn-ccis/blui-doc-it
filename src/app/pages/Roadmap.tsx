@@ -323,8 +323,6 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                             const statusColor = getStatusColor(item.status);
                                             return (
                                                 <InfoListItem
-                                                    selected={false}
-                                                    disabled={false}
                                                     key={`roadmap_item_${index}`}
                                                     hidePadding
                                                     divider={index === bucket.items.length - 1 ? undefined : 'full'}

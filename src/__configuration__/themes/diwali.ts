@@ -1,9 +1,9 @@
-import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import { blueThemes } from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import Diwali from '../../app/assets/themes/diwali/diwali-banner.jpg';
 import diwaliCursor from '../../app/assets/themes/diwali/diwali-cursor.png';
-import AppBarTile from '../../app/assets/themes/diwali/diwali-appbar-tile.png';
+import AppBarTile from '../../app/assets/themes/thanksgiving/thanksgiving-appbar-tile.png';
 import { Schedule } from './_types';
 
 export const DiwaliSchedule: Schedule = {
@@ -11,9 +11,8 @@ export const DiwaliSchedule: Schedule = {
     end: new Date(0, 10, 8), // Nov 7
     config: {
         theme: {
-            ...BLUIThemes.blue,
             palette: {
-                ...BLUIThemes.blue.palette,
+                ...blueThemes.palette,
                 mode: 'light',
                 primary: {
                     light: BrandingColors.wine[300],
@@ -27,10 +26,8 @@ export const DiwaliSchedule: Schedule = {
                 },
             },
             components: {
-                ...BLUIThemes.blue.components,
                 MuiAppBar: {
                     styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
                         colorSecondary: {
                             color: Colors.white[50],
                             backgroundColor: BrandingColors.wine[500],
@@ -44,7 +41,6 @@ export const DiwaliSchedule: Schedule = {
                     },
                 },
                 MuiButton: {
-                    ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
                     styleOverrides: {
                         outlined: { textTransform: 'none' },
                         outlinedPrimary: {},
@@ -53,6 +49,7 @@ export const DiwaliSchedule: Schedule = {
                 MuiFab: {},
                 MuiSwitch: {},
             },
+            typography: blueThemes.typography,
         },
         drawerActiveBackgroundFade: 0.85,
         landingPageBanner: {

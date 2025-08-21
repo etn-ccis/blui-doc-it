@@ -101,8 +101,6 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
     return (
         <div>
             <InfoListItem
-                disabled={false}
-                selected={false}
                 hidePadding
                 style={{ paddingRight: theme.spacing(1) }}
                 divider={!small && divider ? 'full' : undefined}
