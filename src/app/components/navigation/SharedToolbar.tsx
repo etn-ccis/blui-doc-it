@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
 import AppBar, { AppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -58,7 +57,7 @@ const availableThemes = [
 ];
 
 export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
-    const { title, color, subtitle, navigationIcon, onClick, ...other } = props;
+    const { title, color = 'primary', subtitle, navigationIcon, onClick, ...other } = props;
     const icon = navigationIcon ?? <PxblueSmall />;
     const location = useLocation();
     const theme = useTheme();
@@ -260,13 +259,4 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
             </Dialog>
         </>
     );
-};
-SharedToolbar.propTypes = {
-    title: PropTypes.string,
-    color: PropTypes.oneOf(['primary', 'secondary', 'default']),
-    subtitle: PropTypes.string,
-    navigationIcon: PropTypes.element,
-};
-SharedToolbar.defaultProps = {
-    color: 'primary',
 };
