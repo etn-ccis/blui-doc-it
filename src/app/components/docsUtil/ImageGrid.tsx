@@ -45,7 +45,7 @@ type ImageGridProps = HTMLAttributes<HTMLDivElement> & {
     captionsUnderImages?: string[];
 };
 
-export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
+export const ImageGrid: React.FC<ImageGridProps> = (props): React.JSX.Element => {
     const {
         images,
         caption,

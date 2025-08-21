@@ -10,7 +10,7 @@ type SectionProps = BoxProps & {
     background?: 'light' | 'dark';
 };
 export const Section: React.FC<SectionProps> = (props) => {
-    const { title, align, maxWidth, background, sx, children, ...boxProps } = props;
+    const { title, align='left', maxWidth='1072', background='dark', sx, children, ...boxProps } = props;
     return (
         <Box
             {...boxProps}
@@ -50,8 +50,8 @@ export const Section: React.FC<SectionProps> = (props) => {
     );
 };
 Section.displayName = 'PageSection';
-Section.defaultProps = {
-    maxWidth: 1072,
-    align: 'left',
-    background: 'dark',
-};
+// Section.defaultProps = {
+//     maxWidth: 1072,
+//     align: 'left',
+//     background: 'dark',
+// };

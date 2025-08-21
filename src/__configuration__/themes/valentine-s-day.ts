@@ -1,4 +1,5 @@
-import * as BLUIThemes from '@brightlayer-ui/react-themes';
+// import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import { theme } from "@brightlayer-ui/react-themes";
 import Left from '../../app/assets/themes/valentine-s-day/left.svg';
 import Right from '../../app/assets/themes/valentine-s-day/right.svg';
 import HelperText from '../../app/assets/themes/valentine-s-day/helper-text.svg';
@@ -14,9 +15,9 @@ export const ValentineSchedule: Schedule = {
     end: new Date(0, 1, 16), // Feb 15
     config: {
         theme: {
-            ...BLUIThemes.blue,
+            ...theme,
             palette: {
-                ...BLUIThemes.blue.palette,
+                ...theme.palette,
                 primary: {
                     light: '#FCB3C9',
                     main: '#EF5482',
@@ -24,10 +25,10 @@ export const ValentineSchedule: Schedule = {
                 },
             },
             components: {
-                ...BLUIThemes.blue.components,
+                ...theme.components,
                 MuiAppBar: {
                     styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
+                        ...theme.components?.MuiAppBar?.styleOverrides,
                         colorSecondary: {
                             color: Colors.white[50],
                             backgroundColor: '#DF3266',
@@ -41,7 +42,7 @@ export const ValentineSchedule: Schedule = {
                     },
                 },
                 MuiButton: {
-                    ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                    ...theme.components?.MuiButton?.styleOverrides,
                     styleOverrides: {
                         outlined: { textTransform: 'none' },
                         outlinedPrimary: {},

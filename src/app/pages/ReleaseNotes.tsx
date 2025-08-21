@@ -11,6 +11,7 @@ export const ReleaseNotes: React.FC = (): JSX.Element => {
     const theme = useTheme();
     usePageTitle('Release Notes');
     useGoogleAnalyticsPageView();
+    console.log('Release Notes', theme.palette.background.paper, theme.palette.mode);
 
     return (
         <PageContent backgroundColor={theme.palette.background.paper}>

@@ -1,4 +1,5 @@
-import * as BLUIThemes from '@brightlayer-ui/react-themes';
+// import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import { theme } from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import StPatricksDay from '../../app/assets/themes/st-patricks-day/st-patricks-day-banner.png';
 import stPatricksDayCursor from '../../app/assets/themes/st-patricks-day/st-patricks-day-cursor.png';
@@ -10,9 +11,9 @@ export const StPatricksDaySchedule: Schedule = {
     end: new Date(0, 2, 19), // Mar 18
     config: {
         theme: {
-            ...BLUIThemes.blue,
+            ...theme,
             palette: {
-                ...BLUIThemes.blue.palette,
+                ...theme.palette,
                 mode: 'light',
                 primary: {
                     light: Colors.green[300],
@@ -26,10 +27,10 @@ export const StPatricksDaySchedule: Schedule = {
                 },
             },
             components: {
-                ...BLUIThemes.blue.components,
+                ...theme.components,
                 MuiAppBar: {
                     styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
+                        ...theme.components?.MuiAppBar?.styleOverrides,
                         colorSecondary: {
                             color: Colors.white[50],
                             backgroundColor: Colors.green[700],
@@ -43,7 +44,7 @@ export const StPatricksDaySchedule: Schedule = {
                     },
                 },
                 MuiButton: {
-                    ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                    ...theme.components?.MuiButton?.styleOverrides,
                     styleOverrides: {
                         outlined: { textTransform: 'none' },
                         outlinedPrimary: {},

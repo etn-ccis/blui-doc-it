@@ -1,4 +1,5 @@
-import { blueDark } from '@brightlayer-ui/react-themes';
+// import  blueDark  from '@brightlayer-ui/react-themes';
+import { theme } from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import { ThemeOptions } from '@mui/material/styles';
 
@@ -9,7 +10,7 @@ import { Schedule } from './_types';
 
 const HalloweenTheme: ThemeOptions = {
     palette: {
-        ...blueDark.palette,
+        ...theme.palette,
         primary: {
             light: Colors.orange[300],
             main: Colors.orange[500],
@@ -30,7 +31,7 @@ const HalloweenTheme: ThemeOptions = {
             // hint: Colors.black[200],
         },
     },
-    typography: blueDark.typography,
+    typography: theme.typography,
     components: {
         MuiAppBar: {
             styleOverrides: {
@@ -56,7 +57,7 @@ const HalloweenTheme: ThemeOptions = {
             },
         },
         MuiButton: {
-            ...blueDark.components?.MuiButton?.styleOverrides,
+            ...theme.components?.MuiButton?.styleOverrides,
             styleOverrides: {
                 outlined: { textTransform: 'none' },
                 outlinedPrimary: {},

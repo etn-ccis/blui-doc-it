@@ -1,4 +1,5 @@
-import * as BLUIThemes from '@brightlayer-ui/react-themes';
+// import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import { theme } from "@brightlayer-ui/react-themes";
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import Diwali from '../../app/assets/themes/diwali/diwali-banner.jpg';
@@ -11,9 +12,9 @@ export const DiwaliSchedule: Schedule = {
     end: new Date(0, 10, 8), // Nov 7
     config: {
         theme: {
-            ...BLUIThemes.blue,
+            ...theme,
             palette: {
-                ...BLUIThemes.blue.palette,
+                ...theme.palette,
                 mode: 'light',
                 primary: {
                     light: BrandingColors.wine[300],
@@ -27,10 +28,10 @@ export const DiwaliSchedule: Schedule = {
                 },
             },
             components: {
-                ...BLUIThemes.blue.components,
+                ...theme.components,
                 MuiAppBar: {
                     styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
+                        ...theme.components?.MuiAppBar?.styleOverrides,
                         colorSecondary: {
                             color: Colors.white[50],
                             backgroundColor: BrandingColors.wine[500],
@@ -44,7 +45,7 @@ export const DiwaliSchedule: Schedule = {
                     },
                 },
                 MuiButton: {
-                    ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                    ...theme.components?.MuiButton?.styleOverrides,
                     styleOverrides: {
                         outlined: { textTransform: 'none' },
                         outlinedPrimary: {},
