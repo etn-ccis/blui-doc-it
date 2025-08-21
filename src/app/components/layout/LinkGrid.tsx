@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid, { GridProps } from '@mui/material/Grid';
 import { InfoCard } from '..';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 type Link = {
     title: string;
@@ -28,7 +28,7 @@ export const LinkGrid: React.FC<LinkGridProps> = (props): React.JSX.Element => {
                         spacing={6}
                         source={link.image}
                         onClick={(): void => {
-                            if (link.url.startsWith('/')) navigate(link.url);
+                            if (link.url.startsWith('/')) void navigate(link.url);
                             else window.open(link.url, '_blank');
                         }}
                         background={link.background}

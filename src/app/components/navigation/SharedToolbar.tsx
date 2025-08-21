@@ -17,7 +17,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { PxblueSmall } from '@brightlayer-ui/icons-mui';
 import { Spacer } from '@brightlayer-ui/react-components';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import { useAppSelector, useAppDispatch, changeTheme, toggleDrawer, toggleSearch, RootState } from '../../redux';
 import SearchIcon from '@mui/icons-material/Search';
 import AppsIcon from '@mui/icons-material/Apps';

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
@@ -83,7 +83,7 @@ export const IconDrawer: React.FC = () => {
     const iconTitle = snakeToTitleCase(selectedIcon.iconFontKey);
 
     const closeDrawer = (): void => {
-        navigate(`${location.pathname}`, { replace: true });
+        void navigate(`${location.pathname}`, { replace: true });
         dispatch(toggleSidebar(false));
     };
 

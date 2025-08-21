@@ -12,7 +12,7 @@ type GetCopyTextFn = (framework: Framework, icon: IconType) => string;
 export const getMuiIconName = (filename: string): string => {
     let muiName = filename
         .replace(/\.svg/, '')
-        .replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 || p3).toUpperCase());
+        .replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => (p1 ?? p3).toUpperCase());
     if (muiName.startsWith('3dRotation')) muiName = `ThreeD${muiName.slice(2)}`;
     if (muiName.startsWith('360')) muiName = `ThreeSixty${muiName.slice(3)}`;
     if (muiName.startsWith('4k')) muiName = `FourK${muiName.slice(2)}`;

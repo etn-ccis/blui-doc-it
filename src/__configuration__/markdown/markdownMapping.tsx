@@ -6,7 +6,7 @@ import { Theme, useTheme } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import Box, { BoxProps } from '@mui/material/Box';
 import { Link as LinkIcon } from '@mui/icons-material';
-import { Link, LinkProps } from 'react-router-dom';
+import { Link, LinkProps } from 'react-router';
 import { REGULAR_WIDTH_STYLE, copyTextToClipboard, getHash } from '../../app/shared';
 import * as Colors from '@brightlayer-ui/colors';
 import color from 'color';

@@ -15,7 +15,7 @@ import { IconSearchBar } from './IconSearchBar';
 import { IconGrid } from './IconGrid';
 import { IconDrawer } from './IconDrawer';
 import { SelectedIconContext } from '../../contexts/selectedIconContextProvider';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router';
 import { useQueryString } from '../../hooks/useQueryString';
 import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
@@ -244,7 +244,7 @@ export const IconBrowser: React.FC = (): React.JSX.Element => {
             if (!iconName) return;
 
             setSelectedIcon(allIconsMap[iconName.join('-')]);
-            navigate(
+            void navigate(
                 `${location.pathname}?icon=${iconName[0]}&isMaterial=${iconName[1] === 'material' ? 'true' : 'false'}`,
                 { replace: true }
             );

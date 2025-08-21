@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Navigate, Outlet, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Navigate, Outlet, Route, Routes, useLocation } from 'react-router';
 import { LandingPage } from '../pages';
 import { DrawerLayout } from '@brightlayer-ui/react-components';
 import { ContactFab, SharedToolbar } from '../components';

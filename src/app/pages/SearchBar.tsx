@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 import { useAppSelector, useAppDispatch, toggleSearch, RootState } from '../redux';
 import { Close } from '@mui/icons-material';
 import { PADDING } from '../shared';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router';
 import { Result } from '../../__types__';
 import { search } from './SearchFunction';
 import siteMapDatabase from '../../database/sitemap-database.json';
@@ -82,7 +82,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                 const newSearchUrl = `${location.search
                     .replace(/(&?search=.+?)(&.+)*$/g, '$2')
                     .replace(/^\?&/, '?')}&search=${encodeURIComponent(searchQuery)}`;
-                navigate({
+                void navigate({
                     pathname: location.pathname,
                     search: newSearchUrl,
                 });
@@ -99,7 +99,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
 
     const dismissSearchBar = (): void => {
         if (location.search.includes(`search=`)) {
-            navigate({
+            void navigate({
                 pathname: location.pathname,
                 search: location.search.replace(/(&?search=.+?)(&.+)*$/g, '$2').replace(/^\?&/, '?'),
             });
@@ -172,7 +172,7 @@ export const SearchBar: React.FC<SearchbarProps> = (props) => {
                                 }}
                                 key={index.toString()}
                                 onClick={(): void => {
-                                    navigate(result.url);
+                                    void navigate(result.url);
                                 }}
                             >
                                 <Divider sx={{ my: 3, mx: 0 }} />

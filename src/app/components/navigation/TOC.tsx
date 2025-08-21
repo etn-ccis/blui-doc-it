@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router';
 import { DRAWER_WIDTH, TOC_WIDTH, PAGE_WIDTH, getHash } from '../../shared';
 import { useTOC } from '../../hooks/useTOC';
 import { useAppSelector, RootState } from '../../redux';

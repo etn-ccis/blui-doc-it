@@ -8,7 +8,7 @@ import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import { useAppSelector, useAppDispatch, changeSelectedColor, RootState } from '../../redux';
 import { copyTextToClipboard } from '../../shared';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router';
 import { BLUIColor } from '@brightlayer-ui/types';
 import colorModule from 'color';
 import { ListItemTag } from '@brightlayer-ui/react-components';
@@ -76,7 +76,7 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): React.JSX.Element => 
     }, [color, format]);
 
     const onSelectColor = useCallback(() => {
-        navigate(`${location.pathname}?category=${category}&name=${name}&weight=${weight}`, { replace: true });
+        void navigate(`${location.pathname}?category=${category}&name=${name}&weight=${weight}`, { replace: true });
         dispatch(changeSelectedColor({ category, name, weight }));
     }, []);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 const VariantContainer = styled('span')<{ url?: string }>`
     display: flex;
@@ -70,7 +70,7 @@ export const VariantIllustration: React.FC<VariantIllustrationProps> = ({
             if (url.startsWith('http://') || url.startsWith('https://')) {
                 window.open(url, '_blank');
             } else {
-                navigate(url);
+                void navigate(url);
             }
         }
     };

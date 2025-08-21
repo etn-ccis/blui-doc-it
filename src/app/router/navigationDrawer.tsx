@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router';
 import {
     Drawer,
     DrawerBody,
@@ -57,7 +57,7 @@ export const NavigationDrawer = (): React.JSX.Element => {
                 //     ),
                 onClick: item.component
                     ? (): void => {
-                          navigate(fullURL);
+                          void navigate(fullURL);
                           dispatch(toggleDrawer(false));
                       }
                     : undefined,
@@ -112,7 +112,7 @@ export const NavigationDrawer = (): React.JSX.Element => {
                     if (isMobile) {
                         dispatch(toggleDrawer(!drawerOpen));
                     } else {
-                        navigate('/');
+                        void navigate('/');
                         dispatch(toggleDrawer(false));
                     }
                 }}
@@ -122,7 +122,7 @@ export const NavigationDrawer = (): React.JSX.Element => {
                         alignItems={'center'}
                         sx={{ alignSelf: 'stretch', flex: 1, cursor: 'pointer' }}
                         onClick={(): void => {
-                            navigate('/');
+                            void navigate('/');
                             dispatch(toggleDrawer(false));
                         }}
                     >
