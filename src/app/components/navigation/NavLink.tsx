@@ -9,7 +9,7 @@ type NavLinkProps = LinkProps & {
     hoverColor?: string;
     sx?: SxProps<Theme>;
 };
-export const NavLink: React.FC<NavLinkProps> = (props): JSX.Element => (
+export const NavLink: React.FC<NavLinkProps> = (props): React.JSX.Element => (
     <Box
         component={Link}
         sx={{

@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { Feedback } from '@mui/icons-material';
 import Fab from '@mui/material/Fab';
 
-export const ContactFab = (): JSX.Element | null => {
+export const ContactFab = (): React.JSX.Element | null => {
     const navigate = useNavigate();
     const location = useLocation();
     const isContactPage = location.pathname === '/community/contactus';

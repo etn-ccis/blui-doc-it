@@ -64,7 +64,7 @@ const styles: Record<string, SxProps<Theme>> = {
     },
 };
 
-export const LandingPage: React.FC = (): JSX.Element => {
+export const LandingPage: React.FC = (): React.JSX.Element => {
     const navigate = useNavigate();
     const theme = useTheme();
     const selectedTheme = useAppSelector((state: RootState) => state.app.theme);

@@ -81,7 +81,7 @@ const getStatusColor = (status: Status): BLUIColor | undefined => {
     }
 };
 
-export const Roadmap: React.FC = (): JSX.Element => {
+export const Roadmap: React.FC = (): React.JSX.Element => {
     const theme = useTheme();
     const [typeFilter, setTypeFilter] = useState<ItemTypeFilter>('all');
     const [statusFilter, setStatusFilter] = useState<Status | 'all'>('all');
@@ -160,9 +160,9 @@ export const Roadmap: React.FC = (): JSX.Element => {
             }));
 
     const getTags = useCallback(
-        (item: RoadmapItem): JSX.Element | undefined => {
-            const statusTags: JSX.Element[] = [];
-            const authorTags: JSX.Element[] = [];
+        (item: RoadmapItem): React.JSX.Element | undefined => {
+            const statusTags: React.JSX.Element[] = [];
+            const authorTags: React.JSX.Element[] = [];
             const { status, author } = item;
             const statusColor = getStatusColor(status);
 
@@ -319,7 +319,7 @@ export const Roadmap: React.FC = (): JSX.Element => {
                                 <AccordionDetails sx={{ display: 'block', padding: 0 }}>
                                     <Divider />
                                     <List sx={{ padding: 0 }}>
-                                        {bucket.items.map((item, index): JSX.Element | null => {
+                                        {bucket.items.map((item, index): React.JSX.Element | null => {
                                             const statusColor = getStatusColor(item.status);
                                             return (
                                                 <InfoListItem

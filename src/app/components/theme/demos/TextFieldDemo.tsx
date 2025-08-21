@@ -14,7 +14,7 @@ import { Visibility } from '@mui/icons-material';
  * cannot iterate through variations due to the way MUI implemented text fields
  */
 
-export const TextFieldDemo: JSX.Element = (
+export const TextFieldDemo: React.JSX.Element = (
     <TableContainer>
         <Table key={'text-field'}>
             <TableHead>

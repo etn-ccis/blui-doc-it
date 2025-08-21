@@ -6,7 +6,7 @@ import * as Colors from '@brightlayer-ui/colors';
 
 export type Framework = 'angular' | 'react' | 'react-native';
 
-type GetSnippetFn = (framework: Framework, icon: IconType) => JSX.Element;
+type GetSnippetFn = (framework: Framework, icon: IconType) => React.JSX.Element;
 type GetCopyTextFn = (framework: Framework, icon: IconType) => string;
 
 export const getMuiIconName = (filename: string): string => {

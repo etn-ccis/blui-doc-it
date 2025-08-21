@@ -10,15 +10,15 @@ import { useAppSelector, RootState } from '../redux';
 
 export type MarkdownPageProps = HTMLAttributes<HTMLDivElement> & {
     title: string;
-    markdown: React.FC;
+    markdown: any; // Using any to be compatible with MDX components
     noPadding?: boolean;
     background?: string;
     wideLayout?: boolean;
     sidebar?: boolean;
 };
 
-export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element => {
-    const { title, markdown: Markdown, noPadding, background, wideLayout, sidebar, ...divProps } = props;
+export const MarkdownPage: React.FC<MarkdownPageProps> = (props): React.JSX.Element => {
+    const { title, markdown: Markdown, noPadding, wideLayout, sidebar, background = 'light', ...divProps } = props;
     usePageTitle(title);
     useGoogleAnalyticsPageView();
     const theme = useTheme();
@@ -50,6 +50,3 @@ export const MarkdownPage: React.FC<MarkdownPageProps> = (props): JSX.Element =>
     );
 };
 MarkdownPage.displayName = 'MarkdownPage';
-MarkdownPage.defaultProps = {
-    background: 'light',
-};

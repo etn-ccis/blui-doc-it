@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { changeColorFormat } from '../../redux';
 
-export const Picker = (): JSX.Element => {
+export const Picker = (): React.JSX.Element => {
     const dispatch = useAppDispatch();
     // @ts-ignore
     const value = useAppSelector((state): 'rgb' | 'hex' => state.app.colorFormat);
@@ -25,7 +25,7 @@ export const Picker = (): JSX.Element => {
     );
 };
 
-export const HeadlineWithToggle = (): JSX.Element => (
+export const HeadlineWithToggle = (): React.JSX.Element => (
     <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', marginBottom: 16 }} className={'markdownH1'}>
         <Typography variant={'h4'} color={'primary'} style={{ flex: '1 1 auto' }}>
             Brightlayer UI Color Palette

@@ -15,7 +15,7 @@ import './markdown.css';
 import { MDXComponents } from 'mdx/types';
 import { SystemStyleObject } from '@mui/system';
 
-export const ExternalLink = (tProps: TypographyProps<'a'>): JSX.Element => {
+export const ExternalLink = (tProps: TypographyProps<'a'>): React.JSX.Element => {
     const theme = useTheme();
     return (
         <Typography
@@ -28,7 +28,7 @@ export const ExternalLink = (tProps: TypographyProps<'a'>): JSX.Element => {
     );
 };
 
-export const InternalLink = (props: LinkProps): JSX.Element => {
+export const InternalLink = (props: LinkProps): React.JSX.Element => {
     const theme = useTheme();
     return (
         <Link
@@ -98,7 +98,7 @@ const Headline: React.FC<Headline> = ({
 };
 
 export const componentsMap: MDXComponents = {
-    h1: (props): JSX.Element => (
+    h1: (props): React.JSX.Element => (
         <Headline
             className={'markdownH1'}
             sx={{ mb: 4, hyphens: 'auto' }}
@@ -106,42 +106,42 @@ export const componentsMap: MDXComponents = {
             TypographyProps={{ variant: 'h4', ...(props as TypographyProps) }}
         />
     ),
-    h2: (props): JSX.Element => (
+    h2: (props): React.JSX.Element => (
         <Headline
             sx={{ mt: 8, mb: 2 }}
             hash={getHash(typeof props.children === 'string' ? props.children : 'h2')}
             TypographyProps={{ variant: 'h6', ...(props as TypographyProps) }}
         />
     ),
-    h3: (props): JSX.Element => (
+    h3: (props): React.JSX.Element => (
         <Headline
             sx={{ mt: 4, mb: 2 }}
             hash={getHash(typeof props.children === 'string' ? props.children : 'h3')}
             TypographyProps={{ variant: 'body1', style: { fontWeight: 600 }, ...(props as TypographyProps) }}
         />
     ),
-    h4: (props): JSX.Element => (
+    h4: (props): React.JSX.Element => (
         <Headline
             sx={{ mt: 2 }}
             hash={getHash(typeof props.children === 'string' ? props.children : 'h4')}
             TypographyProps={{ variant: 'subtitle1', ...(props as TypographyProps) }}
         />
     ),
-    h5: (props): JSX.Element => (
+    h5: (props): React.JSX.Element => (
         <Headline
             sx={{ mt: 1 }}
             hash={getHash(typeof props.children === 'string' ? props.children : 'h5')}
             TypographyProps={{ variant: 'body2', ...(props as TypographyProps) }}
         />
     ),
-    h6: (props): JSX.Element => (
+    h6: (props): React.JSX.Element => (
         <Headline
             sx={{ mt: 1, fontSize: '0.75rem' }}
             hash={getHash(typeof props.children === 'string' ? props.children : 'h6')}
             TypographyProps={{ variant: 'body2', ...(props as TypographyProps) }}
         />
     ),
-    a: (props): JSX.Element => {
+    a: (props): React.JSX.Element => {
         let tProps;
         if (props.href && (props.href.match(/^http/gi) || props.href.match(/^mailto/gi))) {
             tProps = props as TypographyProps<'a'>;
@@ -151,8 +151,10 @@ export const componentsMap: MDXComponents = {
         // @ts-ignore
         return <InternalLink to={props.href} {...tProps} />;
     },
-    p: (props): JSX.Element => <Typography sx={{ ...REGULAR_WIDTH_STYLE }} paragraph {...(props as TypographyProps)} />,
-    li: (props): JSX.Element => (
+    p: (props): React.JSX.Element => (
+        <Typography sx={{ ...REGULAR_WIDTH_STYLE }} paragraph {...(props as TypographyProps)} />
+    ),
+    li: (props): React.JSX.Element => (
         <Typography
             component={'li'}
             className={'mdLi'}
@@ -160,7 +162,7 @@ export const componentsMap: MDXComponents = {
             {...(props as TypographyProps<'li'>)}
         />
     ),
-    blockquote: (props): JSX.Element => (
+    blockquote: (props): React.JSX.Element => (
         <Typography
             component={'blockquote'}
             sx={(theme): SystemStyleObject<Theme> => ({
@@ -173,7 +175,7 @@ export const componentsMap: MDXComponents = {
             {...(props as TypographyProps<'blockquote'>)}
         />
     ),
-    pre: (props): JSX.Element => (
+    pre: (props): React.JSX.Element => (
         <Typography
             component={'pre'}
             color={'textPrimary'}
@@ -189,7 +191,7 @@ export const componentsMap: MDXComponents = {
             {...(props as TypographyProps<'pre'>)}
         />
     ),
-    code: (props): JSX.Element => (
+    code: (props): React.JSX.Element => (
         <Typography
             component={'code'}
             color={'textPrimary'}
@@ -202,7 +204,7 @@ export const componentsMap: MDXComponents = {
             {...(props as TypographyProps<'code'>)}
         />
     ),
-    inlineCode: (props): JSX.Element => (
+    inlineCode: (props): React.JSX.Element => (
         <Typography
             component={'code'}
             color={'textPrimary'}

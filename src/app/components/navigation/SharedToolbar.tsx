@@ -31,7 +31,7 @@ export type SharedToolbarProps = AppBarProps & {
     title?: string;
     color?: 'primary' | 'secondary' | 'default';
     subtitle?: string;
-    navigationIcon?: JSX.Element;
+    navigationIcon?: React.JSX.Element;
 };
 
 const availableThemes = [
@@ -56,7 +56,7 @@ const availableThemes = [
     'default',
 ];
 
-export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
+export const SharedToolbar = (props: SharedToolbarProps): React.JSX.Element => {
     const { title, color = 'primary', subtitle, navigationIcon, onClick, ...other } = props;
     const icon = navigationIcon ?? <PxblueSmall />;
     const location = useLocation();

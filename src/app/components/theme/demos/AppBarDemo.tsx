@@ -15,7 +15,7 @@ import { Menu, Notifications, Search } from '@mui/icons-material';
  * cannot iterate through variations due to the way MUI implemented text fields
  */
 
-export const AppBarDemo: JSX.Element = (
+export const AppBarDemo: React.JSX.Element = (
     <Stack
         justifyContent={'center'}
         sx={{

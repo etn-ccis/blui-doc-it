@@ -5,9 +5,9 @@ import { MarkdownPage, DevResources, Roadmap, ReleaseNotes } from '../../app/pag
 export type SimpleNavItem = {
     title: string;
     url?: string;
-    icon?: JSX.Element;
+    icon?: React.JSX.Element;
     pages?: SimpleNavItem[];
-    component?: JSX.Element;
+    component?: React.JSX.Element;
     hidden?: boolean;
 };
 

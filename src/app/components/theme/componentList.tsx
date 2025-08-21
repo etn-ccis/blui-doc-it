@@ -24,7 +24,7 @@ export const componentNameList: string[] = [
     'Text Field',
 ];
 
-export const componentList: JSX.Element[] = [
+export const componentList: React.JSX.Element[] = [
     AppBarDemo,
     BottomNavigationDemo,
     ButtonDemo,

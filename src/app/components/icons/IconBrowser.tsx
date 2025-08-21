@@ -193,7 +193,7 @@ const parseBoolean = (str: string): boolean | undefined => {
  * The Icon Browser Component is a container for all of the pieces of the icon display
  * It includes the search bar, the icon grid itself, and the details drawer.
  */
-export const IconBrowser: React.FC = (): JSX.Element => {
+export const IconBrowser: React.FC = (): React.JSX.Element => {
     const theme = useTheme();
     const navigate = useNavigate();
     const location = useLocation();

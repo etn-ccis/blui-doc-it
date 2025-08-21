@@ -21,7 +21,7 @@ import { useAppSelector, useAppDispatch, toggleDrawer, RootState } from '../redu
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
 import { DRAWER_WIDTH } from '../shared';
 
-export const NavigationDrawer = (): JSX.Element => {
+export const NavigationDrawer = (): React.JSX.Element => {
     const drawerOpen = useAppSelector((state: RootState) => state.app.drawerOpen);
     const selectedTheme = useAppSelector((state: RootState) => state.app.theme);
     const location = useLocation();

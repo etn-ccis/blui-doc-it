@@ -7,7 +7,7 @@ type Link = {
     title: string;
     url: string;
     description: string;
-    image: string | JSX.Element;
+    image: string | React.JSX.Element;
     background?: {
         size?: string;
         position?: string;
@@ -17,7 +17,7 @@ type LinkGridProps = GridProps & {
     links: Link[];
 };
 
-export const LinkGrid: React.FC<LinkGridProps> = (props): JSX.Element => {
+export const LinkGrid: React.FC<LinkGridProps> = (props): React.JSX.Element => {
     const { links, ...gridProps } = props;
     const navigate = useNavigate();
     return (

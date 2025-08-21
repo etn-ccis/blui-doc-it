@@ -23,7 +23,7 @@ const getBuildIcon = (
     status: boolean | undefined,
     size: FontSize = 'medium',
     link?: string
-): JSX.Element | null => {
+): React.JSX.Element | null => {
     if (repository === undefined) return null;
 
     if (status === undefined) {

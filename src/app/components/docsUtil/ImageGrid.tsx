@@ -34,7 +34,7 @@ const styles: Record<string, SxProps<Theme>> = {
     }),
 };
 
-type Content = string | JSX.Element;
+type Content = string | React.JSX.Element;
 type ImageGridProps = HTMLAttributes<HTMLDivElement> & {
     caption?: string | string[];
     gridContainerProps?: GridProps;
@@ -45,7 +45,7 @@ type ImageGridProps = HTMLAttributes<HTMLDivElement> & {
     captionsUnderImages?: string[];
 };
 
-export const ImageGrid: React.FC<ImageGridProps> = (props): JSX.Element => {
+export const ImageGrid: React.FC<ImageGridProps> = (props): React.JSX.Element => {
     const {
         images,
         caption,

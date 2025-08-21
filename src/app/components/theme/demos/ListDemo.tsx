@@ -8,7 +8,7 @@ import { InfoListItem, ListItemTag } from '@brightlayer-ui/react-components';
 import { GradeA } from '@brightlayer-ui/icons-mui';
 import * as Colors from '@brightlayer-ui/colors';
 
-export const ListDemo: JSX.Element = (
+export const ListDemo: React.JSX.Element = (
     <List sx={{ width: '100%' }}>
         <InfoListItem
             title={'Info List Item'}
