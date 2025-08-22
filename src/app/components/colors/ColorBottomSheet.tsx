@@ -48,6 +48,18 @@ export const ColorBottomSheet: React.FC = () => {
     }, [dispatch, queryCategory, queryName, queryWeight]);
 
     useEffect(() => {
+        if (queryCategory && queryName && queryWeight && location.state?.fromColorSwatch) {
+            dispatch(
+                changeSelectedColor({
+                    category: queryCategory as 'ui' | 'branding',
+                    name: queryName,
+                    weight: parseInt(queryWeight),
+                })
+            );
+        }
+    }, [queryCategory, queryName, queryWeight, location.state]);
+
+    useEffect(() => {
         if (selectedColor) {
             if (selectedColor.category === 'ui') {
                 // @ts-expect-error
