@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router';
 import {
     Drawer,
     DrawerBody,
@@ -21,7 +21,7 @@ import { useAppSelector, useAppDispatch, toggleDrawer, RootState } from '../redu
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
 import { DRAWER_WIDTH } from '../shared';
 
-export const NavigationDrawer = (): JSX.Element => {
+export const NavigationDrawer = (): React.JSX.Element => {
     const drawerOpen = useAppSelector((state: RootState) => state.app.drawerOpen);
     const selectedTheme = useAppSelector((state: RootState) => state.app.theme);
     const location = useLocation();
@@ -57,7 +57,7 @@ export const NavigationDrawer = (): JSX.Element => {
                 //     ),
                 onClick: item.component
                     ? (): void => {
-                          navigate(fullURL);
+                          void navigate(fullURL);
                           dispatch(toggleDrawer(false));
                       }
                     : undefined,
@@ -105,7 +105,6 @@ export const NavigationDrawer = (): JSX.Element => {
             activeItemFontColor={theme.palette.primary.main}
             hidePadding
             activeItemBackgroundShape={'round'}
-            onBackdropClick={undefined}
         >
             <DrawerHeader
                 icon={<PxblueSmall />}
@@ -113,7 +112,7 @@ export const NavigationDrawer = (): JSX.Element => {
                     if (isMobile) {
                         dispatch(toggleDrawer(!drawerOpen));
                     } else {
-                        navigate('/');
+                        void navigate('/');
                         dispatch(toggleDrawer(false));
                     }
                 }}
@@ -123,13 +122,14 @@ export const NavigationDrawer = (): JSX.Element => {
                         alignItems={'center'}
                         sx={{ alignSelf: 'stretch', flex: 1, cursor: 'pointer' }}
                         onClick={(): void => {
-                            navigate('/');
+                            void navigate('/');
                             dispatch(toggleDrawer(false));
                         }}
                     >
                         <Typography>Brightlayer UI</Typography>
                     </Stack>
                 }
+                sx={{ '& .BluiDrawerHeader-navigation': { ml: 0 }, '&.MuiToolbar-root': { pl: 2 } }}
             />
             <DrawerBody>
                 <DrawerNavGroup items={menuItems} />

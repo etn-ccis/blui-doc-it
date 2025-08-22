@@ -29,43 +29,43 @@ type CarouselCardProps = {
     backgroundImage?: string;
     title: string;
     description: string;
-    icon?: JSX.Element;
+    icon?: React.JSX.Element;
     onClick?: () => void;
 };
 
-export const CarouselCard: React.FC<CarouselCardProps> = (props): JSX.Element => (
-    <Box
-        sx={{
-            ...styles.cardWrapper,
-            height: props.height,
-            backgroundImage: `url(${props.backgroundImage ?? ''})`,
-            cursor: props.onClick ? 'pointer' : 'default',
-        }}
-        onClick={(): void => {
-            if (props.onClick !== undefined) {
-                props.onClick();
-            }
-        }}
-    >
+export const CarouselCard: React.FC<CarouselCardProps> = (props): React.JSX.Element => {
+    const { height = 450 } = props;
+    return (
         <Box
             sx={{
-                ...styles.cardBody,
-                '&:hover': {
-                    background: props.onClick ? 'rgba(29, 37, 41, 0.6)' : 'rgba(29, 37, 41, 0.8)',
-                },
+                ...styles.cardWrapper,
+                height: height,
+                backgroundImage: `url(${props.backgroundImage ?? ''})`,
+                cursor: props.onClick ? 'pointer' : 'default',
+            }}
+            onClick={(): void => {
+                if (props.onClick !== undefined) {
+                    props.onClick();
+                }
             }}
         >
-            <Box sx={styles.textWrapper}>
-                <Box sx={{ textAlign: 'center', opacity: 0.8 }}>{props.icon}</Box>
-                <Typography variant={'h6'} sx={{ display: 'flex', alignItems: 'center' }}>
-                    {props.title}
-                </Typography>
-                <Typography variant={'body2'}>{props.description}</Typography>
+            <Box
+                sx={{
+                    ...styles.cardBody,
+                    '&:hover': {
+                        background: props.onClick ? 'rgba(29, 37, 41, 0.6)' : 'rgba(29, 37, 41, 0.8)',
+                    },
+                }}
+            >
+                <Box sx={styles.textWrapper}>
+                    <Box sx={{ textAlign: 'center', opacity: 0.8 }}>{props.icon}</Box>
+                    <Typography variant={'h6'} sx={{ display: 'flex', alignItems: 'center' }}>
+                        {props.title}
+                    </Typography>
+                    <Typography variant={'body2'}>{props.description}</Typography>
+                </Box>
             </Box>
         </Box>
-    </Box>
-);
-CarouselCard.displayName = 'CarouselCard';
-CarouselCard.defaultProps = {
-    height: 450,
+    );
 };
+CarouselCard.displayName = 'CarouselCard';

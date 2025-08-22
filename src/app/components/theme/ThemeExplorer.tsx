@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Spacer } from '@brightlayer-ui/react-components';
-import { blue as lightTheme, blueDark as darkTheme } from '@brightlayer-ui/react-themes';
-import { ThemeProvider, useTheme, createTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import * as BLUIColors from '@brightlayer-ui/colors';
+import { blueThemes as theme } from '@brightlayer-ui/react-themes';
 import Card from '@mui/material/Card';
 import Divider from '@mui/material/Divider';
 import Select from '@mui/material/Select';
@@ -15,16 +16,74 @@ import Stack from '@mui/material/Stack';
 import { componentNameList, componentList } from './componentList';
 import { SystemStyleObject } from '@mui/system';
 
+const darkTheme = createTheme({
+    cssVariables: { colorSchemeSelector: 'class' },
+    components: theme.components,
+    defaultColorScheme: 'dark',
+    spacing: theme.spacing,
+    typography: theme.typography,
+    palette: {
+        mode: 'dark',
+        primary: {
+            main: BLUIColors.blue[500],
+            dark: BLUIColors.blue[700],
+            light: BLUIColors.blue[50],
+        },
+        secondary: {
+            main: BLUIColors.lightBlue[500],
+            dark: BLUIColors.lightBlue[700],
+            light: BLUIColors.lightBlue[50],
+            contrastText: BLUIColors.black[50],
+        },
+        background: {
+            default: BLUIColors.darkBlack[800],
+            paper: BLUIColors.black[900],
+        },
+        text: {
+            primary: BLUIColors.black[50],
+            secondary: BLUIColors.black[200],
+            disabled: BLUIColors.black[300],
+        },
+    },
+});
+const lightTheme = createTheme({
+    cssVariables: { colorSchemeSelector: 'class' },
+    palette: {
+        mode: 'light',
+        primary: {
+            main: BLUIColors.blue[500],
+            dark: BLUIColors.blue[700],
+            light: BLUIColors.blue[50],
+        },
+        secondary: {
+            main: BLUIColors.lightBlue[500],
+            dark: BLUIColors.lightBlue[700],
+            light: BLUIColors.lightBlue[50],
+            contrastText: BLUIColors.white[50],
+        },
+        background: {
+            default: BLUIColors.white[200],
+            paper: BLUIColors.white[50],
+        },
+        text: {
+            primary: BLUIColors.black[500],
+            secondary: BLUIColors.gray[500],
+        },
+    },
+    components: theme.components,
+    defaultColorScheme: 'light',
+    spacing: theme.spacing,
+    typography: theme.typography,
+});
 export const ThemeExplorer: React.FC = () => {
-    const globalTheme = useTheme();
-    const [localThemeDark, setLocalThemeDark] = useState(globalTheme.palette.mode === 'dark');
+    const [localThemeDark, setLocalThemeDark] = useState(false);
     const [selectedComponent, setSelectedComponent] = useState(0);
-
     return (
-        <ThemeProvider theme={createTheme(localThemeDark ? darkTheme : lightTheme)}>
+        <ThemeProvider theme={localThemeDark ? darkTheme : lightTheme}>
             <Card
                 sx={{ mb: 4, boxSizing: 'border-box', '&:hover': { boxShadow: 6 } }}
-                variant={globalTheme.palette.mode === 'dark' ? 'outlined' : undefined}
+                variant={localThemeDark ? 'outlined' : undefined}
+                // className={localThemeDark ? 'dark' : 'light'}
             >
                 <Toolbar
                     sx={[

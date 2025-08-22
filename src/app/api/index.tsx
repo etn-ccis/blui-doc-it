@@ -58,7 +58,7 @@ export const getBuildStatus = async (
                     const jobsResponse = await github.get(
                         `repos/etn-ccis/blui-${repository}/actions/runs/${runId}/jobs`
                     );
-                    const jobs = jobsResponse?.data?.jobs || [];
+                    const jobs = jobsResponse?.data?.jobs ?? [];
                     const targetJob = jobs.find((job: any) =>
                         job.name?.toLowerCase().includes(buildJobName?.toLowerCase())
                     );

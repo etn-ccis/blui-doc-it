@@ -1,103 +1,113 @@
-import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import { blueThemes } from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import banner from '../../app/assets/themes/mid-autumn-festival/banner.svg';
 import cursor from '../../app/assets/themes/mid-autumn-festival/cursor.png';
 import titleBlock from '../../app/assets/themes/mid-autumn-festival/title-block.png';
 import AppBarTile from '../../app/assets/themes/mid-autumn-festival/app-bar.png';
+import { ThemeOptions } from '@mui/material/styles';
 import { Schedule } from './_types';
+
+const MidAutumnTheme: ThemeOptions = {
+    palette: {
+        ...blueThemes.palette,
+        mode: 'dark',
+        primary: {
+            light: Colors.yellow[200],
+            main: Colors.yellow[400],
+            dark: Colors.yellow[700],
+        },
+        secondary: {
+            main: Colors.red[500],
+        },
+        background: {
+            default: Colors.darkBlack[100],
+            paper: Colors.black[900],
+        },
+        text: {
+            primary: Colors.black[50],
+            secondary: Colors.black[200],
+            // hint: Colors.black[200],
+        },
+    },
+    typography: blueThemes.typography,
+    components: {
+        MuiAppBar: {
+            styleOverrides: {
+                colorPrimary: {
+                    backgroundColor: BrandingColors.butter[500],
+                    color: Colors.black[700],
+                },
+                colorSecondary: {
+                    backgroundColor: BrandingColors.butter[700],
+                    color: Colors.black[700],
+                    '& .MuiInputBase-root': {
+                        color: Colors.black[700],
+                    },
+                    '& .MuiSelect-icon': {
+                        color: Colors.black[700],
+                    },
+                },
+            },
+        },
+        MuiButton: {
+            ...blueThemes.components?.MuiButton?.styleOverrides,
+            styleOverrides: {
+                outlined: { textTransform: 'none' },
+                outlinedPrimary: {},
+            },
+        },
+        MuiOutlinedInput: {
+            styleOverrides: {
+                root: {
+                    '&.MuiInputBase-colorPrimary.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        borderColor: Colors.yellow[400],
+                    },
+                    '&.MuiInputBase-colorSecondary.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        borderColor: Colors.red[500],
+                    },
+                },
+            },
+        },
+        MuiTabs: {
+            styleOverrides: {
+                indicator: {
+                    backgroundColor: Colors.red[500],
+                },
+            },
+        },
+        MuiTab: {
+            styleOverrides: {
+                selected: {},
+                textColorPrimary: {
+                    color: Colors.black[700],
+                    '&.Mui-selected': {
+                        color: Colors.red[500],
+                    },
+                },
+                textColorInherit: {
+                    '&.Mui-selected': {
+                        color: Colors.red[500],
+                    },
+                },
+            },
+        },
+        MuiFab: {
+            styleOverrides: {
+                primary: {
+                    backgroundColor: Colors.red[700],
+                    color: 'white',
+                },
+            },
+        },
+    },
+};
 
 export const MidAutumnSchedule: Schedule = {
     start: new Date(0, 8, 12), // Sept 12
     end: new Date(0, 8, 19), // Sept 18
     config: {
-        theme: {
-            ...BLUIThemes.blueDark,
-            palette: {
-                ...BLUIThemes.blueDark.palette,
-                mode: 'dark',
-                primary: {
-                    light: Colors.yellow[200],
-                    main: Colors.yellow[400],
-                    dark: Colors.yellow[700],
-                },
-                secondary: {
-                    main: Colors.red[500],
-                },
-            },
-            components: {
-                ...BLUIThemes.blueDark.components,
-                MuiAppBar: {
-                    styleOverrides: {
-                        ...BLUIThemes.blueDark.components?.MuiAppBar?.styleOverrides,
-                        colorPrimary: {
-                            backgroundColor: BrandingColors.butter[500],
-                            color: Colors.black[700],
-                        },
-                        colorSecondary: {
-                            backgroundColor: BrandingColors.butter[700],
-                            color: Colors.black[700],
-                            '& .MuiInputBase-root': {
-                                color: Colors.black[700],
-                            },
-                            '& .MuiSelect-icon': {
-                                color: Colors.black[700],
-                            },
-                        },
-                    },
-                },
-                MuiButton: {
-                    ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
-                    styleOverrides: {
-                        outlined: { textTransform: 'none' },
-                        outlinedPrimary: {},
-                    },
-                },
-                MuiOutlinedInput: {
-                    styleOverrides: {
-                        root: {
-                            '&.MuiInputBase-colorPrimary.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                borderColor: Colors.yellow[400],
-                            },
-                            '&.MuiInputBase-colorSecondary.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                borderColor: Colors.red[500],
-                            },
-                        },
-                    },
-                },
-                MuiTabs: {
-                    styleOverrides: {
-                        indicator: {
-                            backgroundColor: Colors.red[500],
-                        },
-                    },
-                },
-                MuiTab: {
-                    styleOverrides: {
-                        selected: {},
-                        textColorPrimary: {
-                            color: Colors.black[700],
-                            '&.Mui-selected': {
-                                color: Colors.red[500],
-                            },
-                        },
-                        textColorInherit: {
-                            '&.Mui-selected': {
-                                color: Colors.red[500],
-                            },
-                        },
-                    },
-                },
-                MuiFab: {
-                    styleOverrides: {
-                        primary: {
-                            backgroundColor: Colors.red[700],
-                            color: 'white',
-                        },
-                    },
-                },
-            },
-        },
+        theme: MidAutumnTheme,
         landingPageBanner: {
             backgroundImage: `url(${banner})`,
             backgroundSize: 'cover',
@@ -108,7 +118,6 @@ export const MidAutumnSchedule: Schedule = {
             color: Colors.black[700],
             padding: '32px 32px',
         },
-        className: 'mid-autumn-festival',
         customBannerText: {
             backgroundImage: `url(${titleBlock})`,
             backgroundSize: 'contain',

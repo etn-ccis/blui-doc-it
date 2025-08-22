@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
@@ -69,7 +69,7 @@ export const ColorBottomSheet: React.FC = () => {
     );
 
     const dismissBottomSheet = useCallback(() => {
-        navigate(`${location.pathname}`, { replace: true });
+        void navigate(`${location.pathname}`, { replace: true });
         dispatch(changeSelectedColor(undefined));
         dispatch(toggleColorContrast(false));
     }, [navigate, location.pathname, dispatch]);
@@ -132,8 +132,6 @@ export const ColorBottomSheet: React.FC = () => {
                         </IconButton>
                     </>
                 }
-                disabled={undefined}
-                selected={undefined}
             />
             {hex && (
                 <Box sx={{ p: 2, pt: 0 }}>

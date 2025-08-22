@@ -12,7 +12,7 @@ import { Add } from '@mui/icons-material';
  * cannot iterate through variations due to the way MUI implemented text fields
  */
 
-export const ButtonDemo: JSX.Element = (
+export const ButtonDemo: React.JSX.Element = (
     <TableContainer>
         <Table key={'button'}>
             <TableHead>

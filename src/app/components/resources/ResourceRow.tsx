@@ -47,7 +47,7 @@ type ResourceRowProps = {
     workSpace?: string;
     buildJobName?: string;
 };
-export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
+export const ResourceRow: React.FC<ResourceRowProps> = (props): React.JSX.Element => {
     const {
         name,
         demoUrl,
@@ -84,7 +84,7 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
     }, [repository, bugLabels, packageName]);
 
     const buttons = useCallback(
-        (): JSX.Element => (
+        (): React.JSX.Element => (
             <ButtonRow
                 isPackage={Boolean(packageName)}
                 small={small}
@@ -101,8 +101,6 @@ export const ResourceRow: React.FC<ResourceRowProps> = (props): JSX.Element => {
     return (
         <div>
             <InfoListItem
-                disabled={false}
-                selected={false}
                 hidePadding
                 style={{ paddingRight: theme.spacing(1) }}
                 divider={!small && divider ? 'full' : undefined}

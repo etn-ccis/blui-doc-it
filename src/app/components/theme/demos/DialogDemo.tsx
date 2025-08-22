@@ -6,7 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export const DialogDemo: JSX.Element = (
+export const DialogDemo: React.JSX.Element = (
     <Paper elevation={16} sx={{ maxWidth: 320, my: 8, mx: 2 }}>
         <DialogTitle>Enjoy Brightlayer UI so far?</DialogTitle>
         <DialogContent>

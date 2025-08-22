@@ -12,7 +12,7 @@ import { Check } from '@mui/icons-material';
  * cannot iterate through variations due to the way our chips are structured
  */
 
-export const ChipDemo: JSX.Element = (
+export const ChipDemo: React.JSX.Element = (
     <TableContainer>
         <Table key={'button'}>
             <TableHead>

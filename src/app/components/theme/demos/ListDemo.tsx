@@ -8,7 +8,7 @@ import { InfoListItem, ListItemTag } from '@brightlayer-ui/react-components';
 import { GradeA } from '@brightlayer-ui/icons-mui';
 import * as Colors from '@brightlayer-ui/colors';
 
-export const ListDemo: JSX.Element = (
+export const ListDemo: React.JSX.Element = (
     <List sx={{ width: '100%' }}>
         <InfoListItem
             title={'Info List Item'}
@@ -20,8 +20,6 @@ export const ListDemo: JSX.Element = (
                 /* do nothing */
             }}
             ripple
-            disabled={false}
-            selected={false}
         />
         <InfoListItem
             statusColor={Colors.red[500]}
@@ -38,14 +36,10 @@ export const ListDemo: JSX.Element = (
                 /* do nothing */
             }}
             ripple
-            disabled={false}
-            selected={false}
         />
         <InfoListItem
             title={'An info list item with list actions on the right'}
             icon={<DeviceHub />}
-            disabled={false}
-            selected={false}
             rightComponent={
                 <Stack direction={'row'}>
                     <IconButton>

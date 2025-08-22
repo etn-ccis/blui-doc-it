@@ -1,9 +1,9 @@
 import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router';
 import { Feedback } from '@mui/icons-material';
 import Fab from '@mui/material/Fab';
 
-export const ContactFab = (): JSX.Element | null => {
+export const ContactFab = (): React.JSX.Element | null => {
     const navigate = useNavigate();
     const location = useLocation();
     const isContactPage = location.pathname === '/community/contactus';
@@ -20,7 +20,7 @@ export const ContactFab = (): JSX.Element | null => {
                 boxShadow: 10,
             }}
             onClick={(): void => {
-                navigate('/community/contactus');
+                void navigate('/community/contactus');
             }}
         >
             <Feedback />

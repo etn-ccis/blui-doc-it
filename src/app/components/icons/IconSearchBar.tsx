@@ -20,7 +20,7 @@ type SearchBarProps = HTMLAttributes<HTMLDivElement> & {
     onCategoriesChanged: (event: ChangeEvent<{ name?: string; value: any }>) => void;
     iconCategories: string[];
 };
-export const IconSearchBar: React.FC<SearchBarProps> = (props): JSX.Element => {
+export const IconSearchBar: React.FC<SearchBarProps> = (props): React.JSX.Element => {
     const { onSearchChange, onCategoriesChanged, iconCategories, ...divProps } = props;
     const { iconSearch = '' } = useQueryString();
     const [selectedCategories, setSelectedCategories] = useState<string[]>([]);

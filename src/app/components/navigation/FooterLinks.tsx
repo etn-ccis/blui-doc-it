@@ -37,7 +37,7 @@ const styles: Record<string, SxProps<Theme>> = {
     },
 };
 
-export const FooterLinks: React.FC = (): JSX.Element => {
+export const FooterLinks: React.FC = (): React.JSX.Element => {
     const singleColumn = useMediaQuery('(max-width:928px)');
     const xxs = useMediaQuery('(max-width:614px)');
     const padding = xxs ? 2 : singleColumn ? 4 : 8;

@@ -11,7 +11,7 @@ import { CloudDone, Info, Notifications } from '@mui/icons-material';
  * cannot iterate through variations due to the way MUI implemented text fields
  */
 
-export const ScoreCardDemo: JSX.Element = (
+export const ScoreCardDemo: React.JSX.Element = (
     <ScoreCard
         headerTitle={'Score Card'}
         headerSubtitle={'Brightlayer UI'}
@@ -30,9 +30,7 @@ export const ScoreCardDemo: JSX.Element = (
                 fontSize={'normal'}
             />
         }
-        actionRow={
-            <InfoListItem dense chevron title={'View Location'} hidePadding disabled={undefined} selected={undefined} />
-        }
+        actionRow={<InfoListItem dense chevron title={'View Location'} hidePadding />}
     >
         <List>
             <ListItem sx={{ py: 0.5 }}>

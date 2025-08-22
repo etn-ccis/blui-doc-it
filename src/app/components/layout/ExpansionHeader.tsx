@@ -9,7 +9,7 @@ type ExpansionHeaderProps = {
     name: string;
     description: string;
 };
-export const ExpansionHeader: React.FC<ExpansionHeaderProps> = (props): JSX.Element => (
+export const ExpansionHeader: React.FC<ExpansionHeaderProps> = (props): React.JSX.Element => (
     <AccordionSummary
         expandIcon={<ExpandMore color={'primary'} />}
         sx={{

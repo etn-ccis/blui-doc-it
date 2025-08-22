@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
 import AppBar, { AppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -18,7 +17,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { PxblueSmall } from '@brightlayer-ui/icons-mui';
 import { Spacer } from '@brightlayer-ui/react-components';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import { useAppSelector, useAppDispatch, changeTheme, toggleDrawer, toggleSearch, RootState } from '../../redux';
 import SearchIcon from '@mui/icons-material/Search';
 import AppsIcon from '@mui/icons-material/Apps';
@@ -32,7 +31,7 @@ export type SharedToolbarProps = AppBarProps & {
     title?: string;
     color?: 'primary' | 'secondary' | 'default';
     subtitle?: string;
-    navigationIcon?: JSX.Element;
+    navigationIcon?: React.JSX.Element;
 };
 
 const availableThemes = [
@@ -57,8 +56,8 @@ const availableThemes = [
     'default',
 ];
 
-export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
-    const { title, color, subtitle, navigationIcon, onClick, ...other } = props;
+export const SharedToolbar = (props: SharedToolbarProps): React.JSX.Element => {
+    const { title, color = 'primary', subtitle, navigationIcon, onClick, ...other } = props;
     const icon = navigationIcon ?? <PxblueSmall />;
     const location = useLocation();
     const theme = useTheme();
@@ -260,13 +259,4 @@ export const SharedToolbar = (props: SharedToolbarProps): JSX.Element => {
             </Dialog>
         </>
     );
-};
-SharedToolbar.propTypes = {
-    title: PropTypes.string,
-    color: PropTypes.oneOf(['primary', 'secondary', 'default']),
-    subtitle: PropTypes.string,
-    navigationIcon: PropTypes.element,
-};
-SharedToolbar.defaultProps = {
-    color: 'primary',
 };

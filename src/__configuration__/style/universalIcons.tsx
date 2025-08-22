@@ -6,7 +6,7 @@ import * as BLUIIcons from '@brightlayer-ui/icons-mui';
 type UniversalIcon = {
     name: string;
     usage: string;
-    icon: JSX.Element;
+    icon: React.JSX.Element;
     bluiOnly?: boolean;
     isMaterial?: boolean;
 };

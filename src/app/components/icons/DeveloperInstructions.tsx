@@ -132,7 +132,7 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
     );
 };
 
-export const DeveloperInstructionsPanel: React.FC = (): JSX.Element => {
+export const DeveloperInstructionsPanel: React.FC = (): React.JSX.Element => {
     const theme = useTheme();
     const { selectedIcon: icon = emptyIcon } = useSelectedIcon();
     const [activeFramework, setActiveFramework] = useState<Framework | undefined>(undefined);

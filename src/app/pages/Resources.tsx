@@ -16,7 +16,7 @@ import { useAppSelector, RootState } from '../redux';
 import { FrameworkFilter } from '../../__types__';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
 
-export const DevResources: React.FC = (): JSX.Element => {
+export const DevResources: React.FC = (): React.JSX.Element => {
     const [filter, setFilter] = useState<FrameworkFilter>('all');
     const searchActive = useAppSelector((state: RootState) => state.app.searchActive);
     const theme = useTheme();
@@ -72,7 +72,7 @@ export const DevResources: React.FC = (): JSX.Element => {
                                 <AccordionDetails sx={{ display: 'block', p: 0 }}>
                                     <Divider />
                                     <List sx={{ p: 0 }}>
-                                        {bucket.items.map((item, index): JSX.Element | null =>
+                                        {bucket.items.map((item, index): React.JSX.Element | null =>
                                             item.applies === undefined ||
                                             item.applies.includes(filter) ||
                                             item.applies.includes('all') ||

@@ -7,7 +7,7 @@ import { PageContent, Divider } from '../components';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 
-export const ReleaseNotes: React.FC = (): JSX.Element => {
+export const ReleaseNotes: React.FC = (): React.JSX.Element => {
     const theme = useTheme();
     usePageTitle('Release Notes');
     useGoogleAnalyticsPageView();

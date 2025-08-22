@@ -28,6 +28,12 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { ThemeWrapper } from './app/components/theme/ThemeWrapper';
 
+// Type-safe wrapper for MDXProvider to handle React 19 compatibility
+const MDXProviderWrapper: React.FC<{ components: any; children: React.ReactNode }> = ({ components, children }) => {
+    const MDXProviderComponent = MDXProvider as any;
+    return <MDXProviderComponent components={components}>{children}</MDXProviderComponent>;
+};
+
 if (gaID) {
     ReactGA.initialize(gaID);
 }
@@ -42,9 +48,9 @@ root.render(
         <Provider store={store}>
             <ThemeWrapper>
                 <CssBaseline />
-                <MDXProvider components={componentsMap}>
+                <MDXProviderWrapper components={componentsMap}>
                     <MainRouter />
-                </MDXProvider>
+                </MDXProviderWrapper>
             </ThemeWrapper>
         </Provider>
     </StyledEngineProvider>

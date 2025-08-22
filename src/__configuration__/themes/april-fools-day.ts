@@ -1,4 +1,4 @@
-import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import { blueThemes } from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import TitleBlock from '../../app/assets/themes/april-fool-s-day/title-block.svg';
 import TitleBlockChromium from '../../app/assets/themes/april-fool-s-day/title-block-chromium.svg';
@@ -17,7 +17,7 @@ const getOS = (): Platform => {
 };
 
 const winPrank = {
-    theme: BLUIThemes.blue,
+    theme: blueThemes,
     landingPageBanner: {
         backgroundImage: '',
         backgroundColor: Colors.blue[500],
@@ -33,7 +33,12 @@ const winPrank = {
 };
 
 const macPrank = {
-    theme: BLUIThemes.blue,
+    theme: {
+        palette: {
+            ...blueThemes.palette,
+        },
+        typography: blueThemes.typography,
+    },
     landingPageBanner: {
         backgroundImage: '',
         backgroundColor: '#fbfbfb',

@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 
 type SearchParams = Record<string, string>;
 export const useQueryString = (): SearchParams => {

@@ -6,7 +6,7 @@ type DividerProps = MuiDividerProps & {
     wide?: true;
 };
 
-export const Divider: React.FC<DividerProps> = (props): JSX.Element => (
+export const Divider: React.FC<DividerProps> = (props): React.JSX.Element => (
     <MuiDivider
         sx={{
             width: props.wide ? PAGE_WIDTH.WIDE : PAGE_WIDTH.REGULAR,
