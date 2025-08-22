@@ -76,7 +76,10 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): React.JSX.Element => 
     }, [color, format]);
 
     const onSelectColor = useCallback(() => {
-        void navigate(`${location.pathname}?category=${category}&name=${name}&weight=${weight}`, { replace: true });
+        void navigate(`${location.pathname}?category=${category}&name=${name}&weight=${weight}`, {
+            replace: true,
+            state: { fromColorSwatch: true },
+        });
         dispatch(changeSelectedColor({ category, name, weight }));
     }, []);
 
@@ -244,7 +247,7 @@ export const ColorPalette: React.FC<PaletteProps> = (props): React.JSX.Element =
                     <ColorSwatch
                         key={key}
                         color={palette[key] ?? ''}
-                        weight={key as number}
+                        weight={parseInt(key as string)}
                         name={props.name}
                         category={props.category}
                     />

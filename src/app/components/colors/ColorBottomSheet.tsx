@@ -32,7 +32,7 @@ export const ColorBottomSheet: React.FC = () => {
     const xsDown = useMediaQuery(theme.breakpoints.down('sm'));
 
     useEffect(() => {
-        if (queryCategory && queryName && queryWeight) {
+        if (queryCategory && queryName && queryWeight && !location.state?.fromColorSwatch) {
             dispatch(
                 changeSelectedColor({
                     category: queryCategory as 'ui' | 'branding',
