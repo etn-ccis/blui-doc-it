@@ -97,7 +97,7 @@
         "natural": "^5.0.0",
         "prettier": "^3.3.3",
         "remark-gfm": "^1.0.0",
-        "sass": "^1.70.0",
+        "sass": "^1.91.0",
         "typescript": "^5.7.2"
     },
     "prettier": "@brightlayer-ui/prettier-config"
