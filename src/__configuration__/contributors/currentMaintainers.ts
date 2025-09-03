@@ -1,5 +1,3 @@
-import JeffeyGreiner from '../../app/assets/credits/jeffery-greiner.jpeg';
-import EktaGhag from '../../app/assets/credits/ekta-ghag.jpg';
 import SurajKarambe from '../../app/assets/credits/suraj-karambe.png';
 import ManojLokesh from '../../app/assets/credits/manoj-lokesh.jpg';
 import ArshdeepSingh from '../../app/assets/credits/arshdeep-singh.jpg';
