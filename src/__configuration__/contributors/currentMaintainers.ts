@@ -11,27 +11,6 @@ import { CurrentMaintainter } from '../../__types__';
 
 export const currentMaintainers: CurrentMaintainter[] = [
     {
-        name: 'Jeff Greiner',
-        role: 'Quality Assurance',
-        image: JeffeyGreiner,
-        description: `Jeff is a perfectionist. With over ${
-            new Date().getFullYear() - 2006
-        } years of experience in software testing and as a Software Engineer in Test, Jeff continues to be passionate about quality and the journey that it takes to produce the best results. When Jeff is not testing, he can be found doing home remodeling with his wife or turning wrenches.`,
-        contacts: {
-            github: 'https://github.com/JeffGreiner-eaton',
-        },
-    },
-    {
-        name: 'Ekta Ghag',
-        role: `Front-End Developer`,
-        image: EktaGhag,
-        description: `Ekta is a front-end developer based out of India. She enjoys exploring new technologies and has a flair for developing awesome UI. She likes to spend her leisure time creating Mandala artwork and watching lots of movies.`,
-        contacts: {
-            github: 'https://github.com/ektasawant',
-            linkedIn: 'https://www.linkedin.com/in/ekta-ghag-138120134/',
-        },
-    },
-    {
         name: 'Suraj Karambe',
         role: `Front-End Developer`,
         image: SurajKarambe,

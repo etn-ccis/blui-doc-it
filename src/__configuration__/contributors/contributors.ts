@@ -19,6 +19,8 @@ import PriyankaKM from '../../app/assets/credits/priyanka-km.jpeg';
 import YazadSidhwa from '../../app/assets/credits/yazad-sidhwa.jpg';
 import AubreyThompson from '../../app/assets/credits/aubrey-thompson.jpg';
 import HuayunHuang from '../../app/assets/credits/huayun-huang.jpg';
+import JeffeyGreiner from '../../app/assets/credits/jeffery-greiner.jpeg';
+import EktaGhag from '../../app/assets/credits/ekta-ghag.jpg';
 import { OtherContributor } from '../../__types__';
 
 export const contributors: OtherContributor[] = [
@@ -158,5 +160,16 @@ export const contributors: OtherContributor[] = [
         name: 'Huayun Huang',
         role: 'UX Designer & Developer',
         image: HuayunHuang,
+    },
+    {
+        name: 'Ekta Ghag',
+        role: 'Front-End Developer',
+        image: EktaGhag,
+    },
+
+    {
+        name: 'Jeff Greiner',
+        role: 'Quality Assurance',
+        image: JeffeyGreiner,
     },
 ];
