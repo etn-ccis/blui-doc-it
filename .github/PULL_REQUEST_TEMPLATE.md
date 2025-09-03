@@ -28,7 +28,7 @@ Fixes # .
 
 -
 
-## Pre-submission Checklist
+#### PR Readiness Checklist
 
 Please confirm all items below have been addressed prior to requesting review:
 
