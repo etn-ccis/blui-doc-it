@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
  * cannot iterate through variations due to the way MUI implemented text fields
  */
 
-export const SwitchDemo: JSX.Element = (
+export const SwitchDemo: React.JSX.Element = (
     <TableContainer>
         <Table key={'switch'}>
             <TableHead>

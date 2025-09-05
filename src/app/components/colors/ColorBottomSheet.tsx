@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import useTheme from '@mui/material/styles/useTheme';
+import { useTheme } from '@mui/material/styles';
 import color from 'color';
 import { InfoListItem } from '@brightlayer-ui/react-components';
 import * as Colors from '@brightlayer-ui/colors';
@@ -32,7 +32,7 @@ export const ColorBottomSheet: React.FC = () => {
     const xsDown = useMediaQuery(theme.breakpoints.down('sm'));
 
     useEffect(() => {
-        if (queryCategory && queryName && queryWeight) {
+        if (queryCategory && queryName && queryWeight && !location.state?.fromColorSwatch) {
             dispatch(
                 changeSelectedColor({
                     category: queryCategory as 'ui' | 'branding',
@@ -46,6 +46,18 @@ export const ColorBottomSheet: React.FC = () => {
             }
         }
     }, [dispatch, queryCategory, queryName, queryWeight]);
+
+    useEffect(() => {
+        if (queryCategory && queryName && queryWeight && location.state?.fromColorSwatch) {
+            dispatch(
+                changeSelectedColor({
+                    category: queryCategory as 'ui' | 'branding',
+                    name: queryName,
+                    weight: parseInt(queryWeight),
+                })
+            );
+        }
+    }, [queryCategory, queryName, queryWeight, location.state]);
 
     useEffect(() => {
         if (selectedColor) {
@@ -69,7 +81,7 @@ export const ColorBottomSheet: React.FC = () => {
     );
 
     const dismissBottomSheet = useCallback(() => {
-        navigate(`${location.pathname}`, { replace: true });
+        void navigate(`${location.pathname}`, { replace: true });
         dispatch(changeSelectedColor(undefined));
         dispatch(toggleColorContrast(false));
     }, [navigate, location.pathname, dispatch]);

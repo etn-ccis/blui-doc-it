@@ -1,111 +1,112 @@
-import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import { blueThemes } from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
+import { ThemeOptions } from '@mui/material/styles';
 import NewYears from '../../app/assets/themes/new-years/new-years-banner.png';
 import fireworkCursor from '../../app/assets/themes/new-years/firework-rocket-cursor.png';
 import AppBarTile from '../../app/assets/themes/new-years/new-years-appbar-tile.png';
 import { Schedule } from './_types';
 
-export const NewYearsSchedule: Schedule = {
-    start: new Date(0, 11, 31), // Dec 31
-    end: new Date(1, 0, 7), // Jan 6 (Next Year)
-    config: {
-        theme: {
-            ...BLUIThemes.blueDark,
-            palette: {
-                ...BLUIThemes.blueDark.palette,
-                mode: 'dark',
-                primary: {
-                    light: Colors.yellow[300],
-                    main: Colors.yellow[500],
-                    dark: Colors.yellow[900],
+const NewYearsTheme: ThemeOptions = {
+    palette: {
+        ...blueThemes.palette,
+        mode: 'dark',
+        primary: {
+            light: Colors.yellow[300],
+            main: Colors.yellow[500],
+            dark: Colors.yellow[900],
+        },
+        secondary: {
+            light: Colors.lightBlue[300],
+            main: Colors.lightBlue[500],
+            dark: Colors.lightBlue[900],
+        },
+        background: {
+            default: Colors.darkBlack[100],
+            paper: Colors.black[900],
+        },
+        text: {
+            primary: Colors.black[50],
+            secondary: Colors.black[200],
+            // hint: Colors.black[200],
+        },
+    },
+    components: {
+        MuiAppBar: {
+            styleOverrides: {
+                colorDefault: {
+                    color: Colors.black[50],
+                    backgroundColor: Colors.darkBlack[200],
                 },
-                secondary: {
-                    light: Colors.lightBlue[300],
-                    main: Colors.lightBlue[500],
-                    dark: Colors.lightBlue[900],
+                colorPrimary: {
+                    color: Colors.black[50],
+                    backgroundColor: Colors.darkBlack[200],
                 },
-                background: {
-                    default: Colors.darkBlack[100],
-                    paper: Colors.black[900],
-                },
-                text: {
-                    primary: Colors.black[50],
-                    secondary: Colors.black[200],
-                    // hint: Colors.black[200],
+                colorSecondary: {
+                    color: Colors.white[200],
+                    backgroundColor: Colors.darkBlack[400],
                 },
             },
-            components: {
-                ...BLUIThemes.blueDark.components,
-                MuiAppBar: {
-                    styleOverrides: {
-                        colorDefault: {
-                            color: Colors.black[50],
-                            backgroundColor: Colors.darkBlack[200],
-                        },
-                        colorPrimary: {
-                            color: Colors.black[50],
-                            backgroundColor: Colors.darkBlack[200],
-                        },
-                        colorSecondary: {
-                            color: Colors.white[200],
-                            backgroundColor: Colors.darkBlack[400],
-                        },
-                    },
+        },
+        MuiBackdrop: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
                 },
-                MuiBackdrop: {
-                    styleOverrides: {
-                        root: {
-                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                        },
+            },
+        },
+        MuiButton: {
+            styleOverrides: {
+                outlined: { textTransform: 'none' },
+                outlinedPrimary: {},
+            },
+        },
+        MuiFab: {},
+        MuiSwitch: {},
+        MuiOutlinedInput: {
+            styleOverrides: {
+                root: {
+                    '&.MuiInputBase-colorPrimary.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        borderColor: Colors.yellow[500],
                     },
-                },
-                MuiButton: {
-                    ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
-                    styleOverrides: {
-                        outlined: { textTransform: 'none' },
-                        outlinedPrimary: {},
-                    },
-                },
-                MuiFab: {},
-                MuiSwitch: {},
-                MuiOutlinedInput: {
-                    styleOverrides: {
-                        root: {
-                            '&.MuiInputBase-colorPrimary.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                borderColor: Colors.yellow[500],
-                            },
-                            '&.MuiInputBase-colorSecondary.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                borderColor: Colors.lightBlue[500],
-                            },
-                        },
-                    },
-                },
-                MuiDrawer: {
-                    styleOverrides: {
-                        paper: {
-                            backgroundColor: Colors.darkBlack[100],
-                        },
-                    },
-                },
-                MuiTabs: {
-                    styleOverrides: {
-                        indicator: {
-                            backgroundColor: Colors.yellow[500],
-                        },
-                    },
-                },
-                MuiTab: {
-                    styleOverrides: {
-                        selected: {},
-                        textColorInherit: {
-                            '&.Mui-selected': {
-                                color: Colors.yellow[500],
-                            },
-                        },
+                    '&.MuiInputBase-colorSecondary.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        borderColor: Colors.lightBlue[500],
                     },
                 },
             },
         },
+        MuiDrawer: {
+            styleOverrides: {
+                paper: {
+                    backgroundColor: Colors.darkBlack[100],
+                },
+            },
+        },
+        MuiTabs: {
+            styleOverrides: {
+                indicator: {
+                    backgroundColor: Colors.yellow[500],
+                },
+            },
+        },
+        MuiTab: {
+            styleOverrides: {
+                selected: {},
+                textColorInherit: {
+                    '&.Mui-selected': {
+                        color: Colors.yellow[500],
+                    },
+                },
+            },
+        },
+    },
+    typography: blueThemes.typography,
+};
+
+export const NewYearsSchedule: Schedule = {
+    start: new Date(0, 11, 31), // Dec 31
+    end: new Date(1, 0, 7), // Jan 6 (Next Year)
+    config: {
+        theme: NewYearsTheme,
         landingPageBanner: {
             backgroundImage: `url(${NewYears})`,
             backgroundSize: 'cover',

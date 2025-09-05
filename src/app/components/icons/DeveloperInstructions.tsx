@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { IconType } from '../../../__types__';
 import { Theme, SxProps } from '@mui/system';
 import Typography from '@mui/material/Typography';
-import useTheme from '@mui/material/styles/useTheme';
+import { useTheme } from '@mui/material/styles';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 import Accordion, { AccordionProps } from '@mui/material/Accordion';
@@ -132,7 +132,7 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
     );
 };
 
-export const DeveloperInstructionsPanel: React.FC = (): JSX.Element => {
+export const DeveloperInstructionsPanel: React.FC = (): React.JSX.Element => {
     const theme = useTheme();
     const { selectedIcon: icon = emptyIcon } = useSelectedIcon();
     const [activeFramework, setActiveFramework] = useState<Framework | undefined>(undefined);

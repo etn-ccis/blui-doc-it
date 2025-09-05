@@ -1,4 +1,4 @@
-import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import { blueThemes } from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 // import Kwanzaa from '../../app/assets/themes/kwanzaa/kwanzaa-banner.png';
@@ -8,13 +8,12 @@ import AppBarTile from '../../app/assets/themes/kwanzaa/kwanzaa-appbar-tile.png'
 import { Schedule } from './_types';
 
 export const KwanzaaSchedule: Schedule = {
-    start: new Date(0, 11, 29), // Dec 29
-    end: new Date(0, 11, 31), // Dec 30 - festival should run until Jan 1, but we cut this off on early to account for New Years theme
+    start: new Date(0, 11, 26), // Dec 26
+    end: new Date(0, 11, 31), // Dec 31
     config: {
         theme: {
-            ...BLUIThemes.blue,
             palette: {
-                ...BLUIThemes.blue.palette,
+                ...blueThemes.palette,
                 mode: 'light',
                 primary: {
                     light: Colors.red[100],
@@ -28,10 +27,8 @@ export const KwanzaaSchedule: Schedule = {
                 },
             },
             components: {
-                ...BLUIThemes.blue.components,
                 MuiAppBar: {
                     styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
                         colorSecondary: {
                             color: Colors.white[50],
                             backgroundColor: Colors.red[900],
@@ -45,7 +42,6 @@ export const KwanzaaSchedule: Schedule = {
                     },
                 },
                 MuiButton: {
-                    ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
                     styleOverrides: {
                         outlined: { textTransform: 'none' },
                         outlinedPrimary: {},
@@ -54,6 +50,7 @@ export const KwanzaaSchedule: Schedule = {
                 MuiFab: {},
                 MuiSwitch: {},
             },
+            typography: blueThemes.typography,
         },
         landingPageBanner: {
             backgroundImage: `url(${Kwanzaa})`,

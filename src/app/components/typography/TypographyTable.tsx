@@ -81,7 +81,7 @@ type RowInfo = {
     };
 };
 
-export const TypographyTable = (): JSX.Element => {
+export const TypographyTable = (): React.JSX.Element => {
     const theme = useTheme();
 
     const getRowInfo = useCallback(
@@ -118,7 +118,7 @@ export const TypographyTable = (): JSX.Element => {
     }, []);
 
     const createRow = useCallback(
-        (row: TypographyInfo): JSX.Element => {
+        (row: TypographyInfo): React.JSX.Element => {
             const { variant, fontWeight, lineHeight, fontSize: size } = row;
             const rowInfo = getRowInfo(variant);
             return (

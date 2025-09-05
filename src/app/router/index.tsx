@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Navigate, Outlet, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Navigate, Outlet, Route, Routes, useLocation } from 'react-router';
 import { LandingPage } from '../pages';
 import { DrawerLayout } from '@brightlayer-ui/react-components';
 import { ContactFab, SharedToolbar } from '../components';
@@ -16,7 +16,7 @@ import * as Colors from '@brightlayer-ui/colors';
 import { AnnouncementAppbar } from '../components/announcements/announcementAppbar';
 import { SystemStyleObject } from '@mui/system';
 
-const buildRoutes = (routes: SimpleNavItem[], url: string): JSX.Element[] => {
+const buildRoutes = (routes: SimpleNavItem[], url: string): React.JSX.Element[] => {
     let ret: any[] = [];
     for (const route of routes) {
         if (route.component) {
@@ -35,8 +35,9 @@ const buildRoutes = (routes: SimpleNavItem[], url: string): JSX.Element[] => {
     return ret;
 };
 
-const ScrollToTop = (): any => {
+const ScrollToTop = (): React.JSX.Element | null => {
     const { pathname, hash } = useLocation();
+
     useEffect(() => {
         // if an anchor link is present, scroll to the anchor link;
         // else scroll the page to the top
@@ -57,14 +58,20 @@ const ScrollToTop = (): any => {
     return null;
 };
 
-export const MainRouter = (): JSX.Element => {
+// Type-safe wrapper for Router to handle React 19 compatibility
+const RouterWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const RouterComponent = Router as any;
+    return <RouterComponent>{children}</RouterComponent>;
+};
+
+export const MainRouter = (): React.JSX.Element => {
     const title = useAppSelector((state: RootState) => state.app.pageTitle);
     const selectedTheme = useAppSelector((state: RootState) => state.app.theme);
     const className = getScheduledSiteConfig(selectedTheme).className;
     const sidebarOpen = useAppSelector((state: RootState) => state.app.sidebarOpen);
     const showBanner = useAppSelector((state: RootState) => state.app.showBanner);
     return (
-        <Router>
+        <RouterWrapper>
             <ScrollToTop />
             <AnnouncementAppbar />
             <DrawerLayout
@@ -123,6 +130,6 @@ export const MainRouter = (): JSX.Element => {
                 </Routes>
                 <ContactFab />
             </DrawerLayout>
-        </Router>
+        </RouterWrapper>
     );
 };

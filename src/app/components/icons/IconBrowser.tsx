@@ -15,7 +15,7 @@ import { IconSearchBar } from './IconSearchBar';
 import { IconGrid } from './IconGrid';
 import { IconDrawer } from './IconDrawer';
 import { SelectedIconContext } from '../../contexts/selectedIconContextProvider';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router';
 import { useQueryString } from '../../hooks/useQueryString';
 import Grid from '@mui/material/Grid';
 import Skeleton from '@mui/material/Skeleton';
@@ -193,7 +193,7 @@ const parseBoolean = (str: string): boolean | undefined => {
  * The Icon Browser Component is a container for all of the pieces of the icon display
  * It includes the search bar, the icon grid itself, and the details drawer.
  */
-export const IconBrowser: React.FC = (): JSX.Element => {
+export const IconBrowser: React.FC = (): React.JSX.Element => {
     const theme = useTheme();
     const navigate = useNavigate();
     const location = useLocation();
@@ -244,7 +244,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
             if (!iconName) return;
 
             setSelectedIcon(allIconsMap[iconName.join('-')]);
-            navigate(
+            void navigate(
                 `${location.pathname}?icon=${iconName[0]}&isMaterial=${iconName[1] === 'material' ? 'true' : 'false'}`,
                 { replace: true }
             );
@@ -324,7 +324,7 @@ export const IconBrowser: React.FC = (): JSX.Element => {
                     {Array(24)
                         .fill('')
                         .map((item, ind) => (
-                            <Grid item xs={4} sm={4} md={3} lg={2} key={`${ind}`} sx={{ minHeight: 137 }}>
+                            <Grid size={{ xs: 4, sm: 4, md: 3, lg: 2 }} key={`${ind}`} sx={{ minHeight: 137 }}>
                                 <Skeleton
                                     variant={'rectangular'}
                                     sx={{ width: 48, height: 48, borderRadius: 6, margin: 'auto' }}

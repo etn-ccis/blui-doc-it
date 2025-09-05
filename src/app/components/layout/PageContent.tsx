@@ -13,8 +13,8 @@ export type PageContentProps = HTMLAttributes<HTMLDivElement> & {
     wideLayout?: boolean;
 };
 
-export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
-    const { noPadding, children, style, backgroundColor, wideLayout, ...other } = props;
+export const PageContent: React.FC<PageContentProps> = (props): React.JSX.Element => {
+    const { noPadding, children, style, wideLayout, backgroundColor = Colors.white[50], ...other } = props;
     const theme = useTheme();
     const hasTOC = useAppSelector((state: RootState) => state.app.hasTOC);
     const showFixedTOC = useMediaQuery(theme.breakpoints.up('lg'));
@@ -55,6 +55,3 @@ export const PageContent: React.FC<PageContentProps> = (props): JSX.Element => {
     );
 };
 PageContent.displayName = 'PageContent';
-PageContent.defaultProps = {
-    backgroundColor: Colors.white[50],
-};

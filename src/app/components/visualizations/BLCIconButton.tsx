@@ -3,7 +3,7 @@ import IconButton from '@mui/material/IconButton';
 import { styled, useTheme } from '@mui/material/styles';
 import { SvgIconComponent } from '@mui/icons-material';
 import Typography from '@mui/material/Typography';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 const StyledIconButton = styled(IconButton)<{ bordercolor: string }>`
     border-radius: 4px;
@@ -45,7 +45,7 @@ export const BLCIconButton: React.FC<BLCIconButtonProps> = ({ icon, url, label }
         if (url.startsWith('http://') || url.startsWith('https://')) {
             window.open(url, '_blank');
         } else if (url) {
-            navigate(url);
+            void navigate(url);
         }
     };
     return (

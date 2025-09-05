@@ -11,7 +11,7 @@ import { CloudDone, Info, Notifications } from '@mui/icons-material';
  * cannot iterate through variations due to the way MUI implemented text fields
  */
 
-export const ScoreCardDemo: JSX.Element = (
+export const ScoreCardDemo: React.JSX.Element = (
     <ScoreCard
         headerTitle={'Score Card'}
         headerSubtitle={'Brightlayer UI'}

@@ -16,7 +16,7 @@ type ButtonRowProps = {
     workSpace?: string;
     buildJobName?: string;
 };
-export const ButtonRow: React.FC<ButtonRowProps> = (props): JSX.Element => {
+export const ButtonRow: React.FC<ButtonRowProps> = (props): React.JSX.Element => {
     const { repository, branches, bugLabels, isPackage, small, demoUrl, workSpace = '', buildJobName } = props;
 
     const branch = isPackage

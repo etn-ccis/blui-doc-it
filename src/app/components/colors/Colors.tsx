@@ -8,13 +8,13 @@ import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import { useAppSelector, useAppDispatch, changeSelectedColor, RootState } from '../../redux';
 import { copyTextToClipboard } from '../../shared';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router';
 import { BLUIColor } from '@brightlayer-ui/types';
 import colorModule from 'color';
 import { ListItemTag } from '@brightlayer-ui/react-components';
 import { SystemStyleObject } from '@mui/system';
 
-const getColorLabel = (color: string, format: 'rgb' | 'hex'): JSX.Element | null => {
+const getColorLabel = (color: string, format: 'rgb' | 'hex'): React.JSX.Element | null => {
     if (format === 'hex') {
         return <Typography variant={'caption'}>{color}</Typography>;
     }
@@ -53,7 +53,7 @@ const styles: Record<string, SystemStyleObject<Theme>> = {
     },
 };
 
-export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
+export const ColorSwatch: React.FC<SwatchProps> = (props): React.JSX.Element => {
     const { color, name, category, weight, ...otherProps } = props;
     const format = useAppSelector((state: RootState) => state.app.colorFormat);
     const showColorContrast = useAppSelector((state: RootState) => state.app.showColorContrast);
@@ -76,7 +76,10 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
     }, [color, format]);
 
     const onSelectColor = useCallback(() => {
-        navigate(`${location.pathname}?category=${category}&name=${name}&weight=${weight}`, { replace: true });
+        void navigate(`${location.pathname}?category=${category}&name=${name}&weight=${weight}`, {
+            replace: true,
+            state: { fromColorSwatch: true },
+        });
         dispatch(changeSelectedColor({ category, name, weight }));
     }, []);
 
@@ -226,7 +229,7 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): JSX.Element => {
     );
 };
 
-export const ColorPalette: React.FC<PaletteProps> = (props): JSX.Element => {
+export const ColorPalette: React.FC<PaletteProps> = (props): React.JSX.Element => {
     const palette =
         // @ts-ignore TODO: sort out these types
         props.category === 'ui' ? (Colors[props.name] as BLUIColor) : (BrandingColors[props.name] as BLUIColor);
@@ -244,7 +247,7 @@ export const ColorPalette: React.FC<PaletteProps> = (props): JSX.Element => {
                     <ColorSwatch
                         key={key}
                         color={palette[key] ?? ''}
-                        weight={key as number}
+                        weight={parseInt(key as string)}
                         name={props.name}
                         category={props.category}
                     />

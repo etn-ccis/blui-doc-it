@@ -19,7 +19,7 @@ import {
 } from '../components';
 import { LatestReleases } from '../../docs';
 import * as Colors from '@brightlayer-ui/colors';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 import { cardData } from '../../__configuration__/landingPage/cardData';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
@@ -64,7 +64,7 @@ const styles: Record<string, SxProps<Theme>> = {
     },
 };
 
-export const LandingPage: React.FC = (): JSX.Element => {
+export const LandingPage: React.FC = (): React.JSX.Element => {
     const navigate = useNavigate();
     const theme = useTheme();
     const selectedTheme = useAppSelector((state: RootState) => state.app.theme);
@@ -95,16 +95,16 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     color={'inherit'}
                     sx={{ minWidth: 150, fontWeight: 600, mt: 2, mx: 0 }}
                     onClick={(): void => {
-                        navigate('overview');
+                        void navigate('overview');
                     }}
                 >
                     Get Started
                 </Button>
             </Box>
             <LandingSection title={'Design and Development'} align={'left'} background={'light'}>
-                <Grid container spacing={6} sx={{ mt: -1 }}>
+                <Grid container spacing={6} sx={{ mt: 5 }}>
                     {cardData.map((item, ind) => (
-                        <Grid key={`grid${ind}`} item xs={12} sm={6} md={4}>
+                        <Grid key={`grid${ind}`} size={{ xs: 12, sm: 6, md: 4 }}>
                             <InfoCard
                                 spacing={6}
                                 source={item.image}
@@ -112,7 +112,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                                 aspectRatio={'3x2'}
                                 description={item.description}
                                 onClick={(): void => {
-                                    if (item.path.startsWith('/')) navigate(item.path);
+                                    if (item.path.startsWith('/')) void navigate(item.path);
                                     else window.open(item.path, '_blank');
                                 }}
                             />
@@ -141,7 +141,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                     variant={'outlined'}
                     color={'primary'}
                     sx={{ mt: 1 }}
-                    onClick={(): void => navigate('/release-notes')}
+                    onClick={() => void navigate('/release-notes')}
                 >
                     View All
                 </Button>
@@ -149,7 +149,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
 
             {/* Carousel Section */}
             <Grid container>
-                <Grid item xs={12} sm={6}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                     <CarouselCard
                         backgroundImage={designImage}
                         title={'Getting started as a designer'}
@@ -157,10 +157,10 @@ export const LandingPage: React.FC = (): JSX.Element => {
                             'We offer many resources and assets for designers getting acquainted with Brightlayer UI.'
                         }
                         icon={<DesignIcon fontSize={'large'} />}
-                        onClick={(): void => navigate('/design/intro')}
+                        onClick={() => void navigate('/design/intro')}
                     />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                     <CarouselCard
                         backgroundImage={developImage}
                         title={'Getting started as a developer'}
@@ -168,7 +168,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                             'We have numerous guides and resources to prepare you for working with Brightlayer UI.'
                         }
                         icon={<DeveloperMode fontSize={'large'} />}
-                        onClick={(): void => navigate('/development/environment')}
+                        onClick={() => void navigate('/development/environment')}
                     />
                 </Grid>
             </Grid>
@@ -181,7 +181,7 @@ export const LandingPage: React.FC = (): JSX.Element => {
                         variant={'outlined'}
                         color={'primary'}
                         sx={{ mt: 1 }}
-                        onClick={(): void => navigate('/community/innersourcing')}
+                        onClick={() => void navigate('/community/innersourcing')}
                     >
                         Become a Contributor!
                     </Button>

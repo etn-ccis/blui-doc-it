@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import Snackbar from '@mui/material/Snackbar';
 import { Delete } from '@mui/icons-material';
 
-export const SnackbarDemo: JSX.Element = (
+export const SnackbarDemo: React.JSX.Element = (
     <Box sx={{ p: 2 }}>
         <Snackbar
             open={true}

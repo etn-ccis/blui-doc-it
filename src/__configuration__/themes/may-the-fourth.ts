@@ -1,4 +1,4 @@
-import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import { blueThemes } from '@brightlayer-ui/react-themes';
 import DeathStar from '../../app/assets/themes/may-the-fourth/death-star.svg';
 import AppbarTile from '../../app/assets/themes/may-the-fourth/may-the-4th-appbar-tile.svg';
 import LightSaber1 from '../../app/assets/themes/may-the-fourth/light-saber-1.png';
@@ -18,12 +18,12 @@ export const MayTheFourthSchedule: Schedule = {
     end: new Date(0, 4, 6), // May 5
     config: {
         theme: {
-            ...BLUIThemes.blue,
+            palette: {
+                ...blueThemes.palette,
+            },
             components: {
-                ...BLUIThemes.blue.components,
                 MuiAppBar: {
                     styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
                         colorPrimary: {
                             '& .MuiIconButton-colorInherit': {
                                 backgroundColor: color(Colors.darkBlack[100]).fade(0.3).toString(),
@@ -43,12 +43,13 @@ export const MayTheFourthSchedule: Schedule = {
                 },
                 MuiButton: {
                     styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
+                        // ...blueThemes.components?.MuiButton?.styleOverrides,
                         outlined: {},
                         outlinedPrimary: {},
                     },
                 },
             },
+            typography: blueThemes.typography,
         },
         landingPageBanner: {
             backgroundImage: `url("${DeathStar}"`,

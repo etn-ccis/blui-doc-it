@@ -20,7 +20,7 @@ type SearchBarProps = HTMLAttributes<HTMLDivElement> & {
     onCategoriesChanged: (event: ChangeEvent<{ name?: string; value: any }>) => void;
     iconCategories: string[];
 };
-export const IconSearchBar: React.FC<SearchBarProps> = (props): JSX.Element => {
+export const IconSearchBar: React.FC<SearchBarProps> = (props): React.JSX.Element => {
     const { onSearchChange, onCategoriesChanged, iconCategories, ...divProps } = props;
     const { iconSearch = '' } = useQueryString();
     const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -48,7 +48,7 @@ export const IconSearchBar: React.FC<SearchBarProps> = (props): JSX.Element => {
 
     return (
         <Grid container spacing={2} {...divProps}>
-            <Grid item xs={searchSize}>
+            <Grid size={{ xs: searchSize }}>
                 <TextField
                     fullWidth
                     placeholder="Enter keyword or icon name"
@@ -66,7 +66,7 @@ export const IconSearchBar: React.FC<SearchBarProps> = (props): JSX.Element => {
                     }}
                 />
             </Grid>
-            <Grid item xs={categorySize}>
+            <Grid size={{ xs: categorySize }}>
                 <FormControl variant={'outlined'} fullWidth>
                     <InputLabel id="category-select-label">Icon Categories</InputLabel>
                     <Select

@@ -6,7 +6,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Divider from '@mui/material/Divider';
-import useTheme from '@mui/material/styles/useTheme';
+import { useTheme } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import { InfoListItem, ListItemTag } from '@brightlayer-ui/react-components';
@@ -57,9 +57,7 @@ export const UniversalIconBrowser: React.FC = () => {
                         expanded
                             ? (): void => {
                                   window.open(
-                                      `/style/icon-library?icon=${icon.name.replaceAll(' ', '')}&isMaterial=${
-                                          icon.isMaterial === undefined || icon.isMaterial === true ? 'true' : 'false'
-                                      }`
+                                      `/style/icon-library?icon=${icon.name.replaceAll(' ', '')}&isMaterial=${icon.isMaterial === undefined || icon.isMaterial === true ? 'true' : 'false'}`
                                   );
                               }
                             : undefined

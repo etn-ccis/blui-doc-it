@@ -1,13 +1,13 @@
 import React from 'react';
 import Grid, { GridProps } from '@mui/material/Grid';
 import { InfoCard } from '..';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 type Link = {
     title: string;
     url: string;
     description: string;
-    image: string | JSX.Element;
+    image: string | React.JSX.Element;
     background?: {
         size?: string;
         position?: string;
@@ -17,18 +17,18 @@ type LinkGridProps = GridProps & {
     links: Link[];
 };
 
-export const LinkGrid: React.FC<LinkGridProps> = (props): JSX.Element => {
+export const LinkGrid: React.FC<LinkGridProps> = (props): React.JSX.Element => {
     const { links, ...gridProps } = props;
     const navigate = useNavigate();
     return (
         <Grid container spacing={6} {...gridProps}>
             {links.map((link) => (
-                <Grid key={link.url} item xs={12} sm={6} md={4}>
+                <Grid key={link.url} size={{ xs: 12, sm: 6, md: 4 }}>
                     <InfoCard
                         spacing={6}
                         source={link.image}
                         onClick={(): void => {
-                            if (link.url.startsWith('/')) navigate(link.url);
+                            if (link.url.startsWith('/')) void navigate(link.url);
                             else window.open(link.url, '_blank');
                         }}
                         background={link.background}

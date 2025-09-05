@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 
 type MaterialDesignDescriptionProps = {
     // The icon used on the left
-    avatar?: JSX.Element;
+    avatar?: React.JSX.Element;
 
     // Secondary description text
     description?: string;
@@ -20,7 +20,7 @@ type MaterialDesignDescriptionProps = {
     CardActionAreaProps?: CardActionAreaProps;
 
     // The icon used on the right
-    icon?: JSX.Element;
+    icon?: React.JSX.Element;
 
     // Title text
     title?: string;
@@ -57,7 +57,7 @@ const styles: Record<string, SxProps<Theme>> = {
     },
 };
 
-export const MaterialDesignDescription: React.FC<MaterialDesignDescriptionProps> = (props): JSX.Element => {
+export const MaterialDesignDescription: React.FC<MaterialDesignDescriptionProps> = (props): React.JSX.Element => {
     const theme = useTheme();
     const {
         avatar = <MaterialDesign sx={{ height: 48, width: 48 }} />,

@@ -54,7 +54,7 @@ const CatalogStorybookLink: React.FC<CatalogStorybookLinkProp> = (props) => {
 export const ComponentCatalogGrids: React.FC = () => (
     <Grid container spacing={6} sx={{ mt: 4 }}>
         {componentCatalogLinks.map((link) => (
-            <Grid item xs={12} sm={6} md={4} key={link.title}>
+            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={link.title}>
                 <InfoCard
                     spacing={6}
                     source={link.image}

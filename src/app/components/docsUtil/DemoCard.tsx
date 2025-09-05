@@ -26,7 +26,7 @@ type DemoButtonProps = {
 type Details = {
     url: string;
     displayName: string;
-    icon: JSX.Element | undefined;
+    icon: React.JSX.Element | undefined;
 };
 const getDetails = (repository: string, framework: string): Details => {
     switch (framework) {
@@ -74,7 +74,7 @@ const styles: Record<string, SxProps<Theme>> = {
     },
 };
 
-const DemoButton: React.FC<DemoButtonProps> = (props): JSX.Element => {
+const DemoButton: React.FC<DemoButtonProps> = (props): React.JSX.Element => {
     const { framework, repository } = props;
     const { url, displayName, icon } = getDetails(repository, framework);
     return (
@@ -90,7 +90,7 @@ const DemoButton: React.FC<DemoButtonProps> = (props): JSX.Element => {
     );
 };
 
-export const DemoCard: React.FC<DemoCardProps> = (props): JSX.Element => {
+export const DemoCard: React.FC<DemoCardProps> = (props): React.JSX.Element => {
     const { repository, angular, react, reactNative, ...cardProps } = props;
     const theme = useTheme();
     return (

@@ -21,7 +21,7 @@ const colorSet: ColorPalette = BluiColors;
 const colors = ['red', 'orange', 'gold', 'yellow', 'green', 'lightBlue', 'blue', 'purple', 'gray', 'black'];
 const weight = 300;
 
-export const ProgressIconCard: React.FC = (): JSX.Element => {
+export const ProgressIconCard: React.FC = (): React.JSX.Element => {
     const [isOutlined, setIsOutlined] = React.useState(false);
 
     return (

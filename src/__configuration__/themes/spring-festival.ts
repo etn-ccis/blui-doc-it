@@ -1,4 +1,4 @@
-import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import { blueThemes } from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import banner from '../../app/assets/themes/spring-festival/banner.svg';
 import cursor from '../../app/assets/themes/spring-festival/cursor.png';
@@ -7,13 +7,12 @@ import AppBarTile from '../../app/assets/themes/spring-festival/tile.svg';
 import { Schedule } from './_types';
 
 export const SpringFestivalSchedule: Schedule = {
-    start: new Date(0, 1, 6), // Feb 6
-    end: new Date(0, 1, 13), // Feb 12
+    start: new Date(0, 10, 22), // Nov 22
+    end: new Date(0, 10, 30), // Nov 29
     config: {
         theme: {
-            ...BLUIThemes.blue,
             palette: {
-                ...BLUIThemes.blue.palette,
+                ...blueThemes.palette,
                 mode: 'light',
                 primary: {
                     light: Colors.red[100],
@@ -25,10 +24,8 @@ export const SpringFestivalSchedule: Schedule = {
                 },
             },
             components: {
-                ...BLUIThemes.blue.components,
                 MuiAppBar: {
                     styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
                         colorPrimary: {
                             backgroundColor: Colors.red[900],
                             color: Colors.white[50],
@@ -46,7 +43,6 @@ export const SpringFestivalSchedule: Schedule = {
                     },
                 },
                 MuiButton: {
-                    ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
                     styleOverrides: {
                         outlined: { textTransform: 'none' },
                         outlinedPrimary: {},
@@ -61,6 +57,7 @@ export const SpringFestivalSchedule: Schedule = {
                     },
                 },
             },
+            typography: blueThemes.typography,
         },
         landingPageBanner: {
             backgroundImage: `url(${banner})`,

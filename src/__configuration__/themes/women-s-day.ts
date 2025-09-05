@@ -1,4 +1,4 @@
-import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import { blueThemes } from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import Banner from '../../app/assets/themes/women-s-day/international-women-s-day-banner.svg';
 import AppBarTile from '../../app/assets/themes/women-s-day/international-women-s-day-appbar-tile.svg';
@@ -15,9 +15,9 @@ export const WomenSDaySchedule: Schedule = {
     end: new Date(0, 2, 10), // Mar 9
     config: {
         theme: {
-            ...BLUIThemes.blue,
             palette: {
-                ...BLUIThemes.blue.palette,
+                ...blueThemes.palette,
+                mode: 'light',
                 primary: {
                     light: LIGHT_COLOR,
                     main: MAIN_COLOR,
@@ -28,10 +28,8 @@ export const WomenSDaySchedule: Schedule = {
                 },
             },
             components: {
-                ...BLUIThemes.blue.components,
                 MuiAppBar: {
                     styleOverrides: {
-                        ...BLUIThemes.blue.components?.MuiAppBar?.styleOverrides,
                         colorDefault: {
                             backgroundColor: MAIN_COLOR,
                         },
@@ -48,7 +46,6 @@ export const WomenSDaySchedule: Schedule = {
                     },
                 },
                 MuiButton: {
-                    ...BLUIThemes.blue.components?.MuiButton?.styleOverrides,
                     styleOverrides: {
                         outlined: { textTransform: 'none' },
                         outlinedPrimary: {},
@@ -75,6 +72,7 @@ export const WomenSDaySchedule: Schedule = {
                     },
                 },
             },
+            typography: blueThemes.typography,
         },
         landingPageBanner: {
             backgroundImage: `url(${Banner})`,

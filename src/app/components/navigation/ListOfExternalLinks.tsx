@@ -20,7 +20,7 @@ export const ExternalLinkItem: React.FC<ExternalLinkItemProps> = (props) => {
     );
 };
 
-export const ListOfExternalLinks = (): JSX.Element => (
+export const ListOfExternalLinks = (): React.JSX.Element => (
     <List sx={{ maxWidth: 400 }}>
         {externalLinks.map((externalLink, index) => (
             <ExternalLinkItem externalLink={externalLink} key={index} divider disableGutters />
