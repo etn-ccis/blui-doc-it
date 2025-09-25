@@ -7,6 +7,7 @@ import PredictPulse from '../../app/assets/blui-projects/predict-pulse.png';
 import SmartEnergyManager from '../../app/assets/blui-projects/smart-energy-manager.png';
 import EVChargerManager from '../../app/assets/blui-projects/ev-charger-manager.png';
 import GreenMotionEVCharger from '../../app/assets/blui-projects/green-motion-ev-charger.jpg';
+import BEMS from '../../app/assets/blui-projects/bems.png';
 
 import { BluiProjectTag, BluiProjectStack, BluiProject } from './BluiProjectsType';
 
@@ -154,6 +155,17 @@ export const bluiProjects: BluiProject[] = [
         market: 'Commercial',
         devices: 'EV chargers (HMI touch screens)',
         stack: 'SGUS, Keil',
+        tags: [BluiProjectTag.REAL_TIME_MONITORING, BluiProjectTag.TRANSACTIONS],
+    },
+    {
+        name: 'Building Energy Management Software',
+        description: `The energy transition requires buildings to become decentralized energy hubs with renewable generation, EV charging, and intelligent monitoring systems to reduce emissions and costs while maintaining user comfort and meeting environmental regulations.`,
+        platformURLs: {}, // this is an HMI project; no URL available
+        website: `https://www.eaton.com/bg/en-gb/catalog/energy-storage/building-energy-management-software.html`,
+        image: BEMS,
+        market: 'Commercial',
+        devices: 'EV chargers, Solar Panels',
+        stack: [BluiProjectStack.REACT],
         tags: [BluiProjectTag.REAL_TIME_MONITORING, BluiProjectTag.TRANSACTIONS],
     },
 ].sort((a, b) => a.name.localeCompare(b.name));
