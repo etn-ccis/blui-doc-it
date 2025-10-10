@@ -43,6 +43,8 @@
         "eject": "craco eject",
         "check:links": "bash ./__scripts__/link-check/checklinks.sh",
         "check:links-ci": "bash ./__scripts__/link-check/checklinksCI.sh",
+        "mdx-to-pdf": "node scripts/mdx-to-pdf.js",
+        "mdx-to-pdf:all": "node scripts/mdx-to-pdf.js --batch",
         "ga:prod": "cp -r ./googleAnalytics/ga.prod.js ./src/ga.js",
         "ga:dev": "cp -r ./googleAnalytics/ga.dev.js ./src/ga.js",
         "lint": "eslint \"src/**/**.{ts,tsx}\"",
@@ -73,8 +75,8 @@
         "@brightlayer-ui/prettier-config": "^1.0.3",
         "@craco/craco": "^7.1.0",
         "@mdx-js/loader": "^2.1.5",
-        "@mdx-js/mdx": "^2.2.1",
-        "@mdx-js/react": "^3.0.1",
+        "@mdx-js/mdx": "^2.3.0",
+        "@mdx-js/react": "^3.1.1",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^15.0.7",
         "@testing-library/user-event": "^14.6.1",
@@ -96,9 +98,14 @@
         "markdown-link-check": "^3.13.6",
         "natural": "^5.0.0",
         "prettier": "^3.3.3",
+        "puppeteer": "^24.23.0",
+        "rehype-stringify": "^10.0.1",
         "remark-gfm": "^1.0.0",
+        "remark-parse": "^11.0.0",
+        "remark-rehype": "^11.1.2",
         "sass": "^1.70.0",
-        "typescript": "^5.7.2"
+        "typescript": "^5.7.2",
+        "unified": "^11.0.5"
     },
     "prettier": "@brightlayer-ui/prettier-config"
 }
