@@ -15,13 +15,13 @@ import Box from '@mui/material/Box';
 
 import { PageContent, ExpansionHeader } from '../components';
 
-import { Status, RoadmapItem, RoadmapBucket, FrameworkFilter, ItemTypeFilter, Release } from '../../__types__';
+import { Status, RoadmapItem, FrameworkFilter, ItemTypeFilter, Release } from '../../__types__';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
 
 import { EmptyState, InfoListItem, ListItemTag, Spacer } from '@brightlayer-ui/react-components';
-import { useAppSelector, RootState } from '../redux';
+import { useAppSelector, useAppDispatch, RootState, setRoadmapLoading, setRoadmapData } from '../redux';
 import * as Colors from '@brightlayer-ui/colors';
 import color from 'color';
 import { useBackgroundColor } from '../hooks/useBackgroundColor';
@@ -83,15 +83,22 @@ const getStatusColor = (status: Status): BLUIColor | undefined => {
 
 export const Roadmap: React.FC = (): React.JSX.Element => {
     const theme = useTheme();
+    const dispatch = useAppDispatch();
     const [typeFilter, setTypeFilter] = useState<ItemTypeFilter>('all');
     const [statusFilter, setStatusFilter] = useState<Status | 'all'>('all');
     const [frameworkFilter, setFrameworkFilter] = useState<FrameworkFilter>('all');
     const [releaseFilter, setReleaseFilter] = useState<Release>(CURRENT_RELEASE);
-    const [roadmap, setRoadmap] = useState<RoadmapBucket[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
     const searchActive = useAppSelector((state: RootState) => state.app.searchActive);
     const showBanner = useAppSelector((state: RootState) => state.app.showBanner);
     const selectedTheme = useAppSelector((state: RootState) => state.app.theme);
+    const roadmapCache = useAppSelector((state: RootState) => state.app.roadmapCache);
+    const roadmapLoading = useAppSelector((state: RootState) => state.app.roadmapLoading);
+
+    // Get roadmap data from cache or empty array if not cached
+    const roadmap = roadmapCache[releaseFilter] || [];
+    // Show loading if explicitly loading OR if no data exists and we haven't finished loading
+    const loading =
+        roadmapLoading[releaseFilter] === true || (roadmap.length === 0 && !(releaseFilter in roadmapCache));
     const loadingGroups = [
         [1, 2, 3, 4],
         [1, 2, 3],
@@ -104,21 +111,25 @@ export const Roadmap: React.FC = (): React.JSX.Element => {
     useBackgroundColor(theme.palette.background.default);
 
     useEffect(() => {
-        let isMounted = true;
+        // Don't fetch if we already have data for this release
+        if (releaseFilter in roadmapCache) {
+            return;
+        }
 
-        setLoading(true);
+        // Don't fetch if we're already loading this release
+        if (roadmapLoading[releaseFilter] === true) {
+            return;
+        }
+
+        // Set loading state and fetch data
+        dispatch(setRoadmapLoading({ release: releaseFilter, loading: true }));
+
         const loadRoadmap = async (): Promise<void> => {
             const data = await getRoadmap(releaseFilter);
-            if (isMounted) {
-                setRoadmap(data ?? []);
-            }
-            setLoading(false);
+            dispatch(setRoadmapData({ release: releaseFilter, data: data ?? [] }));
         };
         void loadRoadmap();
-        return (): void => {
-            isMounted = false;
-        };
-    }, [releaseFilter, setRoadmap, setLoading]);
+    }, [releaseFilter, roadmapCache, roadmapLoading, dispatch]);
 
     const clearFilters = useCallback(() => {
         setTypeFilter('all');
