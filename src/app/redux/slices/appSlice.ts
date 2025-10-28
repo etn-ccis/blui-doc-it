@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ColorType } from '../../../__types__';
+import { ColorType, RoadmapBucket, Release } from '../../../__types__';
 
 export type AppState = {
     pageTitle: string;
@@ -12,6 +12,8 @@ export type AppState = {
     selectedColor: undefined | ColorType;
     showColorContrast: boolean;
     theme: string;
+    roadmapCache: Record<Release, RoadmapBucket[]>;
+    roadmapLoading: Record<Release, boolean>;
 };
 
 const initialState: AppState = {
@@ -25,6 +27,8 @@ const initialState: AppState = {
     selectedColor: undefined,
     showColorContrast: false,
     theme: 'default',
+    roadmapCache: {} as Record<Release, RoadmapBucket[]>,
+    roadmapLoading: {} as Record<Release, boolean>,
 };
 
 const appSlice = createSlice({
@@ -64,6 +68,17 @@ const appSlice = createSlice({
         changeTheme: (state, action: PayloadAction<string>) => {
             state.theme = action.payload;
         },
+        setRoadmapLoading: (state, action: PayloadAction<{ release: Release; loading: boolean }>) => {
+            state.roadmapLoading[action.payload.release] = action.payload.loading;
+        },
+        setRoadmapData: (state, action: PayloadAction<{ release: Release; data: RoadmapBucket[] }>) => {
+            state.roadmapCache[action.payload.release] = action.payload.data;
+            state.roadmapLoading[action.payload.release] = false;
+        },
+        clearRoadmapCache: (state) => {
+            state.roadmapCache = {} as Record<Release, RoadmapBucket[]>;
+            state.roadmapLoading = {} as Record<Release, boolean>;
+        },
     },
 });
 
@@ -79,6 +94,9 @@ export const {
     changeSelectedColor,
     toggleColorContrast,
     changeTheme,
+    setRoadmapLoading,
+    setRoadmapData,
+    clearRoadmapCache,
 } = appSlice.actions;
 
 export default appSlice.reducer;
