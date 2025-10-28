@@ -26,7 +26,6 @@ const VariantTextContainer = styled('span')`
 
 const VariantLabel = styled('span')`
     margin: 24px 0px;
-    color: #424e54;
     font-family: 'Open Sans';
     font-size: 20px;
     font-weight: 600;
@@ -34,7 +33,6 @@ const VariantLabel = styled('span')`
 
 const VariantDescription = styled('span')`
     max-width: 200px;
-    color: #0b0e10;
     font-family: 'Open Sans';
     font-size: 14px;
     line-height: normal;
