@@ -15,7 +15,7 @@ import Box from '@mui/material/Box';
 
 import { PageContent, ExpansionHeader } from '../components';
 
-import { Status, RoadmapItem, RoadmapBucket, FrameworkFilter, ItemTypeFilter, Release } from '../../__types__';
+import { Status, RoadmapItem, FrameworkFilter, ItemTypeFilter, Release } from '../../__types__';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
 import { getScheduledSiteConfig } from '../../__configuration__/themes';
