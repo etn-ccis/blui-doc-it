@@ -1,5 +1,6 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router';
 
 const VariantContainer = styled('span')<{ url?: string }>`
@@ -22,22 +23,6 @@ const VariantTextContainer = styled('span')`
     display: flex;
     flex-direction: column;
     align-items: start;
-`;
-
-const VariantLabel = styled('span')`
-    margin: 24px 0px;
-    color: #424e54;
-    font-family: 'Open Sans';
-    font-size: 20px;
-    font-weight: 600;
-`;
-
-const VariantDescription = styled('span')`
-    max-width: 200px;
-    color: #0b0e10;
-    font-family: 'Open Sans';
-    font-size: 14px;
-    line-height: normal;
 `;
 
 const VariantImage = styled('img')<{ height: string; width: string }>`
@@ -81,8 +66,12 @@ export const VariantIllustration: React.FC<VariantIllustrationProps> = ({
                 <VariantImage src={iconImage} alt="variant icon" height={height} width={width} />
             </VariantIconContainer>
             <VariantTextContainer>
-                <VariantLabel>{label}</VariantLabel>
-                <VariantDescription>{description}</VariantDescription>
+                <Typography variant="h6" sx={{ margin: '24px 0px', fontWeight: 600 }}>
+                    {label}
+                </Typography>
+                <Typography variant="body2" sx={{ maxWidth: '200px' }}>
+                    {description}
+                </Typography>
             </VariantTextContainer>
         </VariantContainer>
     );
