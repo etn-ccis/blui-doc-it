@@ -9,7 +9,9 @@ import {
     NavItem,
 } from '@brightlayer-ui/react-components';
 import { PxblueSmall } from '@brightlayer-ui/icons-mui';
+import { ExpandMore } from '@mui/icons-material';
 import color from 'color';
+import * as Colors from '@brightlayer-ui/colors';
 
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
 import { EatonTagline } from '../assets/icons';
@@ -40,21 +42,20 @@ export const NavigationDrawer = (): React.JSX.Element => {
                 continue;
             }
             const fullURL = `${parentUrl === '' ? '' : `${parentUrl}/`}${item.url ?? ''}`;
+            const isActiveItem = activeRoute === fullURL;
+            
             convertedItems.push({
                 title: item.title,
                 icon: depth === 0 ? item.icon : undefined,
                 itemID: fullURL,
-                // To add a on hover effect to the ExpandMore chevron for NavItems
-                // with sub pages and a landing page (e.g., Design Patterns)
-                //
-                // expandIcon:
-                //     item.pages && item.component ? (
-                //         <IconButton>
-                //             <ExpandMore />
-                //         </IconButton>
-                //     ) : (
-                //         undefined
-                //     ),
+                // Custom expand icon with conditional color - blue[200] only for active items
+                expandIcon: item.pages ? (
+                    <ExpandMore 
+                        sx={{ 
+                            color: isActiveItem ? Colors.blue[200] : 'inherit' // Only blue[200] for active items
+                        }} 
+                    />
+                ) : undefined,
                 onClick: item.component
                     ? (): void => {
                           void navigate(fullURL);
@@ -71,7 +72,7 @@ export const NavigationDrawer = (): React.JSX.Element => {
             });
         }
         return convertedItems;
-    }, []);
+    }, [activeRoute, navigate, dispatch]);
 
     const getDrawerNavItemActiveBackgroundColor = useCallback((): string | undefined => {
         if (activeDrawerFade) {
@@ -84,7 +85,12 @@ export const NavigationDrawer = (): React.JSX.Element => {
         setActiveRoute(location.pathname.replace(/^\//, ''));
     }, [location.pathname]);
 
-    const [menuItems] = useState(createNavItems(pageDefinitions, '', 0));
+    const [menuItems, setMenuItems] = useState(createNavItems(pageDefinitions, '', 0));
+
+    // Update menu items when active route changes to apply conditional colors
+    useEffect(() => {
+        setMenuItems(createNavItems(pageDefinitions, '', 0));
+    }, [activeRoute, createNavItems]);
 
     return (
         <Drawer
