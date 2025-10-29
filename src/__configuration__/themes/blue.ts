@@ -23,4 +23,5 @@ export const blueTheme: SiteConfig = {
         typography: blueThemes.typography,
     },
     landingPageBanner: { backgroundImage: `url(${circles})`, backgroundSize: 1200 },
+    drawerActiveBackgroundFade: 0.9,
 };
