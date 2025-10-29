@@ -35,44 +35,47 @@ export const NavigationDrawer = (): React.JSX.Element => {
     const isLandingPage = location.pathname === '/';
     const activeDrawerFade = getScheduledSiteConfig(selectedTheme).drawerActiveBackgroundFade;
 
-    const createNavItems = useCallback((navData: SimpleNavItem[], parentUrl: string, depth: number): NavItem[] => {
-        const convertedItems: NavItem[] = [];
-        for (const item of navData) {
-            if (item.hidden) {
-                continue;
+    const createNavItems = useCallback(
+        (navData: SimpleNavItem[], parentUrl: string, depth: number): NavItem[] => {
+            const convertedItems: NavItem[] = [];
+            for (const item of navData) {
+                if (item.hidden) {
+                    continue;
+                }
+                const fullURL = `${parentUrl === '' ? '' : `${parentUrl}/`}${item.url ?? ''}`;
+                const isActiveItem = activeRoute === fullURL;
+
+                convertedItems.push({
+                    title: item.title,
+                    icon: depth === 0 ? item.icon : undefined,
+                    itemID: fullURL,
+                    // Custom expand icon with conditional color - blue[200] only for active items
+                    expandIcon: item.pages ? (
+                        <ExpandMore
+                            sx={{
+                                color: isActiveItem ? Colors.blue[200] : 'inherit', // Only blue[200] for active items
+                            }}
+                        />
+                    ) : undefined,
+                    onClick: item.component
+                        ? (): void => {
+                              void navigate(fullURL);
+                              dispatch(toggleDrawer(false));
+                          }
+                        : undefined,
+                    items: item.pages
+                        ? createNavItems(
+                              item.pages,
+                              `${parentUrl === '' ? '' : `${parentUrl}/`}${item.url ?? ''}`,
+                              depth + 1
+                          )
+                        : undefined,
+                });
             }
-            const fullURL = `${parentUrl === '' ? '' : `${parentUrl}/`}${item.url ?? ''}`;
-            const isActiveItem = activeRoute === fullURL;
-            
-            convertedItems.push({
-                title: item.title,
-                icon: depth === 0 ? item.icon : undefined,
-                itemID: fullURL,
-                // Custom expand icon with conditional color - blue[200] only for active items
-                expandIcon: item.pages ? (
-                    <ExpandMore 
-                        sx={{ 
-                            color: isActiveItem ? Colors.blue[200] : 'inherit' // Only blue[200] for active items
-                        }} 
-                    />
-                ) : undefined,
-                onClick: item.component
-                    ? (): void => {
-                          void navigate(fullURL);
-                          dispatch(toggleDrawer(false));
-                      }
-                    : undefined,
-                items: item.pages
-                    ? createNavItems(
-                          item.pages,
-                          `${parentUrl === '' ? '' : `${parentUrl}/`}${item.url ?? ''}`,
-                          depth + 1
-                      )
-                    : undefined,
-            });
-        }
-        return convertedItems;
-    }, [activeRoute, navigate, dispatch]);
+            return convertedItems;
+        },
+        [activeRoute, navigate, dispatch]
+    );
 
     const getDrawerNavItemActiveBackgroundColor = useCallback((): string | undefined => {
         if (activeDrawerFade) {
