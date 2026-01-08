@@ -19,8 +19,6 @@ import { PageContent, ExpansionHeader } from '../components';
 import { Status, RoadmapItem, FrameworkFilter, ItemTypeFilter, Release } from '../../__types__';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
-import { getScheduledSiteConfig } from '../../__configuration__/themes';
-
 import { EmptyState, InfoListItem, ListItemTag, Spacer } from '@brightlayer-ui/react-components';
 import { useAppSelector, useAppDispatch, RootState, setRoadmapLoading, setRoadmapData } from '../redux';
 import * as Colors from '@brightlayer-ui/colors';
@@ -29,7 +27,6 @@ import { useBackgroundColor } from '../hooks/useBackgroundColor';
 import { BLUIColor } from '@brightlayer-ui/types';
 import { getRoadmap } from '../api';
 import { ErrorOutline } from '@mui/icons-material';
-import clsx from 'clsx';
 import { AVAILABLE_RELEASES, CURRENT_RELEASE } from '../../__configuration__/roadmap';
 
 const styles: Record<string, SxProps<Theme>> = {
@@ -91,7 +88,6 @@ export const Roadmap: React.FC = (): React.JSX.Element => {
     const [releaseFilter, setReleaseFilter] = useState<Release>(CURRENT_RELEASE);
     const searchActive = useAppSelector((state: RootState) => state.app.searchActive);
     const showBanner = useAppSelector((state: RootState) => state.app.showBanner);
-    const selectedTheme = useAppSelector((state: RootState) => state.app.theme);
     const roadmapCache = useAppSelector((state: RootState) => state.app.roadmapCache);
     const roadmapLoading = useAppSelector((state: RootState) => state.app.roadmapLoading);
 
