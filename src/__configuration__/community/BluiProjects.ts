@@ -7,9 +7,13 @@ import PredictPulse from '../../app/assets/blui-projects/predict-pulse.png';
 import SmartEnergyManager from '../../app/assets/blui-projects/smart-energy-manager.png';
 import EVChargerManager from '../../app/assets/blui-projects/ev-charger-manager.png';
 import GreenMotionEVCharger from '../../app/assets/blui-projects/green-motion-ev-charger.jpg';
+import ChargeCentral from '../../app/assets/blui-projects/charge-central.png';
 import BEMS from '../../app/assets/blui-projects/bems.png';
+import GridSolutions from '../../app/assets/blui-projects/grid_solution.png';
 
 import { BluiProjectTag, BluiProjectStack, BluiProject } from './BluiProjectsType';
+import { s } from 'react-router/dist/development/index-react-server-client-BbRcBjrA';
+import { Websites } from '../../docs/design';
 
 export const bluiProjects: BluiProject[] = [
     {
@@ -167,5 +171,45 @@ export const bluiProjects: BluiProject[] = [
         devices: 'EV chargers, Solar Panels',
         stack: [BluiProjectStack.REACT],
         tags: [BluiProjectTag.REAL_TIME_MONITORING, BluiProjectTag.TRANSACTIONS],
+    },
+    {
+        name: 'ChargeCentral',
+        description: `ChargeCentral is a smart EV charger management solution designed to tackle the growing complexity of charger networks. By leveraging real-time monitoring, predictive analytics, and automated alerts, it empowers businesses to reduce downtime, optimize performance, and make data-driven decisions. ChargeCentral transforms traditional charger operations into intelligent, proactive systems that enhance efficiency, safety, and customer satisfaction by acting as a bridge between charger and external CSMS.`,
+        platformURLs: { web: 'https://chargecentral.eaton.com/' },
+        website: 'https://chargecentral.eaton.com/',
+        image: ChargeCentral,
+        market: 'Residential & Commercial',
+        devices: 'EV Chargers',
+        stack: [BluiProjectStack.ANGULAR],
+        tags: [
+            BluiProjectTag.REAL_TIME_MONITORING,
+            BluiProjectTag.DEVICE_CONTROL_REMOTE,
+            BluiProjectTag.DEVICE_COMMISSIONING,
+            BluiProjectTag.ALARMS,
+            BluiProjectTag.OCPP_LOGS,
+            BluiProjectTag.PREDICTIONS,
+            BluiProjectTag.SERVICE_MAINTENANCE,
+            BluiProjectTag.MULTI_TENANT_SUPPORT,
+            BluiProjectTag.OKTA_SSO,
+        ],
+    },
+    {
+        name: 'Grid Solutions Portal',
+        description: `The Grid Solutions portal is a comprehensive platform that provides access to supported software and firmware versions, technical documentation, security bulletins, Factory Assisted Device Reset capabilities, and analytics tools for managing Grid Solutions devices.`,
+        platformURLs: { web: 'https://gridsolutions.eaton.com/' },
+        website: `https://gridsolutions.eaton.com/`,
+        image: GridSolutions,
+        market: 'Utilities',
+        devices: 'Utilities products',
+        stack: [BluiProjectStack.REACT],
+        tags: [
+            BluiProjectTag.GRID_SOLUTIONS,
+            BluiProjectTag.OPERATIONAL_ANALYTICS,
+            BluiProjectTag.FACTORY_ASSISTED_DEVICE_RESET,
+            BluiProjectTag.SECURITY_BULLETINS,
+            BluiProjectTag.TECHNICAL_DOCUMENTATION,
+            BluiProjectTag.PRODUCT_DOWNLOADS,
+            BluiProjectTag.SOFTWARE_FIRMWARE_VERSIONS_ACCESS,
+        ],
     },
 ].sort((a, b) => a.name.localeCompare(b.name));
