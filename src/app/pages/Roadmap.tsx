@@ -12,14 +12,13 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import { SxProps } from '@mui/system';
 import Box from '@mui/material/Box';
+import Skeleton from '@mui/material/Skeleton';
 
 import { PageContent, ExpansionHeader } from '../components';
 
 import { Status, RoadmapItem, FrameworkFilter, ItemTypeFilter, Release } from '../../__types__';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
-import { getScheduledSiteConfig } from '../../__configuration__/themes';
-
 import { EmptyState, InfoListItem, ListItemTag, Spacer } from '@brightlayer-ui/react-components';
 import { useAppSelector, useAppDispatch, RootState, setRoadmapLoading, setRoadmapData } from '../redux';
 import * as Colors from '@brightlayer-ui/colors';
@@ -28,7 +27,6 @@ import { useBackgroundColor } from '../hooks/useBackgroundColor';
 import { BLUIColor } from '@brightlayer-ui/types';
 import { getRoadmap } from '../api';
 import { ErrorOutline } from '@mui/icons-material';
-import clsx from 'clsx';
 import { AVAILABLE_RELEASES, CURRENT_RELEASE } from '../../__configuration__/roadmap';
 
 const styles: Record<string, SxProps<Theme>> = {
@@ -90,7 +88,6 @@ export const Roadmap: React.FC = (): React.JSX.Element => {
     const [releaseFilter, setReleaseFilter] = useState<Release>(CURRENT_RELEASE);
     const searchActive = useAppSelector((state: RootState) => state.app.searchActive);
     const showBanner = useAppSelector((state: RootState) => state.app.showBanner);
-    const selectedTheme = useAppSelector((state: RootState) => state.app.theme);
     const roadmapCache = useAppSelector((state: RootState) => state.app.roadmapCache);
     const roadmapLoading = useAppSelector((state: RootState) => state.app.roadmapLoading);
 
@@ -104,7 +101,6 @@ export const Roadmap: React.FC = (): React.JSX.Element => {
         [1, 2, 3],
         [1, 2, 3],
     ];
-    const themedClassName = getScheduledSiteConfig(selectedTheme).className;
 
     usePageTitle('Roadmap');
     useGoogleAnalyticsPageView();
@@ -286,21 +282,21 @@ export const Roadmap: React.FC = (): React.JSX.Element => {
                     <Box>
                         {loadingGroups.map((group, groupNumber) =>
                             group.map((item, i) => (
-                                <div
-                                    className={clsx('ph-item', themedClassName)}
-                                    key={`ph-group${groupNumber}-${i}`}
-                                    style={{ marginBottom: groupNumber > 0 && i === 0 ? 48 : 0 }}
+                                <Box
+                                    key={`skeleton-group${groupNumber}-${i}`}
+                                    sx={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        padding: 2,
+                                        marginTop: groupNumber > 0 && i === 0 ? 6 : 0,
+                                    }}
                                 >
-                                    <div className="ph-col-12">
-                                        <div className="ph-row" style={{ flexWrap: 'unset' }}>
-                                            <div className="ph-avatar" style={{ width: 30, height: 30, minWidth: 0 }} />
-                                            <div style={{ marginLeft: 16, width: '100%', backgroundColor: 'unset' }}>
-                                                <div style={{ display: 'flex', width: '33%', height: 12 }} />
-                                                <div style={{ display: 'flex', width: '66%', height: 12 }} />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    <Skeleton variant="circular" width={30} height={30} sx={{ flexShrink: 0 }} />
+                                    <Box sx={{ marginLeft: 2, width: '100%' }}>
+                                        <Skeleton variant="text" width="33%" height={20} />
+                                        <Skeleton variant="text" width="66%" height={20} />
+                                    </Box>
+                                </Box>
                             ))
                         )}
                     </Box>
