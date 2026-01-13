@@ -9,6 +9,17 @@ export enum BluiProjectTag {
     REAL_TIME_MONITORING = 'Real-time Monitoring',
     SCHEDULES = 'Schedules & Automation',
     TRANSACTIONS = 'Transactions',
+    OCPP_LOGS = 'OCPP Logs',
+    SERVICE_MAINTENANCE = 'Service & Maintenance',
+    MULTI_TENANT_SUPPORT = 'Multi-tenant Support',
+    OKTA_SSO = 'Okta SSO',
+    GRID_SOLUTIONS = 'Grid Solutions',
+    OPERATIONAL_ANALYTICS = 'Operational Analytics',
+    FACTORY_ASSISTED_DEVICE_RESET = 'Factory Assisted Device Reset',
+    SECURITY_BULLETINS = 'Security Bulletins',
+    TECHNICAL_DOCUMENTATION = 'Technical Documentation',
+    PRODUCT_DOWNLOADS = 'Product Downloads',
+    SOFTWARE_FIRMWARE_VERSIONS_ACCESS = 'Software & Firmware Versions Access',
 }
 
 export enum BluiProjectStack {
