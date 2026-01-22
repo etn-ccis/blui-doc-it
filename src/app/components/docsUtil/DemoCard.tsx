@@ -32,13 +32,13 @@ const getDetails = (repository: string, framework: string): Details => {
     switch (framework) {
         case 'angular':
             return {
-                url: `https://stackblitz.com/github/etn-ccis/blui-${repository}/tree/angular`,
+                url: '',
                 displayName: 'Angular',
                 icon: <Angular style={{ backgroundColor: 'transparent' }} />,
             };
         case 'react':
             return {
-                url: `https://codesandbox.io/s/github/etn-ccis/blui-${repository}/tree/react`,
+                url: '',
                 displayName: 'React',
                 icon: <ReactBlue style={{ backgroundColor: 'transparent' }} />,
             };
