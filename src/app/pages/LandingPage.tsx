@@ -101,7 +101,7 @@ export const LandingPage: React.FC = (): React.JSX.Element => {
                     Get Started
                 </Button>
             </Box>
-            <LandingSection title={'Design and Development'} align={'left'} background={'light'}>
+            <LandingSection title={'Design and '} align={'left'} background={'light'}>
                 <Grid container spacing={6} sx={{ mt: 5 }}>
                     {cardData.map((item, ind) => (
                         <Grid key={`grid${ind}`} size={{ xs: 12, sm: 6, md: 4 }}>
