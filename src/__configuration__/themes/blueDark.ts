@@ -84,4 +84,5 @@ export const blueDarkTheme: SiteConfig = {
         backgroundImage: `url(${circles})`,
         backgroundSize: 1200,
     },
+    drawerActiveBackgroundFade: 0.9,
 };

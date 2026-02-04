@@ -18,6 +18,9 @@ export {
     changeSelectedColor,
     toggleColorContrast,
     changeTheme,
+    setRoadmapLoading,
+    setRoadmapData,
+    clearRoadmapCache,
 } from './slices/appSlice';
 
 // Types

@@ -107,5 +107,6 @@ export const HalloweenSchedule: Schedule = {
             backgroundImage: `url(${ghosts})`,
         },
         landingPageTagline: 'boo',
+        drawerActiveBackgroundFade: 0.85, // Add background fade for active drawer items
     },
 };
