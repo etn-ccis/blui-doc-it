@@ -310,6 +310,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 ),
             },
             {
+                title: 'Add Icon Family',
+                url: 'add-icon-family',
+                component: <MarkdownPage title={'Add Icon Family'} markdown={Docs.Style.AddIconFamily} />,
+            },
+            {
                 title: 'Illustrations',
                 url: 'illustrations',
                 component: <MarkdownPage title={'Illustrations'} markdown={Docs.Style.Illustrations} />,

@@ -6,5 +6,6 @@ import Home from './home.mdx';
 import IconLibrary from './icon-library.mdx';
 import IconGuidelines from './icon-guidelines.mdx';
 import Logo from './logo.mdx';
+import AddIconFamily from './add-icon-family.mdx';
 
-export { Themes, Typography, Color, Home, IconLibrary, IconGuidelines, Illustrations, Logo };
+export { Themes, Typography, Color, Home, IconLibrary, IconGuidelines, Illustrations, Logo, AddIconFamily };

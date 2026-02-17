@@ -1,0 +1,454 @@
+import React from 'react';
+import { Divider } from '../../app/components';
+
+{/* KEYWORDS: icons add new icon family svg metadata build publish blui-icons repository */}
+
+# Adding New Icons to BLUI Icons Repository
+
+> This is a POC for System icon family, and not yet a finalized standard.
+
+This documentation covers the entire process of adding new icons to the blui-icons repository, from preparing the SVG files to publishing the updated packages.
+
+> **Using GitHub Copilot:** All these steps can be automated using GitHub Copilot. A skill file is already available in the `.github/skills/icon-addition` folder of the repository. Simply provide your SVG and PNG icon files, and Copilot can handle the end-to-end process including folder placement, metadata updates, and changelog entries.
+
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Preparing Your Icon](#preparing-your-icon)
+- [Adding Icons to the Design Folder](#adding-icons-to-the-design-folder)
+- [Updating the Metadata](#updating-the-metadata)
+- [Building the Packages](#building-the-packages)
+- [Testing Your Icons](#testing-your-icons)
+- [Updating Changelogs and Versions](#updating-changelogs-and-versions)
+- [Publishing](#publishing)
+
+<Divider />
+
+## Prerequisites
+
+Before adding new icons, ensure you have:
+
+- Node.js (v16 or higher recommended)
+- Yarn package manager installed
+- Repository cloned locally:
+
+```bash
+git clone https://github.com/etn-ccis/blui-icons.git
+cd blui-icons
+```
+
+- Dependencies installed:
+
+```bash
+yarn install
+```
+
+<Divider />
+
+## Preparing Your Icon
+
+### SVG Requirements
+
+Your icon files must meet these specifications:
+
+| Requirement | Value                             |
+| ----------- | --------------------------------- |
+| Format      | SVG                               |
+| Canvas Size | 24×24 pixels (default)            |
+| Stroke      | Converted to fills (no strokes)   |
+| Layers      | Flattened (no groups if possible) |
+
+### Naming Convention
+
+Icon filenames must follow this format:
+
+```
+icon_name_variant.svg
+```
+
+- Use lowercase letters only
+- Use underscores (`_`) to separate words
+- Add variant suffixes when applicable:
+    - `_outline` - Outline version
+    - `_twotone` - Two-tone version
+    - `_alt` - Alternative design
+
+**Examples:**
+
+- `lock_level_1.svg`
+- `lock_level_1_outline.svg`
+- `battery_charging_50.svg`
+
+### SVG Optimization
+
+Before adding, optimize your SVGs:
+
+1. Remove unnecessary metadata, comments, and editor artifacts
+2. Ensure `width` and `height` attributes from the root `<svg>` element is 24
+3. Ensure `viewBox="0 0 24 24"` is present
+4. Remove any `fill` attributes (or set to `currentColor`)
+
+**Example of a clean SVG:**
+
+```xml
+<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+</svg>
+```
+
+<Divider />
+
+## Adding Icons to the Design Folder
+
+### Folder Structure
+
+Place your SVG files in the appropriate subfolder within `/design`:
+
+```
+design/
+├── META.json                 # Main metadata file
+├── META_INPROGRESS.json      # Work-in-progress tracking
+├── README.md                 # Icon guidelines
+│
+├── System/                   # System-related icons
+│   ├── iOS/                  # iOS-specific icons
+│   ├── Lock/                 # Lock/security icons
+│   └── Size/                 # Size indicator icons
+├── WIP/                      # Work in progress (EXCLUDED from build)
+├── Internal/                 # Internal use only (EXCLUDED from build)
+└── old/                      # Deprecated icons (EXCLUDED from build)
+
+png/
+├── png24/                    # 24px PNG versions of icons
+└── png48/                    # 48px PNG versions of icons
+```
+
+### Step-by-Step: Adding Icon Files
+
+1. **Identify the correct category folder** for your icon(s)
+
+2. **Create a new subfolder** if needed for a new icon family:
+
+```bash
+mkdir -p design/System/NewCategory
+```
+
+3. **Copy your SVG file(s)** to the appropriate location.
+
+4. **Add equivalent PNG files** to the PNG folder:
+    - Place 24px PNG files in `/png/png24/`
+    - Place 48px PNG files in `/png/png48/`
+
+```bash
+# Copy 24px PNG
+cp /path/to/your/new_icon_24.png png/png24/new_icon.png
+
+# Copy 48px PNG
+cp /path/to/your/new_icon_48.png png/png48/new_icon.png
+```
+
+> **Note:** PNG filenames should match the SVG filename (without the size suffix).
+
+> **Important:** Do NOT place icons in `WIP/`, `Internal/`, or `old/` folders if you want them included in the build. These folders are explicitly excluded.
+
+<Divider />
+
+## Updating the Metadata
+
+### META.json Structure
+
+The `/design/META.json` file contains metadata for all icons. Each icon entry follows this schema:
+
+```json
+{
+    "name": "Icon Display Name",
+    "filename": "icon_filename.svg",
+    "family": ["Category1", "Category2"],
+    "style": "baseline",
+    "tags": ["keyword1", "keyword2", "keyword3"],
+    "description": "A brief description of what the icon represents",
+    "author": "Author Name",
+    "size": 24
+}
+```
+
+### Field Descriptions
+
+| Field       | Type   | Required | Description                                     |
+| ----------- | ------ | -------- | ----------------------------------------------- |
+| name        | string | ✅       | Human-readable display name (Title Case)        |
+| filename    | string | ✅       | Exact SVG filename including extension          |
+| family      | array  | ✅       | Category tags for organization                  |
+| style       | string | ✅       | Icon style: "baseline", "outline", or "twotone" |
+| tags        | array  | ✅       | Search keywords for discoverability             |
+| description | string | ✅       | Brief description of the icon                   |
+| author      | string | ✅       | Creator's name or organization                  |
+| size        | number | ✅       | Icon size in pixels (usually 24)                |
+
+### Step-by-Step: Adding Metadata
+
+1. **Open the metadata file:**
+
+2. **Find the appropriate position** within the icons array
+
+3. **Add your icon entry/entries:**
+
+```json
+{
+    "icons": [
+        {
+            "name": "Face ID",
+            "filename": "face_id.svg",
+            "family": ["System", "iOS", "Security"],
+            "style": "baseline",
+            "tags": ["face", "recognition", "biometric", "authentication", "apple", "ios"],
+            "description": "Apple Face ID biometric authentication icon",
+            "author": "Brightlayer UI",
+            "size": 24
+        }
+    ]
+}
+```
+
+4. **For icon variants**, add separate entries:
+
+```json
+{
+    "name": "Lock Level 1",
+    "filename": "lock_level_1.svg",
+    "family": ["System", "Lock", "Security"],
+    "style": "baseline",
+    "tags": ["lock", "security", "level", "access"],
+    "description": "Security lock level 1 indicator",
+    "author": "Brightlayer UI",
+    "size": 24
+},
+{
+    "name": "Lock Level 1 Outline",
+    "filename": "lock_level_1_outline.svg",
+    "family": ["System", "Lock", "Security"],
+    "style": "outline",
+    "tags": ["lock", "security", "level", "access", "outline"],
+    "description": "Security lock level 1 indicator (outline style)",
+    "author": "Brightlayer UI",
+    "size": 24
+}
+```
+
+### Best Practices for Metadata
+
+- **Tags:** Include 5-10 relevant keywords for searchability
+- **Family:** Use existing categories when possible; create new ones sparingly
+- **Description:** Keep it concise but informative (under 100 characters)
+- **Consistency:** Match naming patterns of existing similar icons
+
+<Divider />
+
+## Building the Packages
+
+### Full Build
+
+After adding icons and updating metadata, build all packages:
+
+```bash
+# From repository root
+yarn build
+```
+
+This command runs builds in topological order, ensuring dependencies are built first:
+
+```
+design/ → packages/svg → packages/icon-font → packages/rn-vector
+                      ↘ packages/mui
+```
+
+### Individual Package Builds
+
+For faster iteration during development, you can build individual packages:
+
+```bash
+# Build only SVG package
+cd packages/svg
+yarn build
+
+# Build only icon font
+cd packages/icon-font
+yarn build
+
+# Build only MUI components
+cd packages/mui
+yarn build
+
+# Build only React Native vector icons
+cd packages/rn-vector
+yarn build
+```
+
+### Build Output Summary
+
+| Package   | Output Location     | Generated Files                          |
+| --------- | ------------------- | ---------------------------------------- |
+| svg       | packages/svg/       | index.json, SVG files, sprite files      |
+| icon-font | packages/icon-font/ | BrightlayerUIIcons.ttf, .json, .css, .ts |
+| mui       | packages/mui/tsx/   | Individual .tsx React components         |
+| rn-vector | packages/rn-vector/ | Fonts/, GlyphMaps/                       |
+
+<Divider />
+
+## Testing Your Icons
+
+### Visual Verification
+
+1. **Check the icon font by running the demo project**
+
+This displays all icons in the font.
+
+2. **Verify SVG sprites:**
+
+```bash
+ls packages/svg/sprites/
+```
+
+3. **Check generated React components:**
+
+```bash
+ls packages/mui/tsx/ | grep -i "YourIconName"
+```
+
+### Automated Tests
+
+Run the test suite to ensure nothing is broken:
+
+```bash
+# Run all tests
+yarn test
+
+# Run specific package tests
+cd packages/mui
+yarn test
+```
+
+### Manual Testing in a Project
+
+For thorough testing, import your new icons in a test project:
+
+```tsx
+// For MUI icons
+import { YourNewIcon } from '@brightlayer-ui/icons-mui';
+
+// For SVG
+import YourNewIconSvg from '@brightlayer-ui/icons-svg/your_new_icon.svg';
+
+// For React Native
+import { YourNewIcon } from '@brightlayer-ui/react-native-vector-icons';
+```
+
+<Divider />
+
+## Updating Changelogs and Versions
+
+### Version Bump Guidelines
+
+| Change Type      | Version Bump | Example         |
+| ---------------- | ------------ | --------------- |
+| New icons added  | Minor        | 1.16.0 → 1.17.0 |
+| Bug fixes only   | Patch        | 1.16.0 → 1.16.1 |
+| Breaking changes | Major        | 1.16.0 → 2.0.0  |
+
+### Files to Update
+
+Update the following files for each affected package:
+
+#### 1. Package Version (package.json)
+
+```json
+{
+    "name": "@brightlayer-ui/icons-svg",
+    "version": "1.17.0"
+}
+```
+
+#### 2. Changelog (CHANGELOG.md)
+
+```markdown
+# Changelog
+
+## v1.17.0 (February 2026)
+
+### Added
+
+- New System icons:
+    - iOS: `face_id`
+    - Lock: `lock_level_1`, `lock_level_1_outline`, etc.
+    - Size: `size_xs`, `size_s`, `size_m`, `size_l`, `size_xl`
+```
+
+### Packages to Update
+
+When adding new icons, update all four packages:
+
+| Package                                   | Version File                    | Changelog                       |
+| ----------------------------------------- | ------------------------------- | ------------------------------- |
+| @brightlayer-ui/icons-svg                 | packages/svg/package.json       | packages/svg/CHANGELOG.md       |
+| @brightlayer-ui/icons                     | packages/icon-font/package.json | packages/icon-font/CHANGELOG.md |
+| @brightlayer-ui/icons-mui                 | packages/mui/package.json       | packages/mui/CHANGELOG.md       |
+| @brightlayer-ui/react-native-vector-icons | packages/rn-vector/package.json | packages/rn-vector/CHANGELOG.md |
+
+<Divider />
+
+## Publishing
+
+### Pre-Publish Checklist
+
+- [ ] All SVG files added to correct `/design` subfolder
+- [ ] META.json updated with all new icon entries
+- [ ] JSON syntax validated
+- [ ] `yarn build` completes successfully
+- [ ] Icons visible in BrightlayerUIIcons.html preview
+- [ ] All package.json versions updated
+- [ ] All CHANGELOG.md files updated
+- [ ] Tests pass (`yarn test`)
+- [ ] Changes committed to Git
+
+### Publishing Steps
+
+1. **Create a Pull Request** with your changes
+
+2. **After PR approval and merge**, packages are published via CI/CD
+
+<Divider />
+
+## Quick Reference Checklist
+
+```
+□ 1. Prepare SVG files (24x24, optimized, no strokes)
+□ 2. Add SVGs to /design/{Category}/ folder
+□ 3. Update /design/META.json with icon entries
+□ 4. Run `yarn build` from root
+□ 5. Verify icons in demo project
+□ 6. Update package.json versions (minor bump)
+□ 7. Update CHANGELOG.md files
+□ 8. Commit and create PR
+□ 9. Publish after approval
+```
+
+<Divider />
+
+## Troubleshooting
+
+### Common Issues
+
+| Issue                          | Solution                                             |
+| ------------------------------ | ---------------------------------------------------- |
+| Icon not appearing after build | Check filename matches META.json exactly             |
+| Build fails with JSON error    | Validate META.json syntax                            |
+| Icon renders incorrectly       | Check SVG for strokes, gradients, or embedded images |
+| Missing from specific package  | Verify build order (svg → icon-font → others)        |
+
+### Getting Help
+
+- Check the `design/README.md` for icon creation guidelines
+- Review existing icons in META.json for examples
+- Open an issue on the repository for complex problems
+
+---
