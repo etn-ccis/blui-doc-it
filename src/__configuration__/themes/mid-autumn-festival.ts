@@ -104,8 +104,8 @@ const MidAutumnTheme: ThemeOptions = {
 };
 
 export const MidAutumnSchedule: Schedule = {
-    start: new Date(0, 8, 12), // Sept 12
-    end: new Date(0, 8, 19), // Sept 18
+    start: new Date(0, 8, 22), // Sept 22
+    end: new Date(0, 8, 29), // Sept 29
     config: {
         theme: MidAutumnTheme,
         landingPageBanner: {
