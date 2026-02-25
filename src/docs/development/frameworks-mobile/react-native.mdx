@@ -43,7 +43,7 @@ The Brightlayer UI React Native Templates will automatically include:
 
 For detailed usage instructions, refer to the [Brightlayer UI React Native Templates documentation](https://github.com/etn-ccis/blui-react-native/blob/master/packages/cli-templates/README.md).
 
-> **NOTE**: Due to dependency mismatches between interdependent packages, running `npm install` may result in errors. To resolve this, it is recommended to use `npm install --legacy-peer-deps` or use `yarn install` instead.
+> **NOTE**: If you encounter peer-dependency errors when installing dependencies, first verify that you are using a supported combination of React Native and Brightlayer UI template versions as documented in the templates README, and try using `yarn install` (which respects peer dependencies). As a last-resort workaround, you may run `npm install --legacy-peer-deps`, but be aware that this disables peer-dependency enforcement and can lead to an incompatible and hard-to-debug dependency graph.
 
 ## Using an Existing Project
 
