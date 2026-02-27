@@ -355,6 +355,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 url: 'piecharts',
                 component: <MarkdownPage title={'Pie Charts'} markdown={Docs.Visualizations.Piecharts} />,
             },
+            {
+                title: 'Power BI',
+                url: 'powerbi',
+                component: <MarkdownPage title={'Power BI'} markdown={Docs.Visualizations.PowerBI} />,
+            },
         ],
     },
     {

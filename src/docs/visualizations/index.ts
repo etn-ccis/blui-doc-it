@@ -3,5 +3,6 @@ import Colors from './colors.mdx';
 import Barcharts from './barcharts.mdx';
 import Linecharts from './linecharts.mdx';
 import Piecharts from './piecharts.mdx';
+import PowerBI from './powerbi.mdx';
 
-export { Foundations, Colors, Barcharts, Linecharts, Piecharts };
+export { Foundations, Colors, Barcharts, Linecharts, Piecharts, PowerBI };
