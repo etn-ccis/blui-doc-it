@@ -1171,10 +1171,10 @@
     loose-envify "1.4.0"
     react-is "16.13.1"
 
-"@brightlayer-ui/react-progress-icons@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/react-progress-icons/-/react-progress-icons-2.1.1.tgz#a23cbababa12fa3c50a1206a33709cef56d8ee7d"
-  integrity sha512-pNQ62FbWZdVla0RAneBDdUevTBS+C6MsyLLdTaWVoOvhltKDwWGTGuWw2xm0bLFUmZn1VvBB/rmDaRi85x4vAA==
+"@brightlayer-ui/react-progress-icons@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.npmjs.org/@brightlayer-ui/react-progress-icons/-/react-progress-icons-2.2.0.tgz#4e710e9b5684a6d43b2b8637887a2ef2b8aedec4"
+  integrity sha512-Unw2R7HTSH/RtM3vPhiuk31O/Y6IGnqJtEanKz81uyhVBjNLn1gF1BPCjLPQ5YhYGpAv+C08fZByRNHgFu74tQ==
   dependencies:
     clsx "^1.1.1"
     color "^3.1.2"
