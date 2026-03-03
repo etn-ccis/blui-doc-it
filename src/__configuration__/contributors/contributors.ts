@@ -137,10 +137,6 @@ export const contributors: OtherContributor[] = [
         image: JoaoMota,
     },
     {
-        name: 'Julien Von Oetinger',
-        role: 'Front-End Developer',
-    },
-    {
         name: 'Evan McLaughlin',
         role: `Front-End Developer`,
         image: EvanMcLaughlin,
@@ -175,5 +171,9 @@ export const contributors: OtherContributor[] = [
         name: 'Jeff Greiner',
         role: 'Quality Assurance',
         image: JeffeyGreiner,
+    },
+    {
+        name: 'Julien Von Oetinger',
+        role: 'Front-End Developer',
     },
 ];
