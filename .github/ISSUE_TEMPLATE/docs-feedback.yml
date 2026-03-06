@@ -1,6 +1,6 @@
 name: Docs feedback
 description: Improve documentation about Brightlayer UI.
-labels: ['needs review', 'support: docs-feedback']
+labels: ['needs-review', 'support: docs-feedback']
 title: '[docs] '
 body:
   - type: markdown
