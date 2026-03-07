@@ -22,7 +22,7 @@
         "color": "^4.2.3",
         "dompurify": "^3.2.4",
         "fireworks-canvas": "^2.6.2",
-        "flexsearch": "~0.6.0",
+        "flexsearch": "~0.8.212",
         "lodash.debounce": "^4.0.8",
         "placeholder-loading": "^0.6.0",
         "react": "^19.1.1",
