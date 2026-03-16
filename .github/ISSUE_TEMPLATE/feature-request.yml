@@ -1,0 +1,96 @@
+name: "✨ Feature Request"
+description: "Suggest a new feature or enhancement for Brightlayer UI"
+title: "[Feature Request]: "
+type: "enhancement"
+labels: ["brightlayer-ui", "type: enhancement 🚀", "status: needs-review"]
+assignees: []
+ 
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🌟 Feature Request
+        Thank you for helping improve **Brightlayer UI**! 
+        Please fill out the details below so we can evaluate your request.
+
+  - type: input
+    id: summary
+    attributes:
+      label: "Feature Summary"
+      description: "Short description of the requested feature."
+    validations:
+      required: true
+ 
+  - type: textarea
+    id: problem
+    attributes:
+      label: "What problem does this solve?"
+      description: "Describe the limitation or challenge you're facing."
+    validations:
+      required: true
+ 
+  - type: textarea
+    id: solution
+    attributes:
+      label: "Proposed Solution"
+      description: "Describe your ideal solution or expected behavior."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: needs-design-spec
+    attributes:
+      label: Design impact
+      description:
+        Will this enhancement affect the visual design (how it looks) or user
+        interaction (how it behaves)?
+      options:
+        # NOTE: The text in these options is used to automatically label the
+        # issue with it's corresponding label. If these are modified,
+        # .github/labeler.yml must be updated as well.
+        - 'Yes, visual design'
+        - 'Yes, user interaction'
+        - 'Yes, both visual and interaction'
+        - "I'm not sure"
+        - 'No'
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: needs-documentation-updates
+    attributes:
+      label: Documentation impact
+      description: Does the documentation need to be updated for this enhancement?
+      options:
+        # NOTE: The text in these options is used to automatically label the
+        # issue with it's corresponding label. If these are modified,
+        # .github/labeler.yml must be updated as well.
+        - label: The website documentation
+        - label: Component documentation
+        - label: "I'm not sure"
+ 
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Alternatives Considered"
+      description: "Mention any alternative approaches or workarounds."
+    validations:
+      required: false
+ 
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: "Additional Info / Screenshots"
+      description: "Include references, mockups, or screenshots."
+    validations:
+      required: false
+ 
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Checklist"
+      options:
+        - label: "I have searched existing issues"
+        - label: "I have reviewed Brightlayer UI documentation"
+        - label: "I am willing to help contribute"
+ 
