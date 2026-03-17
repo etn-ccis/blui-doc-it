@@ -20,7 +20,7 @@
         "@types/dompurify": "^3.0.2",
         "axios": "^1.12.0",
         "color": "^4.2.3",
-        "dompurify": "^3.2.4",
+        "dompurify": "^3.3.2",
         "fireworks-canvas": "^2.6.2",
         "flexsearch": "~0.6.0",
         "lodash.debounce": "^4.0.8",
