@@ -21,20 +21,6 @@ body:
         - Safari
         - Firefox
         - Edge
-  - type: input
-    id: version
-    attributes:
-      label: Package version
-      description: 'Which version(s) are you using?'
-      placeholder: e.g. v1.0.0
-    validations:
-      required: true
-  - type: input
-    id: react-version
-    attributes:
-      label: React version
-      description: 'Which React version are you using?'
-      placeholder: e.g. v19.0.0
   - type: textarea
     id: description
     attributes:
