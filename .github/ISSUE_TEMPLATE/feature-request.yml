@@ -46,8 +46,8 @@ body:
         interaction (how it behaves)?
       options:
         # NOTE: The text in these options is used to automatically label the
-        # issue with it's corresponding label. If these are modified,
-        # .github/labeler.yml must be updated as well.
+        # issue with its corresponding label. If these are modified, ensure
+        # the corresponding label automation configuration is updated as well.
         - 'Yes, visual design'
         - 'Yes, user interaction'
         - 'Yes, both visual and interaction'
@@ -63,8 +63,8 @@ body:
       description: Does the documentation need to be updated for this enhancement?
       options:
         # NOTE: The text in these options is used to automatically label the
-        # issue with it's corresponding label. If these are modified,
-        # .github/labeler.yml must be updated as well.
+        # issue with its corresponding label. If these are modified, ensure
+        # the corresponding label automation configuration is updated as well.
         - label: The website documentation
         - label: Component documentation
         - label: "I'm not sure"
