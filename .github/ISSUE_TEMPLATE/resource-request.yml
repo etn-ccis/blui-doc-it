@@ -1,4 +1,4 @@
-name: " Resource Request 🎨"
+name: "Resource Request 🎨"
 description: "Request an icon, font, or other resource for Brightlayer UI HMI components"
 title: "[Resource]: "
 labels: ['status: needs-review', 'resource 🎨', 'brightlayer-ui', 'type: enhancement 🚀']
