@@ -7,7 +7,6 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Divider from '@mui/material/Divider';
 import { useTheme } from '@mui/material/styles';
-
 import { ResourceRow, PageContent, ExpansionHeader } from '../components';
 import { resources } from '../../__configuration__/resources';
 import { usePageTitle } from '../hooks/usePageTitle';
@@ -37,21 +36,21 @@ export const DevResources: React.FC = (): React.JSX.Element => {
                 elevation={0}
             >
                 <Tabs variant={'scrollable'} value={filter}>
-                    <Tab sx={{ minWidth: 'auto' }} label="All" value={'all'} onClick={(): void => setFilter('all')} />
+                    <Tab sx={{ minWidth: 'auto', color: 'inherit' }} label="All" value={'all'} onClick={(): void => setFilter('all')}  />
                     <Tab
-                        sx={{ minWidth: 'auto' }}
+                        sx={{ minWidth: 'auto', color: 'inherit' }}
                         label="Angular"
                         value={'angular'}
                         onClick={(): void => setFilter('angular')}
                     />
                     <Tab
-                        sx={{ minWidth: 'auto' }}
+                        sx={{ minWidth: 'auto', color: 'inherit' }}
                         label="React"
                         value={'react'}
                         onClick={(): void => setFilter('react')}
                     />
                     <Tab
-                        sx={{ minWidth: 'auto' }}
+                        sx={{ minWidth: 'auto', color: 'inherit' }}
                         label="React Native"
                         value={'react-native'}
                         onClick={(): void => setFilter('react-native')}
