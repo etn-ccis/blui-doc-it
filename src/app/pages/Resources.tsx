@@ -36,7 +36,12 @@ export const DevResources: React.FC = (): React.JSX.Element => {
                 elevation={0}
             >
                 <Tabs variant={'scrollable'} value={filter}>
-                    <Tab sx={{ minWidth: 'auto', color: 'inherit' }} label="All" value={'all'} onClick={(): void => setFilter('all')}  />
+                    <Tab
+                        sx={{ minWidth: 'auto', color: 'inherit' }}
+                        label="All"
+                        value={'all'}
+                        onClick={(): void => setFilter('all')}
+                    />
                     <Tab
                         sx={{ minWidth: 'auto', color: 'inherit' }}
                         label="Angular"
