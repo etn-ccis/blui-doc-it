@@ -168,7 +168,7 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         title: 'Progress Icons',
         angular: `Not Available`,
         react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/icons/progress-icons/examples`,
-        reactNative: `https://brightlayer-ui-components.github.io/react-native${branchSuffix}/community/resource-assets/icons/progress-icons/examples`,  
-        image: ProgressIcons,   
+        reactNative: `https://brightlayer-ui-components.github.io/react-native${branchSuffix}/community/resource-assets/icons/progress-icons/examples`,
+        image: ProgressIcons,
     },
 ];
