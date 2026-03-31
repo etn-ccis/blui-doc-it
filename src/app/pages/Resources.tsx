@@ -24,6 +24,7 @@ export const DevResources: React.FC = (): React.JSX.Element => {
     usePageTitle('Resources');
     useGoogleAnalyticsPageView();
     useBackgroundColor(theme.palette.background.default);
+
     return (
         <>
             <AppBar
@@ -35,7 +36,15 @@ export const DevResources: React.FC = (): React.JSX.Element => {
                 }}
                 elevation={0}
             >
-                <Tabs variant={'scrollable'} value={filter}>
+                <Tabs
+                    variant={'scrollable'}
+                    value={filter}
+                    // sx={{
+                    //     '& .Mui-selected': {
+                    //         color: 'yellow !important',
+                    //     }
+                    // }}
+                >
                     <Tab
                         sx={{ minWidth: 'auto', color: 'inherit' }}
                         label="All"

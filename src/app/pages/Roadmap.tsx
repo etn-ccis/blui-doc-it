@@ -45,6 +45,9 @@ const styles: Record<string, SxProps<Theme>> = {
         },
         color: 'inherit',
         fontWeight: 600,
+        '.MuiSelect-icon': {
+            color: 'inherit',
+        },
     },
     tagWrapper: {
         alignItems: 'center',
