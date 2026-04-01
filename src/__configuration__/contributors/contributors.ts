@@ -172,4 +172,8 @@ export const contributors: OtherContributor[] = [
         role: 'Quality Assurance',
         image: JeffeyGreiner,
     },
+    {
+        name: 'Julien Von Oetinger',
+        role: 'Front-End Developer',
+    },
 ];

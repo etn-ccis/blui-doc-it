@@ -19,13 +19,7 @@ You'll need to start by following the general instructions for setting up your d
 
 ## Using the Brightlayer UI CLI
 
-The fastest way to start a new Brightlayer UI project is to use our templates. The [React Native Community CLI](https://github.com/react-native-community/cli) will automatically scaffold a starter project for you using the Brightlayer UI templates with all of the necessary Brightlayer UI dependencies pre-configured. To start a React Native project:
-
-```sh
-npx react-native init MyApp
-```
-
-You can also select the template you want to use when starting a new project:
+The fastest way to start a new Brightlayer UI project is to use our templates. The [React Native Community CLI](https://github.com/react-native-community/cli) will automatically scaffold a starter project for you using the Brightlayer UI templates with all of the necessary Brightlayer UI dependencies pre-configured. To start a React Native project, select the template you want to use:
 
 ```sh
 npx @react-native-community/cli@latest init MyApp --template @brightlayer-ui/react-native-template-blank-typescript
@@ -48,6 +42,8 @@ The Brightlayer UI React Native Templates will automatically include:
 - Testing libraries ([jest](https://www.npmjs.com/package/jest) / [react-test-renderer](https://www.npmjs.com/package/react-test-renderer))
 
 For detailed usage instructions, refer to the [Brightlayer UI React Native Templates documentation](https://github.com/etn-ccis/blui-react-native/blob/master/packages/cli-templates/README.md).
+
+> **NOTE**: If you encounter peer-dependency errors when installing dependencies, first verify that you are using a supported combination of React Native and Brightlayer UI template versions as documented in the templates README, and try using `yarn install` (which respects peer dependencies). As a last-resort workaround, you may run `npm install --legacy-peer-deps`, but be aware that this disables peer-dependency enforcement and can lead to an incompatible and hard-to-debug dependency graph.
 
 ## Using an Existing Project
 
@@ -78,7 +74,7 @@ yarn add react-native-paper@4.0.0 react-native-vector-icons
 We have a [supplemental library](/development/components) of components designed specifically for Brightlayer UI applications. If you wish to use these components, you can install them by running:
 
 ```sh
-npm install --save @brightlayer-ui/react-components
+npm install --save @brightlayer-ui/react-native-components
 // or
 yarn add @brightlayer-ui/react-native-components
 ```
