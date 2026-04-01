@@ -111,12 +111,7 @@ export const ColorSwatch: React.FC<SwatchProps> = (props): React.JSX.Element => 
     }, []);
 
     useEffect(() => {
-        if (
-            selectedColor &&
-            selectedColor.category === category &&
-            selectedColor.name === name &&
-            selectedColor.weight === weight
-        ) {
+        if (selectedColor?.category === category && selectedColor.name === name && selectedColor.weight === weight) {
             setIsSelected(true);
         } else {
             setIsSelected(false);

@@ -43,8 +43,7 @@ const Icons: React.FC<IconGridProps> = (props) => {
             {icons
                 .sort((iconA, iconB) => (iconA.name < iconB.name ? -1 : 1))
                 .map((icon) => {
-                    const isSelected =
-                        selected && selected.name === icon.name && selected.isMaterial === icon.isMaterial;
+                    const isSelected = selected?.name === icon.name && selected.isMaterial === icon.isMaterial;
                     const iconDisplayName = snakeToTitleCase(icon.iconFontKey);
                     return (
                         <Grid

@@ -21,7 +21,7 @@ export const ButtonRow: React.FC<ButtonRowProps> = (props): React.JSX.Element =>
 
     const branch = isPackage
         ? 'master'
-        : branches && branches.length === 1 && branches[0] !== 'all'
+        : branches?.length === 1 && branches[0] !== 'all'
           ? branches[0].replace('-', '')
           : undefined;
 

@@ -39,11 +39,11 @@ export const DevResources: React.FC = (): React.JSX.Element => {
                 <Tabs
                     variant={'scrollable'}
                     value={filter}
-                    // sx={{
-                    //     '& .Mui-selected': {
-                    //         color: 'yellow !important',
-                    //     }
-                    // }}
+                    sx={{
+                        '& .Mui-selected': {
+                            color: `${theme.palette.primary.dark} !important`,
+                        },
+                    }}
                 >
                     <Tab
                         sx={{ minWidth: 'auto', color: 'inherit' }}
