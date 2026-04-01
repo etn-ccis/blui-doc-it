@@ -44,31 +44,12 @@ export const DevResources: React.FC = (): React.JSX.Element => {
                             color: `${theme.palette.primary.dark} !important`,
                         },
                     }}
+                    onChange={(e, value): void => setFilter(value)}
                 >
-                    <Tab
-                        sx={{ minWidth: 'auto', color: 'inherit' }}
-                        label="All"
-                        value={'all'}
-                        onClick={(): void => setFilter('all')}
-                    />
-                    <Tab
-                        sx={{ minWidth: 'auto', color: 'inherit' }}
-                        label="Angular"
-                        value={'angular'}
-                        onClick={(): void => setFilter('angular')}
-                    />
-                    <Tab
-                        sx={{ minWidth: 'auto', color: 'inherit' }}
-                        label="React"
-                        value={'react'}
-                        onClick={(): void => setFilter('react')}
-                    />
-                    <Tab
-                        sx={{ minWidth: 'auto', color: 'inherit' }}
-                        label="React Native"
-                        value={'react-native'}
-                        onClick={(): void => setFilter('react-native')}
-                    />
+                    <Tab sx={{ minWidth: 'auto', color: 'inherit' }} label="All" value={'all'} />
+                    <Tab sx={{ minWidth: 'auto', color: 'inherit' }} label="Angular" value={'angular'} />
+                    <Tab sx={{ minWidth: 'auto', color: 'inherit' }} label="React" value={'react'} />
+                    <Tab sx={{ minWidth: 'auto', color: 'inherit' }} label="React Native" value={'react-native'} />
                 </Tabs>
             </AppBar>
 
