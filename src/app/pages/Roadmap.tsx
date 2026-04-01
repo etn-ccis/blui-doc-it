@@ -13,9 +13,7 @@ import Button from '@mui/material/Button';
 import { SxProps } from '@mui/system';
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
-
 import { PageContent, ExpansionHeader } from '../components';
-
 import { Status, RoadmapItem, FrameworkFilter, ItemTypeFilter, Release } from '../../__types__';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView';
@@ -44,6 +42,11 @@ const styles: Record<string, SxProps<Theme>> = {
         alignSelf: 'stretch',
         '&:not(:first-of-type)': {
             ml: 2,
+        },
+        color: 'inherit',
+        fontWeight: 600,
+        '.MuiSelect-icon': {
+            color: 'inherit',
         },
     },
     tagWrapper: {

@@ -45,7 +45,7 @@ export const getBuildStatus = async (
         }
         const test = await Promise.all(results);
         for (const response of test) {
-            if (response && response.status === 200) {
+            if (response?.status === 200) {
                 const data = response.data.workflow_runs;
                 if (buildJobName) {
                     const targetRun = data.find((run: any) => run.name === 'Build');
@@ -95,7 +95,7 @@ export const getBugCount = async (repository: string, bugLabels: string[]): Prom
     try {
         const labels = bugLabels.length > 0 ? [bugLabels, 'bug'].join(',') : 'bug';
         const response = await github.get(`/repos/etn-ccis/blui-${repository}/issues?labels=${labels}`);
-        if (response && response.status === 200) return response.data.length;
+        if (response?.status === 200) return response.data.length;
         return undefined;
     } catch (thrown) {
         if (axios.isCancel(thrown)) {
@@ -109,7 +109,7 @@ export const getBugCount = async (repository: string, bugLabels: string[]): Prom
 export const getNpmVersion = async (packageName: string): Promise<string | undefined> => {
     try {
         const response = await npm.get(`/package/${encodeURIComponent(packageName)}`);
-        if (response && response.status === 200) return response.data.collected.metadata.version;
+        if (response?.status === 200) return response.data.collected.metadata.version;
         return undefined;
     } catch (thrown) {
         if (axios.isCancel(thrown)) {
@@ -123,7 +123,7 @@ export const getNpmVersion = async (packageName: string): Promise<string | undef
 export const getRoadmap = async (release: Release): Promise<RoadmapBucket[] | undefined> => {
     try {
         const response = await roadmap.get(`/${release}Roadmap.json`);
-        if (response && response.status === 200) return response.data;
+        if (response?.status === 200) return response.data;
         return undefined;
     } catch (thrown) {
         if (axios.isCancel(thrown)) {
@@ -146,7 +146,7 @@ export const getSvg = async ({
             family === 'brightlayer-ui'
                 ? await bluiIcons.get(`/${name}.svg`)
                 : await icons.get(`/${name}/v${version}/24px.svg`);
-        if (response && response.status === 200) return response.data;
+        if (response?.status === 200) return response.data;
         return undefined;
     } catch (thrown) {
         if (axios.isCancel(thrown)) {
@@ -160,7 +160,7 @@ export const getSvg = async ({
 export const getAnnouncementDetails = async (): Promise<AnnouncementData | undefined> => {
     try {
         const response = await announcementDetail.get(`/Announcement.json`);
-        if (response && response.status === 200) return response.data.announcement;
+        if (response?.status === 200) return response.data.announcement;
         return undefined;
     } catch (thrown) {
         if (axios.isCancel(thrown)) {
