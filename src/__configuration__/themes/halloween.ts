@@ -6,6 +6,7 @@ import castles from '../../app/assets/themes/halloween/castles.svg';
 import ghosts from '../../app/assets/themes/halloween/halloween-appbar-tile.svg';
 import witch from '../../app/assets/themes/halloween/witch.png';
 import { Schedule } from './_types';
+import { getHolidayDates } from './holidayScheduleLoader';
 
 const HalloweenTheme: ThemeOptions = {
     palette: {
@@ -89,9 +90,11 @@ const HalloweenTheme: ThemeOptions = {
     },
 };
 
+const dates = getHolidayDates('halloween');
+
 export const HalloweenSchedule: Schedule = {
-    start: new Date(0, 9, 24), // Oct 24
-    end: new Date(0, 10, 1), // Oct 30
+    start: dates?.start ?? new Date(0, 9, 24),
+    end: dates?.end ?? new Date(0, 9, 30),
     config: {
         theme: HalloweenTheme,
         landingPageBanner: {

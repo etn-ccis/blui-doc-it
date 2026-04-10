@@ -4,10 +4,13 @@ import * as BrandingColors from '@brightlayer-ui/colors-branding';
 import ChristmasEve from '../../app/assets/themes/christmas/christmas-eve.png';
 import AppBarTile from '../../app/assets/themes/christmas/christmas-appbar-tile.png';
 import { Schedule } from './_types';
+import { getHolidayDates } from './holidayScheduleLoader';
+
+const dates = getHolidayDates('christmas');
 
 export const ChristmasSchedule: Schedule = {
-    start: new Date(0, 11, 19), // Dec 19
-    end: new Date(0, 11, 26), // Dec 25
+    start: dates?.start ?? new Date(0, 11, 19),
+    end: dates?.end ?? new Date(0, 11, 25),
     config: {
         theme: {
             palette: {

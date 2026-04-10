@@ -4,10 +4,13 @@ import StPatricksDay from '../../app/assets/themes/st-patricks-day/st-patricks-d
 import stPatricksDayCursor from '../../app/assets/themes/st-patricks-day/st-patricks-day-cursor.png';
 import AppBarTile from '../../app/assets/themes/st-patricks-day/st-patricks-day-appbar-tile.png';
 import { Schedule } from './_types';
+import { getHolidayDates } from './holidayScheduleLoader';
+
+const dates = getHolidayDates('st-patricks');
 
 export const StPatricksDaySchedule: Schedule = {
-    start: new Date(0, 2, 16), // Mar 16
-    end: new Date(0, 2, 19), // Mar 18
+    start: dates?.start ?? new Date(0, 2, 16),
+    end: dates?.end ?? new Date(0, 2, 18),
     config: {
         theme: {
             palette: {

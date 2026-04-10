@@ -5,10 +5,13 @@ import cursor from '../../app/assets/themes/spring-festival/cursor.png';
 import titleBlock from '../../app/assets/themes/spring-festival/title-block.svg';
 import AppBarTile from '../../app/assets/themes/spring-festival/tile.svg';
 import { Schedule } from './_types';
+import { getHolidayDates } from './holidayScheduleLoader';
+
+const dates = getHolidayDates('spring-festival');
 
 export const SpringFestivalSchedule: Schedule = {
-    start: new Date(0, 1, 17), // Feb 17
-    end: new Date(0, 2, 3), // Mar 3
+    start: dates?.start ?? new Date(0, 1, 17),
+    end: dates?.end ?? new Date(0, 2, 3),
     config: {
         theme: {
             palette: {

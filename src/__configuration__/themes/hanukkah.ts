@@ -5,10 +5,13 @@ import Hanukkah from '../../app/assets/themes/hanukkah/hanukkah-banner.png';
 import dreidelCursor from '../../app/assets/themes/hanukkah/dreidel-cursor.png';
 import AppBarTile from '../../app/assets/themes/hanukkah/hanukkah-appbar-tile.png';
 import { Schedule } from './_types';
+import { getHolidayDates } from './holidayScheduleLoader';
+
+const dates = getHolidayDates('hanukkah');
 
 export const HanukkahSchedule: Schedule = {
-    start: new Date(0, 11, 14), // Dec 14
-    end: new Date(0, 11, 22), // Dec 22
+    start: dates?.start ?? new Date(0, 11, 14),
+    end: dates?.end ?? new Date(0, 11, 22),
     config: {
         theme: {
             palette: {
