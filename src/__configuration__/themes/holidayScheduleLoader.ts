@@ -10,9 +10,7 @@ type HolidayData = {
     [year: string]: string | YearData; // Allow both 'name' property and year keys
 };
 
-type HolidayScheduleData = {
-    [key: string]: HolidayData;
-};
+type HolidayScheduleData = Record<string, HolidayData>;
 
 const scheduleData: HolidayScheduleData = holidayScheduleData;
 
@@ -31,16 +29,16 @@ export const getHolidayDates = (holidayKey: string): HolidayDates | null => {
     const holidayData = scheduleData[holidayKey];
 
     if (!holidayData) {
-        // @eslint-ignore-next-line no-console
-        console.warn(`Holiday '${holidayKey}' not found in schedule`);
+        // eslint-disable-next-line no-console
+        console.error(`Holiday '${holidayKey}' not found in schedule`);
         return null;
     }
 
     const yearData = holidayData[currentYear.toString()];
 
     if (!yearData || typeof yearData === 'string') {
-        // @eslint-ignore-next-line no-console
-        console.warn(`Year ${currentYear} not found for holiday '${holidayKey}'`);
+        // eslint-disable-next-line no-console
+        console.error(`Year ${currentYear} not found for holiday '${holidayKey}'`);
         return null;
     }
 
