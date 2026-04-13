@@ -407,6 +407,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 url: 'contactus',
                 component: <MarkdownPage title={'Contact Us'} markdown={Docs.Community.Contact} />,
             },
+            {
+                title: 'FLEX Awards',
+                url: 'flex-awards',
+                component: <MarkdownPage title={'BLUI FLEX Awards'} markdown={Docs.Community.FlexAwards} />,
+            },
         ],
     },
     {
