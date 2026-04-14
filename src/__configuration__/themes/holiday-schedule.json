@@ -7,11 +7,11 @@
         },
         "2027": {
             "startDate": "2027-02-06",
-            "endDate": "2027-02-12"
+            "endDate": "2027-02-20"
         },
         "2028": {
             "startDate": "2028-01-26",
-            "endDate": "2028-02-01"
+            "endDate": "2028-02-09"
         }
     },
     "valentines-day": {
@@ -137,16 +137,16 @@
     "halloween": {
         "name": "Halloween",
         "2026": {
-            "startDate": "2026-10-24",
-            "endDate": "2026-10-30"
+            "startDate": "2026-10-29",
+            "endDate": "2026-11-02"
         },
         "2027": {
-            "startDate": "2027-10-24",
-            "endDate": "2027-10-30"
+            "startDate": "2027-10-29",
+            "endDate": "2027-11-02"
         },
         "2028": {
-            "startDate": "2028-10-24",
-            "endDate": "2028-10-30"
+            "startDate": "2028-10-29",
+            "endDate": "2028-11-02"
         }
     },
     "diwali": {
@@ -156,12 +156,12 @@
             "endDate": "2026-11-11"
         },
         "2027": {
-            "startDate": "2027-10-25",
+            "startDate": "2027-10-26",
             "endDate": "2027-10-30"
         },
         "2028": {
-            "startDate": "2028-11-13",
-            "endDate": "2028-11-18"
+            "startDate": "2028-10-15",
+            "endDate": "2028-10-20"
         }
     },
     "thanksgiving": {
@@ -182,16 +182,16 @@
     "hanukkah": {
         "name": "Hanukkah",
         "2026": {
-            "startDate": "2026-12-14",
-            "endDate": "2026-12-22"
+            "startDate": "2026-12-04",
+            "endDate": "2026-12-12"
         },
         "2027": {
-            "startDate": "2027-12-05",
-            "endDate": "2027-12-13"
+            "startDate": "2027-12-24",
+            "endDate": "2028-01-01"
         },
         "2028": {
-            "startDate": "2028-12-25",
-            "endDate": "2029-01-02"
+            "startDate": "2028-12-12",
+            "endDate": "2028-12-20"
         }
     },
     "christmas": {
@@ -212,16 +212,16 @@
     "kwanzaa": {
         "name": "Kwanzaa",
         "2026": {
-            "startDate": "2026-12-29",
-            "endDate": "2026-12-31"
+            "startDate": "2026-12-26",
+            "endDate": "2027-01-01"
         },
         "2027": {
-            "startDate": "2027-12-29",
-            "endDate": "2027-12-31"
+            "startDate": "2027-12-26",
+            "endDate": "2028-01-01"
         },
         "2028": {
-            "startDate": "2028-12-29",
-            "endDate": "2028-12-31"
+            "startDate": "2028-12-26",
+            "endDate": "2029-01-01"
         }
     },
     "new-years": {
