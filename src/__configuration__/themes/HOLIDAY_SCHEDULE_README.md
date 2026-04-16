@@ -89,11 +89,11 @@ The following holidays are configured:
 Each theme includes fallback dates in case:
 
 - The current year is not in the JSON file
-- The JSON file cannot be loaded
 - The holiday key is not found
 
-This ensures the application continues to work even if the JSON is outdated.
+This ensures the application continues to work even if the JSON data is incomplete or outdated for a supported holiday.
 
+Note: because the holiday schedule JSON is imported statically, an actual file load failure would typically fail the build/bundle rather than trigger these runtime fallbacks.
 ## Technical Details
 
 ### Date Format
