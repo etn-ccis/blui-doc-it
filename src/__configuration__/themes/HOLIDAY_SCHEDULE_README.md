@@ -93,6 +93,7 @@ Each theme includes fallback dates in case:
 This ensures the application continues to work even if the JSON data is incomplete or outdated for a supported holiday.
 
 Note: because the holiday schedule JSON is imported statically, an actual file load failure would typically fail the build/bundle rather than trigger these runtime fallbacks.
+
 ## Technical Details
 
 ### Date Format
