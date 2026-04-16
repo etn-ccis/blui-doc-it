@@ -4,15 +4,18 @@ import Banner from '../../app/assets/themes/women-s-day/international-women-s-da
 import AppBarTile from '../../app/assets/themes/women-s-day/international-women-s-day-appbar-tile.svg';
 import Cursor from '../../app/assets/themes/women-s-day/women-s-day-cursor.png';
 import { Schedule } from './_types';
+import { getHolidayDates } from './holidayScheduleLoader';
 
 // Custom palette since we don't have pink colors
 const LIGHT_COLOR = '#F1C4DA';
 const MAIN_COLOR = '#DE237D';
 const DARK_COLOR = '#B41461';
 
+const dates = getHolidayDates('womens-day');
+
 export const WomenSDaySchedule: Schedule = {
-    start: new Date(0, 2, 7), // Mar 7
-    end: new Date(0, 2, 10), // Mar 9
+    start: dates?.start ?? new Date(0, 2, 7),
+    end: dates?.end ?? new Date(0, 2, 9),
     config: {
         theme: {
             palette: {

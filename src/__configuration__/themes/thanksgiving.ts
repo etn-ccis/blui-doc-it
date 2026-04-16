@@ -5,10 +5,13 @@ import Thanksgiving from '../../app/assets/themes/thanksgiving/thanksgiving-bann
 import turkeyCursor from '../../app/assets/themes/thanksgiving/turkey-cursor.png';
 import AppBarTile from '../../app/assets/themes/thanksgiving/thanksgiving-appbar-tile.png';
 import { Schedule } from './_types';
+import { getHolidayDates } from './holidayScheduleLoader';
+
+const dates = getHolidayDates('thanksgiving');
 
 export const ThanksgivingSchedule: Schedule = {
-    start: new Date(0, 10, 22), // Nov 22
-    end: new Date(0, 10, 30), // Nov 29
+    start: dates?.start ?? new Date(0, 10, 22),
+    end: dates?.end ?? new Date(0, 10, 30),
     config: {
         theme: {
             palette: {
