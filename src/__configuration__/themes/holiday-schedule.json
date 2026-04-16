@@ -59,21 +59,6 @@
             "endDate": "2028-03-18"
         }
     },
-    "april-fools": {
-        "name": "April Fool's Day",
-        "2026": {
-            "startDate": "2026-04-01",
-            "endDate": "2026-04-02"
-        },
-        "2027": {
-            "startDate": "2027-04-01",
-            "endDate": "2027-04-02"
-        },
-        "2028": {
-            "startDate": "2028-04-01",
-            "endDate": "2028-04-02"
-        }
-    },
     "earth-day": {
         "name": "Earth Day",
         "2026": {
