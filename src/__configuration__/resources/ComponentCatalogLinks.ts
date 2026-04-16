@@ -16,6 +16,7 @@ import Scorecard from '../../app/assets/component-catalog/scorecard.png';
 import ThreeLiner from '../../app/assets/component-catalog/three-liner.png';
 import ToolbarMenu from '../../app/assets/component-catalog/toolbar-menu.png';
 import UserMenu from '../../app/assets/component-catalog/user-menu.png';
+import EditableTable from '../../app/assets/component-catalog/editable-table.png';
 import ProgressIcons from '../../app/assets/component-catalog/progress-icons.png';
 
 const branchSuffix = window.location.hostname === 'brightlayer-ui.github.io' ? '' : '-dev';
@@ -72,6 +73,13 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/drawer/examples`,
         reactNative: `https://brightlayer-ui-components.github.io/react-native${branchSuffix}/components/drawer/examples`,
         image: Drawer,
+    },
+    {
+        title: 'Editable Table',
+        angular: `Not Available`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/editable-table/examples`,
+        reactNative: `Not Available`,
+        image: EditableTable,
     },
     {
         title: 'Empty State',
