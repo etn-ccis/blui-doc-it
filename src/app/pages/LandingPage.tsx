@@ -139,8 +139,14 @@ export const LandingPage: React.FC = (): React.JSX.Element => {
                 ))}
                 <Button
                     variant={'outlined'}
-                    color={'primary'}
-                    sx={{ mt: 1 }}
+                    color="primary"
+                    sx={{
+                        mt: 1,
+                        borderColor: 'primary.main',
+                        '&:hover': {
+                            borderColor: 'primary.main',
+                        },
+                    }}
                     onClick={() => void navigate('/release-notes')}
                 >
                     View All
@@ -180,7 +186,13 @@ export const LandingPage: React.FC = (): React.JSX.Element => {
                     <Button
                         variant={'outlined'}
                         color={'primary'}
-                        sx={{ mt: 1 }}
+                        sx={{
+                            mt: 1,
+                            borderColor: 'primary.main',
+                            '&:hover': {
+                                borderColor: 'primary.main',
+                            },
+                        }}
                         onClick={() => void navigate('/community/innersourcing')}
                     >
                         Become a Contributor!
