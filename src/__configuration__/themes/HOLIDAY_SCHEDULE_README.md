@@ -35,7 +35,7 @@ The `holidayScheduleLoader.ts` utility provides the `getHolidayDates()` function
 
 ### 3. Holiday Theme Files
 
-Each holiday theme file (e.g., `christmas.ts`, `halloween.ts`) now uses the dynamic loader:
+Migrated holiday theme files (for example, `christmas.ts` and `halloween.ts`) use the dynamic loader:
 
 ```typescript
 import { getHolidayDates } from './holidayScheduleLoader';
