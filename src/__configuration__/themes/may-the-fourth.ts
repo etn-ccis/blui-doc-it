@@ -10,12 +10,15 @@ import LightSaber6 from '../../app/assets/themes/may-the-fourth/light-saber-6.pn
 import * as Colors from '@brightlayer-ui/colors';
 import color from 'color';
 import { Schedule } from './_types';
+import { getHolidayDates } from './holidayScheduleLoader';
 
 const lightSabers = [LightSaber1, LightSaber2, LightSaber3, LightSaber4, LightSaber5, LightSaber6];
 
+const dates = getHolidayDates('may-fourth');
+
 export const MayTheFourthSchedule: Schedule = {
-    start: new Date(0, 4, 3), // May 3
-    end: new Date(0, 4, 6), // May 5
+    start: dates?.start ?? new Date(0, 4, 3),
+    end: dates?.end ?? new Date(0, 4, 5),
     config: {
         theme: {
             palette: {

@@ -5,6 +5,7 @@ import NewYears from '../../app/assets/themes/new-years/new-years-banner.png';
 import fireworkCursor from '../../app/assets/themes/new-years/firework-rocket-cursor.png';
 import AppBarTile from '../../app/assets/themes/new-years/new-years-appbar-tile.png';
 import { Schedule } from './_types';
+import { getHolidayDates } from './holidayScheduleLoader';
 
 const NewYearsTheme: ThemeOptions = {
     palette: {
@@ -102,9 +103,11 @@ const NewYearsTheme: ThemeOptions = {
     typography: blueThemes.typography,
 };
 
+const dates = getHolidayDates('new-years');
+
 export const NewYearsSchedule: Schedule = {
-    start: new Date(0, 11, 31), // Dec 31
-    end: new Date(1, 0, 7), // Jan 6 (Next Year)
+    start: dates?.start ?? new Date(0, 11, 31),
+    end: dates?.end ?? new Date(1, 0, 6), // Jan 6 (Next Year)
     config: {
         theme: NewYearsTheme,
         landingPageBanner: {

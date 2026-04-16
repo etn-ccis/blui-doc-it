@@ -7,6 +7,7 @@ import titleBlock from '../../app/assets/themes/mid-autumn-festival/title-block.
 import AppBarTile from '../../app/assets/themes/mid-autumn-festival/app-bar.png';
 import { ThemeOptions } from '@mui/material/styles';
 import { Schedule } from './_types';
+import { getHolidayDates } from './holidayScheduleLoader';
 
 const MidAutumnTheme: ThemeOptions = {
     palette: {
@@ -103,9 +104,11 @@ const MidAutumnTheme: ThemeOptions = {
     },
 };
 
+const dates = getHolidayDates('mid-autumn-festival');
+
 export const MidAutumnSchedule: Schedule = {
-    start: new Date(0, 8, 22), // Sept 22
-    end: new Date(0, 8, 29), // Sept 29
+    start: dates?.start ?? new Date(0, 8, 22),
+    end: dates?.end ?? new Date(0, 8, 29),
     config: {
         theme: MidAutumnTheme,
         landingPageBanner: {

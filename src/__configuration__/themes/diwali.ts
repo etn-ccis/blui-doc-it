@@ -5,10 +5,13 @@ import Diwali from '../../app/assets/themes/diwali/diwali-banner.jpg';
 import diwaliCursor from '../../app/assets/themes/diwali/diwali-cursor.png';
 import AppBarTile from '../../app/assets/themes/diwali/diwali-appbar-tile.png';
 import { Schedule } from './_types';
+import { getHolidayDates } from './holidayScheduleLoader';
+
+const dates = getHolidayDates('diwali');
 
 export const DiwaliSchedule: Schedule = {
-    start: new Date(0, 10, 6), // Nov 6
-    end: new Date(0, 10, 11), // Nov 11
+    start: dates?.start ?? new Date(0, 10, 6),
+    end: dates?.end ?? new Date(0, 10, 11),
     config: {
         theme: {
             palette: {
