@@ -29,7 +29,6 @@ export const getHolidayDates = (holidayKey: string): HolidayDates | null => {
     const holidayData = scheduleData[holidayKey];
 
     if (!holidayData) {
-        // eslint-disable-next-line no-console
         console.error(`Holiday '${holidayKey}' not found in schedule`);
         return null;
     }
@@ -37,7 +36,6 @@ export const getHolidayDates = (holidayKey: string): HolidayDates | null => {
     const yearData = holidayData[currentYear.toString()];
 
     if (!yearData || typeof yearData === 'string') {
-        // eslint-disable-next-line no-console
         console.error(`Year ${currentYear} not found for holiday '${holidayKey}'`);
         return null;
     }
