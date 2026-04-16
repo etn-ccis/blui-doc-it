@@ -179,5 +179,4 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         reactNative: `https://brightlayer-ui-components.github.io/react-native${branchSuffix}/community/resource-assets/icons/progress-icons/examples`,
         image: ProgressIcons,
     },
-    
 ];
