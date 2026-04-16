@@ -1,7 +1,6 @@
 import { blueThemes } from '@brightlayer-ui/react-themes';
 import * as Colors from '@brightlayer-ui/colors';
 import { ThemeOptions } from '@mui/material/styles';
-
 import castles from '../../app/assets/themes/halloween/castles.svg';
 import ghosts from '../../app/assets/themes/halloween/halloween-appbar-tile.svg';
 import witch from '../../app/assets/themes/halloween/witch.png';

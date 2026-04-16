@@ -71,7 +71,6 @@ The following holidays are configured:
 - Valentine's Day (Feb 13-15)
 - Women's Day (Mar 7-9)
 - St. Patrick's Day (Mar 16-18)
-- April Fool's Day (Apr 1-2)
 - Earth Day (Apr 20-24)
 - May the Fourth (May 3-5)
 - Independence Day (Jul 1-7)
