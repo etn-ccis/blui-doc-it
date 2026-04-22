@@ -193,7 +193,7 @@
             "pages": [
                 {
                     "title": "Device Commissioning",
-                    "url": "device-commissioning"
+                    "url": "/device-commissioning"
                 }
             ]
         },
@@ -246,15 +246,19 @@
                 },
                 {
                     "title": "Bar Chart",
-                    "url": "/barchart"
+                    "url": "/barcharts"
                 },
                 {
                     "title": "Line Chart",
-                    "url": "/linechart"
+                    "url": "/linecharts"
                 },
                 {
                     "title": "Pie Chart",
-                    "url": "/piechart"
+                    "url": "/piecharts"
+                },
+                {
+                    "title": "Power BI",
+                    "url": "/powerbi"
                 }
             ]
         },
