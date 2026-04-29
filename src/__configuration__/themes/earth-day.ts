@@ -4,10 +4,13 @@ import banner from '../../app/assets/themes/earth-day/earth.jpg';
 import cursor from '../../app/assets/themes/earth-day/cursor.svg';
 import AppBarTile from '../../app/assets/themes/earth-day/tile.svg';
 import { Schedule } from './_types';
+import { getHolidayDates } from './holidayScheduleLoader';
+
+const dates = getHolidayDates('earth-day');
 
 export const EarthDaySchedule: Schedule = {
-    start: new Date(0, 3, 20), // Apr 20
-    end: new Date(0, 3, 25), // Apr 24
+    start: dates?.start ?? new Date(0, 3, 20),
+    end: dates?.end ?? new Date(0, 3, 24),
     config: {
         theme: {
             palette: {

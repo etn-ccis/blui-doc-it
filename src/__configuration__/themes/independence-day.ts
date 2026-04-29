@@ -5,10 +5,13 @@ import IndependenceDay from '../../app/assets/themes/independence-day/independen
 import IndependenceDayCursor from '../../app/assets/themes/independence-day/flag-cursor.png';
 import AppBarTile from '../../app/assets/themes/independence-day/independence-day-appbar-tile.png';
 import { Schedule } from './_types';
+import { getHolidayDates } from './holidayScheduleLoader';
+
+const dates = getHolidayDates('independence-day');
 
 export const IndependenceDaySchedule: Schedule = {
-    start: new Date(0, 6, 1), // July 1
-    end: new Date(0, 6, 8), // July 7
+    start: dates?.start ?? new Date(0, 6, 1),
+    end: dates?.end ?? new Date(0, 6, 7),
     config: {
         theme: {
             palette: {

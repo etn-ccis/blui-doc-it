@@ -8,10 +8,13 @@ import Cursor from '../../app/assets/themes/valentine-s-day/cursor.svg';
 import Cursor2 from '../../app/assets/themes/valentine-s-day/cursor-2.svg';
 import * as Colors from '@brightlayer-ui/colors';
 import { Schedule } from './_types';
+import { getHolidayDates } from './holidayScheduleLoader';
+
+const dates = getHolidayDates('valentines-day');
 
 export const ValentineSchedule: Schedule = {
-    start: new Date(0, 1, 13), // Feb 13
-    end: new Date(0, 1, 16), // Feb 15
+    start: dates?.start ?? new Date(0, 1, 13),
+    end: dates?.end ?? new Date(0, 1, 15),
     config: {
         theme: {
             palette: {
