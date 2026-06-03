@@ -1140,10 +1140,10 @@
   dependencies:
     "@brightlayer-ui/types" "^2.0.0"
 
-"@brightlayer-ui/colors@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/colors/-/colors-3.1.1.tgz#7bc86498e30172c410ba4c3237149b16a2eed4c6"
-  integrity sha512-fV10E5JDuVGDQ0gCY3pEfDwUo1+lvDFC5pmOAAGpN7YDramS6ggUpJ/LmYavKAudw7FNcaJnPi7tsQWJjvv/7w==
+"@brightlayer-ui/colors@3.2.0-alpha.4", "@brightlayer-ui/colors@^3.2.0-alpha.3":
+  version "3.2.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/colors/-/colors-3.2.0-alpha.4.tgz#de571224f449547e8146daef36c7e93d0725b104"
+  integrity sha512-yYI6OWNceGyp9gO37PqHMfzJExhsx9gq+OvApvWiVRVoZK/UgCkaXX/RGPvUDBgAtU2pCqpOuLp3K/BxiGFMDg==
   dependencies:
     "@brightlayer-ui/types" "^2.0.0"
 
@@ -1193,12 +1193,12 @@
     color "^3.1.2"
     react-jss "^10.4.0"
 
-"@brightlayer-ui/react-themes@^9.0.1":
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/react-themes/-/react-themes-9.0.1.tgz#f7e62270f395c3c691a704bed137b9fc56f2a66e"
-  integrity sha512-Z2P/W1APm++xGtcfRbzNq5/ViMV4ntCyBF86Co/jtfXL+8sGlcMYcfuQ4w1S1/k/pCXz1LYFuUzWF6ytcQ2R2g==
+"@brightlayer-ui/react-themes@9.1.0-alpha.4":
+  version "9.1.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/react-themes/-/react-themes-9.1.0-alpha.4.tgz#9e30f0f8a2c4c6a6fe1e8f1474a69bc1ff04db4e"
+  integrity sha512-roE/LEEl0Jw+cXvHSN0cyZjGVf333agRhhsiN8uwU7dJcdb107YeTcLMzy7tCqvsPupVY8xEeNpfk2PkYsBPYA==
   dependencies:
-    "@brightlayer-ui/colors" "^3.1.1"
+    "@brightlayer-ui/colors" "^3.2.0-alpha.3"
     "@brightlayer-ui/types" "^2.0.0"
     "@fontsource/open-sans" "^5.0.3"
     color "^4.2.3"
