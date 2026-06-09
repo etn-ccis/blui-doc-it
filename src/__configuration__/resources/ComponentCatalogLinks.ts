@@ -83,6 +83,13 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         image: EmptyState,
     },
     {
+        title: 'File Drag Upload',
+        angular: `Not Available`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/file-drag-upload/examples`,
+        reactNative: `Not Available`,
+        image: FileDragUpload,
+    },
+    {
         title: 'Grade',
         angular: `Not Available`,
         react: `Not Available`,
@@ -179,12 +186,5 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/data-table/examples`,
         reactNative: `Not Available`,
         image: EditableTable,
-    },
-    {
-        title: 'File Drag Upload',
-        angular: `Not Available`,
-        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/file-drag-upload/examples`,
-        reactNative: `Not Available`,
-        image: FileDragUpload,
     },
 ];
