@@ -18,6 +18,7 @@ import ToolbarMenu from '../../app/assets/component-catalog/toolbar-menu.png';
 import UserMenu from '../../app/assets/component-catalog/user-menu.png';
 import EditableTable from '../../app/assets/component-catalog/editable-table.png';
 import ProgressIcons from '../../app/assets/component-catalog/progress-icons.png';
+import FileDragUpload from '../../app/assets/component-catalog/drag-drop.png';
 
 const branchSuffix = window.location.hostname === 'brightlayer-ui.github.io' ? '' : '-dev';
 
@@ -80,6 +81,13 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/empty-state/examples`,
         reactNative: `https://brightlayer-ui-components.github.io/react-native${branchSuffix}/components/empty-state/examples`,
         image: EmptyState,
+    },
+    {
+        title: 'File Drag Upload',
+        angular: `Not Available`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/file-drag-upload/examples`,
+        reactNative: `Not Available`,
+        image: FileDragUpload,
     },
     {
         title: 'Grade',
