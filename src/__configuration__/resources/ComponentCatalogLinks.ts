@@ -69,7 +69,7 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         reactNative: `https://brightlayer-ui-components.github.io/react-native${branchSuffix}/components/collapsible-header-layout/examples`,
         image: CollapsibleHeaderLayout,
     },
-        {
+    {
         title: 'Data Table',
         angular: `Not Available`,
         react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/data-table/examples`,
@@ -111,7 +111,7 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         reactNative: `https://brightlayer-ui-components.github.io/react-native${branchSuffix}/components/hero/examples`,
         image: Hero,
     },
-        {
+    {
         title: 'Horizontal Stacked Bar',
         angular: `Not Available`,
         react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/horizontal-stacked-bar/examples`,
@@ -160,7 +160,7 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         reactNative: `https://brightlayer-ui-components.github.io/react-native${branchSuffix}/components/overline/examples`,
         image: Overline,
     },
-        {
+    {
         title: 'Progress Icons',
         angular: `Not Available`,
         react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/icons/progress-icons/examples`,
