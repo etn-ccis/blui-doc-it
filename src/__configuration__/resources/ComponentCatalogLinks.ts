@@ -19,6 +19,7 @@ import UserMenu from '../../app/assets/component-catalog/user-menu.png';
 import EditableTable from '../../app/assets/component-catalog/editable-table.png';
 import ProgressIcons from '../../app/assets/component-catalog/progress-icons.png';
 import FileDragUpload from '../../app/assets/component-catalog/drag-drop.png';
+import HorizontalStackedBar from '../../app/assets/component-catalog/horizontal-stacked-bar.png';
 
 const branchSuffix = window.location.hostname === 'brightlayer-ui.github.io' ? '' : '-dev';
 
@@ -68,6 +69,13 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         reactNative: `https://brightlayer-ui-components.github.io/react-native${branchSuffix}/components/collapsible-header-layout/examples`,
         image: CollapsibleHeaderLayout,
     },
+        {
+        title: 'Data Table',
+        angular: `Not Available`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/data-table/examples`,
+        reactNative: `Not Available`,
+        image: EditableTable,
+    },
     {
         title: 'Drawer',
         angular: `https://brightlayer-ui-components.github.io/angular${branchSuffix}/components/drawer/examples`,
@@ -102,6 +110,13 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/hero/examples`,
         reactNative: `https://brightlayer-ui-components.github.io/react-native${branchSuffix}/components/hero/examples`,
         image: Hero,
+    },
+        {
+        title: 'Horizontal Stacked Bar',
+        angular: `Not Available`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/horizontal-stacked-bar/examples`,
+        reactNative: `https://brightlayer-ui-components.github.io/react-native${branchSuffix}/components/horizontal-stacked-bar/examples`,
+        image: HorizontalStackedBar,
     },
     {
         title: 'Icon',
@@ -145,6 +160,13 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         reactNative: `https://brightlayer-ui-components.github.io/react-native${branchSuffix}/components/overline/examples`,
         image: Overline,
     },
+        {
+        title: 'Progress Icons',
+        angular: `Not Available`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/icons/progress-icons/examples`,
+        reactNative: `https://brightlayer-ui-components.github.io/react-native${branchSuffix}/community/resource-assets/icons/progress-icons/examples`,
+        image: ProgressIcons,
+    },
     {
         title: 'Scorecard',
         angular: `https://brightlayer-ui-components.github.io/angular${branchSuffix}/components/score-card/examples`,
@@ -172,19 +194,5 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/user-menu/examples`,
         reactNative: `https://brightlayer-ui-components.github.io/react-native${branchSuffix}/components/user-menu/examples`,
         image: UserMenu,
-    },
-    {
-        title: 'Progress Icons',
-        angular: `Not Available`,
-        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/icons/progress-icons/examples`,
-        reactNative: `https://brightlayer-ui-components.github.io/react-native${branchSuffix}/community/resource-assets/icons/progress-icons/examples`,
-        image: ProgressIcons,
-    },
-    {
-        title: 'Data Table',
-        angular: `Not Available`,
-        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/data-table/examples`,
-        reactNative: `Not Available`,
-        image: EditableTable,
     },
 ];
