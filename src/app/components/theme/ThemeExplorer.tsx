@@ -44,7 +44,6 @@ const darkTheme = createTheme({
             secondary: BLUIColors.black[200],
             disabled: BLUIColors.black[300],
         },
-        // @ts-ignore - custom BLUI shadows consumed by component overrides
         shadows: {
             level1: '0 0 2px 0 rgba(0, 0, 0, 0.32), 0 1px 2px 0 rgba(0, 0, 0, 0.32), 0 1px 4px 0 rgba(0, 0, 0, 0.32)',
             level2: '0 0 6px 0 rgba(0, 0, 0, 0.32), 0 1px 4px 0 rgba(0, 0, 0, 0.32), 0 4px 8px 0 rgba(0, 0, 0, 0.32)',
@@ -75,7 +74,6 @@ const lightTheme = createTheme({
             primary: BLUIColors.black[500],
             secondary: BLUIColors.gray[500],
         },
-        // @ts-ignore - custom BLUI shadows consumed by component overrides
         shadows: {
             level1: '0 0 2px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.04), 0 1px 4px 0 rgba(0, 0, 0, 0.04)',
             level2: '0 0 6px 0 rgba(0, 0, 0, 0.04), 0 1px 4px 0 rgba(0, 0, 0, 0.04), 0 4px 8px 0 rgba(0, 0, 0, 0.04)',
@@ -87,6 +85,7 @@ const lightTheme = createTheme({
     spacing: theme.spacing,
     typography: theme.typography,
 });
+
 export const ThemeExplorer: React.FC = () => {
     const [localThemeDark, setLocalThemeDark] = useState(false);
     const [selectedComponent, setSelectedComponent] = useState(0);
