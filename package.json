@@ -20,7 +20,7 @@
         "@types/dompurify": "^3.0.2",
         "axios": "^1.15.0",
         "color": "^4.2.3",
-        "dompurify": "^3.4.0",
+        "dompurify": "^3.4.11",
         "file-saver": "^2.0.5",
         "fireworks-canvas": "^2.6.2",
         "flexsearch": "~0.6.0",
