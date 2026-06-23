@@ -44,6 +44,12 @@ const darkTheme = createTheme({
             secondary: BLUIColors.black[200],
             disabled: BLUIColors.black[300],
         },
+        // @ts-ignore - custom BLUI shadows consumed by component overrides
+        shadows: {
+            level1: '0 0 2px 0 rgba(0, 0, 0, 0.32), 0 1px 2px 0 rgba(0, 0, 0, 0.32), 0 1px 4px 0 rgba(0, 0, 0, 0.32)',
+            level2: '0 0 6px 0 rgba(0, 0, 0, 0.32), 0 1px 4px 0 rgba(0, 0, 0, 0.32), 0 4px 8px 0 rgba(0, 0, 0, 0.32)',
+            level3: '0 0 2px 0 rgba(0, 0, 0, 0.48), 0 8px 16px 0 rgba(0, 0, 0, 0.48), 0 10px 32px 0 rgba(0, 0, 0, 0.48)',
+        },
     },
 });
 const lightTheme = createTheme({
@@ -68,6 +74,12 @@ const lightTheme = createTheme({
         text: {
             primary: BLUIColors.black[500],
             secondary: BLUIColors.gray[500],
+        },
+        // @ts-ignore - custom BLUI shadows consumed by component overrides
+        shadows: {
+            level1: '0 0 2px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.04), 0 1px 4px 0 rgba(0, 0, 0, 0.04)',
+            level2: '0 0 6px 0 rgba(0, 0, 0, 0.04), 0 1px 4px 0 rgba(0, 0, 0, 0.04), 0 4px 8px 0 rgba(0, 0, 0, 0.04)',
+            level3: '0 0 2px 0 rgba(0, 0, 0, 0.12), 0 8px 16px 0 rgba(0, 0, 0, 0.12), 0 10px 32px 0 rgba(0, 0, 0, 0.12)',
         },
     },
     components: theme.components,
