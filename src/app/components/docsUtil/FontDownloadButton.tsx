@@ -64,6 +64,7 @@ export const FontDownloadButton: React.FC<FontDownloadButtonProps> = ({
             onClick={(): void => {
                 void handleDownload();
             }}
+            disableElevation={true}
             {...buttonProps}
         >
             {children ?? (loading ? 'Preparing…' : 'Download Fonts')}
