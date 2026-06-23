@@ -18,7 +18,7 @@ const FONT_URLS = [
 const toRawUrl = (blobUrl: string): string =>
     blobUrl.replace('https://github.com/', 'https://raw.githubusercontent.com/').replace('/blob/', '/');
 
-const getFileName = (url: string): string => url.split('/').pop() || 'font.ttf';
+const getFileName = (url: string): string => url.split('/').pop() ?? 'font.ttf';
 
 type FontDownloadButtonProps = ButtonProps & {
     zipName?: string;
@@ -49,7 +49,6 @@ export const FontDownloadButton: React.FC<FontDownloadButtonProps> = ({
             const content = await zip.generateAsync({ type: 'blob' });
             saveAs(content, zipName);
         } catch (error) {
-            // eslint-disable-next-line no-console
             console.error('Failed to download fonts:', error);
         } finally {
             setLoading(false);
