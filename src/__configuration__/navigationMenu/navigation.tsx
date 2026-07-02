@@ -356,6 +356,16 @@ export const pageDefinitions: SimpleNavItem[] = [
                 component: <MarkdownPage title={'Pie Charts'} markdown={Docs.Visualizations.Piecharts} />,
             },
             {
+                title: 'Gauge Charts',
+                url: 'gauge',
+                component: <MarkdownPage title={'Gauge Charts'} markdown={Docs.Visualizations.Gauge} />,
+            },
+            {
+                title: 'Sankey Diagrams',
+                url: 'sankey',
+                component: <MarkdownPage title={'Sankey Diagrams'} markdown={Docs.Visualizations.Sankey} />,
+            },
+            {
                 title: 'Power BI',
                 url: 'powerbi',
                 component: <MarkdownPage title={'Power BI'} markdown={Docs.Visualizations.PowerBI} />,

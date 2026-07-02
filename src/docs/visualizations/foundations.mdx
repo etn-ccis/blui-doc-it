@@ -1,13 +1,21 @@
 import Chart from '../../app/assets/visualizations/foundations/foundations-chart.png';
 import DataGranularity from '../../app/assets/visualizations/foundations/datagranularity.png';
 import { ImageGrid } from '../../app/components';
-import { ExpansionHeader, BLCAccordian } from '../../app/components';
+import { ExpansionHeader, BLCAccordian, BLCIconButton } from '../../app/components';
+import { ReactComponent as CommunityIcon } from '../../app/assets/visualizations/icons/communityicon.svg';
+import { COMMUNITY_DOCS_URL } from '../../__configuration__/visualizations';
 
 # Foundations
 
 Charts are a common data visualization solution, and they are a part of many Eaton products 
 and interfaces. In this page you can learn about the elements that compose our chart components, 
 how they relate to each other and the design rules to put these elements together.
+
+<BLCIconButton
+    icon={CommunityIcon}
+    label={'View in Brightlayer Charts'}
+    url={COMMUNITY_DOCS_URL}
+/>
 
 ## Building Blocks
 

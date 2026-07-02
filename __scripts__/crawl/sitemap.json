@@ -257,6 +257,14 @@
                     "url": "/piecharts"
                 },
                 {
+                    "title": "Gauge Chart",
+                    "url": "/gauge"
+                },
+                {
+                    "title": "Sankey Diagram",
+                    "url": "/sankey"
+                },
+                {
                     "title": "Power BI",
                     "url": "/powerbi"
                 }
