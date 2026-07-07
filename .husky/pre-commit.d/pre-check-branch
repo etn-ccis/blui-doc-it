@@ -3,6 +3,10 @@ LC_ALL=C
 
 local_branch="$(git rev-parse --abbrev-ref HEAD)"
 
+# Detached HEAD (e.g., checking out a tag/commit) shouldn't be blocked by naming rules
+if [[ $local_branch == "HEAD" ]]; then
+    exit 0
+fi
 # Branch naming convention: <type>/blui-<JIRA-ID>[-optional-description]
 # Examples:
 #   feature/blui-1234
