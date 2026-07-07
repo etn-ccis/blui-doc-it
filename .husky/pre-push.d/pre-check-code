@@ -1,1 +1,1 @@
-yarn install --immutable && yarn prettier:check && yarn lint
+yarn install --frozen-lockfile && yarn prettier:check && yarn lint
