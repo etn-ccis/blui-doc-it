@@ -49,9 +49,9 @@ export const BLCIconButton: React.FC<BLCIconButtonProps> = ({ icon, url, label }
         }
     };
     return (
-        <div style={{ display: 'inline-block' }}>
+        <div style={{ display: 'inline-block', verticalAlign: 'top' }}>
             <StyledIconButton onClick={handleClick} bordercolor={primaryColor}>
-                {IconComp && <IconComp fill={primaryColor} />}
+                {IconComp && <IconComp fill={primaryColor} width={20} height={20} />}
                 <StyledTypography color={primaryColor}>{label}</StyledTypography>
             </StyledIconButton>
         </div>
