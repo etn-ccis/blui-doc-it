@@ -51,6 +51,7 @@
         "lint:fix": "eslint \"src/**/**.{ts,tsx}\" --fix",
         "prettier": "prettier \"src/**/**.{ts,tsx,js,jsx,json,css,scss,html,md}\" --write",
         "prettier:check": "prettier \"src/**/**.{ts,tsx,js,jsx,json,css,scss,html,md}\" --check",
+        "prepare": "husky",
         "precommit": "yarn prettier && yarn lint && yarn check:links",
         "indexer": "cd __scripts__/crawl && node crawler.js && node indexer.js && cd ../.. && prettier \"src/database/*.json\" --write",
         "analyze": "source-map-explorer 'build/static/js/*.js'"
@@ -96,6 +97,7 @@
         "eslint-plugin-react": "^7.36.1",
         "eslint-plugin-react-hooks": "^5.2.0",
         "firebase-tools": "^14.2.2",
+        "husky": "^9.1.7",
         "markdown-link-check": "^3.13.6",
         "natural": "^5.0.0",
         "prettier": "^3.3.3",
