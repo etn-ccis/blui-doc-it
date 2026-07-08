@@ -14,7 +14,6 @@ import { Menu, Notifications, Search } from '@mui/icons-material';
 /*
  * cannot iterate through variations due to the way MUI implemented text fields
  */
-
 export const AppBarDemo: React.JSX.Element = (
     <Stack
         justifyContent={'center'}
@@ -47,8 +46,15 @@ export const AppBarDemo: React.JSX.Element = (
             </Toolbar>
         </AppBar>
 
-        <AppBar position={'static'} key={'secondary'} color={'secondary'} sx={{ zIndex: 0 }}>
-            <Tabs value={0}>
+        <AppBar position={'static'} key={'secondary'} color={'transparent'} sx={{ zIndex: 0 }}>
+            <Tabs
+                value={0}
+                sx={{
+                    '& .MuiTabs-indicator': { backgroundColor: '#005EB8' },
+                    '& .MuiTab-root': { color: '#353C44' },
+                    '& .MuiTab-root.Mui-selected': { color: '#005EB8' },
+                }}
+            >
                 <Tab value={0} label={'Secondary'} />
                 <Tab value={1} label={'App Bar'} />
                 <Tab value={2} label={'with Tabs'} />

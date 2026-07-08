@@ -1140,7 +1140,7 @@
   dependencies:
     "@brightlayer-ui/types" "^2.0.0"
 
-"@brightlayer-ui/colors@3.2.0-alpha.4", "@brightlayer-ui/colors@^3.2.0-alpha.3":
+"@brightlayer-ui/colors@3.2.0-alpha.4", "@brightlayer-ui/colors@^3.2.0-alpha.4":
   version "3.2.0-alpha.4"
   resolved "https://registry.yarnpkg.com/@brightlayer-ui/colors/-/colors-3.2.0-alpha.4.tgz#de571224f449547e8146daef36c7e93d0725b104"
   integrity sha512-yYI6OWNceGyp9gO37PqHMfzJExhsx9gq+OvApvWiVRVoZK/UgCkaXX/RGPvUDBgAtU2pCqpOuLp3K/BxiGFMDg==
@@ -1193,12 +1193,12 @@
     color "^3.1.2"
     react-jss "^10.4.0"
 
-"@brightlayer-ui/react-themes@9.1.0-alpha.4":
-  version "9.1.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/react-themes/-/react-themes-9.1.0-alpha.4.tgz#9e30f0f8a2c4c6a6fe1e8f1474a69bc1ff04db4e"
-  integrity sha512-roE/LEEl0Jw+cXvHSN0cyZjGVf333agRhhsiN8uwU7dJcdb107YeTcLMzy7tCqvsPupVY8xEeNpfk2PkYsBPYA==
+"@brightlayer-ui/react-themes@9.1.0-alpha.5":
+  version "9.1.0-alpha.5"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/react-themes/-/react-themes-9.1.0-alpha.5.tgz#29ed64394baf40c7f97d7f246d1bb1be94287264"
+  integrity sha512-XOMBULQJ2SznO6LG5YZ3ruHxTUDbd49nvwGk/+uCm9l77wvcup68iKtftsImzUhJT+pSV6Qk8OHT6uGlhf5UyQ==
   dependencies:
-    "@brightlayer-ui/colors" "^3.2.0-alpha.3"
+    "@brightlayer-ui/colors" "^3.2.0-alpha.4"
     "@brightlayer-ui/types" "^2.0.0"
     "@fontsource/open-sans" "^5.0.3"
     color "^4.2.3"
