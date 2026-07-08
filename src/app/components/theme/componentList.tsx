@@ -25,7 +25,7 @@ export const componentNameList: string[] = [
 ];
 
 export const componentList: React.JSX.Element[] = [
-    AppBarDemo,
+    <AppBarDemo key={'app-bar'} />,
     BottomNavigationDemo,
     ButtonDemo,
     ChipDemo,
