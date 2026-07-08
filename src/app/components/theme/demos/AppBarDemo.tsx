@@ -13,7 +13,7 @@ import { Menu, Notifications, Search } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 
 /*
- * cannot iterate through variations due to the way MUI implemented text fields
+ * App Bar demo showing a primary AppBar and a transparent AppBar with Tabs.
  */
 export const AppBarDemo: React.FC = () => {
     const theme = useTheme();
