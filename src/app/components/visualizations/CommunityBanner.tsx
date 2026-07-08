@@ -13,7 +13,7 @@ export const CommunityBanner: React.FC = () => (
     <Alert
         severity="info"
         icon={<GroupsIcon fontSize="inherit" />}
-        sx={{ mt: 1, mb: 3, borderRadius: '4px', alignItems: 'center' }}
+        sx={{ mt: 1, mb: 3, borderRadius: '4px', alignItems: 'center', backgroundColor: 'background.default' }}
     >
         This content is built and maintained by the Brightlayer UI community and is not part of an official Brightlayer
         UI package. Explore live examples and source code in the{' '}

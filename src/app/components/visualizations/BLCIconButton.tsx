@@ -10,7 +10,7 @@ const StyledIconButton = styled(IconButton)<{ bordercolor: string }>`
     border: 1px solid ${(props): string => props.bordercolor};
     display: flex;
     height: 36px;
-    padding: 0px 16px 0px 12px;
+    padding: 0px 16px 0px 16px;
     margin-right: 1rem;
     justify-content: center;
     align-items: center;

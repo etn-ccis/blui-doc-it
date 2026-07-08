@@ -1,4 +1,4 @@
-import { ImageGrid, BLCIconButton, VariantIllustration, ChartHeading } from '../../app/components';
+import { ImageGrid, BLCIconButton, VariantIllustration, CommunityBanner } from '../../app/components';
 import { ReactComponent as BLCIcon } from '../../app/assets/visualizations/icons/blc-button-icon.svg';
 
 import PiechartComponentImage from '../../app/assets/visualizations/piechart/piechart-component.png';
@@ -16,9 +16,11 @@ import RelatedGauge from '../../app/assets/visualizations/gauge/gauge-value-thum
 import { ReactComponent as CommunityIcon } from '../../app/assets/visualizations/icons/communityicon.svg';
 import { COMMUNITY_PIE_CHARTS_URL } from '../../__configuration__/visualizations';
 
-<ChartHeading>Pie charts</ChartHeading>
+# Pie charts
 
 Pie charts are used for comparing relationships between parts of a whole. The area of a circle is split into slices, each corresponding to a dataset category.
+
+<CommunityBanner />
 
 ## Component
 
@@ -34,7 +36,7 @@ Pie charts are used for comparing relationships between parts of a whole. The ar
 />
 <BLCIconButton
     icon={CommunityIcon}
-    label={'View in Brightlayer Charts'}
+    label={'View on BLUI Community Docs'}
     url={COMMUNITY_PIE_CHARTS_URL}
 />
 
@@ -75,7 +77,7 @@ Pie charts are commonly presented in the following layouts:
 
 ### Best practices
 
-<p style={{fontSize: '20px',fontWeight: 'bold',}}>How to use the Ring layout</p>
+<p style={{fontSize: '20px',fontWeight: '600',}}>How to use the Ring layout</p>
 
 Ring charts (the `variant="ring"` option) are very similar to Pie charts but their central section is removed. That effect enhances the user's perception of proportion, helping the audience better judge the size of each slice. The hollow centre can also surface the total value and unit for quick reference. If you need to present a single qualitative value on an arc, use a dedicated [Gauge chart](/visualizations/gauge) instead.
 
@@ -87,7 +89,7 @@ Ring charts (the `variant="ring"` option) are very similar to Pie charts but the
     ]}
 />
 
-<p style={{fontSize: '20px',fontWeight: 'bold',}}>Keep categories at a minimum</p>
+<p style={{fontSize: '20px',fontWeight: '600',}}>Keep categories at a minimum</p>
 
 Research has shown that users find it hard to derive meaning from pie charts containing more than four categories. If you have more than four categories within your dataset, consider using [Bar charts](/visualizations/barcharts).
 
@@ -99,7 +101,7 @@ Research has shown that users find it hard to derive meaning from pie charts con
     ]}
 />
 
-<p style={{fontSize: '20px',fontWeight: 'bold',}}>Display your data in descending order</p>
+<p style={{fontSize: '20px',fontWeight: '600',}}>Display your data in descending order</p>
 
 Ranking the categories in descending order, starting at the 12 o'clock point can help your users to better visualise the relationship between the data.
 

@@ -1,7 +1,6 @@
 export * from './BLCAccordian';
 export * from './ColorRowBlock';
 export * from './BLCIconButton';
-export * from './ChartHeading';
 export * from './CommunityBanner';
 export * from './ResourceLink';
 export * from './VariantIllustration';
