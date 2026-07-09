@@ -1,4 +1,4 @@
-import { ImageGrid, BLCIconButton, VariantIllustration, CommunityBanner } from '../../app/components';
+import { ImageGrid, BLCIconButton, BLCTextButton, VariantIllustration, CommunityBanner } from '../../app/components';
 import { ReactComponent as BLCIcon } from '../../app/assets/visualizations/icons/blc-button-icon.svg';
 
 import PiechartComponentImage from '../../app/assets/visualizations/piechart/piechart-component.png';
@@ -32,7 +32,7 @@ Pie charts are used for comparing relationships between parts of a whole. The ar
 <BLCIconButton
     icon={BLCIcon}
     label={'View in Figma sticker sheet'}
-    url={'https://www.figma.com/design/ZwJ3feoFnLiV3JNYqI7A3c/-Limited-Support--Brightlayer-UI-Component-Sticker-Sheet?node-id=33362-4893&m=dev'}
+    url={'https://www.figma.com/design/ZwJ3feoFnLiV3JNYqI7A3c/-Limited-Support--Brightlayer-UI-Component-Sticker-Sheet?node-id=33410-36924&m=dev'}
 />
 <BLCIconButton
     icon={CommunityIcon}
@@ -75,9 +75,9 @@ Pie charts are commonly presented in the following layouts:
   />
 </div>
 
-### Best practices
+## Best practices
 
-<p style={{fontSize: '20px',fontWeight: '600',}}>How to use the Ring layout</p>
+<p style={{fontSize: '18px',fontWeight: '600',}}>How to use the Ring layout</p>
 
 Ring charts (the `variant="ring"` option) are very similar to Pie charts but their central section is removed. That effect enhances the user's perception of proportion, helping the audience better judge the size of each slice. The hollow centre can also surface the total value and unit for quick reference. If you need to present a single qualitative value on an arc, use a dedicated [Gauge chart](/visualizations/gauge) instead.
 
@@ -89,7 +89,7 @@ Ring charts (the `variant="ring"` option) are very similar to Pie charts but the
     ]}
 />
 
-<p style={{fontSize: '20px',fontWeight: '600',}}>Keep categories at a minimum</p>
+<p style={{fontSize: '18px',fontWeight: '600',}}>Keep categories at a minimum</p>
 
 Research has shown that users find it hard to derive meaning from pie charts containing more than four categories. If you have more than four categories within your dataset, consider using [Bar charts](/visualizations/barcharts).
 
@@ -101,7 +101,7 @@ Research has shown that users find it hard to derive meaning from pie charts con
     ]}
 />
 
-<p style={{fontSize: '20px',fontWeight: '600',}}>Display your data in descending order</p>
+<p style={{fontSize: '18px',fontWeight: '600',}}>Display your data in descending order</p>
 
 Ranking the categories in descending order, starting at the 12 o'clock point can help your users to better visualise the relationship between the data.
 
@@ -117,11 +117,11 @@ Ranking the categories in descending order, starting at the 12 o'clock point can
 
 For more in-depth information on how to design bar charts for Eaton, please refer to:
 
-<BLCIconButton
+<BLCTextButton
     label={'Foundations'}
     url={'/visualizations/foundations'}
 />
-<BLCIconButton
+<BLCTextButton
     label={'Colors In Data Viz'}
     url={'/visualizations/colors'}
 />

@@ -1,4 +1,4 @@
-import { ImageGrid, BLCIconButton, VariantIllustration, CommunityBanner } from '../../app/components';
+import { ImageGrid, BLCIconButton, BLCTextButton, VariantIllustration, CommunityBanner } from '../../app/components';
 import { ReactComponent as BLCIcon } from '../../app/assets/visualizations/icons/blc-button-icon.svg';
 import { ReactComponent as CommunityIcon } from '../../app/assets/visualizations/icons/communityicon.svg';
 import { COMMUNITY_SANKEY_DIAGRAM_URL } from '../../__configuration__/visualizations';
@@ -29,7 +29,7 @@ Sankey diagrams visualize how a quantity flows and splits across stages. The wid
 <BLCIconButton
     icon={BLCIcon}
     label={'View in Figma sticker sheet'}
-    url={'https://www.figma.com/design/ZwJ3feoFnLiV3JNYqI7A3c/-Limited-Support--Brightlayer-UI-Component-Sticker-Sheet?node-id=33362-5113&m=dev'}
+    url={'https://www.figma.com/design/ZwJ3feoFnLiV3JNYqI7A3c/-Limited-Support--Brightlayer-UI-Component-Sticker-Sheet?node-id=33410-37144&m=dev'}
 />
 <BLCIconButton
     icon={CommunityIcon}
@@ -76,9 +76,9 @@ Sankey diagrams are commonly presented in the following layouts:
   />
 </div>
 
-### Best practices
+## Best practices
 
-<p style={{fontSize: '20px',fontWeight: '600',}}>Give the diagram room to breathe</p>
+<p style={{fontSize: '18px',fontWeight: '600',}}>Give the diagram room to breathe</p>
 
 Sankey diagrams become hard to read when too many links overlap. Space nodes apart and arrange them so related flows stay close together, helping users trace a path from source to destination.
 
@@ -90,7 +90,7 @@ Sankey diagrams become hard to read when too many links overlap. Space nodes apa
     ]}
 />
 
-<p style={{fontSize: '20px',fontWeight: '600',}}>Annotate values for precision</p>
+<p style={{fontSize: '18px',fontWeight: '600',}}>Annotate values for precision</p>
 
 Because the link width only communicates relative magnitude, label nodes and flows with their values when users need to read exact figures. Keep the contrast high and the units consistent across the diagram.
 
@@ -102,7 +102,7 @@ Because the link width only communicates relative magnitude, label nodes and flo
     ]}
 />
 
-<p style={{fontSize: '20px',fontWeight: '600',}}>Use hover states to reveal detail</p>
+<p style={{fontSize: '18px',fontWeight: '600',}}>Use hover states to reveal detail</p>
 
 For dense diagrams, reserve secondary detail such as consumption breakdowns or footprints for hover interactions. This keeps the default view clean while still letting users explore individual flows on demand.
 
@@ -110,11 +110,11 @@ For dense diagrams, reserve secondary detail such as consumption breakdowns or f
 
 For more in-depth information on how to design sankey diagrams for Eaton, please refer to:
 
-<BLCIconButton
+<BLCTextButton
     label={'Foundations'}
     url={'/visualizations/foundations'}
 />
-<BLCIconButton
+<BLCTextButton
     label={'Colors In Data Viz'}
     url={'/visualizations/colors'}
 />

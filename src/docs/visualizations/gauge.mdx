@@ -1,4 +1,4 @@
-import { ImageGrid, BLCIconButton, VariantIllustration, CommunityBanner } from '../../app/components';
+import { ImageGrid, BLCIconButton, BLCTextButton, VariantIllustration, CommunityBanner } from '../../app/components';
 import { ReactComponent as BLCIcon } from '../../app/assets/visualizations/icons/blc-button-icon.svg';
 import { ReactComponent as CommunityIcon } from '../../app/assets/visualizations/icons/communityicon.svg';
 import { COMMUNITY_GAUGE_CHARTS_URL } from '../../__configuration__/visualizations';
@@ -29,7 +29,7 @@ Gauge charts display a single qualitative value within a defined range. By mappi
 <BLCIconButton
     icon={BLCIcon}
     label={'View in Figma sticker sheet'}
-    url={'https://www.figma.com/design/ZwJ3feoFnLiV3JNYqI7A3c/-Limited-Support--Brightlayer-UI-Component-Sticker-Sheet?node-id=33362-7953&m=dev'}
+    url={'https://www.figma.com/design/ZwJ3feoFnLiV3JNYqI7A3c/-Limited-Support--Brightlayer-UI-Component-Sticker-Sheet?node-id=33410-39984&m=dev'}
 />
 <BLCIconButton
     icon={CommunityIcon}
@@ -77,9 +77,9 @@ Gauge charts are commonly presented in the following layouts:
   />
 </div>
 
-### Best practices
+## Best practices
 
-<p style={{fontSize: '20px',fontWeight: '600',}}>Use thresholds to communicate status</p>
+<p style={{fontSize: '18px',fontWeight: '600',}}>Use thresholds to communicate status</p>
 
 Pairing the value with color-coded threshold zones lets users instantly judge whether a measurement is healthy or at risk, without having to interpret the number on its own. Keep the threshold colors consistent with their meaning across your dashboards.
 
@@ -91,7 +91,7 @@ Pairing the value with color-coded threshold zones lets users instantly judge wh
     ]}
 />
 
-<p style={{fontSize: '20px',fontWeight: '600',}}>Keep the gauge undistorted</p>
+<p style={{fontSize: '18px',fontWeight: '600',}}>Keep the gauge undistorted</p>
 
 Move supporting detail, such as the definition of each threshold, into a tooltip triggered by an info mark instead of crowding the face of the gauge. Always preserve the circular arc; stretching or squeezing it distorts the proportions and misrepresents the value.
 
@@ -103,7 +103,7 @@ Move supporting detail, such as the definition of each threshold, into a tooltip
     ]}
 />
 
-<p style={{fontSize: '20px',fontWeight: '600',}}>Keep the scale simple</p>
+<p style={{fontSize: '18px',fontWeight: '600',}}>Keep the scale simple</p>
 
 A gauge is most effective when it communicates one value at a glance. Use a clear minimum and maximum, label only the values that matter (such as threshold boundaries), and avoid packing multiple metrics into a single gauge.
 
@@ -111,11 +111,11 @@ A gauge is most effective when it communicates one value at a glance. Use a clea
 
 For more in-depth information on how to design gauge charts for Eaton, please refer to:
 
-<BLCIconButton
+<BLCTextButton
     label={'Foundations'}
     url={'/visualizations/foundations'}
 />
-<BLCIconButton
+<BLCTextButton
     label={'Colors In Data Viz'}
     url={'/visualizations/colors'}
 />

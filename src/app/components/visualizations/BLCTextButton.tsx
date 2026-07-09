@@ -1,7 +1,6 @@
 import React from 'react';
 import IconButton from '@mui/material/IconButton';
 import { styled, useTheme } from '@mui/material/styles';
-import { SvgIconComponent } from '@mui/icons-material';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router';
 
@@ -10,7 +9,7 @@ const StyledIconButton = styled(IconButton)<{ bordercolor: string }>`
     border: 1px solid ${(props): string => props.bordercolor};
     display: flex;
     height: 36px;
-    padding: 0px 16px 0px 12px;
+    padding: 0px 12px;
     margin-right: 1rem;
     justify-content: center;
     align-items: center;
@@ -29,17 +28,15 @@ const StyledTypography = styled(Typography)<{ color: string }>`
     padding-bottom: 2px;
 `;
 
-type BLCIconButtonProps = {
-    icon: SvgIconComponent;
+type BLCTextButtonProps = {
     url: string;
     label: string;
 };
 
-export const BLCIconButton: React.FC<BLCIconButtonProps> = ({ icon, url, label }) => {
+export const BLCTextButton: React.FC<BLCTextButtonProps> = ({ url, label }) => {
     const theme = useTheme();
     const primaryColor = theme.palette.primary.main;
     const navigate = useNavigate();
-    const IconComp = icon;
 
     const handleClick = (): void => {
         if (url.startsWith('http://') || url.startsWith('https://')) {
@@ -51,9 +48,10 @@ export const BLCIconButton: React.FC<BLCIconButtonProps> = ({ icon, url, label }
     return (
         <div style={{ display: 'inline-block', verticalAlign: 'top' }}>
             <StyledIconButton onClick={handleClick} bordercolor={primaryColor}>
-                {IconComp && <IconComp fill={primaryColor} width={20} height={20} />}
                 <StyledTypography color={primaryColor}>{label}</StyledTypography>
             </StyledIconButton>
         </div>
     );
 };
+
+export default BLCTextButton;
