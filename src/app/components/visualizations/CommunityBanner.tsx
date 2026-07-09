@@ -18,12 +18,12 @@ export const CommunityBanner: React.FC = () => (
             mb: 3,
             p: '20px',
             borderRadius: '8px',
-            backgroundColor: `rgba(${theme.vars!.palette.primary.mainChannel} / 0.12)`,
-            color: theme.vars!.palette.text.primary,
+            backgroundColor: theme.palette.info.light,
+            color: theme.palette.text.primary,
             fontSize: '14px',
             lineHeight: 'normal',
             alignItems: 'center',
-            '& .MuiAlert-icon': { p: 0, mr: '19px', color: theme.vars!.palette.primary.main },
+            '& .MuiAlert-icon': { p: 0, mr: '19px', color: theme.palette.primary.main },
             '& .MuiAlert-message': { p: 0, fontSize: '14px', lineHeight: 'normal' },
         })}
     >
@@ -34,7 +34,7 @@ export const CommunityBanner: React.FC = () => (
             target="_blank"
             rel="noopener noreferrer"
             underline="always"
-            sx={(theme) => ({ color: theme.vars!.palette.primary.main })}
+            sx={(theme) => ({ color: theme.palette.primary.main })}
         >
             Brightlayer UI Community Docs
         </Link>
