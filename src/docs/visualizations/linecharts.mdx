@@ -1,4 +1,4 @@
-import { ImageGrid, BLCIconButton, VariantIllustration, ChartHeading } from '../../app/components';
+import { ImageGrid, BLCIconButton, BLCTextButton, VariantIllustration, CommunityBanner } from '../../app/components';
 import LinechartComponentImage from '../../app/assets/visualizations/linechart/line-chart-component.png';
 import HorizontalLine from '../../app/assets/visualizations/linechart/horizontalline.png';
 import MultipleLine from '../../app/assets/visualizations/linechart/multiplelines.png';
@@ -19,9 +19,11 @@ import { ReactComponent as BLCIcon } from '../../app/assets/visualizations/icons
 import { ReactComponent as CommunityIcon } from '../../app/assets/visualizations/icons/communityicon.svg';
 import { COMMUNITY_LINE_CHARTS_URL } from '../../__configuration__/visualizations';
 
-<ChartHeading>Line Charts</ChartHeading>
+# Line Charts
 
 Line charts are used to visualise and compare trends over time. They are highly customisable and a popular option for dashboards.
+
+<CommunityBanner />
 
 ## Component
 
@@ -33,11 +35,11 @@ Line charts are used to visualise and compare trends over time. They are highly 
 <BLCIconButton
     icon={BLCIcon}
     label={'View in Figma sticker sheet'}
-    url={'https://www.figma.com/design/ZwJ3feoFnLiV3JNYqI7A3c/-Limited-Support--Brightlayer-UI-Component-Sticker-Sheet?node-id=33362-4509&m=dev'}
+    url={'https://www.figma.com/design/ZwJ3feoFnLiV3JNYqI7A3c/-Limited-Support--Brightlayer-UI-Component-Sticker-Sheet?node-id=33410-36560&m=dev'}
 />
 <BLCIconButton
     icon={CommunityIcon}
-    label={'View in Brightlayer Charts'}
+    label={'View on BLUI Community Docs'}
     url={COMMUNITY_LINE_CHARTS_URL}
 />
 
@@ -83,9 +85,9 @@ Line charts are commonly presented in the following layouts:
 </div>
 
 
-### Best practices
+## Best practices
 
-<p style={{fontSize: '20px',fontWeight: 'bold',}}>Avoid comparing too many datasets in a single chart</p>
+<p style={{fontSize: '18px',fontWeight: '600',}}>Avoid comparing too many datasets in a single chart</p>
 
 The goal of a chart is to communicate trends and changes over time clearly. If the plot area is cluttered with too many datasets, the chart will be less effective at reaching this goal and harder to understand for users.
 
@@ -99,7 +101,7 @@ For most cases, we recommend displaying 1 to 5 plots in a single Line chart. The
     ]}
 />
 
-<p style={{fontSize: '20px',fontWeight: 'bold',}}>Avoid over-styling bars</p>
+<p style={{fontSize: '18px',fontWeight: '600',}}>Avoid over-styling bars</p>
 
 Do not choose aesthetic over readability. Anything that could mislead the user and their interpretation of the data should not be altered or added.
 
@@ -114,7 +116,7 @@ Do not choose aesthetic over readability. Anything that could mislead the user a
     ]}
 />
 
-<p style={{fontSize: '20px',fontWeight: 'bold',}}>Choosing a baseline</p>
+<p style={{fontSize: '18px',fontWeight: '600',}}>Choosing a baseline</p>
 
 You don't always need to use a zero-value baseline. As the main goal for the line chart is to display changes over time, you don't always have to show data from the zero-value, if it's not meaningful - you can zoom the vertical axis range.
 
@@ -126,7 +128,7 @@ You don't always need to use a zero-value baseline. As the main goal for the lin
     ]}
 />
 
-<p style={{fontSize: '20px',fontWeight: 'bold',}}>Using additional features to show variability</p>
+<p style={{fontSize: '18px',fontWeight: '600',}}>Using additional features to show variability</p>
 
 Add dashed lines, line with varying opacity, filled space or bar charts to deliver additional information such as deviations, uncertain measures or bounds (e.g. max. & min.)
 
@@ -138,7 +140,7 @@ Add dashed lines, line with varying opacity, filled space or bar charts to deliv
     ]}
 />
 
-<p style={{fontSize: '20px',fontWeight: 'bold',}}>Making sure the line chart is the right type for your data</p>
+<p style={{fontSize: '18px',fontWeight: '600',}}>Making sure the line chart is the right type for your data</p>
 
 There are several chart types that are visually similar to line charts, that you may want to consider. Make sure you choose the chart type that displays the data in the most meaningful way for your end user.
 
@@ -155,11 +157,11 @@ There are several chart types that are visually similar to line charts, that you
 
 For more in-depth information on how to design bar charts for Eaton, please refer to:
 
-<BLCIconButton
+<BLCTextButton
     label={'Foundations'}
     url={'/visualizations/foundations'}
 />
-<BLCIconButton
+<BLCTextButton
     label={'Colors In Data Viz'}
     url={'/visualizations/colors'}
 />

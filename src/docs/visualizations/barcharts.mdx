@@ -1,4 +1,4 @@
-import { ImageGrid, BLCIconButton, VariantIllustration, ChartHeading } from '../../app/components';
+import { ImageGrid, BLCIconButton, BLCTextButton, VariantIllustration, CommunityBanner } from '../../app/components';
 import BarchartsComponent from '../../app/assets/visualizations/barchart/barcharts-component.png';
 import Verticalbar from '../../app/assets/visualizations/barchart/verticalbar.png';
 import Horizontalbar from '../../app/assets/visualizations/barchart/horizontalbar.png';
@@ -16,10 +16,12 @@ import { ReactComponent as BLCIcon } from '../../app/assets/visualizations/icons
 import { ReactComponent as CommunityIcon } from '../../app/assets/visualizations/icons/communityicon.svg';
 import { COMMUNITY_BAR_CHARTS_URL } from '../../__configuration__/visualizations';
 
-<ChartHeading>Bar Charts</ChartHeading>
+# Bar Charts
 
 Bar charts are used to categorize and compare datasets. Colors are used to represent 
 different categories, while size is used to represent the category values.
+
+<CommunityBanner />
 
 ## Component
 
@@ -31,11 +33,11 @@ different categories, while size is used to represent the category values.
 <BLCIconButton
     icon={BLCIcon}
     label={'View in Figma sticker sheet'}
-    url={'https://www.figma.com/design/ZwJ3feoFnLiV3JNYqI7A3c/-Limited-Support--Brightlayer-UI-Component-Sticker-Sheet?node-id=33362-2604&m=dev'}
+    url={'https://www.figma.com/design/ZwJ3feoFnLiV3JNYqI7A3c/-Limited-Support--Brightlayer-UI-Component-Sticker-Sheet?node-id=33410-29892&m=dev'}
 />
 <BLCIconButton
     icon={CommunityIcon}
-    label={'View in Brightlayer Charts'}
+    label={'View on BLUI Community Docs'}
     url={COMMUNITY_BAR_CHARTS_URL}
 />
 
@@ -89,7 +91,7 @@ Bar charts are commonly presented in the following layouts:
 
 ## Best practices
 
-<p style={{fontSize: '20px',fontWeight: 'bold',}}>Start with a baseline of zero</p>
+<p style={{fontSize: '18px',fontWeight: '600',}}>Start with a baseline of zero</p>
 
 To facilitate analysis, the X-axis on bar charts should always start at zero. Having a different value as a baseline can distort the proportions between bars, which can cause the data to be perceived incorrectly.
 
@@ -101,7 +103,7 @@ To facilitate analysis, the X-axis on bar charts should always start at zero. Ha
     ]}
 />
 
-<p style={{fontSize: '20px',fontWeight: 'bold',}}>Avoid over-styling bars</p>
+<p style={{fontSize: '18px',fontWeight: '600',}}>Avoid over-styling bars</p>
 
 Do not choose aesthetic over readability. Anything that could mislead the user and their interpretation of the data should not be altered or added.
 
@@ -113,7 +115,7 @@ Do not choose aesthetic over readability. Anything that could mislead the user a
     ]}
 />
 
-<p style={{fontSize: '20px',fontWeight: 'bold',}}>Display ordered bars to help deliver your message</p>
+<p style={{fontSize: '18px',fontWeight: '600',}}>Display ordered bars to help deliver your message</p>
 
 Horizontal bar charts can be really useful for magnitude and ranking. If your objective is to help the user quickly identify ordinal relationships, consider ranking your Y-axis from highest (top) to lowest (bottom) numbers, while using the X-axis to determine magnitude.
 
@@ -129,11 +131,11 @@ Horizontal bar charts can be really useful for magnitude and ranking. If your ob
 
 For more in-depth information on how to design bar charts for Eaton, please refer to:
 
-<BLCIconButton
+<BLCTextButton
     label={'Foundations'}
     url={'/visualizations/foundations'}
 />
-<BLCIconButton
+<BLCTextButton
     label={'Colors In Data Viz'}
     url={'/visualizations/colors'}
 />
