@@ -8,6 +8,7 @@ import R36 from './R36/FullNotes.mdx';
 import R35 from './R35/FullNotes.mdx';
 import R34 from './R34/FullNotes.mdx';
 import R33 from './R33/FullNotes.mdx';
+import R40 from './R40/FullNotes.mdx';
 import R32 from './R32/FullNotes.mdx';
 import R31 from './R31/FullNotes.mdx';
 import R30 from './R30/FullNotes.mdx';
@@ -36,6 +37,7 @@ import R8 from './R8/FullNotes.mdx';
 import R7 from './R7/FullNotes.mdx';
 
 // Summaries (for Landing Page)
+import R40Summary from './R40/Summary.mdx';
 import R39Summary from './R39/Summary.mdx';
 import R38Summary from './R38/Summary.mdx';
 import R37Summary from './R37/Summary.mdx';
@@ -82,6 +84,13 @@ export type ReleaseInfo = {
 };
 
 const Releases: ReleaseInfo[] = [
+    {
+        title: 'R40',
+        date: 'July 2026',
+        version: '5.0.0',
+        details: mdxComponent(R40),
+        summary: mdxComponent(R40Summary),
+    },
     {
         title: 'R39',
         date: 'April 2026',

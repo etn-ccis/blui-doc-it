@@ -5,5 +5,5 @@ import { useAppSelector, RootState } from '../../redux';
 
 export const ThemeWrapper: React.FC<Omit<ThemeProviderProps, 'theme'>> = (props) => {
     const selectedTheme = useAppSelector((state: RootState) => state.app.theme);
-    return <ThemeProvider {...props} theme={createTheme(getScheduledSiteConfig(selectedTheme).theme)} />;
+    return <ThemeProvider {...props} theme={createTheme({ ...getScheduledSiteConfig(selectedTheme).theme })} />;
 };

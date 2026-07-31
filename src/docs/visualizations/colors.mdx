@@ -1,4 +1,6 @@
-import { ColorRowBlock, ImageGrid } from '../../app/components';
+import { ColorRowBlock, ImageGrid, CommunityBanner } from '../../app/components';
+import DataSeriesLight from '../../app/assets/visualizations/colors/data-series-light.png';
+import DataSeriesDark from '../../app/assets/visualizations/colors/data-series-dark.png';
 import Consistency from '../../app/assets/visualizations/colors/consistency.png';
 import Datarel1 from '../../app/assets/visualizations/colors/data-relationships-1.png';
 import Datarel2 from '../../app/assets/visualizations/colors/data-relationships-2.png';
@@ -10,6 +12,8 @@ import Infohierarchy2 from '../../app/assets/visualizations/colors/infohierarchy
 The colors used in Eaton visualizations are a subset of the Eaton color palette. 
 They are part of the [Eaton Branding Guidelines](https://eaton.sharepoint.com/sites/CommunicationsBrandCenter), 
 and all charts added to Eaton interfaces follow the same rules.
+
+<CommunityBanner />
 
 ### Color Tokens
 
@@ -31,23 +35,24 @@ If you want to use more than 5 hues in a single chart, feel free to use colors f
 [Branding palette](https://brightlayer-ui.github.io/style/color#branding-colors) at your discretion. For most 
 cases, we recommend using the 500 values.  
 
-<ColorRowBlock
-hasPatch={[false, false]}
-col1={[
-    { color: '#005EB8', label: 'Data Series 1' },
-    { color: '#FFC72C', label: 'Data Series 2' },
-    { color: '#ED8B00', label: 'Data Series 3' },
-    { color: '#B5BD00', label: 'Data Series 4' },
-    { color: '#4C8D2B', label: 'Data Series 5' },
-]} 
-col2={[
-    { color: '#FFFFFF', label: 'On Data Series 1' },
-    { color: '#524700', label: 'On Data Series 2' },
-    { color: '#4B2800', label: 'On Data Series 3' },
-    { color: '#524700', label: 'On Data Series 4' },
-    { color: '#FFFFFF', label: 'On Data Series 5' },
-]}
-/>
+<div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px', margin: '1rem 0' }}>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+    <img
+      src={DataSeriesLight}
+      alt='Data Series palette on the light theme'
+      style={{ width: '240px', height: 'auto', border: '1px solid #E0E0E0', borderRadius: '8px' }}
+    />
+    <span style={{ fontSize: '14px', fontWeight: 600, marginTop: '8px' }}>Light theme</span>
+  </div>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+    <img
+      src={DataSeriesDark}
+      alt='Data Series palette on the dark theme'
+      style={{ width: '240px', height: 'auto', borderRadius: '8px' }}
+    />
+    <span style={{ fontSize: '14px', fontWeight: 600, marginTop: '8px' }}>Dark theme</span>
+  </div>
+</div>
 
 ### Axis and Grids
 
