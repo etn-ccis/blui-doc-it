@@ -107,6 +107,16 @@ export const ProgressIconCard: React.FC = (): React.JSX.Element => {
                         outlined={isOutlined}
                     />
                 ))}
+                <Typography variant={'h6'}>{'Battery Large'}</Typography>
+                {colors.map((key, index) => (
+                    <Progress.BatteryLarge
+                        key={`battery_large_${key}`}
+                        percent={(index + 1) * 10}
+                        size={size}
+                        color={colorSet[key][weight]}
+                        outlined={isOutlined}
+                    />
+                ))}
             </Box>
         </Paper>
     );

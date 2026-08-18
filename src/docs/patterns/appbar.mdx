@@ -23,8 +23,11 @@ import Specs3Image from '../../app/assets/design-patterns/app-bar/specs-3.png';
 import Specs4Image from '../../app/assets/design-patterns/app-bar/specs-4.png';
 import Specs5Image from '../../app/assets/design-patterns/app-bar/specs-5.png';
 import Specs6Image from '../../app/assets/design-patterns/app-bar/specs-6.png';
+import TransparentVariants from '../../app/assets/design-patterns/app-bar/transparent-app-bar-variants.png';
+import TransparentUsage from '../../app/assets/design-patterns/app-bar/transparent-app-bar-usage.jpg';
+import TransparentOverlay from '../../app/assets/design-patterns/app-bar/transparent-app-bar-overlay.png';
 
-{/* KEYWORDS: design pattern appbar search collapse collapsible extend prominent toolbar banner header */}
+{/* KEYWORDS: design pattern appbar search collapse collapsible extend prominent toolbar banner header transparent overlay */}
 
 # App Bars
 
@@ -39,6 +42,7 @@ App bars, sometimes called toolbars, are often one of the first elements you see
             { title: 'Introduction', hash: '#app-bars' },
             { title: 'Basic App Bar', hash: '#basic-app-bar' },
             { title: 'Collapsible App Bar', hash: '#collapsible-app-bar' },
+            { title: 'Style Variants', hash: '#style-variants' },
             { title: 'Search', hash: '#search' },
             { title: 'Design Specifications', hash: '#design-specifications' },
             { title: 'Developers', hash: '#developers' },
@@ -123,6 +127,22 @@ The collapsible appbar should transition smoothly between the expanded and colla
     ]}
     regularWidth
 />
+
+<Divider />
+
+# Style Variants
+
+<ImageGrid regularWidth images={[TransparentVariants]} />
+
+We provide three style variants for both the Base Appbar and Extend Appbar: Blue, Default, and Transparent. You can choose among them based on the different project situations.
+
+<ImageGrid regularWidth images={[TransparentUsage]} />
+
+In some displays of 2D and 3D graphic objects or compact HMI application scenarios, when we want to provide users with a better immersive viewing experience, we can choose the Transparent appbar style.
+
+<ImageGrid images={[TransparentOverlay]} />
+
+The transparent variant defines two states, default and overlay, each corresponding to a different style. Generally, when the page content scrolls or layers overlap, the app bar transitions from the default to the overlay state.
 
 <Divider />
 
@@ -222,21 +242,21 @@ Use the following components to implement this pattern:
 
 **Angular**:
 
--   Angular Material
-    -   [@angular/material/toolbar](https://material.angular.io/components/toolbar)
--   @brightlayer-ui/angular-components
-    -   [App Bar](https://brightlayer-ui-components.github.io/angular/components/app-bar/examples)
+- Angular Material
+    - [@angular/material/toolbar](https://material.angular.io/components/toolbar)
+- @brightlayer-ui/angular-components
+    - [App Bar](https://brightlayer-ui-components.github.io/angular/components/app-bar/examples)
 
 **React**:
 
--   MUI
-    -   [AppBar](https://mui.com/material-ui/api/app-bar/)
-    -   [Toolbar](https://mui.com/material-ui/api/toolbar/)
--   @brightlayer-ui/react-components
-    -   [App Bar](https://brightlayer-ui-components.github.io/react/components/app-bar/examples)
+- MUI
+    - [AppBar](https://mui.com/material-ui/api/app-bar/)
+    - [Toolbar](https://mui.com/material-ui/api/toolbar/)
+- @brightlayer-ui/react-components
+    - [App Bar](https://brightlayer-ui-components.github.io/react/components/app-bar/examples)
 
 **React Native**:
 
--   @brightlayer-ui/react-native-components
-    -   [Collapsible Header Layout](https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--collapsible-header-layout)
-    -   [Header](https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--header)
+- @brightlayer-ui/react-native-components
+    - [Collapsible Header Layout](https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--collapsible-header-layout)
+    - [Header](https://brightlayer-ui-components.github.io/react-native/?path=/info/components-documentation--header)
