@@ -99,7 +99,7 @@
         "firebase-tools": "^14.2.2",
         "husky": "^9.1.7",
         "markdown-link-check": "^3.13.6",
-        "natural": "^5.0.0",
+        "natural": "^8.1.1",
         "prettier": "^3.3.3",
         "remark-gfm": "^1.0.0",
         "sass": "^1.70.0",
