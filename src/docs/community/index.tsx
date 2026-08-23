@@ -9,5 +9,19 @@ import Home from './home.mdx';
 import Attributions from './attributions.mdx';
 import Rebrand from './rebrand.mdx';
 import BLUIProjects from './blui-projects.mdx';
+import FlexAwards from './flex-awards.mdx';
 
-export { Bugs, Contact, FAQ, Features, License, Home, Innersourcing, OurTeam, Attributions, Rebrand, BLUIProjects };
+export {
+    Bugs,
+    Contact,
+    FAQ,
+    Features,
+    License,
+    Home,
+    Innersourcing,
+    OurTeam,
+    Attributions,
+    Rebrand,
+    BLUIProjects,
+    FlexAwards,
+};
