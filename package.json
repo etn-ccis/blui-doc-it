@@ -1,6 +1,7 @@
 {
     "name": "doc-it",
     "version": "0.1.0",
+    "designVersion": "3",
     "private": true,
     "dependencies": {
         "@brightlayer-ui/colors": "3.2.0-alpha.4",

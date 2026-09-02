@@ -1,0 +1,63 @@
+name: Deploy Quarterly Release Snapshot
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        required: true
+        type: choice
+        options:
+          - dev
+          - prod
+        default: dev
+
+permissions:
+  contents: read
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    env:
+      REACT_APP_DOCIT_GITHUB_TOKEN: ${{ secrets.REACT_APP_DOCIT_GITHUB_TOKEN }}
+      DEV_DEPLOY_TOKEN: ${{ secrets.DEV_DEPLOY_TOKEN }}
+      repository-name: ${{ github.event.inputs.environment == 'prod' && 'brightlayer-ui/brightlayer-ui.github.io' || 'brightlayer-ui-dev/brightlayer-ui-dev.github.io' }}
+      ga-id: ${{ github.event.inputs.environment == 'prod' && 'ga:prod' || 'ga:dev' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - run: yarn --immutable
+      - run: yarn ${{ env.ga-id }}
+
+      - name: Read design version from package.json
+        id: pkg-version
+        run: echo "design=v$(node -p "require('./package.json').designVersion")" >> "$GITHUB_OUTPUT"
+
+      - name: Build with versioned public URL
+        run: PUBLIC_URL="/${{ steps.pkg-version.outputs.design }}" yarn build
+
+      - name: Deploy quarterly snapshot
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
+          token: ${{ env.DEV_DEPLOY_TOKEN }}
+          repository-name: ${{ env.repository-name }}
+          branch: master
+          target-folder: ${{ steps.pkg-version.outputs.design }}
+          clean: false
+          git-config-name: Brightlayer UI Agent
+          git-config-email: brightlayer-ui@eaton.com
+          commit-message: "Deploy design ${{ steps.pkg-version.outputs.design }} snapshot to ${{ github.event.inputs.environment }} (${{ github.sha }})"
