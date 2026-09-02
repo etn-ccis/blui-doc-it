@@ -8,9 +8,19 @@ import ChevronRight from '@mui/icons-material/ChevronRight';
 import Check from '@mui/icons-material/Check';
 import { versionHistory, VersionHistoryItem } from '../../../__configuration__/navigationMenu/versionHistory';
 
+// Determines which snapshot is actually being served by matching the current path against each version's url,
+// since each version is a separate static build (not a client-side route).
+const getActiveVersion = (): VersionHistoryItem => {
+    const { pathname } = window.location;
+    const nonRootMatch = versionHistory.find(
+        (item) => item.url !== '/' && (pathname === item.url || pathname.startsWith(item.url))
+    );
+    return nonRootMatch ?? versionHistory.find((item) => item.url === '/') ?? versionHistory[0];
+};
+
 export const VersionMenu = (): React.JSX.Element => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const currentVersion = versionHistory[0];
+    const currentVersion = getActiveVersion();
 
     const handleSelect = (item: VersionHistoryItem): void => {
         setAnchorEl(null);
