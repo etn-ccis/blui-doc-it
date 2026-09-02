@@ -46,18 +46,31 @@ jobs:
         id: pkg-version
         run: echo "design=v$(node -p "require('./package.json').designVersion")" >> "$GITHUB_OUTPUT"
 
-      - name: Build with versioned public URL
+      # Latest is served from both root (so "/" always mirrors the newest release) and its own
+      # stable /vN/ folder (so the permalink still works once a newer version takes over root).
+      # Each destination needs its own build since PUBLIC_URL is baked into the JS bundle and router basename.
+      - name: Build root copy (latest)
+        run: PUBLIC_URL="/" yarn build
+      - name: Stage root copy
+        run: |
+          mkdir -p deploy
+          cp -r build/. deploy/
+
+      - name: Build versioned copy
         run: PUBLIC_URL="/${{ steps.pkg-version.outputs.design }}" yarn build
+      - name: Stage versioned copy
+        run: |
+          mkdir -p "deploy/${{ steps.pkg-version.outputs.design }}"
+          cp -r build/. "deploy/${{ steps.pkg-version.outputs.design }}/"
 
       - name: Deploy quarterly snapshot
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build
+          folder: deploy
           token: ${{ env.DEV_DEPLOY_TOKEN }}
           repository-name: ${{ env.repository-name }}
           branch: master
-          target-folder: ${{ steps.pkg-version.outputs.design }}
           clean: false
           git-config-name: Brightlayer UI Agent
           git-config-email: brightlayer-ui@eaton.com
-          commit-message: "Deploy design ${{ steps.pkg-version.outputs.design }} snapshot to ${{ github.event.inputs.environment }} (${{ github.sha }})"
+          commit-message: "Deploy design ${{ steps.pkg-version.outputs.design }} snapshot (root + versioned) to ${{ github.event.inputs.environment }} (${{ github.sha }})"
