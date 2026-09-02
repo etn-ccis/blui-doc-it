@@ -74,3 +74,23 @@ jobs:
           git-config-name: Brightlayer UI Agent
           git-config-email: brightlayer-ui@eaton.com
           commit-message: "Deploy design ${{ steps.pkg-version.outputs.design }} snapshot (root + versioned) to ${{ github.event.inputs.environment }} (${{ github.sha }})"
+
+      # Keep only the 3 most recent /vN/ snapshot folders; older ones are removed so the hosting repo doesn't grow unbounded.
+      - name: Clean up old version snapshots
+        run: |
+          git clone --depth=1 "https://${{ env.DEV_DEPLOY_TOKEN }}@github.com/${{ env.repository-name }}.git" hosting-repo
+          cd hosting-repo
+          # grep restricts matches to exactly "v" + digits (v1..v50+); sort -n handles any digit count numerically, not lexically.
+          versions=$(find . -maxdepth 1 -type d -name 'v*' -printf '%f\n' | grep -E '^v[0-9]+$' | sort -t v -k2 -n -r)
+          remove=$(echo "$versions" | tail -n +4)
+          if [ -z "$remove" ]; then
+            echo "3 or fewer version snapshots present, nothing to clean up."
+            exit 0
+          fi
+          git config user.name "Brightlayer UI Agent"
+          git config user.email "brightlayer-ui@eaton.com"
+          for v in $remove; do
+            git rm -r --ignore-unmatch "$v"
+          done
+          git commit -m "Clean up old design version snapshots (keep latest 3)"
+          git push origin master

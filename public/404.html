@@ -22,8 +22,11 @@
             // https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
             // https://username.github.io/repo-name/?p=/one/two&q=a=b~and~c=d#qwe
             // Otherwise, leave segmentCount as 0.
-            var segmentCount = 0;
+            // Deep links inside a versioned snapshot (e.g. /v2/roadmap) must preserve the /v2/ segment,
+            // otherwise this 404 fallback would always redirect back to the root (latest) build.
             var l = window.location;
+            var firstSegment = l.pathname.slice(1).split('/')[0];
+            var segmentCount = /^v\d+$/.test(firstSegment) ? 1 : 0;
             l.replace(
                 l.protocol +
                     '//' +

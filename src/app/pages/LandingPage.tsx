@@ -36,7 +36,6 @@ import { useGoogleAnalyticsPageView } from '../hooks/useGoogleAnalyticsPageView'
 import { PXBLogo } from '../assets/icons/PXBLogo';
 import { Menu, DeveloperMode } from '@mui/icons-material';
 import { useAppSelector, RootState } from '../redux';
-import pkg from '../../../package.json';
 
 const styles: Record<string, SxProps<Theme>> = {
     banner: {
@@ -85,10 +84,6 @@ export const LandingPage: React.FC = (): React.JSX.Element => {
     return (
         <>
             <SharedToolbar navigationIcon={<Menu />} />
-            {/* TEMPORARY: remove before merging to prod, used to verify which snapshot folder is being served */}
-            <Box sx={{ backgroundColor: 'warning.main', color: 'warning.contrastText', textAlign: 'center', py: 1 }}>
-                <Typography variant={'subtitle2'}>{`TEST BUILD — design v${pkg.designVersion}`}</Typography>
-            </Box>
             <Box sx={styles.banner} style={landingPageBanner}>
                 {customBannerText ? (
                     <Box sx={styles.customBannerText} style={customBannerText} />
