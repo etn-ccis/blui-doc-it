@@ -12,7 +12,6 @@ export type VersionHistoryItem = {
 // Ordered newest -> oldest. First entry is treated as the current version.
 // `url` matches the deploy pipeline's target-folder, keyed by design version (not the dev release number).
 export const versionHistory: VersionHistoryItem[] = [
-    { label: 'Design v3', release: 'R40', date: 'Updated July 2026', url: '/' },
-    { label: 'Design v2', release: 'R21', date: 'Updated June 2025', url: '/v2/' },
-    { label: 'Design v1', release: 'R8', date: 'Updated July 2018', url: '/v1/' },
+    { label: 'Design v2', release: 'R40', date: 'Updated July 2026', url: '/' },
+    { label: 'Design v1', release: 'R21', date: 'Updated June 2025', url: '/v1/' },
 ];

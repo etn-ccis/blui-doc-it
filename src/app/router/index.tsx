@@ -61,7 +61,9 @@ const ScrollToTop = (): React.JSX.Element | null => {
 // Type-safe wrapper for Router to handle React 19 compatibility
 const RouterWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const RouterComponent = Router as any;
-    return <RouterComponent>{children}</RouterComponent>;
+    // Version snapshots are built with PUBLIC_URL="/vX" and deployed to a matching subfolder,
+    // so the router must strip that prefix to resolve routes correctly.
+    return <RouterComponent basename={process.env.PUBLIC_URL || undefined}>{children}</RouterComponent>;
 };
 
 export const MainRouter = (): React.JSX.Element => {

@@ -22,8 +22,11 @@
             // https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
             // https://username.github.io/repo-name/?p=/one/two&q=a=b~and~c=d#qwe
             // Otherwise, leave segmentCount as 0.
-            var segmentCount = 0;
+            // This file is copied unmodified into every deployed version snapshot (e.g. /v1/, /v2/),
+            // so the "real directory" segment must be detected at runtime rather than hardcoded.
             var l = window.location;
+            var firstSegment = l.pathname.split('/')[1];
+            var segmentCount = /^v\d+$/.test(firstSegment) ? 1 : 0;
             l.replace(
                 l.protocol +
                     '//' +

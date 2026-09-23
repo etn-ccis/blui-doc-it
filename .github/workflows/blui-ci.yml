@@ -102,6 +102,9 @@ jobs:
             token: ${{env.DEV_DEPLOY_TOKEN}}
             repository-name: brightlayer-ui-dev/brightlayer-ui-dev.github.io
             branch: master
+            # Root deploys clean the whole branch by default; keep quarterly version snapshots alive.
+            clean-exclude: |
+              v*
             git-config-name: Brightlayer UI Agent
             git-config-email: brightlayer-ui@eaton.com
             commit-message: "Automated deployment to GitHub Pages ${{github.sha}}"
@@ -127,6 +130,9 @@ jobs:
             token: ${{env.DEV_DEPLOY_TOKEN}}
             repository-name: brightlayer-ui/brightlayer-ui.github.io
             branch: master
+            # Root deploys clean the whole branch by default; keep quarterly version snapshots alive.
+            clean-exclude: |
+              v*
             git-config-name: Brightlayer UI Agent
             git-config-email: brightlayer-ui@eaton.com
             commit-message: "Automated deployment to GitHub Pages ${{github.sha}}"
