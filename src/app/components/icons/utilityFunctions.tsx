@@ -3,6 +3,7 @@ import { IconColor, IconSize, IconType } from '../../../__types__';
 import { getSvg } from '../../api';
 import { getSnakeCase, snakeToKebabCase } from '../../shared';
 import * as Colors from '@brightlayer-ui/colors';
+import type { TwoToneStatus } from '@brightlayer-ui/icons-mui';
 
 export type Framework = 'angular' | 'react' | 'react-native';
 
@@ -230,9 +231,15 @@ export const getIconSvgSnippet: GetSnippetFn = (framework, icon) => {
     }
 };
 
-export const getIconComponentCopyText: GetCopyTextFn = (framework, icon) => {
+export const getIconComponentCopyText = (framework: Framework, icon: IconType, status?: TwoToneStatus): string => {
     switch (framework) {
         case 'react':
+            if (status) {
+                if (icon.isMaterial) {
+                    return `import { TwoToneIcon } from '@brightlayer-ui/icons-mui';\nimport { ${icon.name}TwoTone } from '@mui/icons-material';\n<TwoToneIcon icon={${icon.name}TwoTone} status="${status}" />`;
+                }
+                return `import { TwoToneIcon, ${icon.name}TwoTone } from '@brightlayer-ui/icons-mui';\n<TwoToneIcon icon={${icon.name}TwoTone} status="${status}" />`;
+            }
             return `import { ${icon.name} } from '${
                 icon.isMaterial ? '@mui/icons-material' : '@brightlayer-ui/icons-mui'
             }';\n<${icon.name} />`;
@@ -241,9 +248,33 @@ export const getIconComponentCopyText: GetCopyTextFn = (framework, icon) => {
     }
 };
 
-export const getIconComponentSnippet: GetSnippetFn = (framework, icon) => {
+export const getIconComponentSnippet = (
+    framework: Framework,
+    icon: IconType,
+    status?: TwoToneStatus
+): React.JSX.Element => {
     switch (framework) {
         case 'react':
+            if (status) {
+                if (icon.isMaterial) {
+                    return (
+                        <>
+                            {`import { TwoToneIcon } from '@brightlayer-ui/icons-mui';`}
+                            <br />
+                            {`import { ${icon.name}TwoTone } from '@mui/icons-material';`}
+                            <br />
+                            {`<TwoToneIcon icon={${icon.name}TwoTone} status="${status}" />`}
+                        </>
+                    );
+                }
+                return (
+                    <>
+                        {`import { TwoToneIcon, ${icon.name}TwoTone } from '@brightlayer-ui/icons-mui';`}
+                        <br />
+                        {`<TwoToneIcon icon={${icon.name}TwoTone} status="${status}" />`}
+                    </>
+                );
+            }
             return (
                 <>
                     {`import { ${icon.name} } from '${
