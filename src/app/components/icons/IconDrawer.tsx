@@ -230,7 +230,7 @@ export const IconDrawer: React.FC = () => {
                                     borderRadius: 1,
                                     border: '1px solid',
                                     borderColor: 'divider',
-                                    bgcolor: previewMode === 'dark' ? '#1b1b1b' : '#ffffff',
+                                    bgcolor: previewMode === 'dark' ? Colors.black[900] : Colors.white[50],
                                 }}
                             >
                                 {isStatusColor(iconColor) && TwoToneVariant ? (
