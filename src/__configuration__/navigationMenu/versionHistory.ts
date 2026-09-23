@@ -11,7 +11,8 @@ export type VersionHistoryItem = {
 
 // Ordered newest -> oldest. First entry is treated as the current version.
 // `url` matches the deploy pipeline's target-folder, keyed by design version (not the dev release number).
+// CI verifies this list against the folders actually deployed to the docs repo
+// (see __scripts__/verify-version-history.js) - keep both in sync when publishing/retiring a snapshot.
 export const versionHistory: VersionHistoryItem[] = [
-    { label: 'Design v2', release: 'R40', date: 'Updated July 2026', url: '/' },
-    { label: 'Design v1', release: 'R21', date: 'Updated June 2025', url: '/v1/' },
+    { label: 'Design v1', release: 'R41', date: 'Updated October 2026', url: '/' },
 ];
