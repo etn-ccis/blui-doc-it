@@ -6,7 +6,7 @@
     "dependencies": {
         "@brightlayer-ui/colors": "3.2.0-alpha.4",
         "@brightlayer-ui/colors-branding": "^3.2.1",
-        "@brightlayer-ui/icons-mui": "4.4.0-alpha.0",
+        "@brightlayer-ui/icons-mui": "4.4.0-alpha.1",
         "@brightlayer-ui/react-components": "^8.0.2",
         "@brightlayer-ui/react-progress-icons": "^2.3.0-alpha.0",
         "@brightlayer-ui/react-themes": "9.1.0-alpha.5",
