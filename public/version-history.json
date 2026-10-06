@@ -1,8 +1,14 @@
 [
     {
+        "label": "Design v2",
+        "release": "R42",
+        "date": "Updated December 2026",
+        "url": ""
+    },
+    {
         "label": "Design v1",
         "release": "R41",
         "date": "Updated October 2026",
-        "url": ""
+        "url": "/v1"
     }
 ]
