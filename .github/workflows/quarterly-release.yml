@@ -61,3 +61,20 @@ jobs:
           git-config-name: Brightlayer UI Agent
           git-config-email: brightlayer-ui@eaton.com
           commit-message: "Deploy design ${{ steps.pkg-version.outputs.design }} snapshot to ${{ github.event.inputs.environment }} (${{ github.sha }})"
+
+      - name: Prepare shared version history
+        run: |
+          mkdir -p version-history
+          cp public/version-history.json version-history/version-history.json
+
+      - name: Deploy shared version history
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: version-history
+          token: ${{ env.DEV_DEPLOY_TOKEN }}
+          repository-name: ${{ env.repository-name }}
+          branch: master
+          clean: false
+          git-config-name: Brightlayer UI Agent
+          git-config-email: brightlayer-ui@eaton.com
+          commit-message: "Update Doc-It version history for ${{ github.event.inputs.environment }} (${{ github.sha }})"

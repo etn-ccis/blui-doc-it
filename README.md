@@ -68,6 +68,25 @@ When changes are committed to the dev branch, they are automatically run through
 
 When changes are committed to the master branch and the tests pass, the changes are automatically deployed to brightlayer-ui.github.io.
 
+### Versioned Documentation Releases
+
+The version menu loads `public/version-history.json` from the hosting root. Keep this manifest to one entry for the current release; use an empty `url` because the current documentation is served from the root:
+
+```json
+[
+    {
+        "label": "Design v3",
+        "release": "R41",
+        "date": "Updated October 2026",
+        "url": ""
+    }
+]
+```
+
+When preparing a release, update the label, release identifier, and date in `public/version-history.json`. Keep `designVersion` in `package.json` in sync with the design version in the label. The quarterly release workflow uses `designVersion` to build and publish the `/vN` snapshot, so this field is required.
+
+Run **Deploy Quarterly Release Snapshot** from GitHub Actions and select the target environment. The workflow deploys the versioned snapshot, then publishes `version-history.json` to the hosting root so the current menu is available to both the root site and snapshots. The normal build workflow deploys the root documentation when changes are pushed to `dev` or `master`. Verify the root site and the new `/vN` snapshot in the selected environment.
+
 ## Browsers support
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
