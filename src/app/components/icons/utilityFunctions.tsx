@@ -288,3 +288,14 @@ export const getIconComponentSnippet = (
             return <></>;
     }
 };
+
+export const getSlashedRnCopyText = (icon: IconType): string =>
+    `import { SlashedBLUIIcon } from '@brightlayer-ui/react-native-vector-icons';\n<SlashedBLUIIcon name="${icon.iconFontKey}" size={24} color="#333" slashColor="#777" />`;
+
+export const getSlashedRnSnippet = (icon: IconType): React.JSX.Element => (
+    <>
+        {`import { SlashedBLUIIcon } from '@brightlayer-ui/react-native-vector-icons';`}
+        <br />
+        {`<SlashedBLUIIcon name="${icon.iconFontKey}" size={24} color="#333" slashColor="#777" />`}
+    </>
+);
