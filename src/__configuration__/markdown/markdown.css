@@ -26,6 +26,23 @@
     opacity: 0.5;
 }
 
+.mdTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+}
+
+.mdTh,
+.mdTd {
+    padding: 8px 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.mdTable thead .mdTh {
+    padding-bottom: 8px;
+}
+
 @media (hover: none) {
     .headline:not(:first-child) .headline-text .MuiSvgIcon-root {
         opacity: 0.25;

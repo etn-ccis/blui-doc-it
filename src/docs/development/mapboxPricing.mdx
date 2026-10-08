@@ -1,0 +1,139 @@
+import React from 'react';
+import { Divider } from '../../app/components';
+
+{/* KEYWORDS: mapbox pricing billing token access map loads cost */}
+
+# Mapbox Pricing & Token Setup
+
+This page covers what Mapbox costs, how the free tier works, and how to set up and secure access tokens for your team's application.
+
+> **Reference:** [Mapbox Pricing](https://www.mapbox.com/pricing) · [Access Tokens Guide](https://docs.mapbox.com/accounts/guides/tokens/) · [Mapbox GL JS Docs](https://docs.mapbox.com/mapbox-gl-js/guides/)
+
+<Divider />
+
+## Pricing Model
+
+Mapbox bills per **map load**. A map load is counted each time a user's browser initializes a Mapbox map — once per page load, regardless of how many tiles are fetched or how long the session lasts. Navigating to a new route that keeps the same map instance does **not** count as a new load. Only destroying and re-creating the map object triggers a new load count.
+
+Mapbox usage is tracked per access token and reported in the [Mapbox account dashboard](https://account.mapbox.com) with daily and monthly breakdowns.
+
+### Free Tier
+
+Every Mapbox account includes a generous free tier that resets on the 1st of each month. No credit card is required to stay within the free tier.
+
+| Product | Free Allowance | Resets |
+|---|---|---|
+| Mapbox GL JS (Web) | **50,000 map loads / month** | 1st of each month |
+| Mapbox Geocoding API | **100,000 requests / month** | 1st of each month |
+| Static Images API | **50,000 requests / month** | 1st of each month |
+
+### Pay-As-You-Go (Beyond Free Tier)
+
+| Usage | Price |
+|---|---|
+| Map loads 0 – 50,000 / month | **Free** |
+| Map loads 50,001 – 100,000 / month | $0.50 per 1,000 loads |
+| Map loads 100,001 – 200,000 / month | $0.40 per 1,000 loads |
+| Map loads > 200,000 / month | $0.30 per 1,000 loads (volume discount) |
+| Geocoding requests 0 – 100,000 / month | **Free** |
+| Geocoding requests > 100,000 / month | $0.75 per 1,000 requests |
+
+> **Always verify current rates at [mapbox.com/pricing](https://www.mapbox.com/pricing) before budgeting** — Mapbox adjusts pricing periodically.
+
+### Spend Cap
+
+Mapbox allows you to set a **monthly spend cap** in your account dashboard. Once the cap is reached, map loads return a `401` error until the next billing cycle. Setting a spend cap prevents surprise charges and is strongly recommended for all production tokens.
+
+To set a cap: go to [account.mapbox.com](https://account.mapbox.com) → **Billing** → **Spend limit** and enter your maximum monthly amount. You will receive an email alert when you approach the limit.
+
+<Divider />
+
+## Token Types
+
+Mapbox issues two types of access tokens:
+
+| Token Type | Prefix | Use |
+|---|---|---|
+| **Public token** | `pk.` | Safe to include in browser/client code. Use this in your app. |
+| **Secret token** | `sk.` | Server-side only. **Never ship in client code or commit to git.** |
+
+All Mapbox GL JS map rendering happens directly from the browser to Mapbox CDN servers, which means the public token is visible in network requests. **This is by design** — Mapbox's security model does not rely on token secrecy. Instead, it relies on the **Allowed URLs** domain restriction: even if someone copies the token, it will fail on any domain you haven’t explicitly permitted. See the [Limiting token scope](https://docs.mapbox.com/accounts/guides/tokens/#limiting-token-scope) guide for details.
+
+Store your token in an environment variable (`.env.local` for development, a CI/CD secret for production) and **never commit it to source control**. Even though public tokens are safe to use in the browser, checking one into git makes it permanently visible in the repository history.
+
+<Divider />
+
+## Creating an Access Token
+
+Each application should have its own dedicated token. Sharing a single token across multiple applications makes it impossible to revoke access for one app without affecting the others.
+
+1. Sign in to [account.mapbox.com](https://account.mapbox.com)
+2. Navigate to **Tokens** → **Create a token**
+3. Give it a descriptive name (e.g., `plant-monitor-prod`)
+4. Under **Token scopes**, the default public token scopes are sufficient for map rendering and geocoding
+5. Under **Allowed URLs** (see below), add your production and staging domains
+6. Click **Create token**
+
+<Divider />
+
+## Restricting a Token to Specific Domains
+
+An unrestricted public token can be used by anyone who finds it in your source code or network requests. Always restrict production tokens to the domains where your application runs.
+
+In the **Allowed URLs** field when creating or editing a token, add each domain that is permitted to use it (e.g. `https://your-app.example.com`, `http://localhost:3000`). Requests from any other origin will receive a `401 Unauthorized` response. Localhost is safe to include during development and does not count differently toward billing.
+
+URL matching supports exact domains and subdomains. A wildcard (`https://*.example.com`) covers all subdomains if you need staging and feature-branch environments under the same domain.
+
+> **Tip:** Create separate tokens for production, staging, and local development. This lets you revoke a compromised environment's token without affecting others.
+
+<Divider />
+
+## Token Rotation
+
+Because public tokens are visible in browser network requests, rotating them periodically is good security hygiene even without a known exposure. If a token is leaked (committed to git, logged, etc.), rotate it immediately:
+
+1. Go to [account.mapbox.com/tokens](https://account.mapbox.com/tokens)
+2. Create a **new token** with the same scopes and allowed URLs as the compromised one
+3. Deploy the new token to your application
+4. **Delete the old token** — existing sessions using it will immediately start receiving `401` errors
+
+Because the token lives in an environment variable, rotation only requires updating that variable and redeploying — no source code changes are needed.
+
+<Divider />
+
+## Avoiding Token Exposure — Mitigations
+
+If your security policy requires that no credential appears in client-side network traffic, there are two approaches. Both add infrastructure complexity and are not required for most applications — Allowed URL restriction is sufficient for the vast majority of use cases.
+
+### Option 1 — Temporary Tokens (short-lived public tokens)
+
+Mapbox provides a [Temporary Token API](https://docs.mapbox.com/api/accounts/tokens/#create-a-temporary-token) that lets your backend generate short-lived public tokens (maximum 1-hour expiry) on demand. The flow is:
+
+1. An authenticated user opens the app
+2. Your backend calls the Mapbox Temporary Token API using a **secret token** (never leaves your server)
+3. The backend returns the short-lived `pk.*` token to the frontend
+4. Mapbox GL JS uses the temporary token for that session
+5. The token expires automatically — a leaked token is useless after the window closes
+
+This approach still sends a token in network requests, but the exposure window is limited to the session duration. The secret token that generates them never leaves your server.
+
+### Option 2 — Tile Proxy Server
+
+A tile proxy routes all Mapbox API requests through your own backend. Your server appends the secret token before forwarding to Mapbox, so the browser never sees any Mapbox credential.
+
+- Your frontend points `mapboxgl.accessToken` at a placeholder and overrides the tile URLs to your proxy
+- Your proxy server authenticates the user, forwards the request to Mapbox with the real token, and returns the response
+- This approach is significantly more complex: it requires a server, adds latency to every tile load, and must handle Mapbox’s caching headers correctly
+- Review the [Mapbox Terms of Service](https://www.mapbox.com/legal/tos) before implementing a proxy to confirm your usage complies
+
+> **Recommendation:** For internal enterprise applications, Allowed URL restriction (Option 0) is the standard and accepted approach. Temporary tokens are a good middle ground if security posture requires it. A full tile proxy is only warranted when tokens must never leave the server under any circumstances.
+
+<Divider />
+
+## References
+
+- [Mapbox Pricing](https://www.mapbox.com/pricing) — current rates, free tier limits, spend cap setup
+- [Access Tokens Guide](https://docs.mapbox.com/accounts/guides/tokens/) — creating, scoping, and restricting tokens
+- [Token Best Practices](https://docs.mapbox.com/accounts/guides/tokens/#token-best-practices) — rotation, allowed URLs, secret vs. public
+- [Mapbox GL JS Getting Started](https://docs.mapbox.com/mapbox-gl-js/guides/) — SDK setup and initialization
+- [Mapbox Geocoding API](https://docs.mapbox.com/api/search/geocoding/) — request limits and pricing

@@ -135,6 +135,11 @@ export const pageDefinitions: SimpleNavItem[] = [
                 url: 'testing',
                 component: <MarkdownPage title={'Testing'} markdown={Docs.Development.Testing} />,
             },
+            {
+                title: 'Mapbox Pricing',
+                url: 'mapboxPricing',
+                component: <MarkdownPage title={'Mapbox Pricing'} markdown={Docs.Development.MapboxPricing} />,
+            },
         ],
     },
     {

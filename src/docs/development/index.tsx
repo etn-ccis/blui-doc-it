@@ -4,5 +4,6 @@ import Environment from './environment.mdx';
 import Testing from './testing.mdx';
 import Templates from './templates.mdx';
 import Components from './components.mdx';
+import MapboxPricing from './mapboxPricing.mdx';
 
-export { MobileFrameworks, WebFrameworks, Environment, Testing, Templates, Components };
+export { MobileFrameworks, WebFrameworks, Environment, Testing, Templates, Components, MapboxPricing };
