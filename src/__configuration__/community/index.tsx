@@ -8,6 +8,7 @@ import {
     Drafts,
     ImportExport,
     Devices,
+    EmojiEvents,
 } from '@mui/icons-material';
 import * as Colors from '@brightlayer-ui/colors';
 import * as BrandingColors from '@brightlayer-ui/colors-branding';
@@ -118,6 +119,19 @@ export const links = [
         ),
         background: {
             color: Colors.purple[300],
+        },
+    },
+    {
+        title: 'FLEX Awards',
+        url: '/community/flex-awards',
+        description: `Learn about the BLUI FLEX Awards program that recognizes outstanding contributions to the Brightlayer UI community.`,
+        image: (
+            <span style={{ fontSize: 120, color: 'white', display: 'flex' }}>
+                <EmojiEvents fontSize={'inherit'} color={'inherit'} />
+            </span>
+        ),
+        background: {
+            color: BrandingColors.goldenrod[400],
         },
     },
 ];
