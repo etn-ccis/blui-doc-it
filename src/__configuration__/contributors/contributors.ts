@@ -21,6 +21,8 @@ import AubreyThompson from '../../app/assets/credits/aubrey-thompson.jpg';
 import HuayunHuang from '../../app/assets/credits/huayun-huang.jpg';
 import JeffeyGreiner from '../../app/assets/credits/jeffery-greiner.jpeg';
 import EktaGhag from '../../app/assets/credits/ekta-ghag.jpg';
+import NancyZhu from '../../app/assets/credits/nancy_zhu.png';
+import ShawnTong from '../../app/assets/credits/shawn_tong.png';
 import { OtherContributor } from '../../__types__';
 
 export const contributors: OtherContributor[] = [
@@ -175,5 +177,15 @@ export const contributors: OtherContributor[] = [
     {
         name: 'Julien Von Oetinger',
         role: 'Front-End Developer',
+    },
+    {
+        name: 'Nancy Zhu',
+        role: 'UX Designer',
+        image: NancyZhu,
+    },
+    {
+        name: 'Shawn Tong',
+        role: 'UI Designer',
+        image: ShawnTong,
     },
 ];
