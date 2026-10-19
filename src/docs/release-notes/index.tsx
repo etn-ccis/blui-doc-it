@@ -1,6 +1,7 @@
 import React from 'react';
 
 // Full Release Notes
+import R41 from './R41/FullNotes.mdx';
 import R39 from './R39/FullNotes.mdx';
 import R38 from './R38/FullNotes.mdx';
 import R37 from './R37/FullNotes.mdx';
@@ -37,6 +38,7 @@ import R8 from './R8/FullNotes.mdx';
 import R7 from './R7/FullNotes.mdx';
 
 // Summaries (for Landing Page)
+import R41Summary from './R41/Summary.mdx';
 import R40Summary from './R40/Summary.mdx';
 import R39Summary from './R39/Summary.mdx';
 import R38Summary from './R38/Summary.mdx';
@@ -84,6 +86,13 @@ export type ReleaseInfo = {
 };
 
 const Releases: ReleaseInfo[] = [
+    {
+        title: 'R41',
+        date: 'October 2026',
+        version: '5.1.0',
+        details: mdxComponent(R41),
+        summary: mdxComponent(R41Summary),
+    },
     {
         title: 'R40',
         date: 'July 2026',
