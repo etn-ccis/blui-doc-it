@@ -4,7 +4,7 @@
     "designVersion": "1",
     "private": true,
     "dependencies": {
-        "@brightlayer-ui/colors": "3.2.0-alpha.4",
+        "@brightlayer-ui/colors": "3.3.0",
         "@brightlayer-ui/colors-branding": "^3.2.1",
         "@brightlayer-ui/icons-mui": "4.4.0",
         "@brightlayer-ui/react-components": "^8.0.2",
