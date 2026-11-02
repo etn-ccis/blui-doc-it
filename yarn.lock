@@ -1250,10 +1250,10 @@
   dependencies:
     "@brightlayer-ui/types" "^2.0.0"
 
-"@brightlayer-ui/colors@3.2.0-alpha.4", "@brightlayer-ui/colors@^3.2.0-alpha.4":
-  version "3.2.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/colors/-/colors-3.2.0-alpha.4.tgz#de571224f449547e8146daef36c7e93d0725b104"
-  integrity sha512-yYI6OWNceGyp9gO37PqHMfzJExhsx9gq+OvApvWiVRVoZK/UgCkaXX/RGPvUDBgAtU2pCqpOuLp3K/BxiGFMDg==
+"@brightlayer-ui/colors@3.3.0", "@brightlayer-ui/colors@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/colors/-/colors-3.3.0.tgz#cac4a901451d15e04abbe9db3890e05ab9f54eae"
+  integrity sha512-JiI32f6xrfqd4CbrTM6PjL+pNDK4cTZZGVMcZygwQxgTpZV8IgwHNGlzeYdf87Thq6MioyvP6cKWYEq9g+F8jA==
   dependencies:
     "@brightlayer-ui/types" "^2.0.0"
 
@@ -1271,10 +1271,10 @@
   optionalDependencies:
     eslint-plugin-react "^7.37.1"
 
-"@brightlayer-ui/icons-mui@4.4.0-alpha.1":
-  version "4.4.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/icons-mui/-/icons-mui-4.4.0-alpha.1.tgz#babfe1f4f32d007b6e4702d6b2dfb2cd84ace4e7"
-  integrity sha512-pgltF26ESYchAMeHJH3giUSbW86x/88ooimqdgkoohcx/JefkZscbv1qXp1yjENbzKiRagZKLPxCtK9uRqDpRQ==
+"@brightlayer-ui/icons-mui@4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/icons-mui/-/icons-mui-4.4.0.tgz#672b241458c002ac969aec30d32f32415a06a22d"
+  integrity sha512-SJfWTpuXinGvftPiNpGF/gYCrMIR9A4F29+hG8P9HUyt3Tykt8teP4+n5NQhS8/zwtZt/GkCb9W5+04EjchO7g==
 
 "@brightlayer-ui/prettier-config@^1.0.3":
   version "1.0.3"
@@ -1294,21 +1294,21 @@
     loose-envify "1.4.0"
     react-is "16.13.1"
 
-"@brightlayer-ui/react-progress-icons@^2.3.0-alpha.0":
-  version "2.3.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/react-progress-icons/-/react-progress-icons-2.3.0-alpha.0.tgz#dc5b3574e19f81edb50b9deae8ebbdbcd9ba5e7f"
-  integrity sha512-vmsmYlr6URMADSoSnpiZanHlXCwBx2p1ZTRHS078altAEBde4uztIEAGmB1bDbCp+UAhbzkEMchKPB+CQkC2/w==
+"@brightlayer-ui/react-progress-icons@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/react-progress-icons/-/react-progress-icons-2.3.0.tgz#c08e1b105d53cf91de4b3bf83401cd38fd8806b8"
+  integrity sha512-ek3F09AjAicUD+fSPbIOl/iMEjVceTHhRSmLS9tRJn7UXIAUuaRXCZPz+bmTnCCThI/tqH6vV2r+WOWJteQKbA==
   dependencies:
     clsx "^1.1.1"
     color "^3.1.2"
     react-jss "^10.4.0"
 
-"@brightlayer-ui/react-themes@9.1.0-alpha.5":
-  version "9.1.0-alpha.5"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/react-themes/-/react-themes-9.1.0-alpha.5.tgz#29ed64394baf40c7f97d7f246d1bb1be94287264"
-  integrity sha512-XOMBULQJ2SznO6LG5YZ3ruHxTUDbd49nvwGk/+uCm9l77wvcup68iKtftsImzUhJT+pSV6Qk8OHT6uGlhf5UyQ==
+"@brightlayer-ui/react-themes@9.1.1":
+  version "9.1.1"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/react-themes/-/react-themes-9.1.1.tgz#28b2426ea997ca92d8e57c59c962afe3700b291d"
+  integrity sha512-JeMpiZpV1jq4BbCZ+yTDPgGfyrEeq+/67lGKv+cKhy9Z7YG8m+7RJyoEI1SSYOdJa5J9KRoNCH6P1hrUIc2t8g==
   dependencies:
-    "@brightlayer-ui/colors" "^3.2.0-alpha.4"
+    "@brightlayer-ui/colors" "^3.3.0"
     "@brightlayer-ui/types" "^2.0.0"
     "@fontsource/open-sans" "^5.0.3"
     color "^4.2.3"
