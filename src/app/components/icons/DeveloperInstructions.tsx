@@ -22,9 +22,12 @@ import {
     getIconFontCopyText,
     getIconSvgSnippet,
     getIconSvgCopyText,
+    getSlashedRnSnippet,
+    getSlashedRnCopyText,
 } from './utilityFunctions';
 import { useSelectedIcon } from '../../contexts/selectedIconContextProvider';
 import { CopyToClipboard } from './CopyToClipboardButton';
+import type { TwoToneStatus } from '@brightlayer-ui/icons-mui';
 
 type Framework = 'angular' | 'react' | 'react-native';
 
@@ -63,12 +66,21 @@ const styles: Record<string, SxProps<Theme>> = {
 export type DeveloperAccordionProps = Omit<AccordionProps, 'children'> & {
     framework: Framework;
     icon: IconType;
+    status?: TwoToneStatus;
+    slashed?: boolean;
 };
 export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = (props) => {
-    const { framework, icon } = props;
+    const { framework, icon, status, slashed, ...accordionProps } = props;
+    const usageIcon = slashed
+        ? { ...icon, name: `${icon.name}Slashed`, iconFontKey: `${icon.iconFontKey}_slashed` }
+        : icon;
 
     return (
-        <Accordion square {...props} sx={[styles.accordion, ...(Array.isArray(props.sx) ? props.sx : [props.sx])]}>
+        <Accordion
+            square
+            {...accordionProps}
+            sx={[styles.accordion, ...(Array.isArray(props.sx) ? props.sx : [props.sx])]}
+        >
             <AccordionSummary
                 expandIcon={<ArrowDropDown sx={{ color: 'text.secondary' }} />}
                 disableRipple
@@ -84,46 +96,71 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
                     flexDirection: 'column',
                 }}
             >
+                {status && framework !== 'react' && (
+                    <Typography variant={'caption'} color={'text.secondary'} sx={{ mb: 1 }}>
+                        Two-tone status colors are currently supported in React only.
+                    </Typography>
+                )}
                 {/* ICON COMPONENT */}
                 {framework === 'react' && (
                     <>
                         <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
                             <Typography variant={'overline'}>Icon Components (Recommended)</Typography>
                             <CopyToClipboard
-                                copyText={getIconComponentCopyText(framework, icon)}
+                                copyText={getIconComponentCopyText(framework, usageIcon, status)}
                                 copiedPosition={'left'}
                             />
                         </Stack>
                         <Box component={'pre'} sx={styles.codeSnippet}>
-                            {getIconComponentSnippet(framework, icon)}
+                            {getIconComponentSnippet(framework, usageIcon, status)}
                         </Box>
                     </>
                 )}
 
                 {/* ICON FONT */}
-                {(framework === 'angular' || framework === 'react') && (
+                {!status && (framework === 'angular' || framework === 'react') && (
                     <>
                         <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
                             <Typography variant={'overline'}>Icon Font</Typography>
-                            <CopyToClipboard copyText={getIconFontCopyText(framework, icon)} copiedPosition={'left'} />
+                            <CopyToClipboard
+                                copyText={getIconFontCopyText(framework, usageIcon)}
+                                copiedPosition={'left'}
+                            />
                         </Stack>
                         <Box component={'pre'} sx={styles.codeSnippet}>
-                            {getIconFontSnippet(framework, icon)}
+                            {getIconFontSnippet(framework, usageIcon)}
                         </Box>
                     </>
                 )}
 
                 {/* SVG ICONS */}
-                {(framework === 'angular' ||
-                    framework === 'react-native' ||
-                    (framework === 'react' && !icon.isMaterial)) && (
+                {!status &&
+                    !(slashed && framework === 'react-native') &&
+                    (framework === 'angular' ||
+                        framework === 'react-native' ||
+                        (framework === 'react' && !usageIcon.isMaterial)) && (
+                        <>
+                            <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
+                                <Typography variant={'overline'}>SVG</Typography>
+                                <CopyToClipboard
+                                    copyText={getIconSvgCopyText(framework, usageIcon)}
+                                    copiedPosition={'left'}
+                                />
+                            </Stack>
+                            <Box component={'pre'} sx={styles.codeSnippet}>
+                                {getIconSvgSnippet(framework, usageIcon)}
+                            </Box>
+                        </>
+                    )}
+
+                {slashed && framework === 'react-native' && (
                     <>
                         <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
-                            <Typography variant={'overline'}>SVG</Typography>
-                            <CopyToClipboard copyText={getIconSvgCopyText(framework, icon)} copiedPosition={'left'} />
+                            <Typography variant={'overline'}>Icon Component</Typography>
+                            <CopyToClipboard copyText={getSlashedRnCopyText(icon)} copiedPosition={'left'} />
                         </Stack>
                         <Box component={'pre'} sx={styles.codeSnippet}>
-                            {getIconSvgSnippet(framework, icon)}
+                            {getSlashedRnSnippet(icon)}
                         </Box>
                     </>
                 )}
@@ -132,7 +169,10 @@ export const DeveloperInstructionAccordion: React.FC<DeveloperAccordionProps> = 
     );
 };
 
-export const DeveloperInstructionsPanel: React.FC = (): React.JSX.Element => {
+export const DeveloperInstructionsPanel: React.FC<{ status?: TwoToneStatus; slashed?: boolean }> = ({
+    status,
+    slashed,
+}): React.JSX.Element => {
     const theme = useTheme();
     const { selectedIcon: icon = emptyIcon } = useSelectedIcon();
     const [activeFramework, setActiveFramework] = useState<Framework | undefined>(undefined);
@@ -149,6 +189,8 @@ export const DeveloperInstructionsPanel: React.FC = (): React.JSX.Element => {
                     <DeveloperInstructionAccordion
                         framework={framework}
                         icon={icon}
+                        status={status}
+                        slashed={slashed}
                         expanded={activeFramework === framework}
                         onChange={(): void => setActiveFramework(activeFramework === framework ? undefined : framework)}
                     />

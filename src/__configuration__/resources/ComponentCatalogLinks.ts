@@ -20,6 +20,7 @@ import EditableTable from '../../app/assets/component-catalog/editable-table.png
 import ProgressIcons from '../../app/assets/component-catalog/progress-icons.png';
 import FileDragUpload from '../../app/assets/component-catalog/drag-drop.png';
 import HorizontalStackedBar from '../../app/assets/component-catalog/horizontal-stacked-bar.png';
+import ImageAnnotator from '../../app/assets/component-catalog/image-annotator.png';
 
 const branchSuffix = window.location.hostname === 'brightlayer-ui.github.io' ? '' : '-dev';
 
@@ -131,6 +132,13 @@ export const componentCatalogLinks: ComponentCatalogType[] = [
         react: `Offered by MUI's switch component`,
         reactNative: `https://brightlayer-ui-components.github.io/react-native${branchSuffix}/components/icon-switch/examples`,
         image: IconSwitch,
+    },
+    {
+        title: 'Image Annotator',
+        angular: `Not Available`,
+        react: `https://brightlayer-ui-components.github.io/react${branchSuffix}/components/image-annotator/examples`,
+        reactNative: `Not Available`,
+        image: ImageAnnotator,
     },
     {
         title: 'Info List Item',

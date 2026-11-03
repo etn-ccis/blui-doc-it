@@ -1,75 +1,97 @@
-# Doc-It (a.k.a. brightlayer-ui.github.io)
+# Doc-It
 
 [![Build](https://github.com/etn-ccis/blui-doc-it/actions/workflows/blui-ci.yml/badge.svg?branch=master)](https://github.com/etn-ccis/blui-doc-it/actions/workflows/blui-ci.yml)
 
-Doc-It is the source code for [brightlayer-ui.github.io](brightlayer-ui.github.io), documentation site for Brightlayer UI. The site is built to both provide documentation on how to use the system, but also as an example of how to use it. The entire site is using using the Brightlayer UI design system - built with React+Redux, Material UI, and the Brightlayer UI component library.
+The [Brightlayer UI documentation site](https://brightlayer-ui.github.io/), built with React, Redux, Material UI, and MDX.
 
-## Contributing
+## Quick Start
 
-To contribute to the documentation site, you will need to clone a local copy of the repository:
+Use Node.js 20 and Yarn to match CI.
 
-```
+```sh
 git clone https://github.com/etn-ccis/blui-doc-it
-```
-
-You can then install the necessary dependencies and run a local instance with the following commands:
-
-```
-cd doc-it
+cd blui-doc-it
 yarn install
 yarn start
 ```
 
-### Updating Search Index
+| Command               | Purpose                                        |
+| --------------------- | ---------------------------------------------- |
+| `yarn build`          | Regenerate the search index and build the site |
+| `yarn test`           | Run tests                                      |
+| `yarn lint`           | Check source code                              |
+| `yarn prettier:check` | Check source formatting                        |
+| `yarn check:links`    | Check documentation links                      |
 
-Every time you make any changes to anything in `src/docs/`, run `yarn indexer` from the root folder to regenerate the databases stored in `src/databases/`.
+## Editing Documentation
 
-If you make changes to `src/__configuration__/navigationMenu/navigation.tsx`, you will also need to update `scripts/crawl/sitemap.json`.
+- Edit page content in [src/docs](src/docs).
+- After content changes, run `yarn indexer` from the repository root to refresh [src/database](src/database).
+- When changing [navigation.tsx](src/__configuration__/navigationMenu/navigation.tsx), update [sitemap.json](__scripts__/crawl/sitemap.json) too.
+- See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
-## Project Structure
+## Project Layout
 
-This project is built using [React](https://reactjs.org/), [React-Router](https://reacttraining.com/react-router/), [Redux](https://react-redux.js.org/), and [MDX](https://mdxjs.com/). The majority of the content is written in Markdown and integrated into the React skeleton and navigation by using MDX. This approach allows us to simplify the application logic and make the content easy to update.
+| Folder                                         | Contents                                                   |
+| ---------------------------------------------- | ---------------------------------------------------------- |
+| [src/docs](src/docs)                           | Documentation pages (MDX)                                  |
+| [src/app](src/app)                             | Components, pages, routing, and Redux state                |
+| [src/**configuration**](src/__configuration__) | Navigation, themes, and site configuration                 |
+| [src/database](src/database)                   | Generated search data                                      |
+| [public](public)                               | Static assets, version history, and GitHub Pages redirects |
 
-### Folder Structure
+## Deployment
 
-The folder structure of the application is segregated to keep the application and the content separate (as much as possible).
+Pushes to these branches deploy the current documentation at the site root:
 
+| Branch   | Site                                  |
+| -------- | ------------------------------------- |
+| `dev`    | https://brightlayer-ui-dev.github.io/ |
+| `master` | https://brightlayer-ui.github.io/     |
+
+### Create a History Snapshot
+
+Snapshots preserve a design version at `/vN/`. The folder number comes from `designVersion` in [package.json](package.json), not the package's `version`.
+
+1. Choose the branch or tag containing the content to archive. Confirm its `designVersion` (for example, `"1"` creates `/v1/`) and push any changes.
+2. In GitHub Actions, run **Deploy Quarterly Release Snapshot** for that revision. Select `dev` or `prod`.
+3. Verify `/v1/`, internal navigation, and a deep link such as `/v1/design/colors`, including a page refresh. Repeat for the other environment when ready.
+
+The workflow builds with `PUBLIC_URL="/vN"`, publishes the snapshot without cleaning other folders, and updates the shared version menu. Rerunning the same design version updates its existing snapshot.
+
+**Before running:** keep the outgoing version's revision available before changing its content. Review its version-history manifest too: running an older revision can overwrite newer menu entries.
+
+### Update the Version Menu
+
+All versions load the menu from `/version-history.json` at the hosting root. In [public/version-history.json](public/version-history.json), put the current release first with `"url": ""` and keep published snapshots with URLs such as `"/v1"`.
+
+Example after moving the root site to Design v2:
+
+```json
+[
+    {
+        "label": "Design v2",
+        "release": "R42",
+        "date": "Updated January 2027",
+        "url": ""
+    },
+    {
+        "label": "Design v1",
+        "release": "R41",
+        "date": "Updated October 2026",
+        "url": "/v1"
+    }
+]
 ```
-└── /src
-    |── index.tsx                           // the root file that renders the application
-    |── /__configuration__                  // assorted configuration for populating some dynamic content areas on the site (navigation, roadmap, etc.)
-    |── /__types__                          // shared type definitions
-    |── /databases                          // databases generated automatically for the search functionality
-    |── /app
-    │   |── /api                            // api utilities for pulling data from npm, github
-    │   |── /assets                         // images and icons
-    │   |── /components                     // re-usable component definitions
-    │   |── /hooks                          // react hook definitions
-    │   |── /pages                          // component-based pages, not markdown-based (e.g., resources, roadmap, langin page)
-    │   |── /redux                          // actions, reducers, and store
-    │   |── /router                         // the main application router and navigation drawer
-    │   └── /shared                         // extra utility functions
-    |
-    └── /docs                               // markdown-based page definitions
-        |── /community                      // information on how to be a part of Brightlayer UI
-        |── /design                         // information for designers using Brightlayer UI
-        |── /development                    // information for developers using Brightlayer UI
-        |── /get-started                    // information on getting started with a project
-        |── /patterns                       // design patterns and sample code
-        |── /release-notes                  // information about past releases
-        └── /style                          // style guide definitions (color, typography, icons)
-```
 
-## Builds and Deployment
+Use the actual release names and dates. For a new design version, update `designVersion`, add the current entry, and point the previous entry to its snapshot. Only list snapshots deployed in the target environment; removing an entry does not delete its folder.
 
-The Doc-it project is configured with automated builds and deployment scripts.
+### Deployment Caveats
 
-When changes are committed to the dev branch, they are automatically run through the test scripts and if the tests pass, the site is deployed to the staging server.
+- **Root cleanup:** root deployments can remove snapshot folders. Until the root workflow is configured to preserve them, deploy the root first, then recreate the required snapshots with the intended version-history manifest.
+- **Shared menu:** both deployment workflows publish their revision's manifest to the root. Keep historical entries in it to avoid losing menu options.
+- **Missing versions:** unavailable paths such as `/v4` redirect to `/`. Failed availability checks also fall back to root. This requires the updated root 404 page to be deployed.
 
-When changes are committed to the master branch and the tests pass, the changes are automatically deployed to brightlayer-ui.github.io.
+## Browser Support
 
-## Browsers support
-
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Edge                                                                                                                                                                                                       | last 2 versions                                                                                                                                                                                                   | last 2 versions                                                                                                                                                                                               | last 2 versions                                                                                                                                                                                               |
+The latest two versions of Edge, Firefox, Chrome, and Safari.

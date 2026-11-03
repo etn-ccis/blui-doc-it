@@ -7,3 +7,4 @@ export * from './TOC';
 export * from './InDocButton';
 export * from './ListOfExternalLinks';
 export * from './LockedBehindEatonFirewall';
+export * from './VersionMenu';

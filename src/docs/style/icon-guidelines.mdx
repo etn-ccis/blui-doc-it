@@ -46,6 +46,7 @@ import IconVariation from '../../app/assets/styles/icon-guidelines/icon-variatio
 import IconVariation2 from '../../app/assets/styles/icon-guidelines/icon-variation-2.png';
 import IconNavItem1 from '../../app/assets/styles/icon-guidelines/icon-variation-nav-item-1.png';
 import IconNavItem2 from '../../app/assets/styles/icon-guidelines/icon-variation-nav-item-2.png';
+import SlashedIcons from '../../app/assets/styles/icon-guidelines/slashed-icons.png';
 import ProgressIcon1 from '../../app/assets/styles/icon-guidelines/progress-icon-1.png';
 import ProgressIcon2 from '../../app/assets/styles/icon-guidelines/progress-icon-2.png';
 import DesignTemplate from '../../app/assets/styles/icon-guidelines/design-template.svg';
@@ -78,6 +79,7 @@ Icons can be a great visual aid to enhance the usability of your application. If
         { title: 'Icon Variations' },
         { title: 'Multi-Colored Icons', depth: 1 },
         { title: 'Filled and Outlined Icons', depth: 1 },
+        { title: 'Slashed Icons', depth: 1 },
         { title: 'Progress Icons', depth: 1 },
         { title: 'Internationalization', depth: 1 },
         { title: 'Design Your Own Icons' },
@@ -236,6 +238,22 @@ Icons are meant to be simple — it is unwise to try to use icons to convey very
     gridImageProps={{ sm: 6, md: 4 }}
 />
 
+Brightlayer UI provides multiple icon color options to help communicate meaning, status, and priority within an interface. Available color variants include Primary (Blue), Error (Red), Warning (Yellow), Success (Green), Orange, Purple, and Neutral (Grayscale).
+
+Each icon color has been carefully optimized for both light and dark themes to maintain visual consistency and accessibility across different viewing conditions. Color selections are designed to support semantic communication while helping users quickly identify important information, system states, or actions.
+
+For non-text content such as icons, WCAG requires a minimum contrast ratio of 3:1 against adjacent colors to ensure sufficient visibility and recognition. Color values used throughout Brightlayer UI have been selected with this requirement in mind wherever possible. When a color alone cannot achieve the desired contrast, particularly with colors such as yellow that naturally have lower luminance contrast, additional visual techniques may be used to improve icon legibility and recognition.
+
+### Recommended Usage
+
+-   **Primary (Blue):** Default actions, navigation, and key interactive elements.
+-   **Error (Red):** Error states, critical alerts, failures, or destructive actions.
+-   **Warning (Yellow):** Warning states, cautionary information, and situations requiring attention.
+-   **Success (Green):** Successful operations, confirmations, and positive system states.
+-   **Orange:** High-priority notifications, maintenance states, or informational emphasis where warning semantics are not appropriate.
+-   **Purple:** Specialized features, categories, or branded experiences that require visual distinction without implying status.
+-   **Neutral (Grayscale):** Default, inactive, disabled, or low-emphasis icons.
+
 ## Filled and Outlined Icons
 
 Material Design offers icons in both filled and outlined styles. Brightlayer UI applications typically use the filled style, as it provides better legibility at a small scale. If you choose to use outlined styles instead, however, you must ensure your icon style stays consistent through the application.
@@ -262,6 +280,18 @@ You also have the option to use filled and outlined icons to indicate state. In 
     images={[IconNavItem1, IconNavItem2]}
     caption={`You may also choose to use outlined icons for inactive navigation items, and filled icons for the current active one.`}
 />
+
+## Slashed Icons
+
+In some cases, you may need to indicate that a device is off, unavailable, or in a negative state. Following the Material Design convention, this is typically represented by adding a diagonal slash from the top-left corner to the bottom-right corner of an icon. This treatment remains consistent across both left-to-right (LTR) and right-to-left (RTL) languages.
+
+<ImageGrid
+    images={[SlashedIcons]}
+    captionsUnderImages={[`Examples of slashed icons indicating an off, disabled, or unavailable state.`]}
+    gridImageProps={{ sm: 6, md: 4 }}
+/>
+
+Brightlayer UI provides a Slash component that makes it easy to apply this visual treatment to existing icons in [Figma](https://www.figma.com/community/file/1024360297793425107), [React](https://www.npmjs.com/package/@brightlayer-ui/icons-mui), and [React Native](https://www.npmjs.com/package/@brightlayer-ui/react-native-vector-icons).
 
 ## Progress Icons
 

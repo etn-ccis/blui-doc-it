@@ -12,6 +12,12 @@ const externalLinks: ExternalLink[] = [
         link: `https://brightlayer-ui-community.github.io/`,
     },
     {
+        title: `Brightlayer & Eaton Resources`,
+        subtitle: `Internal HMI design system guidance, developer documentation, adoption resources, and enterprise standards.`,
+        link: `https://app-etnblc-bluidocs-window-tst-eus-p01.azurewebsites.net/`,
+        loginRequired: true,
+    },
+    {
         title: `Design Thinking Resources`,
         subtitle: `Methods, Best Practices, Trainings`,
         link: `https://eaton.sharepoint.com/sites/ERG_DesignThinkingPractice`,

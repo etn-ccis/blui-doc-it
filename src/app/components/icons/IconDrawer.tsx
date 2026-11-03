@@ -6,7 +6,8 @@ import Divider from '@mui/material/Divider';
 import MuiDrawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
-import { useTheme, Theme } from '@mui/material/styles';
+import { useTheme, Theme, createTheme, ThemeProvider } from '@mui/material/styles';
+import type { SvgIconProps } from '@mui/material/SvgIcon';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -17,15 +18,19 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 import { EmptyState, Spacer } from '@brightlayer-ui/react-components';
 
 import { GetApp, Close } from '@mui/icons-material';
-import { Pxblue } from '@brightlayer-ui/icons-mui';
+import * as MuiIcons from '@mui/icons-material';
+import * as BLUIIcons from '@brightlayer-ui/icons-mui';
+import { Pxblue, TwoToneIcon, type TwoToneStatus } from '@brightlayer-ui/icons-mui';
 
 import { snakeToTitleCase } from '../../shared';
 import { emptyIcon } from '.';
-import { downloadPng, downloadSvg } from './utilityFunctions';
+import { downloadPng, downloadSvg, createDownloadElement } from './utilityFunctions';
 
 import * as Colors from '@brightlayer-ui/colors';
 import { DeveloperInstructionsPanel } from './DeveloperInstructions';
@@ -67,6 +72,20 @@ const styles: Record<string, SystemStyleObject<Theme>> = {
     },
 };
 
+type DrawerColor = 'black' | 'white' | TwoToneStatus;
+
+const STATUS_OPTIONS: Array<{ value: TwoToneStatus; label: string }> = [
+    { value: 'primary', label: 'Primary (Blue)' },
+    { value: 'error', label: 'Error (Red)' },
+    { value: 'warning', label: 'Warning (Yellow)' },
+    { value: 'success', label: 'Success (Green)' },
+    { value: 'orange', label: 'Orange' },
+    { value: 'purple', label: 'Purple' },
+    { value: 'neutral', label: 'Neutral (Grayscale)' },
+];
+
+const isStatusColor = (color: DrawerColor): color is TwoToneStatus => color !== 'black' && color !== 'white';
+
 export const IconDrawer: React.FC = () => {
     const { selectedIcon = emptyIcon } = useSelectedIcon();
     const previousSelectedIcon = usePrevious(selectedIcon);
@@ -74,13 +93,32 @@ export const IconDrawer: React.FC = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const [iconSize, setIconSize] = React.useState<IconSize>(24);
-    const [iconColor, setIconColor] = React.useState<IconColor>('black');
+    const [iconColor, setIconColor] = React.useState<DrawerColor>('black');
+    const [previewMode, setPreviewMode] = React.useState<'light' | 'dark'>('light');
+    const [slashed, setSlashed] = React.useState(false);
+    const previewRef = React.useRef<HTMLDivElement>(null);
     const drawerOpen = useAppSelector((state: RootState) => state.app.sidebarOpen);
     const selectedTheme = useAppSelector((state: RootState) => state.app.theme);
     const sm = useMediaQuery(theme.breakpoints.down('md'));
     const themeConfig = getScheduledSiteConfig(selectedTheme);
     const showBanner = useAppSelector((state: RootState) => state.app.showBanner);
     const iconTitle = snakeToTitleCase(selectedIcon.iconFontKey);
+
+    const twoToneKey = `${selectedIcon.name}TwoTone`;
+    const TwoToneVariant = (
+        selectedIcon.isMaterial
+            ? (MuiIcons as unknown as Record<string, React.ComponentType<SvgIconProps>>)[twoToneKey]
+            : (BLUIIcons as unknown as Record<string, React.ComponentType<SvgIconProps>>)[twoToneKey]
+    ) as React.ComponentType<SvgIconProps> | undefined;
+    const hasTwoTone = Boolean(TwoToneVariant);
+
+    const slashedKey = `${selectedIcon.name}Slashed`;
+    const SlashedVariant = (
+        selectedIcon.isMaterial
+            ? (MuiIcons as unknown as Record<string, React.ComponentType<SvgIconProps>>)[slashedKey]
+            : (BLUIIcons as unknown as Record<string, React.ComponentType<SvgIconProps>>)[slashedKey]
+    ) as React.ComponentType<SvgIconProps> | undefined;
+    const hasSlashed = Boolean(SlashedVariant);
 
     const closeDrawer = (): void => {
         void navigate(`${location.pathname}`, { replace: true });
@@ -92,11 +130,76 @@ export const IconDrawer: React.FC = () => {
             if (![24, 48].includes(iconSize)) {
                 setIconSize(24 as IconSize);
             }
-            if (!['black', 'white'].includes(iconColor)) {
-                setIconColor('black' as IconColor);
-            }
+        }
+        if (isStatusColor(iconColor) && !hasTwoTone) {
+            setIconColor('black');
+        }
+        if (slashed && !hasSlashed) {
+            setSlashed(false);
         }
     }, [selectedIcon]);
+
+    const styledFileName = (ext: string): string => {
+        const parts = [selectedIcon.iconFontKey];
+        if (slashed) parts.push('slashed');
+        if (isStatusColor(iconColor)) parts.push(iconColor, previewMode);
+        else if (iconColor === 'white') parts.push('white');
+        return `${parts.join('_')}.${ext}`;
+    };
+
+    const buildStyledSvgString = (): string | undefined => {
+        const svgEl = previewRef.current?.querySelector('svg');
+        if (!svgEl) return undefined;
+        const clone = svgEl.cloneNode(true) as SVGSVGElement;
+        const originals = svgEl.querySelectorAll('*');
+        const clones = clone.querySelectorAll('*');
+        originals.forEach((orig, i) => {
+            const computed = window.getComputedStyle(orig);
+            const target = clones[i] as SVGElement;
+            if (computed.fill && computed.fill !== 'none') target.setAttribute('fill', computed.fill);
+            if (computed.fillOpacity) target.setAttribute('fill-opacity', computed.fillOpacity);
+            target.removeAttribute('class');
+        });
+        clone.removeAttribute('class');
+        clone.setAttribute('width', String(iconSize));
+        clone.setAttribute('height', String(iconSize));
+        clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        return new XMLSerializer().serializeToString(clone);
+    };
+
+    const handleSvgDownload = (): void => {
+        if (isStatusColor(iconColor) || slashed) {
+            const svgStr = buildStyledSvgString();
+            if (!svgStr) return;
+            const url = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svgStr)}`;
+            createDownloadElement(url, styledFileName('svg'));
+        } else {
+            void downloadSvg(selectedIcon, iconColor as IconColor, iconSize);
+        }
+    };
+
+    const handlePngDownload = (): void => {
+        if (isStatusColor(iconColor) || slashed) {
+            const svgStr = buildStyledSvgString();
+            if (!svgStr) return;
+            const img = new Image();
+            img.onload = (): void => {
+                const canvas = document.createElement('canvas');
+                canvas.width = iconSize;
+                canvas.height = iconSize;
+                const ctx = canvas.getContext('2d');
+                if (!ctx) return;
+                ctx.drawImage(img, 0, 0, iconSize, iconSize);
+                canvas.toBlob((blob) => {
+                    if (!blob) return;
+                    createDownloadElement(URL.createObjectURL(blob), styledFileName('png'));
+                });
+            };
+            img.src = `data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(svgStr)))}`;
+        } else {
+            downloadPng(selectedIcon, iconColor as IconColor, iconSize);
+        }
+    };
 
     return (
         <MuiDrawer
@@ -136,7 +239,37 @@ export const IconDrawer: React.FC = () => {
                 {selectedIcon.name !== '' && (
                     <>
                         <Stack direction={'row'} alignItems={'center'} sx={{ p: 2 }}>
-                            <selectedIcon.Icon sx={{ fontSize: 40 }} />
+                            <Box
+                                ref={previewRef}
+                                sx={{
+                                    display: 'inline-flex',
+                                    p: 1,
+                                    borderRadius: 1,
+                                    border: '1px solid',
+                                    borderColor: 'divider',
+                                    bgcolor: previewMode === 'dark' ? Colors.black[900] : Colors.white[50],
+                                }}
+                            >
+                                {slashed && SlashedVariant ? (
+                                    <SlashedVariant
+                                        sx={{
+                                            fontSize: 40,
+                                            color: iconColor === 'white' ? Colors.white[50] : Colors.black[500],
+                                        }}
+                                    />
+                                ) : isStatusColor(iconColor) && TwoToneVariant ? (
+                                    <ThemeProvider theme={createTheme({ palette: { mode: previewMode } })}>
+                                        <TwoToneIcon icon={TwoToneVariant} status={iconColor} sx={{ fontSize: 40 }} />
+                                    </ThemeProvider>
+                                ) : (
+                                    <selectedIcon.Icon
+                                        sx={{
+                                            fontSize: 40,
+                                            color: iconColor === 'white' ? Colors.white[50] : Colors.black[500],
+                                        }}
+                                    />
+                                )}
+                            </Box>
                             <ListItemText
                                 sx={{ ml: 3, my: 0 }}
                                 disableTypography
@@ -198,14 +331,58 @@ export const IconDrawer: React.FC = () => {
                                         id="icon-color-select"
                                         variant={'standard'}
                                         value={iconColor}
-                                        onChange={(e): void => setIconColor(e.target.value as IconColor)}
+                                        onChange={(e): void => setIconColor(e.target.value as DrawerColor)}
                                     >
                                         <MenuItem value={'black'}>Black</MenuItem>
                                         <MenuItem value={'white'}>White</MenuItem>
-                                        {!selectedIcon.isMaterial && <MenuItem value={'blue'}>Blue</MenuItem>}
-                                        {!selectedIcon.isMaterial && <MenuItem value={'gray'}>Gray</MenuItem>}
+                                        {hasTwoTone &&
+                                            !slashed &&
+                                            STATUS_OPTIONS.map((opt) => (
+                                                <MenuItem key={opt.value} value={opt.value}>
+                                                    {opt.label}
+                                                </MenuItem>
+                                            ))}
                                     </Select>
                                 </FormControl>
+                                {hasSlashed && (
+                                    <FormControl sx={styles.formControl}>
+                                        <Typography variant={'caption'} color={'text.secondary'} sx={{ mb: 0.5 }}>
+                                            Slashed:
+                                        </Typography>
+                                        <ToggleButtonGroup
+                                            size={'small'}
+                                            exclusive
+                                            value={slashed ? 'on' : 'off'}
+                                            onChange={(_e, value): void => {
+                                                if (!value) return;
+                                                const isOn = value === 'on';
+                                                setSlashed(isOn);
+                                                if (isOn && isStatusColor(iconColor)) setIconColor('black');
+                                            }}
+                                        >
+                                            <ToggleButton value={'off'}>Off</ToggleButton>
+                                            <ToggleButton value={'on'}>On</ToggleButton>
+                                        </ToggleButtonGroup>
+                                    </FormControl>
+                                )}
+                                {isStatusColor(iconColor) && (
+                                    <FormControl sx={styles.formControl}>
+                                        <Typography variant={'caption'} color={'text.secondary'} sx={{ mb: 0.5 }}>
+                                            Preview Theme:
+                                        </Typography>
+                                        <ToggleButtonGroup
+                                            size={'small'}
+                                            exclusive
+                                            value={previewMode}
+                                            onChange={(_e, value): void => {
+                                                if (value) setPreviewMode(value as 'light' | 'dark');
+                                            }}
+                                        >
+                                            <ToggleButton value={'light'}>Light</ToggleButton>
+                                            <ToggleButton value={'dark'}>Dark</ToggleButton>
+                                        </ToggleButtonGroup>
+                                    </FormControl>
+                                )}
                             </Box>
                             <Box>
                                 <Button
@@ -213,16 +390,14 @@ export const IconDrawer: React.FC = () => {
                                     color="primary"
                                     sx={{ mr: 1 }}
                                     startIcon={<GetApp />}
-                                    onClick={(): void => {
-                                        void downloadSvg(selectedIcon, iconColor, iconSize);
-                                    }}
+                                    onClick={handleSvgDownload}
                                 >
                                     SVG
                                 </Button>
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={(): void => downloadPng(selectedIcon, iconColor, iconSize)}
+                                    onClick={handlePngDownload}
                                     startIcon={<GetApp />}
                                 >
                                     PNG
@@ -231,7 +406,10 @@ export const IconDrawer: React.FC = () => {
                         </Box>
                         <Divider />
 
-                        <DeveloperInstructionsPanel />
+                        <DeveloperInstructionsPanel
+                            status={isStatusColor(iconColor) ? iconColor : undefined}
+                            slashed={slashed}
+                        />
 
                         <Box sx={{ p: 2 }}>
                             <Typography variant={'subtitle2'} align={'center'}>

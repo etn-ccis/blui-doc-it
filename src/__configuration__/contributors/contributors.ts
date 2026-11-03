@@ -21,6 +21,12 @@ import AubreyThompson from '../../app/assets/credits/aubrey-thompson.jpg';
 import HuayunHuang from '../../app/assets/credits/huayun-huang.jpg';
 import JeffeyGreiner from '../../app/assets/credits/jeffery-greiner.jpeg';
 import EktaGhag from '../../app/assets/credits/ekta-ghag.jpg';
+import NancyZhu from '../../app/assets/credits/nancy_zhu.png';
+import ShawnTong from '../../app/assets/credits/shawn_tong.png';
+import DaminiSheth from '../../app/assets/credits/damini_sheth.png';
+import KeithHartman from '../../app/assets/credits/keith_hartman.png';
+import SayuuGao from '../../app/assets/credits/sayuu_gao.png';
+import Nannan from '../../app/assets/credits/nannan.png';
 import { OtherContributor } from '../../__types__';
 
 export const contributors: OtherContributor[] = [
@@ -175,5 +181,35 @@ export const contributors: OtherContributor[] = [
     {
         name: 'Julien Von Oetinger',
         role: 'Front-End Developer',
+    },
+    {
+        name: 'Nancy Zhu',
+        role: 'UX Designer',
+        image: NancyZhu,
+    },
+    {
+        name: 'Shawn Tong',
+        role: 'UI Designer',
+        image: ShawnTong,
+    },
+    {
+        name: 'Damini Sheth',
+        role: 'Design Intern',
+        image: DaminiSheth,
+    },
+    {
+        name: 'Keith Hartman',
+        role: 'User Experience Researcher',
+        image: KeithHartman,
+    },
+    {
+        name: 'Sayuu Gao',
+        role: 'Lead User Experience Designer',
+        image: SayuuGao,
+    },
+    {
+        name: 'Nannan',
+        role: 'UX Intern',
+        image: Nannan,
     },
 ];

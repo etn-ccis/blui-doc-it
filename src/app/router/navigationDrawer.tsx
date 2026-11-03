@@ -14,6 +14,7 @@ import color from 'color';
 import * as Colors from '@brightlayer-ui/colors';
 
 import { pageDefinitions, SimpleNavItem } from '../../__configuration__/navigationMenu/navigation';
+import { VersionMenu } from '../components/navigation';
 import { EatonTagline } from '../assets/icons';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
@@ -144,6 +145,7 @@ export const NavigationDrawer = (): React.JSX.Element => {
                 <DrawerNavGroup items={menuItems} />
             </DrawerBody>
             <DrawerFooter>
+                <VersionMenu />
                 <Stack
                     alignItems={'center'}
                     sx={{ backgroundColor: 'background.default', p: 2, cursor: 'pointer' }}
