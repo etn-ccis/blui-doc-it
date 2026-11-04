@@ -1,4 +1,4 @@
-import AccountDetailsBanner from '../../app/assets/design-patterns/account-menu/account-menu-banner.png';
+import AccountDetailsBanner from '../../app/assets/design-patterns/account-menu/account-menu-banner.jpg';
 import AppBarsImg from '../../app/assets/design-patterns/app-bar/appbar-banner.png';
 import ButtonsImg from '../../app/assets/design-patterns/buttons/banner.svg';
 import EmptyStatesImg from '../../app/assets/design-patterns/empty-states/empty-state-banner.svg';
