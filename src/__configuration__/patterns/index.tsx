@@ -1,6 +1,6 @@
 import AccountDetailsBanner from '../../app/assets/design-patterns/account-menu/account-menu-banner.jpg';
 import AppBarsImg from '../../app/assets/design-patterns/app-bar/appbar-banner.jpg';
-import ButtonsImg from '../../app/assets/design-patterns/buttons/banner.svg';
+import ButtonsImg from '../../app/assets/design-patterns/buttons/banner.jpg';
 import EmptyStatesImg from '../../app/assets/design-patterns/empty-states/empty-state-banner.svg';
 import FormValidationImg from '../../app/assets/design-patterns/form-validation/form-validation.svg';
 import InternationalizationImg from '../../app/assets/design-patterns/internationalization/internationalization.svg';
