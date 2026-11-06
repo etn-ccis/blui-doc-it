@@ -2,7 +2,7 @@ import AccountDetailsBanner from '../../app/assets/design-patterns/account-menu/
 import AppBarsImg from '../../app/assets/design-patterns/app-bar/appbar-banner.jpg';
 import ButtonsImg from '../../app/assets/design-patterns/buttons/banner.jpg';
 import EmptyStatesImg from '../../app/assets/design-patterns/empty-states/empty-state-banner.jpg';
-import FormValidationImg from '../../app/assets/design-patterns/form-validation/form-validation.svg';
+import FormValidationImg from '../../app/assets/design-patterns/form-validation/form-validation.jpg';
 import InternationalizationImg from '../../app/assets/design-patterns/internationalization/internationalization.svg';
 import ListImg from '../../app/assets/design-patterns/lists/lists.svg';
 import LoadingImage from '../../app/assets/design-patterns/loading-states/loading-banner.svg';
