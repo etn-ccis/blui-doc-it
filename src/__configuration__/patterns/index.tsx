@@ -5,7 +5,7 @@ import EmptyStatesImg from '../../app/assets/design-patterns/empty-states/empty-
 import FormValidationImg from '../../app/assets/design-patterns/form-validation/form-validation.jpg';
 import InternationalizationImg from '../../app/assets/design-patterns/internationalization/internationalization.jpg';
 import ListImg from '../../app/assets/design-patterns/lists/lists.jpg';
-import LoadingImage from '../../app/assets/design-patterns/loading-states/loading-banner.svg';
+import LoadingImage from '../../app/assets/design-patterns/loading-states/loading-banner.jpg';
 import LoginBanner from '../../app/assets/design-patterns/user-authentication/login.svg';
 import NavigationtImg from '../../app/assets/design-patterns/navigation/navigation.svg';
 import OverlayBanner from '../../app/assets/design-patterns/overlays/overlay-banner.svg';
