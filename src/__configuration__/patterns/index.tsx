@@ -7,7 +7,7 @@ import InternationalizationImg from '../../app/assets/design-patterns/internatio
 import ListImg from '../../app/assets/design-patterns/lists/lists.jpg';
 import LoadingImage from '../../app/assets/design-patterns/loading-states/loading-banner.jpg';
 import LoginBanner from '../../app/assets/design-patterns/user-authentication/login.svg';
-import NavigationtImg from '../../app/assets/design-patterns/navigation/navigation.svg';
+import NavigationtImg from '../../app/assets/design-patterns/navigation/navigation.jpg';
 import OverlayBanner from '../../app/assets/design-patterns/overlays/overlay-banner.svg';
 import TableImg from '../../app/assets/design-patterns/tables/tables.svg';
 import TagImage from '../../app/assets/design-patterns/tags/banner.svg';
