@@ -1,78 +1,78 @@
 import React from 'react';
 import { DemoCard, ImageGrid, MaterialDesignDescription, Divider, TOC } from '../../app/components';
 
-import BannerImage from '../../app/assets/design-patterns/tables/tables.svg';
-import StandardTable from '../../app/assets/design-patterns/tables/standard-table.png';
+import BannerImage from '../../app/assets/design-patterns/tables/tables.jpg';
+import StandardTable from '../../app/assets/design-patterns/tables/standard-table.jpg';
 
 {/* Behaviors */}
 
-import TableCellText from '../../app/assets/design-patterns/tables/table-cell-text.png';
-import TableCellNumber from '../../app/assets/design-patterns/tables/table-cell-number.png';
-import TableCellTextField from '../../app/assets/design-patterns/tables/table-cell-text-field.png';
-import TableCellSwitch from '../../app/assets/design-patterns/tables/table-cell-switch.png';
-import TableCellStatus from '../../app/assets/design-patterns/tables/table-cell-status.png';
-import TableCellIcon from '../../app/assets/design-patterns/tables/table-cell-icon.png';
-import TableCellMultiSelect from '../../app/assets/design-patterns/tables/table-cell-multi-select.png';
-import TableCellStripe from '../../app/assets/design-patterns/tables/table-cell-stripe.png';
-import TableCellUnderlinedField from '../../app/assets/design-patterns/tables/table-cell-underlined-field.png';
-import TableCellImage from '../../app/assets/design-patterns/tables/table-cell-image.png';
-import ActionOnHover from '../../app/assets/design-patterns/tables/action-on-hover.png';
-import ActionAtRowEnd from '../../app/assets/design-patterns/tables/action-at-row-end.png';
-import BatchAction1 from '../../app/assets/design-patterns/tables/batch-action-1.png';
-import BatchAction2 from '../../app/assets/design-patterns/tables/batch-action-2.png';
+import TableCellText from '../../app/assets/design-patterns/tables/table-cell-text.jpg';
+import TableCellNumber from '../../app/assets/design-patterns/tables/table-cell-number.jpg';
+import TableCellTextField from '../../app/assets/design-patterns/tables/table-cell-text-field.jpg';
+import TableCellSwitch from '../../app/assets/design-patterns/tables/table-cell-switch.jpg';
+import TableCellStatus from '../../app/assets/design-patterns/tables/table-cell-status.jpg';
+import TableCellIcon from '../../app/assets/design-patterns/tables/table-cell-icon.jpg';
+import TableCellMultiSelect from '../../app/assets/design-patterns/tables/table-cell-multi-select.jpg';
+import TableCellStripe from '../../app/assets/design-patterns/tables/table-cell-stripe.jpg';
+import TableCellUnderlinedField from '../../app/assets/design-patterns/tables/table-cell-underlined-field.jpg';
+import TableCellImage from '../../app/assets/design-patterns/tables/table-cell-image.jpg';
+import ActionOnHover from '../../app/assets/design-patterns/tables/action-on-hover.jpg';
+import ActionAtRowEnd from '../../app/assets/design-patterns/tables/action-at-row-end.jpg';
+import BatchAction1 from '../../app/assets/design-patterns/tables/batch-action-1.jpg';
+import BatchAction2 from '../../app/assets/design-patterns/tables/batch-action-2.jpg';
 import StickyHeader from '../../app/assets/design-patterns/tables/sticky-header.gif';
-import HorizontalScrollBar from '../../app/assets/design-patterns/tables/horizontal-scroll-bar.png';
+import HorizontalScrollBar from '../../app/assets/design-patterns/tables/horizontal-scroll-bar.jpg';
 import StickyCheckbox from '../../app/assets/design-patterns/tables/sticky-checkbox.gif';
 import StickyRowAction from '../../app/assets/design-patterns/tables/sticky-row-action.gif';
 import ClickArea1 from '../../app/assets/design-patterns/tables/click-area-1.png';
 import ClickArea2 from '../../app/assets/design-patterns/tables/click-area-2.png';
-import Filter1 from '../../app/assets/design-patterns/tables/filter-1.png';
-import Filter2 from '../../app/assets/design-patterns/tables/filter-2.png';
-import Filter3 from '../../app/assets/design-patterns/tables/filter-3.png';
-import Filter4 from '../../app/assets/design-patterns/tables/filter-4.png';
+import Filter1 from '../../app/assets/design-patterns/tables/filter-1.jpg';
+import Filter2 from '../../app/assets/design-patterns/tables/filter-2.jpg';
+import Filter3 from '../../app/assets/design-patterns/tables/filter-3.jpg';
+import Filter4 from '../../app/assets/design-patterns/tables/filter-4.jpg';
 import AdvancedTableFilter from '../../app/assets/design-patterns/tables/advanced-table-filter.gif';
-import Drag1 from '../../app/assets/design-patterns/tables/drag-1.png';
-import Drag2 from '../../app/assets/design-patterns/tables/drag-2.png';
+import Drag1 from '../../app/assets/design-patterns/tables/drag-1.jpg';
+import Drag2 from '../../app/assets/design-patterns/tables/drag-2.jpg';
 import AdditionAnimation from '../../app/assets/design-patterns/tables/addition-animation.gif';
 import SubstractionAnimation from '../../app/assets/design-patterns/tables/substraction-animation.gif';
 import ExpandedRow from '../../app/assets/design-patterns/tables/expanded-row.gif';
-import ExpandedRowTooComplicated from '../../app/assets/design-patterns/tables/expanded-row-too-complicated.png';
-import ExpandedRowActions from '../../app/assets/design-patterns/tables/expanded-row-actions.png';
+import ExpandedRowTooComplicated from '../../app/assets/design-patterns/tables/expanded-row-too-complicated.jpg';
+import ExpandedRowActions from '../../app/assets/design-patterns/tables/expanded-row-actions.jpg';
 
 {/* Tables vs. Lists */}
 
-import ListVTableTable from '../../app/assets/design-patterns/tables/list-v-table-table.png';
-import ListVTableList from '../../app/assets/design-patterns/tables/list-v-table-list.png';
-import ArrangeTable from '../../app/assets/design-patterns/tables/arrange-table.svg';
-import ArrangeList from '../../app/assets/design-patterns/tables/arrange-list.svg';
-import DashboardTable from '../../app/assets/design-patterns/tables/dashboard-table.png';
-import PageBodyTable from '../../app/assets/design-patterns/tables/page-body-table.png';
-import ReadTable from '../../app/assets/design-patterns/tables/read-table.svg';
-import ReadList from '../../app/assets/design-patterns/tables/read-list.svg';
-import ColumnOrder1 from '../../app/assets/design-patterns/tables/column-order-1.png';
-import ColumnOrder2 from '../../app/assets/design-patterns/tables/column-order-2.png';
-import ImplicitValueTable from '../../app/assets/design-patterns/tables/implicit-value-table.png';
-import ImplicitValueList1 from '../../app/assets/design-patterns/tables/implicit-value-list-1.png';
-import ImplicitValueList2 from '../../app/assets/design-patterns/tables/implicit-value-list-2.png';
-import TabularList from '../../app/assets/design-patterns/tables/tabular-list.png';
+import ListVTableTable from '../../app/assets/design-patterns/tables/list-v-table-table.jpg';
+import ListVTableList from '../../app/assets/design-patterns/tables/list-v-table-list.jpg';
+import ArrangeTable from '../../app/assets/design-patterns/tables/arrange-table.jpg';
+import ArrangeList from '../../app/assets/design-patterns/tables/arrange-list.jpg';
+import DashboardTable from '../../app/assets/design-patterns/tables/dashboard-table.jpg';
+import PageBodyTable from '../../app/assets/design-patterns/tables/page-body-table.jpg';
+import ReadTable from '../../app/assets/design-patterns/tables/read-table.jpg';
+import ReadList from '../../app/assets/design-patterns/tables/read-list.jpg';
+import ColumnOrder1 from '../../app/assets/design-patterns/tables/column-order-1.jpg';
+import ColumnOrder2 from '../../app/assets/design-patterns/tables/column-order-2.jpg';
+import ImplicitValueTable from '../../app/assets/design-patterns/tables/implicit-value-table.jpg';
+import ImplicitValueList1 from '../../app/assets/design-patterns/tables/implicit-value-list-1.jpg';
+import ImplicitValueList2 from '../../app/assets/design-patterns/tables/implicit-value-list-2.jpg';
+import TabularList from '../../app/assets/design-patterns/tables/tabular-list.jpg';
 
 {/* Responsive */}
 
-import TableOnMobile from '../../app/assets/design-patterns/tables/table-on-mobile.svg';
+import TableOnMobile from '../../app/assets/design-patterns/tables/table-on-mobile.jpg';
 import HomePagePreview from '../../app/assets/design-patterns/tables/home-page-preview.gif';
 import TableStackedAsList from '../../app/assets/design-patterns/tables/table-stacked-as-list.gif';
-import MobilePagination from '../../app/assets/design-patterns/tables/mobile-pagination.png';
-import MobileInfScroll from '../../app/assets/design-patterns/tables/mobile-inf-scroll.png';
+import MobilePagination from '../../app/assets/design-patterns/tables/mobile-pagination.jpg';
+import MobileInfScroll from '../../app/assets/design-patterns/tables/mobile-inf-scroll.jpg';
 import LandscapeTable from '../../app/assets/design-patterns/tables/landscape-table.gif';
-import InviteToLandscapeX from '../../app/assets/design-patterns/tables/invite-to-landscape-x.png';
+import InviteToLandscapeX from '../../app/assets/design-patterns/tables/invite-to-landscape-x.jpg';
 import InviteToLandscapeCountdown from '../../app/assets/design-patterns/tables/invite-to-landscape-countdown.gif';
 import UserInField from '../../app/assets/design-patterns/tables/user-in-field.jpg';
 
 {/* Specs */}
 
-import SpecSize from '../../app/assets/design-patterns/tables/spec-size.png';
-import SpecTypography from '../../app/assets/design-patterns/tables/spec-typography.png';
-import SpecPagination from '../../app/assets/design-patterns/tables/spec-pagination.png';
+import SpecSize from '../../app/assets/design-patterns/tables/spec-size.jpg';
+import SpecTypography from '../../app/assets/design-patterns/tables/spec-typography.jpg';
+import SpecPagination from '../../app/assets/design-patterns/tables/spec-pagination.jpg';
 
 {/* KEYWORDS: design pattern table list tabular data sort */}
 
