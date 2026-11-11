@@ -10,7 +10,7 @@ import LoginBanner from '../../app/assets/design-patterns/user-authentication/lo
 import NavigationtImg from '../../app/assets/design-patterns/navigation/navigation.jpg';
 import OverlayBanner from '../../app/assets/design-patterns/overlays/overlay-banner.jpg';
 import TableImg from '../../app/assets/design-patterns/tables/tables.jpg';
-import TagImage from '../../app/assets/design-patterns/tags/banner.svg';
+import TagImage from '../../app/assets/design-patterns/tags/banner.jpg';
 // import PageLayoutImg from '../../app/assets/design-patterns/page-layout/layout-banner.svg';
 import StepperImg from '../../app/assets/design-patterns/steppers/steppers-banner.svg';
 
