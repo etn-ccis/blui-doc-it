@@ -12,7 +12,7 @@ import OverlayBanner from '../../app/assets/design-patterns/overlays/overlay-ban
 import TableImg from '../../app/assets/design-patterns/tables/tables.jpg';
 import TagImage from '../../app/assets/design-patterns/tags/banner.jpg';
 // import PageLayoutImg from '../../app/assets/design-patterns/page-layout/layout-banner.svg';
-import StepperImg from '../../app/assets/design-patterns/steppers/steppers-banner.svg';
+import StepperImg from '../../app/assets/design-patterns/steppers/steppers-banner.jpg';
 
 export const patterns = [
     {
