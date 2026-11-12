@@ -4,6 +4,8 @@ import designPatternLibrary from '../../../src/app/assets/card-images/design-pat
 import componentStickersheet from '../../../src/app/assets/card-images/figma.png';
 import introToFigmaResources from '../../../src/app/assets/card-images/intro-to-figma-resources.svg';
 import variantSwitcher from '../../../src/app/assets/card-images/variant-switcher-plugin.svg';
+import environmentStarterKit from '../../../src/app/assets/card-images/3dEnvironmentStarterKit.png';
+import equipmentAssetLibrary from '../../../src/app/assets/card-images/3dEnvironmentAssetLibrary.png';
 
 export const patternLinks = [
     {
@@ -59,5 +61,26 @@ export const figmaPluginLinks = [
         url: 'https://www.figma.com/community/plugin/971482182464094790',
         description: 'A plugin that changes component instances to a different variant based on the specified property',
         image: variantSwitcher,
+    },
+];
+
+export const visualizationResourcesLinks = [
+    {
+        title: '3D Environment Starter Kit',
+        url: '/downloads/BLUI 3D Environment Starter Kit v1.0.zip',
+        download: 'BLUI 3D Environment Starter Kit v1.0.zip',
+        description:
+            'A reusable 3D environment that provides a consistent starting point for Brightlayer UI 3D experiences. Available in Blender and Three.js formats for design exploration and web-based prototyping.',
+        image: environmentStarterKit,
+        background: { position: 'center' },
+    },
+    {
+        title: '3D Equipment Asset Library',
+        url: '/downloads/BLUI 3D Equipment Asset Library v1.0.zip',
+        download: 'BLUI 3D Equipment Asset Library v1.0.zip',
+        description:
+            'A collection of reusable 3D equipment models for building site, floor plan, and industrial visualization experiences.',
+        image: equipmentAssetLibrary,
+        background: { position: 'center' },
     },
 ];
