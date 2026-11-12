@@ -162,6 +162,14 @@ export const componentsMap: MDXComponents = {
             {...(props as TypographyProps<'li'>)}
         />
     ),
+    table: (props): React.JSX.Element => (
+        <Box component={'table'} className={'mdTable'} sx={{ ...REGULAR_WIDTH_STYLE }} {...(props as BoxProps)} />
+    ),
+    thead: (props): React.JSX.Element => <Box component={'thead'} {...(props as BoxProps)} />,
+    tbody: (props): React.JSX.Element => <Box component={'tbody'} {...(props as BoxProps)} />,
+    tr: (props): React.JSX.Element => <Box component={'tr'} {...(props as BoxProps)} />,
+    th: (props): React.JSX.Element => <Box component={'th'} className={'mdTh'} {...(props as BoxProps)} />,
+    td: (props): React.JSX.Element => <Box component={'td'} className={'mdTd'} {...(props as BoxProps)} />,
     blockquote: (props): React.JSX.Element => (
         <Typography
             component={'blockquote'}
