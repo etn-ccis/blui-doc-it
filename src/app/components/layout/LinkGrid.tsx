@@ -8,6 +8,7 @@ type Link = {
     url: string;
     description: string;
     image: string | React.JSX.Element;
+    download?: string;
     background?: {
         size?: string;
         position?: string;
@@ -28,6 +29,16 @@ export const LinkGrid: React.FC<LinkGridProps> = (props): React.JSX.Element => {
                         spacing={6}
                         source={link.image}
                         onClick={(): void => {
+                            if (link.download) {
+                                const anchor = document.createElement('a');
+                                const publicUrl = (process.env.PUBLIC_URL || '').replace(/\/$/, '');
+                                anchor.href = `${publicUrl}${link.url}`;
+                                anchor.download = link.download;
+                                document.body.appendChild(anchor);
+                                anchor.click();
+                                anchor.remove();
+                                return;
+                            }
                             if (link.url.startsWith('/')) void navigate(link.url);
                             else window.open(link.url, '_blank');
                         }}
