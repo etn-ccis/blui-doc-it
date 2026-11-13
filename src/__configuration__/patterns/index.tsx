@@ -1,18 +1,18 @@
-import AccountDetailsBanner from '../../app/assets/design-patterns/account-menu/account-menu-banner.png';
-import AppBarsImg from '../../app/assets/design-patterns/app-bar/appbar-banner.png';
-import ButtonsImg from '../../app/assets/design-patterns/buttons/banner.svg';
-import EmptyStatesImg from '../../app/assets/design-patterns/empty-states/empty-state-banner.svg';
-import FormValidationImg from '../../app/assets/design-patterns/form-validation/form-validation.svg';
-import InternationalizationImg from '../../app/assets/design-patterns/internationalization/internationalization.svg';
-import ListImg from '../../app/assets/design-patterns/lists/lists.svg';
-import LoadingImage from '../../app/assets/design-patterns/loading-states/loading-banner.svg';
-import LoginBanner from '../../app/assets/design-patterns/user-authentication/login.svg';
-import NavigationtImg from '../../app/assets/design-patterns/navigation/navigation.svg';
-import OverlayBanner from '../../app/assets/design-patterns/overlays/overlay-banner.svg';
-import TableImg from '../../app/assets/design-patterns/tables/tables.svg';
-import TagImage from '../../app/assets/design-patterns/tags/banner.svg';
+import AccountDetailsBanner from '../../app/assets/design-patterns/account-menu/account-menu-banner.jpg';
+import AppBarsImg from '../../app/assets/design-patterns/app-bar/appbar-banner.jpg';
+import ButtonsImg from '../../app/assets/design-patterns/buttons/banner.jpg';
+import EmptyStatesImg from '../../app/assets/design-patterns/empty-states/empty-state-banner.jpg';
+import FormValidationImg from '../../app/assets/design-patterns/form-validation/form-validation.jpg';
+import InternationalizationImg from '../../app/assets/design-patterns/internationalization/internationalization.jpg';
+import ListImg from '../../app/assets/design-patterns/lists/lists.jpg';
+import LoadingImage from '../../app/assets/design-patterns/loading-states/loading-banner.jpg';
+import LoginBanner from '../../app/assets/design-patterns/user-authentication/login-banner.jpg';
+import NavigationtImg from '../../app/assets/design-patterns/navigation/navigation.jpg';
+import OverlayBanner from '../../app/assets/design-patterns/overlays/overlay-banner.jpg';
+import TableImg from '../../app/assets/design-patterns/tables/tables.jpg';
+import TagImage from '../../app/assets/design-patterns/tags/banner.jpg';
 // import PageLayoutImg from '../../app/assets/design-patterns/page-layout/layout-banner.svg';
-import StepperImg from '../../app/assets/design-patterns/steppers/steppers-banner.svg';
+import StepperImg from '../../app/assets/design-patterns/steppers/steppers-banner.jpg';
 
 export const patterns = [
     {
