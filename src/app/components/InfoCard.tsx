@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 import { SxProps } from '@mui/system';
 import Box from '@mui/material/Box';
+import { LockedBehindEatonFirewall } from './navigation';
 
 const getTopPaddingForAspectRatio = (ratio: AspectRatio | undefined): string => {
     switch (ratio) {
@@ -19,7 +20,9 @@ const getTopPaddingForAspectRatio = (ratio: AspectRatio | undefined): string => 
             return '56.25%';
     }
 };
+
 type AspectRatio = '16x9' | '4x3' | '3x2' | '2x1' | '1x1';
+
 type InfoCardProps = {
     source: string | React.JSX.Element;
     onClick?: (event: MouseEvent) => void;
@@ -33,6 +36,7 @@ type InfoCardProps = {
         position?: string;
         color?: string;
     };
+    isPrivate?: boolean;
 };
 
 const styles: Record<string, SxProps> = {
@@ -100,7 +104,21 @@ export const InfoCard: React.FC<InfoCardProps> = (props): React.JSX.Element => {
                     </div>
                 </Box>
             )}
-            <Typography variant={'h6'}>{props.title}</Typography>
+            {props.isPrivate ? (
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                    }}
+                >
+                    <Typography variant={'h6'}>{props.title}</Typography>
+                    <LockedBehindEatonFirewall />
+                </Box>
+            ) : (
+                <Typography variant={'h6'}>{props.title}</Typography>
+            )}
             <Typography variant={'body2'} style={{ color: theme.palette.text.secondary, marginTop: theme.spacing(1) }}>
                 {props.description}
             </Typography>
