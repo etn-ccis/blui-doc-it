@@ -67,7 +67,7 @@ export const figmaPluginLinks = [
 export const visualizationResourcesLinks = [
     {
         title: '3D Environment Starter Kit',
-        url: 'https://eaton.sharepoint.com/:u:/s/PXBlueDesign&Dev/IQAxg0PQlHlBRZoFxIpJxCPUAQTXMUZJ7GOjKQWq7DV888c?e=V94Rbp',
+        url: 'https://eaton.sharepoint.com/:u:/s/PXBlueDesign&Dev/IQBiUm8nGrv0Trk2YRpEk5IiAR7ouJYrUlHx7BAVbDXG7-s?e=ZwwBXO',
         description:
             'A reusable 3D environment that provides a consistent starting point for Brightlayer UI 3D experiences. Available in Blender and Three.js formats for design exploration and web-based prototyping.',
         image: environmentStarterKit,
@@ -76,7 +76,7 @@ export const visualizationResourcesLinks = [
     },
     {
         title: '3D Equipment Asset Library',
-        url: 'https://eaton.sharepoint.com/:u:/s/PXBlueDesign&Dev/IQB5yTJPluxWRqlguzL5y5L0AVdXdn6riVTBgBfqf246yxQ?e=01zhnB',
+        url: 'https://eaton.sharepoint.com/:u:/s/PXBlueDesign&Dev/IQDWTlWu8OckT4snKJtmRH3bAaQVmFcZF2rPi2buj-gr_B0?e=VoEAAl',
         description:
             'A collection of reusable 3D equipment models for building site, floor plan, and industrial visualization experiences.',
         image: equipmentAssetLibrary,
