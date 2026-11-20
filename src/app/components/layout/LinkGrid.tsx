@@ -1,19 +1,20 @@
 import React from 'react';
-import Grid, { GridProps } from '@mui/material/Grid';
 import { InfoCard } from '..';
 import { useNavigate } from 'react-router';
+import Grid, { GridProps } from '@mui/material/Grid';
 
 type Link = {
     title: string;
     url: string;
     description: string;
     image: string | React.JSX.Element;
-    download?: string;
     background?: {
         size?: string;
         position?: string;
     };
+    isPrivate?: boolean;
 };
+
 type LinkGridProps = GridProps & {
     links: Link[];
 };
@@ -29,16 +30,6 @@ export const LinkGrid: React.FC<LinkGridProps> = (props): React.JSX.Element => {
                         spacing={6}
                         source={link.image}
                         onClick={(): void => {
-                            if (link.download) {
-                                const anchor = document.createElement('a');
-                                const publicUrl = (process.env.PUBLIC_URL || '').replace(/\/$/, '');
-                                anchor.href = `${publicUrl}${link.url}`;
-                                anchor.download = link.download;
-                                document.body.appendChild(anchor);
-                                anchor.click();
-                                anchor.remove();
-                                return;
-                            }
                             if (link.url.startsWith('/')) void navigate(link.url);
                             else window.open(link.url, '_blank');
                         }}
@@ -46,6 +37,7 @@ export const LinkGrid: React.FC<LinkGridProps> = (props): React.JSX.Element => {
                         aspectRatio={'1x1'} // using 1x1 for now until we find better thumbnail pics
                         title={link.title}
                         description={link.description}
+                        isPrivate={link.isPrivate}
                     />
                 </Grid>
             ))}
