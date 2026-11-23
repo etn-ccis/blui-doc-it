@@ -4,6 +4,9 @@ import Verticalbar from '../../app/assets/visualizations/barchart/verticalbar.pn
 import Horizontalbar from '../../app/assets/visualizations/barchart/horizontalbar.png';
 import Stackedbar from '../../app/assets/visualizations/barchart/stackedbar.png';
 import Pairedbar from '../../app/assets/visualizations/barchart/pairedbar.png';
+import PairedBarchartEntry from '../../app/assets/visualizations/barchart/paired-barchart-entry.gif';
+import TapOnLegend from '../../app/assets/visualizations/barchart/tap-on-legend.png';
+import TapOnPlotArea from '../../app/assets/visualizations/barchart/tap-on-plotarea.png';
 import ZeroXBar from '../../app/assets/visualizations/barchart/zero-x-bar.png';
 import NoZeroXBar from '../../app/assets/visualizations/barchart/no-zero-x-bar.png';
 import Straightbars from '../../app/assets/visualizations/barchart/straightbars.png';
@@ -89,19 +92,27 @@ Bar charts are commonly presented in the following layouts:
   />
 </div>
 
+## Chart behaviour
+
+<p style={{fontSize: '18px',fontWeight: '600',}}>Entry motion</p>
+
+Each bar grows from the X-axis baseline up to its actual value height, loading sequentially from left to right to create a layered sense of motion. Duration and easing are governed by shared motion tokens, keeping the pace consistent with other charts.
+
+<ImageGrid images={[PairedBarchartEntry]} />
+
+<p style={{fontSize: '18px',fontWeight: '600',}}>Hover state</p>
+
+Legend hover highlights the related data series and de-emphasizes the rest for easier multi-series comparison. Plot area hover highlights the active bar and reveals its data details, guiding focus to specific value.
+
+<ImageGrid images={[TapOnLegend, TapOnPlotArea]} />
+
 ## Best practices
 
 <p style={{fontSize: '18px',fontWeight: '600',}}>Start with a baseline of zero</p>
 
 To facilitate analysis, the X-axis on bar charts should always start at zero. Having a different value as a baseline can distort the proportions between bars, which can cause the data to be perceived incorrectly.
 
-<ImageGrid
-    images={[ZeroXBar, NoZeroXBar]}
-    captionsUnderImages={[
-        'DO:X-axis should start at zero',
-        'DONT:Starting at 20 makes differences look exaggerated'
-    ]}
-/>
+<ImageGrid images={[ZeroXBar, NoZeroXBar]} />
 
 <p style={{fontSize: '18px',fontWeight: '600',}}>Avoid over-styling bars</p>
 

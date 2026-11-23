@@ -4,6 +4,9 @@ import { ReactComponent as BLCIcon } from '../../app/assets/visualizations/icons
 import PiechartComponentImage from '../../app/assets/visualizations/piechart/piechart-component.png';
 import LayoutPie from '../../app/assets/visualizations/piechart/pie-layout-pie.png';
 import layoutDonut from '../../app/assets/visualizations/piechart/pie-layout-donut.png';
+import RingPiechartEntry from '../../app/assets/visualizations/piechart/ring-piechart-entry.gif';
+import TapOnLegend from '../../app/assets/visualizations/piechart/tap-on-legend.png';
+import TapOnPlotArea from '../../app/assets/visualizations/piechart/tap-on-plotarea.png';
 import DonutLayoutDo from '../../app/assets/visualizations/piechart/donut-layout-do.png';
 import DonutLayoutDont from '../../app/assets/visualizations/piechart/donut-layout-dont.png';
 import LimitCategories from '../../app/assets/visualizations/piechart/limit-categories.png';
@@ -69,6 +72,20 @@ Pie charts are commonly presented in the following layouts:
         description="Hollow-centre variant that improves the perception of slice proportions"
     />
 </div>
+
+## Chart behaviour
+
+<p style={{fontSize: '18px',fontWeight: '600',}}>Entry motion</p>
+
+Segments sweep in radially one after another in clockwise order, progressively filling to form the complete pie/ring. Duration and easing are governed by shared motion tokens, keeping the pace consistent with other chart types.
+
+<ImageGrid images={[RingPiechartEntry]} />
+
+<p style={{fontSize: '18px',fontWeight: '600',}}>Hover state</p>
+
+Legend hover highlights the related data series and de-emphasizes the rest for easier multi-series comparison. Plot area hover highlights the active segment and reveals its data details, guiding focus to specific value.
+
+<ImageGrid images={[TapOnLegend, TapOnPlotArea]} />
 
 ## Best practices
 
