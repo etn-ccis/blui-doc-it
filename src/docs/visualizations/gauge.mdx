@@ -7,6 +7,7 @@ import GaugeComponentImage from '../../app/assets/visualizations/gauge/gauge-com
 import GaugeValueThumb from '../../app/assets/visualizations/gauge/gauge-value-thumb.png';
 import GaugeThresholdThumb from '../../app/assets/visualizations/gauge/gauge-threshold-thumb.png';
 import GaugeInfomarkThumb from '../../app/assets/visualizations/gauge/gauge-infomark-thumb.png';
+import GaugeEntry from '../../app/assets/visualizations/gauge/gauge-entry.gif';
 import GaugeBpThreshold from '../../app/assets/visualizations/gauge/gauge-bp-threshold.png';
 import GaugeBpValue from '../../app/assets/visualizations/gauge/gauge-bp-value.png';
 import GaugeBpInfomark from '../../app/assets/visualizations/gauge/gauge-bp-infomark.png';
@@ -76,6 +77,14 @@ Gauge charts are commonly presented in the following layouts:
     description='Surface threshold definitions and extra context in a tooltip'
   />
 </div>
+
+## Chart behaviour
+
+<p style={{fontSize: '18px',fontWeight: '600',}}>Entry motion</p>
+
+The indicator arc fills along its track from the start point, extending to the position of the current value; the center value counts up from 0 to its actual reading in sync with the arc, intuitively conveying the value building up. Duration and easing are governed by shared motion tokens, keeping the pace consistent with other chart types.
+
+<ImageGrid images={[GaugeEntry]} />
 
 ## Best practices
 
