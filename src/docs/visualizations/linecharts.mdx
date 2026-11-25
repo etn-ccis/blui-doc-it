@@ -93,7 +93,7 @@ Line charts are commonly presented in the following layouts:
 
 Each line draws progressively from left to right along the X-axis, extending as data points connect in sequence to convey a sense of data taking shape. Duration and easing are governed by shared motion tokens, keeping the pace consistent with other chart types.
 
-<ImageGrid images={[LineChartEntry]} />
+<ImageGrid images={[LineChartEntry]} regularWidth />
 
 <p style={{fontSize: '18px',fontWeight: '600',}}>Hover state</p>
 
@@ -120,9 +120,6 @@ For most cases, we recommend displaying 1 to 5 plots in a single Line chart. The
 <p style={{fontSize: '18px',fontWeight: '600',}}>Avoid over-styling bars</p>
 
 Do not choose aesthetic over readability. Anything that could mislead the user and their interpretation of the data should not be altered or added.
-
- 
-
 
 <ImageGrid
     images={[Overstylingtabs, OverstylingAvoid]}

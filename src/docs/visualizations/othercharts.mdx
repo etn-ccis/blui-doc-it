@@ -27,7 +27,7 @@ A growing collection of specialized charts for less common but valuable visualiz
 
 A heatmap maps values to a 2D grid through color intensity, giving an at-a-glance view of how data distributes across two dimensions. It helps users quickly spot high/low regions, recurring patterns, and outliers.
 
-<ImageGrid images={[Heatmap]} />
+<ImageGrid images={[Heatmap]} regularWidth />
 
 <BLCIconButton
     icon={BLCIcon}
@@ -44,9 +44,9 @@ A heatmap maps values to a 2D grid through color intensity, giving an at-a-glanc
     style={{
         display: 'flex',
         flexWrap: 'wrap',
-        maxWidth: '46rem',
-        gap: '40px',
-        marginTop: '2rem'
+        maxWidth: '48rem',
+        marginTop: '2rem',
+        justifyContent: 'space-between',
     }}
 >
   <VariantIllustration
@@ -54,7 +54,7 @@ A heatmap maps values to a 2D grid through color intensity, giving an at-a-glanc
     label='Bar Column Heatmap'
     description='Shows value intensity across a 2D grid of colored bar cells, with fully customizable axis units and intervals to fit your data'
     width='340px'
-    height='184px'
+    height='184'
   />
   <VariantIllustration
     iconImage={CalendarHeatmap}
@@ -81,7 +81,7 @@ Highlights the active link and its connected nodes while de-emphasizing the rest
 
 Combines bars and lines within one coordinate system to compare metrics of different scales or types. It supports multiple Y-axes to carry several data series with different units at once, flexibly adapting to multi-dimensional analysis.
 
-<ImageGrid images={[LinebarComposedChart]} />
+<ImageGrid images={[LinebarComposedChart]} regularWidth />
 
 <BLCIconButton
     icon={BLCIcon}
@@ -98,9 +98,9 @@ Combines bars and lines within one coordinate system to compare metrics of diffe
     style={{
         display: 'flex',
         flexWrap: 'wrap',
-        maxWidth: '46rem',
-        gap: '40px',
-        marginTop: '2rem'
+        maxWidth: '48rem',
+        marginTop: '2rem', 
+        justifyContent: 'space-between',
     }}
 >
   <VariantIllustration
@@ -129,7 +129,7 @@ Bars grow from the baseline, and lines draw from left to right, continuing the s
 
 Simultaneously highlights the bar and point(s) at the same X position and displays their combined values in a tooltip.
 
-<ImageGrid images={[StackedbarLinemixedChart]} />
+<ImageGrid images={[StackedbarLinemixedChart]} regularWidth />
 
 ## Additional resources
 
