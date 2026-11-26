@@ -20,8 +20,8 @@ The best practice guidelines used internationally for making websites accessible
 <TOC
     anchors={[
         { title: 'Introduction', hash: '#accessibility' },
-        { title: '4 principles of accessibility', hash: '#four-principles-of-accessibility' },
-        { title: '8 Accessibility Categories', hash: '#8-accessibility-categories' },
+        { title: 'Four principles of accessibility', hash: '#four-principles-of-accessibility' },
+        { title: 'Eight Accessibility Categories', hash: '#eight-accessibility-categories' },
         { title: 'Testing Tool for Web', hash: '#testing-tools-for-web' },
     ]}
 />
@@ -136,7 +136,7 @@ Any images in your application should be accompanied by a caption or other descr
 
 <Divider />
 
-# 8 Accessibility Categories
+# Eight Accessibility Categories
 
 The eight Accessibility Categories provide the framework for accessibility review, defining the requirements and passing criteria for each category. Projects must meet the applicable Must compliance requirements based on their assigned tier. Refer to the INSERT LINK for tier-specific requirements.
 
@@ -197,6 +197,149 @@ Products must pass all responsive breakpoints <span style={{fontWeight: '600'}}>
         title={'WCAG: Target size'}
         url={'https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html'}
         description={`Understanding SC 2.5.8 Target Size (Minimum) (Level AA)`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+</React.Fragment>
+
+## Color Contrast
+
+1.  Normal text: Contrast ≥ 4.5:1
+2.  Large text: Contrast ≥ 3:1 (≥24px regular / ≥18.5px bold)
+3.  UI & graphics: Essential UI components and meaningful graphics ≥ 3:1
+4.  Color independence: Information and states remain understandable without relying on color alone (Recommended).
+
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'WCAG: Contrast(Minimum)'}
+        url={'https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum'}
+        description={`Understanding SC 1.4.3 Contrast (Minimum) (Level AA)`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+    <MaterialDesignDescription
+        title={'WCAG: Non-text contrast'}
+        url={'https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html'}
+        description={`Understanding SC 1.4.11 Non-text Contrast (Level AA)`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+    <MaterialDesignDescription
+        title={'WCAG: Use of color'}
+        url={'https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html'}
+        description={`Understanding SC 1.4.1 Use of Color (Level A)`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+</React.Fragment>
+
+## Forms & Error Handling
+
+1.  Labels & Instructions：Inputs must have clear labels or instructions when user input is required. 
+2.  Error Identification: Errors must be clearly identified and described in text.  
+3.  Error Prevention: For important actions, allow users to review, correct, confirm, or reverse the action where applicable.
+
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'WCAG: Label and Instructions'}
+        url={'https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html'}
+        description={`Understanding SC 3.3.2 Labels or Instructions (Level A)`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+    <MaterialDesignDescription
+        title={'WCAG: Error Identification'}
+        url={'https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html'}
+        description={`Understanding SC 3.3.1 Error Identification (Level A)`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+    <MaterialDesignDescription
+        title={'WCAG: Error prevention'}
+        url={'https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data.html'}
+        description={`Understanding SC 3.3.4 Error Prevention (Legal, Financial, Data) (Level AA)`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+</React.Fragment>
+
+## Keyboard & Focus
+
+1.  Keyboard access: All functionality can be operated without a mouse or touch input. 
+2.  No keyboard trap: Users can move focus into and out of interactive components. 
+3.  Focus order: Focus moves through content and controls in a logical sequence. 
+4.  Focus visibility: Keyboard focus has a clearly visible indicator.
+5.  Focus not obscured: Focused components are not completely hidden by other.
+
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'WCAG Keyboard'}
+        url={'https://www.w3.org/WAI/WCAG22/Understanding/keyboard'}
+        description={`Understanding SC 2.1.1 Keyboard (Level A)`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+    <MaterialDesignDescription
+        title={'WCAG No keyboard Trap'}
+        url={'https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html'}
+        description={`Understanding SC 2.1.2 No Keyboard Trap (Level A)`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+    <MaterialDesignDescription
+        title={'WCAG Focus Order'}
+        url={'https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html'}
+        description={`Understanding SC 2.4.3 Focus Order (Level A)`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+    <MaterialDesignDescription
+        title={'WCAG Focus Visible'}
+        url={'https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html'}
+        description={`Understanding SC 2.4.7 Focus Visible (Level AA)`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+    <MaterialDesignDescription
+        title={'WCAG Focus Not Obscured'}
+        url={'https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html'}
+        description={`Understanding SC 2.4.11 Focus Not Obscured (Minimum) (Level AA)`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+</React.Fragment>
+
+## Frontend Code Semantics
+
+Key content, controls, states, and workflows should be validated with supported screen readers. support ARIA implementation.
+
+1.  Accessible name: Interactive controls have clear and meaningful accessible names. 
+2.  Name, role & state: Component names, roles, values, and states are available to assistive technologies. 
+3.  Content structure: Structure and relationships are programmatically identifiable. 
+4.  Non-text alternatives: Meaningful non-text content provides accessible text alternatives. 
+5.  Status messages: Important status updates are available to assistive technologies without moving focus. 
+
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'WCAG WAI-ARIA'}
+        url={'https://www.w3.org/WAI/standards-guidelines/aria/'}
+        description={`WAI-ARIA Overview`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+</React.Fragment>
+
+## Navigation & Location
+
+1.  Current Location: Each key screen clearly indicates the user's current location through a page title and/or visible navigation state, breadcrumb, tab, or equivalent location indicator. 
+2.  Return Path: Nested screens provide a visible and predictable way to return to the parent or previous level through breadcrumb, back button or parent navigation, etc. 
+3.  Consistent Navigation: Repeated navigation components maintain the same relative order and structure across key screens unless a change is user-initiated. 
+4.  Consistent Identification: Components that perform the same function use consistent labels, icons, and identification across the product. 
+
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'WCAG: Consistent Navigation'}
+        url={'https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation.html'}
+        description={`Understanding SC 3.2.3 Consistent Navigation (Level AA)`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+    <MaterialDesignDescription
+        title={'WCAG: Heading and Label'}
+        url={'https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html'}
+        description={`Understanding SC 2.4.6 Headings and Labels (Level AA)`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+    <MaterialDesignDescription
+        title={'WCAG: Consistent Identification'}
+        url={'https://www.w3.org/WAI/WCAG22/Understanding/consistent-identification.html'}
+        description={`Understanding SC 3.2.4 Consistent Identification (Level AA)`}
         avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
     />
 </React.Fragment>
