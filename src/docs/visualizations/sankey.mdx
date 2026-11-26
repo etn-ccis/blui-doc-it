@@ -6,6 +6,8 @@ import { COMMUNITY_SANKEY_DIAGRAM_URL } from '../../__configuration__/visualizat
 import SankeyComponentImage from '../../app/assets/visualizations/sankey/sankey-component.png';
 import SankeyEnergyFlowThumb from '../../app/assets/visualizations/sankey/sankey-energyflow-thumb.png';
 import SankeyAnnotationThumb from '../../app/assets/visualizations/sankey/sankey-annotation-thumb.png';
+import SankeyEntry from '../../app/assets/visualizations/sankey/sankey-entry.gif';
+import SankeyOnLegend from '../../app/assets/visualizations/sankey/sankey-on-legend.png';
 import SankeyBpAnnotation from '../../app/assets/visualizations/sankey/sankey-bp-annotation.png';
 import SankeyBpFaint from '../../app/assets/visualizations/sankey/sankey-bp-faint.png';
 import SankeyBpFlow from '../../app/assets/visualizations/sankey/sankey-bp-flow.png';
@@ -76,6 +78,18 @@ Sankey diagrams are commonly presented in the following layouts:
   />
 </div>
 
+## Chart behaviour
+
+<p style={{fontSize: '18px',fontWeight: '600',}}>Entry motion</p>
+
+Links extend from source nodes along their paths toward targets, progressively revealing the full flow.
+
+<p style={{fontSize: '18px',fontWeight: '600',}}>Hover state</p>
+
+Highlights the active link and its connected nodes while de-emphasizing the rest, making a single flow easy to trace.
+
+<ImageGrid images={[SankeyEntry, SankeyOnLegend]} />
+
 ## Best practices
 
 <p style={{fontSize: '18px',fontWeight: '600',}}>Give the diagram room to breathe</p>
@@ -118,24 +132,3 @@ For more in-depth information on how to design sankey diagrams for Eaton, please
     label={'Colors In Data Viz'}
     url={'/visualizations/colors'}
 />
-
-### Related Components
-
-<div style={{display: 'flex', gap: '3.5rem'}}>
-    <VariantIllustration
-        iconImage={RelatedBar}
-        label='Bar Chart'
-        description='Compare values within a data category'
-        url='/visualizations/barcharts'
-        height={'200px'}
-        width={'200px'}
-    />
-    <VariantIllustration
-        iconImage={RelatedLine}
-        label='Line Chart'
-        description='Observe trends and track changes over time'
-        url='/visualizations/linecharts'
-        height={'200px'}
-        width={'200px'}
-    />
-</div>

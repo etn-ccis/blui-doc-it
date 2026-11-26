@@ -3,6 +3,9 @@ import LinechartComponentImage from '../../app/assets/visualizations/linechart/l
 import HorizontalLine from '../../app/assets/visualizations/linechart/horizontalline.png';
 import MultipleLine from '../../app/assets/visualizations/linechart/multiplelines.png';
 import CombinationChart from '../../app/assets/visualizations/linechart/combinationchart.png';
+import LineChartEntry from '../../app/assets/visualizations/linechart/line-chart-entry.gif';
+import TapOnLegend from '../../app/assets/visualizations/linechart/tap-on-legend.png';
+import TapOnPlotArea from '../../app/assets/visualizations/linechart/tap-on-plotarea.png';
 import Fewerlines from '../../app/assets/visualizations/linechart/fewerlines.png';
 import Manylines from '../../app/assets/visualizations/linechart/manylines.png';
 import Overstylingtabs from '../../app/assets/visualizations/linechart/over-styling-line-tabs.png';
@@ -84,6 +87,19 @@ Line charts are commonly presented in the following layouts:
   />
 </div>
 
+## Chart behaviour
+
+<p style={{fontSize: '18px',fontWeight: '600',}}>Entry motion</p>
+
+Each line draws progressively from left to right along the X-axis, extending as data points connect in sequence to convey a sense of data taking shape. Duration and easing are governed by shared motion tokens, keeping the pace consistent with other chart types.
+
+<ImageGrid images={[LineChartEntry]} regularWidth />
+
+<p style={{fontSize: '18px',fontWeight: '600',}}>Hover state</p>
+
+Legend hover highlights the related data series and de-emphasizes the rest for easier multi-series comparison. Plot area hover highlights the active data point and reveals its data details, guiding focus to specific value.
+
+<ImageGrid images={[TapOnLegend, TapOnPlotArea]} />
 
 ## Best practices
 
@@ -104,9 +120,6 @@ For most cases, we recommend displaying 1 to 5 plots in a single Line chart. The
 <p style={{fontSize: '18px',fontWeight: '600',}}>Avoid over-styling bars</p>
 
 Do not choose aesthetic over readability. Anything that could mislead the user and their interpretation of the data should not be altered or added.
-
- 
-
 
 <ImageGrid
     images={[Overstylingtabs, OverstylingAvoid]}
@@ -165,24 +178,3 @@ For more in-depth information on how to design bar charts for Eaton, please refe
     label={'Colors In Data Viz'}
     url={'/visualizations/colors'}
 />
-
-### Related Components
-
-<div style={{display: 'flex', gap: '3.5rem'}}>
-    <VariantIllustration
-        iconImage={RelatedBar}
-        label='Bar Chart'
-        description='Compare values within a data category'
-        url='/visualizations/barcharts'
-        height={'200px'}
-        width={'200px'}
-    />
-    <VariantIllustration
-        iconImage={RelatedPie}
-        label='Pie Chart'
-        description='Compare relationships between parts of a whole'
-        url='/visualizations/piecharts'
-        height={'200px'}
-        width={'200px'}
-    />
-</div>

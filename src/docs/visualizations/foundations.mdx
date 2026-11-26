@@ -164,6 +164,71 @@ how they relate to each other and the design rules to put these elements togethe
     </span>
   }
 />
+<BLCAccordian
+  heading='9. Entry Motion'
+  content={
+    <span>
+      <span>
+        Entry Motion describes how a chart renders when its data first loads — bars growing up from the axis, lines
+        drawing progressively, and data labels fading in. Beyond adding visual life to the interface, it gives users an
+        intuitive sense of data taking shape, guiding attention naturally toward the key information.
+        <br />
+        Building on the Recharts library, we've defined a set of shared motion tokens for all chart types, standardizing
+        two dimensions — duration and easing curve — so that different chart types behave consistently and share a
+        coherent rhythm on entry.
+      </span>
+      <span style={{display: 'flex', flexDirection: 'column', marginTop: '0.5rem'}}>
+        <span style={{display: 'flex'}}>
+          <span style={{display: 'block'}}>&#x2022;</span>
+          <span style={{marginLeft: '1rem'}}>
+            <b>Duration</b> - defines how long each element takes to load. For example, the data entry duration sets the
+            pace at which bars and lines appear, while the label entry duration controls the timing of data labels,
+            keeping data and labels clearly sequenced.
+          </span>
+        </span>
+        <span style={{display: 'flex'}}>
+          <span style={{display: 'block'}}>&#x2022;</span>
+          <span style={{marginLeft: '1rem'}}>
+            <b>Easing</b> - defines how speed changes during the load. Using cubic-bezier parameters, we precisely
+            control acceleration and deceleration, giving each animation a smooth, natural start.
+          </span>
+        </span>
+      </span>
+    </span>
+  }
+/>
+<BLCAccordian
+  heading='10. Hover State'
+  content={
+    <span>
+      <span>
+        Hover State defines the interactive feedback shown on mouse hover, helping users quickly isolate and focus on
+        the data they care about within a dense visualization. We've defined distinct hover effects for two separate
+        areas:
+      </span>
+      <span style={{display: 'flex', flexDirection: 'column'}}>
+        <span style={{display: 'flex'}}>
+          <span style={{display: 'block'}}>&#x2022;</span>
+          <span style={{marginLeft: '1rem'}}>
+            <b>Legend hover</b> - Hovering over a legend item highlights the corresponding data series while
+            de-emphasizing the rest, making it easy to identify and distinguish series in multi-series charts.
+          </span>
+        </span>
+        <span style={{display: 'flex'}}>
+          <span style={{display: 'block'}}>&#x2022;</span>
+          <span style={{marginLeft: '1rem'}}>
+            <b>Plot area hover</b> - Hovering over a specific element in the plot area (such as an individual bar or
+            data point) emphasizes that value and surfaces its related details, guiding users toward precise,
+            single-data reading.
+          </span>
+        </span>
+      </span>
+      <span>
+        Together, they provide clear, purposeful visual guidance at both the series level and the individual data level.
+      </span>
+    </span>
+  }
+/>
 
 ## Data granularity
 
