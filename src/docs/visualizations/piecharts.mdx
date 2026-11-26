@@ -4,6 +4,9 @@ import { ReactComponent as BLCIcon } from '../../app/assets/visualizations/icons
 import PiechartComponentImage from '../../app/assets/visualizations/piechart/piechart-component.png';
 import LayoutPie from '../../app/assets/visualizations/piechart/pie-layout-pie.png';
 import layoutDonut from '../../app/assets/visualizations/piechart/pie-layout-donut.png';
+import RingPiechartEntry from '../../app/assets/visualizations/piechart/ring-piechart-entry.gif';
+import TapOnLegend from '../../app/assets/visualizations/piechart/tap-on-legend.png';
+import TapOnPlotArea from '../../app/assets/visualizations/piechart/tap-on-plotarea.png';
 import DonutLayoutDo from '../../app/assets/visualizations/piechart/donut-layout-do.png';
 import DonutLayoutDont from '../../app/assets/visualizations/piechart/donut-layout-dont.png';
 import LimitCategories from '../../app/assets/visualizations/piechart/limit-categories.png';
@@ -70,6 +73,20 @@ Pie charts are commonly presented in the following layouts:
     />
 </div>
 
+## Chart behaviour
+
+<p style={{fontSize: '18px',fontWeight: '600',}}>Entry motion</p>
+
+Segments sweep in radially one after another in clockwise order, progressively filling to form the complete pie/ring. Duration and easing are governed by shared motion tokens, keeping the pace consistent with other chart types.
+
+<ImageGrid images={[RingPiechartEntry]} regularWidth />
+
+<p style={{fontSize: '18px',fontWeight: '600',}}>Hover state</p>
+
+Legend hover highlights the related data series and de-emphasizes the rest for easier multi-series comparison. Plot area hover highlights the active segment and reveals its data details, guiding focus to specific value.
+
+<ImageGrid images={[TapOnLegend, TapOnPlotArea]} />
+
 ## Best practices
 
 <p style={{ fontSize: '18px', fontWeight: '600' }}>How to use the Ring layout</p>
@@ -102,32 +119,3 @@ For more in-depth information on how to design bar charts for Eaton, please refe
 
 <BLCTextButton label={'Foundations'} url={'/visualizations/foundations'} />
 <BLCTextButton label={'Colors In Data Viz'} url={'/visualizations/colors'} />
-
-### Related Components
-
-<div style={{ display: 'flex', gap: '3.5rem' }}>
-    <VariantIllustration
-        iconImage={RelatedGauge}
-        label="Gauge Chart"
-        description="Show a single value against a defined range"
-        url="/visualizations/gauge"
-        height={'200px'}
-        width={'200px'}
-    />
-    <VariantIllustration
-        iconImage={RelatedLine}
-        label="Line Chart"
-        description="Observe trends and track changes over time"
-        url="/visualizations/linecharts"
-        height={'200px'}
-        width={'200px'}
-    />
-    <VariantIllustration
-        iconImage={RelatedBar}
-        label="Bar Chart"
-        description="Compare values within a data category"
-        url="/visualizations/barcharts"
-        height={'200px'}
-        width={'200px'}
-    />
-</div>

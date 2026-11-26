@@ -7,6 +7,7 @@ import GaugeComponentImage from '../../app/assets/visualizations/gauge/gauge-com
 import GaugeValueThumb from '../../app/assets/visualizations/gauge/gauge-value-thumb.png';
 import GaugeThresholdThumb from '../../app/assets/visualizations/gauge/gauge-threshold-thumb.png';
 import GaugeInfomarkThumb from '../../app/assets/visualizations/gauge/gauge-infomark-thumb.png';
+import GaugeEntry from '../../app/assets/visualizations/gauge/gauge-entry.gif';
 import GaugeBpThreshold from '../../app/assets/visualizations/gauge/gauge-bp-threshold.png';
 import GaugeBpValue from '../../app/assets/visualizations/gauge/gauge-bp-value.png';
 import GaugeBpInfomark from '../../app/assets/visualizations/gauge/gauge-bp-infomark.png';
@@ -22,9 +23,7 @@ Gauge charts display a single qualitative value within a defined range. By mappi
 
 ## Component
 
-<ImageGrid
-    images={[GaugeComponentImage]}
-/>
+<ImageGrid images={[GaugeComponentImage]} />
 
 <BLCIconButton
     icon={BLCIcon}
@@ -77,6 +76,14 @@ Gauge charts are commonly presented in the following layouts:
   />
 </div>
 
+## Chart behaviour
+
+<p style={{fontSize: '18px',fontWeight: '600',}}>Entry motion</p>
+
+The indicator arc fills along its track from the start point, extending to the position of the current value; the center value counts up from 0 to its actual reading in sync with the arc, intuitively conveying the value building up. Duration and easing are governed by shared motion tokens, keeping the pace consistent with other chart types.
+
+<ImageGrid images={[GaugeEntry]} regularWidth />
+
 ## Best practices
 
 <p style={{fontSize: '18px',fontWeight: '600',}}>Use thresholds to communicate status</p>
@@ -119,24 +126,3 @@ For more in-depth information on how to design gauge charts for Eaton, please re
     label={'Colors In Data Viz'}
     url={'/visualizations/colors'}
 />
-
-### Related Components
-
-<div style={{display: 'flex', gap: '3.5rem'}}>
-    <VariantIllustration
-        iconImage={RelatedPie}
-        label='Pie Chart'
-        description='Compare relationships between parts of a whole'
-        url='/visualizations/piecharts'
-        height={'200px'}
-        width={'200px'}
-    />
-    <VariantIllustration
-        iconImage={RelatedBar}
-        label='Bar Chart'
-        description='Compare values within a data category'
-        url='/visualizations/barcharts'
-        height={'200px'}
-        width={'200px'}
-    />
-</div>

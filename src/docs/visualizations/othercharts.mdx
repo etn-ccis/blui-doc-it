@@ -1,0 +1,145 @@
+import { ImageGrid, CommunityBanner, BLCIconButton, VariantIllustration, BLCTextButton } from '../../app/components';
+import { ReactComponent as BLCIcon } from '../../app/assets/visualizations/icons/blc-button-icon.svg';
+import { ReactComponent as CommunityIcon } from '../../app/assets/visualizations/icons/communityicon.svg';
+
+import Heatmap from '../../app/assets/visualizations/othercharts/heatmap.png';
+import BarColumnHeatmap from '../../app/assets/visualizations/othercharts/bar-column-heatmap.png';
+import CalendarHeatmap from '../../app/assets/visualizations/othercharts/calendar-heatmap.png';
+import BarColumnHeatmapEntry from '../../app/assets/visualizations/othercharts/barcolumn-heatmap-entry.gif';
+import BarColumnHeatmapOnlegend from '../../app/assets/visualizations/othercharts/barcolumn-heatmap-onlegend.png';
+
+import LinebarComposedChart from '../../app/assets/visualizations/othercharts/linebar-composed-chart.png';
+import StackedLinebarChart from '../../app/assets/visualizations/othercharts/stacked-linebar-chart.png';
+import MultiplelinesMixedChart from '../../app/assets/visualizations/othercharts/multiplelines-mixed-chart.png';
+import StackedbarLinemixedChart from '../../app/assets/visualizations/othercharts/stackedbar-linemixed-chart.png';
+
+# Other Charts
+
+A growing collection of specialized charts for less common but valuable visualization scenarios. Each chart category shares the same compact structure for quick scanning and easy extension.
+
+- [Heatmap](#heatmap)
+
+- [Line Bar Composed Chart](#line-bar-composed-chart)
+
+<CommunityBanner />
+
+## Heatmap
+
+A heatmap maps values to a 2D grid through color intensity, giving an at-a-glance view of how data distributes across two dimensions. It helps users quickly spot high/low regions, recurring patterns, and outliers.
+
+<ImageGrid images={[Heatmap]} regularWidth />
+
+<BLCIconButton
+    icon={BLCIcon}
+    label={'View in Figma sticker sheet'}
+/>
+<BLCIconButton
+    icon={CommunityIcon}
+    label={'View on BLUI Community Docs'}
+/>
+
+### Layout options
+
+<div 
+    style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        maxWidth: '48rem',
+        marginTop: '2rem',
+        justifyContent: 'space-between',
+    }}
+>
+  <VariantIllustration
+    iconImage={BarColumnHeatmap}
+    label='Bar Column Heatmap'
+    description='Shows value intensity across a 2D grid of colored bar cells, with fully customizable axis units and intervals to fit your data'
+    width='340px'
+    height='184'
+  />
+  <VariantIllustration
+    iconImage={CalendarHeatmap}
+    label='Calendar Heatmap'
+    description='Uses color intensity to reveal long-term distribution and seasonal patterns across a full year'
+    width='340px'
+    height='184px'
+  />
+</div>
+
+## Chart behaviour
+
+<p style={{fontSize: '18px',fontWeight: '600',}}>Entry motion</p>
+
+The cell grid is progressively revealed column by column from left to right while fading in, conveying a sense of data gradually emerging.
+
+<p style={{fontSize: '18px',fontWeight: '600',}}>Hover state</p>
+
+Highlights the active link and its connected nodes while de-emphasizing the rest, making a single flow easy to trace.
+
+<ImageGrid images={[BarColumnHeatmapEntry, BarColumnHeatmapOnlegend]} />
+
+## Line Bar Composed Chart
+
+Combines bars and lines within one coordinate system to compare metrics of different scales or types. It supports multiple Y-axes to carry several data series with different units at once, flexibly adapting to multi-dimensional analysis.
+
+<ImageGrid images={[LinebarComposedChart]} regularWidth />
+
+<BLCIconButton
+    icon={BLCIcon}
+    label={'View in Figma sticker sheet'}
+/>
+<BLCIconButton
+    icon={CommunityIcon}
+    label={'View on BLUI Community Docs'}
+/>
+
+### Layout options
+
+<div 
+    style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        maxWidth: '48rem',
+        marginTop: '2rem', 
+        justifyContent: 'space-between',
+    }}
+>
+  <VariantIllustration
+    iconImage={StackedLinebarChart}
+    label='2 Y-axis coordinates'
+    description='Bars and a line share one X-axis with two Y-axes on the left and right, mapping two different scales; ideal for a "value + trend" two-dimensional comparison'
+    width='340px'
+    height='184px'
+  />
+  <VariantIllustration
+    iconImage={MultiplelinesMixedChart}
+    label='3 Y-axis coordinates'
+    description='Adds multiple lines onto the bars, using three Y-axes to map three different scales (e.g., consumption, temperature, humidity), ideal for comparing several related metrics on one screen'
+    width='340px'
+    height='184px'
+  />
+</div>
+
+## Chart behaviour
+
+<p style={{fontSize: '18px',fontWeight: '600',}}>Entry motion</p>
+
+Bars grow from the baseline, and lines draw from left to right, continuing the separate effects of bars and lines.
+
+<p style={{fontSize: '18px',fontWeight: '600',}}>Hover state</p>
+
+Simultaneously highlights the bar and point(s) at the same X position and displays their combined values in a tooltip.
+
+<ImageGrid images={[StackedbarLinemixedChart]} regularWidth />
+
+## Additional resources
+
+For more in-depth information on how to design sankey diagrams for Eaton, please refer to:
+
+<BLCTextButton
+    label={'Foundations'}
+    url={'/visualizations/foundations'}
+/>
+<BLCTextButton
+    label={'Colors In Data Viz'}
+    url={'/visualizations/colors'}
+/>

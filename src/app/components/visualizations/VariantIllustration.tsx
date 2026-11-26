@@ -69,7 +69,7 @@ export const VariantIllustration: React.FC<VariantIllustrationProps> = ({
                 <Typography variant="h6" sx={{ margin: '24px 0px', fontWeight: 600 }}>
                     {label}
                 </Typography>
-                <Typography variant="body2" sx={{ maxWidth: '200px' }}>
+                <Typography variant="body2" sx={{ maxWidth: width || '200px' }}>
                     {description}
                 </Typography>
             </VariantTextContainer>
