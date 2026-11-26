@@ -1,5 +1,5 @@
 import React from 'react';
-import { MaterialDesignDescription, Divider, ImageGrid } from '../../app/components';
+import { MaterialDesignDescription, Divider, ImageGrid, TOC } from '../../app/components';
 import { Link as LinkIcon } from '@mui/icons-material';
 import AccessibilityDesignImg from '../../app/assets/design/design-color.png';
 import PerceivableDesignImg from '../../app/assets/design/design-perceivable.png';
@@ -16,6 +16,15 @@ Accessibility for the web refers to designing your websites and applications so 
 The best practice guidelines used internationally for making websites accessible are the [Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG20/) (WCAG) 2.0, released by the World Wide Web Consortium (W3C) in 2008.
 
 <Divider />
+
+<TOC
+    anchors={[
+        { title: 'Introduction', hash: '#accessibility' },
+        { title: '4 principles of accessibility', hash: '#four-principles-of-accessibility' },
+        { title: '8 Accessibility Categories', hash: '#8-accessibility-categories' },
+        { title: 'Testing Tool for Web', hash: '#testing-tools-for-web' },
+    ]}
+/>
 
 # Four Principles of Accessibility
 
@@ -126,6 +135,71 @@ Any images in your application should be accompanied by a caption or other descr
 -   Videos must provide visual access to the audio information through in-sync captioning
 
 <Divider />
+
+# 8 Accessibility Categories
+
+The eight Accessibility Categories provide the framework for accessibility review, defining the requirements and passing criteria for each category. Projects must meet the applicable Must compliance requirements based on their assigned tier. Refer to the INSERT LINK for tier-specific requirements.
+
+## Typography & Readability
+
+<p style={{fontSize: '16px',fontWeight: '600',}}>Success Criterion</p>
+
+1.  Body text ≥ 14px / 16px
+2.  Caption ≥ 12px
+3.  Don’t use 10px text for essential information
+4.  Text resize: Text must remain fully accessible and functional when resized up to 200%.
+    -   No essential text clipped or inaccessible
+    -   No text overlap other content
+    -   Text remain readable when wrapping occurs
+    -   All controls and functions still available and operable
+    -   Users can access all content through scrolling or another accessible mechanism
+
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'WCAG: Text resize'}
+        url={'https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html'}
+        description={`Understanding SC 1.4.12 Text Spacing (Level AA)`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+    <MaterialDesignDescription
+        title={'WCAG: Reflow'}
+        url={'https://www.w3.org/WAI/WCAG22/Understanding/reflow.html'}
+        description={`Understanding SC 1.4.10 Reflow (Level AA)`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+</React.Fragment>
+
+## Responsive layout 
+
+Products must pass all responsive breakpoints <span style={{fontWeight: '600'}}>applicable to their supported device types.</span>
+
+    -   Breakpoint  ≥ 1440px (Large Desktop): Full layout; content uses available space appropriately 
+    -   Breakpoint 1280px (Desktop):  Full core functionality remains accessible with no unintended clipping or overlap 
+    -   Breakpoint  768px (Tablet):  Layout adapts/reorganizes; navigation and controls remain accessible and usable 
+    -   Breakpoint 375 (Mobile):  Content reorganizes into a mobile-appropriate layout; core functionality remains accessible
+
+<p style={{fontWeight: '600'}}>Successful responsive layout requirements</p> 
+
+    1.  No content loss: Essential content remains available. 
+    2.  No overlap: Content and controls do not unintentionally overlap. 
+    3.  No unintended clipping: Essential content is not inaccessible due to clipping. 
+    4.  Functionality retained: All supported functionality remains accessible and operable. 
+    5.  Layout adaptation: Layout and navigation adapt appropriately to the available viewport. 
+
+## Touch / Target Size 
+
+    1.  All interfaces: Minimum target size: ≥ 24 × 24 CSS px or meet the minimum spacing requirement when smaller. 
+    2.  Touch-based interface: interactive touch targets must be at least 44 × 44 CSS px. 
+    3.  Human Machine Interface touch target physical size (mm).
+
+<React.Fragment>
+    <MaterialDesignDescription
+        title={'WCAG: Target size'}
+        url={'https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html'}
+        description={`Understanding SC 2.5.8 Target Size (Minimum) (Level AA)`}
+        avatar={<LinkIcon style={{ width: 48, height: 48 }} />}
+    />
+</React.Fragment>
 
 # Testing Tools For Web
 
